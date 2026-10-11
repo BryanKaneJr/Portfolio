@@ -238,7 +238,7 @@ export const INGREDIENTS: Ingredient[] = [
 
   // ── Added for imported recipes (reviewed in scripts/import/ingredient-map.ts) ──
   { id: 'brown_rice', name: 'Brown rice', category: 'grain', aliases: [] },
-  { id: 'orange', name: 'Orange', category: 'produce', aliases: ['oranges'] },
+  { id: 'orange', name: 'Orange', category: 'produce', aliases: ['oranges', 'orange juice', 'orange zest'] },
   {
     id: 'bread_crumbs',
     name: 'Bread crumbs',
@@ -395,4 +395,21 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'hamburger_buns', name: 'Hamburger buns', category: 'grain', aliases: ['whole wheat hamburger buns'] },
   { id: 'pita_bread', name: 'Pita bread', category: 'grain', aliases: ['pita', 'whole wheat pita'] },
   { id: 'allspice', name: 'Allspice', category: 'spice', aliases: ['ground allspice'] },
+  { id: 'chili_sauce', name: 'Chili sauce', category: 'spice', aliases: [] },
+  {
+    id: 'shiitake_mushrooms',
+    name: 'Shiitake mushrooms',
+    category: 'produce',
+    aliases: ['shiitake', 'shiitake mushroom caps'],
+  },
+  { id: 'tuna_steak', name: 'Tuna steak', category: 'protein', aliases: [] },
+  { id: 'cod', name: 'Cod', category: 'protein', aliases: ['cod fillets'] },
+  { id: 'tilapia', name: 'Tilapia', category: 'protein', aliases: ['tilapia fillets'] },
+  { id: 'black_olives', name: 'Black olives', category: 'pantry', aliases: ['pitted black olives'] },
+  { id: 'molasses', name: 'Molasses', category: 'pantry', aliases: [] },
+  { id: 'pine_nuts', name: 'Pine nuts', category: 'pantry', aliases: [] },
+  { id: 'couscous', name: 'Couscous', category: 'grain', aliases: [] },
+  { id: 'pecans', name: 'Pecans', category: 'pantry', aliases: [] },
+  { id: 'graham_crackers', name: 'Graham crackers', category: 'grain', aliases: ['graham cracker crumbs'] },
+  { id: 'vanilla_yogurt', name: 'Vanilla yogurt', category: 'dairy', aliases: [] },
 ];

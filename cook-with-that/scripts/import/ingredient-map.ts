@@ -475,6 +475,43 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   pita: '=pita bread',
   'whole wheat pita': '=pita bread',
 
+  // ── Reviewed by parallel import worker nhlbi2 ──
+  'lite soy sauce': 'soy_sauce', // reduced-sodium soy sauce, like 'low sodium soy sauce'
+  'no salt added tomatoes': 'canned_tomatoes', // the label only appears on canned tomatoes
+  'olive or canola oil': null, // the editor picks one
+  'white potatoes': 'potato',
+  'new red potatoes': 'potato', // small red-skinned potatoes
+  'red tomato': 'tomato',
+  'tart apples': 'apple', // the recipe names the variety (Granny Smith)
+  'dark raisins': '=raisins',
+  'sifted all purpose flour': 'flour',
+  'dry whole wheat spaghetti': 'pasta',
+  'whole wheat breadcrumbs': 'bread_crumbs',
+  'fat free evaporated milk': '=evaporated milk',
+  '93 percent lean ground beef': 'ground_beef',
+  'orange juice': 'orange', // like lemon juice → lemon: squeezed from the fruit
+  'hot pepper': '=chili pepper', // which chili? The editor names it
+  'summer squash': null, // zucchini or yellow squash? The editor names it
+  'pumpkin pie spice or cinnamon': null, // the editor picks one
+  'parsley and lemon wedges': ['parsley', 'lemon'],
+  'chili sauce': { add: 'spice' }, // bottled, ketchup-like tomato chili sauce; not hot sauce or sweet chili sauce
+  'shiitake mushrooms': { add: 'produce' }, // not button mushrooms
+  shiitake: '=shiitake mushrooms',
+  'shiitake mushroom caps': '=shiitake mushrooms',
+  'tuna steak': { add: 'protein' }, // fresh fish; canned tuna is separate
+  tilapia: { add: 'protein' },
+  'tilapia fillets': '=tilapia',
+  'black olives': { add: 'pantry' }, // jarred or canned, like green olives
+  'pitted black olives': '=black olives',
+  molasses: { add: 'pantry' },
+  'pine nuts': { add: 'pantry' },
+  couscous: { add: 'grain' },
+  'graham crackers': { add: 'grain' },
+  'graham cracker crumbs': '=graham crackers',
+  'vanilla yogurt': { add: 'dairy' }, // sweetened and flavored; plain yogurt is separate
+  'wooden skewers': false,
+  '6 inch wooden skewers': false,
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
