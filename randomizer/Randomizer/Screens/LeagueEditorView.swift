@@ -244,7 +244,8 @@ struct LeagueEditorView: View {
         } header: {
             Text("Lottery format")
         } footer: {
-            Text(formatExplanation(league))
+            // Word joiners keep a range like "7–10" on one line.
+            Text(formatExplanation(league).replacingOccurrences(of: "\u{2013}", with: "\u{2060}\u{2013}\u{2060}"))
         }
         .listRowBackground(Theme.surface)
     }
