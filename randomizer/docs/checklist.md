@@ -4,24 +4,25 @@ The app was first built as a general randomizer from [`build-plan.md`](build-pla
 
 ## Removed in the narrowing
 
-Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove switch and repeats, undo and restore, session history, the dinner and contestant examples, and the 200-entry lists. The engine, storage, odds formatting, lottery balls, the card reveal, presenter mode, sounds and haptics carried over.
+Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove switch and repeats, undo and restore, session history, the dinner and contestant examples, and the 200-entry lists. Later (with the three types) the separate odds modes and per-team custom weights. The engine, storage, odds formatting, lottery balls, the card reveal, presenter mode, sounds and haptics carried over.
 
-## The lottery
+## Three lottery types (owner, 2026-10-11)
+
+Chosen from what fantasy leagues use without an in-person event: weighted lotteries are the popular middle ground between a random draw and reverse standings, and "drafting draft positions" (Kentucky Derby style, used by the NFBC and NFFC) lets the draw decide who picks their slot first.
 
 | Rule | Where | Test |
 | --- | --- | --- |
-| Teams in last season's finish, worst first; list order is the ranking | `League.teams` | Core `testReorderingMovesStandingsOdds` |
-| Worst N teams in the lottery (2 to all), stored as "all" when every team is in | `lotteryTeams`, `setLotteryTeams` | Core `testFormatIsClampedToTheLeague`, `testSettingLotteryTeams` |
-| Top M picks drawn (1 to all lottery picks); "top 4" survives a smaller lottery when it fits | `drawnPicks`, `setDrawnPicks` | Core `testDrawnPicksFollowTheLottery` |
-| Teams outside the lottery pick after it, in standings order | `runLottery` | Core `testTeamsOutsideTheLotteryPickInStandingsOrder`; UI `testTeamsOutsideTheDrawPickByStandings` |
-| Lottery teams not drawn pick next, worst first | `runLottery` | Core `testUndrawnLotteryTeamsFollowTheDrawnPicksByStandings` |
-| Weighted by standings counts over lottery teams only (L down to 1) | `effectiveWeight(atIndex:)` | Core `testStandingsWeightsCountOnlyLotteryTeams` |
-| Custom weight 0 inside the lottery: never drawn, still ahead of non-lottery teams | `status(atIndex:)`, `runLottery` | Core `testZeroWeightLotteryTeamIsNeverDrawnButStaysAheadOfNonLotteryTeams` |
-| Exact #1 and top-N chances; nil rather than an estimate for huge tables | `OddsCalculator.topPickProbabilities` | Core `testTopPickChancesMatchAWellKnownFourteenTeamTable`, `testTopPickChancesAlwaysSumToThePicksDrawn`, `testObservedPickSharesMatchTheOddsTable` |
+| Pro Lottery is the default and the sample league's type | `League.type`, `SampleLeague` | Core `testSampleLeague` |
+| Pro: the pros' combinations; the 14-team table gives 52.14% top-four odds to each of the worst three | `LotteryOdds.proTable`, `topPickProbabilities` | Core `testProTableForFourteenTeams`, `testProTopFourChancesMatchTheProTable` |
+| Pro: smaller lotteries keep the pros' ratios; non-playoff teams by default; top 4 drawn | `proWeights`, `defaultProLotteryTeams` | Core `testProSixTeamLotteryInATenTeamLeague`, `testProDefaultsFollowLeagueSize` |
+| Pro: undrawn lottery teams then playoff teams by standings; the worst team falls no further than 5th with 4 drawn | `runLottery` | Core `testProPlacesEveryoneTheDrawDidntReachByStandings`; UI `testTeamsOutsideTheDrawPickByStandings` |
+| Long Shot: champion exactly 1% at #1, worse finishes an equal step more | `longShotWeights` | Core `testLongShotGivesTheChampExactlyOnePercent`, `testLongShotChampWinsAboutOnePercentOfTheTime`; UI `testLongShotGivesTheChampOnePercent` |
+| Slot Draft: equal-odds choosing order, slots chosen on the board, last slot automatic, undo | `chooseSlot`, `undoSlotChoice`, `draftOrder` | Core `testSlotDraftTeamsChooseTheirSlotsInDrawOrder`, `testSlotDraftChoicesSurviveReopening`; UI `testSlotDraftTeamsChooseTheirSlots` |
+| Exact #1 and top-N chances, the same digits every time; nil rather than an estimate for huge tables | `OddsCalculator` | Core `testTopPickChancesAlwaysSumToThePicksDrawn`, `testTopPickChancesAreTheSameEveryTime`, `testObservedProSharesMatchTheOddsTable` |
 | Whole order drawn and saved before any reveal | `AppState.runLottery` | Core `testRunIsASnapshot`; UI `testNewLeagueSurvivesRelaunch` |
-| Countdown reveal from the last lottery pick; progress saved per pick | `LotteryRun.revealOrder`, `revealNextPick` | Core `testRevealCountsDownThroughTheLotteryPicks`, `testReopeningRestoresTheRunAndRevealProgress`; UI `testSampleLeagueRunsWithinSeconds` |
+| Countdown reveal; progress saved per pick | `LotteryRun.revealOrder`, `revealNextPick` | Core `testRevealCountsDownThroughTheLotteryPicks`, `testReopeningRestoresTheRunAndRevealProgress`; UI `testSampleLeagueRunsWithinSeconds` |
 | Every run numbered; Run Again asks first; New season resets | `runCount`, `LotteryRun.number` | Core `testRunNumbersCountEveryRunUntilANewSeason`; UI `testRunAgainIsConfirmedAndCounted` |
-| Shared text and image carry the run number, format and drawn odds | `ResultsExporter.runText`, `ShareRenderer.runImage` | Core `testShareTextNamesTheRunAndHowEachPickWasDecided` |
+| Shared text and image carry the type, run number and how each pick was decided | `ResultsExporter.runText`, `ShareRenderer.runImage` | Core `testShareTextNamesTheRunAndHowEachPickWasDecided`, `testSlotDraftShareTextListsTheChosenOrder` |
 
 ## Engine and storage (carried over)
 
@@ -32,9 +33,9 @@ Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove swit
 ## Screens
 
 - [x] Home: your leagues (with the latest run's state), the sample league, New League; rename, duplicate, delete
-- [x] League editor: name, standings with drag to reorder and swipe to delete, add or paste teams (32 max), lottery format steppers with a plain-English explanation, odds mode, reveal style
-- [x] Odds table: mode, weights (Custom), #1 and top-N chances with bars, "Not in lottery" rows
-- [x] Lottery: format summary, odds preview with the fixed picks of non-lottery teams, Run the Lottery with confirmation, countdown reveal, Reveal all, board with hidden and revealed picks, Share, Replay, Run Again, New season, presenter mode
+- [x] League editor: name, standings with drag to reorder and swipe to delete, add or paste teams (32 max), the three lottery types, Pro playoff-team and drawn-pick steppers with a plain-English explanation, reveal style
+- [x] Odds table: the type's explanation, #1 and top-N chances with bars, playoff teams marked
+- [x] Lottery: type and format summary, odds preview with the fixed picks of playoff teams, Run the Lottery with confirmation, countdown reveal, Reveal all, board with hidden and revealed picks and each team's movement, Slot Draft choosing board with Undo, Share, Replay, Run Again, New season, presenter mode
 - [x] Settings: sound, haptics, reveal speed, how the lottery works, privacy
 
 ## Polish
@@ -50,6 +51,9 @@ Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove swit
 - **One saved order per league.** The latest run is kept; earlier runs are counted (Run #2), not archived.
 - **The countdown is the only reveal order.** It's how draft lotteries are shown, and it keeps the drum honest: it only ever holds teams whose picks are still hidden.
 - **Undrawn lottery picks reveal as standings cards**, not balls, so a ball only ever rises for a pick the lottery actually drew.
+- **Revealed picks show movement, not per-pick odds.** A drawn pick's chance at that moment (100% for the last team in the drum) read like its odds for the whole lottery.
+- **The Pro Lottery's name.** It's described as the pro basketball format; the league's name stays out of the app and listing (App Review guideline 5.2).
+- **Slot Draft odds are equal**, as in the high-stakes leagues that use it; the draw only decides who chooses first.
 - **Standings numbers in pastes** ("1. ", "12) ") are dropped; numbers that are part of a name ("76ers", "1.FC") stay.
 - **Names** are capped at 60 characters, league names at 60.
 - **Lottery Balls** shows up to 20 balls (always including the drawn team) and says "Showing 20 of N" beyond that.
@@ -58,4 +62,4 @@ Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove swit
 
 ## Ideas not built
 
-Keeper and traded-pick handling (a team owning another team's pick), saved odds templates, importing standings from a league site, a pick-by-pick probability grid, an iPad or TV presentation layout, PDF export.
+Keeper and traded-pick handling (a team owning another team's pick), importing standings from a league site, a weighted Slot Draft, an anti-tank ordering by potential points, a pick-by-pick probability grid, an iPad or TV presentation layout, PDF export.
