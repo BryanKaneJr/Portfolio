@@ -924,6 +924,11 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'potato chips': { add: 'pantry' }, // bagged fried potato slices for snacking; not potatoes or tater tots
   'potato crisps': '=potato chips', // British name
 
+  // ── Reviewed by parallel import worker r5-desserts-snacks ──
+  'glutinous rice': { add: 'grain' }, // Thai/Lao sticky rice, soaked and steamed; not jasmine, sushi or arborio rice
+  'sticky rice': '=glutinous rice', // its everyday name
+  'maraschino cherries': { add: 'pantry' }, // jarred, bright red cherries in syrup; not fresh, tart or dried cherries
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

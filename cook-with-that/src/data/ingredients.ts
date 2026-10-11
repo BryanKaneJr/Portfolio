@@ -641,4 +641,6 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'pomegranate_molasses', name: 'Pomegranate molasses', category: 'pantry', aliases: [] },
   { id: 'potato_chips', name: 'Potato chips', category: 'pantry', aliases: ['potato crisps'] },
   { id: 'red_cabbage', name: 'Red cabbage', category: 'produce', aliases: [] },
+  { id: 'glutinous_rice', name: 'Glutinous rice', category: 'grain', aliases: ['sticky rice'] },
+  { id: 'maraschino_cherries', name: 'Maraschino cherries', category: 'pantry', aliases: [] },
 ];
