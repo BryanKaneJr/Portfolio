@@ -2782,5 +2782,591 @@
     "requires": ["gen_friends_abroad"],
     "goal": { "prestigeAtLeast": 50 },
     "reward": [{ "stability": 1 }, { "goldPerDev": 2 }, { "manpower": 3000 }]
+  },
+  {
+    "id": "por_cape_verde_islands",
+    "nation": "POR",
+    "title": "The Cape Verde Islands",
+    "desc": "Empty islands lie off the great cape of Africa, a perfect harbour on the road south and west. Settle Cape Verde and your ships will have a home port in the open ocean.",
+    "requires": [],
+    "goal": { "owns": "cape_verde" },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "por_atlantic_harbours",
+          "name": "Atlantic Harbours",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "por_brazil",
+    "nation": "POR",
+    "title": "Plant the Cross in Brazil",
+    "desc": "A green coast lies far to the south-west, rich in red dyewood. Found a colony anywhere on the coast of Brazil and claim it for Portugal before others do.",
+    "requires": ["por_cape_verde_islands"],
+    "goal": {
+      "ownsAny": ["ceara", "pernambuco", "bahia", "porto_seguro", "rio", "sao_vicente", "minas", "maranhao", "para"]
+    },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 1 }]
+  },
+  {
+    "id": "por_sugar_captaincies",
+    "nation": "POR",
+    "title": "The Sugar Captaincies",
+    "desc": "Pernambuco and Bahia have rich red soil and a climate made for sugar cane. Hold both and the mills of Brazil will make Lisbon the sugar market of Europe.",
+    "requires": ["por_brazil"],
+    "goal": { "owns": ["pernambuco", "bahia"] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "por_brazilian_sugar",
+          "name": "Brazilian Sugar",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "por_state_of_brazil",
+    "nation": "POR",
+    "title": "The State of Brazil",
+    "desc": "Bind the scattered captaincies into one colony under a governor-general in Salvador. Own six regions in the New World.",
+    "requires": ["por_brazil"],
+    "goal": { "coloniesAtLeast": 6 },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "por_governor_general",
+          "name": "Governor-General of Brazil",
+          "months": -1,
+          "mods": { "taxIncome": 0.05, "settlerGrowth": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "por_general_mines",
+    "nation": "POR",
+    "title": "The General Mines",
+    "desc": "Backwoodsmen swear the hills behind Rio and São Vicente hide gold. Push inland and take Minas Gerais before anyone else learns the way.",
+    "requires": ["por_brazil"],
+    "goal": { "owns": "minas" },
+    "reward": [{ "goldPerDev": 2 }, { "prestige": 10 }]
+  },
+  {
+    "id": "cas_enterprise_of_the_indies",
+    "nation": "CAS",
+    "title": "The Enterprise of the Indies",
+    "desc": "A Genoese pilot swore the Indies lay just across the western ocean. Whatever lies there, plant the first Castilian settlement and make it a base for everything that follows.",
+    "requires": [],
+    "goal": { "coloniesAtLeast": 1 },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "cas_house_of_trade",
+          "name": "House of Trade",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.15, "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_tierra_firme",
+    "nation": "CAS",
+    "title": "Tierra Firme",
+    "desc": "The islands are only a stepping stone. Gain a foothold on the mainland, from Florida to the Main, and hear the rumours of empires inland for yourself.",
+    "requires": ["cas_enterprise_of_the_indies"],
+    "goal": {
+      "ownsAny": [
+        "florida",
+        "louisiana",
+        "tejas",
+        "huasteca",
+        "yucatan",
+        "guatemala",
+        "honduras",
+        "panama",
+        "new_granada",
+        "venezuela"
+      ]
+    },
+    "reward": [{ "prestige": 5 }, { "addClaim": ["anahuac", "veracruz", "yucatan"] }]
+  },
+  {
+    "id": "cas_conquest_of_mexico",
+    "nation": "CAS",
+    "title": "The Conquest of Mexico",
+    "desc": "The Aztec capital stands on a lake in the highlands, its temples heaped with gold. Take Anáhuac and the riches of the Mexica are yours.",
+    "requires": ["cas_tierra_firme"],
+    "goal": { "owns": "anahuac" },
+    "reward": [{ "prestige": 20 }, { "addCore": ["veracruz", "oaxaca"] }, { "addClaim": ["yucatan", "guatemala"] }]
+  },
+  {
+    "id": "cas_silver_and_gold",
+    "nation": "CAS",
+    "title": "The Fifth of the Indies",
+    "desc": "The crown's fifth of every American mine pays for armies in Europe. Own a region that yields silver and another that yields gold.",
+    "requires": ["cas_enterprise_of_the_indies"],
+    "goal": { "all": [{ "ownsGood": "silver" }, { "ownsGood": "gold" }] },
+    "reward": [
+      { "goldPerDev": 2 },
+      {
+        "modifier": {
+          "id": "cas_fifth_of_the_indies",
+          "name": "Fifth of the Indies",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_viceroyalty",
+    "nation": "CAS",
+    "title": "The Viceroyalty of New Spain",
+    "desc": "Rule the Indies through viceroys, courts and councils, as a kingdom in their own right. Own ten regions in the New World.",
+    "requires": ["cas_tierra_firme"],
+    "goal": { "coloniesAtLeast": 10 },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "cas_viceroyalty",
+          "name": "Viceroyalty of New Spain",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_plant_a_colony",
+    "nation": "ENG",
+    "title": "Plant an English Colony",
+    "desc": "Spain and Portugal grow rich across the ocean while English sailors only fish the northern banks. Found an English colony anywhere in the New World.",
+    "requires": [],
+    "goal": { "coloniesAtLeast": 1 },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "eng_planters",
+          "name": "Planters and Adventurers",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_virginia",
+    "nation": "ENG",
+    "title": "Virginia",
+    "desc": "The Chesapeake and the Carolina coast have deep rivers, safe anchorages and soil that grows tobacco as fine as any in the Spanish Indies. Settle either one.",
+    "requires": ["eng_plant_a_colony"],
+    "goal": { "ownsAny": ["chesapeake", "carolina"] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "eng_virginia_tobacco",
+          "name": "Virginia Tobacco",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_new_england",
+    "nation": "ENG",
+    "title": "New England",
+    "desc": "Stony fields, rich fisheries and dissenters who want to worship far from your bishops. Settle New England and let them build their city on a hill.",
+    "requires": ["eng_plant_a_colony"],
+    "goal": { "owns": "new_england" },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "eng_great_migration",
+          "name": "The Great Migration",
+          "months": 240,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_west_indies",
+    "nation": "ENG",
+    "title": "The West Indies",
+    "desc": "One small island planted with sugar can be worth more than a county at home. Take Jamaica, the Lesser Antilles or any of the great Caribbean islands.",
+    "requires": ["eng_plant_a_colony"],
+    "goal": { "ownsAny": ["jamaica", "antilles", "hispaniola", "puerto_rico", "cuba"] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "eng_west_india_planters",
+          "name": "West India Planters",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_american_plantations",
+    "nation": "ENG",
+    "title": "The American Plantations",
+    "desc": "From the northern fisheries to the southern tobacco fields, let the coast of America speak English. Own eight regions in the New World.",
+    "requires": ["eng_plant_a_colony"],
+    "goal": { "coloniesAtLeast": 8 },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "eng_american_plantations",
+          "name": "American Plantations",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_adams_will",
+    "nation": "FRA",
+    "title": "Adam's Will",
+    "desc": "Show me the clause in Adam's will that leaves the world to Spain and Portugal, a French king once asked. Found a French colony anywhere in the New World.",
+    "requires": [],
+    "goal": { "coloniesAtLeast": 1 },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "fra_royal_patents",
+          "name": "Royal Patents",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_habitation_at_quebec",
+    "nation": "FRA",
+    "title": "The Habitation at Quebec",
+    "desc": "Where the great river narrows beneath a cliff, a fort commands the way into the heart of the continent. Found a French colony at Quebec.",
+    "requires": ["fra_adams_will"],
+    "goal": { "owns": "quebec" },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "fra_fur_posts",
+          "name": "Fur Trading Posts",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_huron_country",
+    "nation": "FRA",
+    "title": "The Huron Country",
+    "desc": "Beyond the rapids live the Huron, great traders and enemies of the Haudenosaunee. Settle among them and the fur trade of the lakes is yours.",
+    "requires": ["fra_habitation_at_quebec"],
+    "goal": { "owns": "huronia" },
+    "reward": [
+      { "addClaim": "iroquoia" },
+      {
+        "modifier": {
+          "id": "fra_huron_alliance",
+          "name": "Huron Alliance",
+          "months": 120,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_louisiana",
+    "nation": "FRA",
+    "title": "Louisiana",
+    "desc": "Your explorers have followed the great river of the west all the way to the Gulf. Plant a colony at its mouth and name the land for your king.",
+    "requires": ["fra_adams_will"],
+    "goal": { "owns": "louisiana" },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "fra_mississippi",
+          "name": "Mississippi Trade",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_saint_domingue",
+    "nation": "FRA",
+    "title": "Saint-Domingue",
+    "desc": "The sugar of Hispaniola could make it the richest island in the world. Plant the French flag on Hispaniola or in the Lesser Antilles.",
+    "requires": ["fra_adams_will"],
+    "goal": { "ownsAny": ["hispaniola", "antilles"] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "fra_sugar_islands",
+          "name": "French Sugar Islands",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_new_netherland",
+    "nation": "BUR",
+    "title": "New Netherland",
+    "desc": "The Hudson runs deep into fur country, and its mouth is one of the finest harbours on the coast. Plant a Burgundian colony in the Hudson Valley.",
+    "requires": [],
+    "goal": { "owns": "hudson" },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "bur_hudson_furs",
+          "name": "Hudson Fur Trade",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_wild_coast",
+    "nation": "BUR",
+    "title": "The Wild Coast",
+    "desc": "Between the Orinoco and the Amazon lies a coast of rivers and swamps where sugar grows well and no crown rules. Settle Guiana, the Orinoco or the islands off them.",
+    "requires": [],
+    "goal": { "ownsAny": ["guiana", "orinoco", "antilles"] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "bur_sugar_refineries",
+          "name": "Sugar Refineries",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_pernambuco",
+    "nation": "BUR",
+    "title": "Sugar from Pernambuco",
+    "desc": "The mills of Pernambuco make more sugar than any land on earth, and its masters can barely defend it. Take it, by settlement or by war.",
+    "requires": ["bur_wild_coast"],
+    "goal": { "owns": "pernambuco" },
+    "reward": [{ "prestige": 15 }, { "gold": 100 }, { "addClaim": ["bahia", "ceara"] }]
+  },
+  {
+    "id": "bur_atlantic_trade",
+    "nation": "BUR",
+    "title": "Masters of the Atlantic Trade",
+    "desc": "Your ships carry the sugar, furs and tobacco of half the world. Own six regions in the New World and a fleet of 30 ships.",
+    "requires": ["bur_wild_coast"],
+    "goal": { "all": [{ "coloniesAtLeast": 6 }, { "shipsAtLeast": 30 }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "bur_atlantic_trade",
+          "name": "Atlantic Carrying Trade",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1, "navalPower": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "dan_rediscover_greenland",
+    "nation": "DAN",
+    "title": "Rediscover Greenland",
+    "desc": "No ship has reached the old Norse farms of Greenland in living memory. With Iceland as your stepping stone, charter a company to sail west and settle the lands beyond.",
+    "requires": ["dan_guard_the_sound"],
+    "goal": { "all": [{ "owns": "iceland" }, { "discovered": true }, { "eraAtLeast": 2 }] },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "dan_greenland_company",
+          "name": "Greenland Company",
+          "months": 120,
+          "mods": { "colonists": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "dan_west_indies",
+    "nation": "DAN",
+    "title": "The Danish West Indies",
+    "desc": "A small Caribbean island can be a free port for every nation, with Danish customs men taking their share. Plant a colony in Puerto Rico or the Lesser Antilles.",
+    "requires": ["dan_rediscover_greenland"],
+    "goal": { "ownsAny": ["puerto_rico", "antilles"] },
+    "reward": [
+      { "gold": 75 },
+      {
+        "modifier": {
+          "id": "dan_free_port",
+          "name": "Free Port of St Thomas",
+          "months": -1,
+          "mods": { "tradeIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "dan_vinland_regained",
+    "nation": "DAN",
+    "title": "Vinland Regained",
+    "desc": "The sagas tell of Vinland, where Leif Eriksson found wild grapes beyond Greenland. Plant a Danish colony on the northern coasts where the Norse once landed.",
+    "requires": ["dan_rediscover_greenland"],
+    "goal": { "ownsAny": ["newfoundland", "acadia", "new_england"] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": { "id": "dan_vinland", "name": "Vinland Regained", "months": 120, "mods": { "settlerGrowth": 0.2 } }
+      }
+    ]
+  },
+  {
+    "id": "sco_nova_scotia_charter",
+    "nation": "SCO",
+    "title": "A Charter for Nova Scotia",
+    "desc": "Other crowns are carving out colonies across the ocean, and Scotland must not be left behind. Sell baronetcies to pay for settlers and charter a New Scotland in America.",
+    "requires": ["sco_great_michael"],
+    "goal": { "all": [{ "discovered": true }, { "eraAtLeast": 2 }] },
+    "reward": [
+      {
+        "modifier": {
+          "id": "sco_baronets_of_nova_scotia",
+          "name": "Baronets of Nova Scotia",
+          "months": 240,
+          "mods": { "colonists": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sco_new_scotland",
+    "nation": "SCO",
+    "title": "New Scotland",
+    "desc": "The northern coasts are as wild and wet as the Highlands. Plant a Scottish colony in Acadia or Newfoundland and name it for home.",
+    "requires": ["sco_nova_scotia_charter"],
+    "goal": { "ownsAny": ["acadia", "newfoundland"] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "sco_scots_settlers",
+          "name": "Scots Settlers",
+          "months": 120,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sco_new_caledonia",
+    "nation": "SCO",
+    "title": "New Caledonia",
+    "desc": "Whoever holds the isthmus of Darien holds the key to two oceans. Plant a Scottish colony in Panama and make Edinburgh rich on the trade of the world.",
+    "requires": ["sco_nova_scotia_charter"],
+    "goal": { "owns": "panama" },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "sco_trade_of_two_oceans",
+          "name": "Trade of Two Oceans",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_the_western_sea",
+    "nation": "generic",
+    "title": "The Western Sea",
+    "desc": "A New World has been found across the ocean. Build a fleet fit to cross it: at least eight ships.",
+    "requires": [],
+    "goal": { "all": [{ "native": false }, { "discovered": true }, { "coastal": true }, { "shipsAtLeast": 8 }] },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "gen_ocean_pilots",
+          "name": "Ocean Pilots",
+          "months": 120,
+          "mods": { "tradeIncome": 0.05, "navalPower": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_a_colony_overseas",
+    "nation": "generic",
+    "title": "A Colony Overseas",
+    "desc": "Plant your flag on the far side of the ocean. Own a region in the New World.",
+    "requires": ["gen_the_western_sea"],
+    "goal": { "all": [{ "native": false }, { "coloniesAtLeast": 1 }] },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "gen_colonial_charter",
+          "name": "Colonial Charter",
+          "months": 240,
+          "mods": { "settlerGrowth": 0.2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_riches_of_the_indies",
+    "nation": "generic",
+    "title": "Riches of the Indies",
+    "desc": "Turn a foothold into a colonial empire. Own three regions in the New World.",
+    "requires": ["gen_a_colony_overseas"],
+    "goal": { "all": [{ "native": false }, { "coloniesAtLeast": 3 }] },
+    "reward": [
+      { "goldPerDev": 2 },
+      {
+        "modifier": {
+          "id": "gen_colonial_trade",
+          "name": "Colonial Trade",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
   }
 ]

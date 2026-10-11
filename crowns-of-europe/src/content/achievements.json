@@ -258,5 +258,57 @@
       ]
     },
     "nations": ["BYZ"]
+  },
+  {
+    "id": "beyond_the_edge_of_the_map",
+    "title": "Beyond the Edge of the Map",
+    "desc": "Be the first to find the New World.",
+    "goal": { "nationFlag": "found_new_world" }
+  },
+  {
+    "id": "an_empire_across_the_ocean",
+    "title": "An Empire Across the Ocean",
+    "desc": "Own 10 regions in the New World.",
+    "goal": { "coloniesAtLeast": 10 }
+  },
+  {
+    "id": "treasure_of_the_indies",
+    "title": "Treasure of the Indies",
+    "desc": "Own a region that yields silver and another that yields gold.",
+    "goal": { "all": [{ "ownsGood": "silver" }, { "ownsGood": "gold" }] }
+  },
+  {
+    "id": "fall_of_tenochtitlan",
+    "title": "The Fall of Tenochtitlan",
+    "desc": "As a European crown, take Anáhuac, the heart of the Aztec Empire.",
+    "goal": { "all": [{ "native": false }, { "owns": "anahuac" }] }
+  },
+  {
+    "id": "terra_brasilis",
+    "title": "Terra Brasilis",
+    "desc": "As Portugal, own Pernambuco, Bahia, Rio de Janeiro and Minas Gerais.",
+    "goal": { "owns": ["pernambuco", "bahia", "rio", "minas"] },
+    "nations": ["POR"]
+  },
+  {
+    "id": "la_nouvelle_france",
+    "title": "La Nouvelle-France",
+    "desc": "As France, own Quebec, Huronia and Louisiana.",
+    "goal": { "owns": ["quebec", "huronia", "louisiana"] },
+    "nations": ["FRA"]
+  },
+  {
+    "id": "a_new_albion",
+    "title": "A New Albion",
+    "desc": "As England or Scotland, own five regions in the New World.",
+    "goal": { "coloniesAtLeast": 5 },
+    "nations": ["ENG", "SCO"]
+  },
+  {
+    "id": "the_sagas_were_true",
+    "title": "The Sagas Were True",
+    "desc": "As Denmark, be the first to find the New World.",
+    "goal": { "nationFlag": "found_new_world" },
+    "nations": ["DAN"]
   }
 ]

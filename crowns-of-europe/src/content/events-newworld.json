@@ -42,7 +42,7 @@
             "modifier": {
               "id": "council_of_the_indies",
               "name": "Council of the Indies",
-              "months": 3600,
+              "months": 0,
               "mods": {
                 "colonists": 1
               }
@@ -59,6 +59,1678 @@
           },
           {
             "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_land_of_the_true_cross",
+    "pool": "historical",
+    "title": "The Land of the True Cross",
+    "text": "Your captains have raised a wooden cross on a green coast far to the south-west and named it the Land of the True Cross. Sailors already call it Brazil, after the red dyewood that grows thick behind the beaches. The coast is longer than all of Portugal, and the crown must decide how to hold it.",
+    "image": "map",
+    "nations": [
+      "POR"
+    ],
+    "window": [
+      1490,
+      1650
+    ],
+    "mtth": 6,
+    "news": "Portugal has claimed the coast of Brazil, which its sailors call the Land of the True Cross.",
+    "trigger": {
+      "ownsAny": [
+        "ceara",
+        "pernambuco",
+        "bahia",
+        "porto_seguro",
+        "rio",
+        "sao_vicente",
+        "minas",
+        "maranhao",
+        "para"
+      ]
+    },
+    "choices": [
+      {
+        "text": "Divide the coast into hereditary captaincies",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "modifier": {
+              "id": "por_captaincies",
+              "name": "Hereditary Captaincies",
+              "months": 240,
+              "mods": {
+                "settlerGrowth": 0.25
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Keep the dyewood trade a royal monopoly",
+        "effects": [
+          {
+            "gold": 50
+          },
+          {
+            "modifier": {
+              "id": "por_brazilwood",
+              "name": "Brazilwood Monopoly",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_gold_of_minas",
+    "pool": "historical",
+    "title": "The Gold of Minas Gerais",
+    "text": "Backwoodsmen from São Vicente have found gold in the streams of the inland hills, and the rush has begun. Ships leave Lisbon crammed with fortune-seekers while farms in the north of Portugal stand empty. Your treasurers want the royal fifth taken at every river crossing; your governors fear riots if you try.",
+    "image": "coins",
+    "nations": [
+      "POR"
+    ],
+    "window": [
+      1500,
+      1750
+    ],
+    "mtth": 6,
+    "news": "Gold has been found in Portuguese Brazil, and fortune-seekers are pouring across the ocean.",
+    "trigger": {
+      "owns": "minas"
+    },
+    "choices": [
+      {
+        "text": "Collect the royal fifth at every ford",
+        "effects": [
+          {
+            "gold": 60
+          },
+          {
+            "modifier": {
+              "id": "por_royal_fifth",
+              "name": "The Royal Fifth",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.15
+              }
+            }
+          },
+          {
+            "unrestRegion": {
+              "region": "minas",
+              "amount": 3
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let anyone dig who will",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "minas",
+              "amount": 2
+            }
+          },
+          {
+            "manpower": -1000
+          },
+          {
+            "modifier": {
+              "id": "por_gold_rush",
+              "name": "Gold Rush",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_line_moves_west",
+    "pool": "historical",
+    "title": "Where Does the Line Run?",
+    "text": "Your settlers and Castile's now face each other across the rivers and forests of the southern continent, and no one can say where the line drawn at Tordesillas falls on solid ground. Castilian envoys propose a joint survey to settle it for good. Your captains answer that the line runs wherever a Portuguese flag is planted.",
+    "image": "treaty",
+    "nations": [
+      "POR"
+    ],
+    "window": [
+      1500,
+      1750
+    ],
+    "mtth": 24,
+    "news": "Portugal and Castile are quarrelling over where their line of demarcation runs in the Americas.",
+    "trigger": {
+      "all": [
+        {
+          "coloniesAtLeast": 2
+        },
+        {
+          "exists": "CAS"
+        },
+        {
+          "not": {
+            "atWarWith": "CAS"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": "CAS"
+          }
+        },
+        {
+          "any": [
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "new_granada"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "venezuela"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "orinoco"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "guiana"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "para"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "maranhao"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "panama"
+              }
+            },
+            {
+              "nationOwns": {
+                "nation": "CAS",
+                "region": "antilles"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send surveyors and fix the line for good",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 30
+            }
+          },
+          {
+            "threat": -5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Plant the flag wherever settlers can reach",
+        "effects": [
+          {
+            "prestige": 10
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -30
+            }
+          },
+          {
+            "addClaim": [
+              "guiana",
+              "orinoco",
+              "para",
+              "maranhao"
+            ]
+          },
+          {
+            "modifier": {
+              "id": "por_bandeiras",
+              "name": "The Bandeiras",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_conquistador",
+    "pool": "historical",
+    "title": "The Captain from Medellín",
+    "text": "A hard-bitten captain from Medellín has listened to the coastal traders and believes them: inland lies a city of temples on a lake, rich beyond counting. He asks for a commission, a few hundred men and horses, and freedom to act as he sees fit. The Mexica have never faced steel, horses or guns, but they are many and they are proud.",
+    "image": "swords",
+    "nations": [
+      "CAS"
+    ],
+    "window": [
+      1490,
+      1650
+    ],
+    "mtth": 6,
+    "news": "A Castilian captain is marching inland against the Aztec Empire.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "huasteca"
+        },
+        {
+          "borders": "AZT"
+        },
+        {
+          "nationOwns": {
+            "nation": "AZT",
+            "region": "anahuac"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "AZT"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Give him men, horses and a free hand",
+        "effects": [
+          {
+            "addRegiments": {
+              "inf": 4,
+              "cav": 2,
+              "region": "huasteca"
+            }
+          },
+          {
+            "hireGeneral": {
+              "fire": 3,
+              "shock": 5,
+              "maneuver": 4,
+              "name": "Hernán Cortés"
+            }
+          },
+          {
+            "addClaim": "anahuac"
+          },
+          {
+            "declareWar": {
+              "target": "AZT",
+              "cb": "holy",
+              "region": "anahuac"
+            }
+          }
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Arm him, but make him wait for your order",
+        "effects": [
+          {
+            "addRegiments": {
+              "inf": 4,
+              "cav": 2,
+              "region": "huasteca"
+            }
+          },
+          {
+            "hireGeneral": {
+              "fire": 3,
+              "shock": 5,
+              "maneuver": 4,
+              "name": "Hernán Cortés"
+            }
+          },
+          {
+            "addClaim": "anahuac"
+          },
+          {
+            "gold": -50
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Revoke his commission before he sails",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_treasure_fleet",
+    "pool": "historical",
+    "title": "The Treasure Fleet",
+    "text": "Bars of American silver and gold are piling up on the quays of your colonies, waiting for ships. Sailing them home in great escorted convoys is slow and costly; sending each ship as soon as it is loaded invites every pirate in the Indies. Your bankers in Genoa are already lending against the cargo.",
+    "image": "ship",
+    "nations": [
+      "CAS"
+    ],
+    "window": [
+      1500,
+      1750
+    ],
+    "mtth": 12,
+    "news": "The first Castilian treasure fleet has reached Seville, loaded with American silver.",
+    "trigger": {
+      "any": [
+        {
+          "ownsGood": "silver"
+        },
+        {
+          "ownsGood": "gold"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Sail twice a year in escorted convoys",
+        "effects": [
+          {
+            "gold": -75
+          },
+          {
+            "modifier": {
+              "id": "cas_flota",
+              "name": "The Treasure Fleets",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Spend the silver as fast as it lands",
+        "effects": [
+          {
+            "goldPerDev": 3
+          },
+          {
+            "modifier": {
+              "id": "cas_silver_inflation",
+              "name": "Silver Inflation",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_new_laws",
+    "pool": "historical",
+    "title": "The New Laws of the Indies",
+    "text": "A Dominican friar back from the Indies has shaken your court with his account of native villages worked to death under the settlers' labour grants. He begs you to abolish the grants and take the natives under royal protection. The settlers warn that without forced labour their mines and fields will fail, and some talk openly of rebellion.",
+    "image": "church",
+    "nations": [
+      "CAS"
+    ],
+    "window": [
+      1510,
+      1700
+    ],
+    "mtth": 24,
+    "news": "Castile is debating how the native peoples of its American lands should be treated.",
+    "trigger": {
+      "coloniesAtLeast": 3
+    },
+    "choices": [
+      {
+        "text": "Proclaim the New Laws",
+        "effects": [
+          {
+            "papalFavor": 15
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "cas_new_laws",
+              "name": "The New Laws",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Leave the settlers their grants",
+        "effects": [
+          {
+            "papalFavor": -10
+          },
+          {
+            "prestige": -5
+          },
+          {
+            "modifier": {
+              "id": "cas_labour_grants",
+              "name": "Labour Grants",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "eng_newfoundland_banks",
+    "pool": "historical",
+    "title": "The Banks of the New Found Land",
+    "text": "Bristol men home from the far west swear that the sea off a cold, new-found land is so thick with cod it slows their ships. Basques, Bretons and Portuguese are already salting fish on its beaches. Your merchants want a royal patent for the island; your admirals want the hardy sailors such voyages make.",
+    "image": "ship",
+    "nations": [
+      "ENG"
+    ],
+    "window": [
+      1495,
+      1620
+    ],
+    "mtth": 24,
+    "news": "English fishing fleets are crossing the Atlantic to the banks off Newfoundland.",
+    "trigger": {
+      "all": [
+        {
+          "discovered": true
+        },
+        {
+          "coastal": true
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Grant Bristol a patent for the new land",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "modifier": {
+              "id": "eng_newfoundland_patent",
+              "name": "Newfoundland Patent",
+              "months": 240,
+              "mods": {
+                "settlerGrowth": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Let the fishing fleets train your sailors",
+        "effects": [
+          {
+            "modifier": {
+              "id": "eng_west_country_seamen",
+              "name": "West Country Seamen",
+              "months": 120,
+              "mods": {
+                "navalPower": 0.1,
+                "tradeIncome": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "eng_virginia_company",
+    "pool": "historical",
+    "title": "The Virginia Company",
+    "text": "London merchants and West Country gentlemen propose a joint-stock company to plant an English colony on the American coast. They ask for a royal charter, the right to any gold they find and a little of your money to begin. The Spanish ambassador has already protested, and your council is split.",
+    "image": "ship",
+    "nations": [
+      "ENG"
+    ],
+    "window": [
+      1550,
+      1700
+    ],
+    "mtth": 24,
+    "news": "An English company has been chartered to plant colonies in America.",
+    "trigger": {
+      "all": [
+        {
+          "discovered": true
+        },
+        {
+          "not": {
+            "coloniesAtLeast": 6
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Charter the company and buy shares",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -15
+            }
+          },
+          {
+            "modifier": {
+              "id": "eng_virginia_company",
+              "name": "Virginia Company",
+              "months": 240,
+              "mods": {
+                "colonists": 1
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Leave the venture to private adventurers",
+        "effects": [
+          {
+            "modifier": {
+              "id": "eng_private_adventurers",
+              "name": "Private Adventurers",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_new_france",
+    "pool": "historical",
+    "title": "The Great River of Canada",
+    "text": "A pilot from Saint-Malo has sailed up a great river in the far north-west, past cliffs and forests to native towns where people trade beaver pelts for knives and kettles. Their chiefs would welcome French allies against their enemies. With a royal patent and a few ships of settlers, the river could be French.",
+    "image": "map",
+    "nations": [
+      "FRA"
+    ],
+    "window": [
+      1530,
+      1700
+    ],
+    "mtth": 24,
+    "news": "France is sending settlers up the St Lawrence to found a New France.",
+    "trigger": {
+      "all": [
+        {
+          "discovered": true
+        },
+        {
+          "not": {
+            "coloniesAtLeast": 6
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Found a New France on the river",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "modifier": {
+              "id": "fra_new_france_patent",
+              "name": "New France",
+              "months": 240,
+              "mods": {
+                "colonists": 1
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Leave the river to the fur traders",
+        "effects": [
+          {
+            "modifier": {
+              "id": "fra_free_fur_trade",
+              "name": "Free Fur Trade",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_coureurs_des_bois",
+    "pool": "historical",
+    "title": "Runners of the Woods",
+    "text": "Young men from your colonies are slipping into the forests to trade with the native nations for beaver pelts, living as the people they trade with. They come back with fortunes in fur, but the fields they leave behind go untilled. Your governor asks whether to license them or haul them home.",
+    "image": "coins",
+    "nations": [
+      "FRA"
+    ],
+    "window": [
+      1550,
+      1750
+    ],
+    "mtth": 24,
+    "news": "French fur traders are roaming deep into the American interior.",
+    "trigger": {
+      "ownsGood": "furs"
+    },
+    "choices": [
+      {
+        "text": "License the fur traders",
+        "effects": [
+          {
+            "modifier": {
+              "id": "fra_coureurs",
+              "name": "Runners of the Woods",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.15,
+                "settlerGrowth": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the young men on the farms",
+        "effects": [
+          {
+            "modifier": {
+              "id": "fra_habitants",
+              "name": "Habitant Farms",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bur_west_india_company",
+    "pool": "historical",
+    "title": "A West India Company",
+    "text": "Your merchants have grown rich carrying other nations' goods, and now they want colonies of their own. They propose a chartered company with its own warships and the sole right to trade across the Atlantic, if the crown will grant it and invest. It will plant settlements, and it will also prey on your rivals' treasure ships.",
+    "image": "ship",
+    "nations": [
+      "BUR"
+    ],
+    "window": [
+      1560,
+      1720
+    ],
+    "mtth": 24,
+    "news": "A Burgundian West India Company has been chartered to trade and settle across the Atlantic.",
+    "trigger": {
+      "all": [
+        {
+          "discovered": true
+        },
+        {
+          "coastal": true
+        },
+        {
+          "not": {
+            "coloniesAtLeast": 6
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Grant the charter and invest",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "modifier": {
+              "id": "bur_west_india_company",
+              "name": "West India Company",
+              "months": 240,
+              "mods": {
+                "colonists": 1
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Keep to the carrying trade",
+        "effects": [
+          {
+            "modifier": {
+              "id": "bur_carrying_trade",
+              "name": "Carrying Trade",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bur_island_at_the_river_mouth",
+    "pool": "historical",
+    "title": "An Island at the River's Mouth",
+    "text": "Your colonists on the Hudson want the long island at the river's mouth, with its deep harbour and its meadows. The local people will part with it for a chest of cloth, kettles and axes. Your soldiers say a fort would be cheaper than any bargain, and would keep rival crowns out besides.",
+    "image": "treaty",
+    "nations": [
+      "BUR"
+    ],
+    "window": [
+      1550,
+      1750
+    ],
+    "mtth": 12,
+    "news": "Burgundian colonists are building a town at the mouth of the Hudson.",
+    "trigger": {
+      "owns": "hudson"
+    },
+    "choices": [
+      {
+        "text": "Buy the island for trade goods",
+        "effects": [
+          {
+            "gold": -25
+          },
+          {
+            "devRegion": {
+              "region": "hudson",
+              "amount": 1
+            }
+          },
+          {
+            "modifier": {
+              "id": "bur_new_amsterdam",
+              "name": "New Amsterdam",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.05,
+                "settlerGrowth": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Build a fort and take it",
+        "effects": [
+          {
+            "fortRegion": {
+              "region": "hudson",
+              "amount": 1
+            }
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "unrestRegion": {
+              "region": "hudson",
+              "amount": 2
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "dan_greenland_voyage",
+    "pool": "historical",
+    "title": "The Lost Norse of Greenland",
+    "text": "Icelanders still tell of the Norse farms of Greenland, silent for two generations, and of Vinland, the land of vines their ancestors found beyond them. Two German captains in your service offer to sail west from Iceland and learn what became of them. The voyage will be cold and costly, and very likely fruitless.",
+    "image": "ship",
+    "nations": [
+      "DAN"
+    ],
+    "window": [
+      1470,
+      1499
+    ],
+    "mtth": 36,
+    "trigger": {
+      "all": [
+        {
+          "owns": "iceland"
+        },
+        {
+          "discovered": false
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Fund the voyage west",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "triggerEvent": {
+              "id": "dan_vinland_found",
+              "months": 10
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "dan_voyage_returns",
+              "months": 11
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Spend the money on the Sound fleet",
+        "effects": [
+          {
+            "modifier": {
+              "id": "dan_sound_squadron",
+              "name": "Sound Squadron",
+              "months": 60,
+              "mods": {
+                "navalPower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "dan_vinland_found",
+    "pool": "historical",
+    "title": "Land Beyond Greenland",
+    "text": "Your captains are home, gaunt and triumphant. Past the empty farms of Greenland they found a wooded coast running south farther than they could follow, and rivers thick with salmon. The old sagas were true: there is land across the western ocean.",
+    "image": "map",
+    "nations": [
+      "DAN"
+    ],
+    "hidden": true,
+    "news": "A Danish expedition has found land across the western ocean, beyond Greenland.",
+    "trigger": {
+      "all": [
+        {
+          "discovered": false
+        },
+        {
+          "chance": 0.35
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Proclaim the discovery",
+        "effects": [
+          {
+            "setNationFlag": "dan_vinland"
+          },
+          {
+            "discoverNewWorld": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dan_voyage_returns",
+    "pool": "historical",
+    "title": "The Ships Come Home",
+    "text": "Your expedition has returned with frostbitten crews and little else. They found the Greenland farms in ruins and, beyond them, only rock, ice and fog. Yet your pilots now know the northern seas better than any in Europe.",
+    "image": "ship",
+    "nations": [
+      "DAN"
+    ],
+    "hidden": true,
+    "trigger": {
+      "not": {
+        "nationFlag": "dan_vinland"
+      }
+    },
+    "choices": [
+      {
+        "text": "Reward the captains all the same",
+        "effects": [
+          {
+            "gold": -25
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "modifier": {
+              "id": "dan_northern_pilots",
+              "name": "Northern Pilots",
+              "months": 120,
+              "mods": {
+                "navalPower": 0.05,
+                "tradeIncome": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Sell their charts to Lisbon",
+        "effects": [
+          {
+            "gold": 60
+          },
+          {
+            "opinion": {
+              "nation": "POR",
+              "amount": 15
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sco_darien_scheme",
+    "pool": "historical",
+    "title": "The Darien Scheme",
+    "text": "A merchant adventurer urges Scotland to plant a colony on the narrow isthmus where two oceans almost meet, and grow rich on the trade between them. Lords, burghs and widows queue to buy shares, and half the coin in the kingdom may end up in the company's chest. The English and the Spanish both say the scheme will fail.",
+    "image": "ship",
+    "nations": [
+      "SCO"
+    ],
+    "window": [
+      1600,
+      1750
+    ],
+    "mtth": 24,
+    "news": "Scotland has staked a fortune on a colony at Darien.",
+    "trigger": {
+      "colonizingAtLeast": 1
+    },
+    "choices": [
+      {
+        "text": "Back the Company of Scotland",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "settlers": 300
+          },
+          {
+            "modifier": {
+              "id": "sco_company_of_scotland",
+              "name": "Company of Scotland",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.25
+              }
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "sco_darien_fever",
+              "months": 24
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep Scotland's coin at home",
+        "effects": [
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sco_darien_fever",
+    "pool": "historical",
+    "title": "Fever at New Caledonia",
+    "text": "The letters from your colony grow worse each month: fever in the huts, rotting stores and Spanish ships watching the coast. The settlers are dying faster than new ones arrive. The directors beg for a relief fleet; your treasurers beg you not to throw good money after bad.",
+    "image": "plague",
+    "nations": [
+      "SCO"
+    ],
+    "hidden": true,
+    "trigger": {
+      "all": [
+        {
+          "colonizingAtLeast": 1
+        },
+        {
+          "chance": 0.5
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send a relief fleet",
+        "effects": [
+          {
+            "gold": -75
+          },
+          {
+            "settlers": -200
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Wind up the company and sell its ships",
+        "effects": [
+          {
+            "settlers": -400
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "gold": 50
+          },
+          {
+            "removeModifier": "sco_company_of_scotland"
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_hurricane",
+    "pool": "generic",
+    "title": "A Hurricane Strikes",
+    "text": "A great wind out of the southern sea has torn through your colony for a night and a day. Ships lie broken on the beach, the storehouses are flooded and the first crops are flattened. The settlers beg for help to rebuild before the sickly season comes.",
+    "image": "ship",
+    "mtth": 150,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "discovered": true
+        },
+        {
+          "colonizingAtLeast": 1
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ship out supplies and carpenters",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "settlers": -50
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let them rebuild as best they can",
+        "effects": [
+          {
+            "settlers": -200
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_settler_fever",
+    "pool": "generic",
+    "title": "Fever Among the Settlers",
+    "text": "A fever has broken out among your newest settlers, carried on the ships or bred in marshes nobody warned them about. Dozens are dead already and the rest are too weak to work the fields. Your physicians think the colony should move to higher ground.",
+    "image": "plague",
+    "mtth": 150,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "discovered": true
+        },
+        {
+          "colonizingAtLeast": 1
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Move the colony to higher ground",
+        "effects": [
+          {
+            "settlers": -150
+          },
+          {
+            "modifier": {
+              "id": "nw_higher_ground",
+              "name": "Healthier Ground",
+              "months": 60,
+              "mods": {
+                "settlerGrowth": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Send physicians and fresh stores",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "settlers": -75
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "nw_first_harvest",
+    "pool": "generic",
+    "title": "The Colony Feeds Itself",
+    "text": "For the first time your colonists have brought in a harvest big enough to see them through the winter, thanks partly to the maize and squash their native neighbours taught them to grow. The storehouses are full and word is spreading back home. The governor wants a feast; the merchants want to sell the surplus.",
+    "image": "harvest",
+    "mtth": 150,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "discovered": true
+        },
+        {
+          "colonizingAtLeast": 1
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Hold a feast and write home about it",
+        "effects": [
+          {
+            "settlers": 150
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Sell the surplus to passing ships",
+        "effects": [
+          {
+            "gold": 50
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_golden_city",
+    "pool": "generic",
+    "title": "Rumours of a Golden City",
+    "text": "A native guide tells your governor of a city deep in the interior whose king is dusted with gold each morning. Every adventurer in the colony wants to go and find it. Men have died chasing such tales before, but the maps they bring back are worth having.",
+    "image": "map",
+    "mtth": 200,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "coloniesAtLeast": 2
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Fund an expedition into the interior",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "modifier": {
+              "id": "nw_maps_of_the_interior",
+              "name": "Maps of the Interior",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Sell licences to the adventurers",
+        "effects": [
+          {
+            "gold": 40
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "nw_missionaries",
+    "pool": "generic",
+    "title": "Missionaries for the New World",
+    "text": "A missionary order asks for passage to your colonies and the right to found mission villages among the native peoples. Where the missionaries go, they promise, the natives will settle peacefully beside your colonists. Your governors grumble that the missions will answer to the Church, not to them.",
+    "image": "church",
+    "mtth": 200,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "coloniesAtLeast": 1
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Grant them passage and land",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "papalFavor": 5
+          },
+          {
+            "modifier": {
+              "id": "nw_mission_villages",
+              "name": "Mission Villages",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the colonies under your governors",
+        "effects": [
+          {
+            "modifier": {
+              "id": "nw_royal_governors",
+              "name": "Royal Governors",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_privateer_offer",
+    "pool": "generic",
+    "title": "A Privateer's Commission",
+    "text": "A sea captain with a scarred face and a fast ship asks for letters of marque to hunt your rivals' merchantmen in the Indies. He promises the crown a share of every prize. Your diplomats warn that his victims' kings will call him a pirate, and call you his patron.",
+    "image": "ship",
+    "mtth": 200,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "discovered": true
+        },
+        {
+          "coastal": true
+        },
+        {
+          "eraAtLeast": 2
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Grant him letters of marque",
+        "effects": [
+          {
+            "gold": 75
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Hire him to guard your own convoys",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "modifier": {
+              "id": "nw_convoy_escorts",
+              "name": "Convoy Escorts",
+              "months": 60,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Hang him for a pirate",
+        "effects": [
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_native_peace",
+    "pool": "generic",
+    "title": "Envoys from the Native Nations",
+    "text": "Raiding parties have struck your outlying farms all summer, and the settlers are afraid to work their fields. Now envoys of the local nations offer your governor peace and trade, in return for regular gifts of cloth, iron tools and guns. Your captains would rather answer the raids with muskets.",
+    "image": "treaty",
+    "mtth": 150,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "discovered": true
+        },
+        {
+          "colonizingAtLeast": 1
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept and send the gifts",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "modifier": {
+              "id": "nw_native_peace",
+              "name": "Peace with the Nations",
+              "months": 120,
+              "mods": {
+                "settlerGrowth": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Answer the raids with muskets",
+        "effects": [
+          {
+            "settlers": -150
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_colonial_governor",
+    "pool": "generic",
+    "title": "The Colonists Accuse Their Governor",
+    "text": "Petitions have crossed the ocean accusing your governor of selling trade licences to his friends, seizing the best land for himself and hanging those who complain. The colonists say they will pay no more dues until he goes. The governor, for his part, has sent you a handsome gift.",
+    "image": "scroll",
+    "mtth": 200,
+    "trigger": {
+      "all": [
+        {
+          "native": false
+        },
+        {
+          "coloniesAtLeast": 2
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Recall him and hear the colonists out",
+        "effects": [
+          {
+            "gold": -25
+          },
+          {
+            "modifier": {
+              "id": "nw_honest_governors",
+              "name": "Honest Governors",
+              "months": 60,
+              "mods": {
+                "settlerGrowth": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the gift and back your man",
+        "effects": [
+          {
+            "gold": 75
+          },
+          {
+            "modifier": {
+              "id": "nw_corrupt_governor",
+              "name": "Corrupt Governor",
+              "months": 60,
+              "mods": {
+                "tradeIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nw_strangers_from_the_sea",
+    "pool": "generic",
+    "title": "Strangers from the Sea",
+    "text": "Runners bring word of floating houses on the eastern sea and pale, bearded strangers who carry thunder in iron tubes. Some say they are gods returning, others that they are only men who bleed and die like any other. The elders must decide how to receive them.",
+    "image": "ship",
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "native": true
+        },
+        {
+          "discovered": true
+        },
+        {
+          "not": {
+            "nationFlag": "nw_strangers_seen"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Muster the warriors",
+        "effects": [
+          {
+            "setNationFlag": "nw_strangers_seen"
+          },
+          {
+            "manpower": 3000
+          },
+          {
+            "modifier": {
+              "id": "nw_war_footing",
+              "name": "War Footing",
+              "months": 60,
+              "mods": {
+                "morale": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Welcome them with gifts and trade",
+        "effects": [
+          {
+            "setNationFlag": "nw_strangers_seen"
+          },
+          {
+            "gold": 40
+          },
+          {
+            "modifier": {
+              "id": "nw_trade_with_strangers",
+              "name": "Trade with the Strangers",
+              "months": 60,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
           }
         ],
         "ai": 1
