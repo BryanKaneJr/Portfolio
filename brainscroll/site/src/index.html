@@ -30,14 +30,16 @@
       <h1>Stop scrolling.<br><span>Start leveling.</span></h1>
       <p class="lead">BrainScroll turns a few minutes a day into real knowledge, one level at a time. Short, well-made lessons, smart review so it sticks, and a brain that visibly grows.</p>
       <div class="stores" id="get">
-        <a class="button" data-store="apple" href="{{APP_STORE_URL}}" hidden>Download on the App Store</a>
-        <a class="button" data-store="play" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
-        <p class="soon" hidden>Coming soon to iPhone and Android.</p>
+        <a class="badge" data-store="apple" href="{{APP_STORE_URL}}" hidden><img src="/img/badges/app-store.svg" alt="Download on the App Store" width="144" height="48"></a>
+        <a class="badge" data-store="play" href="{{PLAY_STORE_URL}}" hidden><img src="/img/badges/google-play.png" alt="Get it on Google Play" width="161" height="48"></a>
+        <p class="soon" data-soon="all" hidden>Coming soon to iPhone and Android.</p>
+        <p class="soon" data-soon="play" hidden>Android coming soon</p>
+        <p class="soon" data-soon="apple" hidden>iPhone coming soon</p>
       </div>
     </div>
     <div class="hero-art">
       <img class="mascot big" src="/img/mascot/wave.webp" alt="Dr. Scroll, waving" width="220" height="220">
-      <div class="phone"><img src="/img/screens/home.webp" alt="The BrainScroll home screen: up next, and every subject to pick from" width="390" height="844"></div>
+      <div class="phone"><img src="/img/screens/home.webp" alt="The BrainScroll home screen: up next, and every subject to pick from" width="390" height="847"></div>
     </div>
   </section>
 
@@ -51,17 +53,17 @@
     </div>
     <div class="steps">
       <article class="card">
-        <div class="phone small"><img src="/img/screens/lesson.webp" alt="A learning card" width="390" height="844" loading="lazy"></div>
+        <div class="phone small"><img src="/img/screens/lesson.webp" alt="A learning card: Andromeda, the nearest large spiral galaxy" width="390" height="847" loading="lazy"></div>
         <h3>Learn in levels</h3>
         <p>Each level is a few short cards that make one idea click, then three questions. Real ideas, explained well, no filler.</p>
       </article>
       <article class="card">
-        <div class="phone small"><img src="/img/screens/question.webp" alt="A question with four choices" width="390" height="844" loading="lazy"></div>
+        <div class="phone small"><img src="/img/screens/question.webp" alt="A missed answer, with the card that explains it" width="390" height="847" loading="lazy"></div>
         <h3>Get it wrong, then get it right</h3>
         <p>Your first try earns the XP. Miss one and you see the card that explains it, then try again until it's yours.</p>
       </article>
       <article class="card">
-        <div class="phone small"><img src="/img/screens/complete.webp" alt="Level complete with XP earned" width="390" height="844" loading="lazy"></div>
+        <div class="phone small"><img src="/img/screens/complete.webp" alt="Level complete with XP earned" width="390" height="847" loading="lazy"></div>
         <h3>Remember it for good</h3>
         <p>Smart review brings ideas back just before you'd forget them, so what you learn this week is still there next year.</p>
       </article>
@@ -75,8 +77,8 @@
       <p>Every level you clear raises your brain level and fills your subject ring. Climb a tree from Level 1 to 100 to master it and earn its gold star, collect trophies along the way, and keep a streak going on the days you learn.</p>
     </div>
     <div class="split-art">
-      <div class="phone"><img src="/img/screens/profile.webp" alt="Your profile: the brain ring with your avatar, level and stats" width="390" height="844" loading="lazy"></div>
-      <div class="phone offset"><img src="/img/screens/skill-map.webp" alt="A skill tree's path of levels" width="390" height="844" loading="lazy"></div>
+      <div class="phone"><img src="/img/screens/profile.webp" alt="Your profile: the brain ring with your avatar, level and stats" width="390" height="847" loading="lazy"></div>
+      <div class="phone offset"><img src="/img/screens/skill-map.webp" alt="A skill tree's path of levels, with its chapter pinned at the top" width="390" height="847" loading="lazy"></div>
     </div>
   </section>
 
@@ -85,10 +87,10 @@
       <img class="mascot" src="/img/mascot/crown.webp" alt="" width="120" height="120">
       <p class="eyebrow">Learn with friends</p>
       <h2>A weekly league at your level</h2>
-      <p>Add friends with a link or a username. Every week you join a league of up to 20 learners near your brain level, and the top three win bonus XP. Cheer each other on with hearts. No chat, no comments, just learning.</p>
+      <p>Add friends with a link or a username. Every week you join a league of up to 20 learners. The top three win bonus XP, and the top five move up a tier, from Quartz all the way to the Crown. Cheer each other on with hearts. No chat, no comments, just learning.</p>
     </div>
     <div class="split-art">
-      <div class="phone"><img src="/img/screens/league.webp" alt="A weekly league ranked by XP" width="390" height="844" loading="lazy"></div>
+      <div class="phone"><img src="/img/screens/league.webp" alt="A weekly league ranked by XP" width="390" height="847" loading="lazy"></div>
     </div>
   </section>
 
@@ -163,11 +165,13 @@
   <section class="free">
     <img class="app-icon" src="/img/brand/icon-3d.webp" alt="The BrainScroll app icon: Dr. Scroll in a gold crown" width="288" height="320" loading="lazy">
     <h2>Free to learn, for real</h2>
-    <p>Every subject is free. You get new levels every day, and review is always open. Unlimited only removes the daily limit for people who want more in one sitting. No ads, no hearts, nothing locked behind a paywall.</p>
+    <p>Every subject is free. You get new levels every day, and review is always open. Unlimited only removes the daily limit for people who want more in one sitting. No ads, no lives, nothing locked behind a paywall.</p>
     <div class="stores">
-      <a class="button" data-store="apple" href="{{APP_STORE_URL}}" hidden>Download on the App Store</a>
-      <a class="button" data-store="play" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
-      <p class="soon" hidden>Coming soon to iPhone and Android.</p>
+      <a class="badge" data-store="apple" href="{{APP_STORE_URL}}" hidden><img src="/img/badges/app-store.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <a class="badge" data-store="play" href="{{PLAY_STORE_URL}}" hidden><img src="/img/badges/google-play.png" alt="Get it on Google Play" width="161" height="48"></a>
+      <p class="soon" data-soon="all" hidden>Coming soon to iPhone and Android.</p>
+      <p class="soon" data-soon="play" hidden>Android coming soon</p>
+      <p class="soon" data-soon="apple" hidden>iPhone coming soon</p>
     </div>
   </section>
 
@@ -179,12 +183,17 @@
   </footer>
   <script>
     (function () {
+      // A store's badge shows once its link is set (APP_STORE_URL, PLAY_STORE_URL); until then, "coming soon".
       var ok = function (a) { return /^https:\/\//.test(a.getAttribute('href')); };
-      var any = false;
+      var live = {};
       document.querySelectorAll('[data-store]').forEach(function (a) {
-        if (ok(a)) { a.hidden = false; any = true; }
+        if (ok(a)) { a.hidden = false; live[a.getAttribute('data-store')] = true; }
       });
-      if (!any) document.querySelectorAll('.soon').forEach(function (p) { p.hidden = false; });
+      document.querySelectorAll('[data-soon]').forEach(function (p) {
+        var k = p.getAttribute('data-soon');
+        var other = k === 'play' ? 'apple' : 'play';
+        p.hidden = k === 'all' ? !!(live.apple || live.play) : !(live[other] && !live[k]);
+      });
     })();
   </script>
 </body>

@@ -66,17 +66,20 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
   padding: 15px 22px; border-radius: 16px; color: #fff; background: var(--brand); border-bottom: 4px solid var(--brand-edge);
 }
 .button:active { transform: translateY(2px); border-bottom-width: 2px; }
+.badge { display: inline-block; line-height: 0; border-radius: 10px; }
+.badge img { height: 48px; width: auto; }
+.badge:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 .soon { display: inline-block; padding: 12px 18px; border-radius: 999px; border: 2px solid var(--border); color: var(--text); font-weight: 800; }
 [hidden] { display: none !important; }
 
 .phone {
-  /* A phone: a dark bezel, the app's own background for the status bar and home bar,
-     and the screenshot in between, so nothing is cut by the rounded corners. */
+  /* A phone: a dark bezel around the whole screen, the island and home bar drawn over it.
+     Each screenshot's top edge fills the status bar (site/screens.mjs), so a coloured
+     screen like the profile runs up to the top as it does on a phone. */
   position: relative;
   background: #131f24;
   border: 9px solid #0b1215;
   border-radius: 46px;
-  padding: 30px 0 18px;
   box-shadow: 0 0 0 2px #3d4f58, 0 28px 70px rgba(0, 0, 0, 0.55);
   overflow: hidden;
 }
@@ -91,7 +94,7 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
   width: 34%; height: 4px; border-radius: 999px; background: #5a6a73;
 }
 .phone img { width: 100%; height: auto; }
-.phone.small { width: 180px; margin: 0 auto 20px; border-width: 7px; border-radius: 34px; padding: 22px 0 13px; }
+.phone.small { width: 180px; margin: 0 auto 20px; border-width: 7px; border-radius: 34px; }
 .phone.small::before { top: 6px; height: 10px; }
 .phone.small::after { bottom: 4px; height: 3px; }
 
@@ -106,14 +109,15 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
 .split { display: grid; gap: 32px; align-items: center; }
 .split-copy p:not(.eyebrow) { color: var(--muted); margin-top: 14px; font-size: 18px; }
 .split-copy .mascot { margin-bottom: 12px; width: 100px; }
-.split-art { display: flex; justify-content: center; gap: 16px; }
-.split-art { gap: 20px; }
-/* Two phones side by side: as wide as the column allows, with a slim frame so
-   they keep a real phone's proportions instead of looking stretched. */
-.split-art .phone { width: min(270px, 47%); border-width: 7px; border-radius: 38px; padding: 16px 0 10px; }
-.split-art .phone::before { top: 5px; height: 9px; width: 26%; }
+/* Each phone keeps its own height (flex-start): stretched to the row's height, the
+   first one grew an empty strip under its screen as tall as the second one's drop. */
+.split-art { display: flex; justify-content: center; align-items: flex-start; gap: 20px; }
+/* Two phones side by side, the first a little bigger and the second dropped a little,
+   with a slim frame so they keep a real phone's proportions. */
+.split-art .phone { width: min(280px, 53%); border-width: 7px; border-radius: 38px; }
+.split-art .phone::before { top: 10px; height: 10px; width: 28%; }
 .split-art .phone::after { bottom: 3px; height: 3px; }
-.split-art .phone.offset { margin-top: 56px; }
+.split-art .phone.offset { width: min(250px, 47%); margin-top: 56px; }
 .split-art .phone:only-child { width: min(240px, 70%); }
 
 .subjects { display: grid; gap: 28px; }
@@ -126,6 +130,8 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
 .free .app-icon { margin: 0 auto 8px; width: min(280px, 70%); height: auto; filter: drop-shadow(0 24px 40px rgba(120, 86, 255, 0.35)); }
 .free p { color: var(--muted); max-width: 36em; margin: 16px auto 0; font-size: 18px; }
 .free .stores { justify-content: center; }
+/* The coming-soon note sits beside the badges, not as a centered paragraph. */
+.free .stores .soon { margin: 0; max-width: none; font-size: inherit; color: var(--text); }
 
 .foot { text-align: center; padding: 32px var(--gutter) 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 15px; }
 .foot a { color: var(--muted); }
