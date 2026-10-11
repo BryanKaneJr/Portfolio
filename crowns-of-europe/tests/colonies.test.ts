@@ -9,6 +9,8 @@ import { unitPower } from '../src/sim/queries';
 import { joinOrStartBattle } from '../src/sim/battle';
 import { dayOf } from '../src/sim/util';
 import type { Fleet, GameState } from '../src/sim/types';
+import { newGame } from '../src/sim/state';
+import { NATION, REGION } from '../src/sim/content';
 
 function fleet(s: GameState, owner: string, sea: string, transports: number): Fleet {
   const f: Fleet = { id: `f${++s.seq}`, name: 'Test Fleet', owner, sea, ships: { galley: 0, warship: 0, transport: transports }, hull: 1, path: [], progress: 0, edgeDays: 0 };
@@ -115,7 +117,15 @@ describe('the New World', () => {
     expect(report.nations[report.winner]).toContain('CAS');
   });
 
-  test('colonies never exceed the settlers needed before they are founded', () => {
+  test('the AI sends colonists and founds colonies on its own', () => {
+    const s = newGame({ player: 'FRA', seed: 11 });
+    s.flags.__spectate = 1;
+    s.day = dayOf(1490, 0, 1);
+    discoverNewWorld(s, 'POR');
+    advanceDays(s, 365 * 14);
+    const colonized = Object.values(s.regions).filter(r => r.owner && REGION[r.id].nw && !NATION[r.owner].native);
+    expect(colonized.length).toBeGreaterThan(0);
+    for (const r of Object.values(s.regions)) if (r.colony) expect(r.owner).toBeNull();
     expect(SETTLERS_NEEDED).toBe(1000);
-  });
+  }, 60000);
 });
