@@ -3,7 +3,7 @@
  * Monthly (staggered per nation): economy, diplomacy, war and peace decisions, weighted by personality.
  * Every few days per army: attack beatable stacks, besiege enemy land, retreat from bigger stacks, merge.
  */
-import { GRAPH, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
+import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
 import {
@@ -249,11 +249,18 @@ function aiColonies(s: GameState, nat: Nation): void {
   if (freeColonists(s, n) <= 0 || nat.gold < COLONY_COST + res * 0.5 || nat.lastMonthIncome - nat.lastMonthExpenses < 0.5) return;
   let best: string | null = null;
   let bestScore = -Infinity;
+  const mine = Object.values(s.regions).filter(r => r.owner === n && REGION[r.id].nw).map(r => r.id);
+  const sphere = COLONIAL_SPHERE[n];
   for (const r of Object.values(s.regions)) {
     if (r.owner || r.colony || canColonize(s, n, r.id)) continue;
     const def = REGION[r.id];
-    const nextToOwn = GRAPH[r.id].some(e => e.kind === 'land' && s.regions[e.to]?.owner === n);
-    const score = (def.good ? GOOD_VALUE[def.good] * 3 : 0) + def.dev - r.natives * 0.8 - (def.hostility ?? 0) + (nextToOwn ? 4 : 0) + (r.id.charCodeAt(0) % 7) * 0.05;
+    const nextToOwn = GRAPH[r.id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);
+    // Crowns build compact empires: near what they hold, in the part of the Americas they reached first.
+    const nearOwn = !nextToOwn && mine.some(m => hops(m, r.id) <= 3);
+    const [lon, lat] = MAP_REGION[r.id].lonlat;
+    const inSphere = sphere ? sphere(lon, lat) : false;
+    const score =
+      (def.good ? GOOD_VALUE[def.good] * 3 : 0) + def.dev - r.natives * 0.8 - (def.hostility ?? 0) + (nextToOwn ? 4 : nearOwn ? 2 : 0) + (inSphere ? 3 : 0) + (r.id.charCodeAt(0) % 7) * 0.05;
     if (score > bestScore) {
       bestScore = score;
       best = r.id;
@@ -261,6 +268,17 @@ function aiColonies(s: GameState, nat: Nation): void {
   }
   if (best) startColony(s, n, best);
 }
+
+/** Where each colonial crown looks first (by the region's longitude and latitude). */
+const COLONIAL_SPHERE: Record<NationId, (lon: number, lat: number) => boolean> = {
+  POR: (_lon, lat) => lat < 0, // Brazil
+  CAS: (lon, lat) => lat >= 0 && lat < 31 && lon > -100, // the Caribbean, Mexico and the Spanish Main
+  ENG: (lon, lat) => lat >= 31 && lat < 52 && lon > -82, // the Atlantic seaboard
+  SCO: (lon, lat) => lat >= 40 && lon > -75, // Nova Scotia
+  FRA: (lon, lat) => lat >= 43 || (lat >= 28 && lat < 34 && lon < -88), // Canada and Louisiana
+  BUR: (lon, lat) => (lat >= 39 && lat < 43) || (lat > 0 && lat < 20 && lon > -70), // New Netherland and the Antilles
+  DAN: (lon, lat) => lat > 10 && lat < 20 && lon > -70, // the West Indies
+};
 
 function disbandMercs(s: GameState, n: NationId): void {
   for (const a of Object.values(s.armies)) {
@@ -633,25 +651,34 @@ function peaceStation(s: GameState, a: Army): void {
     regsAt.set(at, (regsAt.get(at) ?? 0) + armyRegs(o));
   }
   const here = (node: NodeId) => regsAt.get(node) ?? 0;
+  // Send as many regiments as fit to the nearest region of ours with food to spare.
+  const spread = (all: boolean) => {
+    let best: { to: NodeId; room: number; d: number } | null = null;
+    const tree = pathTree(s, a, { maxDays: 60 });
+    for (const [node, d] of tree.dist) {
+      if (node === home || node === a.node || isSea(node) || s.regions[node]?.owner !== a.owner) continue;
+      const room = supplyLimit(s, node, a.owner) - here(node);
+      if (room >= 3 && (!best || d < best.d)) best = { to: node, room, d };
+    }
+    if (!best) return;
+    const share = all ? 1 : Math.min(1, best.room / Math.max(1, armyRegs(a)));
+    if (share >= 1) {
+      orderMove(s, a, best.to);
+      return;
+    }
+    const b = splitArmy(s, a, { inf: Math.floor(a.regs.inf.n * share), cav: Math.floor(a.regs.cav.n * share), art: Math.floor(a.regs.art.n * share) });
+    if (b) orderMove(s, b, best.to);
+  };
   if (a.node !== home && !isSea(a.node)) {
     // Stay in our own land while it can feed us; otherwise go home (now and then, also to regroup).
     const reg = s.regions[a.node];
     const ok = reg && reg.owner === a.owner && here(a.node) <= supplyLimit(s, a.node, a.owner);
-    if (!ok || chance(s, 0.05)) orderMove(s, a, home);
+    if (!ok || chance(s, 0.05)) {
+      // Stranded overseas with no ships home: find a region of ours that can feed the troops instead.
+      if (!orderMove(s, a, home) && !ok) spread(false);
+    }
   } else if (armyRegs(a) > supplyLimit(s, home, a.owner) * 1.2) {
-    // Too big for the capital: send as many regiments as fit to the nearest region of ours with food to spare.
-    let best: { to: NodeId; room: number; d: number } | null = null;
-    const tree = pathTree(s, a, { maxDays: 60 });
-    for (const [node, d] of tree.dist) {
-      if (node === home || isSea(node) || s.regions[node]?.owner !== a.owner) continue;
-      const room = supplyLimit(s, node, a.owner) - here(node);
-      if (room >= 3 && (!best || d < best.d)) best = { to: node, room, d };
-    }
-    if (best) {
-      const share = Math.min(1, best.room / Math.max(1, armyRegs(a)));
-      const b = splitArmy(s, a, { inf: Math.floor(a.regs.inf.n * share), cav: Math.floor(a.regs.cav.n * share), art: Math.floor(a.regs.art.n * share) });
-      if (b) orderMove(s, b, best.to);
-    }
+    spread(false);
   }
 }
 

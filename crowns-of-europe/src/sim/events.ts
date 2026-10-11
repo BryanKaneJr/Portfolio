@@ -344,7 +344,7 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       discoverNewWorld(s, n);
       break;
     case 'settlers':
-      for (const r of coloniesOf(s, n)) r.colony!.settlers = Math.min(SETTLERS_NEEDED - 1, r.colony!.settlers + v);
+      for (const r of coloniesOf(s, n)) r.colony!.settlers = Math.max(0, Math.min(SETTLERS_NEEDED - 1, r.colony!.settlers + v));
       break;
   }
 }

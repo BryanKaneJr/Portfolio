@@ -9,7 +9,7 @@
  */
 import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, regionName } from './content';
 import { log, requestPause } from './log';
-import { armyRegs, bumpOwnership, invalidateMods, modifierSources, nationMods, ownedRegions, totalDev } from './queries';
+import { armyRegs, bumpOwnership, invalidateMods, modifierSources, nationMods, ownedRegions } from './queries';
 import { markMapDirty } from './territory';
 import type { Faith, GameState, Good, NationId, NodeId, Region, RegionId } from './types';
 import { chance, clamp, months, yearOf, years } from './util';
@@ -111,10 +111,12 @@ export function colonistSources(s: GameState, n: NationId): ColonistPart[] {
   const nat = s.nations[n];
   if (!nat || isNativeNation(n)) return [];
   const out: ColonistPart[] = [];
-  if (CHRISTIAN.has(nat.faith) && nat.era >= 3 && totalDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast (era 3)', value: 1 });
+  if (CHRISTIAN.has(nat.faith) && nat.era >= 3 && homeDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast (era 3)', value: 1 });
   for (const src of modifierSources(s, n)) if (src.mods.colonists) out.push({ label: src.name, value: src.mods.colonists });
   return out;
 }
+/** Development of a nation's Old World land (colonies don't make a realm great at home). */
+export const homeDev = (s: GameState, n: NationId) => ownedRegions(s, n).reduce((t, r) => t + (REGION[r.id].nw ? 0 : r.dev), 0);
 export const colonistsOf = (s: GameState, n: NationId) => colonistSources(s, n).reduce((t, p) => t + p.value, 0);
 export const coloniesOf = (s: GameState, n: NationId): Region[] => Object.values(s.regions).filter(r => r.colony?.by === n);
 export const freeColonists = (s: GameState, n: NationId) => colonistsOf(s, n) - coloniesOf(s, n).length;
@@ -169,7 +171,7 @@ export function settlerGrowth(s: GameState, r: Region): ColonistPart[] {
     left -= cut;
   }
   if (!MAP_REGION[r.id].seas.length) {
-    const cut = left * 0.3;
+    const cut = left * 0.45;
     out.push({ label: 'Inland: settlers come overland', value: -Math.round(cut * 10) / 10 });
     left -= cut;
   }

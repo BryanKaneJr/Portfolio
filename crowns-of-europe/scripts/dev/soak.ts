@@ -8,7 +8,7 @@ import { formatDate } from '../../src/sim/util';
 
 const yearsArg = Number(process.argv[2] ?? 10);
 const seed = Number(process.argv[3] ?? 1);
-const player = process.argv[4] ?? 'POR';
+const player = process.argv[4] ?? 'HUN'; // spectated by the AI; avoid colonial powers (their event cards queue up)
 const s = newGame({ player, seed });
 // Let the AI also run the player's nation for the soak test.
 s.flags.__spectate = 1;

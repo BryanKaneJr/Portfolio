@@ -81,7 +81,7 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 How the engine fires events: once a month, each living nation gets at most one event. An event is eligible when
 it isn't hidden, the year is inside its window, the nation is in `nations` (if set), its trigger is true and
 (for once-events) it hasn't fired. Each eligible event rolls 1/`mtth`. A nation gets a generic event at most once
-every 8 months. The player sees a card with the effects listed under each choice; AI nations pick by weight.
+every 14 months. The player sees a card with the effects listed under each choice; AI nations pick by weight.
 
 Chains: a choice can `triggerEvent` a hidden event some months later. Use flags (`setFlag` /
 `setNationFlag`) to remember what happened.
@@ -201,7 +201,7 @@ feeble, shrewd, builder, merchant.
 ```
 
 Each major nation has 6-10 missions in a short tree (at most 3 branches; `requires` lists missions of the same
-nation). The `generic` set is used by every nation without its own. A mission is claimable once its requirements
+nation). The `generic` set is used by every nation without its own. Mission titles are at most 36 characters. A mission is claimable once its requirements
 are done and its goal is true; the player taps "Complete" to collect the reward.
 
 ## Achievements
