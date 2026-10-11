@@ -27,7 +27,9 @@ These are hard rules (Apple's or ours). A listing that breaks one can't be used.
 - **Don't name other apps, companies or platforms** (no Duolingo, TikTok, Instagram, Brilliant, Wikipedia and so on). "Doomscrolling" and "endless feed" are fine.
 - **Brainpower** is BrainScroll's pacing. Describe it as the app does: each new level uses 1, you refill to 5 every day, you can hold up to 10, and you earn more by learning. Never call it energy, lives or hearts, and never suggest wrong answers cost it (they don't).
 - **Unlimited** (the subscription) gives unlimited Brainpower and nothing else. Never imply it unlocks content, subjects, XP, trophies or "premium lessons". Every level can be unlocked free over time.
-- **Subscription disclosure:** the description ends with the auto-renewal paragraph in section 10 (keep it word for word). The privacy policy and terms links go in their own App Store Connect fields.
+- **Subscription disclosure:** the description ends with the auto-renewal paragraph in section 10, then these two lines, all word for word (App Review rejects a subscription app with no Terms of Use link in its description):
+  `Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/`
+  `Privacy Policy: https://brainscroll.app/privacy`
 - **No chat, messages, comments or public posts exist.** The social side is friends, weekly leagues, a world leaderboard and a feed of achievements with a heart button.
 - **iPhone only** (no iPad version). An account is required: Sign in with Apple. (Google sign-in isn't set up yet, so don't mention Google.) It needs an internet connection.
 - **Notifications are optional.** The daily reminder is off until the learner turns it on; friend and league notifications can be switched off. The app never guilt-trips: no streak threats, no countdowns, no "you'll lose your streak".
@@ -212,6 +214,9 @@ No ads. No streak punishment. No selling your data.
 Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
+
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Privacy Policy: https://brainscroll.app/privacy
 ```
 
-Keep the last paragraph (the auto-renewal disclosure) exactly as written, as the description's final paragraph.
+Keep the auto-renewal paragraph and the two links after it exactly as written, at the end of the description.
