@@ -109,14 +109,15 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
 .split { display: grid; gap: 32px; align-items: center; }
 .split-copy p:not(.eyebrow) { color: var(--muted); margin-top: 14px; font-size: 18px; }
 .split-copy .mascot { margin-bottom: 12px; width: 100px; }
-.split-art { display: flex; justify-content: center; gap: 16px; }
-.split-art { gap: 20px; }
-/* Two phones side by side: as wide as the column allows, with a slim frame so
-   they keep a real phone's proportions instead of looking stretched. */
-.split-art .phone { width: min(270px, 47%); border-width: 7px; border-radius: 38px; padding: 16px 0 10px; }
+/* Each phone keeps its own height (flex-start): stretched to the row's height, the
+   first one grew an empty strip under its screen as tall as the second one's drop. */
+.split-art { display: flex; justify-content: center; align-items: flex-start; gap: 20px; }
+/* Two phones side by side, the first a little bigger and the second dropped a little,
+   with a slim frame so they keep a real phone's proportions. */
+.split-art .phone { width: min(280px, 53%); border-width: 7px; border-radius: 38px; padding: 16px 0 10px; }
 .split-art .phone::before { top: 5px; height: 9px; width: 26%; }
 .split-art .phone::after { bottom: 3px; height: 3px; }
-.split-art .phone.offset { margin-top: 56px; }
+.split-art .phone.offset { width: min(250px, 47%); margin-top: 56px; }
 .split-art .phone:only-child { width: min(240px, 70%); }
 
 .subjects { display: grid; gap: 28px; }
