@@ -1,96 +1,61 @@
 # Implementation checklist
 
-Built in the plan's order: engine and tests first, then lists, a working draw screen, the four reveal styles, draft orders and polish. "Test" names the automated check; `Core` tests live in `Packages/RandomizerCore/Tests`, `UI` tests in `RandomizerUITests`.
+The app was first built as a general randomizer from [`build-plan.md`](build-plan.md), then narrowed to fantasy draft lotteries (owner, 2026-10-11). This records what Draft Lottery does now, where it lives and what checks it. `Core` tests live in `Packages/RandomizerCore/Tests`, `UI` tests in `RandomizerUITests`.
 
-## Non-negotiable: Remove after selection
+## Removed in the narrowing
 
-Shown as a compact **Remove** switch at the bottom right of the draw screen (owner decision, 2026-10-09).
+Spin Wheel and Name Reel reveals, single and multi-winner draws, the Remove switch and repeats, undo and restore, session history, the dinner and contestant examples, and the 200-entry lists. The engine, storage, odds formatting, lottery balls, the card reveal, presenter mode, sounds and haptics carried over.
 
-| Requirement | Where | Test |
+## The lottery
+
+| Rule | Where | Test |
 | --- | --- | --- |
-| Visible, interactive toggle on every draw screen, all 4 styles x 3 odds modes | `RemoveToggle` at the bottom right of `DrawView`'s sticky footer | UI `testToggleIsVisibleAndWorksInEveryRevealStyleAndOddsMode` |
-| Visible before a draw, while revealing, on the result | same footer, never hidden by state | same |
-| Visible in presenter (full-screen) mode | `DrawView` presenter mode keeps the footer | UI `testToggleStaysVisibleInPresenterMode` |
-| Also on the draft order reveal | `DraftOrderView` footer | UI `testUniqueDraftOrderNeedsRemovalOn` |
-| ON removes the winner from future draws | `DrawList.draw` | Core `testToggle2_OnRemovesWinner` |
-| OFF keeps the winner eligible | `DrawList.draw` | Core `testToggle1_OffKeepsWinnerEligible` |
-| ON to OFF keeps earlier removals out | `setRemoveAfterSelection` | Core `testToggle3_...` |
-| OFF to ON doesn't retroactively remove | `setRemoveAfterSelection` | Core `testToggle4_...` |
-| Restore removed (all or chosen) | footer menu, `RestoreRemovedSheet` | Core `testToggle5_...`, UI `testUndoAndRestoreFromTheFooter` |
-| Undo last draw restores only what that draw removed | `undoLastDraw` | Core `testToggle6_...`, `testToggle7_...`, `testUndoDoesNotTouchAnEntryRestoredSinceItsDraw` |
-| Saved per list, default ON, restored on reopen | `DrawList.removeAfterSelection` | Core `testNewListDefaultsToRemovalOn`, `testToggle8_...`; UI `testNewListSurvivesRelaunch` |
-| Unique draft order requires ON; with it OFF, Draft order asks before turning it on (Cancel keeps it off) | `draftOrderAvailability`, the "Turn on Remove?" prompt | Core `testToggle11_...`, `testToggle12_...`; UI `testUniqueDraftOrderNeedsRemovalOn` |
+| Teams in last season's finish, worst first; list order is the ranking | `League.teams` | Core `testReorderingMovesStandingsOdds` |
+| Worst N teams in the lottery (2 to all), stored as "all" when every team is in | `lotteryTeams`, `setLotteryTeams` | Core `testFormatIsClampedToTheLeague`, `testSettingLotteryTeams` |
+| Top M picks drawn (1 to all lottery picks); "top 4" survives a smaller lottery when it fits | `drawnPicks`, `setDrawnPicks` | Core `testDrawnPicksFollowTheLottery` |
+| Teams outside the lottery pick after it, in standings order | `runLottery` | Core `testTeamsOutsideTheLotteryPickInStandingsOrder`; UI `testTeamsOutsideTheDrawPickByStandings` |
+| Lottery teams not drawn pick next, worst first | `runLottery` | Core `testUndrawnLotteryTeamsFollowTheDrawnPicksByStandings` |
+| Weighted by standings counts over lottery teams only (L down to 1) | `effectiveWeight(atIndex:)` | Core `testStandingsWeightsCountOnlyLotteryTeams` |
+| Custom weight 0 inside the lottery: never drawn, still ahead of non-lottery teams | `status(atIndex:)`, `runLottery` | Core `testZeroWeightLotteryTeamIsNeverDrawnButStaysAheadOfNonLotteryTeams` |
+| Exact #1 and top-N chances; nil rather than an estimate for huge tables | `OddsCalculator.topPickProbabilities` | Core `testTopPickChancesMatchAWellKnownFourteenTeamTable`, `testTopPickChancesAlwaysSumToThePicksDrawn`, `testObservedPickSharesMatchTheOddsTable` |
+| Whole order drawn and saved before any reveal | `AppState.runLottery` | Core `testRunIsASnapshot`; UI `testNewLeagueSurvivesRelaunch` |
+| Countdown reveal from the last lottery pick; progress saved per pick | `LotteryRun.revealOrder`, `revealNextPick` | Core `testRevealCountsDownThroughTheLotteryPicks`, `testReopeningRestoresTheRunAndRevealProgress`; UI `testSampleLeagueRunsWithinSeconds` |
+| Every run numbered; Run Again asks first; New season resets | `runCount`, `LotteryRun.number` | Core `testRunNumbersCountEveryRunUntilANewSeason`; UI `testRunAgainIsConfirmedAndCounted` |
+| Shared text and image carry the run number, format and drawn odds | `ResultsExporter.runText`, `ShareRenderer.runImage` | Core `testShareTextNamesTheRunAndHowEachPickWasDecided` |
 
-## Phase 1: engine
+## Engine and storage (carried over)
 
-- [x] Models: `DrawEntry`, `DrawList`, `DrawResult`, enums, versioned `StoreDocument`
-- [x] Equal, Weighted (0 to 1,000), Reverse Standings (N to 1) weights
-- [x] Normalized odds, `<0.1%` for tiny chances, never a false 0% or 100%
-- [x] `SelectionEngine` with `SystemRandomNumberGenerator`, weighted, with and without replacement
-- [x] Draw-time odds snapshot on every result
-- [x] 120,000-draw frequency sanity test with a chi-square check
+- [x] `SelectionEngine` with `SystemRandomNumberGenerator`, weighted, without replacement; 120,000-draw frequency check with chi-square
+- [x] Percentages to two decimals, `<0.1%` for tiny chances, never a false 0% or 100%
+- [x] Atomic local JSON storage, backup of the previous save, unreadable files set aside, lenient decoding of missing or unknown fields
 
-## Phase 2: lists
+## Screens
 
-- [x] Home with saved lists and three built-in examples (dinner wheel, fantasy draft lottery, next contestant reel); rename, duplicate, delete
-- [x] Add one at a time, paste many with a preview, 200-entry limit with feedback
-- [x] Reorder (drag), swipe to delete, clear with confirmation
-- [x] Duplicate-name warning; each entry stays its own participant
-- [x] Atomic local JSON storage, backup of the previous save, unreadable files set aside
+- [x] Home: your leagues (with the latest run's state), the sample league, New League; rename, duplicate, delete
+- [x] League editor: name, standings with drag to reorder and swipe to delete, add or paste teams (32 max), lottery format steppers with a plain-English explanation, odds mode, reveal style
+- [x] Odds table: mode, weights (Custom), #1 and top-N chances with bars, "Not in lottery" rows
+- [x] Lottery: format summary, odds preview with the fixed picks of non-lottery teams, Run the Lottery with confirmation, countdown reveal, Reveal all, board with hidden and revealed picks, Share, Replay, Run Again, New season, presenter mode
+- [x] Settings: sound, haptics, reveal speed, how the lottery works, privacy
 
-## Phase 3: draw screen
+## Polish
 
-- [x] Eligible count and odds mode summary, View odds sheet with weights, chances and bars
-- [x] Sticky footer: Draw, winners per draw, Draft order and the Remove switch; Undo and Restore chips when they apply
-- [x] Single and multi-winner draws; repeats possible when Remove is off
-- [x] "All entries have been selected" with Restore removed / Start new session, never a dead button
-- [x] History in draw order with time and draw-time chance; edited-session label after undo; New session
-- [x] Share results as text or image
-
-## Phase 4: reveal styles
-
-- [x] Mystery Reveal, Name Reel, Spin Wheel, Lottery Balls, all on one `RevealStage` API
-- [x] Winner committed before any animation; tap to skip lands on the same result
-- [x] Reduce Motion and the Instant speed show a fade instead of motion
-- [x] Wheel sectors proportional to weights; above 24 entries numbers plus a legend that suggests Name Reel
-- [x] Switching style never changes pool, odds, toggle or winner (Core `testRevealStyleNeverChangesOddsOrPool`)
-
-## Phase 5: draft order
-
-- [x] Standings editor (worst first), live weights and chances
-- [x] Unique weighted order of everyone eligible, saved before the reveal (Core `testDraftOrderIsAPermutationOfEligibleEntries`)
-- [x] Reveal last pick first or pick 1 first without changing the order; share as text or image
-
-## Phase 6: polish
-
-- [x] Bundled sounds made for the app (tick, clack, chime), ambient session that respects the ringer switch
-- [x] Haptics on ticks and landing, switchable
-- [x] Animation speed: Standard, Fast, Instant
-- [x] VoiceOver: announcements for winners, undo and restore; labels on controls, odds rows and the stage; skip action
-- [x] App icon, launch background, privacy manifest, export-compliance key
+- [x] Sounds made for the app (rattle, drumroll, chime) on the ambient session; haptics on ticks and landings
+- [x] Reveal speed Standard, Fast, Instant; Reduce Motion shows a fade
+- [x] VoiceOver: each pick announced as it lands; labels on the stage, odds rows and draft slots; skip action on the stage
+- [x] App icon (a drum of numbered balls with #1 rising), launch background, privacy manifest, export-compliance key
 - [x] Screenshot tour UI test for App Store images
 
-## How it was verified
+## Choices
 
-- 75 RandomizerCore unit tests, run with `swift test` on Linux and macOS in CI.
-- 12 UI tests on an iOS 26.2 simulator (iPhone 16 Pro) in CI, including the toggle in all 12 style and odds-mode combinations, presenter mode, draft order rules, undo/restore, double taps, the empty pool, first run, relaunch persistence and paste.
-- Every main screen reviewed from the screenshot tour (normal and XXXL text). Fixes from that review: the repeats-allowed control row, reel neighbours below the winner, the mystery card stripe, history row wrapping, the editor's bottom bar.
-- Not yet run on a physical iPhone; haptics and sound output need a device check.
+- **One saved order per league.** The latest run is kept; earlier runs are counted (Run #2), not archived.
+- **The countdown is the only reveal order.** It's how draft lotteries are shown, and it keeps the drum honest: it only ever holds teams whose picks are still hidden.
+- **Undrawn lottery picks reveal as standings cards**, not balls, so a ball only ever rises for a pick the lottery actually drew.
+- **Standings numbers in pastes** ("1. ", "12) ") are dropped; numbers that are part of a name ("76ers", "1.FC") stay.
+- **Names** are capped at 60 characters, league names at 60.
+- **Lottery Balls** shows up to 20 balls (always including the drawn team) and says "Showing 20 of N" beyond that.
+- **iPhone, portrait, dark mode** for v1.
+- **Bundle ID** `com.bryankanejr.draftlottery`. Set your team in Signing & Capabilities before archiving.
 
-## Choices the plan left open
+## Ideas not built
 
-- **Engine as a local Swift package** (`RandomizerCore`): it keeps the engine separate from the views and lets its tests run anywhere with `swift test`.
-- **Rank is list order.** In Reverse Standings the first entry is the worst finish; there is no separate rank field to drift.
-- **Undo works per tap.** A batch or a draft order is undone as one action, restoring everyone it removed.
-- **A draft order is a draw.** With removal ON, its picks are recorded in history and leave the pool. Undo restores them; New session clears them.
-- **No session archive in v1.** New session clears the current results after a confirmation that suggests sharing first.
-- **Repeats-possible batches** are capped at 50 winners per tap.
-- **Paste** drops leading bullets (`- `, `* `, `•`) but keeps numbers, so "1. FC Köln" survives.
-- **Names** are capped at 80 characters, list titles at 60.
-- **Lottery Balls** shows up to 20 balls (always including the winner) and says "Showing 20 of N" for bigger pools.
-- **iPhone, portrait, dark mode** for v1. iPad and landscape are left for later.
-- **Bundle ID** `com.bryankanejr.randomizer`. Set your team in Signing & Capabilities before archiving.
-
-## Not built (v1.1 ideas from the plan)
-
-CSV/JSON import and export, themes, more reveal modes, saved weight presets, read-aloud winners, brackets, an iPad presentation layout, PDF export.
+Keeper and traded-pick handling (a team owning another team's pick), saved odds templates, importing standings from a league site, a pick-by-pick probability grid, an iPad or TV presentation layout, PDF export.

@@ -1,5 +1,7 @@
-> **Source of truth for product behavior.** This is the build plan the app was built from, with the working title
-> "DrawMode" replaced by the shipping name **Randomizer: Spin & Reveal** (home screen name: Randomizer).
+> **Owner decision (2026-10-11): the product is now Draft Lottery, for fantasy draft lotteries only.** This plan was written for a general randomizer and is kept for its engine, storage, odds-display and quality rules. Everything about spin wheels, name reels, single or multi-winner draws, the Remove after selection toggle, repeats, undo/restore and session history no longer applies; those features were removed. The current product rules are in [`../CLAUDE.md`](../CLAUDE.md) and [`checklist.md`](checklist.md).
+>
+> **Original build plan.** This is the plan the app was first built from, with the working title
+> "DrawMode" replaced by the name it had then, **Randomizer: Spin & Reveal**.
 > Where the implementation made a choice the plan left open, [`checklist.md`](checklist.md) says so.
 >
 > **Owner decision (2026-10-09):** the removal control is a compact switch labeled **Remove** at the bottom right of the draw screen, not the large "Remove after selection" banner this plan describes. It is still on every draw screen and never changes by itself. With Remove off, Draft order asks to turn it on instead of showing a disabled button with an explanation.

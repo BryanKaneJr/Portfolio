@@ -1,22 +1,21 @@
-# Randomizer: Spin & Reveal
+# Draft Lottery
 
-> A beautiful way to pick anything: fairly, dramatically, and with the odds you choose.
+> Run your fantasy league's draft lottery live: real formats, exact odds, and a countdown reveal everyone can watch.
 
-A polished, offline iPhone randomizer. Add people or things, pick how the result is revealed (Spin Wheel, Name Reel, Lottery Balls or Mystery Reveal), optionally set the odds, and draw. One-time paid download: no ads, accounts, subscriptions, servers or internet needed.
+An offline iPhone app for fantasy commissioners. Enter your teams in last season's finish, choose the lottery format your league uses, check the odds table, then run the lottery and reveal the draft order from the last lottery pick down to #1. One-time paid download: no ads, accounts, subscriptions, servers or internet needed.
 
-The full product spec is [`docs/build-plan.md`](docs/build-plan.md). What was built against it, and the choices it left open, are in [`docs/checklist.md`](docs/checklist.md). App Store copy and privacy answers are in [`docs/store-listing.md`](docs/store-listing.md).
+The app began as a general randomizer ([`docs/build-plan.md`](docs/build-plan.md)) and was narrowed to the draft lottery on 2026-10-11. [`docs/checklist.md`](docs/checklist.md) records what was built and the choices along the way. App Store copy and privacy answers are in [`docs/store-listing.md`](docs/store-listing.md).
 
 ## What it does
 
-- **Three built-in examples** to try in seconds: What's for Dinner? (Spin Wheel, repeats allowed), Fantasy Draft Lottery (Lottery Balls, ten teams with Reverse Standings odds) and Next Contestant (Name Reel, everyone called once). Keep, edit or delete them like any list.
-- **Saved lists:** add names one by one or paste up to 200 at once.
-- **Three odds modes:** Equal Odds, custom Weights (0 to 1,000) and a Reverse Standings preset for fantasy drafts (N down to 1). Every entry shows its weight and its live chance.
-- **Four reveal styles** on top of one draw engine. The winner is chosen and saved before the animation starts; every reveal can be skipped and falls back to a fade with Reduce Motion.
-- **Remove** is a small switch at the bottom right of every draw screen. On: winners leave the pool for the session. Off: repeats are possible. Undo and Restore appear as small chips when there's something to undo or restore.
-- **Several winners per tap**, unique or with repeats, revealed one by one.
-- **Unique draft orders** (with removal on), revealed from the last pick to the first or the other way round.
-- **History** with the chance each winner had at the moment of the draw, New session, and sharing as text or an image.
-- Sound effects made for the app, haptics, three animation speeds, VoiceOver announcements and a presenter mode.
+- **Leagues** of 2 to 32 teams, entered one at a time or pasted from a standings table (numbers and bullets are stripped). Drag to set last season's finish, worst first.
+- **Lottery format:** how many of the worst teams are in the lottery (every team, or just the ones that missed the playoffs), and how many picks the lottery draws (all of them, or only the top few). Lottery teams that aren't drawn pick next by standings, then everyone else.
+- **Odds:** weighted by standings (with 6 lottery teams the worst gets 6 chances, the next 5, down to 1), equal, or custom weights (0 to 1,000, for leagues with their own odds table).
+- **Odds table** with each team's exact chance at #1 and, when the lottery draws fewer picks than it has teams, its exact chance of landing a drawn pick.
+- **Run the Lottery** draws and saves the whole order at once. Then reveal it pick by pick, counting down, with **Lottery Balls** (numbered by finish) or a **Card Flip**. Every reveal can be skipped; Reveal all shows the rest.
+- **Every run is numbered.** Running again replaces the order and shows Run #2 on screen and on everything shared. New season clears it.
+- **Share** the final order as text or an image, with the format, each drawn pick's odds and the run number.
+- A ten-team sample league to try in seconds, presenter mode for a TV or a call, sound effects made for the app, haptics, three reveal speeds and VoiceOver announcements.
 
 ## Requirements
 
@@ -26,17 +25,17 @@ The full product spec is [`docs/build-plan.md`](docs/build-plan.md). What was bu
 ## Build and run
 
 1. Open `randomizer/Randomizer.xcodeproj`.
-2. Pick the **Randomizer** scheme and an iPhone simulator, then Run (Cmd+R).
-3. To run on a device or archive for the App Store, select the Randomizer target, open **Signing & Capabilities**, choose your team, and change the bundle identifier (`com.bryankanejr.randomizer`) if you need to.
+2. Pick the **Randomizer** scheme and an iPhone simulator, then Run (Cmd+R). The app installs as **Draft Lottery**.
+3. To run on a device or archive for the App Store, select the Randomizer target, open **Signing & Capabilities**, choose your team, and change the bundle identifier (`com.bryankanejr.draftlottery`) if you need to.
 
-The app stores its lists in `Application Support/Randomizer/randomizer_store_v1.json` inside its sandbox. Delete the app to start fresh.
+The app stores leagues in `Application Support/DraftLottery/draft_lottery_store_v1.json` inside its sandbox. Delete the app to start fresh.
 
 ## Tests
 
 | What | How | Covers |
 | --- | --- | --- |
-| Draw engine, odds, session rules, storage | `cd Packages/RandomizerCore && swift test` (macOS or Linux), or pick the **RandomizerCore** scheme in Xcode and press Cmd+U | Every probability, toggle and persistence acceptance test in the build plan, plus a 120,000-draw frequency check |
-| UI tests | **Randomizer** scheme, Cmd+U on an iPhone simulator | The toggle in all 4 styles x 3 odds modes and presenter mode, draft order rules, undo/restore, double taps, empty pool, first run, relaunch persistence, paste |
+| Lottery engine, odds, format rules, storage | `cd Packages/RandomizerCore && swift test` (macOS or Linux), or the **RandomizerCore** scheme in Xcode and Cmd+U | Standings placement for every format, exact top-N odds (checked against a well-known 14-team table and 60,000 seeded runs), run numbering, reveal progress, persistence and recovery |
+| UI tests | **Randomizer** scheme, Cmd+U on an iPhone simulator | Sample league first run, countdown reveal, Run Again confirmation and numbering, standings picks, a new league surviving relaunch mid-reveal, paste, odds table, card flip |
 | Screenshot tour | `ScreenshotTourUITests` (part of Cmd+U) | Saves every main screen as an attachment; with `SCREENSHOT_DIR` set, also as PNGs |
 
 From the command line:
@@ -53,38 +52,41 @@ CI (`.github/workflows/randomizer.yml`) runs the engine tests on Linux and macOS
 
 ### Testing by hand on a simulator
 
-- **Airplane Mode / offline:** the app makes no network calls; everything works with networking off.
-- **Force quit mid-spin:** start a draw, swipe the app away before it lands, reopen. The result is already in history and shown as the last draw; nothing is drawn again.
+- **Offline:** the app makes no network calls; everything works with networking off.
+- **Force quit mid-reveal:** run the lottery, start a reveal, swipe the app away. Reopen: the order is the same, the pick you were revealing is shown, nothing is drawn again.
 - **Reduce Motion:** Settings > Accessibility > Motion > Reduce Motion. Reveals become a fade.
-- **VoiceOver:** the stage, odds rows and controls are labeled; winners, undo and restore are announced.
+- **VoiceOver:** the stage, odds rows, draft slots and controls are labeled; each pick is announced as it lands.
 - **Ringer switch:** sounds use the ambient audio session, so the silent switch mutes them.
 
 ## Layout
 
 ```text
 randomizer/
-  Packages/RandomizerCore/   draw engine, models, odds, session rules, storage + unit tests
+  Packages/RandomizerCore/   lottery engine, league model, odds, storage + unit tests
   Randomizer/
-    App/                     app entry, AppState (saves before every reveal), preferences, UI-test seeds
-    Screens/                 Home, list editor, paste, odds, draw, history, draft order, settings
-    RevealStyles/            RevealStage + wheel, reel, balls, mystery card
-    Components/              Remove switch, Undo/Restore chips, share card
-    Design/                  colors, type, button styles
+    App/                     app entry, AppState (saves the run before any reveal), preferences, UI-test seeds
+    Screens/                 Home, league editor, paste, odds table, lottery, settings
+    RevealStyles/            RevealStage + lottery balls and card flip
+    Components/              share card
+    Design/                  colors, type, button styles, standing badge
     Services/                sounds, haptics
     Resources/               asset catalog, sounds, privacy manifest
   RandomizerUITests/         UI tests and the screenshot tour
   Config/                    Info.plist additions (launch screen, export compliance)
-  docs/                      build plan, checklist, store listing
+  docs/                      original build plan, checklist, store listing
 ```
+
+The folder, Xcode project, target and package keep their original `Randomizer` names; the app's display name, bundle ID and store file are Draft Lottery's.
 
 ## Known limitations
 
 - Verified on the iOS 26 simulator in CI (iPhone 16 Pro), not yet on a physical iPhone. Haptics don't run in the simulator, and sounds aren't checked by the automated tests.
 - iPhone, portrait, dark mode only. iPad layouts and landscape are not built.
 - Dynamic Type is checked up to the XXXL text size; the accessibility sizes beyond that aren't tuned yet.
-- New session clears the current results (after a confirmation). There is no archive of past sessions.
+- One saved order per league (the latest run). Earlier runs are counted, not kept.
+- The top-N column is worked out exactly; for very large lotteries (for example 16 picks drawn from 32 teams) it's left out rather than estimated. The #1 chance is always shown.
 - Before submitting: set your signing team, confirm the name and trademark are available, and capture 6.9" screenshots on a Pro Max simulator.
 
 ## Fairness
 
-Every result comes from `SelectionEngine`, which draws a ticket with `Int.random(in:using:)` from `SystemRandomNumberGenerator` and maps it onto the eligible entries' weights. The outcome, the odds at that moment and any removal are saved together before the reveal plays. Reveal styles only animate that saved outcome.
+Every drawn pick comes from `SelectionEngine`, which draws a ticket with `Int.random(in:using:)` from `SystemRandomNumberGenerator` and maps it onto the remaining lottery teams' weights; each drawn team leaves before the next pick. `League.runLottery` records the whole order, with each drawn pick's odds at that moment, and the app saves it before the first reveal. The balls and cards only show that saved order.

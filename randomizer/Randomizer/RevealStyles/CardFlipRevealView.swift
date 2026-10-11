@@ -111,7 +111,7 @@ private struct CardFront: View {
                 .frame(height: 16)
             VStack(spacing: 12) {
                 if let member {
-                    StandingBadge(standing: member.listIndex + 1)
+                    StandingBadge(standing: member.listIndex + 1, size: 52)
                 }
                 Text(member?.name ?? "")
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
