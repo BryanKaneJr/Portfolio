@@ -381,11 +381,13 @@ for (const lake of lakePolys) {
     }
   }
 }
-/** Open sea (lakes don't count: they make no coast). */
+/**
+ * Open sea (lakes don't count: they make no coast). Past the edge of the map the world carries on as it is at
+ * the edge: land that runs off the map stays land (Persia beyond Tabriz is not a sea), water stays water.
+ */
 const isWater = (x: number, y: number) => {
-  const c = Math.floor(x * 2);
-  const r = Math.floor(y * 2);
-  if (c < 0 || r < 0 || c >= RW || r >= RH) return true;
+  const c = Math.min(RW - 1, Math.max(0, Math.floor(x * 2)));
+  const r = Math.min(RH - 1, Math.max(0, Math.floor(y * 2)));
   return raster[r * RW + c] === 0;
 };
 for (const sd of seaSeeds) if (!isWater(sd.pt[0], sd.pt[1])) warnings.push(`sea seed of ${sd.owner} at ${toLonLat(sd.pt).join(", ")} is on land`);

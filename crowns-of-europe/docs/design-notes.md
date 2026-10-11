@@ -16,8 +16,9 @@ here.
 3. **Egypt, the Levant, the Caucasus, Mesopotamia and West Africa are in (added on request).** The doc scopes the
    map to Europe, Anatolia and the North African coast; 27 more regions add the Mamluk Sultanate (an AI-only
    major), the Aq Qoyunlu and Qara Qoyunlu, Georgia, Jolof, Mali and Songhai, and an uncolonized Guinea coast
-   (Arguin to the Gold Coast) that anyone with a free colonist can settle from 1444, as Portugal did. Persia,
-   Arabia, the Sahara and the African interior stay off-map wilderness.
+   (Arguin to the Gold Coast) that anyone with a free colonist can settle from 1444, as Portugal did. Arabia,
+   the Sahara and the African interior stay off-map wilderness; Persia lies past the map's east edge (the map
+   builder treats land running off the edge as land, so Tabriz and Baghdad get no false coast).
 4. **The New World is in (added after the first build, on request).** Only the eastern side of the Americas,
    in 46 coarse regions (a whole captaincy or colony each), plus the Atlantic islands and Iceland. The west of
    the continents is off-map wilderness (Inca Empire, Purépecha, Great Plains, Amazonia...). To fit both worlds
