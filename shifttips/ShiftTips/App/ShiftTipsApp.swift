@@ -33,7 +33,10 @@ struct ShiftTipsApp: App {
             if arguments.contains("-dark") { library.settings.appearance = .dark }
             let store = AppStore(storage: MemoryStorage(library: library))
             if arguments.contains("-store-demo") {
-                StoreDemo.seed(store, tipOut: arguments.contains("-store-demo-tipout"))
+                let tonight: StoreDemo.Tonight = arguments.contains("-store-demo-tipout")
+                    ? .tipOut
+                    : (arguments.contains("-store-demo-points") ? .points : .hours)
+                StoreDemo.seed(store, tonight: tonight)
             }
             return store
         }

@@ -65,6 +65,25 @@ final class AppStoreScreenshots: XCTestCase {
         snap(app, "store-07-styles")
     }
 
+    /// Advanced, Hours x Points: the method strip and people with points.
+    func testPoints() {
+        let app = launch(["-advanced", "-store-demo-points"])
+        let review = app.buttons["reviewSplit"]
+        XCTAssertTrue(review.waitForExistence(timeout: 10))
+        XCTAssertTrue(app.buttons["method-weightedHours"].exists)
+        app.scrollViews.firstMatch.swipeUp(velocity: .slow)
+        snap(app, "store-09-points")
+    }
+
+    /// First launch: Simple or Advanced.
+    func testWelcome() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing", "-show-welcome"]
+        app.launch()
+        XCTAssertTrue(app.buttons["experience-advanced"].waitForExistence(timeout: 10))
+        snap(app, "store-10-welcome")
+    }
+
     func testDarkReview() {
         let app = launch(["-dark"])
         let review = app.buttons["reviewSplit"]

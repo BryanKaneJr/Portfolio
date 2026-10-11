@@ -95,6 +95,10 @@ Upload the framed 6.9-inch screenshots (1320 x 2868) in [`../store/app-store-iph
 6. `06-tip-out.png`: Tip-outs, worked out.
 7. `07-styles.png`: Run it your way.
 8. `08-dark.png`: Easy on the eyes at close.
+9. `09-points.png`: Points by role, built in.
+10. `10-welcome.png`: Simple or Advanced.
+
+Apple takes 1 to 10 per device size; all 10 fill every slot.
 
 The unframed versions are in the workflow artifact's `raw/` folder if you'd rather use those.
 

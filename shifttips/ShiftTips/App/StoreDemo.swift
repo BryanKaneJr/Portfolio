@@ -7,14 +7,20 @@ import ShiftTipsData
 /// tests launched with `-ui-testing -store-demo` use it, on throwaway
 /// in-memory storage; a real install never sees it.
 enum StoreDemo {
+    /// Which shift is on New Shift: a pool by hours, the tip-out example,
+    /// or a pool by hours times points.
+    enum Tonight {
+        case hours, tipOut, points
+    }
+
     @MainActor
-    static func seed(_ store: AppStore, tipOut: Bool) {
+    static func seed(_ store: AppStore, tonight: Tonight) {
         let crew = Crew(name: "Dinner Crew", employees: [
-            Employee(name: "Ava", role: "Server"),
-            Employee(name: "Marco", role: "Server"),
-            Employee(name: "Priya", role: "Bartender"),
-            Employee(name: "Jordan", role: "Barback"),
-            Employee(name: "Sam", role: "Host"),
+            Employee(name: "Ava", role: "Server", pointsUnits: 1000),
+            Employee(name: "Marco", role: "Server", pointsUnits: 1000),
+            Employee(name: "Priya", role: "Bartender", pointsUnits: 1000),
+            Employee(name: "Jordan", role: "Barback", pointsUnits: 500),
+            Employee(name: "Sam", role: "Host", pointsUnits: 500),
             Employee(name: "Lee", role: "Manager", eligibility: .managerSupervisorOwner),
         ])
         store.saveCrew(crew)
@@ -33,14 +39,19 @@ enum StoreDemo {
             _ = store.finishShift()
         }
 
-        if tipOut {
+        switch tonight {
+        case .hours:
+            store.form = shift(crew: crew, day: today, label: "Dinner", tips: "472.38", hours: ["7.5", "6.25", "8", "5", "4.5"])
+        case .tipOut:
             var form = ShiftForm.example(day: today, mode: .tipOut, method: .hours)
             form.isExample = false
             form.label = "Dinner"
             form.crewName = crew.name
             store.form = form
-        } else {
-            store.form = shift(crew: crew, day: today, label: "Dinner", tips: "472.38", hours: ["7.5", "6.25", "8", "5", "4.5"])
+        case .points:
+            var form = shift(crew: crew, day: today, label: "Dinner", tips: "472.38", hours: ["7.5", "6.25", "8", "5", "4.5"])
+            form.method = .weightedHours
+            store.form = form
         }
     }
 

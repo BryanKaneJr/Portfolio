@@ -33,6 +33,8 @@ CAPTIONS = {
     "tip-out": ("Tip-outs, worked out.", "Percent of tips or sales, shared by hours.", False),
     "styles": ("Run it your way.", "Pools, points or tip-outs. Every number is yours.", False),
     "dark": ("Easy on the eyes at close.", "Full dark mode for the back office.", True),
+    "points": ("Points by role, built in.", "Hours times points, set from your house policy.", False),
+    "welcome": ("Simple or Advanced.", "No account, no ads. Everything stays on your iPhone.", False),
 }
 
 FONT_PATHS = [
