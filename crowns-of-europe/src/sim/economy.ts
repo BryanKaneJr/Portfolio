@@ -232,7 +232,7 @@ export function monthlyEconomy(s: GameState): void {
     if (!r.owner) continue;
     if (!r.cores.includes(r.owner) && r.conquered !== undefined && s.day - r.conquered >= years(20)) {
       r.cores.push(r.owner);
-      if (r.owner === s.player) log(s, 'economy', `${REGION[r.id].name} now counts as a core region.`, { node: r.id });
+      if (r.owner === s.player) log(s, 'economy', `${REGION[r.id].name} is now fully integrated into your realm.`, { node: r.id });
     }
     if (r.converting && r.converting.done <= s.day) {
       r.faith = r.converting.to;
@@ -263,7 +263,7 @@ export function bankruptcy(s: GameState, n: NationId): void {
     const a = s.armies[id];
     if (a.owner === n && a.regs.inf.n + a.regs.cav.n + a.regs.art.n === 0) delete s.armies[id];
   }
-  log(s, 'economy', `${NATION[n].name} declares bankruptcy! Debts are wiped out, but stability collapses and the armies lose heart.`, {
+  log(s, 'economy', `${NATION[n].name} declares bankruptcy! Debts are wiped out, but order collapses and the armies lose heart.`, {
     nation: n,
     important: involvesPlayer(s, n),
   });

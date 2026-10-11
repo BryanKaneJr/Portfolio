@@ -21,7 +21,7 @@ export type Difficulty = 'easy' | 'normal' | 'hard' | 'very_hard';
 export type UnitType = 'inf' | 'cav' | 'art';
 export type ShipType = 'galley' | 'warship' | 'transport';
 /** What a New World region (or an Atlantic island) trades in: extra gold for its owner every month. */
-export type Good = 'silver' | 'gold' | 'sugar' | 'tobacco' | 'cocoa' | 'dyes' | 'furs' | 'fish' | 'grain';
+export type Good = 'silver' | 'gold' | 'ivory' | 'sugar' | 'tobacco' | 'cocoa' | 'dyes' | 'furs' | 'fish' | 'grain';
 export type CasusBelli = 'claim' | 'holy' | 'rival' | 'none' | 'independence' | 'coalition' | 'reconquest';
 
 /** Additive modifiers. Percentages are fractions (0.1 = +10%). */

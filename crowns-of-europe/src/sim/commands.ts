@@ -174,7 +174,7 @@ export function recruit(s: GameState, region: string, type: UnitType, count = 1)
   if (!reg || reg.owner !== s.player || reg.controller !== s.player) return no('You can only recruit in regions you hold.');
   if (type === 'art' && nat.era < 2) return no('Artillery arrives with the Renaissance (era 2).');
   const cost = unitCost(s, s.player, type) * count;
-  if (nat.manpower < 1000 * count) return no(`Not enough manpower (${count * 1000} needed).`);
+  if (nat.manpower < 1000 * count) return no(`Not enough levies (${count * 1000} men needed).`);
   if (!pay(s, cost)) return no(`Not enough gold (${cost} needed).`);
   nat.manpower -= 1000 * count;
   for (let i = 0; i < count; i++) nat.recruiting.push({ type, region, done: s.day + RECRUIT_DAYS });
@@ -202,13 +202,13 @@ export function setArmyMode(s: GameState, mode: 'peace' | 'war'): Result {
 export function develop(s: GameState, region: string): Result {
   const reg = s.regions[region];
   if (!reg || reg.owner !== s.player) return no('Not your region.');
-  if (reg.dev >= 10) return no('Already fully developed.');
+  if (reg.dev >= 10) return no('Already as prosperous as it can be.');
   if (reg.controller !== s.player) return no('The region is occupied.');
   const cost = devCost(s, reg);
-  if (!pay(s, cost)) return no(`Developing costs ${cost} gold.`);
+  if (!pay(s, cost)) return no(`Investing here costs ${cost} gold.`);
   reg.dev++;
   reg.devBought++;
-  return ok(`${regionName(region)} grows to development ${reg.dev}.`);
+  return ok(`${regionName(region)} grows to prosperity ${reg.dev}.`);
 }
 
 export function buildFort(s: GameState, region: string): Result {
@@ -225,11 +225,11 @@ export function buildFort(s: GameState, region: string): Result {
 export function makeCore(s: GameState, region: string): Result {
   const reg = s.regions[region];
   if (!reg || reg.owner !== s.player) return no('Not your region.');
-  if (reg.cores.includes(s.player)) return no('Already a core region.');
+  if (reg.cores.includes(s.player)) return no('Already integrated.');
   const cost = coreCost(s, reg);
-  if (!pay(s, cost)) return no(`Making it a core costs ${cost} gold.`);
+  if (!pay(s, cost)) return no(`Integrating it costs ${cost} gold.`);
   reg.cores.push(s.player);
-  return ok(`${regionName(region)} is now a core region: full taxes and manpower.`);
+  return ok(`${regionName(region)} is now integrated: full taxes and levies.`);
 }
 
 export function convertRegion(s: GameState, region: string): Result {
@@ -259,7 +259,7 @@ export function fabricateClaim(s: GameState, region: string): Result {
 
 export function moveCapital(s: GameState, region: string): Result {
   const reg = s.regions[region];
-  if (!reg || reg.owner !== s.player || !reg.cores.includes(s.player)) return no('Your capital must be a core region you own.');
+  if (!reg || reg.owner !== s.player || !reg.cores.includes(s.player)) return no('Your capital must be an integrated region you own.');
   const cost = 100;
   if (!pay(s, cost)) return no(`Moving the court costs ${cost} gold.`);
   me(s).capital = region;
@@ -270,11 +270,11 @@ export function moveCapital(s: GameState, region: string): Result {
 
 export function boostStability(s: GameState): Result {
   const nat = me(s);
-  if (nat.stability >= 3) return no('Stability is already at its peak.');
+  if (nat.stability >= 3) return no('Order is already at its peak.');
   const cost = stabilityCost(s, s.player);
   if (!pay(s, cost)) return no(`It costs ${cost} gold to win over the estates.`);
   nat.stability++;
-  return ok(`Stability rises to ${nat.stability > 0 ? '+' : ''}${nat.stability}.`);
+  return ok(`Order rises to ${nat.stability > 0 ? '+' : ''}${nat.stability}.`);
 }
 
 export function adoptEra(s: GameState): Result {
@@ -285,7 +285,7 @@ export function adoptEra(s: GameState): Result {
   if (!pay(s, cost)) return no(`Adopting the new era costs ${cost} gold.`);
   nat.era++;
   invalidateMods();
-  return ok(`You enter the ${UNITS.eras[nat.era - 1].name}: better troops and a new policy slot.`);
+  return ok(`You enter the ${UNITS.eras[nat.era - 1].name}: better troops and room for another decree.`);
 }
 
 export function takeLoan(s: GameState): Result {
@@ -307,20 +307,20 @@ export function repayLoan(s: GameState): Result {
 export function choosePolicy(s: GameState, id: string, replace?: string): Result {
   const nat = me(s);
   const p = POLICY[id];
-  if (!p) return no('Unknown policy.');
+  if (!p) return no('Unknown decree.');
   if (p.era > nat.era) return no(`${p.name} needs era ${p.era}.`);
   if (nat.policies.includes(id)) return no('Already adopted.');
   if (replace) {
     if (!nat.policies.includes(replace)) return no('Nothing to replace.');
-    if (nat.policySwappedEra === nat.era) return no('You can only swap a policy once per era.');
+    if (nat.policySwappedEra === nat.era) return no('You can only replace a decree once per era.');
     nat.policies = nat.policies.filter(x => x !== replace);
     nat.policySwappedEra = nat.era;
     nat.stability = clamp(nat.stability - 1, -3, 3);
-  } else if (nat.policies.length >= nat.era) return no('All policy slots are full. Swap one instead.');
+  } else if (nat.policies.length >= nat.era) return no('You have as many decrees as your era allows. Replace one instead.');
   nat.policies.push(id);
   if (id === 'tax_reform') nat.modifiers.push({ id: 'tax_reform_unrest', name: 'Tax Reform grumbling', mods: { unrest: 1 }, until: s.day + months(60) });
   invalidateMods();
-  return ok(`Policy adopted: ${p.name}${replace ? ' (stability -1)' : ''}.`);
+  return ok(`Decree issued: ${p.name}${replace ? ' (order −1)' : ''}.`);
 }
 
 // ---------------------------------------------------------------- navy
@@ -362,7 +362,7 @@ export function colonize(s: GameState, region: string): Result {
 export function abandonPlayerColony(s: GameState, region: string): Result {
   const why = abandonColony(s, s.player, region);
   if (why) return no(why);
-  return ok(`Your settlers leave ${regionName(region)}. The colonist is free again.`);
+  return ok(`Your settlers leave ${regionName(region)}. The charter is free again.`);
 }
 
 export function fundExpedition(s: GameState): Result {
@@ -402,10 +402,10 @@ export function proposePeace(s: GameState, warId: string, terms: PeaceTerms): Re
   if (winnerIsMe && !terms.white) {
     const cost = peaceCost(s, terms);
     const sc = scoreFor(s, w, s.player);
-    if (cost > 100) return no('That deal is worth more than 100% war score.');
+    if (cost > 100) return no('That deal costs more than 100% leverage.');
     if (cost > Math.max(sc, 0) && sc < 100) {
       const ans = peaceAcceptance(s, w, terms, decider);
-      if (!ans.accept) return no(`${nationName(decider)} refuses: your demands cost ${cost}% but your war score is ${sc}%.`);
+      if (!ans.accept) return no(`${nationName(decider)} refuses: your demands cost ${cost}% but your leverage is ${sc}%.`);
     }
   }
   const ans = peaceAcceptance(s, w, terms, decider);
@@ -480,7 +480,7 @@ export function playerAnswerEvent(s: GameState, index: number, choice: number): 
 }
 
 export function playerCompleteMission(s: GameState, id: string): Result {
-  return completeMission(s, s.player, id) ? ok('Mission complete!') : no('Not ready yet.');
+  return completeMission(s, s.player, id) ? ok('Ambition achieved!') : no('Not ready yet.');
 }
 
 export function requestSanction(s: GameState, region: string): Result {

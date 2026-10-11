@@ -99,7 +99,7 @@ await shot('after-play');
 // Map modes.
 await page.getByTestId('mapmode').click();
 await shot('mapmode-list');
-await page.getByText('Development', { exact: true }).first().click();
+await page.getByText('Prosperity', { exact: true }).first().click();
 await shot('map-development');
 await page.getByTestId('mapmode').click();
 await page.getByText('Political', { exact: true }).first().click();

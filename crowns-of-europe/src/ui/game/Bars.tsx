@@ -13,14 +13,15 @@ import { IconBtn } from '../components/kit';
 import { C, fmt, kmen, sans, serif, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
 
-function Res({ icon, value, sub, onPress, tone, label }: { icon: IconName; value: string; sub?: string; onPress: () => void; tone?: 'good' | 'bad'; label: string }) {
+/** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
+function Res({ icon, value, sub, onPress, tone, subTone, label }: { icon: IconName; value: string; sub?: string; onPress: () => void; tone?: 'bad'; subTone?: 'good' | 'bad'; label: string }) {
   return (
-    <Pressable onPress={onPress} style={styles.res} accessibilityLabel={label} hitSlop={4}>
-      <Icon name={icon} size={15} color={C.gold} />
-      <View>
+    <Pressable onPress={onPress} style={styles.res} accessibilityLabel={`${label}: ${value}`} hitSlop={4}>
+      <View style={styles.resRow}>
+        <Icon name={icon} size={14} color={C.gold} />
         <Text style={[styles.resValue, tone === 'bad' && { color: '#ff9b86' }]}>{value}</Text>
-        {sub ? <Text style={[styles.resSub, tone === 'good' && { color: '#a9d79a' }, tone === 'bad' && { color: '#ff9b86' }]}>{sub}</Text> : null}
       </View>
+      <Text style={[styles.resSub, subTone === 'good' && { color: '#a9d79a' }, subTone === 'bad' && { color: '#ff9b86' }]}>{sub ?? label}</Text>
     </Pressable>
   );
 }
@@ -36,10 +37,10 @@ export function TopBar() {
       <Pressable onPress={() => st.open({ kind: 'menu', tab: 'economy' })} style={{ paddingRight: 6 }} accessibilityLabel="Your nation">
         <Flag nation={s.player} size={30} />
       </Pressable>
-      <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)}/mo`} tone={n.gold < 0 || bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
-      <Res icon="manpower" label="Manpower" value={kmen(n.manpower)} onPress={() => open('manpower')} />
-      <Res icon="stability" label="Stability" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
-      <Res icon="prestige" label="Prestige" value={fmt(n.prestige)} onPress={() => open('prestige')} />
+      <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)} a month`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
+      <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />
+      <Res icon="stability" label="Order" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
+      <Res icon="prestige" label="Renown" value={fmt(n.prestige)} onPress={() => open('prestige')} />
       <Res icon="threat" label="Threat" value={fmt(n.threat)} tone={n.threat >= 40 ? 'bad' : undefined} onPress={() => open('threat')} />
     </View>
   );
@@ -156,9 +157,10 @@ export function WarStrip() {
 
 const styles = StyleSheet.create({
   top: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: C.chrome, paddingHorizontal: 8, paddingVertical: 6, borderBottomWidth: 1, borderBottomColor: C.chromeLine },
-  res: { flexDirection: 'row', alignItems: 'center', gap: 4, paddingVertical: 2, minWidth: 48 },
+  res: { alignItems: 'center', paddingVertical: 1, minWidth: 50 },
+  resRow: { flexDirection: 'row', alignItems: 'center', gap: 3 },
   resValue: { color: C.chromeText, fontFamily: sans, fontSize: 14, fontWeight: '800', fontVariant: ['tabular-nums'] },
-  resSub: { color: C.chromeMuted, fontFamily: sans, fontSize: 10, fontWeight: '600', marginTop: -1 },
+  resSub: { color: C.chromeMuted, fontFamily: sans, fontSize: 10, fontWeight: '600', marginTop: 0 },
   bottom: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: C.chrome, paddingHorizontal: 10, paddingTop: 8, paddingBottom: 6, borderTopWidth: 1, borderTopColor: C.chromeLine },
   time: { flexDirection: 'row', alignItems: 'center', gap: 10, minWidth: 130 },
   play: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.chrome2, borderWidth: 1.5, borderColor: C.gold, alignItems: 'center', justifyContent: 'center' },

@@ -85,7 +85,7 @@ export function OfferCard() {
           {w ? ` against ${(defensive ? w.attackers : w.defenders).map(nationName).join(', ')}` : ''}.
         </T>
         <T v="small" style={{ marginTop: 8 }}>
-          {defensive ? 'They were attacked. Refusing breaks your alliance and costs prestige.' : 'They started this war. Refusing only disappoints them.'}
+          {defensive ? 'They were attacked. Refusing breaks your alliance and costs renown.' : 'They started this war. Refusing only disappoints them.'}
         </T>
       </>
     );
@@ -106,7 +106,7 @@ export function OfferCard() {
             <Line key={r} label={`${regionName(r)} goes to`} value={nationName(t.winner)} tone={youWin ? 'good' : 'bad'} />
           ))}
           {t.gold ? <Line label={youWin ? 'They pay you' : 'You pay'} value={`${t.gold} gold`} tone={youWin ? 'good' : 'bad'} /> : null}
-          {w ? <Line label="Current war score (yours)" value={`${scoreFor(s, w, s.player)}%`} /> : null}
+          {w ? <Line label="Your leverage now" value={`${scoreFor(s, w, s.player)}%`} /> : null}
           {w && !t.white ? <Line label="Value of the deal" value={`${peaceCost(s, t)}%`} tone="muted" /> : null}
         </View>
       </>
@@ -167,7 +167,7 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
         </View>
       ))}
       {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The winner had more than five times the loser’s remaining strength: the beaten army was wiped out to the last man.</T> : null}
-      {report.warScore ? <T v="small" style={{ marginTop: 6 }}>War score: +{report.warScore}% for the winner.</T> : null}
+      {report.warScore ? <T v="small" style={{ marginTop: 6 }}>Leverage: +{report.warScore}% for the winner.</T> : null}
       <Btn style={{ marginTop: 14 }} label="Continue" onPress={onClose} testID="report-close" />
       <T v="tiny" style={{ marginTop: 6, textAlign: 'center' }}>{s.reports.length} recent battles in the message log.</T>
     </CardShell>

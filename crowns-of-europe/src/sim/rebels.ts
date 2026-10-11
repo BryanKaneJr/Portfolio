@@ -27,8 +27,8 @@ export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
     add('Different faith', 3 - tolerant);
   }
   if (!isCored(r)) add('Recently conquered', 2);
-  add('War exhaustion', nat.warExhaustion / 4);
-  add('Stability', -nat.stability * 0.75);
+  add('War weariness', nat.warExhaustion / 4);
+  add('Order', -nat.stability * 0.75);
   add('Modifiers', nationMods(s, r.owner).unrest);
   if (r.converting) add('Conversion under way', 2);
   for (const m of r.unrestMods) if (m.until > s.day) add('Recent events', m.amount);
@@ -96,7 +96,7 @@ function rebelOutcomes(s: GameState): void {
       setController(s, reg.id, owner);
       nat.stability = clamp(nat.stability - 1, -3, 3);
       for (const r of Object.values(s.regions)) if (r.owner === owner) r.unrestMods.push({ amount: -3, until: s.day + years(5) });
-      if (owner === s.player) log(s, 'rebels', `You give in to the rebels of ${regionName(reg.id)}. Stability -1, but the land calms down.`, { node: reg.id, important: true });
+      if (owner === s.player) log(s, 'rebels', `You give in to the rebels of ${regionName(reg.id)}. Order −1, but the land calms down.`, { node: reg.id, important: true });
     }
     for (const id of Object.keys(s.armies)) {
       const a = s.armies[id];

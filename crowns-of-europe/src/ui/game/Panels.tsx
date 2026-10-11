@@ -57,7 +57,7 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
             <Line key={i.label} label={i.label} value={fmt(i.value, 1)} tone="good" />
           ))}
           <Line label="Total" value={fmt(l.totalIncome, 1)} bold />
-          <T v="tiny">Taxes = development × 0.3 per region, ×{taxMultiplier(s, s.player).toFixed(2)} from stability, your ruler and modifiers. Regions that aren’t cores pay half.</T>
+          <T v="tiny">Taxes = prosperity × 0.3 per region, ×{taxMultiplier(s, s.player).toFixed(2)} from order, your ruler and modifiers. Regions not yet integrated pay half.</T>
         </Section>
         <Section title="Expenses per month">
           {l.expenses.map(i => (
@@ -71,29 +71,29 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
   }
   if (what === 'manpower') {
     return (
-      <Panel title="Manpower" onClose={close}>
+      <Panel title="Levies" onClose={close}>
         <T v="h2">{fmt(n.manpower)} men</T>
         <Line label="Maximum" value={fmt(maxManpower(s, s.player))} />
         <Line label="Recovery per month" value={`+${fmt(manpowerRecovery(s, s.player))}`} tone="good" />
-        <T v="small" style={{ marginTop: 8 }}>Each regiment needs 1,000 men to raise and draws on manpower to refill its losses. The maximum is 3,000 plus 400 per point of development (half for regions that aren’t cores). War exhaustion slows recovery. Mercenaries need no manpower.</T>
+        <T v="small" style={{ marginTop: 8 }}>Levies are the men your realm can call up. Each regiment needs 1,000 to raise and draws on them to refill its losses. The maximum is 3,000 plus 400 per point of prosperity (half for regions not yet integrated). War weariness slows recovery. Mercenaries need no levies.</T>
       </Panel>
     );
   }
   if (what === 'stability') {
     return (
-      <Panel title="Stability" onClose={close}>
+      <Panel title="Order" onClose={close}>
         <T v="h2">{signed(n.stability)}</T>
-        <T v="small">Stability runs from −3 to +3. Each point changes tax income by 5% and unrest in every region by 0.75.</T>
-        <Btn style={{ marginTop: 12 }} label={n.stability >= 3 ? 'Stability is at its peak' : `Raise stability (${stabilityCost(s, s.player)} gold)`} disabled={n.stability >= 3} onPress={() => st.run(boostStability)} />
-        <T v="tiny" style={{ marginTop: 6 }}>Wars without a reason, breaking truces, succession crises and bankruptcy all lower stability.</T>
+        <T v="small">Order is how settled your realm is, from −3 to +3. Each point changes tax income by 5% and unrest in every region by 0.75.</T>
+        <Btn style={{ marginTop: 12 }} label={n.stability >= 3 ? 'Order is at its peak' : `Raise order (${stabilityCost(s, s.player)} gold)`} disabled={n.stability >= 3} onPress={() => st.run(boostStability)} />
+        <T v="tiny" style={{ marginTop: 6 }}>Wars without a reason, breaking truces, succession crises and bankruptcy all lower order.</T>
       </Panel>
     );
   }
   if (what === 'prestige') {
     return (
-      <Panel title="Prestige" onClose={close}>
+      <Panel title="Renown" onClose={close}>
         <T v="h2">{fmt(n.prestige)} / 100</T>
-        <T v="small">Prestige comes from winning battles and wars, missions and events, and fades by 1% a month. Every 5 prestige adds +1 to how others see you, and high prestige makes Threat fade faster.</T>
+        <T v="small">Renown is your crown’s good name. It comes from winning battles and wars, ambitions and events, and fades by 1% a month. Every 5 renown adds +1 to how others see you, and high renown makes Threat fade faster.</T>
       </Panel>
     );
   }
@@ -107,9 +107,9 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
   return (
     <Panel title="Threat" onClose={close}>
       <T v="h2">{fmt(n.threat)}</T>
-      <T v="small">Taking land raises your Threat (claimed land counts less). Nearby nations, and those of another faith, feel it most. When three or more feel 40+ Threat, they form a coalition that joins any war you start against a member, and may attack you. Threat fades slowly, faster with high prestige.</T>
+      <T v="small">Taking land raises your Threat (claimed land counts less). Nearby nations, and those of another faith, feel it most. When three or more feel 40+ Threat, they form a league that joins any war you start against a member, and may attack you. Threat fades slowly, faster with high renown.</T>
       {c ? (
-        <Section title="Coalition against you">
+        <Section title="League against you">
           {c.members.map(m => (
             <Line key={m} label={nationName(m)} value="member" tone="bad" />
           ))}
@@ -170,14 +170,14 @@ export function DeclareWarPanel({ target }: { target: string }) {
           {cbs.map((c, i) => (
             <Pressable key={i} onPress={() => setPick(i)} style={[styles.option, pick === i && styles.optionOn]}>
               <Text style={styles.optionText}>{c.label}</Text>
-              {c.goal ? <Text style={styles.optionSub}>War goal: {regionName(c.goal)}. Holding it adds war score every month.</Text> : null}
-              {c.cb === 'none' ? <Text style={[styles.optionSub, { color: C.red }]}>−1 stability, +8 Threat, and everyone thinks less of you.</Text> : null}
+              {c.goal ? <Text style={styles.optionSub}>War goal: {regionName(c.goal)}. Holding it adds leverage every month.</Text> : null}
+              {c.cb === 'none' ? <Text style={[styles.optionSub, { color: C.red }]}>−1 order, +8 Threat, and everyone thinks less of you.</Text> : null}
               {c.cb === 'holy' ? <Text style={styles.optionSub}>A war of faith.</Text> : null}
             </Pressable>
           ))}
         </View>
       </Section>
-      {truce ? <T v="small" style={{ color: C.red, marginTop: 8 }}>You have a truce with them. Breaking it costs 2 stability, 20 prestige and 10 Threat.</T> : null}
+      {truce ? <T v="small" style={{ color: C.red, marginTop: 8 }}>You have a truce with them. Breaking it costs 2 order, 20 renown and 10 Threat.</T> : null}
       <Section title="Likely to fight with you">
         {sides.attackers.map(n => (
           <Row key={n} style={{ marginBottom: 4 }}>
@@ -244,8 +244,9 @@ export function PeacePanel({ warId }: { warId: string }) {
   return (
     <Panel title={w.name} onClose={() => st.close()}>
       <View style={styles.score}>
-        <Text style={styles.scoreLabel}>War score</Text>
+        <Text style={styles.scoreLabel}>Leverage</Text>
         <Text style={[styles.scoreValue, { color: sc >= 0 ? C.green : C.red }]}>{signed(sc)}%</Text>
+        <Text style={styles.scoreHelp}>{sc > 5 ? 'Your side is ahead.' : sc < -5 ? 'Your side is behind.' : 'Neither side is ahead.'} Spend leverage on the terms below; ask for more than you hold and they will refuse.</Text>
         <View style={{ width: '100%', marginTop: 6 }}>
           <Line label="Battles" value={signed(ws.battles * flip)} />
           <Line label="Occupation" value={signed(ws.occupation * flip)} />
@@ -278,7 +279,7 @@ export function PeacePanel({ warId }: { warId: string }) {
                     <View style={{ flex: 1 }}>
                       <Text style={styles.optionText}>{regionName(r)}</Text>
                       <Text style={styles.optionSub}>
-                        Dev {s.regions[r].dev}
+                        Prosperity {s.regions[r].dev}
                         {r in s.nations[winner].claims || s.regions[r].cores.includes(winner) ? ' · claimed' : ''}
                         {s.regions[r].controller === winner ? ' · occupied' : ''}
                       </Text>
@@ -297,7 +298,7 @@ export function PeacePanel({ warId }: { warId: string }) {
                 <Btn key={g} small style={{ flex: 1 }} tone={gold === g ? 'primary' : 'secondary'} label={g ? `${g}` : 'None'} onPress={() => setGold(g)} />
               ))}
             </Row>
-            <T v="tiny" style={{ marginTop: 4 }}>Every 10 gold costs 1% war score.</T>
+            <T v="tiny" style={{ marginTop: 4 }}>Every 10 gold costs 1% leverage.</T>
           </Section>
           {releasable.length ? (
             <Section title="Free a nation">
@@ -323,8 +324,12 @@ export function PeacePanel({ warId }: { warId: string }) {
           ) : null}
           <View style={styles.summary}>
             <Line label="Value of these terms" value={`${cost}%`} bold />
-            <Line label={mode === 'demand' ? 'Your war score' : 'Their war score'} value={`${mode === 'demand' ? sc : -sc}%`} />
-            <T v="small" style={{ marginTop: 6, color: answer.accept ? C.green : C.red }}>{answer.accept ? `${nationName(enemy)} would accept.` : `${nationName(enemy)} would refuse.`}</T>
+            <Line label={mode === 'demand' ? 'Your leverage' : 'Their leverage'} value={`${mode === 'demand' ? sc : -sc}%`} />
+            <T v="small" style={{ marginTop: 6, color: answer.accept ? C.green : C.red, fontWeight: '700' }}>{answer.accept ? `${nationName(enemy)} would accept.` : `${nationName(enemy)} would refuse.`}</T>
+            <T v="tiny" style={{ marginTop: 2 }}>Why (they accept if the total is 0 or more):</T>
+            {answer.reasons.filter(r => r.value).map(r => (
+              <Line key={r.label} label={r.label} value={signed(r.value)} tone={r.value >= 0 ? 'good' : 'bad'} />
+            ))}
           </View>
           <Btn style={{ marginTop: 10 }} label="Send peace offer" disabled={!regions.length && !gold && !vassalize && !release.length} onPress={() => {
             const r = st.run(x => proposePeace(x, w.id, terms));
@@ -405,6 +410,7 @@ const styles = StyleSheet.create({
   cost: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink },
   score: { alignItems: 'center', backgroundColor: C.parchment2, borderRadius: 12, padding: 12 },
   scoreLabel: { fontFamily: sans, fontSize: 12, color: C.muted, textTransform: 'uppercase', letterSpacing: 1, fontWeight: '700' },
+  scoreHelp: { fontFamily: sans, fontSize: 12, color: C.inkSoft, textAlign: 'center', marginTop: 4, lineHeight: 16 },
   scoreValue: { fontFamily: serif, fontSize: 36, fontWeight: '700' },
   summary: { marginTop: 12, backgroundColor: C.parchment2, padding: 10, borderRadius: 10 },
   logRow: { paddingVertical: 8, paddingHorizontal: 10, borderLeftWidth: 3, borderLeftColor: 'transparent', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.parchmentLine },

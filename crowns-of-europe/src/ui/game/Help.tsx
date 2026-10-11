@@ -12,18 +12,37 @@ const TOPICS: { title: string; body: string }[] = [
   { title: 'Time', body: 'The game runs in real time. Tap the round button to play or pause and pick 1×, 2× or 4× speed. It pauses itself for events, wars declared on you and offers (change this in Settings).' },
   { title: 'Armies', body: 'Tap your army (the numbered chip in your colour), then tap a region to march there. The number is regiments of 1,000 men. Recruit in any region you own: infantry is cheap and sturdy, cavalry hits hard on open ground, artillery (from 1500) wins long battles and sieges.' },
   { title: 'Battles', body: 'Battles start when enemies share a region and last several days, so you can send reinforcements. Each day both sides roll a die plus their general’s skill; damage is the roll times your front line. Rough terrain hurts the attacker. A side at zero morale retreats. Beat an army with five times its numbers and it is annihilated.' },
-  { title: 'Supply', body: 'Each region feeds only so many regiments (see the army sheet). Above that, you lose men every month, worse in winter in the north and east. One 40-regiment doomstack or two of 20? That’s the choice.' },
+  { title: 'Supply', body: 'Each region feeds only so many regiments (see the army sheet). Above that, you lose men every month, worse in winter in the north and east. One great army of 40 regiments or two of 20? That’s the choice.' },
   { title: 'Sieges', body: 'Stand in an enemy region to take it: open regions fall in 15 days, forts take months and need 3 regiments per fort level. Enemy forts block your march past them.' },
-  { title: 'War and peace', body: 'Declare war from a nation’s sheet. You need a reason (a claim, a holy war, a rival) or you lose stability and gain Threat. War score comes from battles, occupation, blockades and your war goal. Spend it in the peace deal on regions, gold or vassals. A peace brings a 10-year truce.' },
-  { title: 'Threat and coalitions', body: 'Taking land raises your Threat, most with your neighbours and those of other faiths. When three or more fear you, they form a coalition that joins any war you start against a member. Threat fades slowly.' },
-  { title: 'Money', body: 'Gold comes from taxes (development) and trade centres. Spend it on troops, development, forts, coring new land, the next era, and stability. Run out and you borrow; too much debt means bankruptcy.' },
-  { title: 'New land', body: 'Conquered regions give half their taxes and manpower until they become cores (after 20 years, or pay to core them now). Different faith and recent conquest raise unrest; above 7, rebels may rise.' },
+  { title: 'War and peace', body: 'Declare war from a nation’s sheet. You need a reason (a claim, a holy war, a rival) or you lose order and gain Threat. Battles, occupied land, blockades and holding your war goal give you leverage; spend it in the peace deal on regions, gold or vassals. A peace brings a 10-year truce.' },
+  { title: 'Threat and leagues', body: 'Taking land raises your Threat, most with your neighbours and those of other faiths. When three or more fear you, they form a league that joins any war you start against a member. Threat fades slowly.' },
+  { title: 'Money', body: 'Gold comes from taxes (higher in prosperous regions) and trade centres. Spend it on troops, prosperity, forts, integrating new land, the next era and order. Run out and you borrow; too much debt means bankruptcy.' },
+  { title: 'New land', body: 'Conquered regions give half their taxes and levies until they are integrated (after 20 years, or pay to integrate them now). Different faith and recent conquest raise unrest; above 7, rebels may rise.' },
   { title: 'Diplomacy', body: 'Every nation has an opinion of you; tap it to see why. Ally against common threats, marry dynasties (a chance to inherit), declare rivals, demand vassalage from weak friends. Allies are called to your wars; refusing a defensive call breaks the alliance.' },
-  { title: 'Eras and policies', body: 'Four eras: Late Medieval, Renaissance (1500), Wars of Religion (1575), Absolutism (1650). When one begins you pay gold to adopt it for better troops and a new policy slot.' },
-  { title: 'Missions', body: 'Your nation’s missions (in the Realm menu) are concrete goals with rewards: claims for the next war, gold, prestige and lasting bonuses.' },
-  { title: 'The New World', body: 'Across the Atlantic lie uncharted lands. From 1470 a crown with an ocean coast can fund an expedition west (Colonies tab); by 1500 everyone knows the way. Then send colonists to the pale, uncolonized regions: a colony grows until it has 1,000 settlers and becomes a region of yours. Natives slow it down and may attack it; any of your regiments standing there keeps the settlers safe. Inland colonies grow slower, and the more land you hold across the ocean, the thinner your settlers spread. Every New World region trades in a good (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
+  { title: 'Eras and decrees', body: 'Four eras: Late Medieval, Renaissance (1500), Wars of Religion (1575), Absolutism (1650). When one begins you pay gold to adopt it for better troops and room for one more decree.' },
+  { title: 'Ambitions', body: 'Your nation’s ambitions (in the Realm menu) are concrete goals with rewards: claims for the next war, gold, renown and lasting bonuses.' },
+  { title: 'The New World', body: 'Across the Atlantic lie uncharted lands. From 1470 a crown with an ocean coast can fund an expedition west (Colonies tab); by 1500 everyone knows the way. Then use your colonial charters on the pale, uncolonized regions: each charter settles one colony at a time, and a colony grows until it has 1,000 settlers and becomes a region of yours. Natives slow it down and may attack it; any of your regiments standing there keeps the settlers safe. Inland colonies grow slower, and the more land you hold across the ocean, the thinner your settlers spread. Every overseas region has an export (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
   { title: 'Ships and the ocean', body: 'An army boards from a coast when your transports are in that sea, and the fleet then carries it as far as it needs to go, across the ocean if you like. Crossing the open Atlantic takes weeks. A stronger enemy fleet bars the way.' },
-  { title: 'Map modes', body: 'The chip at the top right switches the map: political, terrain, development, faith, diplomatic (how others see you), threat and trade goods.' },
+  { title: 'Map modes', body: 'The chip at the top right switches the map: political, terrain, prosperity, faith, diplomatic (how others see you), threat and exports.' },
+];
+
+/** The game's own words for its numbers, so nothing on screen needs a wiki. */
+export const GLOSSARY: { word: string; means: string }[] = [
+  { word: 'Prosperity', means: 'How rich a region is, from 1 to 10. More prosperity means more taxes, levies and supply. Pay gold to raise it.' },
+  { word: 'Levies', means: 'Men your realm can call up. Raising a regiment takes 1,000; losses are refilled from here.' },
+  { word: 'Order', means: 'How settled your realm is, from −3 to +3. Each point is 5% more taxes and less unrest.' },
+  { word: 'Renown', means: 'Your crown’s good name, won in battles, wars and ambitions. Others like you more and your Threat fades faster.' },
+  { word: 'Threat', means: 'How much other crowns fear your conquests. Neighbours and other faiths feel it most.' },
+  { word: 'League', means: 'Three or more crowns that fear you, banded together: they all join any war you start on one of them.' },
+  { word: 'Leverage', means: 'How far ahead you are in a war, from −100% to +100%. Spend it on the terms of the peace.' },
+  { word: 'Claim', means: 'Your right to a region: a reason for war, and cheaper to take in the peace.' },
+  { word: 'Integrated', means: 'Land that is fully part of your realm: full taxes and levies. Conquests take 20 years, or gold.' },
+  { word: 'War weariness', means: 'Grows as a war drags on and men die. It slows your levies and raises unrest; peace lets it fade.' },
+  { word: 'Decree', means: 'A lasting choice of how you rule, with its own bonuses. You may issue one per era.' },
+  { word: 'Ambition', means: 'A goal your nation wants to reach, with a reward when you do.' },
+  { word: 'Charter', means: 'A licence to found one colony at a time across the ocean.' },
+  { word: 'Export', means: 'What an overseas region sends home: gold every month, on top of its taxes.' },
+  { word: 'Era', means: 'An age of better troops and new ideas. Pay gold to adopt it when it begins.' },
 ];
 
 export function HelpPanel() {
@@ -35,6 +54,14 @@ export function HelpPanel() {
           <T v="small">{t.body}</T>
         </Section>
       ))}
+      <Section title="Words used in this game">
+        {GLOSSARY.map(g => (
+          <T key={g.word} v="small" style={{ marginBottom: 6 }}>
+            <Text style={styles.word}>{g.word}: </Text>
+            {g.means}
+          </T>
+        ))}
+      </Section>
     </Panel>
   );
 }
@@ -50,7 +77,7 @@ interface Hint {
 const HINTS: Hint[] = [
   {
     id: 'start',
-    text: 'Welcome, Your Majesty. Tap the play button to start time. Tap your army (the chip in your colour) and then a region to march. The Realm menu holds missions, diplomacy and the treasury.',
+    text: 'Welcome, Your Majesty. Tap the play button to start time. Tap your army (the chip in your colour) and then a region to march. The Realm menu holds your ambitions, diplomacy and the treasury.',
     when: () => true,
   },
   {
@@ -60,17 +87,17 @@ const HINTS: Hint[] = [
   },
   {
     id: 'war',
-    text: 'You are at war. Occupy enemy regions and win battles to raise your war score (the red chip at the top). Tap it to negotiate peace when you’re ahead.',
+    text: 'You are at war. Occupy enemy regions and win battles to gain leverage (the red chip at the top). Tap it to make peace when you’re ahead.',
     when: () => !!store.state && Object.values(store.state.wars).some(w => w.attackers.includes(store.state!.player) || w.defenders.includes(store.state!.player)),
   },
   {
     id: 'newworld',
-    text: 'A New World has been found! Open the Colonies tab in the Realm menu to see your colonists, then tap a pale, uncolonized region across the Atlantic and choose Start a colony.',
+    text: 'A New World has been found! Open the Colonies tab in the Realm menu to see your charters, then tap a pale, uncolonized region across the Atlantic and choose Start a colony.',
     when: () => !!store.state?.discovery,
   },
   {
     id: 'mission',
-    text: 'A mission is ready. Open the Realm menu (the gold button) and tap Complete to collect the reward.',
+    text: 'An ambition is fulfilled. Open the Realm menu (the gold button) and tap Complete to collect the reward.',
     when: () => !!store.state && Object.keys(store.state.nations[store.state.player].flags).some(f => f.startsWith('_mready_')),
   },
 ];
@@ -110,4 +137,5 @@ const styles = StyleSheet.create({
   hintText: { fontFamily: sans, fontSize: 13, color: C.inkSoft, marginTop: 2, lineHeight: 18 },
   hintBtn: { backgroundColor: C.chrome2, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 8 },
   hintBtnText: { color: C.chromeText, fontFamily: sans, fontWeight: '700', fontSize: 13 },
+  word: { fontWeight: '800', color: C.ink },
 });

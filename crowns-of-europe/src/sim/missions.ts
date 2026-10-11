@@ -23,7 +23,7 @@ export function completeMission(s: GameState, n: NationId, id: string): boolean 
   if (!m || missionState(s, n, m) !== 'ready') return false;
   s.nations[n].missionsDone.push(m.id);
   applyEffects(s, n, m.reward);
-  if (n === s.player) log(s, 'mission', `Mission complete: ${m.title}.`, { important: true });
+  if (n === s.player) log(s, 'mission', `Ambition achieved: ${m.title}.`, { important: true });
   return true;
 }
 
@@ -37,7 +37,7 @@ export function monthlyMissions(s: GameState): void {
       if (nat.id === s.player) {
         if (!nat.flags[`_mready_${m.id}`]) {
           nat.flags[`_mready_${m.id}`] = s.day;
-          log(s, 'mission', `Mission ready to complete: ${m.title}. Open Missions to claim the reward.`, { important: true });
+          log(s, 'mission', `Ambition fulfilled: ${m.title}. Open Ambitions in the Realm menu to claim the reward.`, { important: true });
         }
       } else completeMission(s, nat.id, m.id);
     }

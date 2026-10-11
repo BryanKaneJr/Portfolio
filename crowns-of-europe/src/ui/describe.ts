@@ -12,7 +12,7 @@ const pctS = (n: number) => `${n > 0 ? '+' : '−'}${Math.round(Math.abs(n) * 10
 const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   taxIncome: ['tax income', 'pct', true],
   tradeIncome: ['trade income', 'pct', true],
-  manpower: ['manpower', 'pct', true],
+  manpower: ['levies', 'pct', true],
   morale: ['army morale', 'pct', true],
   infantryPower: ['infantry strength', 'pct', true],
   cavalryPower: ['cavalry strength', 'pct', true],
@@ -22,14 +22,14 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   attrition: ['attrition taken', 'pct', false],
   upkeep: ['army upkeep', 'pct', false],
   mercCost: ['mercenary cost', 'pct', false],
-  devCost: ['development cost', 'pct', false],
-  coreCost: ['coring cost', 'pct', false],
+  devCost: ['cost to invest', 'pct', false],
+  coreCost: ['cost to integrate', 'pct', false],
   fortCost: ['fort cost', 'pct', false],
   shipCost: ['ship cost', 'pct', false],
   navalPower: ['fleet strength', 'pct', true],
   threatDecay: ['Threat decay per month', 'flat', true],
   threatGain: ['Threat gained', 'pct', false],
-  colonists: ['colonists', 'flat', true],
+  colonists: ['colonial charters', 'flat', true],
   settlerGrowth: ['settler growth', 'pct', true],
   opinion: ['opinion of you', 'flat', true],
   diplomacy: ['diplomatic reputation', 'flat', true],
@@ -37,8 +37,8 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   unrest: ['unrest', 'flat', false],
   techCost: ['era adoption cost', 'pct', false],
   movement: ['movement speed', 'pct', true],
-  prestigeGain: ['prestige gained', 'pct', true],
-  stabilityCost: ['stability cost', 'pct', false],
+  prestigeGain: ['renown gained', 'pct', true],
+  stabilityCost: ['cost to raise order', 'pct', false],
 };
 
 export interface ModLine {
@@ -65,27 +65,27 @@ export function effectLines(e: Effect): ModLine[] {
     case 'gold':
       return L(`${sgn(v)} gold`, v > 0);
     case 'goldPerDev':
-      return L(`${v > 0 ? 'Gold' : 'Pay gold'} (${Math.abs(v)} × your development)`, v > 0);
+      return L(`${v > 0 ? 'Gold' : 'Pay gold'} (${Math.abs(v)} × your prosperity)`, v > 0);
     case 'manpower':
-      return L(`${sgn(v).replace(/(\d)(?=(\d{3})+$)/g, '$1,')} manpower`, v > 0);
+      return L(`${sgn(v).replace(/(\d)(?=(\d{3})+$)/g, '$1,')} levies`, v > 0);
     case 'stability':
-      return L(`Stability ${sgn(v)}`, v > 0);
+      return L(`Order ${sgn(v)}`, v > 0);
     case 'prestige':
-      return L(`Prestige ${sgn(v)}`, v > 0);
+      return L(`Renown ${sgn(v)}`, v > 0);
     case 'threat':
       return L(`Threat ${sgn(v)}`, v < 0);
     case 'papalFavor':
       return L(`Papal Favor ${sgn(v)}`, v > 0);
     case 'warExhaustion':
-      return L(`War exhaustion ${sgn(v)}`, v < 0);
+      return L(`War weariness ${sgn(v)}`, v < 0);
     case 'addClaim':
       return L(`Claim on ${regs(v)}`);
     case 'addCore':
-      return L(`Core on ${regs(v)}`);
+      return L(`${regs(v)} becomes integrated`);
     case 'devRegion':
-      return L(`${reg(v.region)} development ${sgn(v.amount)}`, v.amount > 0);
+      return L(`${reg(v.region)} prosperity ${sgn(v.amount)}`, v.amount > 0);
     case 'devCapital':
-      return L(`Capital development ${sgn(v)}`, v > 0);
+      return L(`Capital prosperity ${sgn(v)}`, v > 0);
     case 'fortRegion':
       return L(`${reg(v.region)} fort ${sgn(v.amount)}`, v.amount > 0);
     case 'unrestAll':
@@ -190,19 +190,19 @@ export function conditionText(c: Condition): string {
     case 'faith':
       return `Be ${v}`;
     case 'stability':
-      return `Stability of at least ${sgn(v[0])}`;
+      return `Order of at least ${sgn(v[0])}`;
     case 'goldAtLeast':
       return `Have ${v} gold`;
     case 'prestigeAtLeast':
-      return `Have ${v} prestige`;
+      return `Have ${v} renown`;
     case 'regionsAtLeast':
       return `Own ${v} regions`;
     case 'regimentsAtLeast':
       return `Have ${v} regiments`;
     case 'devAtLeast':
-      return `Total development of ${v}`;
+      return `Total prosperity of ${v}`;
     case 'capitalDevAtLeast':
-      return `Capital development of ${v}`;
+      return `Capital prosperity of ${v}`;
     case 'allied':
       return `Be allied with ${nat(v)}`;
     case 'alliesAtLeast':
@@ -234,7 +234,7 @@ export function conditionText(c: Condition): string {
     case 'shipsAtLeast':
       return `Have ${v} ships`;
     case 'hasPolicy':
-      return `Adopt the ${POLICY[v]?.name ?? v} policy`;
+      return `Issue the ${POLICY[v]?.name ?? v} decree`;
     case 'regionFaith':
       return `${reg(v.region)} is ${v.faith}`;
     case 'faithRegionsAtLeast':
@@ -270,7 +270,7 @@ export function conditionText(c: Condition): string {
   }
 }
 
-/** Split a goal into checkable parts for the mission list. */
+/** Split a goal into checkable parts for the ambitions list. */
 export function goalParts(c: Condition): Condition[] {
   return 'all' in c ? c.all : [c];
 }

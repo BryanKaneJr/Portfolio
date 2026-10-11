@@ -72,8 +72,8 @@ export function opinionBreakdown(s: GameState, from: NationId, to: NationId): Re
   if (warBetween(s, from, to)) add('At war', -100);
   else if (hasTruce(s, from, to)) add('Recent war', -25);
   const c = coalitionAgainst(s, to);
-  if (c?.members.includes(from)) add('Coalition against them', -25);
-  if (b.prestige >= 10) add('Prestige', b.prestige / 5);
+  if (c?.members.includes(from)) add('In a league against them', -25);
+  if (b.prestige >= 10) add('Renown', b.prestige / 5);
   const mods = nationMods(s, to).opinion;
   if (mods) add('Reputation', mods);
   if (s.hre.emperor && ((s.hre.emperor === to && isHreMember(s, from)) || (s.hre.emperor === from && isHreMember(s, to)))) add('Empire', 10);
@@ -206,7 +206,7 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
       add('Opinion of you', op / 3);
       add('Diplomatic skill', dip);
       if (A.faith !== B.faith) add('Different faith', A.faith === 'muslim' || B.faith === 'muslim' ? -100 : -20);
-      add('Your prestige', A.prestige / 10);
+      add('Your renown', A.prestige / 10);
       break;
     }
     case 'access': {
@@ -224,7 +224,7 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
       if (B.overlord) return fail('They already have an overlord.');
       if (A.overlord) return fail('Subjects cannot take subjects.');
       const ratio = totalDev(s, from) / Math.max(1, totalDev(s, to));
-      if (ratio < 3) return fail('They are not weak enough (you need three times their development).');
+      if (ratio < 3) return fail('They are not weak enough (you need three times their prosperity).');
       add('Base', -75);
       add('Opinion of you', op / 2);
       add('Your size', Math.min(40, (ratio - 3) * 5));
@@ -303,7 +303,7 @@ export function doDiplomacy(s: GameState, from: NationId, to: NationId, action: 
       if (why) return { ok: false, msg: why };
       A.rivals.push(to);
       setCooldown(s, from, to, action);
-      return { ok: true, msg: `${name} is now your rival. Beating them earns extra prestige and a reason for war.` };
+      return { ok: true, msg: `${name} is now your rival. Beating them earns extra renown and a reason for war.` };
     }
     case 'unrival':
       A.rivals = A.rivals.filter(r => r !== to);

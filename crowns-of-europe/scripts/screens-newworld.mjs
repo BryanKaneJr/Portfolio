@@ -77,9 +77,9 @@ await tapId('menu');
 await tapId('tab-colonies');
 await shot('colonies-tab');
 await page.getByLabel('Close').first().click();
-// Trade goods map mode.
+// Exports map mode.
 await page.getByTestId('mapmode').click();
-await page.getByText('Trade goods', { exact: true }).first().click();
+await page.getByText('Exports', { exact: true }).first().click();
 await focus('cuba', 1400);
 await shot('map-goods');
 await page.getByTestId('mapmode').click();

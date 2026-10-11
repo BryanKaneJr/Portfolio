@@ -41,8 +41,8 @@ const CB_LABEL: Record<CasusBelli, string> = {
   holy: 'Holy war',
   rival: 'War against a rival',
   independence: 'War of independence',
-  coalition: 'Coalition war',
-  none: 'No reason (Threat and stability penalty)',
+  coalition: 'League war',
+  none: 'No reason (Threat and order penalty)',
 };
 
 const isChristian = (f: string) => f === 'catholic' || f === 'orthodox' || f === 'protestant';
@@ -100,7 +100,7 @@ export function likelySides(s: GameState, a: NationId, b: NationId): { attackers
 
 const warName = (a: NationId, b: NationId, cb: CasusBelli) => {
   if (cb === 'independence') return `${NATION[a].adj} War of Independence`;
-  if (cb === 'coalition') return `Coalition War against ${nationName(b)}`;
+  if (cb === 'coalition') return `League War against ${nationName(b)}`;
   if (cb === 'holy') return `${NATION[a].adj} Holy War on ${nationName(b)}`;
   return `${NATION[a].adj}–${NATION[b].adj} War`;
 };
@@ -328,16 +328,16 @@ export function peaceAcceptance(s: GameState, w: War, terms: PeaceTerms, decider
   const D = s.nations[decider];
   if (terms.white) {
     const sc = scoreFor(s, w, decider);
-    add('War score for them', -Math.max(0, sc));
-    add('War exhaustion', D.warExhaustion * 2);
+    add('Leverage they hold', -Math.max(0, sc));
+    add('War weariness', D.warExhaustion * 2);
     add('Length of war', Math.min(20, yearsOfWar * 3));
     add('Base', 5);
   } else if (decider === terms.loser) {
     const cost = peaceCost(s, terms);
     const sc = scoreFor(s, w, terms.winner);
-    add('War score', sc);
+    add('Leverage', sc);
     add('Cost of your demands', -cost);
-    add('War exhaustion', D.warExhaustion * 1.5);
+    add('War weariness', D.warExhaustion * 1.5);
     add('Length of war', Math.min(15, yearsOfWar * 2));
     if (terms.regions.includes(D.capital)) add('Their capital', -15);
   } else {
@@ -345,8 +345,8 @@ export function peaceAcceptance(s: GameState, w: War, terms: PeaceTerms, decider
     const cost = peaceCost(s, terms);
     const sc = scoreFor(s, w, decider);
     add('What you offer', cost);
-    add('War score for them', -Math.max(0, sc));
-    add('War exhaustion', D.warExhaustion);
+    add('Leverage they hold', -Math.max(0, sc));
+    add('War weariness', D.warExhaustion);
     add('Base', 5);
   }
   const total = reasons.reduce((t, r) => t + r.value, 0);

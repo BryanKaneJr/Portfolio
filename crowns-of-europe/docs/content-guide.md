@@ -20,12 +20,33 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 ## Writing rules
 
 - **Original text only.** History, dates, people and places are public domain; other games' wording, names for
-  mechanics and art are not. Don't use "mana", "monarch points", "aggressive expansion" or "casus belli" in
-  player-facing text. Our words: Threat, Claim, Prestige, Policy, Era, Coalition, war score.
+  mechanics and art are not. Player-facing text uses our own words (table below); `npm run validate` runs
+  `scripts/check-terms.ts`, which fails on the borrowed ones in UI strings, log messages and content prose.
+  DSL keys and state fields keep their old names (`stability`, `prestigeAtLeast`, `devRegion`...): only what a
+  player reads changes.
+
+  | Internal name (DSL key, state field) | The player reads |
+  | --- | --- |
+  | development, `dev`, `devRegion`, `devAtLeast` | **prosperity** ("raise prosperity", "prosperity 7") |
+  | manpower | **levies** |
+  | stability | **order** (−3 to +3, written "order +2") |
+  | prestige | **renown** |
+  | coalition | **league** |
+  | war score | **leverage** |
+  | force limit | **army limit** |
+  | core, `addCore`, `coreCost` | **integrated** / **integrate** |
+  | colonists | **charters** (the slot); the people are **settlers** |
+  | trade good, `good` | **export** |
+  | war exhaustion | **war weariness** |
+  | policy | **decree** (issue a decree) |
+  | mission | **ambition** |
+  | stack wipe | annihilated |
+  | Threat, Claim, Era, Papal Favor | unchanged: they are ours already |
+
 - **Plain English, short.** Event text is 2-4 sentences (max 420 characters). Titles max 42 characters. Choice
   buttons max 60 characters and start with a verb ("Pay the ransom", "Let them rot").
 - **Every choice is a real choice.** If one option is strictly better, rewrite it. Typical trade-offs: gold vs
-  stability, prestige vs Threat, short-term troops vs long-term development.
+  order, renown vs Threat, short-term troops vs long-term prosperity.
 - **Alt-history allowed.** Historical events check conditions, not dates. "Fall of Constantinople" needs the
   Ottomans at war with Byzantium near the city, so in some games it never happens.
 - Address the player as "you" / "your" and write in the present tense.

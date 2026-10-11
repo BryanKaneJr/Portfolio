@@ -57,7 +57,7 @@ export function UnchartedSheet() {
   );
 }
 
-/** Uncolonized land: natives, its trade good, and settling it. */
+/** Uncolonized land: natives, its export, and settling it. */
 export function WildSheet({ id }: { id: string }) {
   const st = useStore();
   const s = st.state!;
@@ -82,7 +82,7 @@ export function WildSheet({ id }: { id: string }) {
       <Row gap={6}>
         <Stat label="Natives" value={r.natives > 0 ? `${fmt(r.natives, 1)}k` : 'None'} icon="manpower" />
         <Stat label="Hostility" value={['Peaceful', 'Wary', 'Hostile', 'Fierce'][hostility]} tone={hostility >= 2 ? 'bad' : undefined} icon="swords" />
-        <Stat label="Trade good" value={def.good ? GOOD_NAME[def.good] : 'None'} icon="coins" />
+        <Stat label="Export" value={def.good ? GOOD_NAME[def.good] : 'None'} icon="coins" />
       </Row>
       {c ? (
         <Section title={mine ? 'Your colony' : `${nationName(c.by)}’s colony`} right={<T v="tiny">{fmt(c.settlers)} / {fmt(SETTLERS_NEEDED)} settlers</T>}>
@@ -109,12 +109,12 @@ export function WildSheet({ id }: { id: string }) {
         <Section title="Settle it">
           <T v="small">
             {r.natives > 0
-              ? `About ${fmt(r.natives * 1000)} natives live here${hostility >= 2 ? ' and will fight settlers' : ''}. They slow a colony down; when it is founded they join it and add development.`
+              ? `About ${fmt(r.natives * 1000)} natives live here${hostility >= 2 ? ' and will fight settlers' : ''}. They slow a colony down; when it is founded they join it and make it more prosperous.`
               : 'No one lives here: settlers will have the land to themselves.'}
             {def.good ? ` Once founded, its ${GOOD_NAME[def.good].toLowerCase()} pays you on top of taxes.` : ''}
           </T>
           <View style={{ gap: 6, marginTop: 8 }}>
-            <Btn icon="ship" label="Start a colony" sub={`${COLONY_COST} gold, then ${COLONY_UPKEEP} gold/mo · uses a colonist`} disabled={!!blocked} onPress={() => st.run(x => colonize(x, id))} testID="colonize" />
+            <Btn icon="ship" label="Start a colony" sub={`${COLONY_COST} gold, then ${COLONY_UPKEEP} gold/mo · uses a charter`} disabled={!!blocked} onPress={() => st.run(x => colonize(x, id))} testID="colonize" />
             {blocked ? <T v="tiny">{blocked}</T> : null}
             {!coastal ? <T v="tiny">Inland: you can only settle here from a region of yours next door.</T> : null}
           </View>
@@ -132,7 +132,7 @@ export function WildSheet({ id }: { id: string }) {
   );
 }
 
-/** Realm menu tab: colonists, colonies being settled, the New World and expeditions. */
+/** Realm menu tab: charters, colonies being settled, the New World and expeditions. */
 export function ColoniesTab() {
   const st = useStore();
   const s = st.state!;
@@ -148,7 +148,7 @@ export function ColoniesTab() {
       {!s.discovery ? (
         <Section title="The western ocean">
           <T v="small">
-            Nobody in Europe knows what lies across the Atlantic. Fund an expedition and you may find a New World first: prestige, and an extra colonist for 30 years. If nobody does, the way west
+            Nobody in Europe knows what lies across the Atlantic. Fund an expedition and you may find a New World first: renown, and an extra colonial charter for 30 years. If nobody does, the way west
             becomes common knowledge in {DISCOVERY_YEAR}.
           </T>
           <View style={{ marginTop: 8, gap: 6 }}>
@@ -161,11 +161,11 @@ export function ColoniesTab() {
           The New World was found on {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}. Tap a pale, uncolonized region on the map to settle it.
         </T>
       )}
-      <Section title="Colonists" right={<Pill text={`${settling.length} / ${total} busy`} color={total ? C.greenSoft : C.parchment2} />}>
-        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="You have no colonists yet." />}
+      <Section title="Colonial charters" right={<Pill text={`${settling.length} / ${total} in use`} color={total ? C.greenSoft : C.parchment2} />}>
+        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="You have no charters yet." />}
         <T v="tiny" style={{ marginTop: 4 }}>
-          Each colonist settles one colony at a time. Get them from the Overseas Charters policy (era 3), from being first to the New World, from events and missions, and from era 3 if your realm
-          is large (30+ development) and has an ocean coast.
+          Each charter settles one colony at a time. Get them from the Chartered Companies decree (era 3), from being first to the New World, from events and ambitions, and from era 3 if
+          your realm is large (30+ prosperity) and has an ocean coast.
         </T>
       </Section>
       <Section title="Being settled">
@@ -181,7 +181,7 @@ export function ColoniesTab() {
           <Empty text={total ? 'No colonies under way. Tap uncolonized land to start one.' : 'No colonies under way.'} />
         )}
       </Section>
-      <Section title="Your lands across the ocean" right={goods ? <T v="tiny">+{fmt(goods, 1)} gold/mo from goods</T> : undefined}>
+      <Section title="Your lands across the ocean" right={goods ? <T v="tiny">+{fmt(goods, 1)} gold/mo from exports</T> : undefined}>
         {owned.length ? owned.map(r => <Line key={r.id} label={REGION[r.id].name} value={REGION[r.id].good ? `${GOOD_NAME[REGION[r.id].good!]} +${fmt(goodsIncome(s, r), 1)}` : '–'} />) : <Empty text="None yet." />}
       </Section>
     </View>

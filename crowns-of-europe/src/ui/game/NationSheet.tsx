@@ -47,11 +47,11 @@ export function NationSheet({ id }: { id: string }) {
     { key: 'marriage', label: 'Royal marriage', sub: '+20 opinion; a chance to inherit or unite crowns', show: !married(s, s.player, id) && def.gov === 'monarchy' && NATION[s.player].gov === 'monarchy' && !war && !def.native },
     { key: 'access', label: 'Ask for military access', sub: 'March your armies through their land', show: !(`${id}>${s.player}` in s.access) && !war && !def.native },
     { key: 'gift', label: `Send a gift (${GIFT_AMOUNT(s, s.player)} gold)`, sub: 'Opinion up', show: !war },
-    { key: 'rival', label: 'Declare rival', sub: 'Extra prestige for beating them, and a reason for war', show: !me.rivals.includes(id) },
+    { key: 'rival', label: 'Declare rival', sub: 'Extra renown for beating them, and a reason for war', show: !me.rivals.includes(id) },
     { key: 'unrival', label: 'Drop rivalry', sub: '', show: me.rivals.includes(id) },
     { key: 'vassalize', label: 'Demand vassalage', sub: 'Peaceful subjugation of a much weaker friend', show: !n.overlord && !war && !def.native },
     { key: 'annex', label: `Annex (${annexCost(s, id)} gold)`, sub: 'Absorb a loyal subject', show: n.overlord === s.player },
-    { key: 'insult', label: 'Insult', sub: '−50 opinion, +3 prestige', show: true },
+    { key: 'insult', label: 'Insult', sub: '−50 opinion, +3 renown', show: true },
     { key: 'breakAlliance', label: 'Break alliance', sub: '', show: allied(s, s.player, id) },
   ];
 
@@ -88,7 +88,7 @@ export function NationSheet({ id }: { id: string }) {
       <Section title="Realm">
         <Line label="Ruler" value={`${n.ruler.name} · skill ${n.ruler.skill} · age ${rulerAge(s, id)}`} />
         <Line label="Traits" value={[TRAITS.national[def.trait]?.name, ...n.ruler.traits.map(t => TRAITS.ruler[t]?.name)].filter(Boolean).join(', ')} />
-        <Line label="Regions / development" value={`${ownedRegions(s, id).length} / ${totalDev(s, id)}`} />
+        <Line label="Regions / prosperity" value={`${ownedRegions(s, id).length} / ${totalDev(s, id)}`} />
         {alliesOf(s, id).length ? <Line label="Allies" value={alliesOf(s, id).map(nationName).join(', ')} /> : null}
         {subjectsOf(s, id).length ? <Line label="Subjects" value={subjectsOf(s, id).map(nationName).join(', ')} /> : null}
       </Section>

@@ -63,11 +63,11 @@ export function RegionSheet({ id }: { id: string }) {
         <Btn small tone="secondary" label={nationName(owner)} onPress={() => st.select({ kind: 'nation', id: owner })} />
         {r.controller !== r.owner ? <Pill text={`Occupied by ${nationName(r.controller)}`} color={C.redSoft} textColor={C.red} /> : null}
         {id in me.claims && !mine ? <Pill text="Your claim" color={C.greenSoft} textColor={C.green} /> : null}
-        {r.cores.includes(s.player) && !mine ? <Pill text="Your core" color={C.greenSoft} textColor={C.green} /> : null}
+        {r.cores.includes(s.player) && !mine ? <Pill text="Integrated by you" color={C.greenSoft} textColor={C.green} /> : null}
         {me.capital === id ? <Pill text="Capital" color={C.gold} /> : null}
       </Row>
       <Row gap={6}>
-        <Stat label="Development" value={`${r.dev}/10`} icon="coins" />
+        <Stat label="Prosperity" value={`${r.dev}/10`} icon="coins" />
         <Stat label="Fort" value={r.fort ? `Level ${r.fort}` : 'None'} icon="castle" />
         <Stat label="Unrest" value={fmt(r.unrest, 1)} tone={r.unrest > 7 ? 'bad' : undefined} onPress={() => setWhy(why === 'unrest' ? null : 'unrest')} icon="rebels" />
       </Row>
@@ -83,14 +83,14 @@ export function RegionSheet({ id }: { id: string }) {
       ) : null}
       {why === 'income' ? (
         <View style={{ marginTop: 8 }}>
-          <Line label={`Taxes (${r.dev} dev × 0.3${isCored(r) ? '' : ', halved: not a core'})`} value={fmt(tax, 2)} />
+          <Line label={`Taxes (prosperity ${r.dev} × 0.3${isCored(r) ? '' : ', halved: not yet integrated'})`} value={fmt(tax, 2)} />
           <Line label={def.trade ? 'Trade centre' : 'Trade (not a trade centre)'} value={fmt(trade, 2)} />
-          {def.good ? <Line label={`${GOOD_NAME[def.good]} (trade good, grows with development)`} value={fmt(goods, 2)} /> : null}
+          {def.good ? <Line label={`${GOOD_NAME[def.good]} (export, grows with prosperity)`} value={fmt(goods, 2)} /> : null}
           {r.blockaded ? <Line label="Blockaded by an enemy fleet" value="−50%" tone="bad" /> : null}
           {r.controller !== r.owner ? <Line label="Occupied: no income" value="0" tone="bad" /> : null}
         </View>
       ) : null}
-      {coreIn !== null && mine ? <T v="small" style={{ marginTop: 8 }}>Recently conquered: half taxes and manpower until it becomes a core (in {coreIn} years, or pay to core it now).</T> : null}
+      {coreIn !== null && mine ? <T v="small" style={{ marginTop: 8 }}>Recently conquered: half taxes and levies until it is integrated (in {coreIn} years, or pay to integrate it now).</T> : null}
       {r.converting ? <T v="small" style={{ marginTop: 6 }}>Missionaries are converting it to {FAITH_NAME[r.converting.to]}.</T> : null}
       {r.siege ? (
         <View style={{ marginTop: 8 }}>
@@ -111,16 +111,16 @@ export function RegionSheet({ id }: { id: string }) {
       {mine ? (
         <Section title="Invest">
           <View style={{ gap: 6 }}>
-            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'Fully developed' : `Develop to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold · +taxes, manpower, supply`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
+            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold · more taxes, levies and supply`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
             <Btn tone="secondary" icon="castle" label={r.fort >= 3 ? 'Fort at maximum' : `Build fort level ${r.fort + 1}`} sub={r.fort >= 3 ? undefined : `${fortCost(s, r)} gold · +0.35 gold/mo upkeep`} disabled={r.fort >= 3 || me.gold < fortCost(s, r)} onPress={() => st.run(x => buildFort(x, id))} />
-            {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Make core" sub={`${coreCost(s, r)} gold · full taxes and manpower`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
+            {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Integrate now" sub={`${coreCost(s, r)} gold · full taxes and levies`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
             {r.faith !== me.faith && !r.converting ? <Btn tone="secondary" icon="church" label={`Convert to ${FAITH_NAME[me.faith]}`} sub={`${convertCost(s, r)} gold · 12 months`} disabled={me.gold < convertCost(s, r)} onPress={() => st.run(x => convertRegion(x, id))} /> : null}
             {me.capital !== id && isCored(r) ? <Btn small tone="ghost" label="Move capital here (100 gold)" onPress={() => st.run(x => moveCapital(x, id))} /> : null}
           </View>
         </Section>
       ) : null}
       {mine && r.controller === s.player ? (
-        <Section title="Recruit (30 days)" right={<T v="tiny">Manpower {fmt(me.manpower)}</T>}>
+        <Section title="Recruit (30 days)" right={<T v="tiny">Levies {fmt(me.manpower)}</T>}>
           <Row gap={6}>
             <Btn small style={{ flex: 1 }} label="Infantry" sub={`${unitCost(s, s.player, 'inf')}g`} onPress={() => st.run(x => recruit(x, id, 'inf'))} testID="recruit-inf" />
             <Btn small style={{ flex: 1 }} label="Cavalry" sub={`${unitCost(s, s.player, 'cav')}g`} onPress={() => st.run(x => recruit(x, id, 'cav'))} />
@@ -128,7 +128,7 @@ export function RegionSheet({ id }: { id: string }) {
           </Row>
           <Row gap={6} style={{ marginTop: 6 }}>
             <Btn small tone="secondary" style={{ flex: 1 }} label="5 infantry" sub={`${unitCost(s, s.player, 'inf') * 5}g`} onPress={() => st.run(x => recruit(x, id, 'inf', 5))} />
-            <Btn small tone="secondary" style={{ flex: 1 }} label="Mercenaries ×4" sub={`${mercCost(s, s.player, 4)}g · no manpower`} onPress={() => st.run(x => hireMercenaries(x, id, 4))} />
+            <Btn small tone="secondary" style={{ flex: 1 }} label="Mercenaries ×4" sub={`${mercCost(s, s.player, 4)}g · no levies`} onPress={() => st.run(x => hireMercenaries(x, id, 4))} />
           </Row>
           {me.recruiting.filter(q => q.region === id).length ? <T v="tiny" style={{ marginTop: 4 }}>{me.recruiting.filter(q => q.region === id).length} regiment(s) training here.</T> : null}
           {coastal ? (
@@ -154,7 +154,7 @@ export function RegionSheet({ id }: { id: string }) {
         </Section>
       ) : null}
       <T v="tiny" style={{ marginTop: 10 }}>
-        {NATION[owner] ? `Cores: ${r.cores.map(nationName).join(', ')}.` : ''} Tap a region with your army selected to march there.
+        {NATION[owner] ? `Integrated by: ${r.cores.map(nationName).join(', ')}.` : ''} Tap a region with your army selected to march there.
       </T>
     </Sheet>
   );

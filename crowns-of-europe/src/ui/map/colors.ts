@@ -23,6 +23,7 @@ export const WILD = '#f1e8cf';
 export const GOOD_COLOR: Record<Good, string> = {
   silver: '#a7b3bd',
   gold: '#d9a72e',
+  ivory: '#efe8d2',
   sugar: '#e9e2d4',
   tobacco: '#8a6a3a',
   cocoa: '#6b4129',
@@ -92,9 +93,9 @@ function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<stri
 export const MAP_MODES: { key: MapMode; label: string; help: string }[] = [
   { key: 'political', label: 'Political', help: 'Who owns each region. Stripes show occupation.' },
   { key: 'terrain', label: 'Terrain', help: 'Plains, forest, hills, marsh and mountains: they change battles, movement and supply.' },
-  { key: 'development', label: 'Development', help: 'Darker regions are richer: more taxes, manpower and supply.' },
+  { key: 'development', label: 'Prosperity', help: 'Darker regions are richer: more taxes, levies and supply.' },
   { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple), native beliefs (brown).' },
   { key: 'diplomatic', label: 'Diplomatic', help: 'How others see you: allies blue, enemies red, opinion from green to red.' },
-  { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a coalition.' },
-  { key: 'goods', label: 'Trade goods', help: 'What each New World region and Atlantic island trades in: silver and gold pay most, then sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
+  { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a league against you.' },
+  { key: 'goods', label: 'Exports', help: 'What each overseas region sends home: silver and gold pay most, then ivory, sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
 ];

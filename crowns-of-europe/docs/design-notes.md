@@ -23,7 +23,7 @@ here.
    - Discovery: the Americas are uncharted (no movement, fog on the map) until a crown with an ocean coast funds
      an expedition (from 1470, 100 gold, 8 months; the AI odds rise through the 1480s) or 1500 arrives.
    - Colonists: Portugal's Navigators trait, being first to the New World (30 years), Castile's Council of the
-     Indies, the Overseas Charters policy (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
+     Indies, the Chartered Companies decree (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
      Few colonists in the 1500s keep the race Iberian at first; England, France and the Netherlands join later.
    - Colonies: 30 gold, then 1 gold a month; 9 settlers a month (+3 next to your land, policy +20%), slowed by
      natives (−7% per thousand, at most half), by being inland (−45%) and by every New World region you already
@@ -45,6 +45,10 @@ here.
 8. **Tutorial:** short first-time hints ("your chancellor advises") and a How to Play page instead of a scripted
    20-minute tutorial. Portugal and Castile are marked "recommended for your first campaign".
 9. **Audio is not in yet** (no assets). Haptics fire on selections and orders.
+10. **Our own words for the numbers.** The doc borrowed the genre's usual names; the game says prosperity,
+    levies, order, renown, league, leverage, army limit, integrated, charters/settlers, exports, war weariness,
+    decrees and ambitions instead, explained in a "Words used in this game" list on the How to Play page. The
+    code and the tables below keep the old names (see the glossary in `content-guide.md`).
 
 ## Key numbers (all in `src/sim/`)
 

@@ -15,16 +15,16 @@ bundled and works in airplane mode.
 
 - **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 133 regions in Europe, North Africa and Anatolia, 46 coarse
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
-  off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, development (1–10),
-  forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, development, faith, diplomatic,
-  threat and trade goods.
+  off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
+  forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, prosperity, faith, diplomatic,
+  threat and exports.
 - **66 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. 40 AI minors fill in the Empire, Italy, the Balkans and
   the steppe, and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
-- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonists (from
-  Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters policy and
+- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonial charters (from
+  Portugal's navigators, being first across, Castile's Council of the Indies, the Chartered Companies decree and
   era 3) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
-  troops keep it safe. Every New World region trades in a good (silver, gold, sugar, tobacco, cocoa, dyes, furs,
+  troops keep it safe. Every New World region has an export (silver, gold, sugar, tobacco, cocoa, dyes, furs,
   fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic
   takes weeks to cross.
 - **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy, and automatic pauses (all configurable)

@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "test": "jest",
-    "validate": "tsx scripts/validate-content.ts",
+    "validate": "tsx scripts/validate-content.ts && tsx scripts/check-terms.ts",
     "map:build": "tsx scripts/build-map.ts",
     "icons": "node scripts/make-icons.mjs",
     "soak": "tsx scripts/dev/soak.ts",

@@ -129,7 +129,7 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
   nat.stability = Math.max(-3, nat.stability - 2);
   nat.prestige = Math.max(0, nat.prestige - 10);
   if (involvesPlayer(s, n))
-    log(s, 'ruler', `${old.name} dies without an heir. After a bitter succession crisis, ${nat.ruler.name} takes the throne. Stability -2.`, {
+    log(s, 'ruler', `${old.name} dies without an heir. After a bitter succession crisis, ${nat.ruler.name} takes the throne. Order −2.`, {
       nation: n,
       important: true,
     });

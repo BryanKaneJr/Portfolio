@@ -55,7 +55,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
     { key: 'colonies', label: 'Colonies', badge: Math.max(0, freeColonists(s, s.player)) },
-    { key: 'missions', label: 'Missions', badge: missionsReady },
+    { key: 'missions', label: 'Ambitions', badge: missionsReady },
     { key: 'ledger', label: 'Ledger' },
     { key: 'settings', label: 'Settings' },
   ];
@@ -96,10 +96,10 @@ function Military() {
     <View>
       <Row gap={6}>
         <Stat label="Regiments" value={`${regs} / ${fl}`} tone={regs > fl ? 'bad' : undefined} icon="flag" />
-        <Stat label="Manpower" value={kmen(me.manpower)} icon="manpower" />
+        <Stat label="Levies" value={kmen(me.manpower)} icon="manpower" />
         <Stat label="Training" value={`${me.recruiting.length}`} icon="castle" />
       </Row>
-      <T v="tiny" style={{ marginTop: 4 }}>Above the force limit ({fl}, from your development) every regiment costs more upkeep.</T>
+      <T v="tiny" style={{ marginTop: 4 }}>Above your army limit ({fl}, from your prosperity) every regiment costs more upkeep.</T>
       <Section title="Army pay">
         <Row gap={6}>
           <Btn small style={{ flex: 1 }} tone={me.armyMode === 'peace' ? 'primary' : 'secondary'} label="Peacetime" sub="half upkeep, slow refill" onPress={() => st.run(x => setArmyMode(x, 'peace'))} />
@@ -196,11 +196,11 @@ function Diplomacy() {
       </Section>
       {coalition ? (
         <Card style={{ marginTop: 10, borderColor: C.red }}>
-          <T v="h3">A coalition stands against you</T>
+          <T v="h3">A league stands against you</T>
           <T v="small">{coalition.members.map(nationName).join(', ')} will defend each other if you attack any of them, and may strike first. Let your Threat fade.</T>
         </Card>
       ) : null}
-      {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the coalition against {nationName(myCoalition.target)}.</T> : null}
+      {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the league against {nationName(myCoalition.target)}.</T> : null}
       <Section title="Relations">
         <Line label="Overlord" value={me.overlord ? `${nationName(me.overlord)} (${me.subjectType === 'union' ? 'personal union' : 'vassal'})` : 'none'} />
         <Line label="Allies" value={alliesOf(s, p).map(nationName).join(', ') || 'none'} />
@@ -212,7 +212,7 @@ function Diplomacy() {
         <Line label="Emperor" value={s.hre.emperor ? nationName(s.hre.emperor) : 'vacant'} />
         <Line label="Electors" value={s.hre.electors.map(nationName).join(', ')} />
         <Line label="Members" value={`${hreMembers(s).length}`} />
-        <T v="tiny">The Emperor gains manpower and reputation, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.</T>
+        <T v="tiny">The Emperor gains levies and reputation, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.</T>
       </Section>
       <Section
         title="Other nations"
@@ -295,16 +295,16 @@ function Realm() {
           <Btn small style={{ flex: 1 }} tone="secondary" label="Details" onPress={() => st.open({ kind: 'breakdown', what: 'gold' })} />
         </Row>
       </Section>
-      <Section title="Stability">
-        <Line label="Stability" value={signed(me.stability)} tone={me.stability < 0 ? 'bad' : undefined} />
-        <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise stability (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
+      <Section title="Order">
+        <Line label="Order (−3 to +3)" value={signed(me.stability)} tone={me.stability < 0 ? 'bad' : undefined} />
+        <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
       </Section>
       <Section title="Era">
         <Line label="Adopted" value={`${me.era}. ${ERA(me.era).name}`} />
         {nextEra ? (
           avail > me.era ? (
             <>
-              <T v="small">The {nextEra.name} has begun: {nextEra.inf.name}, {nextEra.cav.name}{nextEra.art ? `, ${nextEra.art.name}` : ''}, better morale and a new policy slot. Armies stay weaker until you pay for it.</T>
+              <T v="small">The {nextEra.name} has begun: {nextEra.inf.name}, {nextEra.cav.name}{nextEra.art ? `, ${nextEra.art.name}` : ''}, better morale and room for another decree. Armies stay weaker until you pay for it.</T>
               <Btn style={{ marginTop: 6 }} label={`Adopt the ${nextEra.name} (${techCost(s, p, me.era + 1)} gold)`} disabled={me.gold < techCost(s, p, me.era + 1)} onPress={() => st.run(adoptEra)} />
             </>
           ) : (
@@ -314,14 +314,14 @@ function Realm() {
           <T v="small">You live in the final era.</T>
         )}
       </Section>
-      <Section title={`Policies (${me.policies.length}/${me.era})`}>
+      <Section title={`Decrees (${me.policies.length}/${me.era})`}>
         {me.policies.map(id => (
           <View key={id} style={styles.policy}>
             <Text style={styles.rowTitle}>{POLICY[id].name}</Text>
             <Text style={styles.rowSub}>{modLines(POLICY[id].mods).map(m => m.text).join(', ')}</Text>
           </View>
         ))}
-        <T v="tiny" style={{ marginBottom: 6 }}>One policy per era. You may swap one per era for −1 stability.</T>
+        <T v="tiny" style={{ marginBottom: 6 }}>One decree per era. You may replace one per era for −1 order.</T>
         {POLICIES.filter(pol => !me.policies.includes(pol.id)).map(pol => {
           const locked = pol.era > me.era;
           const slotFree = me.policies.length < me.era;
@@ -335,7 +335,7 @@ function Realm() {
               <Text style={[styles.rowSub, { color: C.inkSoft }]}>{modLines(pol.mods).map(m => m.text).join(', ')}</Text>
               {!locked ? (
                 slotFree ? (
-                  <Btn small style={{ marginTop: 6 }} label="Adopt" onPress={() => st.run(x => choosePolicy(x, pol.id))} />
+                  <Btn small style={{ marginTop: 6 }} label="Issue" onPress={() => st.run(x => choosePolicy(x, pol.id))} />
                 ) : policyPick === pol.id ? (
                   <Row gap={6} style={{ marginTop: 6, flexWrap: 'wrap' }}>
                     {me.policies.map(old => (
@@ -356,24 +356,24 @@ function Realm() {
         {me.faith === 'catholic' ? <T v="tiny">Spend Papal Favor from a nation’s sheet (excommunication) or a region’s sheet (a claim on heretics’ land).</T> : null}
       </Section>
       <Section title="All modifiers" right={<Btn small tone="ghost" label={showMods ? 'Hide' : 'Show'} onPress={() => setShowMods(v => !v)} />}>
-        {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, policies and events that change your numbers.</T>}
+        {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, decrees and events that change your numbers.</T>}
       </Section>
     </View>
   );
 }
 
-// ---------------------------------------------------------------- missions
+// ---------------------------------------------------------------- ambitions (missions internally)
 
 function Missions() {
   const st = useStore();
   const s = st.state!;
   const list = missionsFor(s.player);
-  if (!list.length) return <Empty text="No missions." />;
+  if (!list.length) return <Empty text="No ambitions." />;
   const order = { ready: 0, active: 1, locked: 2, done: 3 };
   const sorted = [...list].sort((a, b) => order[missionState(s, s.player, a)] - order[missionState(s, s.player, b)]);
   return (
     <View style={{ gap: 8 }}>
-      <T v="small">Concrete goals for your nation. Finish one to unlock the next in its branch.</T>
+      <T v="small">What your nation wants. Reach the goal, then tap Complete for the reward; each one opens the next in its line.</T>
       {sorted.map(m => {
         const state = missionState(s, s.player, m);
         const parts = goalParts(m.goal);
@@ -388,6 +388,7 @@ function Missions() {
             <T v="small" style={{ marginTop: 4 }}>{m.desc}</T>
             {state !== 'done' ? (
               <View style={{ marginTop: 6 }}>
+                <Text style={styles.blockLabel}>Goal</Text>
                 {parts.map((c, i) => {
                   const ok = evalCondition(s, s.player, c);
                   return (
@@ -400,10 +401,11 @@ function Missions() {
               </View>
             ) : null}
             {state === 'locked' && m.requires.length ? <T v="tiny" style={{ marginTop: 4 }}>After: {m.requires.map(r => list.find(x => x.id === r)?.title ?? r).join(', ')}</T> : null}
-            <View style={{ marginTop: 6 }}>
+            <View style={styles.reward}>
+              <Text style={styles.blockLabel}>Reward</Text>
               {effectsLines(m.reward).map((l, i) => (
                 <Text key={i} style={{ fontFamily: sans, fontSize: 12, color: C.goldDark, fontWeight: '600' }}>
-                  Reward: {l.text}
+                  • {l.text}
                 </Text>
               ))}
             </View>
@@ -429,7 +431,7 @@ function Ledger() {
   return (
     <View>
       <Row gap={6} style={{ marginBottom: 8 }}>
-        <Btn small style={{ flex: 1 }} tone={sort === 'dev' ? 'primary' : 'secondary'} label="Development" onPress={() => setSort('dev')} />
+        <Btn small style={{ flex: 1 }} tone={sort === 'dev' ? 'primary' : 'secondary'} label="Prosperity" onPress={() => setSort('dev')} />
         <Btn small style={{ flex: 1 }} tone={sort === 'army' ? 'primary' : 'secondary'} label="Army" onPress={() => setSort('army')} />
         <Btn small style={{ flex: 1 }} tone={sort === 'income' ? 'primary' : 'secondary'} label="Income" onPress={() => setSort('income')} />
       </Row>
@@ -531,6 +533,8 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, paddingHorizontal: 6, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.parchmentLine },
   rowTitle: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: C.ink },
   rowSub: { fontFamily: sans, fontSize: 12, color: C.muted, marginTop: 1 },
+  blockLabel: { fontFamily: sans, fontSize: 10, fontWeight: '800', color: C.muted, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 2 },
+  reward: { marginTop: 8, paddingTop: 6, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.parchmentLine },
   rowNum: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink, fontVariant: ['tabular-nums'] },
   policy: { backgroundColor: C.parchment2, borderRadius: 10, padding: 10, marginBottom: 6 },
 });

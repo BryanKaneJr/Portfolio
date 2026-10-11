@@ -28,7 +28,7 @@ type ArgName =
 type Arg = ArgName | { [field: string]: string };
 
 export const FAITHS = ['catholic', 'orthodox', 'muslim', 'protestant', 'native'];
-const GOODS = ['silver', 'gold', 'sugar', 'tobacco', 'cocoa', 'dyes', 'furs', 'fish', 'grain'];
+const GOODS = ['silver', 'gold', 'ivory', 'sugar', 'tobacco', 'cocoa', 'dyes', 'furs', 'fish', 'grain'];
 const GOVS = ['monarchy', 'republic', 'theocracy'];
 const TIERS = ['major', 'hard', 'minor'];
 const MODIFIER_KEYS = [
@@ -221,7 +221,7 @@ function checkArg(arg: Arg, v: unknown, where: string, errs: string[], ctx: { co
       if (typeof v !== 'string' || !TIERS.includes(v)) bad('unknown tier');
       return;
     case 'good':
-      if (typeof v !== 'string' || !GOODS.includes(v)) bad('unknown trade good');
+      if (typeof v !== 'string' || !GOODS.includes(v)) bad('unknown export good');
       return;
     case 'string':
       if (typeof v !== 'string' || !v) bad('expected text');
