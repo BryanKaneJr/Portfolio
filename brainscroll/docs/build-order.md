@@ -106,3 +106,14 @@ The app and the backend are done. The live Supabase project has every level, the
 5. **Launch week:** the quest dates (`content/quests.json`), Supabase Pro, then submit.
 
 Android follows the iPhone launch: the Play Console, Firebase for push and the Android RevenueCat key.
+
+**Status (2026-10-11):** 1.0.0 (8) is submitted to App Review. After approval: remove the test learners, publish the skills and subjects, then release by hand ([`release.md`](release.md#whats-left-for-launch)).
+
+## After launch
+
+1. **Home screen widgets (1.1, owner 2026-10-11).** Three small widgets, in the app's calm, no-guilt voice (the learning streak is never used for fear; see [`product-rules.md`](product-rules.md)):
+   - **This week:** seven dots, Monday to Sunday in the learner's time zone, one filled for each learning day (`user_learning_days`, the same days the streak counts), with Dr. Scroll beside them. A missed day is simply an empty dot: no red, no cross, no warning, no countdown, and Dr. Scroll never looks sad about it (a cheerful pose once today is done, a friendly one otherwise). Tapping opens Home.
+   - **Up next:** the next level's title, its picture and the skill it belongs to; tapping opens straight into that level (`/level/<id>`).
+   - **Dr. Scroll's fact:** one fact a day with Dr. Scroll, taken from the "Did you know" cards of levels the learner has already cleared (so it doubles as a light review), or from the first levels of their skill for a new learner. Tapping opens the level it came from.
+
+   How: a WidgetKit extension in Swift/SwiftUI added through an Expo config plugin, plus an App Group the app writes a small snapshot to (the week's learning days, the next level, today's fact) whenever progress changes, and asks the widgets to refresh. The widgets also refresh at local midnight. It's native, so it ships in a new build with App Review, not an instant update. Android (Glance) follows the Android launch.
