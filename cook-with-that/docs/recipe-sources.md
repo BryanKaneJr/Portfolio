@@ -9,8 +9,8 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 
 | # | Source | License | Size | Effort | Risk | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review and a provenance check | Low once copied pages are excluded | **Use now.** 83 imported, 58 pages excluded |
-| 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use, recipe by recipe.** NHLBI web snapshot built; 14 imported. VA next |
+| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review and a provenance check | Low once copied pages are excluded | **Use now.** 157 imported, 79 pages excluded |
+| 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use, recipe by recipe.** Snapshots built: NHLBI web and books (54 + 172 recipes, 59 imported), VA (336 recipes, 74 excluded, 48 imported) |
 | 3 | [HowToCook](#3-howtocook) | Unlicense; contributors certify their recipes as public domain | 372 recipes (Chinese) | High: translation, plus Chinese pantry ingredients | Low; exclude the 64 that cite references | Later, for a Chinese home-cooking set |
 | 4 | [Project Gutenberg cookbooks](#4-project-gutenberg-cookbooks) | Public domain in the US (published before 1931) | Thousands | High: archaic measures, no oven temperatures | Low in the US; check other countries | Ideas plus text to adapt; strip all Project Gutenberg branding |
 | 5 | [Wikibooks Cookbook](#5-wikibooks-cookbook) | CC BY-SA 4.0 / GFDL | ~3,600 recipes | Same as writing originals | **High if the text is bundled** | **Facts and ideas only.** Never ship its wording |
@@ -85,7 +85,7 @@ publicdomainrecipes.com and foss.cooking are near-identical copies that add one 
   The 11 "Miss Leslie" recipes are transcribed from Eliza Leslie's 1832/1857 books (public domain).
 - **Don't bundle `data/authors/`**: it holds email and donation addresses. The importer reads only the
   display name.
-- **Status:** pinned at commit `9d4a31a0`. 83 recipes imported; see `docs/import-reports/based-cooking.md` for
+- **Status:** pinned at commit `9d4a31a0`. 157 recipes imported; see `docs/import-reports/based-cooking.md` for
   what's ready and what waits on ingredient review.
 - **Provenance findings (2026-10-09):** parallel import workers searched a distinctive sentence of every page they
   considered and traced about 25 pages to commercial recipes: Food.com, Taste of Home, HelloFresh, BBC Good Food,
@@ -95,6 +95,10 @@ publicdomainrecipes.com and foss.cooking are near-identical copies that add one 
   snapshot. A history scan of every imported page found only contributors' own links (one author first published on
   his own blog) and one idea credit ("inspired by McDonald's breakfast wraps"). 58 pages are excluded in all, each with
   its reason.
+- **Round 2 (2026-10-11):** 18 more exclusions, several found only in history. History restarts at two bulk commits
+  (`0694559` from Public Domain Recipes, `97e5806` from foss.cooking), and pages from before 2022 lived at
+  `src/<key>.md`, so check the earlier repo's history too. Pages crediting a pre-1931 book (Miss Leslie, 1832) are
+  public domain by age and stay eligible, with the credit kept.
   spatchcock-chicken was skipped: its wording reads like magazine copy, and a web search found no
   other source but couldn't rule one out either.
 
@@ -114,8 +118,17 @@ of Veterans Affairs") satisfies what each agency asks for.
   steps, prep and cook times, and nutrition data.
 - Each PDF has a footer credit. Exclude recipes marked "Adapted from" (about 14% of a 56-recipe
   sample: pinchofyum.com, Cooking Light, Cookie and Kate, The Kitchn, SparkPeople). Recipes with no
-  credit, or "Submitted by" a VA dietitian, are fine.
-- Needs a PDF reader adapter. There is no structured data.
+  credit, or "Submitted by" a VA dietitian, are fine on their credit line, but a missing credit is not
+  proof of VA authorship (see the status below).
+- **Status (2026-10-11):** the single-recipe PDFs are snapshotted in `content/import/va/recipes.json`
+  (`npm run import:fetch-va`, which runs `pdftotext -layout` on each PDF; fetch date, policy quote and
+  every exclusion in the README beside it). 468 linked PDFs hold 336 distinct recipes, all parsed. 58
+  credit an outside original ("Adapted from", two of them only on an older upload) and are excluded.
+  Web searches traced 6 of the uncredited ones to published originals (a commodity board, SparkPeople,
+  the American Heart Association, Cookie and Kate, syndicated health-system copy), so those are excluded
+  too and every pick needs a search before import. 22 imported (`src/data/imported/va.ts`) with the
+  credit "Source: U.S. Department of Veterans Affairs, Nutrition and Food Services". The eight
+  multi-recipe cookbook PDFs still need their own reader.
 
 **NHLBI** (nhlbi.nih.gov): heart-healthy and low-sodium.
 - *"Unless noted otherwise, information posted on the NHLBI website within the nhlbi.nih.gov domain is
@@ -131,8 +144,16 @@ of Veterans Affairs") satisfies what each agency asks for.
 - **Status (2026-10-09):** the 54 web recipes are snapshotted in `content/import/nhlbi/recipes.json`
   (`npm run import:fetch-nhlbi`; fetch date, policy quotes and provenance check in the README beside
   it). All 54 name an NHLBI publication and none credits an outside source, so none is excluded.
-  14 imported (`src/data/imported/nhlbi.ts`), with the credit line above in `RECIPE_COLLECTIONS`. The
-  cookbook PDFs (about 150–200 more recipes) still need a PDF reader.
+  14 imported (`src/data/imported/nhlbi.ts`), with the credit line above in `RECIPE_COLLECTIONS`.
+- **Books (2026-10-11):** four recipe-book PDFs are snapshotted in
+  `content/import/nhlbi-books/recipes.json` (`npm run import:fetch-nhlbi-books`, which uses
+  `pdftotext -layout`; the PDFs aren't kept): *Deliciously Healthy Dinners* (75), *Deliciously
+  Healthy Family Meals* (43), *Heart-Healthy Home Cooking African American Style* (2021 edition, 26)
+  and *Delicious Heart-Healthy Latino Recipes* (2024 edition, English pages, 28): 172 recipes. Source
+  `nhlbi-books` uses the same collection, credit and file as the web pages, with `book-…` keys. No
+  recipe credits an outside source; 47 are excluded as reprints of a web page or an earlier book (45
+  by title, 2 renamed ones by hand), plus one misprinted recipe. 23 imported. Never name the books
+  "Keep the Beat"; use the subtitles. Details in the README beside the snapshot.
 
 **USDA MyPlate Kitchen**: large, but mostly not federal, and now archived.
 - USDA retired MyPlate.gov on 2026-01-07 (it redirects to RealFood.gov, which has no recipes). That

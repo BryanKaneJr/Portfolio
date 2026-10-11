@@ -85,6 +85,50 @@ const GRAMS_PER_CUP: Record<string, number> = {
   mushroom: 70,
   honey: 340,
   peanut_butter: 255,
+  // Added for the 2026-10-11 recipe audit (solids that showed in ml).
+  cabbage: 70, // shredded
+  napa_cabbage: 75, // shredded
+  kale: 20, // chopped
+  whole_wheat_flour: 120,
+  almonds: 140, // whole; sliced and slivered below
+  peanuts: 145,
+  sunflower_seeds: 140,
+  dried_cranberries: 120,
+  dried_apricots: 130,
+  couscous: 175,
+  wild_rice: 160,
+  pearl_barley: 200,
+  great_northern_beans: 175,
+  black_olives: 135,
+  green_olives: 135,
+  sugar_snap_peas: 65,
+  frozen_spinach: 150,
+  mint: 25,
+  dill: 10,
+  shiitake_mushrooms: 70,
+  roasted_red_peppers: 150,
+  sun_dried_tomatoes: 55, // dry-packed; oil-packed below
+  ricotta: 250,
+  monterey_jack: 113,
+  jicama: 130,
+  cucumber: 135,
+  fennel: 90,
+  butternut_squash: 140,
+  ham: 140, // diced
+  chicken: 140, // cooked and shredded or diced: raw chicken isn't measured in cups
+  grapes: 150,
+  graham_crackers: 100, // crumbs
+  cornflakes: 30, // whole; crushed below
+  tortilla_chips: 30,
+  crispy_chow_mein_noodles: 45,
+  chocolate_sprinkles: 190,
+  paprika: 110,
+};
+/** Where the cut or form changes the weight a lot: [pattern on the ingredient line's name, grams per cup]. */
+const FORM_WEIGHTS: Record<string, [RegExp, number][]> = {
+  almonds: [[/\b(sliced|slivered|flaked)\b/i, 95]],
+  cornflakes: [[/\bcrushed\b/i, 100]],
+  sun_dried_tomatoes: [[/\boil\b/i, 110]],
 };
 /** Rice is weighed raw or cooked, and the two differ a lot. */
 const RICE_RAW = 185;
@@ -183,7 +227,8 @@ const UNIT_RE = new RegExp(
 export function gramsPerCup(ingredientId: string | undefined, displayName = ''): number | undefined {
   if (!ingredientId) return undefined;
   if (ingredientId === 'rice') return /\bcooked\b/i.test(displayName) ? RICE_COOKED : RICE_RAW;
-  return GRAMS_PER_CUP[ingredientId];
+  const form = FORM_WEIGHTS[ingredientId]?.find(([re]) => re.test(displayName));
+  return form ? form[1] : GRAMS_PER_CUP[ingredientId];
 }
 
 /** Convert every measure in `text`; returns the new text plus what each measure was. */
@@ -316,6 +361,17 @@ function convertLengths(text: string): string {
     (_, a: string, b: string) =>
       `${formatLength(parseNumber(a) * CM_PER_INCH).replace(/ cm$/, '')} × ${formatLength(parseNumber(b) * CM_PER_INCH)}`,
   );
+  // Ranges: "3–4 inches", "1/4 to 1/2 inch thick", "2- to 3-inch pieces" (both ends, one unit when they share it).
+  s = s.replace(
+    new RegExp(String.raw`(${NUM})-?\s*(?:–|—|-|to)\s*(${NUM})(?:-| )inch(?:es)?(-thick)?\b`, 'g'),
+    (_, a: string, b: string, thick?: string) => {
+      const lo = formatLength(parseNumber(a) * CM_PER_INCH);
+      const hi = formatLength(parseNumber(b) * CM_PER_INCH);
+      const unit = / (cm|mm)$/.exec(hi)?.[1];
+      const range = lo.endsWith(` ${unit}`) ? `${lo.replace(/ (cm|mm)$/, '')}–${hi}` : `${lo}–${hi}`;
+      return `${range}${thick ? ' thick' : ''}`;
+    },
+  );
   // "1-inch-thick", "1/4-inch", "3/4 inch", "8 inches".
   s = s.replace(
     new RegExp(String.raw`(${NUM})(-| )inch(?:es)?(-thick)?\b`, 'g'),
@@ -332,8 +388,26 @@ function gasMark(f: number): string {
   return String(Math.min(10, Math.round((f - 250) / 25)));
 }
 
+/** A US measure followed by the author's metric in brackets: "1/3 inch (8 mm)", "1 1/4 cups (300 ml)". */
+const AUTHOR_METRIC = new RegExp(
+  String.raw`(?:${NUM})(?:\s*(?:–|—|-|to)\s*(?:${NUM}))?(?:-| )(?:inch(?:es)?|cups?|quarts?|pints?|ounces?|oz|pounds?|lbs?)\s*\(\s*((?:about\s+)?(?:${NUM})(?:\s*[–-]\s*(?:${NUM}))?\s*(?:cm|mm|g|kg|ml|l|lit(?:er|re)s?))\s*\)`,
+  'g',
+);
 const LIQUID_WORDS = /\b(water|milk|broth|stock|juice|oil|cream|sauce|wine|vinegar|batter)\b/i;
-const STEP_FILLERS = new Set(['of', 'the', 'remaining', 'softened', 'melted', 'cold', 'warm', 'chopped', 'grated']);
+const STEP_FILLERS = new Set([
+  'of',
+  'the',
+  'remaining',
+  'softened',
+  'melted',
+  'cold',
+  'warm',
+  'chopped',
+  'grated',
+  'uncooked',
+  'raw',
+  'dry',
+]);
 
 /** Which ingredient a step measure refers to: "1/2 cup of the softened butter" → butter. */
 function stepIngredient(index: IngredientIndex | undefined, after: string): string | undefined {
@@ -363,18 +437,36 @@ export function displayStep(text: string, system: UnitSystem, index?: Ingredient
     (whole, f: string, c1?: string, c2?: string, offset?: number) => {
       const fahrenheit = Number(f);
       const sentence = text.slice(Math.max(0, (offset ?? 0) - 60), (offset ?? 0) + whole.length + 20);
-      const oven = fahrenheit >= 250 && !/air[ -]?fryer/i.test(sentence);
-      // The author's °C when given; otherwise convert (ovens to the nearest 10, like UK recipes).
+      // Air fryers, frying oil and sugar work get plain °C: fan and gas marks only mean something for an oven.
+      const notOven =
+        /air[ -]?fr(y|ie)/i.test(sentence) ||
+        (/\b(oil|fat|lard|fry|frying|deep-fry|candy|syrup|caramel)\b/i.test(sentence) &&
+          !/\b(oven|bake|roast|broil)/i.test(sentence));
+      const oven = fahrenheit >= 250 && !notOven;
+      // The author's °C when given; otherwise convert (oven and frying heats to the nearest 10, like UK recipes).
       const exact = (fahrenheit - 32) * (5 / 9);
-      const celsius = Number(c1 ?? c2 ?? (oven ? Math.round(exact / 10) * 10 : Math.round(exact)));
+      const celsius = Number(c1 ?? c2 ?? (fahrenheit >= 250 ? Math.round(exact / 10) * 10 : Math.round(exact)));
       return oven
         ? `${celsius}°C (${Math.round((celsius - 20) / 5) * 5}°C fan, gas ${gasMark(fahrenheit)})`
         : `${celsius}°C`;
     },
   );
 
+  // The author's own metric wins: "4 inches (10 cm)" → "10 cm", "3/4 cup (175 g)" → "175 g".
+  s = s.replace(AUTHOR_METRIC, (_, metric: string) => metric.replace(/\blit(?:er|re)(s?)\b/, 'litre$1'));
+
   s = convertLengths(s);
-  // "1 1/2-quart baking dish".
+  // "4- to 5-quart pot" (both ends), then "1 1/2-quart baking dish".
+  s = s.replace(
+    new RegExp(String.raw`(${NUM})-?\s*(?:–|—|-|to)\s*(${NUM})-quart\b`, 'g'),
+    (_, a: string, b: string) => {
+      const lo = formatVolume(parseNumber(a) * ML_PER_QUART);
+      const hi = formatVolume(parseNumber(b) * ML_PER_QUART);
+      return lo.endsWith(' litres') && hi.endsWith(' litres')
+        ? `${lo.replace(' litres', '')}–${hi.replace(' litres', '-litre')}`
+        : `${lo}–${hi}`;
+    },
+  );
   s = s.replace(new RegExp(String.raw`(${NUM})-quart\b`, 'g'), (_, a: string) =>
     formatVolume(parseNumber(a) * ML_PER_QUART).replace(' litres', '-litre'),
   );

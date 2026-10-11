@@ -49,6 +49,7 @@ export function validateContent(
     for (const m of rec.meals ?? []) if (!MEALS.includes(m)) add(where, `invalid meal "${m}"`);
     if (new Set(rec.meals).size !== rec.meals.length) add(where, 'duplicate meal tag');
     for (const d of rec.dishTypes ?? []) if (!DISH_TYPES.includes(d)) add(where, `invalid dish type "${d}"`);
+    if (!rec.dishTypes?.length) add(where, 'needs at least one dish type');
     if (new Set(rec.dishTypes).size !== rec.dishTypes.length) add(where, 'duplicate dish type tag');
 
     if (!Number.isInteger(rec.prepMinutes) || rec.prepMinutes < 0 || rec.prepMinutes > 24 * 60)

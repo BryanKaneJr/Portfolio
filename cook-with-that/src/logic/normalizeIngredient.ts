@@ -179,7 +179,8 @@ export function unlistedStepIngredients(
   const listed = new Set(listedIds);
   const terms = [...index.byTerm.entries()].sort((a, b) => b[0].length - a[0].length);
   const found = new Map<string, string>();
-  for (const step of steps) {
+  // Read each clause on its own, so "the garlic, salt and pepper" isn't taken for garlic salt.
+  for (const step of steps.flatMap(s => s.split(/[,;:()]/))) {
     let text = ` ${normalizeText(step)} `;
     for (const [term, id] of terms) {
       if (!text.includes(` ${term} `)) continue;

@@ -1,4 +1,10 @@
-import type { RecipeIngredient } from './types';
+import type { RecipeIngredient, RecipeSource } from './types';
+
+/** Source metadata for a recipe written for the app (seed or src/data/originals). */
+export const ORIGINAL_DRAFT: RecipeSource = {
+  type: 'original',
+  note: 'Original draft for Cook With That — needs culinary review',
+};
 
 /** Required ingredient. */
 export const r = (

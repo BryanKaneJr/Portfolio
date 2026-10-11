@@ -13,9 +13,25 @@ export const DISH_TYPES = [
   'bake',
   'one_pot',
   'bowl',
+  'grilled',
+  'fried',
+  'dip',
+  'appetizers',
+  'sides',
   'baked_goods',
+  'sweets',
 ] as const;
 export type DishType = (typeof DISH_TYPES)[number];
+
+/**
+ * Dish types that follow from a meal: every dessert is also a Desserts dish, every side a Sides dish,
+ * every appetizer an Appetizers dish. `RECIPES` adds them (see `withMealDishTypes`), so recipe files don't list them.
+ */
+export const MEAL_DISH_TYPES: Partial<Record<Meal, DishType>> = {
+  dessert: 'sweets',
+  side: 'sides',
+  appetizer: 'appetizers',
+};
 
 export type Ingredient = {
   id: string;

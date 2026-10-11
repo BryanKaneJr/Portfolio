@@ -12,7 +12,7 @@ detail page. These are the deliberate broad mappings — anything not listed her
 | `pasta` | spaghetti, penne, macaroni, fusilli, fettuccine, angel hair, shells, etc. | Shape named in recipe. Egg noodles are separate. |
 | `rice` | cooked white/jasmine/long-grain | Recipe states cooked vs. raw. |
 | `bread` | sandwich bread, white, whole-grain, baguette, rolls | Recipe names the bread. |
-| `lemon`, `lime` | the fruit, its juice and zest | Recipes say "lemon juice" meaning squeezed from the fruit, and import maps it here, so searching "lemon juice" finds Lemon (and Avoid catches it). Bottled juice is still not promised to work. |
+| `lemon`, `lime`, `orange` | the fruit, its juice and zest | Recipes say "lemon juice" meaning squeezed from the fruit, and import maps it here, so searching "lemon juice" finds Lemon (and Avoid catches it). Bottled juice is still not promised to work. |
 | `eggs` | whole eggs, whites, yolks | Same food; the recipe says which part. |
 | `salt` | table, kosher, sea, flaky | Recipe names the salt. |
 | `sugar` | granulated, caster/superfine | Caster is granulated sugar ground finer; British recipes use it where US ones say sugar. |

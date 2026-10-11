@@ -18,6 +18,30 @@ import {
   parseNhlbiSnapshot,
   type NhlbiEntry,
 } from '../scripts/import/sources/nhlbi';
+import {
+  dropSymbolLetters,
+  duplicateBookRecipes,
+  joinSplitFractions,
+  NHLBI_BOOKS,
+  parseNhlbiBook,
+  parseNhlbiBooksSnapshot,
+  splitColumns,
+  tidyIngredient,
+  titleCase,
+  titleWords,
+} from '../scripts/import/sources/nhlbiBooks';
+import {
+  joinIngredientLines,
+  joinSteps,
+  OUTSIDE_CREDIT,
+  parseVaListing,
+  parseVaSnapshot,
+  parseVaText,
+  splitColumns as splitVaColumns,
+  vaKey,
+  vaRawRecipe,
+  type VaEntry,
+} from '../scripts/import/sources/va';
 import { SOURCES } from '../scripts/import/sources';
 import { stageRecipe, unlockOrder } from '../scripts/import/stage';
 import { recipe } from './fixtures';
@@ -96,9 +120,10 @@ describe('ingredient mapping', () => {
   });
 
   test('a word match is only ever a suggestion', () => {
-    expect(mapIngredient(index, 'rice noodles')).toEqual({
+    // A made-up food, so adding real ingredients to the catalog never breaks this test.
+    expect(mapIngredient(index, 'imaginary rice')).toEqual({
       status: 'unmapped',
-      key: 'rice noodles',
+      key: 'imaginary rice',
       suggestion: 'rice',
     });
   });
@@ -401,6 +426,459 @@ describe('NHLBI reader', () => {
     expect(() => parseNhlbiSnapshot(JSON.stringify([ok, ok]))).toThrow(/twice/);
     const { tips: _tips, ...noTips } = ok;
     expect(parseNhlbiSnapshot(JSON.stringify([noTips]))[0].tips).toEqual([]);
+  });
+});
+
+/** A `pdftotext -layout` book: pages split by form feeds, columns kept by spaces. */
+const page = (...lines: string[]) => lines.join('\n');
+const DINNERS_TEXT = [
+  page(
+    'contents',
+    'side dishes..........................................3',
+    '    garlic toast with herbs.............................5',
+    '    missing recipe......................................9',
+    'appendix a. glossary.................................7',
+    '                                         deliciously healthy dinners   i',
+  ),
+  page(
+    '              • garlic toast with',
+    '                herbs',
+    '              • another side',
+    '              • a third side',
+    'side dishes',
+    '                                         deliciously healthy dinners   3',
+  ),
+  page(
+    'garlic toast with                                           Prep time:',
+    '                                                            Cook time:',
+    '                                                                         5 minutes',
+    '                                                                        10 minutes',
+    '',
+    '        herbs',
+    'crisp and quick, a side for any soup',
+    '4         slices whole-wheat bread       1    Preheat oven to 400 ºF.',
+    '1',
+    ' /8 tsp   salt                           2    Brush the bread with oil, and',
+    '2 Tbsp    olive oil, divided                  bake for 8–10 minutes.',
+    'For topping:',
+    '1C        low-sodium chicken broth,      3    Serve warm.',
+    '          heated                                                                   side dishes',
+    '',
+    'Tip: Serve with soup.',
+    '',
+    '          yield:                         each serving provides:',
+    '          4 servings                     calories        120',
+    '          serving size:                  total fat       5g',
+    '          1 slice                        sodium          150 mg',
+    '',
+    '                                                         deliciously healthy dinners   5',
+  ),
+  page('appendix a. glossary', 'braise: cook slowly in a little liquid', '', '7   deliciously healthy dinners'),
+].join('\f');
+
+const AA_TEXT = [
+  page(
+    'Table of Contents',
+    '   Greens',
+    '      Smothered Greens .................................... 2',
+    '      Spicy Okra ........................................... 4',
+    '      Candied Yams ......................................... 6',
+    '      Fruit Salad .......................................... 8',
+    '   Recipe Substitutions ................................... 10',
+  ),
+  page(
+    'Smothered Greens',
+    'These greens get their flavor from smoked turkey.',
+    '',
+    '3 cups water                             1. Wash the greens and remove',
+    '¼ pound smoked turkey breast,               the stems.',
+    'skinless                                 2. Simmer everything except',
+    '2 pounds greens (mustard, turnip,           the greens for 5 minutes.',
+    'collard, kale, or a mixture)             3. Add greens. Cook 20 to 30',
+    'nonstick cooking spray                      minutes until tender.',
+    '',
+    '  Makes 5 servings',
+    '  Serving size: 1 cup',
+    '  Calories: 80',
+    '  Sodium: 378 mg',
+    '',
+    ' 2                                                 Heart-Healthy Home Cooking',
+  ),
+].join('\f');
+
+describe('NHLBI books reader', () => {
+  const dinners = NHLBI_BOOKS.find(b => b.id === 'dinners')!;
+  const aa = NHLBI_BOOKS.find(b => b.id === 'african-american')!;
+
+  test('the books are NHLBI PDFs, named without the "Keep the Beat" program name', () => {
+    expect(NHLBI_BOOKS.map(b => b.id)).toEqual(['dinners', 'family', 'african-american', 'latino']);
+    for (const b of NHLBI_BOOKS) {
+      expect(b.title).not.toMatch(/keep the beat/i);
+      expect(b.pdf).toMatch(/^https:\/\/www\.nhlbi\.nih\.gov\/.+\.pdf$/);
+    }
+  });
+
+  test('a two-column page: title from the contents, headnote, times, split fractions, wraps, tip and yield', () => {
+    const { entries, skipped } = parseNhlbiBook(DINNERS_TEXT, dinners, '2026-10-11');
+    expect(skipped).toEqual([]);
+    expect(entries).toEqual([
+      {
+        key: 'book-dinners/garlic-toast-with-herbs',
+        url: `${dinners.pdf}#page=3`,
+        title: 'Garlic Toast With Herbs',
+        description: 'crisp and quick, a side for any soup',
+        recipeSource: 'Deliciously Healthy Dinners',
+        book: 'Deliciously Healthy Dinners',
+        servings: 4,
+        servingSize: '1 slice',
+        prepMinutes: 5,
+        cookMinutes: 10,
+        ingredientLines: [
+          '4 slices whole-wheat bread',
+          '1/8 tsp salt',
+          '2 Tbsp olive oil, divided',
+          '1 C low-sodium chicken broth, heated',
+        ],
+        steps: ['Preheat oven to 400 °F.', 'Brush the bread with oil, and bake for 8–10 minutes.', 'Serve warm.'],
+        tips: ['Serve with soup.'],
+        fetchedAt: '2026-10-11',
+      },
+    ]);
+  });
+
+  test('a flush-column page: unindented wraps, a nutrition panel under the ingredients', () => {
+    const { entries } = parseNhlbiBook(AA_TEXT, aa, '2026-10-11');
+    expect(entries).toEqual([
+      expect.objectContaining({
+        key: 'book-african-american/smothered-greens',
+        title: 'Smothered Greens',
+        description: 'These greens get their flavor from smoked turkey.',
+        servings: 5,
+        servingSize: '1 cup',
+        ingredientLines: [
+          '3 cups water',
+          '¼ pound smoked turkey breast, skinless',
+          '2 pounds greens (mustard, turnip, collard, kale, or a mixture)',
+          'nonstick cooking spray',
+        ],
+        steps: [
+          'Wash the greens and remove the stems.',
+          'Simmer everything except the greens for 5 minutes.',
+          'Add greens. Cook 20 to 30 minutes until tender.',
+        ],
+        tips: [],
+      }),
+    ]);
+    expect(entries[0]).not.toHaveProperty('prepMinutes');
+  });
+
+  test('pdftotext quirks: raised fractions, glued cups, glued step numbers, symbol letters', () => {
+    expect(joinSplitFractions(['1', ' /8 tsp salt'])).toEqual([' ', '1/8 tsp salt']);
+    expect(joinSplitFractions(['1', ' / tsp', '  8     ground black pepper'])).toEqual([
+      ' ',
+      '',
+      '1/8 tsp ground black pepper',
+    ]);
+    expect(joinSplitFractions(['/4 C', '3', '              kasha'])).toEqual(['', ' ', '3/4 C         kasha']);
+    expect(tidyIngredient('4C       low-sodium beef broth')).toBe('4 C low-sodium beef broth');
+    expect(tidyIngredient('11/3 C    water')).toBe('1 1/3 C water');
+    expect(tidyIngredient('2C grilled chicken, diced (Leftover Friendly)')).toBe('2 C grilled chicken, diced');
+    expect(splitColumns('2C         canned low-sodium black beans, 4.          Place pitas on a sheet', 48)).toEqual({
+      left: '2C         canned low-sodium black beans,',
+      right: '4. Place pitas on a sheet',
+      col: 48,
+    });
+    expect(dropSymbolLetters('½ C orange juice            HE A W T')).toBe('½ C orange juice                    ');
+    expect(dropSymbolLetters('1 C Tangy Salsa')).toBe('1 C Tangy Salsa');
+  });
+
+  test('contents titles become title case', () => {
+    expect(titleCase('cocoa-spiced beef tenderloin with pineapple salsa')).toBe(
+      'Cocoa-Spiced Beef Tenderloin With Pineapple Salsa',
+    );
+    expect(titleCase('sweet-and-sour chicken')).toBe('Sweet-and-Sour Chicken');
+    expect(titleCase('“fried” rice and chicken')).toBe('“Fried” Rice and Chicken');
+    expect(titleCase('Smothered Greens')).toBe('Smothered Greens');
+  });
+
+  test('a book recipe that reprints a web page or an earlier book is excluded, by title', () => {
+    const books = [
+      { key: 'book-dinners/chicken-picadillo', title: 'Chicken Picadillo' },
+      { key: 'book-dinners/quick-beef-casserole', title: 'Quick Beef Casserole' },
+      { key: 'book-latino/chickadillo-chicken-picadillo', title: 'Chickadillo (Chicken Picadillo)' },
+      { key: 'book-latino/quick-beef-casserole', title: 'Quick Beef Casserole' },
+      { key: 'book-latino/lentil-soup', title: 'Lentil Soup' },
+    ];
+    const web = [{ key: 'chicken-picadillo', title: 'Chicken Picadillo' }];
+    expect(duplicateBookRecipes(books, web)).toEqual({
+      'book-dinners/chicken-picadillo': 'same recipe as nhlbi/chicken-picadillo (the web page); import that one',
+      'book-latino/chickadillo-chicken-picadillo':
+        'same recipe as nhlbi/chicken-picadillo (the web page); import that one',
+      'book-latino/quick-beef-casserole': 'same recipe as book-dinners/quick-beef-casserole; import that one',
+    });
+    expect(titleWords('Cold Fusilli Pasta with Summer Vegetables')).toBe(
+      titleWords('Cold Fusilli Pasta With Summer Vegetables'),
+    );
+  });
+
+  test('the books snapshot needs a book and a book- key on every entry', () => {
+    const entry = parseNhlbiBook(DINNERS_TEXT, dinners, 'd').entries[0];
+    expect(parseNhlbiBooksSnapshot(JSON.stringify([entry]))).toEqual([entry]);
+    const { book: _book, ...noBook } = entry;
+    expect(() => parseNhlbiBooksSnapshot(JSON.stringify([noBook]))).toThrow(/no book/);
+    expect(() => parseNhlbiBooksSnapshot(JSON.stringify([{ ...entry, key: 'garlic-toast' }]))).toThrow(/book- prefix/);
+  });
+
+  test('the books feed the NHLBI collection and file, with keys that never collide with web pages', () => {
+    const books = SOURCES['nhlbi-books'];
+    expect([books.collection, books.file, books.exportName, books.textPolicy]).toEqual([
+      'nhlbi',
+      'nhlbi.ts',
+      'NHLBI_RECIPES',
+      'reuse',
+    ]);
+    expect(books.snapshot).toEqual({ kind: 'file', path: 'content/import/nhlbi-books/recipes.json' });
+    const root = join(__dirname, '..');
+    const bookKeys = books.read(join(root, 'content/import/nhlbi-books/recipes.json')).map(r => r.key);
+    const webKeys = new Set(SOURCES.nhlbi.read(join(root, 'content/import/nhlbi/recipes.json')).map(r => r.key));
+    expect(bookKeys.filter(k => webKeys.has(k))).toEqual([]);
+    expect(bookKeys.every(k => k.startsWith('book-'))).toBe(true);
+    // Every web page that a book reprints is excluded on the book side.
+    expect(books.exclude['book-dinners/chicken-picadillo']).toMatch(/nhlbi\/chicken-picadillo/);
+  });
+});
+
+/** A line of `pdftotext -layout` output with text in both columns (the right one starting at column 57). */
+const cols = (left: string, right = '') => (right ? `${left.padEnd(57)}${right}` : left);
+
+/** A two-column VA recipe PDF as `pdftotext -layout` prints it. */
+const VA_TWO_COLUMN = [
+  '                                      Garlic Bean',
+  '                                        Skillet',
+  '                                 Prep: 10 minutes | Cook: 1 hour 5 minutes | Total: 1 hour 15 minutes',
+  '                                          Yield: 4 servings | Serving Size: 1 cup',
+  '',
+  '',
+  cols('Ingredients', 'Directions'),
+  cols('1 tablespoon olive oil', '1. Heat a large skillet over medium heat.'),
+  cols('1 (15-ounce) can black beans,', '2. Add the oil and heat until shimmering. Add the'),
+  cols('drained and rinsed', '   onion and cook until soft, about 5 minutes.'),
+  cols('½ medium onion, diced (about ½ cup)'),
+  cols('', '3. Stir in the beans.'),
+  cols('Topping'),
+  cols('½ cup shredded cheddar cheese (or Monterey', '4. Sprinkle with the cheese and serve warm.'),
+  cols('Jack)'),
+  cols('Pinch ground black pepper'),
+  cols('Optional toppings: Sliced scallions, Pico de'),
+  cols('Gallo, plain Greek yogurt'),
+  cols('Recipe Notes', '5. Store leftovers in the refrigerator.'),
+  cols('•     Use any canned bean you like.'),
+  '•     Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.',
+  '',
+  '    Nutrition Facts Per Serving: Calories: 230 | Total Fat: 12 g | Saturated Fat: 4 g',
+  '    Sodium: 325 mg | Total Carbohydrate: 8 g | Dietary Fiber: 1 g | Protein: 22 g',
+  '',
+  '    Submitted by VHA Healthy Teaching Kitchen Program',
+  '    For more recipes, please visit www.nutrition.va.gov',
+  '\f',
+].join('\n');
+
+/** A stacked VA recipe PDF ("Ingredients" heading, then "Directions"), with group labels and an outside credit. */
+const VA_STACKED = [
+  '                                                     Lemony Bean Salad',
+  '                                                   Prep: 15 minutes | Chill: 1 hour | Total: 1 hour 15 minutes',
+  '                                                            Yield: 6 servings | Serving Size: 1 cup',
+  '',
+  '                                            Salad Ingredients',
+  '                                            2 cups cooked white beans',
+  '                                            1 cup diced cucumber',
+  '',
+  '                                            Dressing',
+  '                                            ¼ cup olive oil',
+  '                                            2 tablespoons lemon juice',
+  '',
+  '                                            Directions',
+  '                                            1. Whisk the oil and lemon juice in a large bowl.',
+  '                                            2. Add the beans and cucumber and toss',
+  '                                               to coat.',
+  '',
+  '                                            Serve It Later',
+  '                                            1. Chill for at least 1 hour.',
+  '',
+  'Nutrition Facts Per Serving: Calories: 120 | Total Fat: 6.5 g | Saturated Fat: 0 g',
+  'Sodium: 115 mg | Total Carbohydrate: 13 g | Dietary Fiber: 3 g | Protein: 3 g',
+  'Potassium: 200 mg',
+  '',
+  'Adapted from www.example.com | Submitted by VHA Healthy Teaching Kitchen Program',
+  'For more recipes, please visit www.nutrition.va.gov',
+].join('\n');
+
+describe('VA reader', () => {
+  const url = 'https://www.nutrition.va.gov/NUTRITION/docs/Recipes/MainDishes/Garlic-Bean-SkilletJAN2024.pdf';
+  const text = parseVaText(VA_TWO_COLUMN);
+  const entry: VaEntry = {
+    key: vaKey(text.title),
+    url,
+    ...text,
+    categories: ['Main Dishes: Vegetarian'],
+    fetchedAt: '2026-10-11',
+  };
+
+  test('parses a two-column PDF: wrapped title and lines, group labels, notes beside the directions, credit', () => {
+    expect(text).toEqual({
+      title: 'Garlic Bean Skillet',
+      servings: 4,
+      servingSize: '1 cup',
+      prepMinutes: 10,
+      cookMinutes: 65,
+      ingredientLines: [
+        '1 tablespoon olive oil',
+        '1 (15-ounce) can black beans, drained and rinsed',
+        '½ medium onion, diced (about ½ cup)',
+        '½ cup shredded cheddar cheese (or Monterey Jack)',
+        'Pinch ground black pepper',
+        'Optional toppings: Sliced scallions, Pico de Gallo, plain Greek yogurt',
+      ],
+      steps: [
+        'Heat a large skillet over medium heat.',
+        'Add the oil and heat until shimmering. Add the onion and cook until soft, about 5 minutes.',
+        'Stir in the beans.',
+        'Sprinkle with the cheese and serve warm.',
+        'Store leftovers in the refrigerator.',
+      ],
+      notes: [
+        'Use any canned bean you like.',
+        'Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.',
+      ],
+      credit: 'Submitted by VHA Healthy Teaching Kitchen Program',
+    });
+    expect(entry.key).toBe('garlic-bean-skillet');
+  });
+
+  test('parses a stacked PDF: chill time, dropped group headings, restarted numbering, outside credit', () => {
+    expect(parseVaText(VA_STACKED)).toEqual({
+      title: 'Lemony Bean Salad',
+      servings: 6,
+      servingSize: '1 cup',
+      prepMinutes: 15,
+      restMinutes: 60,
+      ingredientLines: [
+        '2 cups cooked white beans',
+        '1 cup diced cucumber',
+        '¼ cup olive oil',
+        '2 tablespoons lemon juice',
+      ],
+      steps: [
+        'Whisk the oil and lemon juice in a large bowl.',
+        'Add the beans and cucumber and toss to coat.',
+        'Chill for at least 1 hour.',
+      ],
+      notes: [],
+      credit: 'Adapted from www.example.com | Submitted by VHA Healthy Teaching Kitchen Program',
+    });
+  });
+
+  test('a PDF that is missing a part, or skips a direction number, fails loudly', () => {
+    expect(() => parseVaText(VA_TWO_COLUMN.replace(/Nutrition Facts/, 'Nutrients'))).toThrow(/Nutrition Facts/);
+    expect(() => parseVaText(VA_TWO_COLUMN.replace(/Prep:/, 'Time:'))).toThrow(/Prep/);
+    expect(() => parseVaText(VA_STACKED.replace(/ Directions\n/, ' Method\n'))).toThrow(/Directions/);
+    expect(() => parseVaText(VA_TWO_COLUMN.replace('3. Stir', '6. Stir'))).toThrow(/missing/);
+  });
+
+  test('template placeholders under the real header lines are skipped', () => {
+    const [title, times, yields, ...rest] = VA_STACKED.split('\n');
+    const page = [
+      '          Recipe Title',
+      title,
+      '          Prep: minutes | Cook: minutes | Total: minutes',
+      times,
+      '          Yield: servings | Serving Size:',
+      yields,
+      ...rest,
+    ].join('\n');
+    expect(parseVaText(page)).toMatchObject({ title: 'Lemony Bean Salad', servings: 6, prepMinutes: 15 });
+  });
+
+  test('a line splits at the column gap; full-width text stays on the left', () => {
+    expect(splitVaColumns(cols('1 egg', '2. Beat the egg.'), 57)).toEqual(['1 egg', '2. Beat the egg.']);
+    expect(splitVaColumns(`${' '.repeat(60)}to coat.`, 57)).toEqual(['', 'to coat.']);
+    expect(splitVaColumns('1 cup water', 57)).toEqual(['1 cup water', '']);
+    const note = '•     Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.';
+    expect(splitVaColumns(note, 57)).toEqual([note, '']);
+  });
+
+  test('ingredient and direction lines are joined into items', () => {
+    expect(joinIngredientLines(['2 pinches (about ⅛ teaspoon) ground black', 'pepper, divided', 'Water'])).toEqual([
+      '2 pinches (about ⅛ teaspoon) ground black pepper, divided',
+      'Water',
+    ]);
+    expect(
+      joinIngredientLines(['1 tablespoon mayonnaise or plain', 'Greek yogurt', 'For the sauce:', '1 cup salsa']),
+    ).toEqual(['1 tablespoon mayonnaise or plain Greek yogurt', '1 cup salsa']);
+    expect(joinSteps(['1. Bake.', '2. Cool for', '   10 minutes.'])).toEqual(['Bake.', 'Cool for 10 minutes.']);
+  });
+
+  test('listing pages give their heading, the recipe pages and the recipe PDFs they link (content area only)', () => {
+    const html =
+      '<nav><a href="/NUTRITION/docs/Cookbooks/Book.pdf">Cookbook</a></nav>' +
+      '<h2 class="page-title">Main Dishes: Beef </h2>' +
+      '<a href="/NUTRITION/Recipes/Pork_Recipes.asp" title="Pork">Pork</a>' +
+      '<a href="/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf#" target="_blank">Chili Mac</a>' +
+      '<a href="/NUTRITION/Recipes/Breakfast/docs/Oats.pdf">Oats</a>' +
+      '<a href="/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf">Chili Mac</a>' +
+      '<a href="/NUTRITION/docs/UpdatedPatientEd/Cookbook.pdf">Cookbook</a>' +
+      '<h2 id="va-crisis-title">Crisis line</h2><a href="/NUTRITION/Recipes/Sides.asp">Sides</a>';
+    expect(parseVaListing(html)).toEqual({
+      heading: 'Main Dishes: Beef',
+      pages: ['/NUTRITION/Recipes/Pork_Recipes.asp'],
+      pdfs: ['/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf', '/NUTRITION/Recipes/Breakfast/docs/Oats.pdf'],
+    });
+    expect(() => parseVaListing('<html></html>')).toThrow(/page title/);
+  });
+
+  test('snapshot entries become raw recipes: scheme-free location, rest time in prep, categories as tags', () => {
+    const raw = vaRawRecipe({ ...entry, restMinutes: 30 });
+    expect(raw).toEqual({
+      key: 'garlic-bean-skillet',
+      title: 'Garlic Bean Skillet',
+      location: 'nutrition.va.gov/NUTRITION/docs/Recipes/MainDishes/Garlic-Bean-SkilletJAN2024.pdf',
+      ingredientLines: entry.ingredientLines,
+      steps: entry.steps,
+      servings: 4,
+      prepMinutes: 40,
+      cookMinutes: 65,
+      tags: ['Main Dishes: Vegetarian'],
+    });
+    const c = stageRecipe(index, raw);
+    expect(c.meals).toContain('dinner');
+    expect(c.ingredients.slice(0, 2).map(i => [i.quantityText, i.ids])).toEqual([
+      ['1 tablespoon', ['olive_oil']],
+      ['1 can (15-ounce)', ['black_beans']],
+    ]);
+  });
+
+  test('the snapshot reader rejects malformed files', () => {
+    expect(parseVaSnapshot(JSON.stringify([entry]))).toEqual([entry]);
+    expect(() => parseVaSnapshot('{}')).toThrow(/array/);
+    expect(() => parseVaSnapshot(JSON.stringify([{ ...entry, credit: undefined }]))).toThrow(/entry 0/);
+    expect(() => parseVaSnapshot(JSON.stringify([entry, entry]))).toThrow(/twice/);
+    const { notes: _n, categories: _c, ...bare } = entry;
+    expect(parseVaSnapshot(JSON.stringify([bare]))[0]).toMatchObject({ notes: [], categories: [] });
+  });
+
+  test('"Adapted from" is an outside credit; a VA dietitian\'s "Submitted by" or "Inspired by" is not', () => {
+    expect(OUTSIDE_CREDIT.test('Adapted from Cooking Light | Submitted by a VA dietitian')).toBe(true);
+    expect(OUTSIDE_CREDIT.test('Submitted by VHA Healthy Teaching Kitchen Program')).toBe(false);
+    expect(OUTSIDE_CREDIT.test('Inspired by a recipe submitted by a VA dietitian')).toBe(false);
+  });
+
+  test('every snapshot recipe with an outside credit, on any upload of it, is excluded', () => {
+    const file = join(__dirname, '..', SOURCES.va.snapshot.kind === 'file' ? SOURCES.va.snapshot.path : '');
+    const credited = parseVaSnapshot(readFileSync(file, 'utf8'))
+      .filter(e => [e.credit, ...(e.otherCredits ?? [])].some(c => OUTSIDE_CREDIT.test(c)))
+      .map(e => e.key);
+    expect(credited.length).toBeGreaterThan(0);
+    expect(credited.filter(k => !(k in SOURCES.va.exclude))).toEqual([]);
   });
 });
 

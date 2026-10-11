@@ -4,7 +4,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { formatMinutes } from '../../components/RecipeCard';
 import { ingredientIndex, recipesById } from '../../data/catalog';
-import { DISH_TYPE_LABELS, MEAL_LABELS } from '../../data/labels';
+import { DISH_TYPE_LABELS, MEAL_LABELS, shownDishTypes } from '../../data/labels';
 import { additionalRequired } from '../../logic/matchRecipes';
 import { displayQuantity, displayStep } from '../../logic/units';
 import { useAppState } from '../../state/AppState';
@@ -36,7 +36,7 @@ export default function RecipeScreen() {
   const showNeedBox = pantryMode ? app.pantry.length > 0 : app.search.useIds.length > 0;
   const required = recipe.ingredients.filter(i => !i.optional);
   const optional = recipe.ingredients.filter(i => i.optional);
-  const tags = [...recipe.meals.map(m => MEAL_LABELS[m]), ...recipe.dishTypes.map(d => DISH_TYPE_LABELS[d])];
+  const tags = [...recipe.meals.map(m => MEAL_LABELS[m]), ...shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d])];
 
   const toggleStep = (n: number) =>
     setDone(prev => {

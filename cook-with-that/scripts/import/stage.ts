@@ -32,6 +32,9 @@ const DISH_HINTS: [DishType, RegExp][] = [
   ['bake', /\b(casseroles?|bake|baked|gratin|lasagna|enchiladas?)\b/],
   ['one_pot', /\b(one[ -]pot|curry|chili|risotto|jambalaya|paella)\b/],
   ['bowl', /\b(bowls?)\b/],
+  ['grilled', /\b(grill(ed)?|broil(ed)?|kebabs?|skewers?|satay|barbecued?|bbq)\b/],
+  ['fried', /\b(fried|fritters?|tempura|air[ -]?fry(er)?|churros?|schnitzel|katsu)\b/],
+  ['dip', /\b(dips?|salsas?|hummus|guacamole|tzatziki)\b/],
   ['baked_goods', /\b(bread|muffins?|biscuits?|scones?|cakes?|cookies?|brownies?|rolls|buns|pie|loaf)\b/],
 ];
 

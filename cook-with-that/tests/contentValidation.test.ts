@@ -1,5 +1,6 @@
 import { INGREDIENTS } from '../src/data/ingredients';
-import { RECIPES } from '../src/data/recipes';
+import { shownDishTypes } from '../src/data/labels';
+import { RECIPES, withMealDishTypes } from '../src/data/recipes';
 import { validateContent } from '../src/logic/validateContent';
 import { resolveFavoriteIds } from '../src/state/favoritesStorage';
 import { recipe } from './fixtures';
@@ -17,7 +18,12 @@ describe('bundled content', () => {
     bad.prepMinutes = -1;
     const issues = validateContent(INGREDIENTS, [bad, recipe({ id: 'dup', req: ['salt'] })]).map(i => i.message);
     expect(issues).toEqual(
-      expect.arrayContaining(['unknown ingredientId "ghost"', 'duplicate recipe id', 'empty step', 'implausible prepMinutes']),
+      expect.arrayContaining([
+        'unknown ingredientId "ghost"',
+        'duplicate recipe id',
+        'empty step',
+        'implausible prepMinutes',
+      ]),
     );
   });
 
@@ -31,6 +37,28 @@ describe('bundled content', () => {
 
   test('every recipe has rights/source metadata', () => {
     for (const r of RECIPES) expect(['original', 'licensed']).toContain(r.source.type);
+  });
+});
+
+describe('dish types', () => {
+  test('every recipe has one, so no Dish type filter hides it for good', () => {
+    expect(RECIPES.filter(r => !r.dishTypes.length).map(r => r.id)).toEqual([]);
+    const bare = recipe({ id: 'bare', dishTypes: [], req: ['salt'] });
+    expect(validateContent(INGREDIENTS, [bare]).map(i => i.message)).toContain('needs at least one dish type');
+  });
+
+  test('desserts, sides and appetizers carry their dish type, without saying it twice on screen', () => {
+    const r = withMealDishTypes(recipe({ id: 'pudding', meals: ['dessert', 'snack'], dishTypes: [] }));
+    expect(r.dishTypes).toEqual(['sweets']);
+    expect(shownDishTypes(r)).toEqual([]);
+    const fries = withMealDishTypes(recipe({ id: 'fries', meals: ['side'], dishTypes: ['fried'] }));
+    expect(fries.dishTypes).toEqual(['fried', 'sides']);
+    expect(shownDishTypes(fries)).toEqual(['fried']);
+    for (const x of RECIPES) {
+      if (x.meals.includes('dessert')) expect(x.dishTypes).toContain('sweets');
+      if (x.meals.includes('side')) expect(x.dishTypes).toContain('sides');
+      if (x.meals.includes('appetizer')) expect(x.dishTypes).toContain('appetizers');
+    }
   });
 });
 

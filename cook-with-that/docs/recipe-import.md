@@ -11,7 +11,9 @@ npm run import:draft -- based-cooking --next 10  # append the next 10 ready reci
 npm run import:draft -- based-cooking chili tacos  # or name the source keys you want
 npm run import:catalog -- "ground ginger"        # add a reviewed ingredient by hand while editing
 npm run import:stage -- nhlbi                    # same loop for NHLBI, from its committed snapshot
-# edit the drafts in src/data/imported/basedCooking.ts (or nhlbi.ts)
+npm run import:stage -- nhlbi-books              # NHLBI's recipe books (PDFs); drafts also go to nhlbi.ts
+npm run import:stage -- va                       # and the VA's recipe PDFs (content/import/va/)
+# edit the drafts in src/data/imported/basedCooking.ts (or nhlbi.ts, va.ts)
 npm run check                                    # typecheck + validate + tests: must pass before committing
 ```
 
@@ -19,10 +21,10 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
 
 1. **Stage** reads the snapshot pinned in `scripts/import/sources/index.ts`: for a git source it fetches
    exactly that commit into `.import-cache/` (git-ignored); for a file source it reads the committed file
-   (`content/import/nhlbi/recipes.json`). It reads every entry, parses each ingredient line and maps it
-   to a catalog ID. It writes `docs/import-reports/<source>.md`. That report has counts, a greedy
-   "review these names next" list, the catalog additions waiting on a draft, and every name that blocks
-   a recipe.
+   (`content/import/nhlbi/recipes.json`, `content/import/va/recipes.json`). It reads every entry, parses
+   each ingredient line and maps it to a catalog ID. It writes `docs/import-reports/<source>.md`. That
+   report has counts, a greedy "review these names next" list, the catalog additions waiting on a draft,
+   and every name that blocks a recipe.
 2. **Draft** appends recipes in the `src/data/recipes.ts` format, with `source` metadata filled in
    (license, collection, original key, title and author). Wherever an editor must decide, it leaves
    `TODO` markers: missing quantities, times, descriptions and meal tags. It also leaves
@@ -41,13 +43,24 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
   pancake fried in unlisted butter would wrongly show for someone avoiding butter. Pasta-cooking water
   is the one exception, and the test skips water.
 - **Exact heat, times and doneness.** Give oven temperatures in °F with °C, convert gas marks, and add
-  safe internal temperatures for meat (ground beef 160°F / 71°C, poultry 165°F / 74°C).
+  safe internal temperatures for meat (ground beef 160°F / 71°C, poultry 165°F / 74°C). Steaks and lamb
+  chops cook to 130°F (54°C) for medium-rare, followed by "The USDA recommends 145°F (63°C) with a 3-minute
+  rest." Runny yolks, hollandaise and raw-yolk desserts need no warning or pasteurized-egg note.
+- **Season it.** A savory dish with nothing salty in it (no cheese, cured meat, soy or salted broth) gets
+  "salt to taste" or a measured amount, even when the source left it out. Don't add salt where bacon, ham,
+  cheese or a salty sauce already seasons the dish.
+- **Cooked rice says how much to cook.** A "3 cups cooked rice" line gets "from 1 cup uncooked rice" in its
+  preparation (about 1 cup uncooked makes 3 cups).
 - **US units first**, with metric in parentheses where the source gave it. The Metric setting converts
   everything else on the fly (`src/logic/units.ts`) and prefers your parenthetical metric figure. If
   `npm run check` reports a US unit left over in metric mode, reword it ("1 cup of the X" is fine) or
   add the ingredient's weight per cup to `GRAMS_PER_CUP`.
 - **Write the tagline** (`description`) in the house style; see "Taglines" below.
 - **Tag meals and dish types.** The guesses come from the source's tags and title, so check them.
+  Every recipe needs at least one (`npm run check` fails without). Appetizers, sides and desserts get theirs
+  from the meal automatically; give any other kind that fits too. Grill or broiler as the main method is
+  `grilled`; deep-, shallow- (1/4 inch of oil or more) or air-fried is `fried`; dips, salsas and spreads are
+  `dip`; pancakes and crêpes are Skillet; toast-based dishes are Sandwich/Wrap.
 - **Set realistic times**, including chilling or resting.
 - **Leave out the source's chatter**: "Enjoy!", anecdotes, links to other pages.
 - **Optional means optional.** Only garnishes and serve-withs are `opt(...)`; the recipe must work
@@ -133,9 +146,18 @@ alone: the staples list is the owner's.
    - **`{ kind: 'git', url, commit }`:** a repository pinned at one commit (Based Cooking). Stage fetches
      it into `.import-cache/`, and the reader gets the checkout directory.
    - **`{ kind: 'file', path }`:** a file committed under `content/import/<source>/`, for a site with no
-     repository (NHLBI). A fetch script in `scripts/import/` writes it (`npm run import:fetch-nhlbi`),
-     a README next to it records the fetch date, license quote and exclusions, and the reader gets the
-     file's path. Stage and draft never touch the network for these.
+     repository (NHLBI, VA). A fetch script in `scripts/import/` writes it (`npm run import:fetch-nhlbi`,
+     `npm run import:fetch-nhlbi-books`, `npm run import:fetch-va`), a README next to it records the fetch
+     date, license quote and exclusions, and the reader gets the file's path. Stage and draft never touch
+     the network for these. A PDF source keeps the extracted text, never the PDFs: its fetch script runs
+     `pdftotext -layout` (poppler-utils) on each download and commits only the parsed recipes; a PDF it
+     can't read reliably fails loudly and is left out with a note, rather than saved half-parsed.
+
+   Two sources can feed one collection and one file (`nhlbi` and `nhlbi-books` both write to
+   `src/data/imported/nhlbi.ts` under the `nhlbi` credit). Their keys must never collide (the book keys
+   start with `book-<book>/`), and because `validateContent` only catches a repeated key, the second
+   source must exclude the recipes the first one already has (the books exclude every recipe whose title
+   matches a web page).
 
    The text policy is one of:
    - **`reuse`:** public domain, CC0 or Unlicense. The source's wording can be kept and edited.

@@ -1,6 +1,7 @@
 import { IMPORTED_RECIPES } from './imported';
-import { opt, r } from './recipeBuilders';
-import type { Recipe } from './types';
+import { ORIGINAL_RECIPES } from './originals';
+import { ORIGINAL_DRAFT, opt, r } from './recipeBuilders';
+import { MEAL_DISH_TYPES, type Recipe } from './types';
 
 /**
  * Seed recipe library (Phase 1).
@@ -11,7 +12,7 @@ import type { Recipe } from './types';
  * release. Do not paste in directions from blogs or other sites.
  */
 
-const DRAFT = { type: 'original', note: 'Original draft for Cook With That — needs culinary review' } as const;
+const DRAFT = ORIGINAL_DRAFT;
 
 const SEED_RECIPES: Recipe[] = [
   {
@@ -45,7 +46,7 @@ const SEED_RECIPES: Recipe[] = [
   },
   {
     id: 'chicken-spinach-garlic-pasta',
-    title: 'Chicken, Spinach & Garlic Pasta',
+    title: 'Chicken and Spinach Pasta in Garlic Broth',
     description: 'A light, brothy pasta — no cream — with chicken, garlic and spinach.',
     meals: ['dinner'],
     dishTypes: ['pasta'],
@@ -98,7 +99,7 @@ const SEED_RECIPES: Recipe[] = [
     ],
     steps: [
       'Cook the pasta in a large pot of well-salted boiling water until al dente. Save 1/2 cup of the pasta water, then drain.',
-      'Season the chicken with the salt and pepper. Heat the oil in a large skillet over medium-high heat and cook the chicken 6–8 minutes, until cooked through (165°F / 74°C inside). Move it to a plate.',
+      'While the pasta cooks, season the chicken with the salt and pepper. Heat the oil in a large skillet over medium-high heat and cook the chicken 6–8 minutes, until cooked through (165°F / 74°C inside). Move it to a plate.',
       'Lower the heat to medium. Melt the butter, add the garlic and stir for 30–60 seconds until fragrant.',
       'Pour in the cream and bring to a gentle simmer. Cook 3 minutes, stirring, until slightly thickened.',
       'Stir in the Parmesan until melted, then add the spinach and stir until wilted.',
@@ -143,7 +144,7 @@ const SEED_RECIPES: Recipe[] = [
     cookMinutes: 10,
     servings: 3,
     ingredients: [
-      r('rice', 'cooked white rice, chilled (day-old is best)', '3 cups'),
+      r('rice', 'cooked white rice, chilled (day-old is best)', '3 cups', 'from 1 cup uncooked rice'),
       r('eggs', 'large eggs', '2', 'beaten'),
       r('peas', 'frozen peas', '1/2 cup'),
       r('carrot', 'carrot', '1 medium', 'finely diced'),
@@ -158,7 +159,7 @@ const SEED_RECIPES: Recipe[] = [
       'Heat 1 tbsp of the oil in a large skillet or wok over medium-high heat. Add the eggs and scramble for about 1 minute until just set. Move them to a plate.',
       'Add the remaining oil, the carrot and the green onion whites. Stir-fry for 3 minutes until the carrot starts to soften.',
       'Add the garlic and stir for 30 seconds.',
-      'Add the rice and spread it out. Let it sit 1 minute to toast, then stir-fry 2–3 minutes until heated through.',
+      'Add the rice and spread it out. Let it sit 1 minute to crisp slightly, then stir-fry 2–3 minutes until heated through.',
       'Stir in the peas, soy sauce and eggs. Cook 1–2 minutes until the peas are hot.',
       'Take off the heat and stir in the green onion greens and sesame oil, if using.',
     ],
@@ -186,7 +187,7 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'In a bowl, roughly mash the beans with the cumin and salsa, leaving some beans whole.',
       'Spread a quarter of the bean mixture over half of each tortilla. Top with the cheddar (and green onion, if using), then fold the tortillas in half.',
-      'Heat 1/2 tsp oil in a large skillet over medium heat. Cook two quesadillas at a time for 2–3 minutes per side, until golden and the cheese has melted.',
+      'Heat 1 tsp of the oil in a large skillet over medium heat. Cook two quesadillas at a time for 2–3 minutes per side, until golden and the cheese has melted.',
       'Repeat with the remaining oil and quesadillas. Rest 1 minute, cut into wedges, and serve with salsa and sour cream.',
     ],
     source: DRAFT,
@@ -199,7 +200,7 @@ const SEED_RECIPES: Recipe[] = [
     dishTypes: ['soup', 'one_pot'],
     prepMinutes: 10,
     cookMinutes: 25,
-    servings: 4,
+    servings: 6,
     ingredients: [
       r('canned_tomatoes', 'canned whole or crushed tomatoes', '2 cans (28 oz each)'),
       r('onion', 'yellow onion', '1 medium', 'chopped'),
@@ -215,7 +216,7 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'Melt the butter in a large pot over medium heat. Add the onion and a pinch of the salt and cook, stirring, for 6–8 minutes until soft and translucent.',
       'Add the garlic and cook 1 minute.',
-      'Add the tomatoes with their juices, the broth, sugar, remaining salt and pepper. Bring to a boil, then lower the heat and simmer, partly covered, for 15 minutes.',
+      'Add the canned tomatoes with their juices, the broth, sugar, remaining salt and pepper. Bring to a boil, then lower the heat and simmer, partly covered, for 15 minutes.',
       'Take the pot off the heat. Blend until smooth with an immersion blender, or carefully in batches in a blender with the lid vented and covered with a towel.',
       'Stir in the cream if using and warm through without boiling. Taste for salt and serve topped with basil if you like.',
     ],
@@ -325,10 +326,10 @@ const SEED_RECIPES: Recipe[] = [
       opt('sour_cream', 'sour cream', 'for serving'),
     ],
     steps: [
-      'Heat the oil in a large pot over medium-high heat. Add the beef and cook, breaking it up, for 6–8 minutes until browned with no pink remaining. Spoon off excess fat if needed.',
+      'Heat the oil in a large pot over medium-high heat. Add the beef and cook, breaking it up, for 6–8 minutes until browned with no pink remaining (160°F / 71°C). Spoon off excess fat if needed.',
       'Add the onion and cook 5 minutes until softened. Add the garlic, chili powder, cumin and tomato paste and stir for 1 minute.',
-      'Add the tomatoes with their juices, the beans, water and salt. Bring to a boil.',
-      'Lower the heat and simmer, partly covered, for 30 minutes, stirring now and then, until thickened. Make sure the beef has reached 160°F (71°C).',
+      'Add the canned tomatoes with their juices, the beans, water and salt. Bring to a boil.',
+      'Lower the heat and simmer, partly covered, for 30 minutes, stirring now and then, until thickened.',
       'Taste and adjust the salt. Serve topped with cheddar and sour cream if you like.',
     ],
     source: DRAFT,
@@ -359,7 +360,7 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'Heat the oil in a large pot over medium heat. Cook the onion with a pinch of salt for 5–6 minutes until soft.',
       'Add the garlic, ginger and curry powder and stir for 1 minute until fragrant.',
-      'Add the tomatoes, coconut milk, chickpeas and remaining salt. Bring to a simmer.',
+      'Add the canned tomatoes, coconut milk, chickpeas and remaining salt. Bring to a simmer.',
       'Simmer uncovered for 12–15 minutes, stirring occasionally, until slightly thickened.',
       'Stir in the spinach until wilted. Taste for salt and serve over rice with cilantro if you like.',
     ],
@@ -371,7 +372,7 @@ const SEED_RECIPES: Recipe[] = [
     description: 'Creamy no-cook oats you mix at night and grab in the morning.',
     meals: ['breakfast'],
     dishTypes: ['bowl'],
-    prepMinutes: 5,
+    prepMinutes: 365,
     cookMinutes: 0,
     servings: 1,
     ingredients: [
@@ -383,7 +384,7 @@ const SEED_RECIPES: Recipe[] = [
       opt('cinnamon', 'ground cinnamon', 'a pinch'),
     ],
     steps: [
-      'Stir the oats, milk, yogurt, honey and cinnamon (if using) together in a jar or container.',
+      'Stir the oats, milk, Greek yogurt, honey and cinnamon (if using) together in a jar or container.',
       'Cover and refrigerate for at least 6 hours or overnight.',
       'Stir, add a splash of milk if it is too thick, and top with berries if you like. Eat within 2 days.',
     ],
@@ -394,7 +395,7 @@ const SEED_RECIPES: Recipe[] = [
     title: 'Fluffy Pancakes',
     description: 'Simple, tall buttermilk-style pancakes made with regular milk.',
     meals: ['breakfast'],
-    dishTypes: [],
+    dishTypes: ['skillet'],
     prepMinutes: 10,
     cookMinutes: 15,
     servings: 4,
@@ -425,8 +426,8 @@ const SEED_RECIPES: Recipe[] = [
     meals: ['dessert', 'snack'],
     dishTypes: ['baked_goods'],
     prepMinutes: 15,
-    cookMinutes: 12,
-    servings: 24,
+    cookMinutes: 35,
+    servings: 36,
     ingredients: [
       r('flour', 'all-purpose flour', '2 1/4 cups'),
       r('baking_soda', 'baking soda', '1 tsp'),
@@ -444,8 +445,8 @@ const SEED_RECIPES: Recipe[] = [
       'In a large bowl, beat the butter, sugar and brown sugar with a mixer for 2–3 minutes until light and fluffy.',
       'Beat in the eggs one at a time, then the vanilla.',
       'Mix in the flour mixture on low speed just until no dry flour remains. Stir in the chocolate chips.',
-      'Scoop rounded 2-tablespoon balls onto the sheets, about 2 inches apart.',
-      'Bake one sheet at a time for 9–12 minutes, until the edges are golden and the centers look slightly underdone.',
+      'Scoop rounded 2-tablespoon balls (about 36) onto the sheets, about 2 inches apart.',
+      'Bake one sheet at a time for 9–12 minutes, until the edges are golden and the centers look slightly underdone. Let the sheets cool before you load them again.',
       'Cool on the sheet for 5 minutes, then move to a rack.',
     ],
     source: DRAFT,
@@ -453,7 +454,7 @@ const SEED_RECIPES: Recipe[] = [
   {
     id: 'garlic-butter-shrimp',
     title: 'Garlic Butter Shrimp',
-    description: 'Juicy shrimp in a lemony garlic butter sauce, done in about ten minutes.',
+    description: 'Juicy shrimp in a lemony garlic butter sauce, cooked in under ten minutes.',
     meals: ['dinner', 'appetizer'],
     dishTypes: ['skillet'],
     prepMinutes: 10,
@@ -600,7 +601,7 @@ const SEED_RECIPES: Recipe[] = [
     title: 'Simple Guacamole',
     description: 'Chunky, lime-bright guacamole for chips, tacos or toast.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 10,
     cookMinutes: 0,
     servings: 4,
@@ -709,7 +710,7 @@ const SEED_RECIPES: Recipe[] = [
   {
     id: 'peanut-butter-banana-toast',
     title: 'Peanut Butter Banana Toast',
-    description: 'A two-minute breakfast or snack that actually keeps you full.',
+    description: 'Warm toast spread with peanut butter and topped with sliced banana, ready in five minutes.',
     meals: ['breakfast', 'snack'],
     dishTypes: ['sandwich'],
     prepMinutes: 3,
@@ -746,11 +747,11 @@ const SEED_RECIPES: Recipe[] = [
       r('oats', 'old-fashioned rolled oats', '1 cup'),
       r('flour', 'all-purpose flour', '3/4 cup'),
       r('brown_sugar', 'packed brown sugar', '3/4 cup'),
-      r('butter', 'cold butter', '1/2 cup (1 stick)', 'cubed'),
+      r('butter', 'cold butter', '1/2 cup (1 stick), plus 1 tsp for the dish', 'cubed'),
       r('salt', 'salt', '1/4 tsp'),
     ],
     steps: [
-      'Heat the oven to 350°F (175°C). Butter a 9-inch square or similar baking dish.',
+      'Heat the oven to 350°F (175°C). Grease a 9-inch square or similar baking dish with the 1 tsp butter.',
       'Toss the apples with the lemon juice, sugar and 1 tsp cinnamon. Spread them in the dish.',
       'In a bowl, mix the oats, flour, brown sugar, salt and remaining cinnamon. Rub in the butter with your fingers until it forms clumps.',
       'Scatter the topping evenly over the apples.',
@@ -787,5 +788,14 @@ const SEED_RECIPES: Recipe[] = [
   },
 ];
 
-/** The shipped library: hand-written seed recipes, then everything imported from open collections (src/data/imported). */
-export const RECIPES: Recipe[] = [...SEED_RECIPES, ...IMPORTED_RECIPES];
+/**
+ * The shipped library: hand-written seed recipes, original recipes written since (src/data/originals), then
+ * everything imported from open collections (src/data/imported).
+ */
+/** Adds the dish types a recipe's meals imply (a dessert is also a Desserts dish); see `MEAL_DISH_TYPES`. */
+export function withMealDishTypes(recipe: Recipe): Recipe {
+  const implied = recipe.meals.flatMap(m => MEAL_DISH_TYPES[m] ?? []).filter(d => !recipe.dishTypes.includes(d));
+  return implied.length ? { ...recipe, dishTypes: [...recipe.dishTypes, ...implied] } : recipe;
+}
+
+export const RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES, ...IMPORTED_RECIPES].map(withMealDishTypes);

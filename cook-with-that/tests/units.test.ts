@@ -79,6 +79,13 @@ describe('steps in metric', () => {
     expect(step('Warm the milk (about 100°F / 38°C).')).toBe('Warm the milk (about 38°C).');
     expect(step('Heat the air fryer to 400°F (200°C).')).toBe('Heat the air fryer to 200°C.');
     expect(step('Bake at 400°F.')).toBe('Bake at 200°C (180°C fan, gas 6).');
+    // Air-frying, frying oil and sugar work aren't ovens: no fan or gas mark.
+    expect(step('Or air-fry them at 400°F (200°C) for 10 minutes.')).toBe('Or air-fry them at 200°C for 10 minutes.');
+    expect(step('Heat the oil to 350°F.')).toBe('Heat the oil to 180°C.');
+    expect(step('Boil the syrup to 240°F.')).toBe('Boil the syrup to 116°C.');
+    expect(step('Heat the oven to 400°F (200°C) and oil a baking sheet.')).toBe(
+      'Heat the oven to 200°C (180°C fan, gas 6) and oil a baking sheet.',
+    );
     expect(step('Fry until it reads 350°F on a thermometer')).toContain('180°C');
   });
 
@@ -88,7 +95,21 @@ describe('steps in metric', () => {
     expect(step('Pound to an even 1/4-inch thickness.')).toBe('Pound to an even 6 mm thickness.');
     expect(step('Shape into a 1-inch-thick square.')).toBe('Shape into a 2.5 cm thick square.');
     expect(step('about 3/4 inch thick')).toBe('about 2 cm thick');
+    // Both ends of a range convert (it once read "3–10 cm").
+    expect(step('Cut into 3–4 inch pieces.')).toBe('Cut into 8–10 cm pieces.');
+    expect(step('Roll it 1/4 to 1/2 inch thick.')).toBe('Roll it 6 mm–1.5 cm thick.');
+    expect(step('a skillet 8 to 9 inches across')).toBe('a skillet 20–23 cm across');
+    expect(step('Cut into 2- to 3-inch pieces.')).toBe('Cut into 5–8 cm pieces.');
     expect(step('Butter a 1 1/2-quart baking dish.')).toBe('Butter a 1.4-litre baking dish.');
+    expect(step('a heavy 4- to 5-quart pot')).toBe('a heavy 3.8–4.7-litre pot');
+  });
+
+  test('the author\'s own metric wins in steps (it once read "10 cm (10 cm)")', () => {
+    expect(step('about 4 inches (10 cm) below the broiler')).toBe('about 10 cm below the broiler');
+    expect(step('Cut it into 3/4-inch (2 cm) pieces.')).toBe('Cut it into 2 cm pieces.');
+    expect(step('Measure out 3/4 cup (175 g).')).toBe('Measure out 175 g.');
+    expect(step('and 1 1/4 cups (300 ml) of the water')).toBe('and 300 ml of the water');
+    expect(step('a 1 1/2-quart (1.5 liter) baking dish')).toBe('a 1.5 litre baking dish');
   });
 
   test('cups in steps follow the ingredient they measure', () => {
@@ -96,6 +117,8 @@ describe('steps in metric', () => {
     expect(step('Toss with 1/4 cup of the sugar.')).toBe('Toss with 50 g of the sugar.');
     expect(step('Knead in 1/4 cup of the softened butter.')).toBe('Knead in 55 g of the softened butter.');
     expect(step('Melt 8 tbsp (1 stick) of the butter.')).toBe('Melt 8 tbsp (115 g) of the butter.');
+    expect(step('from about 1 1/3 cups uncooked rice')).toBe('from about 245 g uncooked rice');
+    expect(step('Add 1/2 cup dry white wine.')).toBe('Add 120 ml dry white wine.');
   });
 
   test('counts that look like measures are left alone', () => {
@@ -134,6 +157,17 @@ describe('the whole library in metric', () => {
         .flatMap(i => [i.displayName, i.preparation ?? ''])
         .map(t => displayStep(t, 'metric', ingredientIndex))
         .filter(t => IMPERIAL.test(t))
+        .map(t => `${r.id}: ${t}`),
+    );
+    expect(left).toEqual([]);
+  });
+
+  test('no measure is shown twice', () => {
+    const TWICE = /\d[\d.,]*\s*(cm|mm|g|kg|ml|litres?)\b[^()\d]{0,12}\(\s*(?:about\s+)?[\d.,–-]+\s*\1\b/;
+    const left = RECIPES.flatMap(r =>
+      [...r.steps, ...r.ingredients.flatMap(i => [i.displayName, i.preparation ?? ''])]
+        .map(t => displayStep(t, 'metric', ingredientIndex))
+        .filter(t => TWICE.test(t))
         .map(t => `${r.id}: ${t}`),
     );
     expect(left).toEqual([]);

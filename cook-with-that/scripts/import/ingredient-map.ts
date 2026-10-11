@@ -475,6 +475,444 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   pita: '=pita bread',
   'whole wheat pita': '=pita bread',
 
+  // ── Reviewed by parallel import worker nhlbi2 ──
+  'lite soy sauce': 'soy_sauce', // reduced-sodium soy sauce, like 'low sodium soy sauce'
+  'no salt added tomatoes': 'canned_tomatoes', // the label only appears on canned tomatoes
+  'olive or canola oil': null, // the editor picks one
+  'white potatoes': 'potato',
+  'new red potatoes': 'potato', // small red-skinned potatoes
+  'red tomato': 'tomato',
+  'tart apples': 'apple', // the recipe names the variety (Granny Smith)
+  'dark raisins': '=raisins',
+  'sifted all purpose flour': 'flour',
+  'dry whole wheat spaghetti': 'pasta',
+  'whole wheat breadcrumbs': 'bread_crumbs',
+  'fat free evaporated milk': '=evaporated milk',
+  '93 percent lean ground beef': 'ground_beef',
+  'orange juice': 'orange', // like lemon juice → lemon: squeezed from the fruit
+  'hot pepper': '=chili pepper', // which chili? The editor names it
+  'summer squash': null, // zucchini or yellow squash? The editor names it
+  'pumpkin pie spice or cinnamon': null, // the editor picks one
+  'parsley and lemon wedges': ['parsley', 'lemon'],
+  'chili sauce': { add: 'spice' }, // bottled, ketchup-like tomato chili sauce; not hot sauce or sweet chili sauce
+  'shiitake mushrooms': { add: 'produce' }, // not button mushrooms
+  shiitake: '=shiitake mushrooms',
+  'shiitake mushroom caps': '=shiitake mushrooms',
+  'tuna steak': { add: 'protein' }, // fresh fish; canned tuna is separate
+  tilapia: { add: 'protein' },
+  'tilapia fillets': '=tilapia',
+  'black olives': { add: 'pantry' }, // jarred or canned, like green olives
+  'pitted black olives': '=black olives',
+  molasses: { add: 'pantry' },
+  'pine nuts': { add: 'pantry' },
+  couscous: { add: 'grain' },
+  'graham crackers': { add: 'grain' },
+  'graham cracker crumbs': '=graham crackers',
+  'vanilla yogurt': { add: 'dairy' }, // sweetened and flavored; plain yogurt is separate
+  'wooden skewers': false,
+  '6 inch wooden skewers': false,
+
+  // ── Reviewed by parallel import worker bc5 ──
+  'welsh onion': 'green_onion', // Allium fistulosum, the bunching onion sold as scallions
+  'red chilies': 'red_chili', // plural of the reviewed fresh red chili
+  'red chillies': 'red_chili',
+  'chicken breast or thigh': 'chicken', // either cut of the same bird
+  'beef chuck': 'chuck_roast', // the same cut, cubed for stew
+  'chipolata sausages': 'sausage', // thin pork link sausages
+  chipolatas: 'sausage',
+  'black balsamic vinegar': 'balsamic_vinegar', // ordinary dark balsamic (white balsamic is the other kind)
+  ciabatta: 'bread', // a kind of bread, like baguette
+  'ciabatta bread': 'bread',
+  'burrito sized tortilla': 'tortillas', // large flour tortillas
+  'cooking powder': 'baking_powder', // literal translation of baking powder (Polish "proszek do pieczenia")
+  'ground tumeric': 'turmeric', // common misspelling
+  tumeric: 'turmeric',
+  scamorza: { add: 'dairy' }, // Italian stretched-curd cheese, plain or smoked; not mozzarella
+  'scamorza cheese': '=scamorza',
+  'adobo seasoning': { add: 'spice' }, // dry all-purpose blend (garlic, oregano, turmeric, salt); not chipotles in adobo
+  'massaman curry paste': { add: 'pantry' }, // jarred Thai curry paste; red and green pastes are different
+  'milk chocolate': { add: 'pantry' }, // dark chocolate is separate
+  'chocolate sprinkles': { add: 'pantry' },
+  sprinkles: null, // chocolate or rainbow? The recipe must say
+  'shredded coconut': { add: 'pantry' }, // dried, sweetened or not; coconut milk, cream and oil are separate
+  'desiccated coconut': '=shredded coconut',
+  coconut: null, // shredded, fresh, milk or cream? The recipe must say
+  bechamel: null, // a sauce made from butter, flour and milk: the editor lists those
+  'taco meat': null, // a recipe of its own (seasoned ground beef): the editor lists its ingredients
+  'plain greek yogurt or sour cream': null, // two foods: the editor picks one
+  'lamb shoulder or beef chuck': null, // two meats: the editor picks one
+  'beef or chicken stock': null, // two broths: the editor picks one
+
+  // ── Reviewed by parallel import worker bc6 ──
+  'green chili': { add: 'produce', name: 'Fresh green chili' }, // slim Indian/Thai green chili or serrano; jalapeño is separate
+  'green chilli': '=green chili',
+  'green chilies': '=green chili',
+  'green chillies': '=green chili',
+  'turmeric powder': '=turmeric',
+  'tumeric powder': '=turmeric', // common misspelling
+  'fat free yogurt': 'yogurt', // plain yogurt, any fat level
+  'fat free yoghurt': 'yogurt',
+  'lamb shoulder': { add: 'protein' }, // boneless stewing cut; ground lamb is separate
+  'boneless lamb shoulder': '=lamb shoulder',
+  'pork loin': { add: 'protein' }, // boneless loin roast, cut up by the recipe; pork chops and pork shoulder are separate
+  'boneless pork loin': '=pork loin',
+  'corn tortillas': { add: 'grain' }, // the catalog's tortillas are flour
+  'corn tortilla': '=corn tortillas',
+  'baked beans': { add: 'pantry' }, // canned, in tomato sauce
+  fennel: { add: 'produce' }, // the bulb; fennel seeds are separate
+  'fennel bulb': '=fennel',
+  'fennel bulbs': '=fennel',
+  kale: { add: 'produce' },
+  'fish broth': '=fish stock',
+  'ground cardamom': { add: 'spice' }, // cardamom pods are separate, like whole and ground cloves
+  'dried cranberries': { add: 'pantry' },
+
+  // ── Reviewed by parallel import worker bc7 ──
+  meat: null, // which meat? The recipe must say
+  'cooked white or brown rice': null, // two different foods: the editor picks one
+  'zucchini or bok choy': null, // the editor picks one
+  'flat green beans': 'green_beans', // romano beans, a flat variety of green bean
+  'lima beans': { add: 'protein' }, // includes the large Valencian garrofó; not cannellini
+  'butter beans': '=lima beans', // the UK and US Southern name for lima beans
+  'baby lima beans': '=lima beans',
+  'penne rigate': 'pasta',
+  'salted water': 'water',
+  'sugar free ketchup': 'ketchup',
+  'condensed tomato soup': { add: 'pantry' }, // canned, undiluted; not tomato sauce or passata
+  'celery shoots': 'celery', // stalks
+  beet: { add: 'produce' }, // fresh beetroot
+  beets: '=beet',
+  beetroot: '=beet',
+  'dry brown lentils': 'lentils',
+  'spanish chorizo': { add: 'protein' }, // cured, ready to slice
+  chorizo: null, // Spanish (cured) or Mexican (raw)? They cook differently; the recipe must say
+  'spicy chorizo': null, // Spanish or Mexican?
+  kefir: { add: 'dairy' }, // cultured milk drink; not buttermilk or yogurt
+  'brewer s yeast': null, // Italian "lievito di birra" is fresh baker's yeast; in English it's an inactive supplement
+
+  // ── Reviewed by parallel import worker bc8 ──
+  'dried mint': { add: 'spice' }, // the catalog's mint is fresh leaves
+  masarepa: { add: 'grain' }, // precooked white corn flour for arepas; not cornmeal, masa harina or cornstarch
+  'precooked corn flour': '=masarepa',
+  'precooked cornmeal': '=masarepa',
+  'queso fresco': { add: 'dairy', name: 'Queso fresco' }, // fresh crumbly Latin American cheese; not feta
+  'five spice powder': { add: 'spice', name: 'Five-spice powder' }, // Chinese spice blend
+  'chinese five spice': '=five spice powder',
+  'chinese five spice powder': '=five spice powder',
+  'five spice': '=five spice powder',
+  'head of garlic': 'garlic', // a whole bulb, separated into cloves
+  'parmigiano cheese': 'parmesan',
+  'lemon rind': 'lemon', // zest or peel, like 'lemon peel'
+
+  // ── Reviewed by parallel import worker o-soups-salads ──
+  anchovies: { add: 'protein' }, // oil-packed fillets in a tin or jar; anchovy paste is a different product
+  'anchovy fillets': '=anchovies',
+  'blue cheese': { add: 'dairy' }, // crumbly blue-veined cheese; not feta
+  'kalamata olives': { add: 'pantry' }, // brine-cured Greek olives; not mild canned black olives
+  'split peas': { add: 'protein' }, // dried green split peas
+  'green split peas': '=split peas',
+  'ham hock': { add: 'protein' }, // smoked pork shank, mostly bone and skin; not sliced or diced ham
+  'smoked ham hock': '=ham hock',
+  'pearl barley': { add: 'grain' }, // polished barley; hulled barley cooks much longer
+  'ribeye steak': { add: 'protein' }, // well-marbled steak; sirloin is separate
+  'rib eye steak': '=ribeye steak',
+  provolone: { add: 'dairy' },
+  'provolone cheese': '=provolone',
+  sauerkraut: { add: 'pantry' }, // jarred or bagged fermented cabbage; not fresh cabbage
+  'swiss cheese': { add: 'dairy', name: 'Swiss cheese' }, // Emmental-style; Gruyère is separate
+  emmental: '=swiss cheese', // the cheese US "Swiss" copies; sold as Emmental in the UK
+  'tortilla chips': { add: 'grain' }, // fried or baked corn chips; corn tortillas are separate
+  grapes: { add: 'produce' }, // red or green seedless table grapes
+  'red grapes': '=grapes',
+  'seedless grapes': '=grapes',
+  'celery seed': { add: 'spice' }, // whole dried seed; not celery or celery salt
+  'celery seeds': '=celery seed',
+  'pork tenderloin': { add: 'protein' }, // also registered by o-pork-seafood; same key and category
+  'corned beef': { add: 'protein' }, // cooked and sliced, or a brisket to simmer; also registered by o-beef
+
+  // ── Reviewed by parallel import worker o-breakfast-sides ──
+  'artichoke hearts': { add: 'pantry' }, // canned or jarred, packed in water; not fresh whole artichokes
+  'canned artichoke hearts': '=artichoke hearts',
+  'navy beans': { add: 'protein' }, // small dried white beans for baked beans; cannellini are separate
+  'dried navy beans': '=navy beans',
+  'haricot beans': '=navy beans', // the UK name for navy beans
+  cornmeal: { add: 'grain' }, // dried ground corn; not masarepa, masa harina or cornstarch
+  'yellow cornmeal': '=cornmeal',
+  parsnip: { add: 'produce' },
+  parsnips: '=parsnip',
+  'brussels sprouts': { add: 'produce' },
+  'brussel sprouts': '=brussels sprouts', // common misspelling
+
+  // ── Reviewed by parallel import worker o-beef ──
+  'corned beef brisket': '=corned beef',
+
+  // ── Reviewed by parallel import worker o-pork-seafood ──
+  'pork ribs': { add: 'protein' }, // racks of baby back or spare ribs; the recipe names the cut
+  'baby back ribs': '=pork ribs',
+  'barbecue sauce': { add: 'spice' }, // bottled, ketchup-based; a condiment like ketchup and chili sauce
+  'bbq sauce': '=barbecue sauce',
+  'barbeque sauce': '=barbecue sauce',
+  grits: { add: 'grain' }, // coarse-ground dried corn, quick or stone-ground; not cornmeal or polenta
+  'canned salmon': { add: 'protein' }, // cooked, flaked; fresh salmon fillets are separate
+  mussels: { add: 'protein' }, // fresh, live in the shell
+  'lamb chops': { add: 'protein' }, // loin or rib chops; ground lamb and lamb shoulder are separate
+  'malt vinegar': { add: 'pantry' }, // brown British vinegar for chips; not cider or white vinegar
+
+  // ── Reviewed by parallel import worker o-baking ──
+  peach: { add: 'produce' }, // the fruit, fresh or frozen slices; the recipe says which
+  peaches: '=peach',
+  'vanilla wafers': { add: 'pantry' }, // small vanilla cookies; not ladyfingers or graham crackers
+  'corn syrup': { add: 'pantry' }, // light corn syrup; not golden syrup, honey or molasses
+  'light corn syrup': '=corn syrup',
+  dates: { add: 'pantry' }, // dried dates (Medjool or Deglet Noor)
+  'pitted dates': '=dates',
+  'golden syrup': { add: 'pantry' }, // British cane-sugar syrup; not corn syrup or honey
+  'raspberry jam': { add: 'pantry' }, // not fresh raspberries (berries) or other jams
+
+  // ── Reviewed by parallel import worker o-chicken ──
+  'marsala wine': { add: 'pantry', name: 'Marsala wine' }, // fortified Sicilian wine; not red or white table wine
+  marsala: '=marsala wine',
+  'dry marsala': '=marsala wine',
+  'andouille sausage': { add: 'protein' }, // smoked Cajun pork sausage, sold fully cooked; raw Italian or breakfast sausage is `sausage`
+  andouille: '=andouille sausage',
+  'turkey breast': { add: 'protein' }, // bone-in or boneless roast; ground turkey is separate
+  'dried red chilies': { add: 'spice', name: 'Dried red chilies' }, // whole dried chiles (árbol or Chinese); not fresh red chili or flakes
+  'dried red chiles': '=dried red chilies',
+
+  // ── Reviewed by parallel import worker o-vegetarian ──
+  gnocchi: { add: 'grain' }, // potato dumplings, shelf-stable or refrigerated; not pasta
+  'potato gnocchi': '=gnocchi',
+  vodka: { add: 'pantry' },
+  'monterey jack': { add: 'dairy', name: 'Monterey Jack' }, // mild melting cheese; Pepper Jack and cheddar are separate
+  'monterey jack cheese': '=monterey jack',
+  gochujang: { add: 'pantry' }, // Korean fermented chili paste; not sriracha or chili garlic sauce
+  'lo mein noodles': { add: 'grain' }, // Chinese wheat-and-egg noodles, fresh or dried; American egg noodles are separate
+  'lasagna noodles': 'pasta', // a pasta shape, like shells or ziti
+
+  // ── Shrimp Pad Thai (o-pork-seafood extra) ──
+  'rice noodles': { add: 'grain' }, // dried flat rice noodles (rice sticks); egg noodles are separate
+  'rice sticks': '=rice noodles',
+  'tamarind paste': { add: 'pantry' }, // sour tamarind pulp sold in jars, the base of pad thai sauce
+
+  // ── Reviewed by parallel import worker sweep-bc ──
+  asparagus: { add: 'produce' },
+  'asparagus spears': '=asparagus',
+  cornflakes: { add: 'grain' }, // the breakfast cereal, crushed for a coating; not cornmeal or cornstarch
+  'corn flakes': '=cornflakes',
+  'anaheim pepper': { add: 'produce' }, // long, mild New Mexico-type green chile; not jalapeño or the slim green chili
+  'anaheim peppers': '=anaheim pepper',
+  'anaheim chiles': '=anaheim pepper',
+  mango: { add: 'produce' },
+  mangos: '=mango',
+  mangoes: '=mango',
+  nectarine: { add: 'produce' }, // not peach
+  nectarines: '=nectarine',
+  kiwi: { add: 'produce', name: 'Kiwi fruit' },
+  'kiwi fruit': '=kiwi',
+  jicama: { add: 'produce' },
+  'rice paper': { add: 'grain', name: 'Rice paper wrappers' }, // dried Vietnamese rounds, softened in water; not egg roll wrappers
+  'rice paper wrappers': '=rice paper',
+  'leaf lettuce': { add: 'produce' }, // green or red leaf; romaine and iceberg are separate
+  'red leaf lettuce': '=leaf lettuce',
+  'scotch bonnet': { add: 'produce', name: 'Scotch bonnet chili' }, // very hot Caribbean chili; not jalapeño or red chili
+  'scotch bonnet chili': '=scotch bonnet',
+  'apricot jam': { add: 'pantry' }, // flavor-specific, like o-baking's raspberry jam
+  'beef bones': { add: 'protein', name: 'Beef marrow bones' }, // for broth (only the deferred pho uses it)
+  'beef bones with marrow': '=beef bones',
+  'liver spread': { add: 'pantry' }, // canned Filipino-style spread for kaldereta; not fresh liver
+  buckwheat: { add: 'grain', name: 'Buckwheat groats' }, // whole groats (kasha); buckwheat flour is separate
+  'buckwheat groats': '=buckwheat',
+  kirsch: { add: 'pantry' }, // cherry brandy
+  'mixed spice': { add: 'spice' }, // British sweet spice blend (cinnamon, nutmeg, allspice…); not pumpkin pie spice
+  'tonkatsu sauce': { add: 'spice' }, // thick Japanese fruit-and-vegetable condiment (Bulldog); not Worcestershire
+  'dry lentils': 'lentils', // NHLBI wording for brown or green lentils
+  'onion greens': 'green_onion',
+  paprica: 'paprika', // Italian spelling
+  'milk cream': 'heavy_cream', // Italian "panna"
+  majoran: 'marjoram', // German spelling
+  broccli: 'broccoli', // misspelling
+  'fish fillets': null, // which fish?
+  'dry roasted peanuts': '=peanuts',
+  'unsweetened orange juice': 'orange', // like 'orange juice'
+
+  // ── Reviewed by parallel import worker nhlbi-books-data ──
+  'beef flank steak': '=flank steak',
+  'unseasoned pork tenderloin': '=pork tenderloin',
+  'turkey fillets': '=turkey breast', // boneless slices of turkey breast
+  'cornflake crumbs': '=cornflakes',
+  lemongrass: { add: 'produce' },
+  'green curry paste': { add: 'pantry', name: 'Thai green curry paste' }, // not massaman or red curry paste
+  'thai green curry paste': '=green curry paste',
+  'roasted red peppers': { add: 'pantry' }, // jarred roasted bell peppers
+  'jarred roasted red peppers': '=roasted red peppers',
+  'stewed tomatoes': 'canned_tomatoes', // canned tomatoes cooked with a little onion and pepper, like crushed or diced
+  'low sodium black beans': 'black_beans',
+  'canned low sodium black beans': 'black_beans',
+  'low fat sharp cheddar cheese': 'cheddar',
+  'reduced fat feta cheese': 'feta',
+  'white button mushrooms': 'mushroom',
+  'fat free milk': 'milk',
+  'nonfat plain yogurt': 'yogurt',
+  'uncooked rice': 'rice',
+  'white potato': 'potato',
+  'peanut oil or vegetable oil': null, // the editor picks one
+  'peanut or vegetable oil': null, // the editor picks one
+
+  // ── Reviewed by parallel import worker va ──
+  'lowfat 1 milk': 'milk', // "lowfat (1%) milk"
+  'low fat 1 milk': 'milk',
+  'nonfat plain greek yogurt': 'greek_yogurt',
+  'plain nonfat greek yogurt': 'greek_yogurt',
+  'no salt added black beans': 'black_beans',
+  'no salt added cannellini beans': 'cannellini_beans',
+  'no salt added chicken broth': 'chicken_broth',
+  'low sodium beef broth': 'beef_broth',
+  'uncooked quinoa': 'quinoa',
+  'quick cooking brown rice': 'brown_rice', // instant brown rice: the same grain, parcooked
+  'uncooked quick cooking brown rice': 'brown_rice',
+  'cooked brown rice': 'brown_rice',
+  'dried sage': 'sage', // the catalog's sage is the dried herb
+  'italian seasoning blend': 'italian_seasoning',
+  'dried italian seasoning blend': 'italian_seasoning',
+  'part skim mozzarella cheese': 'mozzarella',
+  'lowfat ricotta': 'ricotta',
+  'tuna in water': 'canned_tuna',
+  'tuna packed in water': 'canned_tuna',
+  'olive oil mayonnaise': 'mayonnaise', // mayonnaise made with olive oil
+  'cooked ham': 'ham',
+  'frozen broccoli florets': 'broccoli', // unlike spinach, frozen broccoli swaps 1:1 by weight with fresh
+  'frozen chopped spinach': '=frozen spinach',
+  'frozen shredded hash brown potatoes': 'potato', // plain shredded potato, frozen
+  'white whole wheat flour': '=whole wheat flour', // whole-grain flour milled from white wheat
+  'great northern beans': { add: 'protein' }, // a white bean, but not cannellini (the catalog's "white beans")
+  'enchilada sauce': { add: 'pantry' }, // canned red chile sauce; not salsa or tomato sauce
+  'red enchilada sauce': '=enchilada sauce',
+  'canned green chiles': { add: 'pantry', name: 'Canned green chiles' }, // mild roasted chiles; not fresh green chili or jalapeño
+  'diced green chiles': '=canned green chiles',
+  'spaghetti squash': { add: 'produce' },
+  'red curry paste': { add: 'pantry' }, // jarred Thai paste; massaman and green pastes are different
+  'thai red curry paste': '=red curry paste',
+  'dried apricots': { add: 'pantry' },
+  okra: { add: 'produce' },
+  'cajun seasoning': { add: 'spice', name: 'Cajun seasoning' },
+  'pumpkin pie spice': { add: 'spice' },
+
+  // ── Reviewed by parallel import worker r4-sides-apps ──
+  cotija: { add: 'dairy' }, // dry, salty aged Mexican crumbling cheese; queso fresco is soft and mild, feta is separate
+  'cotija cheese': '=cotija',
+  'refried beans': { add: 'pantry' }, // canned mashed cooked beans (usually pinto); whole pinto or black beans are separate
+  'canned refried beans': '=refried beans',
+  'crab meat': { add: 'protein' }, // real cooked crab (lump or claw), sold chilled in tubs; imitation crab is separate
+  crabmeat: '=crab meat',
+  'lump crab meat': '=crab meat',
+  'dumpling wrappers': { add: 'grain' }, // round wheat wrappers for potstickers; square wonton wrappers are thinner
+  'gyoza wrappers': '=dumpling wrappers',
+  sumac: { add: 'spice' }, // dried ground sumac berries, sour and lemony; not a substitute for lemon
+  'ground sumac': '=sumac',
+  bulgur: { add: 'grain' }, // parboiled cracked wheat, fine or medium; not couscous or plain cracked wheat
+  'bulgur wheat': '=bulgur',
+  bulghur: '=bulgur',
+  'collard greens': { add: 'produce' }, // fresh leaves; kale is separate
+  collards: '=collard greens',
+
+  // ── Reviewed by parallel import worker r4-weeknight ──
+  kielbasa: { add: 'protein' }, // smoked Polish sausage, sold fully cooked in rings; raw sausage is `sausage`, andouille separate
+  'tater tots': { add: 'produce' }, // frozen shaped, seasoned potato nuggets; a processed product, not plain potato
+  'sun dried tomatoes': { add: 'pantry', name: 'Sun-dried tomatoes' }, // jarred in oil or dry-packed; not fresh or canned tomatoes
+  'roast beef': { add: 'protein' }, // sliced cooked roast beef (deli counter or leftovers); a raw roast is chuck_roast or another cut
+
+  // ── Reviewed by parallel import worker r4-baking-breakfast ──
+  'red food coloring': { add: 'pantry' }, // liquid or gel, for red velvet; not beet juice or other colors
+  'red food colouring': '=red food coloring',
+  marshmallows: { add: 'pantry' }, // regular or mini; marshmallow creme (fluff) is a different product
+  'mini marshmallows': '=marshmallows',
+  'miniature marshmallows': '=marshmallows',
+  'crisp rice cereal': { add: 'grain' }, // toasted crisped rice breakfast cereal; not puffed rice or cooked rice
+  'crispy rice cereal': '=crisp rice cereal',
+  'rice krispies': '=crisp rice cereal', // the everyday name for the same cereal
+  'unflavored gelatin': { add: 'pantry' }, // plain powdered gelatin in envelopes; not flavored gelatin dessert mix
+  gelatin: '=unflavored gelatin',
+  gelatine: '=unflavored gelatin',
+  'powdered gelatin': '=unflavored gelatin',
+  cherries: { add: 'produce' }, // sweet or sour (tart), fresh or frozen; the recipe says which. Not maraschino or dried
+  'tart cherries': '=cherries',
+  'sour cherries': '=cherries',
+  'almond extract': { add: 'pantry' }, // not almonds, almond flour or amaretto
+  'poppy seeds': { add: 'pantry' }, // like sesame seeds
+  'almond flour': { add: 'grain' }, // finely ground blanched almonds; whole or sliced almonds are `almonds`
+  'ground almonds': '=almond flour', // the British name for the same thing
+
+  // ── Chicken and Wild Rice Soup (r4-weeknight extra) ──
+  'wild rice': { add: 'grain' }, // a different grain from white rice (a grass seed); cooks far longer
+
+  // ── Reviewed by parallel import worker r4-world ──
+  paneer: { add: 'dairy' }, // firm fresh Indian cheese that holds its shape when cooked; not queso fresco, ricotta or tofu
+  'paneer cheese': '=paneer',
+  'ramen noodles': { add: 'grain' }, // springy wheat noodles, fresh or dried instant blocks (seasoning packet discarded); not lo mein or egg noodles
+  'chili bean paste': { add: 'pantry' }, // Sichuan fermented broad bean and chili paste; not gochujang, chili garlic sauce or sriracha
+  doubanjiang: '=chili bean paste', // its Chinese name
+  'chili bean sauce': '=chili bean paste', // how some brands label the same paste
+  'sichuan peppercorns': { add: 'spice' }, // dried husks of prickly ash, numbing rather than hot; not black peppercorns
+  'szechuan peppercorns': '=sichuan peppercorns',
+  hominy: { add: 'pantry' }, // canned nixtamalized whole corn kernels for pozole; not corn kernels or grits
+  'canned hominy': '=hominy',
+  'white hominy': '=hominy',
+  'guajillo chiles': { add: 'spice' }, // whole dried Mexican chiles, mild and fruity; not dried red chilies (árbol) or chili powder
+  'guajillo chilies': '=guajillo chiles',
+  'dried guajillo chiles': '=guajillo chiles',
+  daikon: { add: 'produce' }, // large white Asian radish; red radishes are separate
+  'daikon radish': '=daikon',
+
+  // ── Reviewed by parallel import worker va2 ──
+  'sweet or smoked paprika': 'paprika', // both are the catalog's paprika (smoked paprika is its alias)
+  'reduced sodium lite soy sauce': 'soy_sauce', // like 'lite soy sauce'
+  'lite reduced sodium soy sauce': 'soy_sauce',
+  'unseasoned rice vinegar': 'rice_vinegar',
+  'canola or avocado oil': 'vegetable_oil', // both neutral cooking oils
+  'canola oil or avocado oil': 'vegetable_oil',
+  'uncooked arborio risotto rice': 'arborio_rice',
+  'block extra firm or firm tofu': 'tofu',
+  'canned pumpkin puree': 'canned_pumpkin',
+  '100 pure pumpkin puree': 'canned_pumpkin', // "100% pure pumpkin puree", not pie filling
+  'no salt added great northern beans': 'great_northern_beans',
+  'no salt added kidney beans': 'kidney_beans',
+  'no salt added garbanzo beans': 'chickpeas',
+  'no salt added chickpeas': 'chickpeas',
+  'no salt added vegetable broth': 'vegetable_broth',
+  'uncooked old fashioned rolled oats': 'oats',
+  'lowfat buttermilk': 'buttermilk',
+  'russet or yukon gold potato': 'potato', // both are the catalog's potato
+  'white or cremini mushrooms': 'mushroom', // the same species at two ages
+  'grape or cherry tomatoes': 'tomato',
+  'cherry or grape tomatoes': 'tomato',
+  'ground dried ginger': 'ground_ginger',
+  'uncooked brown lentils': 'lentils',
+  'cauliflower head': 'cauliflower',
+  'frozen green peas': 'peas',
+  'unsalted shelled sunflower seeds': 'sunflower_seeds',
+  '93 lean ground turkey': 'ground_turkey',
+  'frozen corn kernels': 'corn',
+  'frozen shrimp': 'shrimp',
+  'cooked chicken breast': 'chicken',
+  'ice cubes': false, // for an ice-water bath, like water
+  'napa cabbage': { add: 'produce' }, // long, pale Chinese cabbage; not green or red cabbage
+  'bamboo shoots': { add: 'pantry' }, // canned
+  'water chestnuts': { add: 'pantry' }, // canned
+  'crispy chow mein noodles': { add: 'grain' }, // crunchy fried noodles from a can or bag; not soft lo mein noodles
+  'crunchy chow mein noodles': '=crispy chow mein noodles',
+  'low sodium chicken or vegetable broth': null, // the editor picks one
+  'low sodium vegetable or chicken broth': null, // the editor picks one
+  'no salt added chicken or vegetable broth': null, // the editor picks one
+  'honey or maple syrup': null, // the editor picks one
+  'pumpkin pie spice or ground cinnamon': null, // the editor picks one
+  'lemon juice or white wine vinegar': null, // the editor picks one
+  'cilantro or parsley': null, // the editor picks one
+  'fennel seed or dill': null, // the editor picks one
+  'dried cranberries or dried cherries': null, // the editor picks one
+  'italian seasoning or oregano': null, // the editor picks one
+  'tomato sauce or ketchup': null, // the editor picks one
+  'salt free seasoning blend': null, // a store blend; the editor names the herbs and spices
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
