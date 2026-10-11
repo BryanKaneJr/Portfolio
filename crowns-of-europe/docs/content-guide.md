@@ -6,8 +6,8 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 
 | File | What |
 | --- | --- |
-| `regions.json` | 184 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions also have `nw`, `natives` (thousands), `hostility` (0-3) and a trade `good` |
-| `nations.json` | 66 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
+| `regions.json` | 211 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
+| `nations.json` | 73 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
 | `seas.json` | Sea zones (`ocean`, `nw`, `closed`, `days` to cross), straits, wildernesses, the Great Lakes, sea links and rivers (all map seeds) |
 | `scenario1444.json` | Starting claims, alliances, subjects, rivals, truces, marriages, HRE emperor and electors |
 | `events-historical.json` | Historical events (fire when conditions match, not on fixed dates) |
@@ -153,7 +153,7 @@ owning the mission).
 | `{ "discovered": true }` | the New World has (not) been found |
 | `{ "coloniesAtLeast": 3 }` | owns at least N regions in the New World (founded colonies and conquests) |
 | `{ "colonizingAtLeast": 1 }` | has at least N colonies being settled right now |
-| `{ "ownsGood": "silver" }` | owns a region trading in that good (silver, gold, sugar, tobacco, cocoa, dyes, furs, fish, grain) |
+| `{ "ownsGood": "silver" }` | owns a region trading in that good (silver, gold, ivory, sugar, tobacco, cocoa, dyes, furs, fish, grain) |
 | `{ "native": true }` | this nation is a New World people |
 | `{ "chance": 0.5 }` | random each time it is checked (use rarely) |
 

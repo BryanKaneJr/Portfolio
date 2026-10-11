@@ -4,9 +4,10 @@ Handoff notes for Claude Code. Read this first, then `README.md`, `AGENTS.md` (E
 `docs/design-notes.md` (decisions that override the original design doc) and `docs/content-guide.md`.
 
 ## What this is
-A portrait-only, offline, pay-once grand strategy game (Europe and the eastern Americas, 1444–1750) for iOS and
+A portrait-only, offline, pay-once grand strategy game (Europe, the Middle East, West Africa and the eastern
+Americas, 1444–1750) for iOS and
 Android: Expo SDK 57, React Native 0.86, TypeScript, Expo Router. The original design doc is the spec except where
-`docs/design-notes.md` says otherwise (Expo instead of Godot, 184 regions including the New World and colonization,
+`docs/design-notes.md` says otherwise (Expo instead of Godot, 211 regions including the New World and colonization,
 a Mercator map, light tutorial, no audio yet).
 
 ## Hard rules

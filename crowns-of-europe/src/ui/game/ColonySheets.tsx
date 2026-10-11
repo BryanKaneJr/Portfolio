@@ -1,4 +1,4 @@
-/** The New World in the UI: uncharted and uncolonized regions, colonies being settled, and the Colonies tab. */
+/** Colonies in the UI: the uncharted New World, uncolonized regions (there and on the African coast), colonies being settled, and the Colonies tab. */
 import { View } from 'react-native';
 import { MAP_REGION, NATION, REGION, nationName } from '../../sim/content';
 import {
@@ -155,6 +155,7 @@ export function ColoniesTab() {
             <Btn icon="ship" label={me.expedition ? 'Your expedition is at sea' : 'Fund an expedition west'} sub={me.expedition ? `Back around ${formatDate(me.expedition.done)}` : `${EXPEDITION_COST} gold · back in about ${EXPEDITION_MONTHS} months`} disabled={!!why} onPress={() => st.run(fundExpedition)} testID="menu-expedition" />
             {why && !me.expedition ? <T v="tiny">{why}</T> : null}
           </View>
+          <T v="small" style={{ marginTop: 8 }}>Closer to home, the African coast from Arguin to the Gold Coast is open now: tap a pale region there to settle it.</T>
         </Section>
       ) : (
         <T v="small" style={{ marginBottom: 6 }}>

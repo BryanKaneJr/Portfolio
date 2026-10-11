@@ -43,6 +43,8 @@
     { "id": "tur_balkans", "nation": "TUR", "title": "Rule the Balkans", "regions": ["serbia", "bosnia", "albania", "wallachia"] },
     { "id": "tur_islands", "nation": "TUR", "title": "Clear the Knights and Venice from the islands", "regions": ["rhodes", "cyprus", "candia"], "from": 1480 },
     { "id": "tur_hungary", "nation": "TUR", "title": "Break Hungary", "regions": ["hungary", "croatia", "transylvania"], "from": 1520 },
+    { "id": "tur_mamluks", "nation": "TUR", "title": "Conquer Syria and Egypt", "regions": ["aleppo", "damascus", "palestine", "cairo", "alexandria", "hejaz"], "from": 1505 },
+    { "id": "tur_iraq", "nation": "TUR", "title": "Take Baghdad and Tabriz", "regions": ["baghdad", "mosul", "tabriz", "van"], "from": 1530 },
 
     { "id": "ven_lombardy", "nation": "VEN", "title": "Push the mainland border west", "regions": ["lombardy"], "until": 1510 },
     { "id": "ven_stato_da_mar", "nation": "VEN", "title": "Hold the sea lanes to the east", "regions": ["dalmatia", "candia", "cyprus", "morea"], "from": 1460 },
@@ -56,7 +58,12 @@
 
     { "id": "mlo_genoa", "nation": "MLO", "title": "Rule Genoa", "regions": ["liguria"], "until": 1520 },
 
-    { "id": "cri_horde", "nation": "CRI", "title": "Destroy the Great Horde", "regions": ["don"] }
+    { "id": "cri_horde", "nation": "CRI", "title": "Destroy the Great Horde", "regions": ["don"] },
+
+    { "id": "akk_black_sheep", "nation": "AKK", "title": "Overthrow the Black Sheep", "regions": ["tabriz", "van", "mosul", "baghdad"], "from": 1460 },
+    { "id": "qar_white_sheep", "nation": "QAR", "title": "Crush the White Sheep", "regions": ["diyarbakir", "erzurum"] },
+    { "id": "son_niger", "nation": "SON", "title": "Take the cities of the Niger", "regions": ["timbuktu", "mali"], "from": 1460 },
+    { "id": "mor_sous", "nation": "MOR", "title": "Hold Morocco against the Christians", "regions": ["fez", "marrakesh", "sous"] }
   ],
   "bonds": [
     { "a": "FRA", "b": "ENG", "kind": "foes", "label": "The long war over France", "until": 1600 },
@@ -79,6 +86,13 @@
     { "a": "VEN", "b": "MLO", "kind": "foes", "label": "The wars in Lombardy", "until": 1500 },
     { "a": "HAB", "b": "SWI", "kind": "foes", "label": "The Swiss revolt", "until": 1520 },
     { "a": "MOS", "b": "NOV", "kind": "foes", "label": "Master of Novgorod" },
-    { "a": "CRI", "b": "GOL", "kind": "foes", "label": "Heirs of the Horde" }
+    { "a": "CRI", "b": "GOL", "kind": "foes", "label": "Heirs of the Horde" },
+    { "a": "AKK", "b": "QAR", "kind": "foes", "label": "White Sheep and Black Sheep" },
+    { "a": "GEO", "b": "QAR", "kind": "foes", "label": "Raids over the Caucasus" },
+    { "a": "MAL", "b": "SON", "kind": "foes", "label": "Masters of the Niger", "from": 1460 },
+    { "a": "TUR", "b": "MAM", "kind": "foes", "label": "Rivals for Islam", "from": 1480 },
+    { "a": "POR", "b": "MOR", "kind": "foes", "label": "Crusade across the strait", "until": 1580 },
+    { "a": "MAM", "b": "KNI", "kind": "foes", "label": "Crescent and Cross" },
+    { "a": "MAM", "b": "VEN", "kind": "friends", "label": "The spice trade" }
   ]
 }

@@ -13,8 +13,11 @@ here.
    100+ regions for majors to have room and minors to have one each. Germany and Italy are the dense parts; the
    map shows nation names when zoomed out and region names from about 1.2× zoom. Merging regions is a data
    change (`regions.json`, then `npm run map:build`).
-3. **Egypt and the Levant are off-map** ("Mamluk Sultanate", shaded like the Sahara, Lapland and the Caucasus).
-   The doc scopes the map to Europe, Anatolia and the North African coast.
+3. **Egypt, the Levant, the Caucasus, Mesopotamia and West Africa are in (added on request).** The doc scopes the
+   map to Europe, Anatolia and the North African coast; 27 more regions add the Mamluk Sultanate (an AI-only
+   major), the Aq Qoyunlu and Qara Qoyunlu, Georgia, Jolof, Mali and Songhai, and an uncolonized Guinea coast
+   (Arguin to the Gold Coast) that anyone with a colonial charter can settle from 1444, as Portugal did. Persia,
+   Arabia, the Sahara and the African interior stay off-map wilderness.
 4. **The New World is in (added after the first build, on request).** Only the eastern side of the Americas,
    in 46 coarse regions (a whole captaincy or colony each), plus the Atlantic islands and Iceland. The west of
    the continents is off-map wilderness (Inca Empire, Purépecha, Great Plains, Amazonia...). To fit both worlds

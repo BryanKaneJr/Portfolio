@@ -3368,5 +3368,79 @@
         }
       }
     ]
+  },
+  {
+    "id": "mam_holy_cities",
+    "nation": "MAM",
+    "title": "Guardians of the Holy Cities",
+    "desc": "Mecca and Medina look to Cairo for grain, gold and protection. Hold the Hejaz with a settled realm and every Muslim prince will honour your name.",
+    "requires": [],
+    "goal": { "all": [{ "owns": "hejaz" }, { "stability": [1] }] },
+    "reward": [
+      { "prestige": 15 },
+      { "modifier": { "id": "mam_two_sanctuaries", "name": "Servant of the Two Sanctuaries", "months": -1, "mods": { "diplomacy": 1 } } }
+    ]
+  },
+  {
+    "id": "mam_tribute_of_cyprus",
+    "nation": "MAM",
+    "title": "The Tribute of Cyprus",
+    "desc": "Your fathers burned Limassol and carried the King of Cyprus to Cairo in chains. Make the island pay again, as your vassal or as your own.",
+    "requires": [],
+    "goal": { "any": [{ "owns": "cyprus" }, { "overlordOf": "CYP" }] },
+    "reward": [{ "gold": 100 }, { "prestige": 10 }]
+  },
+  {
+    "id": "mam_siege_of_rhodes",
+    "nation": "MAM",
+    "title": "The Siege of Rhodes",
+    "desc": "The Knights of St John raid your coasts from their island fortress. Take Rhodes and the eastern sea is yours.",
+    "requires": ["mam_tribute_of_cyprus"],
+    "goal": { "owns": "rhodes" },
+    "reward": [
+      { "prestige": 15 },
+      { "addCore": "rhodes" },
+      { "modifier": { "id": "mam_eastern_sea", "name": "Masters of the Eastern Sea", "months": -1, "mods": { "navalPower": 0.1 } } }
+    ]
+  },
+  {
+    "id": "mam_spice_road",
+    "nation": "MAM",
+    "title": "The Spice Road",
+    "desc": "Pepper and cloves come up the Red Sea to Cairo and leave Alexandria in Venetian ships. Make Cairo the richest city on the road.",
+    "requires": [],
+    "goal": { "capitalDevAtLeast": 10 },
+    "reward": [
+      { "modifier": { "id": "mam_karimi", "name": "Karimi Merchants", "months": -1, "mods": { "tradeIncome": 0.15 } } }
+    ]
+  },
+  {
+    "id": "mam_red_sea_fleet",
+    "nation": "MAM",
+    "title": "A Fleet for the Red Sea",
+    "desc": "Frankish ships have rounded Africa and mean to steal the spice trade. Build a fleet strong enough to drive them from the Indian Ocean.",
+    "requires": ["mam_spice_road"],
+    "goal": { "all": [{ "year": [1500] }, { "shipsAtLeast": 15 }] },
+    "reward": [
+      { "modifier": { "id": "mam_red_sea_fleet", "name": "Red Sea Fleet", "months": -1, "mods": { "navalPower": 0.15, "tradeIncome": 0.05 } } }
+    ]
+  },
+  {
+    "id": "mam_royal_mamluks",
+    "nation": "MAM",
+    "title": "The Royal Mamluks",
+    "desc": "The Sultan's own slave soldiers are the finest horsemen in Islam, but they are few and quarrelsome. Raise an army worthy of Baybars.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 20 },
+    "reward": [{ "hireGeneral": { "name": "Qaytbay", "fire": 2, "shock": 4, "maneuver": 3 } }, { "prestige": 5 }]
+  },
+  {
+    "id": "mam_northern_frontier",
+    "nation": "MAM",
+    "title": "The Northern Frontier",
+    "desc": "Turkmen princes in the Taurus and on the upper Tigris play you against the Ottomans. Bring Karaman or Diyarbakir under your banner.",
+    "requires": ["mam_royal_mamluks"],
+    "goal": { "ownsAny": ["karaman", "diyarbakir"] },
+    "reward": [{ "prestige": 10 }, { "addClaim": ["erzurum", "trebizond"] }]
   }
 ]
