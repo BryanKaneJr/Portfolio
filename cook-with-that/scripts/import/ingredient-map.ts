@@ -689,6 +689,11 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'lo mein noodles': { add: 'grain' }, // Chinese wheat-and-egg noodles, fresh or dried; American egg noodles are separate
   'lasagna noodles': 'pasta', // a pasta shape, like shells or ziti
 
+  // ── Shrimp Pad Thai (o-pork-seafood extra) ──
+  'rice noodles': { add: 'grain' }, // dried flat rice noodles (rice sticks); egg noodles are separate
+  'rice sticks': '=rice noodles',
+  'tamarind paste': { add: 'pantry' }, // sour tamarind pulp sold in jars, the base of pad thai sauce
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

@@ -518,4 +518,6 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'lo_mein_noodles', name: 'Lo mein noodles', category: 'grain', aliases: [] },
   { id: 'cauliflower', name: 'Cauliflower', category: 'produce', aliases: [] },
   { id: 'bean_sprouts', name: 'Bean sprouts', category: 'produce', aliases: [] },
+  { id: 'rice_noodles', name: 'Rice noodles', category: 'grain', aliases: ['rice sticks'] },
+  { id: 'tamarind_paste', name: 'Tamarind paste', category: 'pantry', aliases: [] },
 ];

@@ -96,9 +96,9 @@ describe('ingredient mapping', () => {
   });
 
   test('a word match is only ever a suggestion', () => {
-    expect(mapIngredient(index, 'rice noodles')).toEqual({
+    expect(mapIngredient(index, 'wild rice')).toEqual({
       status: 'unmapped',
-      key: 'rice noodles',
+      key: 'wild rice',
       suggestion: 'rice',
     });
   });
