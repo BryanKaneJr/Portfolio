@@ -99,7 +99,7 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Unrestricted Web Access | No | No browser; only links to the privacy policy, terms and store subscription pages |
 | User-Generated Content | **Yes** | Usernames are chosen by learners and shown to friends and league mates. There's no free text, chat or posting otherwise. Apple's guideline 1.2 asks for a filter, reporting and blocking, and a way to act on reports: BrainScroll has the username filter, Report and Block on every profile, and the admin's Learner reports queue (`docs/moderation.md`) |
 | Messaging and Chat | No | No messages or comments; the only reaction is a heart |
-| Social Media | **Confirm** (likely No) | Friends, weekly leagues and a feed of earned moments exist, but nobody can post, message or comment. If Apple's current wording counts friends and leaderboards, answer Yes |
+| Social Media | **No, unless the wording counts friends and leaderboards** | Friends, weekly leagues, a world leaderboard and a feed of earned moments exist, but nobody can post, message or comment. If Apple's current wording counts friends and leaderboards, answer Yes |
 | Advertising | No | |
 | Profanity or Crude Humor | None | |
 | Horror/Fear Themes | None | |
@@ -114,10 +114,10 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Prolonged Graphic or Sadistic Realistic Violence | None | |
 | Guns or Other Weapons | None | Weapons appear only as historical facts in text. **Confirm** against the level art. |
 | Gambling / Simulated Gambling | No / None | |
-| Contests | None | No competition between users. (Apple's examples mention trivia quizzes; BrainScroll's questions are personal learning checks with no rankings, but **Infrequent** is harmless: it stays at 4+.) |
+| Contests | **Infrequent** | Weekly leagues rank learners by XP and the world leaderboard ranks everyone, with no prizes beyond XP. The questions themselves are personal learning checks. Infrequent keeps the rating where it is. |
 | Loot Boxes | No | |
 
-**Expected rating: 9+ or 13+.** User-generated content can raise the rating, as can answering Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over; take whatever the questionnaire gives.
+**Result: 9+** (App Store Connect, 2026-10-11). **Expected rating was 9+ or 13+.** User-generated content can raise the rating, as can answering Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over; take whatever the questionnaire gives.
 
 ## Google Play: IARC content rating
 

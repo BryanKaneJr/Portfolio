@@ -55,9 +55,12 @@ No ads. No streak punishment. No selling your data.
 Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
+
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Privacy Policy: https://brainscroll.app/privacy
 ```
 
-*(about 2,930 characters)*
+*(about 3,050 characters)*
 
 **Weekly Quests:** quests are scheduled from 12 October 2026, so add this section after the trophies one. If the schedule is ever cleared, take it out (never describe a feature learners can't see):
 
@@ -66,7 +69,7 @@ WEEKLY QUESTS
 Each week, a quest ties five subjects into one theme, like The Roman World. Learn new levels across them, then finish with a Final Round. Finish in its week for the trophy and a title for your profile.
 ```
 
-The last paragraph is the auto-renewal disclosure. Keep it, and set the Privacy Policy URL and the licence agreement (Apple's standard EULA unless `EXPO_PUBLIC_TERMS_URL` points to your own) in App Store Connect.
+The auto-renewal paragraph and the two links after it stay at the end, word for word. App Review rejects a subscription app whose description has no working Terms of Use link when it uses Apple's standard EULA (guideline 3.1.2), so the link is there even though the paywall shows it too. Also set the Privacy Policy URL in App Store Connect (App Privacy); leave the licence agreement as Apple's standard one unless `EXPO_PUBLIC_TERMS_URL` points to your own (then link that instead).
 
 ### Keywords (100)
 
@@ -147,10 +150,10 @@ Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=
 
 ## Review notes (App Review / Play app access)
 
-Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
+Paste into App Store Connect → App Review Information → Notes (leave "Sign-in required" unticked: reviewers use their own Apple ID), and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
 
 ```
 Sign in with Apple using your own Apple ID; no demo account is needed.
-Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
+Unlimited can be bought with a Sandbox account. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
 Account deletion: Profile > Settings > Delete account.
 ```
