@@ -489,4 +489,13 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'hot_sauce', name: 'Hot sauce', category: 'spice', aliases: [] },
   { id: 'mustard_powder', name: 'Mustard powder', category: 'spice', aliases: ['dry mustard'] },
   { id: 'buttermilk', name: 'Buttermilk', category: 'dairy', aliases: [] },
+  { id: 'flank_steak', name: 'Flank steak', category: 'protein', aliases: [] },
+  { id: 'puff_pastry', name: 'Puff pastry', category: 'grain', aliases: [] },
+  { id: 'pork_ribs', name: 'Pork ribs', category: 'protein', aliases: ['baby back ribs'] },
+  { id: 'barbecue_sauce', name: 'Barbecue sauce', category: 'spice', aliases: ['bbq sauce', 'barbeque sauce'] },
+  { id: 'grits', name: 'Grits', category: 'grain', aliases: [] },
+  { id: 'canned_salmon', name: 'Canned salmon', category: 'protein', aliases: [] },
+  { id: 'mussels', name: 'Mussels', category: 'protein', aliases: [] },
+  { id: 'lamb_chops', name: 'Lamb chops', category: 'protein', aliases: [] },
+  { id: 'malt_vinegar', name: 'Malt vinegar', category: 'pantry', aliases: [] },
 ];

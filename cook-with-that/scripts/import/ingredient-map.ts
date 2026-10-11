@@ -643,6 +643,21 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'brussels sprouts': { add: 'produce' },
   'brussel sprouts': '=brussels sprouts', // common misspelling
 
+  // ── Reviewed by parallel import worker o-beef ──
+  'corned beef brisket': '=corned beef',
+
+  // ── Reviewed by parallel import worker o-pork-seafood ──
+  'pork ribs': { add: 'protein' }, // racks of baby back or spare ribs; the recipe names the cut
+  'baby back ribs': '=pork ribs',
+  'barbecue sauce': { add: 'spice' }, // bottled, ketchup-based; a condiment like ketchup and chili sauce
+  'bbq sauce': '=barbecue sauce',
+  'barbeque sauce': '=barbecue sauce',
+  grits: { add: 'grain' }, // coarse-ground dried corn, quick or stone-ground; not cornmeal or polenta
+  'canned salmon': { add: 'protein' }, // cooked, flaked; fresh salmon fillets are separate
+  mussels: { add: 'protein' }, // fresh, live in the shell
+  'lamb chops': { add: 'protein' }, // loin or rib chops; ground lamb and lamb shoulder are separate
+  'malt vinegar': { add: 'pantry' }, // brown British vinegar for chips; not cider or white vinegar
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
