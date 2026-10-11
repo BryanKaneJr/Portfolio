@@ -10,7 +10,7 @@ import { ADVANCE, ADVANCES, LEARNING, NATION, REGION, START_ADVANCES, isNativeNa
 import { log } from './log';
 import { invalidateMods, isCoastal, nationMods, neighborsOf, ownedRegions, totalDev } from './queries';
 import { markMapDirty } from './territory';
-import type { AdvanceDef, AdvanceUnlock, GameState, Nation, NationId } from './types';
+import type { AdvanceDef, AdvanceUnlock, GameState, Nation, NationId, Region, RegionId } from './types';
 import { yearOf } from './util';
 
 /** Funding your scholars: a tenth of your income buys a quarter more science. */
@@ -20,8 +20,12 @@ export const UNIVERSITY_COST = 150; // and 100 more for each university you alre
 export const UNIVERSITY_SCIENCE = 0.5;
 export const UNIVERSITY_MIN_DEV = 5;
 const BASE_SCIENCE = 1;
-const PROSPERITY_SCIENCE = 0.4; // × the square root of the realm's prosperity: big realms learn more, but not in proportion
-const CITY_SCIENCE = 0.3; // per point of average prosperity: rich, dense lands learn faster than big, empty ones
+const TOWN_SCIENCE = 0.6; // per point of average prosperity in your richest regions: learning lives in rich towns
+const RICHEST = 5; // how many of your richest regions count (a city state counts all it has)
+const SIZE_SCIENCE = 0.15; // × the square root of the realm's prosperity: land adds only a little
+const BIG_REALM = 10; // regions; beyond this each region adds...
+const BIG_REALM_COST = 0.01; // ...1% to the cost of an advance...
+const BIG_REALM_MAX = 0.5; // ...up to +50%
 const TRADE_CENTRE_SCIENCE = 0.4;
 const MAX_TRADE_CENTRES = 5;
 const ORDER_FACTOR = 0.05; // per point of order
@@ -54,9 +58,13 @@ export function scienceRate(s: GameState, n: NationId): ScienceBreakdown {
   if (!studies(s, n)) return { sources: [], factors: [], total: 0 };
   const owned = ownedRegions(s, n);
   const sources: ScienceBreakdown['sources'] = [{ label: 'Scholars at court', value: BASE_SCIENCE }];
+  const towns = richestTowns(s, n);
+  if (towns.length) {
+    const avg = towns.reduce((t, r) => t + r.dev, 0) / towns.length;
+    sources.push({ label: `Your ${towns.length > 1 ? `${towns.length} richest regions` : 'region'} (average prosperity ${avg.toFixed(1)})`, value: avg * TOWN_SCIENCE });
+  }
   const dev = totalDev(s, n);
-  sources.push({ label: `Size of your realm (prosperity ${dev})`, value: Math.sqrt(dev) * PROSPERITY_SCIENCE });
-  if (owned.length) sources.push({ label: `Rich towns (average prosperity ${(dev / owned.length).toFixed(1)})`, value: (dev / owned.length) * CITY_SCIENCE });
+  sources.push({ label: `Size of your realm (prosperity ${dev})`, value: Math.sqrt(dev) * SIZE_SCIENCE });
   const trade = owned.filter(r => REGION[r.id].trade).length;
   if (trade) sources.push({ label: `Trade centres (${trade}${trade > MAX_TRADE_CENTRES ? `, ${MAX_TRADE_CENTRES} count` : ''})`, value: Math.min(MAX_TRADE_CENTRES, trade) * TRADE_CENTRE_SCIENCE });
   const unis = owned.filter(r => r.university).length;
@@ -85,12 +93,28 @@ export function advanceCost(s: GameState, n: NationId, id: string): CostBreakdow
   const y = yearOf(s.day);
   if (y < def.year) factors.push({ label: `${def.year - y} years before its time`, value: 1 + EARLY_PER_YEAR * (def.year - y) });
   else if (y > def.year) factors.push({ label: `Known since about ${def.year}`, value: Math.max(LATE_FLOOR, 1 - LATE_PER_YEAR * (y - def.year)) });
+  const regions = ownedRegions(s, n).length;
+  if (regions > BIG_REALM) factors.push({ label: `Large realm (${regions} regions)`, value: 1 + Math.min(BIG_REALM_MAX, BIG_REALM_COST * (regions - BIG_REALM)) });
   const near = Math.min(MAX_NEIGHBOURS, neighborsOf(s, n).filter(o => knows(s.nations[o], id)).length);
   if (near) factors.push({ label: `${near} neighbour${near > 1 ? 's' : ''} already know${near > 1 ? '' : 's'} it`, value: 1 - NEIGHBOUR_DISCOUNT * near });
   const m = nationMods(s, n).techCost;
   if (m) factors.push({ label: 'Traits and modifiers', value: 1 + m });
   const total = Math.max(1, Math.round(def.cost * factors.reduce((t, x) => t * x.value, 1)));
   return { base: def.cost, factors, total };
+}
+
+/** The regions whose prosperity drives a crown's science: its richest few (all of them for a small realm). */
+export function richestTowns(s: GameState, n: NationId): Region[] {
+  return ownedRegions(s, n)
+    .sort((a, b) => b.dev - a.dev)
+    .slice(0, RICHEST);
+}
+
+/** Would raising this region's prosperity raise science? (Only the richest few regions count.) */
+export function prosperityAddsScience(s: GameState, n: NationId, region: RegionId): boolean {
+  const towns = richestTowns(s, n);
+  if (towns.length < RICHEST || towns.some(r => r.id === region)) return true;
+  return (s.regions[region]?.dev ?? 0) + 1 > towns[towns.length - 1].dev;
 }
 
 /** What the next university costs this crown. */

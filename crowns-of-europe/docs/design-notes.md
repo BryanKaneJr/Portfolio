@@ -66,7 +66,9 @@ here.
     that the eras used to, others unlock artillery, colonies and galleons, and every three advances open a policy
     slot. Learning differs by region (`learning` in
     advances.json), gold buys more (funding, universities), and costs are anchored to history: early costs more,
-    late and next to neighbours who know it costs less. In AI games the first crown to master each advance does
+    late and next to neighbours who know it costs less. Science comes mostly from the prosperity of a crown's
+    richest few regions, not from how much land it rules, and big realms pay up to 50% more per advance, so small,
+    rich states (Venice, Genoa, Portugal, Denmark) keep pace with the great powers and poor ones fall behind. In AI games the first crown to master each advance does
     so within about 0-15 years of its historical date.
 13. **Civilization-like complexity, grand-strategy looks (on request).** Fewer, chunkier decisions: three
     science tracks instead of a web of advances, one funding switch, automatic army pay and borrowing, five Realm
@@ -92,8 +94,8 @@ here.
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
 | Peace cost | 3% per development per region (× 0.7 if claimed), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
-| Science a month | (1 + 0.4 × √prosperity + 0.3 × average prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |
-| Advance cost | base (600 … 7,500) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |
+| Science a month | (1 + 0.6 × average prosperity of your 5 richest regions (all of them if fewer) + 0.15 × √total prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |
+| Advance cost | base (600 … 7,500) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 + 1% per region beyond 10, +50% max) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |
 | University | 150 gold, +100 for each one you have; prosperity 5+ |
 | Expedition west | 100 gold, 8 months, needs Ocean Navigation; everyone knows the New World by 1500 |
 | Colony | 30 gold + 1 gold/month; 1,000 settlers at 9/month (+3 next to your land), −7% per thousand natives, −45% inland, −6% per New World region owned |

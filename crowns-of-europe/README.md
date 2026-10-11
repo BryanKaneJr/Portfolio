@@ -49,8 +49,10 @@ bundled and works in airplane mode.
 - **Realm:** gold, manpower and stability (no abstract point currencies), loans and bankruptcy, rulers who age
   and die, heirs, republican elections, policies (a slot for every three advances). Army pay switches between
   peace and war on its own, and the treasury borrows by itself when it runs dry.
-- **Science:** scholars earn science every month (faster in rich towns and trade centres, with universities and
-  a funding switch, and much faster in Italy and the West than on the steppe or in West Africa) and spend it on
+- **Science:** scholars earn science every month, mostly from the prosperity of their richest regions rather than
+  from how much land they rule (so a small, rich state keeps up with an empire, which also pays more per advance),
+  plus trade centres, universities and a funding switch, and much faster in Italy and the West than on the steppe
+  or in West Africa. They spend it on
   three tracks of four advances: War (Bombards for artillery, then Pike and Shot, Musket and Volley and Flintlock
   and Bayonet for new ages of troops), Sea (Caravels and Ocean Navigation for colonies, Galleons for warships,
   Ships of the Line) and Statecraft (printing, banking, statecraft, bureaucracy). An advance costs more

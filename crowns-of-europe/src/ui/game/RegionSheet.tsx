@@ -23,7 +23,7 @@ import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import { years } from '../../sim/util';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { UnchartedSheet, WildSheet } from './ColonySheets';
-import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, universityCost, unlocked } from '../../sim/science';
+import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
@@ -111,7 +111,7 @@ export function RegionSheet({ id }: { id: string }) {
       {mine ? (
         <Section title="Invest">
           <View style={{ gap: 6 }}>
-            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold · more taxes, levies and supply`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
+            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold · more taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and science' : ''}`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
             <Btn tone="secondary" icon="castle" label={r.fort >= 3 ? 'Fort at maximum' : `Build fort level ${r.fort + 1}`} sub={r.fort >= 3 ? undefined : `${fortCost(s, r)} gold · +0.35 gold/mo upkeep`} disabled={r.fort >= 3 || me.gold < fortCost(s, r)} onPress={() => st.run(x => buildFort(x, id))} />
             {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Integrate now" sub={`${coreCost(s, r)} gold · full taxes and levies`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
             {r.faith !== me.faith && !r.converting ? <Btn tone="secondary" icon="church" label={`Convert to ${FAITH_NAME[me.faith]}`} sub={`${convertCost(s, r)} gold · 12 months`} disabled={me.gold < convertCost(s, r)} onPress={() => st.run(x => convertRegion(x, id))} /> : null}

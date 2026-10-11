@@ -141,7 +141,7 @@ export function ScienceTab() {
         );
       })}
       <T v="tiny" style={{ marginTop: 10 }}>
-        Advances cost more the earlier you take them and less once your neighbours know them. Science is never lost when you switch. Every three advances open a policy slot; universities (a region of prosperity {UNIVERSITY_MIN_DEV}+) add +{UNIVERSITY_SCIENCE} science each.
+        Learning lives in rich towns: raise the prosperity of your best regions, found universities (prosperity {UNIVERSITY_MIN_DEV}+, +{UNIVERSITY_SCIENCE} each) and fund your scholars. A small, rich realm can keep up with an empire: big realms pay more for each advance. Advances also cost more the earlier you take them and less once your neighbours know them. Every three advances open a policy slot.
       </T>
     </View>
   );

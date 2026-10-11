@@ -1,7 +1,9 @@
 import { emptyGame } from './helpers';
 import { foundUniversity, recruit, setResearch, setScienceFunding } from '../src/sim/commands';
 import { ledger } from '../src/sim/economy';
-import { advanceCost, availableAdvances, learnAdvance, monthlyScience, policySlots, scienceRate, universityCost } from '../src/sim/science';
+import { advanceCost, availableAdvances, learnAdvance, monthlyScience, policySlots, prosperityAddsScience, scienceRate, universityCost } from '../src/sim/science';
+import { REGION } from '../src/sim/content';
+import { bumpOwnership } from '../src/sim/queries';
 import { advanceDays } from '../src/sim/tick';
 import { dayOf } from '../src/sim/util';
 
@@ -50,6 +52,27 @@ describe('science', () => {
     expect(foundUniversity(s, 'hungary').ok).toBe(true);
     expect(universityCost(s, 'HUN')).toBeGreaterThan(first); // each one dearer than the last
     expect(foundUniversity(s, 'hungary').ok).toBe(false);
+  });
+
+  test('learning lives in rich towns: a small, rich crown keeps up with a big one', () => {
+    const s = emptyGame('HUN');
+    // One rich city outlearns a kingdom of eight regions.
+    expect(scienceRate(s, 'FLO').total).toBeGreaterThan(scienceRate(s, 'FRA').total);
+    // Conquering a lot of poor land adds little science and makes every advance dearer.
+    const before = scienceRate(s, 'FRA').total;
+    const costBefore = advanceCost(s, 'FRA', 'printing_press').total;
+    for (const r of Object.values(s.regions).filter(x => x.owner && x.owner !== 'FRA' && x.dev <= 3 && !REGION[x.id].nw).slice(0, 12)) {
+      r.owner = 'FRA';
+      r.controller = 'FRA';
+    }
+    bumpOwnership();
+    expect(scienceRate(s, 'FRA').total).toBeLessThan(before * 1.2);
+    expect(advanceCost(s, 'FRA', 'printing_press').total).toBeGreaterThan(costBefore);
+    expect(advanceCost(s, 'FRA', 'printing_press').factors.some(f => /Large realm/.test(f.label))).toBe(true);
+    // Raising prosperity in one of the richest regions adds science; in a poor one it doesn't.
+    expect(prosperityAddsScience(s, 'FRA', 'ile_de_france')).toBe(true);
+    const poorest = Object.values(s.regions).filter(r => r.owner === 'FRA').sort((a, b) => a.dev - b.dev)[0];
+    expect(prosperityAddsScience(s, 'FRA', poorest.id)).toBe(false);
   });
 
   test('advances cost more before their time and less once neighbours know them', () => {
