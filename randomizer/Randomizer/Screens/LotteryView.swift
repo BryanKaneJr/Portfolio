@@ -43,16 +43,20 @@ struct LotteryView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 10)
             }
-            stage(league)
-                .frame(maxWidth: .infinity)
-                .frame(height: presenting ? 260 : 200)
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
-            stageCaption(league)
-                .frame(maxWidth: .infinity, minHeight: 64)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.horizontal, 16)
-                .layoutPriority(1)
+            // While teams choose their slots the board needs the room; the
+            // footer says who's on the clock.
+            if !isChoosing(league) {
+                stage(league)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: presenting ? 260 : 200)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 8)
+                stageCaption(league)
+                    .frame(maxWidth: .infinity, minHeight: 64)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 16)
+                    .layoutPriority(1)
+            }
             board(league)
         }
         .background(Theme.background.ignoresSafeArea())
@@ -153,11 +157,7 @@ struct LotteryView: View {
     @ViewBuilder
     private func stage(_ league: League) -> some View {
         Group {
-            if let run = league.latestRun, let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
-                TeamCard(pick: chooser, tag: "On the clock", systemImage: "clock.fill")
-                    .id(chooser.id)
-                    .transition(.opacity)
-            } else if let run = league.latestRun, run.type == .slotDraft, run.isComplete, let first = run.draftOrder.first?.pick {
+            if let run = league.latestRun, run.type == .slotDraft, run.isComplete, let first = run.draftOrder.first?.pick {
                 TeamCard(pick: first, tag: "Picks first", systemImage: "1.circle.fill")
             } else if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
                 if pick.wasDrawn {
@@ -192,11 +192,11 @@ struct LotteryView: View {
         .accessibilityIdentifier("revealStage")
     }
 
-    /// Slot Draft: the team choosing now, once the reveal's last landing
-    /// has had its moment (the first choice stays on stage until it picks).
-    static func chooserOnStage(_ run: LotteryRun, stagePick: Int?) -> LotteryPick? {
-        guard let chooser = run.nextChooser else { return nil }
-        return stagePick == nil || !run.slotChoices.isEmpty ? chooser : nil
+    /// Slot Draft: teams are choosing, once the reveal's last landing has
+    /// had its moment (the first choice stays on stage until it picks).
+    private func isChoosing(_ league: League) -> Bool {
+        guard let run = league.latestRun, run.nextChooser != nil, !driver.phase.isAnimating else { return false }
+        return stagePick == nil || !run.slotChoices.isEmpty
     }
 
     /// "pick 4" in a lottery, "4th choice" in a Slot Draft.
@@ -227,9 +227,6 @@ struct LotteryView: View {
         guard let run = league.latestRun else {
             return "\(league.lotteryCandidates.count) teams in the lottery."
         }
-        if let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
-            return "\(chooser.teamName) is on the clock to choose a draft slot."
-        }
         if let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
             if driver.phase.isAnimating { return "Revealing \(Self.pickName(number, in: run.type)). Double tap to skip." }
             return "\(Self.pickName(number, in: run.type)): \(pick.teamName)."
@@ -239,23 +236,7 @@ struct LotteryView: View {
 
     @ViewBuilder
     private func stageCaption(_ league: League) -> some View {
-        if let run = league.latestRun, let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
-            VStack(spacing: 2) {
-                Text("\(Ordinal.text(chooser.pick)) choice")
-                    .font(Theme.rounded(.caption, weight: .bold))
-                    .foregroundStyle(Theme.accent)
-                    .textCase(.uppercase)
-                Text(chooser.teamName)
-                    .font(.system(size: presenting ? 40 : 28, weight: .heavy, design: .rounded))
-                    .foregroundStyle(Theme.textPrimary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                    .accessibilityIdentifier("chooserName")
-                Text("Choose an open draft slot below")
-                    .font(.footnote)
-                    .foregroundStyle(Theme.textSecondary)
-            }
-        } else if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
+        if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
             if driver.phase.isAnimating {
                 VStack(spacing: 2) {
                     Text(Self.pickName(number, in: run.type))
@@ -399,7 +380,7 @@ struct LotteryView: View {
                     .accessibilityIdentifier("undoSlotButton")
                 }
                 Spacer(minLength: 0)
-                Text("\(run.openSlots.count) slots open \u{00B7} tap one to choose")
+                Text("\(run.openSlots.count) slots open \u{00B7} tap one below")
                     .font(.caption)
                     .foregroundStyle(Theme.textSecondary)
             }
@@ -928,16 +909,18 @@ private struct DraftSlot: View {
     }
 }
 
-/// Slot Draft, once the choosing order is out: every draft slot, taken or
-/// open, and the teams still waiting to choose. Tapping an open slot gives
-/// it to the team on the clock.
+/// Slot Draft, once the choosing order is out: every draft slot as a
+/// tile (tap an open one to give it to the team on the clock) and the
+/// teams still waiting; then the final order.
 private struct SlotBoard: View {
     let run: LotteryRun
     let onChoose: (Int) -> Void
 
+    private let columns = [GridItem(.adaptive(minimum: 74), spacing: 8)]
+
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Text("Run #\(run.number)")
                         .font(Theme.rounded(.subheadline, weight: .heavy))
@@ -949,35 +932,25 @@ private struct SlotBoard: View {
                 }
                 .accessibilityElement(children: .combine)
                 .accessibilityIdentifier("runNumberLabel")
-                BoardHeader(title: "Draft slots", detail: run.isComplete ? "Final order" : "\(run.openSlots.count) open")
-                ForEach(run.draftOrder) { position in
-                    if let pick = position.pick {
-                        takenRow(slot: position.slot, pick: pick)
-                    } else {
-                        openRow(slot: position.slot)
-                    }
-                }
-                let waiting = run.picks.dropFirst(run.slotChoices.count + 1)
-                if !run.isComplete, !waiting.isEmpty {
-                    BoardHeader(title: "Choosing next", detail: "")
-                        .padding(.top, 8)
-                    ForEach(Array(waiting)) { pick in
-                        HStack(spacing: 12) {
-                            Text(Ordinal.text(pick.pick))
-                                .font(Theme.rounded(.subheadline, weight: .heavy))
-                                .foregroundStyle(Theme.textSecondary)
-                                .frame(minWidth: 40, alignment: .leading)
-                            StandingBadge(standing: pick.standing, size: 24)
-                            Text(pick.teamName)
-                                .font(Theme.rounded(.subheadline, weight: .semibold))
-                                .foregroundStyle(Theme.textSecondary)
-                                .lineLimit(1)
-                            Spacer(minLength: 0)
+                if run.isComplete {
+                    BoardHeader(title: "Final draft order", detail: "Slot")
+                    ForEach(run.draftOrder) { position in
+                        if let pick = position.pick {
+                            finalRow(slot: position.slot, pick: pick)
                         }
-                        .padding(.horizontal, 14)
-                        .frame(minHeight: 36)
-                        .accessibilityElement(children: .combine)
                     }
+                } else {
+                    BoardHeader(title: "Draft slots", detail: "\(run.openSlots.count) open")
+                    LazyVGrid(columns: columns, spacing: 8) {
+                        ForEach(run.draftOrder) { position in
+                            if let pick = position.pick {
+                                takenTile(slot: position.slot, pick: pick)
+                            } else {
+                                openTile(slot: position.slot)
+                            }
+                        }
+                    }
+                    waitingList
                 }
             }
             .padding(.horizontal, 16)
@@ -985,7 +958,85 @@ private struct SlotBoard: View {
         }
     }
 
-    private func takenRow(slot: Int, pick: LotteryPick) -> some View {
+    @ViewBuilder
+    private var waitingList: some View {
+        let waiting = Array(run.picks.dropFirst(run.slotChoices.count + 1))
+        if !waiting.isEmpty {
+            BoardHeader(title: "Choosing next", detail: "")
+                .padding(.top, 6)
+            ForEach(waiting) { pick in
+                HStack(spacing: 12) {
+                    Text(Ordinal.text(pick.pick))
+                        .font(Theme.rounded(.subheadline, weight: .heavy))
+                        .foregroundStyle(Theme.textSecondary)
+                        .frame(minWidth: 40, alignment: .leading)
+                    StandingBadge(standing: pick.standing, size: 24)
+                    Text(pick.teamName)
+                        .font(Theme.rounded(.subheadline, weight: .semibold))
+                        .foregroundStyle(Theme.textSecondary)
+                        .lineLimit(1)
+                    Spacer(minLength: 0)
+                }
+                .padding(.horizontal, 14)
+                .frame(minHeight: 34)
+                .accessibilityElement(children: .combine)
+            }
+        }
+    }
+
+    private func openTile(slot: Int) -> some View {
+        Button {
+            onChoose(slot)
+        } label: {
+            VStack(spacing: 2) {
+                Text("\(slot)")
+                    .font(Theme.rounded(.title2, weight: .heavy))
+                    .monospacedDigit()
+                    .foregroundStyle(Theme.accent)
+                Text("Open")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(Theme.textTertiary)
+            }
+            .frame(maxWidth: .infinity, minHeight: 64)
+            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.accentSoft.opacity(0.5)))
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .strokeBorder(Theme.accent.opacity(0.6), style: StrokeStyle(lineWidth: 1.5, dash: [6, 4]))
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Slot \(slot), open")
+        .accessibilityHint("Gives this slot to the team on the clock")
+        .accessibilityIdentifier("openSlot-\(slot)")
+    }
+
+    private func takenTile(slot: Int, pick: LotteryPick) -> some View {
+        VStack(spacing: 3) {
+            HStack(spacing: 4) {
+                Text("\(slot)")
+                    .font(Theme.rounded(.subheadline, weight: .heavy))
+                    .monospacedDigit()
+                    .foregroundStyle(Theme.textSecondary)
+                StandingBadge(standing: pick.standing, size: 20)
+            }
+            Text(pick.teamName)
+                .font(.caption2.weight(.bold))
+                .foregroundStyle(Theme.textPrimary)
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.7)
+        }
+        .padding(.horizontal, 4)
+        .frame(maxWidth: .infinity, minHeight: 64)
+        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.surface))
+        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Theme.stroke))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Slot \(slot): \(pick.teamName), chose \(Ordinal.text(pick.pick))")
+        .accessibilityIdentifier("takenSlot")
+    }
+
+    private func finalRow(slot: Int, pick: LotteryPick) -> some View {
         HStack(spacing: 12) {
             Text("\(slot)")
                 .font(Theme.rounded(.headline, weight: .heavy))
@@ -1009,42 +1060,6 @@ private struct SlotBoard: View {
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Slot \(slot): \(pick.teamName), chose \(Ordinal.text(pick.pick))")
         .accessibilityIdentifier("takenSlot")
-    }
-
-    private func openRow(slot: Int) -> some View {
-        Button {
-            onChoose(slot)
-        } label: {
-            HStack(spacing: 12) {
-                Text("\(slot)")
-                    .font(Theme.rounded(.headline, weight: .heavy))
-                    .monospacedDigit()
-                    .foregroundStyle(Theme.accent)
-                    .frame(minWidth: 26, alignment: .leading)
-                Text("Open")
-                    .font(Theme.rounded(.headline, weight: .semibold))
-                    .foregroundStyle(Theme.textTertiary)
-                Spacer(minLength: 4)
-                Text("Choose")
-                    .font(Theme.rounded(.footnote, weight: .bold))
-                    .foregroundStyle(Theme.accent)
-                    .padding(.horizontal, 12)
-                    .frame(minHeight: 30)
-                    .background(Capsule().fill(Theme.accentSoft))
-            }
-            .padding(.horizontal, 14)
-            .frame(minHeight: 46)
-            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.surface))
-            .overlay(
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
-                    .strokeBorder(Theme.accent.opacity(0.5), style: StrokeStyle(lineWidth: 1.5, dash: [6, 4]))
-            )
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
-        .accessibilityLabel("Slot \(slot), open")
-        .accessibilityHint("Gives this slot to the team on the clock")
-        .accessibilityIdentifier("openSlot-\(slot)")
     }
 }
 
