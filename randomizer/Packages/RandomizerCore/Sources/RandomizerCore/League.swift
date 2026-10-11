@@ -1,18 +1,20 @@
 import Foundation
 
 /// A fantasy league: its teams in last season's finish (worst first), the
-/// lottery format, and the latest lottery run. Everything the lottery
-/// screen needs to resume after a force quit lives here.
+/// lottery type, and the latest lottery run. Everything the lottery screen
+/// needs to resume after a force quit lives here.
 public struct League: Codable, Identifiable, Equatable, Sendable {
     public var id: UUID
     public var title: String
     /// Standings, worst finish first. This order is the ranking.
     public var teams: [Team]
-    public var oddsMode: OddsMode
+    public var type: LotteryType
     public var revealStyle: RevealStyle
-    /// How many of the worst-finishing teams are in the lottery; nil = all.
+    /// Pro Lottery: how many of the worst teams are in the lottery (the
+    /// teams that missed the playoffs); nil = the default for the league's
+    /// size.
     public var lotteryTeamCount: Int?
-    /// How many picks the lottery draws; nil = every lottery pick.
+    /// Pro Lottery: how many picks the lottery draws; nil = the top 4.
     public var drawnPickCount: Int?
     /// The draft order from the most recent run, kept until the next run
     /// or a new season.
@@ -29,7 +31,7 @@ public struct League: Codable, Identifiable, Equatable, Sendable {
         id: UUID = UUID(),
         title: String,
         teams: [Team] = [],
-        oddsMode: OddsMode = .reverseStandings,
+        type: LotteryType = .pro,
         revealStyle: RevealStyle = .lotteryBalls,
         lotteryTeamCount: Int? = nil,
         drawnPickCount: Int? = nil,
@@ -43,7 +45,7 @@ public struct League: Codable, Identifiable, Equatable, Sendable {
         self.id = id
         self.title = title
         self.teams = teams
-        self.oddsMode = oddsMode
+        self.type = type
         self.revealStyle = revealStyle
         self.lotteryTeamCount = lotteryTeamCount
         self.drawnPickCount = drawnPickCount
@@ -56,7 +58,7 @@ public struct League: Codable, Identifiable, Equatable, Sendable {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case id, title, teams, oddsMode, revealStyle, lotteryTeamCount, drawnPickCount
+        case id, title, teams, type, revealStyle, lotteryTeamCount, drawnPickCount
         case latestRun, runCount, isSample, createdAt, updatedAt, lastUsedAt
     }
 
@@ -67,11 +69,11 @@ public struct League: Codable, Identifiable, Equatable, Sendable {
         id = try c.decode(UUID.self, forKey: .id)
         title = try c.decodeIfPresent(String.self, forKey: .title) ?? "Untitled league"
         teams = try c.decodeIfPresent([Team].self, forKey: .teams) ?? []
-        oddsMode = (try? c.decodeIfPresent(OddsMode.self, forKey: .oddsMode)) ?? .reverseStandings
+        type = (try? c.decodeIfPresent(LotteryType.self, forKey: .type)) ?? .pro
         revealStyle = (try? c.decodeIfPresent(RevealStyle.self, forKey: .revealStyle)) ?? .lotteryBalls
         lotteryTeamCount = try c.decodeIfPresent(Int.self, forKey: .lotteryTeamCount)
         drawnPickCount = try c.decodeIfPresent(Int.self, forKey: .drawnPickCount)
-        latestRun = try c.decodeIfPresent(LotteryRun.self, forKey: .latestRun)
+        latestRun = try? c.decodeIfPresent(LotteryRun.self, forKey: .latestRun)
         runCount = try c.decodeIfPresent(Int.self, forKey: .runCount) ?? (latestRun?.number ?? 0)
         isSample = try c.decodeIfPresent(Bool.self, forKey: .isSample) ?? false
         createdAt = try c.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()

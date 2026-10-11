@@ -79,10 +79,10 @@ public extension League {
     var isFull: Bool { teams.count >= Limits.maxTeams }
 
     @discardableResult
-    mutating func addTeam(named raw: String, weight: Int = Limits.defaultWeight, now: Date = Date()) throws -> Team {
+    mutating func addTeam(named raw: String, now: Date = Date()) throws -> Team {
         guard let name = NameRules.clean(raw) else { throw LeagueEditError.emptyName }
         guard !isFull else { throw LeagueEditError.leagueFull }
-        let team = Team(name: name, weight: weight)
+        let team = Team(name: name)
         teams.append(team)
         updatedAt = now
         return team
@@ -136,48 +136,32 @@ public extension League {
         updatedAt = now
     }
 
-    /// Sets a Custom Odds weight (clamped to 0...1,000). Editing a weight in
-    /// another mode switches to Custom Odds; from Weighted by Standings the
-    /// standings weights are copied first, so only the edited team changes.
-    mutating func setWeight(_ weight: Int, for id: UUID, now: Date = Date()) {
-        guard let index = index(of: id) else { return }
-        if oddsMode != .customWeighted {
-            for i in teams.indices where isInLottery(atIndex: i) {
-                teams[i].weight = effectiveWeight(atIndex: i)
-            }
-        }
-        oddsMode = .customWeighted
-        teams[index].weight = Team.clampWeight(weight)
+    mutating func setType(_ type: LotteryType, now: Date = Date()) {
+        guard self.type != type else { return }
+        self.type = type
         updatedAt = now
     }
 
-    mutating func setOddsMode(_ mode: OddsMode, now: Date = Date()) {
-        guard oddsMode != mode else { return }
-        oddsMode = mode
-        updatedAt = now
-    }
-
-    /// How many of the worst finishers are in the lottery. Setting it to
-    /// every team stores "all", so adding a team later keeps everyone in.
+    /// Pro Lottery: how many of the worst finishers are in. Setting it to
+    /// the league's default stores "default", so it follows the league as
+    /// teams are added.
     mutating func setLotteryTeams(_ count: Int, now: Date = Date()) {
-        let drawnBefore = drawnPicks
-        let wasEveryPick = drawnPickCount == nil
         let clamped = min(max(count, Limits.minTeams), max(teams.count, Limits.minTeams))
-        let stored: Int? = clamped >= teams.count ? nil : clamped
+        let stored: Int? = clamped == LotteryOdds.defaultProLotteryTeams(teamCount: teams.count) ? nil : clamped
         guard stored != lotteryTeamCount else { return }
         lotteryTeamCount = stored
-        // Keep "top N drawn" when it still fits; "every pick" follows along.
-        if !wasEveryPick {
-            drawnPickCount = min(drawnBefore, lotteryTeams)
-        }
-        normalizeFormat()
         updatedAt = now
     }
 
-    /// How many picks the lottery draws. Every lottery pick stores "all".
+    /// Pro Lottery: how many teams made the playoffs and skip the lottery.
+    mutating func setPlayoffTeams(_ count: Int, now: Date = Date()) {
+        setLotteryTeams(teams.count - count, now: now)
+    }
+
+    /// Pro Lottery: how many picks are drawn (the top 4 by default).
     mutating func setDrawnPicks(_ count: Int, now: Date = Date()) {
         let clamped = min(max(count, 1), max(lotteryTeams, 1))
-        let stored: Int? = clamped >= lotteryTeams ? nil : clamped
+        let stored: Int? = clamped == LotteryOdds.defaultProDrawnPicks ? nil : clamped
         guard stored != drawnPickCount else { return }
         drawnPickCount = stored
         updatedAt = now
@@ -201,7 +185,6 @@ public extension League {
         guard !teams.isEmpty else { return }
         teams.removeAll()
         lotteryTeamCount = nil
-        drawnPickCount = nil
         updatedAt = now
     }
 
@@ -223,13 +206,13 @@ public extension League {
         return duplicates
     }
 
-    /// A copy with new identities and no runs. Teams, standings, weights
-    /// and format carry over; the copy is never the sample.
+    /// A copy with new identities and no runs. Teams, standings and format
+    /// carry over; the copy is never the sample.
     func duplicated(title newTitle: String, now: Date = Date()) -> League {
         League(
             title: NameRules.cleanTitle(newTitle) ?? title,
-            teams: teams.map { Team(name: $0.name, weight: $0.weight) },
-            oddsMode: oddsMode,
+            teams: teams.map { Team(name: $0.name) },
+            type: type,
             revealStyle: revealStyle,
             lotteryTeamCount: lotteryTeamCount,
             drawnPickCount: drawnPickCount,
@@ -237,13 +220,10 @@ public extension League {
         )
     }
 
-    /// Drops stored counts that no longer mean anything after teams leave.
+    /// Drops a lottery size that no longer fits after teams leave.
     private mutating func normalizeFormat() {
         if let count = lotteryTeamCount, count >= teams.count {
             lotteryTeamCount = nil
-        }
-        if let count = drawnPickCount, count >= lotteryTeams {
-            drawnPickCount = nil
         }
     }
 }

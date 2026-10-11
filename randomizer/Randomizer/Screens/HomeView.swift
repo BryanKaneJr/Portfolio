@@ -234,7 +234,7 @@ private struct SampleCard: View {
             .frame(width: 64, height: 64)
 
             VStack(alignment: .leading, spacing: 3) {
-                Text("\(league.teams.count) teams \u{00B7} \(league.lotteryTeams) in the lottery")
+                Text("\(league.teams.count) teams \u{00B7} \(league.type.title)")
                     .font(Theme.rounded(.caption, weight: .bold))
                     .foregroundStyle(Theme.accent)
                     .textCase(.uppercase)
@@ -310,12 +310,15 @@ struct LeagueCard: View {
 
     private var detail: String {
         guard league.teams.count >= Limits.minTeams else { return "Add teams to run the lottery" }
-        let lottery = league.lotteryTeams == league.teams.count ? "Every team in the lottery" : "Worst \(league.lotteryTeams) in the lottery"
-        return "\(lottery) \u{00B7} \(league.oddsMode.shortTitle) odds"
+        switch league.type {
+        case .pro: return "\(league.type.title) \u{00B7} worst \(league.lotteryTeams) in, top \(league.drawnPicks) drawn"
+        case .longShot: return "\(league.type.title) \u{00B7} everyone's in"
+        case .slotDraft: return "\(league.type.title) \u{00B7} draw, then choose slots"
+        }
     }
 
     private func runLine(_ run: LotteryRun) -> String {
-        let state = run.isFullyRevealed ? "order set" : "reveal in progress"
+        let state = run.isComplete ? "order set" : run.isFullyRevealed ? "choosing slots" : "reveal in progress"
         return "Run #\(run.number) \u{00B7} \(state) \u{00B7} \(run.ranAt.formatted(.relative(presentation: .named)))"
     }
 }

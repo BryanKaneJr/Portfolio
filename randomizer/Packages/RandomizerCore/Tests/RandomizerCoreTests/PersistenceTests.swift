@@ -34,6 +34,7 @@ final class PersistenceTests: XCTestCase {
         var rng = SeededGenerator(seed: 21)
         var league = Fixtures.league(Fixtures.teams(12), lotteryTeams: 8, drawnPicks: 4)
         league.setRevealStyle(.cardFlip)
+        league.setType(.pro)
         try league.runLottery(now: Fixtures.now, using: &rng)
         try league.runLottery(now: Fixtures.now, using: &rng)
         league.revealNextPick(now: Fixtures.now)
@@ -110,26 +111,38 @@ final class PersistenceTests: XCTestCase {
         let minimal = """
         {"schemaVersion": 1, "leagues": [{"id": "\(id.uuidString)", "title": "Old",
           "teams": [{"id": "\(teamID.uuidString)", "name": "Only", "weight": 4}],
-          "revealStyle": "someFutureStyle"}]}
+          "oddsMode": "customWeighted", "revealStyle": "someFutureStyle", "type": "someFutureType"}]}
         """
         try Data(minimal.utf8).write(to: repository.storeURL)
         let (document, outcome) = repository.load()
         XCTAssertEqual(outcome, .loaded)
         let league = document.leagues[0]
         XCTAssertEqual(league.id, id)
-        XCTAssertEqual(league.oddsMode, .reverseStandings)
-        XCTAssertEqual(league.revealStyle, .lotteryBalls, "An unknown style falls back instead of failing the load")
+        XCTAssertEqual(league.type, .pro, "An unknown type falls back instead of failing the load")
+        XCTAssertEqual(league.revealStyle, .lotteryBalls)
         XCTAssertNil(league.lotteryTeamCount)
         XCTAssertNil(league.latestRun)
         XCTAssertEqual(league.runCount, 0)
-        XCTAssertEqual(league.teams.first?.weight, 4)
+        XCTAssertEqual(league.teams.first?.name, "Only")
         XCTAssertTrue(document.didSeedSample, "An existing store never gets the sample re-added")
+    }
+
+    func testSlotDraftChoicesSurviveReopening() throws {
+        var rng = SeededGenerator(seed: 23)
+        var league = Fixtures.league(Fixtures.teams(6), type: .slotDraft)
+        try league.runLottery(now: Fixtures.now, using: &rng)
+        league.revealAllPicks(now: Fixtures.now)
+        league.chooseSlot(6, now: Fixtures.now)
+        league.chooseSlot(1, now: Fixtures.now)
+        try repository.save(StoreDocument(leagues: [league], didSeedSample: true))
+        let restored = LeagueRepository(directory: directory).load().document.leagues[0]
+        XCTAssertEqual(restored.latestRun?.slotChoices, [6, 1])
+        XCTAssertEqual(restored.latestRun?.nextChooser, league.latestRun?.picks[2])
     }
 
     func testThirtyTwoTeamLeagueRoundTripsExactly() throws {
         var league = Fixtures.league(Fixtures.teams(32), lotteryTeams: 16, drawnPicks: 4)
         league.moveTeams(fromOffsets: IndexSet(integer: 31), toOffset: 0)
-        league.setWeight(250, for: league.teams[3].id)
         var rng = SeededGenerator(seed: 22)
         try league.runLottery(now: Fixtures.now, using: &rng)
         try repository.save(StoreDocument(leagues: [league], didSeedSample: true))

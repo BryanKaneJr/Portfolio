@@ -2,62 +2,81 @@ import XCTest
 @testable import RandomizerCore
 
 final class OddsCalculatorTests: XCTestCase {
-    func testStandingsWeightsForEightAreEightDownToOne() {
-        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 8), [8, 7, 6, 5, 4, 3, 2, 1])
-        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 0), [])
-        let league = Fixtures.league(Fixtures.teams(8))
+    // MARK: Pro Lottery
+
+    /// A full 14-team pro lottery gets the pros' own combinations: 14% for
+    /// each of the worst three at #1, down to 0.5%.
+    func testProTableForFourteenTeams() {
+        let league = Fixtures.league(Fixtures.teams(14), lotteryTeams: 14)
         let rows = OddsCalculator.rows(for: league)
-        XCTAssertEqual(rows.map(\.weight), [8, 7, 6, 5, 4, 3, 2, 1])
-        XCTAssertEqual(rows.map(\.standing), Array(1...8))
-        XCTAssertEqual(rows[0].chanceText, "22.22%")
-        XCTAssertEqual(rows[7].chanceText, "2.78%")
-        XCTAssertTrue(rows.allSatisfy { $0.status == .inLottery })
+        XCTAssertEqual(rows.map(\.weight), LotteryOdds.proTable)
+        XCTAssertEqual(rows.map(\.chanceText), ["14%", "14%", "14%", "12.5%", "10.5%", "9%", "7.5%", "6%", "4.5%", "3%", "2%", "1.5%", "1%", "0.5%"])
     }
 
-    /// Only the lottery's teams get weight, counted down from the size of
-    /// the lottery, not the league.
-    func testStandingsWeightsCountOnlyLotteryTeams() {
-        let league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
+    /// The well-known 14-team table: the worst three each land a top-four
+    /// pick 52.14% of the time, the 14th 2.41%.
+    func testProTopFourChancesMatchTheProTable() throws {
+        let chances = try XCTUnwrap(OddsCalculator.topPickProbabilities(weights: LotteryOdds.proTable, picks: 4))
+        let percents = chances.map { ($0 * 10_000).rounded() / 100 }
+        XCTAssertEqual(percents, [52.14, 52.14, 52.14, 48.08, 42.12, 37.23, 31.96, 26.31, 20.28, 13.88, 9.41, 7.12, 4.79, 2.41])
+        XCTAssertEqual(chances.reduce(0, +), 4, accuracy: 1e-9)
+    }
+
+    /// A smaller lottery keeps the pros' ratios: the six worst teams'
+    /// combinations, playoff teams at 0.
+    func testProSixTeamLotteryInATenTeamLeague() {
+        let league = Fixtures.league(Fixtures.teams(10))
+        XCTAssertEqual(league.lotteryTeams, 6, "Four playoff teams by default in a ten-team league")
+        XCTAssertEqual(league.drawnPicks, 4)
         let rows = OddsCalculator.rows(for: league)
-        XCTAssertEqual(rows.map(\.weight), [6, 5, 4, 3, 2, 1, 0, 0, 0, 0])
-        XCTAssertEqual(rows.prefix(6).map(\.status), Array(repeating: .inLottery, count: 6))
+        XCTAssertEqual(rows.map(\.weight), [140, 140, 140, 125, 105, 90, 0, 0, 0, 0])
+        XCTAssertEqual(rows.prefix(6).map(\.chanceText), ["18.92%", "18.92%", "18.92%", "16.89%", "14.19%", "12.16%"])
+        XCTAssertEqual(rows.prefix(6).compactMap(\.drawnPickChanceText), ["72%", "72%", "72%", "67.83%", "61.1%", "55.06%"])
         XCTAssertEqual(rows.suffix(4).map(\.status), Array(repeating: .notInLottery, count: 4))
-        XCTAssertEqual(rows[0].chanceText, "28.57%")
-        XCTAssertEqual(rows[0].denominator, 21)
-        XCTAssertEqual(rows[6].chanceText, "0%")
-        XCTAssertEqual(league.totalLotteryWeight, 21)
+        XCTAssertTrue(rows.suffix(4).allSatisfy { $0.drawnPickProbability == nil && $0.chanceText == "0%" })
     }
 
-    func testEqualOddsIgnoreStoredWeights() {
-        let league = Fixtures.league(["A", "B", "C", "D"], weights: [0, 900, 3, 3], mode: .equal)
-        XCTAssertEqual(OddsCalculator.rows(for: league).map(\.chanceText), ["25%", "25%", "25%", "25%"])
-        XCTAssertEqual(league.lotteryCandidates.count, 4)
+    func testProWeightsPastFourteenTeamsGetTheSmallestShare() {
+        XCTAssertEqual(LotteryOdds.proWeights(count: 16).suffix(3), [5, 5, 5])
+        XCTAssertEqual(LotteryOdds.proWeights(count: 3), [140, 140, 140])
+        XCTAssertEqual(LotteryOdds.proWeights(count: 0), [])
     }
 
-    func testCustomWeightsGiveExactShares() {
-        let league = Fixtures.league(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted)
+    func testProDefaultsFollowLeagueSize() {
+        let expected = [2: 2, 3: 2, 4: 2, 6: 3, 8: 4, 10: 6, 12: 6, 14: 8, 16: 8, 32: 16]
+        for (teams, lottery) in expected {
+            XCTAssertEqual(LotteryOdds.defaultProLotteryTeams(teamCount: teams), lottery, "\(teams) teams")
+        }
+    }
+
+    // MARK: Long Shot
+
+    /// Everyone's in, and the champion (best finish) has exactly a 1% shot
+    /// at #1, whatever the league size.
+    func testLongShotGivesTheChampExactlyOnePercent() {
+        for count in [2, 4, 8, 10, 12, 14, 16, 20, 32] {
+            let weights = LotteryOdds.longShotWeights(count: count)
+            XCTAssertEqual(weights.count, count)
+            XCTAssertEqual(weights.reduce(0, +), 1_000, "\(count) teams")
+            XCTAssertEqual(weights.last, 10, "\(count) teams")
+            XCTAssertEqual(weights, weights.sorted(by: >), "Worse finish, better odds")
+        }
+        XCTAssertEqual(LotteryOdds.longShotWeights(count: 10), [190, 170, 150, 130, 110, 90, 70, 50, 30, 10])
+        let league = Fixtures.league(Fixtures.teams(10), type: .longShot)
         let rows = OddsCalculator.rows(for: league)
-        XCTAssertEqual(rows.map(\.probability), [0.4, 0.3, 0.2, 0.1])
-        XCTAssertEqual(rows.map(\.chanceText), ["40%", "30%", "20%", "10%"])
+        XCTAssertEqual(rows.first?.chanceText, "19%")
+        XCTAssertEqual(rows.last?.chanceText, "1%")
+        XCTAssertTrue(rows.allSatisfy { $0.status == .inLottery && $0.drawnPickProbability == nil })
     }
 
-    func testWeightZeroInsideTheLotteryHasNoChance() {
-        let league = Fixtures.league(["A", "B", "C"], weights: [0, 1, 3], mode: .customWeighted)
-        let rows = OddsCalculator.rows(for: league)
-        XCTAssertEqual(rows[0].status, .noChance)
-        XCTAssertEqual(rows[0].chanceText, "0%")
-        XCTAssertEqual(league.lotteryCandidates.count, 2)
-        XCTAssertEqual(league.firstPickChanceText(of: league.teams[2].id), "75%")
+    // MARK: Slot Draft
+
+    func testSlotDraftGivesEveryoneTheSameChanceToChooseFirst() {
+        let league = Fixtures.league(Fixtures.teams(8), type: .slotDraft)
+        XCTAssertEqual(OddsCalculator.rows(for: league).map(\.chanceText), Array(repeating: "12.5%", count: 8))
     }
 
-    func testCustomWeightsOutsideTheLotteryDontCount() {
-        let league = Fixtures.league(["A", "B", "C"], weights: [1, 1, 500], mode: .customWeighted, lotteryTeams: 2)
-        let rows = OddsCalculator.rows(for: league)
-        XCTAssertEqual(rows.map(\.chanceText), ["50%", "50%", "0%"])
-        XCTAssertEqual(rows[2].status, .notInLottery)
-    }
-
-    // MARK: Top-N chances
+    // MARK: Exact top-N chances
 
     func testTopPickChancesForThreeTeamsTakingTwo() throws {
         // A: 3/6 + 2/6 * 3/4 + 1/6 * 3/5 = 0.85, and so on.
@@ -65,17 +84,6 @@ final class OddsCalculatorTests: XCTestCase {
         XCTAssertEqual(chances[0], 0.85, accuracy: 1e-12)
         XCTAssertEqual(chances[1], 11.0 / 15.0, accuracy: 1e-12)
         XCTAssertEqual(chances[2], 5.0 / 12.0, accuracy: 1e-12)
-    }
-
-    /// The well-known 14-team lottery that draws the top four picks with
-    /// 140, 140, 140, 125 ... 5 combinations: the worst three each land a
-    /// top-four pick 52.14% of the time, the 14th 2.41%.
-    func testTopPickChancesMatchAWellKnownFourteenTeamTable() throws {
-        let weights = [140, 140, 140, 125, 105, 90, 75, 60, 45, 30, 20, 15, 10, 5]
-        let chances = try XCTUnwrap(OddsCalculator.topPickProbabilities(weights: weights, picks: 4))
-        let percents = chances.map { ($0 * 10_000).rounded() / 100 }
-        XCTAssertEqual(percents, [52.14, 52.14, 52.14, 48.08, 42.12, 37.23, 31.96, 26.31, 20.28, 13.88, 9.41, 7.12, 4.79, 2.41])
-        XCTAssertEqual(chances.reduce(0, +), 4, accuracy: 1e-9)
     }
 
     func testTopPickChancesAlwaysSumToThePicksDrawn() throws {
@@ -94,10 +102,9 @@ final class OddsCalculatorTests: XCTestCase {
     }
 
     func testTopPickChancesAreTheSameEveryTime() {
-        let weights = [140, 140, 140, 125, 105, 90, 75, 60, 45, 30, 20, 15, 10, 5]
-        let first = OddsCalculator.topPickProbabilities(weights: weights, picks: 4)
+        let first = OddsCalculator.topPickProbabilities(weights: LotteryOdds.proTable, picks: 4)
         for _ in 0..<5 {
-            XCTAssertEqual(OddsCalculator.topPickProbabilities(weights: weights, picks: 4), first)
+            XCTAssertEqual(OddsCalculator.topPickProbabilities(weights: LotteryOdds.proTable, picks: 4), first)
         }
     }
 
@@ -105,20 +112,7 @@ final class OddsCalculatorTests: XCTestCase {
         let weights = Array(repeating: 1, count: 32)
         XCTAssertNil(OddsCalculator.topPickProbabilities(weights: weights, picks: 16))
         XCTAssertNotNil(OddsCalculator.topPickProbabilities(weights: weights, picks: 3))
-        // Every team drawn is certain, and needs no table.
         XCTAssertEqual(OddsCalculator.topPickProbabilities(weights: weights, picks: 32), Array(repeating: 1, count: 32))
-    }
-
-    func testRowsShowTopNChancesOnlyWhenContested() {
-        let topFour = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 4)
-        let rows = OddsCalculator.rows(for: topFour)
-        XCTAssertTrue(topFour.drawnPicksAreContested)
-        XCTAssertEqual(rows.prefix(6).compactMap(\.drawnPickChanceText), ["88.76%", "84.56%", "78.19%", "68.11%", "51.66%", "28.72%"])
-        XCTAssertTrue(rows.suffix(4).allSatisfy { $0.drawnPickProbability == nil })
-
-        let everyPick = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
-        XCTAssertFalse(everyPick.drawnPicksAreContested)
-        XCTAssertTrue(OddsCalculator.rows(for: everyPick).allSatisfy { $0.drawnPickProbability == nil })
     }
 
     func testPercentFormatting() {
@@ -139,24 +133,21 @@ final class OddsCalculatorTests: XCTestCase {
     }
 
     func testRevealStyleNeverChangesOdds() {
-        let league = Fixtures.league(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted, drawnPicks: 2)
+        let league = Fixtures.league(Fixtures.teams(8), lotteryTeams: 5, drawnPicks: 2)
         let before = OddsCalculator.rows(for: league)
         for style in RevealStyle.allCases {
             var copy = league
             copy.setRevealStyle(style, now: Fixtures.now)
             XCTAssertEqual(OddsCalculator.rows(for: copy), before)
             XCTAssertEqual(copy.lotteryCandidates, league.lotteryCandidates)
-            XCTAssertEqual(copy.teams, league.teams)
         }
     }
 
     func testMaximumLeagueDoesNotOverflow() {
-        let league = Fixtures.league(
-            Fixtures.teams(Limits.maxTeams),
-            weights: Array(repeating: Limits.maxWeight, count: Limits.maxTeams),
-            mode: .customWeighted
-        )
-        XCTAssertEqual(league.totalLotteryWeight, 32_000)
-        XCTAssertEqual(league.firstPickChanceText(of: league.teams[0].id), "3.13%")
+        for type in LotteryType.allCases {
+            let league = Fixtures.league(Fixtures.teams(Limits.maxTeams), type: type)
+            XCTAssertGreaterThan(league.totalLotteryWeight, 0)
+            XCTAssertNotEqual(league.firstPickChanceText(of: league.teams[0].id), "0%")
+        }
     }
 }

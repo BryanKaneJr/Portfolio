@@ -6,7 +6,7 @@ extension XCUIApplication {
     static func draftLottery(
         seed: String? = nil,
         style: String? = nil,
-        mode: String? = nil,
+        type: String? = nil,
         lotteryTeams: Int? = nil,
         drawnPicks: Int? = nil,
         run: String? = nil,
@@ -19,7 +19,7 @@ extension XCUIApplication {
         var environment: [String: String] = [:]
         environment["UITEST_SEED"] = seed
         environment["UITEST_STYLE"] = style
-        environment["UITEST_MODE"] = mode
+        environment["UITEST_TYPE"] = type
         environment["UITEST_LOTTERY"] = lotteryTeams.map(String.init)
         environment["UITEST_DRAWN"] = drawnPicks.map(String.init)
         environment["UITEST_RUN"] = run
@@ -36,6 +36,12 @@ extension XCUIApplication {
     var runNumber: XCUIElement { descendants(matching: .any)["runNumberLabel"] }
     var revealedSlots: XCUIElementQuery { descendants(matching: .any).matching(identifier: "draftSlotRevealed") }
     var hiddenSlots: XCUIElementQuery { descendants(matching: .any).matching(identifier: "draftSlotHidden") }
+
+    var takenSlots: XCUIElementQuery { descendants(matching: .any).matching(identifier: "takenSlot") }
+
+    func openSlot(_ slot: Int) -> XCUIElement {
+        buttons["openSlot-\(slot)"]
+    }
 
     func leagueCard(_ title: String) -> XCUIElement {
         buttons.matching(NSPredicate(format: "identifier == 'leagueCard' AND label CONTAINS %@", title)).firstMatch

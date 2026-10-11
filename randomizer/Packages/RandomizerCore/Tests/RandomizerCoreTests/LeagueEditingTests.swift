@@ -50,7 +50,6 @@ final class LeagueEditingTests: XCTestCase {
         XCTAssertTrue(league.teams.isEmpty)
         let team = try league.addTeam(named: "  Zoe's   Zebras  ")
         XCTAssertEqual(team.name, "Zoe's Zebras")
-        XCTAssertEqual(team.weight, 1)
         XCTAssertThrowsError(try league.renameTeam(team.id, to: " "))
         XCTAssertThrowsError(try league.rename(to: ""))
     }
@@ -61,32 +60,13 @@ final class LeagueEditingTests: XCTestCase {
         XCTAssertEqual(NameRules.cleanTitle(long)?.count, Limits.maxTitleLength)
     }
 
-    func testWeightsAreClampedToRange() {
-        var league = Fixtures.league(["A", "B"], mode: .customWeighted)
-        let id = league.teams[0].id
-        league.setWeight(5_000, for: id)
-        XCTAssertEqual(league.teams[0].weight, 1_000)
-        league.setWeight(-3, for: id)
-        XCTAssertEqual(league.teams[0].weight, 0)
-        XCTAssertEqual(Team(name: "B", weight: 9_999).weight, 1_000)
-    }
-
-    func testEditingAStandingsWeightSwitchesToCustomAndKeepsTheOthers() {
-        var league = Fixtures.league(Fixtures.teams(8), lotteryTeams: 6)
-        let order = league.teams.map(\.id)
-        league.setWeight(20, for: league.teams[5].id)
-        XCTAssertEqual(league.oddsMode, .customWeighted)
-        XCTAssertEqual(league.teams.map(\.id), order)
-        XCTAssertEqual(OddsCalculator.rows(for: league).map(\.weight), [6, 5, 4, 3, 2, 20, 0, 0])
-    }
-
-    func testReorderingMovesStandingsOdds() {
+    func testReorderingMovesTeamsInAndOutOfTheLottery() {
         var league = Fixtures.league(["A", "B", "C", "D"], lotteryTeams: 3)
         let d = Fixtures.id("D", in: league)
         XCTAssertEqual(league.status(of: d), .notInLottery)
         league.moveTeams(fromOffsets: IndexSet(integer: 3), toOffset: 0)
         XCTAssertEqual(league.teams.map(\.name), ["D", "A", "B", "C"])
-        XCTAssertEqual(league.effectiveWeight(atIndex: 0), 3)
+        XCTAssertEqual(league.effectiveWeight(atIndex: 0), 140)
         XCTAssertEqual(league.status(of: d), .inLottery)
         XCTAssertEqual(league.status(of: Fixtures.id("C", in: league)), .notInLottery)
     }
@@ -101,42 +81,43 @@ final class LeagueEditingTests: XCTestCase {
         XCTAssertEqual(league.teams.map(\.name), ["A", "B", "C", "D"])
     }
 
-    func testSwitchingOddsModesKeepsStoredWeights() {
-        var league = Fixtures.league(["A", "B"], weights: [7, 3], mode: .customWeighted)
-        league.setOddsMode(.equal)
-        XCTAssertEqual(league.firstPickChanceText(of: league.teams[0].id), "50%")
-        league.setOddsMode(.reverseStandings)
-        XCTAssertEqual(league.firstPickChanceText(of: league.teams[0].id), "66.67%")
-        league.setOddsMode(.customWeighted)
-        XCTAssertEqual(league.teams.map(\.weight), [7, 3])
-        XCTAssertEqual(league.firstPickChanceText(of: league.teams[0].id), "70%")
-    }
-
-    func testSettingLotteryTeams() {
+    func testSwitchingTypesKeepsTheProSettings() {
         var league = Fixtures.league(Fixtures.teams(10))
-        league.setLotteryTeams(6)
-        XCTAssertEqual(league.lotteryTeamCount, 6)
-        league.setLotteryTeams(1)
-        XCTAssertEqual(league.lotteryTeams, 2)
-        league.setLotteryTeams(10)
-        XCTAssertNil(league.lotteryTeamCount, "Every team is stored as all")
-        _ = try? league.addTeam(named: "Expansion")
-        XCTAssertEqual(league.lotteryTeams, 11, "A new team joins an every-team lottery")
+        league.setPlayoffTeams(6)
+        league.setDrawnPicks(3)
+        league.setType(.longShot)
+        XCTAssertEqual(league.lotteryTeams, 10)
+        XCTAssertEqual(league.firstPickChanceText(of: league.teams[9].id), "1%")
+        league.setType(.pro)
+        XCTAssertEqual(league.lotteryTeams, 4)
+        XCTAssertEqual(league.drawnPicks, 3)
     }
 
-    func testDrawnPicksFollowTheLottery() {
+    func testSettingPlayoffTeams() {
+        var league = Fixtures.league(Fixtures.teams(10))
+        league.setPlayoffTeams(2)
+        XCTAssertEqual(league.lotteryTeams, 8)
+        XCTAssertEqual(league.lotteryTeamCount, 8)
+        league.setPlayoffTeams(9)
+        XCTAssertEqual(league.lotteryTeams, 2, "At least two teams stay in the lottery")
+        league.setPlayoffTeams(4)
+        XCTAssertNil(league.lotteryTeamCount, "The default is stored as default")
+        try? league.addTeam(named: "Expansion")
+        XCTAssertEqual(league.lotteryTeams, 7, "The default follows the league's size")
+    }
+
+    func testDrawnPicks() {
         var league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 8)
+        league.setDrawnPicks(2)
+        XCTAssertEqual(league.drawnPicks, 2)
+        league.setPlayoffTeams(7)
+        XCTAssertEqual(league.drawnPicks, 2)
+        league.setDrawnPicks(9)
+        XCTAssertEqual(league.drawnPicks, 3, "No more than the lottery's teams")
+        league.setPlayoffTeams(2)
         league.setDrawnPicks(4)
+        XCTAssertNil(league.drawnPickCount, "Top 4 is the default")
         XCTAssertEqual(league.drawnPicks, 4)
-        league.setLotteryTeams(6)
-        XCTAssertEqual(league.drawnPicks, 4, "Top 4 still fits")
-        league.setLotteryTeams(3)
-        XCTAssertEqual(league.drawnPicks, 3)
-        XCTAssertNil(league.drawnPickCount, "Top 3 of 3 is every lottery pick")
-        league.setLotteryTeams(8)
-        XCTAssertEqual(league.drawnPicks, 8, "Every lottery pick follows the lottery")
-        league.setDrawnPicks(8)
-        XCTAssertNil(league.drawnPickCount)
         league.setDrawnPicks(0)
         XCTAssertEqual(league.drawnPicks, 1)
     }
@@ -146,8 +127,8 @@ final class LeagueEditingTests: XCTestCase {
         league.deleteTeams(Set(league.teams.suffix(3).map(\.id)))
         XCTAssertEqual(league.teams.count, 3)
         XCTAssertNil(league.lotteryTeamCount)
-        XCTAssertNil(league.drawnPickCount)
-        XCTAssertEqual(league.drawnPicks, 3)
+        XCTAssertEqual(league.lotteryTeams, 2)
+        XCTAssertEqual(league.drawnPicks, 2)
     }
 
     func testClearTeamsKeepsTheLatestRun() throws {
@@ -160,7 +141,7 @@ final class LeagueEditingTests: XCTestCase {
     }
 
     func testDuplicateLeagueGetsNewIdentitiesAndNoRuns() throws {
-        var league = Fixtures.league(["A", "B", "C"], weights: [3, 2, 1], mode: .customWeighted, lotteryTeams: 2, drawnPicks: 1)
+        var league = Fixtures.league(["A", "B", "C"], type: .slotDraft, lotteryTeams: 2, drawnPicks: 1)
         league.isSample = true
         league.setRevealStyle(.cardFlip)
         var rng = SeededGenerator(seed: 11)
@@ -169,11 +150,10 @@ final class LeagueEditingTests: XCTestCase {
         XCTAssertNotEqual(copy.id, league.id)
         XCTAssertTrue(Set(copy.teams.map(\.id)).isDisjoint(with: league.teams.map(\.id)))
         XCTAssertEqual(copy.teams.map(\.name), ["A", "B", "C"])
-        XCTAssertEqual(copy.teams.map(\.weight), [3, 2, 1])
-        XCTAssertEqual(copy.oddsMode, .customWeighted)
+        XCTAssertEqual(copy.type, .slotDraft)
         XCTAssertEqual(copy.revealStyle, .cardFlip)
-        XCTAssertEqual(copy.lotteryTeams, 2)
-        XCTAssertEqual(copy.drawnPicks, 1)
+        XCTAssertEqual(copy.lotteryTeamCount, 2)
+        XCTAssertEqual(copy.drawnPickCount, 1)
         XCTAssertNil(copy.latestRun)
         XCTAssertEqual(copy.runCount, 0)
         XCTAssertFalse(copy.isSample)

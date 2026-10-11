@@ -1,28 +1,33 @@
 import Foundation
 
-/// How lottery chances are worked out. Independent of how picks are revealed.
-public enum OddsMode: String, Codable, CaseIterable, Sendable {
-    /// The worst finish gets the most chances: with L lottery teams the
-    /// worst weighs L, the next L - 1, down to 1.
-    case reverseStandings
-    /// Every lottery team has the same chance.
-    case equal
-    /// Each lottery team has its own relative weight (0 to 1,000).
-    case customWeighted
+/// The three lotteries the app runs. Each is a complete format, so a
+/// commissioner picks one and is done.
+public enum LotteryType: String, Codable, CaseIterable, Sendable {
+    /// The pro basketball format: teams that missed the playoffs are in,
+    /// only the top picks are drawn, and the three worst share the best
+    /// odds. Everyone else picks by standings.
+    case pro
+    /// Everyone is in and every pick is drawn. The worst team has the best
+    /// odds, and even the champion has a 1% shot at #1.
+    case longShot
+    /// The draw decides the order in which teams choose their draft slot
+    /// (Kentucky Derby style). Every team has the same chance to choose
+    /// first.
+    case slotDraft
 
     public var title: String {
         switch self {
-        case .reverseStandings: return "Weighted by Standings"
-        case .equal: return "Equal Odds"
-        case .customWeighted: return "Custom Odds"
+        case .pro: return "Pro Lottery"
+        case .longShot: return "Long Shot"
+        case .slotDraft: return "Slot Draft"
         }
     }
 
-    public var shortTitle: String {
+    public var tagline: String {
         switch self {
-        case .reverseStandings: return "Standings"
-        case .equal: return "Equal"
-        case .customWeighted: return "Custom"
+        case .pro: return "Non-playoff teams draw for the top picks with pro-style odds."
+        case .longShot: return "Everyone's in. Even the champ has a 1% shot at #1."
+        case .slotDraft: return "Win the draw, then choose your own draft slot."
         }
     }
 }

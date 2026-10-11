@@ -4,97 +4,86 @@ import XCTest
 final class LotteryTests: XCTestCase {
     // MARK: Format
 
-    func testFormatDefaultsToEveryTeamAndEveryPick() {
+    func testProDefaultsToNonPlayoffTeamsAndTheTopFourPicks() {
         let league = Fixtures.league(Fixtures.teams(10))
-        XCTAssertEqual(league.lotteryTeams, 10)
-        XCTAssertEqual(league.drawnPicks, 10)
-        XCTAssertEqual(league.lotteryTeamsText, "All 10 teams in the lottery")
-        XCTAssertEqual(league.drawnPicksText, "Every pick drawn")
-        XCTAssertNil(league.standingsPicksText)
+        XCTAssertEqual(league.type, .pro)
+        XCTAssertEqual(league.lotteryTeams, 6)
+        XCTAssertEqual(league.playoffTeams, 4)
+        XCTAssertEqual(league.drawnPicks, 4)
+        XCTAssertEqual(league.lotteryTeamsText, "Worst 6 of 10 teams in the lottery")
+        XCTAssertEqual(league.drawnPicksText, "Top 4 picks drawn")
+        XCTAssertEqual(league.standingsPicksText, "Picks 5\u{2013}10 by standings")
     }
 
-    func testFormatIsClampedToTheLeague() {
+    func testLongShotAndSlotDraftPutEveryoneInAndDrawEveryPick() {
+        for type in [LotteryType.longShot, .slotDraft] {
+            let league = Fixtures.league(Fixtures.teams(10), type: type, lotteryTeams: 4, drawnPicks: 2)
+            XCTAssertEqual(league.lotteryTeams, 10, "\(type) ignores the pro settings")
+            XCTAssertEqual(league.drawnPicks, 10)
+            XCTAssertNil(league.standingsPicksText)
+        }
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), type: .longShot).lotteryTeamsText, "All 10 teams in the lottery")
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), type: .slotDraft).lotteryTeamsText, "All 10 teams draw, equal odds")
+    }
+
+    func testProFormatIsClampedToTheLeague() {
         XCTAssertEqual(Fixtures.league(Fixtures.teams(10), lotteryTeams: 1).lotteryTeams, 2)
         XCTAssertEqual(Fixtures.league(Fixtures.teams(10), lotteryTeams: 40).lotteryTeams, 10)
-        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 0).drawnPicks, 1)
-        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 9).drawnPicks, 6)
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), drawnPicks: 0).drawnPicks, 1)
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(10), drawnPicks: 9).drawnPicks, 6)
         XCTAssertEqual(Fixtures.league(["Solo"]).lotteryTeams, 1)
         XCTAssertEqual(Fixtures.league([]).drawnPicks, 0)
     }
 
-    func testFormatWording() {
-        let league = Fixtures.league(Fixtures.teams(14), lotteryTeams: 6, drawnPicks: 4)
-        XCTAssertEqual(league.lotteryTeamsText, "Worst 6 of 14 teams in the lottery")
-        XCTAssertEqual(league.drawnPicksText, "Top 4 picks drawn")
-        XCTAssertEqual(league.standingsPicksText, "Picks 5\u{2013}14 by standings")
-        let lotteryOnly = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
+    func testProFormatWording() {
+        let lotteryOnly = Fixtures.league(Fixtures.teams(10), drawnPicks: 6)
         XCTAssertEqual(lotteryOnly.drawnPicksText, "Picks 1\u{2013}6 drawn")
         XCTAssertEqual(lotteryOnly.standingsPicksText, "Picks 7\u{2013}10 by standings")
-        XCTAssertEqual(Fixtures.league(Fixtures.teams(3), drawnPicks: 1).drawnPicksText, "Only pick 1 drawn")
-        XCTAssertEqual(Fixtures.league(Fixtures.teams(3), drawnPicks: 2).standingsPicksText, "Pick 3 by standings")
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(3), lotteryTeams: 3, drawnPicks: 1).drawnPicksText, "Only pick 1 drawn")
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(3), lotteryTeams: 3, drawnPicks: 2).standingsPicksText, "Pick 3 by standings")
+        XCTAssertEqual(Fixtures.league(Fixtures.teams(4), lotteryTeams: 4, drawnPicks: 4).drawnPicksText, "Every pick drawn")
     }
 
     // MARK: Running
 
-    func testEveryPickDrawnIsAWeightedPermutation() throws {
+    func testLongShotDrawsAWeightedPermutation() throws {
         var rng = SeededGenerator(seed: 1)
+        let weights = LotteryOdds.longShotWeights(count: 8)
         for _ in 0..<200 {
-            var league = Fixtures.league(Fixtures.teams(8))
+            var league = Fixtures.league(Fixtures.teams(8), type: .longShot)
             let run = try league.runLottery(now: Fixtures.now, using: &rng)
             XCTAssertEqual(run.picks.map(\.pick), Array(1...8))
             XCTAssertEqual(Set(run.picks.map(\.teamID)), Set(league.teams.map(\.id)))
             XCTAssertTrue(run.picks.allSatisfy(\.wasDrawn))
-            XCTAssertEqual(run.drawnPicks, 8)
-            // The pool shrinks by each drawn team's weight.
-            var remaining = 36
+            // The drum loses each drawn team's weight.
+            var remaining = 1_000
             for pick in run.picks {
                 XCTAssertEqual(pick.totalWeight, remaining)
-                XCTAssertEqual(pick.numeratorWeight, 9 - pick.standing)
+                XCTAssertEqual(pick.numeratorWeight, weights[pick.standing - 1])
                 remaining -= pick.numeratorWeight
             }
         }
     }
 
-    /// The worst six are in the lottery for picks 1 to 6; the four teams
-    /// above them pick 7 to 10 in standings order, every time.
-    func testTeamsOutsideTheLotteryPickInStandingsOrder() throws {
+    /// Pro, ten teams: the six non-playoff teams draw for picks 1 to 4, the
+    /// two not drawn pick 5 and 6 worst first, and the playoff teams pick
+    /// 7 to 10 in standings order, every time.
+    func testProPlacesEveryoneTheDrawDidntReachByStandings() throws {
         var rng = SeededGenerator(seed: 2)
-        for _ in 0..<200 {
-            var league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
-            let run = try league.runLottery(now: Fixtures.now, using: &rng)
-            XCTAssertEqual(Set(run.lotteryPicks.map(\.standing)), Set(1...6))
-            XCTAssertTrue(run.lotteryPicks.allSatisfy(\.wasDrawn))
-            XCTAssertEqual(run.standingsPicks.map(\.standing), [7, 8, 9, 10])
-            XCTAssertEqual(run.standingsPicks.map(\.pick), [7, 8, 9, 10])
-            XCTAssertTrue(run.standingsPicks.allSatisfy { !$0.wasDrawn && $0.chanceText == "By standings" })
-        }
-    }
-
-    /// Top four drawn from six: the two lottery teams not drawn pick 5 and
-    /// 6, worst first, ahead of everyone outside the lottery.
-    func testUndrawnLotteryTeamsFollowTheDrawnPicksByStandings() throws {
-        var rng = SeededGenerator(seed: 3)
         for _ in 0..<300 {
-            var league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 4)
+            var league = Fixtures.league(Fixtures.teams(10))
             let run = try league.runLottery(now: Fixtures.now, using: &rng)
+            XCTAssertEqual(run.type, .pro)
             XCTAssertEqual(run.drawnPicks, 4)
             XCTAssertTrue(run.picks.prefix(4).allSatisfy(\.wasDrawn))
             let undrawn = run.picks[4...5]
             XCTAssertTrue(undrawn.allSatisfy { !$0.wasDrawn })
             XCTAssertLessThan(undrawn.first!.standing, undrawn.last!.standing)
-            XCTAssertEqual(Set(run.picks.prefix(6).map(\.standing)), Set(1...6))
-            XCTAssertEqual(run.picks.suffix(4).map(\.standing), [7, 8, 9, 10])
-        }
-    }
-
-    func testZeroWeightLotteryTeamIsNeverDrawnButStaysAheadOfNonLotteryTeams() throws {
-        var rng = SeededGenerator(seed: 4)
-        for _ in 0..<200 {
-            var league = Fixtures.league(["A", "B", "C", "D", "E"], weights: [0, 5, 5, 9, 9], mode: .customWeighted, lotteryTeams: 3)
-            let run = try league.runLottery(now: Fixtures.now, using: &rng)
-            XCTAssertEqual(run.drawnPicks, 2, "Only two lottery teams have a chance")
-            XCTAssertEqual(Set(run.picks.prefix(2).map(\.teamName)), ["B", "C"])
-            XCTAssertEqual(run.picks.dropFirst(2).map(\.teamName), ["A", "D", "E"])
+            XCTAssertEqual(Set(run.lotteryPicks.map(\.standing)), Set(1...6))
+            XCTAssertEqual(run.standingsPicks.map(\.standing), [7, 8, 9, 10])
+            XCTAssertEqual(run.standingsPicks.map(\.pick), [7, 8, 9, 10])
+            // Like the pros: the worst team can fall no further than 5th.
+            XCTAssertLessThanOrEqual(run.picks.first { $0.standing == 1 }!.pick, 5)
         }
     }
 
@@ -103,12 +92,8 @@ final class LotteryTests: XCTestCase {
         var solo = Fixtures.league(["Only"])
         XCTAssertThrowsError(try solo.runLottery(using: &rng)) { XCTAssertEqual($0 as? DrawError, .notEnoughTeams) }
         XCTAssertEqual(solo.runProblem, "Add at least two teams to run the lottery.")
-
-        var zeros = Fixtures.league(["A", "B", "C"], weights: [0, 0, 7], mode: .customWeighted, lotteryTeams: 2)
-        XCTAssertThrowsError(try zeros.runLottery(using: &rng)) { XCTAssertEqual($0 as? DrawError, .noLotteryChances) }
-        XCTAssertEqual(zeros.runProblem, "Give at least one lottery team a weight above 0.")
-        XCTAssertNil(zeros.latestRun)
-        XCTAssertEqual(zeros.runCount, 0)
+        XCTAssertNil(solo.latestRun)
+        XCTAssertEqual(solo.runCount, 0)
         XCTAssertNil(Fixtures.league(["A", "B"]).runProblem)
     }
 
@@ -138,11 +123,11 @@ final class LotteryTests: XCTestCase {
         let run = try league.runLottery(now: Fixtures.now, using: &rng)
         try league.renameTeam(league.teams[2].id, to: "Renamed")
         league.moveTeams(fromOffsets: IndexSet(integer: 2), toOffset: 0)
-        league.setOddsMode(.equal)
+        league.setType(.longShot)
         league.deleteTeams([league.teams[1].id])
         XCTAssertEqual(league.latestRun, run)
         XCTAssertEqual(run.picks[2].teamName, "C")
-        XCTAssertEqual(run.oddsMode, .reverseStandings)
+        XCTAssertEqual(run.type, .pro)
     }
 
     // MARK: Reveal
@@ -153,7 +138,7 @@ final class LotteryTests: XCTestCase {
         var run = try league.runLottery(now: Fixtures.now, using: &rng)
         XCTAssertEqual(run.revealOrder.map(\.pick), [5, 4, 3, 2, 1])
         XCTAssertEqual(run.nextToReveal?.pick, 5)
-        XCTAssertEqual(run.picks.filter(run.isRevealed).map(\.pick), [6, 7, 8], "Teams outside the lottery are never hidden")
+        XCTAssertEqual(run.picks.filter(run.isRevealed).map(\.pick), [6, 7, 8], "Playoff teams are never hidden")
 
         league.revealNextPick()
         league.revealNextPick()
@@ -165,8 +150,8 @@ final class LotteryTests: XCTestCase {
         league.revealAllPicks()
         run = try XCTUnwrap(league.latestRun)
         XCTAssertTrue(run.isFullyRevealed)
+        XCTAssertTrue(run.isComplete)
         XCTAssertNil(run.nextToReveal)
-        XCTAssertEqual(run.picks.filter(run.isRevealed).count, 8)
         league.revealNextPick()
         XCTAssertEqual(league.latestRun?.revealedCount, 5)
 
@@ -185,14 +170,75 @@ final class LotteryTests: XCTestCase {
         XCTAssertEqual(league.latestRun?.revealedCount, 0)
     }
 
+    // MARK: Slot Draft
+
+    func testSlotDraftTeamsChooseTheirSlotsInDrawOrder() throws {
+        var rng = SeededGenerator(seed: 12)
+        var league = Fixtures.league(Fixtures.teams(4), type: .slotDraft)
+        var run = try league.runLottery(now: Fixtures.now, using: &rng)
+        XCTAssertEqual(run.type, .slotDraft)
+        XCTAssertEqual(run.picks.map(\.totalWeight), [4, 3, 2, 1], "Equal odds to choose first")
+        XCTAssertNil(run.nextChooser, "Nobody chooses until the order is revealed")
+        league.chooseSlot(1)
+        XCTAssertEqual(league.latestRun?.slotChoices, [])
+
+        league.revealAllPicks()
+        run = try XCTUnwrap(league.latestRun)
+        XCTAssertEqual(run.nextChooser, run.picks[0])
+        XCTAssertFalse(run.isComplete)
+        XCTAssertEqual(run.draftOrder.map(\.slot), [1, 2, 3, 4])
+        XCTAssertTrue(run.draftOrder.allSatisfy { $0.pick == nil })
+
+        // First choice takes the last slot (the turn), second takes slot 1.
+        league.chooseSlot(4)
+        league.chooseSlot(4)
+        XCTAssertEqual(league.latestRun?.slotChoices, [4], "A taken slot can't be chosen again")
+        league.chooseSlot(1)
+        league.chooseSlot(3)
+        run = try XCTUnwrap(league.latestRun)
+        XCTAssertEqual(run.slotChoices, [4, 1, 3, 2], "The last team gets the last open slot")
+        XCTAssertTrue(run.isComplete)
+        XCTAssertNil(run.nextChooser)
+        XCTAssertEqual(run.draftOrder.map { $0.pick?.teamID }, [run.picks[1].teamID, run.picks[3].teamID, run.picks[2].teamID, run.picks[0].teamID])
+        XCTAssertEqual(run.chosenSlot(of: run.picks[0]), 4)
+
+        league.replayReveal()
+        XCTAssertTrue(league.latestRun?.isFullyRevealed == true, "No replay once teams have chosen")
+
+        league.undoSlotChoice()
+        XCTAssertEqual(league.latestRun?.slotChoices, [4, 1], "Undo takes back the choice and the automatic last slot")
+        league.undoSlotChoice()
+        league.undoSlotChoice()
+        league.undoSlotChoice()
+        XCTAssertEqual(league.latestRun?.slotChoices, [])
+    }
+
+    func testSlotDraftShareTextListsTheChosenOrder() throws {
+        var rng = SeededGenerator(seed: 13)
+        var league = Fixtures.league(["A", "B", "C"], type: .slotDraft)
+        try league.runLottery(now: Fixtures.now, using: &rng)
+        league.revealAllPicks()
+        league.chooseSlot(2)
+        let partial = try XCTUnwrap(league.latestRun)
+        XCTAssertTrue(ResultsExporter.runText(title: "L", run: partial, dateText: "Today").contains("(open)"))
+        league.chooseSlot(3)
+        let run = try XCTUnwrap(league.latestRun)
+        let lines = ResultsExporter.runText(title: "L", run: run, dateText: "Today").components(separatedBy: "\n")
+        XCTAssertEqual(lines[1], "Slot Draft run #1 \u{00B7} Today")
+        XCTAssertEqual(lines[2], "All 3 teams drew for the choosing order with equal odds, then chose their draft slots.")
+        XCTAssertEqual(lines[4], "1. \(run.picks[2].teamName) (chose 3rd)")
+        XCTAssertEqual(lines[5], "2. \(run.picks[0].teamName) (chose 1st)")
+        XCTAssertEqual(lines[6], "3. \(run.picks[1].teamName) (chose 2nd)")
+    }
+
     // MARK: Fairness
 
-    /// Sanity check, not a proof: over 60,000 seeded runs each lottery
-    /// team's share of the #1 pick is within a point of weight / 21, and
-    /// its share of a top-four pick matches the exact table.
-    func testObservedPickSharesMatchTheOddsTable() throws {
+    /// Sanity check, not a proof: over 60,000 seeded Pro runs each lottery
+    /// team's share of the #1 pick and of a top-four pick matches the
+    /// exact table within a point.
+    func testObservedProSharesMatchTheOddsTable() throws {
         var rng = SeededGenerator(seed: 10)
-        var league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 4)
+        var league = Fixtures.league(Fixtures.teams(10))
         let rows = OddsCalculator.rows(for: league)
         let runs = 60_000
         var firsts = [Int](repeating: 0, count: 10)
@@ -209,19 +255,34 @@ final class LotteryTests: XCTestCase {
         }
     }
 
+    /// The champion really does win the Long Shot about 1 time in 100.
+    func testLongShotChampWinsAboutOnePercentOfTheTime() throws {
+        var rng = SeededGenerator(seed: 14)
+        var league = Fixtures.league(Fixtures.teams(10), type: .longShot)
+        let runs = 60_000
+        var champFirst = 0
+        var worstFirst = 0
+        for _ in 0..<runs {
+            let run = try league.runLottery(now: Fixtures.now, using: &rng)
+            if run.picks[0].standing == 10 { champFirst += 1 }
+            if run.picks[0].standing == 1 { worstFirst += 1 }
+        }
+        XCTAssertEqual(Double(champFirst) / Double(runs), 0.01, accuracy: 0.002)
+        XCTAssertEqual(Double(worstFirst) / Double(runs), 0.19, accuracy: 0.01)
+    }
+
     // MARK: Sample and sharing
 
     func testSampleLeague() {
         let sample = SampleLeague.make(now: Fixtures.now)
         XCTAssertTrue(sample.isSample)
         XCTAssertEqual(sample.teams.map(\.name), SampleLeague.teams)
-        XCTAssertEqual(sample.teams.count, 10)
-        XCTAssertEqual(sample.oddsMode, .reverseStandings)
+        XCTAssertEqual(sample.type, .pro)
         XCTAssertEqual(sample.lotteryTeamsText, "Worst 6 of 10 teams in the lottery")
-        XCTAssertEqual(sample.drawnPicksText, "Picks 1\u{2013}6 drawn")
-        XCTAssertEqual(sample.standingsPicksText, "Picks 7\u{2013}10 by standings")
+        XCTAssertEqual(sample.drawnPicksText, "Top 4 picks drawn")
+        XCTAssertEqual(sample.standingsPicksText, "Picks 5\u{2013}10 by standings")
         XCTAssertNil(sample.runProblem)
-        XCTAssertEqual(sample.firstPickChanceText(of: sample.teams[0].id), "28.57%")
+        XCTAssertEqual(sample.firstPickChanceText(of: sample.teams[0].id), "18.92%")
     }
 
     func testShareTextNamesTheRunAndHowEachPickWasDecided() throws {
@@ -232,8 +293,8 @@ final class LotteryTests: XCTestCase {
         let text = ResultsExporter.runText(title: "Sunday League", run: run, dateText: "Oct 11")
         let lines = text.components(separatedBy: "\n")
         XCTAssertEqual(lines[0], "Sunday League: draft order")
-        XCTAssertEqual(lines[1], "Lottery run #2 \u{00B7} Oct 11")
-        XCTAssertEqual(lines[2], "Worst 4 of 6 teams, weighted by standings. Picks 1\u{2013}2 drawn.")
+        XCTAssertEqual(lines[1], "Pro Lottery run #2 \u{00B7} Oct 11")
+        XCTAssertEqual(lines[2], "Worst 4 of 6 teams in the lottery, pro-style odds. Picks 1\u{2013}2 drawn.")
         let first = run.picks[0]
         XCTAssertEqual(lines[4], "1. \(first.teamName) (drawn, finished \(Ordinal.text(first.standing)), \(first.movementText))")
         let third = run.picks[2]

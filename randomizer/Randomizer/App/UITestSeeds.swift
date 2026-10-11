@@ -16,7 +16,7 @@ enum UITestSeeds {
         case "league":
             var seeded = league(
                 style: RevealStyle(rawValue: LaunchOptions.environment("UITEST_STYLE") ?? "") ?? .lotteryBalls,
-                mode: OddsMode(rawValue: LaunchOptions.environment("UITEST_MODE") ?? "") ?? .reverseStandings,
+                type: LotteryType(rawValue: LaunchOptions.environment("UITEST_TYPE") ?? "") ?? .pro,
                 lotteryTeams: LaunchOptions.environment("UITEST_LOTTERY").flatMap(Int.init),
                 drawnPicks: LaunchOptions.environment("UITEST_DRAWN").flatMap(Int.init)
             )
@@ -31,8 +31,8 @@ enum UITestSeeds {
             default: break
             }
         case "tour":
-            // Leagues kept as the person's own (no sample banner in
-            // screenshots), one with a finished lottery.
+            // One league of each type, kept as the person's own (no sample
+            // banner in screenshots).
             let now = Date()
             if let sample = state.sampleLeague {
                 state.update(sample.id) {
@@ -41,22 +41,17 @@ enum UITestSeeds {
                     $0.lastUsedAt = now
                 }
             }
-            var office = League(
-                title: "Office League",
-                teams: officeTeams.map { Team(name: $0) },
-                revealStyle: .cardFlip,
-                lotteryTeamCount: 6,
-                drawnPickCount: 4,
-                lastUsedAt: now.addingTimeInterval(-3_600)
-            )
-            _ = try? office.runLottery(now: now.addingTimeInterval(-3_600))
-            office.revealAllPicks()
-            office.lastUsedAt = now.addingTimeInterval(-3_600)
-            state.insert(office)
             state.insert(League(
                 title: "Family Dynasty",
                 teams: teams.map { Team(name: $0) },
-                oddsMode: .equal,
+                type: .longShot,
+                revealStyle: .cardFlip,
+                lastUsedAt: now.addingTimeInterval(-3_600)
+            ))
+            state.insert(League(
+                title: "Office League",
+                teams: officeTeams.map { Team(name: $0) },
+                type: .slotDraft,
                 lastUsedAt: now.addingTimeInterval(-86_400 * 3)
             ))
         default:
@@ -76,20 +71,14 @@ enum UITestSeeds {
         "Marketing Mavens", "Ops Squad", "Payroll Panthers", "C-Suite Kings", "Dev Ops", "Front Desk",
     ]
 
-    static func league(style: RevealStyle, mode: OddsMode, lotteryTeams: Int?, drawnPicks: Int?) -> League {
-        var league = League(
+    static func league(style: RevealStyle, type: LotteryType, lotteryTeams: Int?, drawnPicks: Int?) -> League {
+        League(
             title: "Friday Fantasy League",
             teams: teams.map { Team(name: $0) },
-            oddsMode: mode,
+            type: type,
             revealStyle: style,
             lotteryTeamCount: lotteryTeams,
             drawnPickCount: drawnPicks
         )
-        if mode == .customWeighted {
-            for (index, weight) in [40, 30, 20, 10, 8, 6, 4, 2].enumerated() {
-                league.teams[index].weight = weight
-            }
-        }
-        return league
     }
 }

@@ -153,7 +153,13 @@ struct LotteryView: View {
     @ViewBuilder
     private func stage(_ league: League) -> some View {
         Group {
-            if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
+            if let run = league.latestRun, let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
+                TeamCard(pick: chooser, tag: "On the clock", systemImage: "clock.fill")
+                    .id(chooser.id)
+                    .transition(.opacity)
+            } else if let run = league.latestRun, run.type == .slotDraft, run.isComplete, let first = run.draftOrder.first?.pick {
+                TeamCard(pick: first, tag: "Picks first", systemImage: "1.circle.fill")
+            } else if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
                 if pick.wasDrawn {
                     RevealStage(
                         style: league.revealStyle,
@@ -186,6 +192,18 @@ struct LotteryView: View {
         .accessibilityIdentifier("revealStage")
     }
 
+    /// Slot Draft: the team choosing now, once the reveal's last landing
+    /// has had its moment (the first choice stays on stage until it picks).
+    static func chooserOnStage(_ run: LotteryRun, stagePick: Int?) -> LotteryPick? {
+        guard let chooser = run.nextChooser else { return nil }
+        return stagePick == nil || !run.slotChoices.isEmpty ? chooser : nil
+    }
+
+    /// "pick 4" in a lottery, "4th choice" in a Slot Draft.
+    static func pickName(_ number: Int, in type: LotteryType) -> String {
+        type == .slotDraft ? "\(Ordinal.text(number)) choice" : "pick #\(number)"
+    }
+
     /// Drawn teams that could still be at `pick` or above: the balls in the
     /// drum for that reveal.
     static func pool(_ run: LotteryRun, through pick: Int) -> [PoolMember] {
@@ -209,19 +227,38 @@ struct LotteryView: View {
         guard let run = league.latestRun else {
             return "\(league.lotteryCandidates.count) teams in the lottery."
         }
-        if let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
-            if driver.phase.isAnimating { return "Revealing pick \(number). Double tap to skip." }
-            return "Pick \(number): \(pick.teamName)."
+        if let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
+            return "\(chooser.teamName) is on the clock to choose a draft slot."
         }
-        return run.isFullyRevealed ? "The draft order is set." : "Draft order drawn. \(run.lotteryTeams - run.revealedCount) lottery picks still hidden."
+        if let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
+            if driver.phase.isAnimating { return "Revealing \(Self.pickName(number, in: run.type)). Double tap to skip." }
+            return "\(Self.pickName(number, in: run.type)): \(pick.teamName)."
+        }
+        return run.isComplete ? "The draft order is set." : "Draft order drawn. \(run.lotteryTeams - run.revealedCount) still hidden."
     }
 
     @ViewBuilder
     private func stageCaption(_ league: League) -> some View {
-        if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
+        if let run = league.latestRun, let chooser = Self.chooserOnStage(run, stagePick: stagePick), !driver.phase.isAnimating {
+            VStack(spacing: 2) {
+                Text("\(Ordinal.text(chooser.pick)) choice")
+                    .font(Theme.rounded(.caption, weight: .bold))
+                    .foregroundStyle(Theme.accent)
+                    .textCase(.uppercase)
+                Text(chooser.teamName)
+                    .font(.system(size: presenting ? 40 : 28, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .accessibilityIdentifier("chooserName")
+                Text("Choose an open draft slot below")
+                    .font(.footnote)
+                    .foregroundStyle(Theme.textSecondary)
+            }
+        } else if let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) {
             if driver.phase.isAnimating {
                 VStack(spacing: 2) {
-                    Text("Pick \(number)")
+                    Text(Self.pickName(number, in: run.type))
                         .font(Theme.rounded(.caption, weight: .bold))
                         .foregroundStyle(Theme.accent)
                         .textCase(.uppercase)
@@ -231,16 +268,16 @@ struct LotteryView: View {
                 }
                 .accessibilityIdentifier("drawingInProgress")
             } else {
-                PickBanner(pick: pick, inLottery: run.isLotteryPick(pick), presenting: presenting)
+                PickBanner(pick: pick, type: run.type, inLottery: run.isLotteryPick(pick), presenting: presenting)
                     .id(pick.id)
                     .transition(reduceMotion ? .opacity : .scale(scale: 0.85).combined(with: .opacity))
             }
         } else if let run = league.latestRun {
             VStack(spacing: 2) {
-                Text(run.isFullyRevealed ? "The draft order is set" : "The draft order is drawn and saved")
+                Text(run.isComplete ? "The draft order is set" : run.type == .slotDraft ? "The choosing order is drawn and saved" : "The draft order is drawn and saved")
                     .font(Theme.rounded(.headline, weight: .bold))
                     .foregroundStyle(Theme.textPrimary)
-                Text(run.isFullyRevealed ? "Share it with your league." : "Reveal it pick by pick, counting down to #1.")
+                Text(run.isComplete ? "Share it with your league." : run.type == .slotDraft ? "Reveal it counting down to 1st choice." : "Reveal it pick by pick, counting down to #1.")
                     .font(.caption)
                     .foregroundStyle(Theme.textSecondary)
             }
@@ -256,7 +293,10 @@ struct LotteryView: View {
 
     @ViewBuilder
     private func board(_ league: League) -> some View {
-        if let run = league.latestRun {
+        if let run = league.latestRun, run.type == .slotDraft, run.isFullyRevealed, !driver.phase.isAnimating {
+            SlotBoard(run: run, onChoose: chooseSlot)
+                .mask(BoardFade())
+        } else if let run = league.latestRun {
             RunBoard(run: run, hiddenPick: driver.phase.isAnimating ? stagePick : nil, latestPick: stagePick)
                 .mask(BoardFade())
         } else {
@@ -270,7 +310,9 @@ struct LotteryView: View {
     private func footer(_ league: League) -> some View {
         VStack(spacing: 10) {
             if let run = league.latestRun {
-                if !run.isFullyRevealed || driver.phase.isAnimating {
+                if let chooser = run.nextChooser, !driver.phase.isAnimating {
+                    choosingControls(run, chooser: chooser)
+                } else if !run.isFullyRevealed || driver.phase.isAnimating {
                     Button {
                         revealNext(league)
                     } label: {
@@ -285,7 +327,7 @@ struct LotteryView: View {
                             .disabled(driver.phase.isAnimating)
                             .accessibilityIdentifier("revealAllButton")
                         Spacer(minLength: 0)
-                        Text("\(hiddenCount(run)) of \(run.lotteryTeams) lottery picks hidden")
+                        Text("\(hiddenCount(run)) of \(run.lotteryTeams) \(run.type == .slotDraft ? "choices" : "lottery picks") hidden")
                             .font(.caption)
                             .foregroundStyle(Theme.textSecondary)
                             .accessibilityIdentifier("hiddenCountLabel")
@@ -320,8 +362,49 @@ struct LotteryView: View {
 
     /// While a pick is being drawn on stage it still counts as hidden.
     private func revealButtonTitle(_ run: LotteryRun) -> String {
-        if driver.phase.isAnimating, let stagePick { return "Revealing pick #\(stagePick)\u{2026}" }
-        return "Reveal pick #\(run.nextToReveal?.pick ?? 1)"
+        if driver.phase.isAnimating, let stagePick { return "Revealing \(Self.pickName(stagePick, in: run.type))\u{2026}" }
+        return "Reveal \(Self.pickName(run.nextToReveal?.pick ?? 1, in: run.type))"
+    }
+
+    /// Slot Draft: who's on the clock, and Undo for a mis-tap.
+    private func choosingControls(_ run: LotteryRun, chooser: LotteryPick) -> some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 12) {
+                StandingBadge(standing: chooser.standing, size: 40)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("On the clock \u{00B7} \(Ordinal.text(chooser.pick)) choice")
+                        .font(Theme.rounded(.caption, weight: .bold))
+                        .foregroundStyle(Theme.accent)
+                        .textCase(.uppercase)
+                    Text(chooser.teamName)
+                        .font(Theme.rounded(.title3, weight: .heavy))
+                        .foregroundStyle(Theme.textPrimary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
+                Spacer(minLength: 0)
+            }
+            .frame(minHeight: 56)
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("onTheClock")
+            HStack {
+                if !run.slotChoices.isEmpty {
+                    Button {
+                        appState.update(leagueID) { $0.undoSlotChoice() }
+                    } label: {
+                        Label("Undo", systemImage: "arrow.uturn.left")
+                    }
+                    .buttonStyle(ChipButtonStyle(tint: Theme.textPrimary))
+                    .accessibilityLabel("Undo the last choice")
+                    .accessibilityIdentifier("undoSlotButton")
+                }
+                Spacer(minLength: 0)
+                Text("\(run.openSlots.count) slots open \u{00B7} tap one to choose")
+                    .font(.caption)
+                    .foregroundStyle(Theme.textSecondary)
+            }
+            .frame(minHeight: 36)
+        }
     }
 
     private func hiddenCount(_ run: LotteryRun) -> Int {
@@ -336,14 +419,16 @@ struct LotteryView: View {
             .buttonStyle(PrimaryButtonStyle())
             .accessibilityIdentifier("shareRunButton")
             HStack(spacing: 8) {
-                Button {
-                    replay()
-                } label: {
-                    Label("Replay", systemImage: "arrow.counterclockwise")
+                if run.type != .slotDraft {
+                    Button {
+                        replay()
+                    } label: {
+                        Label("Replay", systemImage: "arrow.counterclockwise")
+                    }
+                    .buttonStyle(ChipButtonStyle())
+                    .accessibilityLabel("Replay the reveal")
+                    .accessibilityIdentifier("replayRevealButton")
                 }
-                .buttonStyle(ChipButtonStyle())
-                .accessibilityLabel("Replay the reveal")
-                .accessibilityIdentifier("replayRevealButton")
                 Spacer(minLength: 0)
                 Button {
                     confirmRunAgain = true
@@ -455,6 +540,14 @@ struct LotteryView: View {
         }
     }
 
+    private func chooseSlot(_ slot: Int) {
+        guard let chooser = appState.league(leagueID)?.latestRun?.nextChooser else { return }
+        appState.update(leagueID) { $0.chooseSlot(slot) }
+        stagePick = nil
+        Haptics.success()
+        AccessibilityNotification.Announcement("\(chooser.teamName) takes slot \(slot).").post()
+    }
+
     private func revealAll() {
         guard acceptTap() else { return }
         appState.update(leagueID) { $0.revealAllPicks() }
@@ -474,7 +567,8 @@ struct LotteryView: View {
 
     private func announceLanding(_ league: League) {
         guard let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) else { return }
-        AccessibilityNotification.Announcement("Pick \(number): \(pick.teamName), \(ResultsExporter.detail(pick, in: run)).").post()
+        let detail = run.type == .slotDraft ? "chooses \(Ordinal.text(number))" : ResultsExporter.detail(pick, in: run)
+        AccessibilityNotification.Announcement("\(Self.pickName(number, in: run.type).capitalizingFirst): \(pick.teamName), \(detail).").post()
     }
 }
 
@@ -488,7 +582,7 @@ private struct FormatHeader: View {
     var body: some View {
         VStack(spacing: 6) {
             HStack(spacing: 8) {
-                Tag(text: league.oddsMode.title, systemImage: league.oddsMode.systemImage, tint: Theme.accent)
+                Tag(text: league.type.title, systemImage: league.type.systemImage, tint: Theme.accent)
                 Button("Odds", action: onShowOdds)
                     .font(Theme.rounded(.footnote, weight: .semibold))
                     .accessibilityIdentifier("lotteryOddsButton")
@@ -553,12 +647,13 @@ struct MovementBadge: View {
 /// The pick that just landed: who, and how they got it.
 private struct PickBanner: View {
     let pick: LotteryPick
+    let type: LotteryType
     let inLottery: Bool
     let presenting: Bool
 
     var body: some View {
         VStack(spacing: 2) {
-            Text("Pick \(pick.pick)")
+            Text(LotteryView.pickName(pick.pick, in: type))
                 .font(Theme.rounded(.caption, weight: .bold))
                 .foregroundStyle(Theme.accent)
                 .textCase(.uppercase)
@@ -572,7 +667,7 @@ private struct PickBanner: View {
                 Text(subtitle)
                     .font(.footnote)
                     .foregroundStyle(Theme.textSecondary)
-                if inLottery {
+                if inLottery, type != .slotDraft {
                     MovementBadge(movement: pick.movement)
                 }
             }
@@ -580,6 +675,7 @@ private struct PickBanner: View {
     }
 
     private var subtitle: String {
+        if type == .slotDraft { return "Chooses \(Ordinal.text(pick.pick)) \u{00B7} \(pick.finishText.lowercased())" }
         guard inLottery else { return "By standings" }
         return "\(pick.wasDrawn ? "Drawn" : "Not drawn") \u{00B7} \(pick.finishText.lowercased())"
     }
@@ -590,6 +686,19 @@ private struct StandingsPickCard: View {
     let pick: LotteryPick
 
     var body: some View {
+        TeamCard(pick: pick, tag: "By standings", systemImage: "list.number", tint: Theme.textSecondary)
+    }
+}
+
+/// A team on its own card: a standings pick, or the team on the clock in
+/// a Slot Draft.
+private struct TeamCard: View {
+    let pick: LotteryPick
+    let tag: String
+    let systemImage: String
+    var tint: Color = Theme.accent
+
+    var body: some View {
         VStack(spacing: 10) {
             StandingBadge(standing: pick.standing, size: 56)
             Text(pick.teamName)
@@ -598,7 +707,7 @@ private struct StandingsPickCard: View {
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.6)
-            Tag(text: "By standings", systemImage: "list.number", tint: Theme.textSecondary)
+            Tag(text: tag, systemImage: systemImage, tint: tint)
         }
         .padding(20)
         .frame(maxWidth: 320, maxHeight: .infinity)
@@ -621,15 +730,15 @@ private struct OddsPreviewBoard: View {
             VStack(alignment: .leading, spacing: 8) {
                 if !lottery.isEmpty {
                     BoardHeader(
-                        title: "In the lottery",
-                        detail: league.drawnPicksAreContested ? "#1 pick \u{00B7} top \(league.drawnPicks)" : "#1 pick"
+                        title: league.type == .slotDraft ? "In the draw" : "In the lottery",
+                        detail: league.type == .slotDraft ? "1st choice" : league.drawnPicksAreContested ? "#1 pick \u{00B7} top \(league.drawnPicks)" : "#1 pick"
                     )
                     ForEach(lottery) { row in
                         OddsPreviewRow(row: row)
                     }
                 }
                 if !outside.isEmpty {
-                    BoardHeader(title: "By standings", detail: "Pick")
+                    BoardHeader(title: "Playoff teams, by standings", detail: "Pick")
                         .padding(.top, 8)
                     ForEach(Array(outside.enumerated()), id: \.element.id) { offset, row in
                         OddsPreviewRow(row: row, fixedPick: league.lotteryTeams + offset + 1)
@@ -681,10 +790,6 @@ private struct OddsPreviewRow: View {
                     .font(Theme.rounded(.headline, weight: .bold))
                     .monospacedDigit()
                     .foregroundStyle(Theme.textSecondary)
-            } else if row.status == .noChance {
-                Text("By standings")
-                    .font(.caption)
-                    .foregroundStyle(Theme.textTertiary)
             } else {
                 HStack(spacing: 10) {
                     Text(row.chanceText)
@@ -730,16 +835,25 @@ private struct RunBoard: View {
                     }
                     .accessibilityElement(children: .combine)
                     .accessibilityIdentifier("runNumberLabel")
-                    BoardHeader(title: "Lottery", detail: "Picks 1\u{2013}\(run.lotteryTeams)")
+                    BoardHeader(
+                        title: run.type == .slotDraft ? "Choosing order" : "Lottery",
+                        detail: run.type == .slotDraft ? "1st\u{2013}\(Ordinal.text(run.lotteryTeams))" : "Picks 1\u{2013}\(run.lotteryTeams)"
+                    )
                     ForEach(run.lotteryPicks) { pick in
-                        DraftSlot(pick: pick, inLottery: true, isRevealed: isShown(pick), isLatest: pick.pick == latestPick && isShown(pick))
+                        DraftSlot(
+                            pick: pick,
+                            type: run.type,
+                            inLottery: true,
+                            isRevealed: isShown(pick),
+                            isLatest: pick.pick == latestPick && isShown(pick)
+                        )
                             .id(pick.pick)
                     }
                     if !run.standingsPicks.isEmpty {
                         BoardHeader(title: "By standings", detail: "Picks \(run.lotteryTeams + 1)\u{2013}\(run.picks.count)")
                             .padding(.top, 8)
                         ForEach(run.standingsPicks) { pick in
-                            DraftSlot(pick: pick, inLottery: false, isRevealed: true, isLatest: false)
+                            DraftSlot(pick: pick, type: run.type, inLottery: false, isRevealed: true, isLatest: false)
                                 .id(pick.pick)
                         }
                     }
@@ -761,17 +875,18 @@ private struct RunBoard: View {
 
 private struct DraftSlot: View {
     let pick: LotteryPick
+    let type: LotteryType
     let inLottery: Bool
     let isRevealed: Bool
     let isLatest: Bool
 
     var body: some View {
         HStack(spacing: 12) {
-            Text("\(pick.pick)")
+            Text(type == .slotDraft ? Ordinal.text(pick.pick) : "\(pick.pick)")
                 .font(Theme.rounded(.headline, weight: .heavy))
                 .monospacedDigit()
                 .foregroundStyle(Theme.accent)
-                .frame(minWidth: 26, alignment: .leading)
+                .frame(minWidth: type == .slotDraft ? 40 : 26, alignment: .leading)
             if isRevealed {
                 StandingBadge(standing: pick.standing, size: 26)
                 Text(pick.teamName)
@@ -779,7 +894,7 @@ private struct DraftSlot: View {
                     .foregroundStyle(Theme.textPrimary)
                     .lineLimit(1)
                 Spacer(minLength: 4)
-                if inLottery {
+                if inLottery, type != .slotDraft {
                     MovementBadge(movement: pick.movement)
                 }
             } else {
@@ -805,9 +920,137 @@ private struct DraftSlot: View {
     }
 
     private var accessibilityText: String {
-        guard isRevealed else { return "Pick \(pick.pick): not revealed yet" }
+        guard isRevealed else { return "\(LotteryView.pickName(pick.pick, in: type).capitalizingFirst): not revealed yet" }
+        if type == .slotDraft { return "\(Ordinal.text(pick.pick)) choice: \(pick.teamName), \(pick.finishText.lowercased())" }
         guard inLottery else { return "Pick \(pick.pick): \(pick.teamName), by standings" }
         let how = pick.wasDrawn ? "drawn" : "by standings"
         return "Pick \(pick.pick): \(pick.teamName), \(how), \(pick.finishText.lowercased()), \(pick.movementText)"
+    }
+}
+
+/// Slot Draft, once the choosing order is out: every draft slot, taken or
+/// open, and the teams still waiting to choose. Tapping an open slot gives
+/// it to the team on the clock.
+private struct SlotBoard: View {
+    let run: LotteryRun
+    let onChoose: (Int) -> Void
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text("Run #\(run.number)")
+                        .font(Theme.rounded(.subheadline, weight: .heavy))
+                        .foregroundStyle(Theme.accent)
+                    Spacer()
+                    Text(run.ranAt.formatted(date: .abbreviated, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(Theme.textSecondary)
+                }
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("runNumberLabel")
+                BoardHeader(title: "Draft slots", detail: run.isComplete ? "Final order" : "\(run.openSlots.count) open")
+                ForEach(run.draftOrder) { position in
+                    if let pick = position.pick {
+                        takenRow(slot: position.slot, pick: pick)
+                    } else {
+                        openRow(slot: position.slot)
+                    }
+                }
+                let waiting = run.picks.dropFirst(run.slotChoices.count + 1)
+                if !run.isComplete, !waiting.isEmpty {
+                    BoardHeader(title: "Choosing next", detail: "")
+                        .padding(.top, 8)
+                    ForEach(Array(waiting)) { pick in
+                        HStack(spacing: 12) {
+                            Text(Ordinal.text(pick.pick))
+                                .font(Theme.rounded(.subheadline, weight: .heavy))
+                                .foregroundStyle(Theme.textSecondary)
+                                .frame(minWidth: 40, alignment: .leading)
+                            StandingBadge(standing: pick.standing, size: 24)
+                            Text(pick.teamName)
+                                .font(Theme.rounded(.subheadline, weight: .semibold))
+                                .foregroundStyle(Theme.textSecondary)
+                                .lineLimit(1)
+                            Spacer(minLength: 0)
+                        }
+                        .padding(.horizontal, 14)
+                        .frame(minHeight: 36)
+                        .accessibilityElement(children: .combine)
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+        }
+    }
+
+    private func takenRow(slot: Int, pick: LotteryPick) -> some View {
+        HStack(spacing: 12) {
+            Text("\(slot)")
+                .font(Theme.rounded(.headline, weight: .heavy))
+                .monospacedDigit()
+                .foregroundStyle(Theme.accent)
+                .frame(minWidth: 26, alignment: .leading)
+            StandingBadge(standing: pick.standing, size: 26)
+            Text(pick.teamName)
+                .font(Theme.rounded(.headline, weight: .bold))
+                .foregroundStyle(Theme.textPrimary)
+                .lineLimit(1)
+            Spacer(minLength: 4)
+            Text("chose \(Ordinal.text(pick.pick))")
+                .font(.caption)
+                .foregroundStyle(Theme.textSecondary)
+        }
+        .padding(.horizontal, 14)
+        .frame(minHeight: 46)
+        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.surface))
+        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Theme.stroke))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Slot \(slot): \(pick.teamName), chose \(Ordinal.text(pick.pick))")
+        .accessibilityIdentifier("takenSlot")
+    }
+
+    private func openRow(slot: Int) -> some View {
+        Button {
+            onChoose(slot)
+        } label: {
+            HStack(spacing: 12) {
+                Text("\(slot)")
+                    .font(Theme.rounded(.headline, weight: .heavy))
+                    .monospacedDigit()
+                    .foregroundStyle(Theme.accent)
+                    .frame(minWidth: 26, alignment: .leading)
+                Text("Open")
+                    .font(Theme.rounded(.headline, weight: .semibold))
+                    .foregroundStyle(Theme.textTertiary)
+                Spacer(minLength: 4)
+                Text("Choose")
+                    .font(Theme.rounded(.footnote, weight: .bold))
+                    .foregroundStyle(Theme.accent)
+                    .padding(.horizontal, 12)
+                    .frame(minHeight: 30)
+                    .background(Capsule().fill(Theme.accentSoft))
+            }
+            .padding(.horizontal, 14)
+            .frame(minHeight: 46)
+            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.surface))
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .strokeBorder(Theme.accent.opacity(0.5), style: StrokeStyle(lineWidth: 1.5, dash: [6, 4]))
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Slot \(slot), open")
+        .accessibilityHint("Gives this slot to the team on the clock")
+        .accessibilityIdentifier("openSlot-\(slot)")
+    }
+}
+
+extension String {
+    /// "pick #4" becomes "Pick #4".
+    var capitalizingFirst: String {
+        prefix(1).uppercased() + dropFirst()
     }
 }

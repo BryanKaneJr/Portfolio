@@ -89,13 +89,27 @@ public enum Ordinal {
     }
 }
 
-/// A complete draft order from one run of the lottery.
+/// One slot of the final draft order. In a Slot Draft a slot is open
+/// until a team chooses it.
+public struct DraftPosition: Identifiable, Equatable, Sendable {
+    public let slot: Int
+    public let pick: LotteryPick?
+
+    public var id: Int { slot }
+}
+
+/// A complete draw from one run of the lottery.
+///
+/// For the Pro Lottery and Long Shot, `picks` is the draft order, pick 1
+/// first. For a Slot Draft it's the choosing order (`pick` = 1 for the team
+/// that chooses first), and `slotChoices` records the draft slot each team
+/// chose, in that order.
 public struct LotteryRun: Codable, Identifiable, Equatable, Sendable {
     public var id: UUID
     /// Run #N this season.
     public var number: Int
     public var ranAt: Date
-    public var oddsMode: OddsMode
+    public var type: LotteryType
     /// Teams that were in the lottery (the worst finishers).
     public var lotteryTeams: Int
     /// Picks the lottery actually drew; the rest went by standings.
@@ -105,25 +119,46 @@ public struct LotteryRun: Codable, Identifiable, Equatable, Sendable {
     /// Lottery picks shown so far, counting down from the last lottery pick.
     /// Saved so leaving mid-reveal never shows anything early or twice.
     public var revealedCount: Int
+    /// Slot Draft: the slot each team chose, in choosing order.
+    public var slotChoices: [Int]
 
     public init(
         id: UUID = UUID(),
         number: Int,
         ranAt: Date,
-        oddsMode: OddsMode,
+        type: LotteryType,
         lotteryTeams: Int,
         drawnPicks: Int,
         picks: [LotteryPick],
-        revealedCount: Int = 0
+        revealedCount: Int = 0,
+        slotChoices: [Int] = []
     ) {
         self.id = id
         self.number = number
         self.ranAt = ranAt
-        self.oddsMode = oddsMode
+        self.type = type
         self.lotteryTeams = lotteryTeams
         self.drawnPicks = drawnPicks
         self.picks = picks
         self.revealedCount = revealedCount
+        self.slotChoices = slotChoices
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, number, ranAt, type, lotteryTeams, drawnPicks, picks, revealedCount, slotChoices
+    }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        number = try c.decodeIfPresent(Int.self, forKey: .number) ?? 1
+        ranAt = try c.decodeIfPresent(Date.self, forKey: .ranAt) ?? Date()
+        type = (try? c.decodeIfPresent(LotteryType.self, forKey: .type)) ?? .pro
+        picks = try c.decode([LotteryPick].self, forKey: .picks)
+        lotteryTeams = try c.decodeIfPresent(Int.self, forKey: .lotteryTeams) ?? picks.count
+        drawnPicks = try c.decodeIfPresent(Int.self, forKey: .drawnPicks) ?? lotteryTeams
+        revealedCount = try c.decodeIfPresent(Int.self, forKey: .revealedCount) ?? 0
+        slotChoices = try c.decodeIfPresent([Int].self, forKey: .slotChoices) ?? []
     }
 
     /// Picks the lottery decides (drawn, then undrawn lottery teams by
@@ -161,5 +196,43 @@ public struct LotteryRun: Codable, Identifiable, Equatable, Sendable {
 
     public func isRevealed(_ pick: LotteryPick) -> Bool {
         pick.pick > lotteryTeams - revealedCount
+    }
+
+    // MARK: Slot Draft
+
+    /// The team choosing its slot now, once the choosing order is revealed.
+    public var nextChooser: LotteryPick? {
+        guard type == .slotDraft, isFullyRevealed, picks.indices.contains(slotChoices.count) else { return nil }
+        return picks[slotChoices.count]
+    }
+
+    /// Every pick revealed and, in a Slot Draft, every slot chosen.
+    public var isComplete: Bool {
+        guard isFullyRevealed else { return false }
+        return type != .slotDraft || slotChoices.count >= picks.count
+    }
+
+    /// The slot a team chose, or nil before its turn.
+    public func chosenSlot(of pick: LotteryPick) -> Int? {
+        let index = pick.pick - 1
+        return slotChoices.indices.contains(index) ? slotChoices[index] : nil
+    }
+
+    public var openSlots: [Int] {
+        let taken = Set(slotChoices)
+        return picks.indices.map { $0 + 1 }.filter { !taken.contains($0) }
+    }
+
+    /// The draft order, slot 1 first. In a Slot Draft, slots nobody has
+    /// chosen yet are open.
+    public var draftOrder: [DraftPosition] {
+        guard type == .slotDraft else {
+            return picks.map { DraftPosition(slot: $0.pick, pick: $0) }
+        }
+        var bySlot: [Int: LotteryPick] = [:]
+        for (index, slot) in slotChoices.enumerated() where picks.indices.contains(index) {
+            bySlot[slot] = picks[index]
+        }
+        return picks.indices.map { DraftPosition(slot: $0 + 1, pick: bySlot[$0 + 1]) }
     }
 }

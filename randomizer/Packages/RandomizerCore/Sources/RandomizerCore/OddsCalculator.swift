@@ -2,13 +2,9 @@ import Foundation
 
 /// Where a team stands for the next lottery.
 public enum TeamStatus: String, Equatable, Sendable {
-    /// In the lottery with a chance above zero.
+    /// In the lottery (or the Slot Draft draw).
     case inLottery
-    /// In the lottery's range at a Custom Odds weight of 0: it can't be
-    /// drawn, so it picks by standings after the drawn picks.
-    case noChance
-    /// Finished above the lottery: picks by standings after every
-    /// lottery team.
+    /// Made the playoffs: picks by standings after every lottery team.
     case notInLottery
 }
 
@@ -18,8 +14,7 @@ public struct OddsRow: Identifiable, Equatable, Sendable {
     public let name: String
     /// 1-based finish, worst first.
     public let standing: Int
-    /// The weight the engine uses in the current odds mode (0 outside the
-    /// lottery).
+    /// The weight the engine uses (0 outside the lottery).
     public let weight: Int
     public let status: TeamStatus
     /// #1 pick chance numerator (the weight when in the lottery, else 0).
@@ -27,9 +22,8 @@ public struct OddsRow: Identifiable, Equatable, Sendable {
     /// Total weight of every lottery team.
     public let denominator: Int
     /// Exact chance of landing one of the drawn picks, when the lottery
-    /// draws fewer picks than it has teams with a chance. Nil when every
-    /// such team is sure of a drawn pick, or the table is too large to
-    /// work out exactly.
+    /// draws fewer picks than it has teams. Nil when every lottery team is
+    /// sure of a drawn pick, or the table is too large to work out exactly.
     public let drawnPickProbability: Double?
 
     public var probability: Double {
@@ -50,13 +44,6 @@ public struct OddsRow: Identifiable, Equatable, Sendable {
 }
 
 public enum OddsCalculator {
-    /// Weighted by Standings: L lottery teams ranked 1 (worst) to L weigh
-    /// L, L-1, ... 1.
-    public static func reverseStandingsWeights(count: Int) -> [Int] {
-        guard count > 0 else { return [] }
-        return (1...count).map { count - $0 + 1 }
-    }
-
     /// Larger lotteries than this many partial draws are not tabulated
     /// exactly (the #1 chance is always exact).
     public static let defaultStateLimit = 60_000

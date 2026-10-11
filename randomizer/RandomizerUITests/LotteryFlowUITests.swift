@@ -39,7 +39,7 @@ final class LotteryFlowUITests: XCTestCase {
     /// Running again is confirmed and always shows: Run #2, hidden again.
     @MainActor
     func testRunAgainIsConfirmedAndCounted() {
-        let app = XCUIApplication.draftLottery(seed: "league", run: "revealed", open: "lottery")
+        let app = XCUIApplication.draftLottery(seed: "league", type: "longShot", run: "revealed", open: "lottery")
         app.launch()
         XCTAssertTrue(app.shareRunButton.waitForExistence(timeout: 10))
         XCTAssertTrue(app.runNumber.label.contains("Run #1"))
@@ -112,12 +112,19 @@ final class LotteryFlowUITests: XCTestCase {
         app.buttons["Done"].firstMatch.tap()
         XCTAssertTrue(app.buttons["goToLotteryButton"].waitForExistence(timeout: 5))
 
-        let stepper = app.steppers["lotteryTeamsStepper"]
+        // Pro Lottery is the default; one playoff team fewer puts three of
+        // the four teams in the lottery.
+        let stepper = app.steppers["playoffTeamsStepper"]
+        for _ in 0..<3 where !stepper.exists {
+            app.swipeUp()
+        }
         XCTAssertTrue(stepper.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["lotteryType-pro"].isSelected)
         stepper.buttons.element(boundBy: 0).tap()
-        let worstThree = app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Worst 3'")).firstMatch
-        XCTAssertTrue(worstThree.waitForExistence(timeout: 5))
         app.buttons["goToLotteryButton"].tap()
+        let summary = app.descendants(matching: .any)["formatSummary"]
+        XCTAssertTrue(summary.waitForExistence(timeout: 5))
+        XCTAssertTrue(summary.label.contains("Worst 3 of 4 teams in the lottery"), summary.label)
 
         app.runLottery()
         revealNext(app)
@@ -166,7 +173,7 @@ final class LotteryFlowUITests: XCTestCase {
         XCTAssertTrue(app.buttons["lotteryOddsButton"].waitForExistence(timeout: 10))
         app.buttons["lotteryOddsButton"].tap()
         XCTAssertTrue(app.buttons["oddsDoneButton"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.staticTexts["top 4: 88.76%"].waitForExistence(timeout: 5), "The worst team's exact top-4 chance")
+        XCTAssertTrue(app.staticTexts["top 4: 72%"].waitForExistence(timeout: 5), "The worst team's exact top-4 chance with pro odds")
         app.buttons["oddsDoneButton"].tap()
         XCTAssertTrue(app.buttons["oddsDoneButton"].waitForNonExistence(timeout: 5))
 
@@ -176,5 +183,49 @@ final class LotteryFlowUITests: XCTestCase {
         revealNext(app)
         XCTAssertTrue(app.staticTexts["pickName"].exists)
         XCTAssertEqual(app.revealNextButton.label, "Reveal pick #3")
+    }
+
+    /// Long Shot: everyone's in, and the champion still has a 1% shot.
+    @MainActor
+    func testLongShotGivesTheChampOnePercent() {
+        let app = XCUIApplication.draftLottery(seed: "league", type: "longShot", open: "lottery")
+        app.launch()
+        let champ = app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'oddsPreviewRow' AND label CONTAINS 'Red Zone Royals'")).firstMatch
+        XCTAssertTrue(champ.waitForExistence(timeout: 10))
+        XCTAssertTrue(champ.label.contains("1%"), champ.label)
+        app.runLottery()
+        waitForCount(app.hiddenSlots, 8)
+        XCTAssertEqual(app.revealNextButton.label, "Reveal pick #8")
+        app.revealAllButton.tap()
+        waitForCount(app.revealedSlots, 8)
+        XCTAssertTrue(app.shareRunButton.waitForExistence(timeout: 5))
+    }
+
+    /// Slot Draft: the draw sets the choosing order, then each team takes
+    /// an open slot; the last team gets the last slot, and Undo fixes a
+    /// mis-tap.
+    @MainActor
+    func testSlotDraftTeamsChooseTheirSlots() {
+        let app = XCUIApplication.draftLottery(seed: "league", type: "slotDraft", open: "lottery")
+        app.launch()
+        app.runLottery()
+        XCTAssertEqual(app.revealNextButton.label, "Reveal 8th choice")
+        app.revealAllButton.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["onTheClock"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.openSlot(1).waitForExistence(timeout: 5))
+
+        app.openSlot(1).tap()
+        waitForCount(app.takenSlots, 1)
+        app.buttons["undoSlotButton"].tap()
+        waitForCount(app.takenSlots, 0)
+
+        for slot in 1...7 {
+            let open = app.openSlot(slot)
+            XCTAssertTrue(open.waitForExistence(timeout: 5), "Slot \(slot) should be open")
+            open.tap()
+            waitForCount(app.takenSlots, slot == 7 ? 8 : slot)
+        }
+        XCTAssertTrue(app.shareRunButton.waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["replayRevealButton"].exists, "No replay once teams have chosen")
     }
 }

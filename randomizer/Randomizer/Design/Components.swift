@@ -119,23 +119,24 @@ extension RevealStyle {
     }
 }
 
-extension OddsMode {
+extension LotteryType {
     var systemImage: String {
         switch self {
-        case .reverseStandings: return "list.number"
-        case .equal: return "equal.circle"
-        case .customWeighted: return "slider.horizontal.3"
+        case .pro: return "basketball.fill"
+        case .longShot: return "dice.fill"
+        case .slotDraft: return "hand.point.up.left.fill"
         }
     }
 
+    /// How the type works, in a sentence or two.
     var explanation: String {
         switch self {
-        case .reverseStandings:
-            return "The worst finish gets the most chances. With 6 lottery teams the worst has 6, the next 5, down to 1."
-        case .equal:
-            return "Every lottery team has the same chance."
-        case .customWeighted:
-            return "Set each lottery team's chances. They're relative: 140 against 70 is twice the chance. A team at 0 picks by standings."
+        case .pro:
+            return "Teams that missed the playoffs draw for the top picks with the pros' odds: the three worst share the best chance, so last place never guarantees #1. Everyone the draw doesn't reach picks by standings."
+        case .longShot:
+            return "Every team is in and every pick is drawn. Odds climb from 1% for the champion to the best odds for last place, so anything can happen."
+        case .slotDraft:
+            return "Every team has the same chance in the draw. The first team drawn chooses any draft slot, then the next team chooses from what's left."
         }
     }
 }

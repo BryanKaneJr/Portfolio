@@ -25,18 +25,14 @@ enum Fixtures {
     /// Teams in standings order, worst first.
     static func league(
         _ names: [String],
-        weights: [Int]? = nil,
-        mode: OddsMode = .reverseStandings,
+        type: LotteryType = .pro,
         lotteryTeams: Int? = nil,
         drawnPicks: Int? = nil
     ) -> League {
-        let teams = names.enumerated().map { index, name in
-            Team(name: name, weight: weights?[index] ?? 1)
-        }
-        return League(
+        League(
             title: "Test League",
-            teams: teams,
-            oddsMode: mode,
+            teams: names.map { Team(name: $0) },
+            type: type,
             lotteryTeamCount: lotteryTeams,
             drawnPickCount: drawnPicks,
             createdAt: now

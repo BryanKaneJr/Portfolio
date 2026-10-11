@@ -29,18 +29,17 @@ struct SettingsView: View {
                 }
                 .listRowBackground(Theme.surface)
 
-                Section("How the lottery works") {
-                    infoRow(
-                        "Lottery teams",
-                        "The worst finishers are in the lottery. You choose how many: every team, or just the ones that missed the playoffs."
-                    )
-                    infoRow(
-                        "Drawn picks",
-                        "The lottery draws the top picks one at a time. Each drawn team leaves the drum, so everyone else's chance at the next pick goes up. Lottery teams it doesn't draw pick next, worst first; then everyone else by standings."
-                    )
+                Section("Three ways to run it") {
+                    ForEach(LotteryType.allCases, id: \.self) { type in
+                        infoRow(type.title, type.explanation)
+                    }
+                }
+                .listRowBackground(Theme.surface)
+
+                Section("Fair and on the record") {
                     infoRow(
                         "Fair draw",
-                        "Picks are drawn by your iPhone's secure random number generator, using exactly the odds in the odds table."
+                        "Picks are drawn by your iPhone's secure random number generator, using exactly the odds in the odds table. Each drawn team leaves the drum before the next pick."
                     )
                     infoRow(
                         "Drawn before the reveal",

@@ -62,10 +62,10 @@ struct LeagueEditorView: View {
             }
             .listRowBackground(Theme.surface)
 
-            if league.teams.count >= Limits.minTeams {
-                formatSection(league)
+            typeSection(league)
+            if league.type == .pro, league.teams.count >= Limits.minTeams {
+                proFormatSection(league)
             }
-            oddsSection(league)
 
             Section {
                 Picker("Reveal", selection: Binding(
@@ -219,18 +219,37 @@ struct LeagueEditorView: View {
         .font(.footnote)
     }
 
-    private func formatSection(_ league: League) -> some View {
+    private func typeSection(_ league: League) -> some View {
+        Section {
+            ForEach(LotteryType.allCases, id: \.self) { type in
+                TypeOption(type: type, isSelected: league.type == type) {
+                    appState.update(leagueID) { $0.setType(type) }
+                }
+            }
+            Button {
+                showingOdds = true
+            } label: {
+                Label("View odds", systemImage: "chart.bar.xaxis")
+            }
+            .disabled(league.teams.count < Limits.minTeams)
+            .accessibilityIdentifier("viewOddsButton")
+        } header: {
+            Text("Lottery type")
+        } footer: {
+            Text(league.type.explanation)
+        }
+        .listRowBackground(Theme.surface)
+    }
+
+    private func proFormatSection(_ league: League) -> some View {
         Section {
             Stepper(
-                value: Binding(get: { league.lotteryTeams }, set: { count in appState.update(leagueID) { $0.setLotteryTeams(count) } }),
-                in: Limits.minTeams...max(league.teams.count, Limits.minTeams)
+                value: Binding(get: { league.playoffTeams }, set: { count in appState.update(leagueID) { $0.setPlayoffTeams(count) } }),
+                in: 0...max(league.teams.count - Limits.minTeams, 0)
             ) {
-                FormatStepperLabel(
-                    title: "Teams in the lottery",
-                    value: league.lotteryTeams == league.teams.count ? "All \(league.teams.count)" : "Worst \(league.lotteryTeams)"
-                )
+                FormatStepperLabel(title: "Playoff teams", value: "\(league.playoffTeams)")
             }
-            .accessibilityIdentifier("lotteryTeamsStepper")
+            .accessibilityIdentifier("playoffTeamsStepper")
             Stepper(
                 value: Binding(get: { league.drawnPicks }, set: { count in appState.update(leagueID) { $0.setDrawnPicks(count) } }),
                 in: 1...max(league.lotteryTeams, 1)
@@ -242,7 +261,7 @@ struct LeagueEditorView: View {
             }
             .accessibilityIdentifier("drawnPicksStepper")
         } header: {
-            Text("Lottery format")
+            Text("Pro Lottery format")
         } footer: {
             // Word joiners keep a range like "7–10" on one line.
             Text(formatExplanation(league).replacingOccurrences(of: "\u{2013}", with: "\u{2060}\u{2013}\u{2060}"))
@@ -256,41 +275,13 @@ struct LeagueEditorView: View {
         let total = league.teams.count
         var text = lottery == total
             ? "Every team is in the lottery."
-            : "The worst \(lottery) teams are in the lottery; the other \(total - lottery) pick \(lottery + 1)\u{2013}\(total) by standings."
+            : "The \(lottery) teams that missed the playoffs are in the lottery; the \(total - lottery) playoff teams pick \(lottery + 1)\u{2013}\(total) by standings."
         if drawn < lottery {
-            text += " The lottery draws picks 1\u{2013}\(drawn); the lottery teams it doesn't draw pick next, worst first."
+            text += " The lottery draws picks 1\u{2013}\(drawn), so a team can fall at most \(drawn) spots; the rest pick next, worst first."
         } else {
             text += " The lottery draws all \(lottery) of its picks."
         }
         return text
-    }
-
-    private func oddsSection(_ league: League) -> some View {
-        Section {
-            Picker("Odds", selection: Binding(
-                get: { league.oddsMode },
-                set: { mode in appState.update(leagueID) { $0.setOddsMode(mode) } }
-            )) {
-                ForEach(OddsMode.allCases, id: \.self) { mode in
-                    Text(mode.shortTitle).tag(mode)
-                }
-            }
-            .pickerStyle(.segmented)
-            .accessibilityIdentifier("oddsModePicker")
-            Text(league.oddsMode.explanation)
-                .font(.footnote)
-                .foregroundStyle(Theme.textSecondary)
-            Button {
-                showingOdds = true
-            } label: {
-                Label(league.oddsMode == .customWeighted ? "Set odds" : "View odds", systemImage: "chart.bar.xaxis")
-            }
-            .disabled(league.teams.isEmpty)
-            .accessibilityIdentifier("viewOddsButton")
-        } header: {
-            Text("Odds")
-        }
-        .listRowBackground(Theme.surface)
     }
 
     private func goBar(_ league: League) -> some View {
@@ -384,10 +375,8 @@ struct TeamRow: View {
                 Text(chance)
                     .font(.footnote.monospacedDigit())
                     .foregroundStyle(Theme.textSecondary)
-            case .noChance:
-                Tag(text: "0%", tint: Theme.textTertiary)
             case .notInLottery:
-                Tag(text: "Standings", tint: Theme.textTertiary)
+                Tag(text: "Playoffs", tint: Theme.textTertiary)
             }
         }
         .onAppear { draft = team.name }
@@ -405,5 +394,42 @@ struct TeamRow: View {
             return
         }
         if draft != team.name { onRename(draft) }
+    }
+}
+
+/// One of the three lottery types, as a selectable row.
+private struct TypeOption: View {
+    let type: LotteryType
+    let isSelected: Bool
+    let onSelect: () -> Void
+
+    var body: some View {
+        Button(action: onSelect) {
+            HStack(spacing: 12) {
+                Image(systemName: type.systemImage)
+                    .font(.title3)
+                    .foregroundStyle(isSelected ? Theme.accent : Theme.textSecondary)
+                    .frame(width: 34)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(type.title)
+                        .font(Theme.rounded(.headline, weight: .bold))
+                        .foregroundStyle(Theme.textPrimary)
+                    Text(type.tagline)
+                        .font(.footnote)
+                        .foregroundStyle(Theme.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                Spacer(minLength: 4)
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.title3)
+                    .foregroundStyle(isSelected ? Theme.accent : Theme.textTertiary)
+            }
+            .padding(.vertical, 4)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .accessibilityIdentifier("lotteryType-\(type.rawValue)")
     }
 }
