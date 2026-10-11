@@ -57,6 +57,8 @@ def font(size, weight):
 
 
 def wrap(draw, text, face, width):
+    """Wraps to the fewest lines, then balances two lines so neither ends
+    with a lone word."""
     lines, line = [], ""
     for word in text.split():
         trial = f"{line} {word}".strip()
@@ -66,6 +68,16 @@ def wrap(draw, text, face, width):
             lines.append(line)
             line = word
     lines.append(line)
+    if len(lines) == 2:
+        words = text.split()
+        best = None
+        for cut in range(1, len(words)):
+            first, second = " ".join(words[:cut]), " ".join(words[cut:])
+            longest = max(draw.textlength(first, font=face), draw.textlength(second, font=face))
+            if longest <= width and (best is None or longest < best[0]):
+                best = (longest, [first, second])
+        if best:
+            lines = best[1]
     return lines
 
 
