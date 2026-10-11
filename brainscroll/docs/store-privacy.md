@@ -117,7 +117,7 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Contests | **Infrequent** | Weekly leagues rank learners by XP and the world leaderboard ranks everyone, with no prizes beyond XP. The questions themselves are personal learning checks. Infrequent keeps the rating where it is. |
 | Loot Boxes | No | |
 
-**Expected rating: 9+ or 13+.** User-generated content can raise the rating, as can answering Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over; take whatever the questionnaire gives.
+**Result: 9+** (App Store Connect, 2026-10-11). **Expected rating was 9+ or 13+.** User-generated content can raise the rating, as can answering Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over; take whatever the questionnaire gives.
 
 ## Google Play: IARC content rating
 
