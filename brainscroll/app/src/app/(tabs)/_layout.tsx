@@ -60,8 +60,6 @@ export default function TabLayout() {
       backBehavior="initialRoute"
       screenOptions={{
         headerShown: false,
-        // A tab out of sight freezes until it's back in view (no re-renders on every progress change).
-        freezeOnBlur: true,
         // Switching tabs slides the new one in a little; Reduce Motion switches instantly.
         animation: reduce ? 'none' : 'shift',
         tabBarActiveTintColor: color.brandText,

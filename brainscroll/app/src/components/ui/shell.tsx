@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
+import { useIsFocused } from 'expo-router';
+import { createContext, memo, useContext, useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
 import { Platform, ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
@@ -7,9 +8,30 @@ import { SlideIn } from './motion';
 import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
-/** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default', scrollRef, header, overlay, topColor, onScroll }: {
+/**
+ * Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens.
+ *
+ * A screen out of sight (another tab, or a lesson on top of it) keeps showing
+ * what it last drew and skips redrawing until it's back in view, so a lesson
+ * never redraws the skill map underneath it. It used to freeze instead
+ * (`freezeOnBlur`), but a frozen screen inside the tabs could stay blank gray
+ * after going back until the tabs were switched a few times (owner,
+ * 2026-10-11). Nothing is put to sleep now: anything inside that changes by
+ * itself still draws, and coming back into view draws the latest at once.
+ */
+export function Screen(props: Omit<ScreenProps, 'hidden'>) {
+  const focused = useIsFocused();
+  return <KeptScreen {...props} hidden={!focused} />;
+}
+
+type ScreenProps = Parameters<typeof ScreenBody>[0];
+/** While hidden, the last drawing stands: the props count as unchanged. */
+const KeptScreen = memo(ScreenBody, (_prev, next) => !!next.hidden);
+
+function ScreenBody({ children, tone = 'default', scrollRef, header, overlay, topColor, onScroll }: {
   children: ReactNode;
+  /** Out of view (set by Screen): skip redrawing until it's back. */
+  hidden?: boolean;
   tone?: 'default' | 'reward';
   scrollRef?: Ref<ScrollView>;
   /** Pinned above the scrolling content, so it's always in view. */
