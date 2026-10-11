@@ -95,6 +95,11 @@ describe('steps in metric', () => {
     expect(step('Pound to an even 1/4-inch thickness.')).toBe('Pound to an even 6 mm thickness.');
     expect(step('Shape into a 1-inch-thick square.')).toBe('Shape into a 2.5 cm thick square.');
     expect(step('about 3/4 inch thick')).toBe('about 2 cm thick');
+    // Both ends of a range convert (it once read "3–10 cm").
+    expect(step('Cut into 3–4 inch pieces.')).toBe('Cut into 8–10 cm pieces.');
+    expect(step('Roll it 1/4 to 1/2 inch thick.')).toBe('Roll it 6 mm–1.5 cm thick.');
+    expect(step('a skillet 8 to 9 inches across')).toBe('a skillet 20–23 cm across');
+    expect(step('Cut into 2- to 3-inch pieces.')).toBe('Cut into 5–8 cm pieces.');
     expect(step('Butter a 1 1/2-quart baking dish.')).toBe('Butter a 1.4-litre baking dish.');
   });
 

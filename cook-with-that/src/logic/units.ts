@@ -316,6 +316,17 @@ function convertLengths(text: string): string {
     (_, a: string, b: string) =>
       `${formatLength(parseNumber(a) * CM_PER_INCH).replace(/ cm$/, '')} × ${formatLength(parseNumber(b) * CM_PER_INCH)}`,
   );
+  // Ranges: "3–4 inches", "1/4 to 1/2 inch thick", "2- to 3-inch pieces" (both ends, one unit when they share it).
+  s = s.replace(
+    new RegExp(String.raw`(${NUM})-?\s*(?:–|—|-|to)\s*(${NUM})(?:-| )inch(?:es)?(-thick)?\b`, 'g'),
+    (_, a: string, b: string, thick?: string) => {
+      const lo = formatLength(parseNumber(a) * CM_PER_INCH);
+      const hi = formatLength(parseNumber(b) * CM_PER_INCH);
+      const unit = / (cm|mm)$/.exec(hi)?.[1];
+      const range = lo.endsWith(` ${unit}`) ? `${lo.replace(/ (cm|mm)$/, '')}–${hi}` : `${lo}–${hi}`;
+      return `${range}${thick ? ' thick' : ''}`;
+    },
+  );
   // "1-inch-thick", "1/4-inch", "3/4 inch", "8 inches".
   s = s.replace(
     new RegExp(String.raw`(${NUM})(-| )inch(?:es)?(-thick)?\b`, 'g'),
