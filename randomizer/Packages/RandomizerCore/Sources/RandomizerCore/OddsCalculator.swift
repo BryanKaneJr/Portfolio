@@ -121,7 +121,10 @@ public enum OddsCalculator {
         for step in 0..<draws {
             let isLast = step == draws - 1
             var next: [UInt64: Partial] = [:]
-            for (mask, partial) in layer {
+            // Sorted so the sums add up in the same order every time: the
+            // same league always shows exactly the same numbers.
+            for mask in layer.keys.sorted() {
+                guard let partial = layer[mask] else { continue }
                 let remaining = Double(total - partial.takenWeight)
                 for index in active where mask & (UInt64(1) << UInt64(index)) == 0 {
                     let chance = partial.probability * Double(weights[index]) / remaining

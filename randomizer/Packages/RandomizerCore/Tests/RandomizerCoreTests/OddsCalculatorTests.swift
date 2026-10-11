@@ -93,6 +93,14 @@ final class OddsCalculatorTests: XCTestCase {
         }
     }
 
+    func testTopPickChancesAreTheSameEveryTime() {
+        let weights = [140, 140, 140, 125, 105, 90, 75, 60, 45, 30, 20, 15, 10, 5]
+        let first = OddsCalculator.topPickProbabilities(weights: weights, picks: 4)
+        for _ in 0..<5 {
+            XCTAssertEqual(OddsCalculator.topPickProbabilities(weights: weights, picks: 4), first)
+        }
+    }
+
     func testTopPickChancesCanDeclineHugeTables() {
         let weights = Array(repeating: 1, count: 32)
         XCTAssertNil(OddsCalculator.topPickProbabilities(weights: weights, picks: 16))
