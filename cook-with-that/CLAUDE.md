@@ -77,6 +77,15 @@ Hard rules (from the plan, still in force):
    staples. All on the phone (AsyncStorage, `src/state/favoritesStorage.ts`). ♥ on home opens **My Kitchen**
    (Saved · Meal plan · Shopping list): a third header button doesn't fit beside the title at iPhone widths. Every
    screen that searches uses `app.library` (bundled + edits + own), never the bundled `RECIPES` directly.
+17. **Our written recipes stay separate from adapted ones** (owner, 2026-10-11: "for now keep original recipes separate
+   from our from scratch ones"). `src/data/recipes.ts` has `WRITTEN_RECIPES` (27 seed + `src/data/originals/`, source
+   type 'original'), `SOURCE_RECIPES` (`src/data/imported/`, 'licensed') and one switch, `INCLUDE_WRITTEN_RECIPES`
+   (on), so a release can leave the written ones out. Nothing in the app labels or filters them. Tests keep each list
+   to its own kind and check the adapted recipes alone still form a valid library.
+18. **No cook-testing required** (owner, 2026-10-11: "we don't need to test I don't think"). The paper review is the
+   last check, so every new batch gets one (reviewers reading each recipe as a cook, plus `npm run audit:recipes`,
+   whose `ratio` check flags leavening, yeast and salt per cup of flour, liquid per cup of grain, gelatin per cup of
+   liquid, pasta and meat per serving, and oven and frying-oil settings).
 
 ## Layout
 ```
@@ -183,10 +192,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Cook-testing:** 548 drafts, read and fixed on paper but none cooked yet. Start with the cook-test-first list in
-   `docs/recipe-review/README.md`. Release needs every recipe reviewed (quantities, times, food safety). Consider a
-   review checklist or a sign-off field per recipe. Workers fixed source errors (ratios, missing leavening, unsafe
-   temperatures); `docs/import-notes/` lists each change.
+1. **Paper review of every new batch** (decision 18: no cook-testing). Round 5's 120 recipes are being reviewed the
+   same way as the first 548 (`docs/recipe-review/`). The cook-test-first list in `docs/recipe-review/README.md` is
+   now a list of the riskiest recipes to re-read, not to cook.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web

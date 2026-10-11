@@ -794,4 +794,18 @@ const SEED_RECIPES: Recipe[] = [
  */
 export { withMealDishTypes };
 
-export const RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES, ...IMPORTED_RECIPES].map(withMealDishTypes);
+/**
+ * Owner decision 17: recipes our writers made up are kept apart from recipes adapted from public sources, behind one
+ * switch, so a release can include them or leave them out.
+ * - WRITTEN_RECIPES: the 27 seed recipes above and `src/data/originals/` (source type 'original').
+ * - SOURCE_RECIPES: `src/data/imported/` (Based Cooking, NHLBI, VA; source type 'licensed').
+ * Turn the switch off to ship only the adapted recipes; saved favorites, plans and edits of a written recipe are then
+ * dropped quietly on the next launch.
+ */
+export const INCLUDE_WRITTEN_RECIPES = true;
+export const WRITTEN_RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES];
+export const SOURCE_RECIPES: Recipe[] = IMPORTED_RECIPES;
+
+export const RECIPES: Recipe[] = [...(INCLUDE_WRITTEN_RECIPES ? WRITTEN_RECIPES : []), ...SOURCE_RECIPES].map(
+  withMealDishTypes,
+);

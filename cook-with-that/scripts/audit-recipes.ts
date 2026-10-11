@@ -129,7 +129,148 @@ for (const r of LIBRARY) {
   r.steps.forEach((s, i) => s.length > 450 && flag(r, 'long-step', `step ${i + 1} is ${s.length} characters`));
 }
 
-// 9. Near-duplicates: most of the same required ingredients and a shared dish type or meal.
+// 9. Ratios a cook would check: leavening, yeast and salt per cup of flour; liquid per cup of rice and other grains;
+// gelatin per cup of liquid; pasta and meat per serving; oven and frying temperatures. Ranges are deliberately wide:
+// a flag means "look at this", and a good recipe can sit outside them for a reason.
+const CUP = 1,
+  TBSP = 1 / 16,
+  TSP = 1 / 48;
+const OZ_PER_LB = 16;
+const parseNum = (n: string) => {
+  const t = n.trim();
+  const mixed = /^(\d+)\s+(\d+)\/(\d+)$/.exec(t);
+  if (mixed) return +mixed[1] + +mixed[2] / +mixed[3];
+  const frac = /^(\d+)\/(\d+)$/.exec(t);
+  return frac ? +frac[1] / +frac[2] : Number(t);
+};
+const NUMBER = String.raw`\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:\.\d+)?`;
+/** Total volume in cups of a quantity like "1 1/2 cups", "1/4 cup + 2 tbsp", "2–3 tsp" (ranges take the middle). */
+function cups(q: string): number | undefined {
+  const text = q.replace(/\([^)]*\)/g, ' ');
+  let total = 0;
+  let found = false;
+  const re = new RegExp(
+    String.raw`(${NUMBER})(?:\s*[–-]\s*(${NUMBER}))?\s*(cups?|tablespoons?|tbsps?|teaspoons?|tsps?)\b`,
+    'gi',
+  );
+  for (const m of text.matchAll(re)) {
+    const n = m[2] ? (parseNum(m[1]) + parseNum(m[2])) / 2 : parseNum(m[1]);
+    const unit = m[3].toLowerCase();
+    total += n * (unit.startsWith('c') ? CUP : unit.startsWith('tb') || unit.startsWith('tablespoon') ? TBSP : TSP);
+    found = true;
+  }
+  if (!found && /envelope|packet/i.test(q)) {
+    const n = Number(/(\d+)/.exec(q)?.[1] ?? 1);
+    return n * 2.25 * TSP; // a packet of yeast or an envelope of gelatin holds about 2 1/4 tsp
+  }
+  return found ? total : undefined;
+}
+/** Weight in ounces of "12 oz", "1 1/2 lb", "1 lb (450 g)". */
+function ounces(q: string): number | undefined {
+  const m = new RegExp(String.raw`(${NUMBER})(?:\s*[–-]\s*(${NUMBER}))?\s*(oz|ounces?|lbs?|pounds?)\b`, 'i').exec(q);
+  if (!m) return undefined;
+  const n = m[2] ? (parseNum(m[1]) + parseNum(m[2])) / 2 : parseNum(m[1]);
+  return /^(lb|pound)/i.test(m[3]) ? n * OZ_PER_LB : n;
+}
+const sumCups = (r: Recipe, test: (id: string) => boolean) =>
+  r.ingredients.filter(i => test(i.ingredientId) && !i.optional).reduce((n, i) => n + (cups(i.quantityText) ?? 0), 0);
+const has = (r: Recipe, id: string) => r.ingredients.some(i => i.ingredientId === id && !i.optional);
+const fmt = (x: number) => String(Math.round(x * 100) / 100);
+const LIQUID = /^(water|chicken_broth|beef_broth|vegetable_broth|broth|stock|coconut_milk)$/;
+const GRAIN_LIQUID: [RegExp, number, number, string][] = [
+  [/^rice$/, 1.2, 2.3, 'white rice'],
+  [/^brown_rice$/, 1.7, 3, 'brown rice'],
+  [/^wild_rice$/, 2.5, 4.5, 'wild rice'],
+  [/^quinoa$/, 1.4, 2.6, 'quinoa'],
+  [/^couscous$/, 0.9, 1.8, 'couscous'],
+  [/^pearl_barley$/, 2.2, 4.5, 'barley'],
+];
+const MEATS =
+  /chicken(?!_broth)|turkey(?!_bacon)|beef(?!_broth)|steak|pork|lamb|sausage|shrimp|salmon|cod|tilapia|fish|chuck|ground_/;
+for (const r of LIBRARY) {
+  // Cornmeal counts too: cornbread and hush puppy batters are leavened for both.
+  const flour = sumCups(r, id => id === 'flour' || id === 'whole_wheat_flour' || id === 'cornmeal');
+  if (flour >= 0.5) {
+    const perCup = (id: string) => sumCups(r, x => x === id) / TSP / flour;
+    const bp = perCup('baking_powder');
+    // A baking-soda bath (pretzels, bagels) isn't in the dough.
+    const soda = r.steps.some(st => /baking soda/i.test(st) && /\b(bath|boil|simmering water)\b/i.test(st))
+      ? 0
+      : perCup('baking_soda');
+    const yeast = perCup('yeast');
+    const salt = perCup('salt');
+    if (bp > 2.25) flag(r, 'ratio', `${fmt(bp)} tsp baking powder per cup of flour (usual 1–1 1/4; pancakes up to 2)`);
+    if (soda > 0.6) flag(r, 'ratio', `${fmt(soda)} tsp baking soda per cup of flour (usual 1/4, up to 1/2 with acid)`);
+    if (has(r, 'yeast') && (yeast > 1.25 || yeast < 0.15))
+      flag(r, 'ratio', `${fmt(yeast)} tsp yeast per cup of flour (usual 1/2–3/4)`);
+    if (salt > 1.1 && r.dishTypes.includes('baked_goods'))
+      flag(r, 'ratio', `${fmt(salt)} tsp salt per cup of flour (usual 1/4–3/4 in baking)`);
+    const leavened = bp + soda + yeast > 0 || has(r, 'eggs');
+    if (
+      !leavened &&
+      r.dishTypes.includes('baked_goods') &&
+      !/shortbread|crust|pastry|biscotti|cracker|tortilla|pie|crisp|crumble|streusel/i.test(r.title)
+    )
+      flag(r, 'ratio', `${fmt(flour)} cups of flour with no leavening or eggs`);
+  }
+  if (!r.dishTypes.includes('soup') && !/risotto|pudding|congee|porridge|caldo|jook/i.test(r.title)) {
+    const liquid = sumCups(r, id => LIQUID.test(id));
+    for (const [re, lo, hi, name] of GRAIN_LIQUID) {
+      const grain = r.ingredients
+        .filter(
+          i => re.test(i.ingredientId) && !i.optional && !/\bcooked\b/i.test(`${i.displayName} ${i.preparation ?? ''}`),
+        )
+        .reduce((n, i) => n + (cups(i.quantityText) ?? 0), 0);
+      if (grain >= 0.25 && liquid > 0) {
+        const ratio = liquid / grain;
+        if (ratio < lo || ratio > hi)
+          flag(
+            r,
+            'ratio',
+            `${fmt(ratio)} cups of water or broth per cup of ${name} (usual ${lo}–${hi}; check what else the liquid is for)`,
+          );
+      }
+    }
+  }
+  const gelatin = sumCups(r, id => id === 'unflavored_gelatin');
+  if (gelatin > 0) {
+    const liquid = sumCups(r, id => /milk|cream|juice|water|coffee|yogurt|buttermilk|half_and_half/.test(id));
+    const perCup = gelatin / TSP / (liquid || 1);
+    if (liquid && (perCup < 0.6 || perCup > 2.5))
+      flag(r, 'ratio', `${fmt(perCup)} tsp gelatin per cup of liquid (usual about 1, firmer up to 2)`);
+  }
+  if (r.dishTypes.includes('pasta') && r.meals.includes('dinner')) {
+    const oz = r.ingredients
+      .filter(i => /^(pasta|egg_noodles)$/.test(i.ingredientId) && !i.optional)
+      .reduce((n, i) => n + (ounces(i.quantityText) ?? 0), 0);
+    if (oz && (oz / r.servings < 1.25 || oz / r.servings > 5))
+      flag(r, 'ratio', `${fmt(oz / r.servings)} oz of dry pasta per serving (usual 2–4 for a main)`);
+  }
+  const meatOz = r.ingredients
+    // Bone-in weights (whole pieces, bones for broth) say little about the meat on the plate.
+    .filter(
+      i =>
+        MEATS.test(i.ingredientId) &&
+        !i.optional &&
+        !/bone|whole|drumstick|wing|leg/i.test(`${i.displayName} ${i.preparation ?? ''}`),
+    )
+    .reduce((n, i) => n + (ounces(i.quantityText) ?? 0), 0);
+  if (meatOz / r.servings > 12)
+    flag(r, 'ratio', `${fmt(meatOz / r.servings)} oz of meat or fish per serving (usual 4–8)`);
+  for (const step of r.steps) {
+    // Only heat settings ("heat the oil to 350°F", "oven to 400°F"), never a doneness temperature.
+    for (const m of step.matchAll(/\boil\b[^.]{0,50}?\b(?:to|reaches|at)\s*(\d{3})\s*°\s*F/gi)) {
+      const f = Number(m[1]);
+      if (f < 300 || f > 400) flag(r, 'ratio', `frying oil at ${f}°F (usual 325–375)`);
+    }
+    for (const m of step.matchAll(/\boven\b[^.]{0,30}?\b(?:to|at)\s*(\d{3})\s*°\s*F/gi)) {
+      const f = Number(m[1]);
+      if (f < 200 || f > 525) flag(r, 'ratio', `oven at ${f}°F`);
+    }
+  }
+}
+
+// 10. Near-duplicates: most of the same required ingredients and a shared dish type or meal.
 const req = (r: Recipe) => new Set(r.ingredients.filter(i => !i.optional).map(i => i.ingredientId));
 const STAPLE = new Set(['salt', 'black_pepper', 'water', 'olive_oil', 'vegetable_oil', 'butter', 'garlic', 'onion']);
 for (let a = 0; a < LIBRARY.length; a++)
@@ -154,6 +295,7 @@ const byCheck = new Map<string, { id: string; detail: string }[]>();
 for (const [id, fs] of flags)
   for (const f of fs) byCheck.set(f.check, [...(byCheck.get(f.check) ?? []), { id, detail: f.detail }]);
 const ORDER = [
+  'ratio',
   'no-doneness-temp',
   'unused-ingredient',
   'vague-quantity',
