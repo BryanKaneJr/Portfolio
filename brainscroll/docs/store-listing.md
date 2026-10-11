@@ -8,13 +8,13 @@ Copy and settings for App Store Connect and Google Play, ready to paste. Charact
 
 ### App name (30)
 
-BrainScroll: Level Your Brain  *(29)*
+BrainScroll: Daily Learning  *(27)*
 
-(Plain "BrainScroll" is taken on the App Store; owner's pick, 2026-10-02. On the home screen the app is still just "BrainScroll".)
+(Plain "BrainScroll" is taken on the App Store, so the name keeps "BrainScroll:" in front; this is what's in App Store Connect for 1.0, owner, 2026-10-11. On the home screen the app is still just "BrainScroll".)
 
 ### Subtitle (30)
 
-Short lessons on everything  *(27)*
+History, Science & More  *(23)*
 
 ### Promotional text (170)
 
@@ -74,10 +74,10 @@ The auto-renewal paragraph and the two links after it stay at the end, word for 
 ### Keywords (100)
 
 ```
-learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,smart,knowledge,quiz
+trivia,facts,learn,quiz,knowledge,fun,space,ancient,art,geography,philosophy,lesson,psychology,rome
 ```
 
-*(100 characters, no spaces.)* The app name and subtitle are indexed already, so "brain", "scroll" and "level" aren't repeated here.
+*(99 characters, no spaces; saved in App Store Connect while 1.0 waited for review, owner, 2026-10-11.)* Search reads the name, subtitle and keywords as one pool of words and pairs them up, so nothing in the name or subtitle is repeated here (daily, learning, history, science), and short words still reach longer searches: ancient + history, art + history, ancient + rome, science + facts, fun + facts, trivia + quiz, history + quiz. A phrase written out in the name or subtitle ranks higher than one put together across fields. Left out on purpose: other apps' names (against Apple's rules), "education" (the big apps own it, and it's the category), "study" (people want flashcards) and "games" (people want puzzles). After launch, App Store Connect's search data shows which words bring people in; swap out the ones that don't with the next version (keywords can be edited while a version waits for review, not after it's out).
 
 ### What's new (version 1.0)
 
@@ -100,7 +100,7 @@ Draft answers are in [`store-privacy.md`](store-privacy.md#apple-age-rating). In
 
 ### App name (30)
 
-BrainScroll: Level Your Brain  *(29)*
+BrainScroll: Daily Learning  *(27)*
 
 (The same name as on the App Store. Play doesn't allow words like "free", "#1" or "best" in the name.)
 
