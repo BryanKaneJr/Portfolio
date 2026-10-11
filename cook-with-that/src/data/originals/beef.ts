@@ -321,8 +321,8 @@ export const BEEF_RECIPES: Recipe[] = [
       r('bay_leaf', 'bay leaves', '2'),
       r('carrot', 'carrots', '6 medium (about 1 lb)', 'peeled and cut into 2-inch pieces'),
       r('potato', 'Yukon Gold potatoes', '2 lb (900 g)', 'cut into 1 1/2-inch chunks'),
-      r('butter', 'butter', '2 tbsp', 'softened'),
-      r('flour', 'all-purpose flour', '2 tbsp'),
+      r('butter', 'butter', '3 tbsp', 'softened'),
+      r('flour', 'all-purpose flour', '3 tbsp'),
       opt('parsley', 'fresh parsley', '2 tbsp', 'chopped'),
     ],
     steps: [
@@ -407,7 +407,7 @@ export const BEEF_RECIPES: Recipe[] = [
       'Stir the bread crumbs and milk together in a large bowl and let them soak for 5 minutes.',
       'Melt 1 tbsp of the butter in a large skillet over medium heat. Cook the onion, stirring, until soft and translucent, 4–5 minutes. Let it cool for a few minutes, then add it to the bowl.',
       'Add the beef, pork, egg, allspice, nutmeg, 1 tsp of the salt and the pepper. Mix gently with your hands until just combined; overworking makes the meatballs dense.',
-      'With wet hands, roll the mixture into 1-inch balls, about 1 tbsp each. You should get around 36.',
+      'With wet hands, roll the mixture into 1 1/4-inch balls, about 1 heaping tbsp each. You should get around 50.',
       'Heat the oil and 1 tbsp of the butter in the same skillet over medium heat. Brown the meatballs in two batches, turning them often, until browned all over and cooked through (160°F / 71°C), 8–10 minutes per batch. Move them to a plate.',
       'Pour off the fat from the skillet. Lower the heat to medium-low, melt the remaining 3 tbsp butter, then whisk in the flour and cook for 1–2 minutes, until light golden.',
       'Slowly whisk in the broth, scraping up the browned bits, and simmer until thickened, 3–4 minutes. Stir in the cream, soy sauce and the remaining 1/4 tsp salt and simmer for 2 minutes.',
@@ -968,7 +968,7 @@ export const BEEF_RECIPES: Recipe[] = [
       opt('queso_fresco', 'crumbled queso fresco', '1/2 cup (2 oz / 60 g)'),
     ],
     steps: [
-      'In a shallow dish, mix the juice of 1 lime, 2 tbsp of the oil, the garlic, cumin, chili powder, oregano, 1 tsp of the salt and the pepper. Add the steak and turn to coat. Marinate for 30 minutes at room temperature, or up to 8 hours in the fridge; any longer and the lime turns the surface mealy.',
+      'In a shallow dish, mix the juice of 1 lime, 2 tbsp of the oil, the garlic, cumin, chili powder, oregano, 1 tsp of the salt and the pepper. Add the steak and turn to coat. Cover and marinate in the fridge for at least 30 minutes and up to 8 hours; any longer and the lime turns the surface mealy.',
       'For the pico de gallo, stir together the tomatoes, onion, jalapeño, cilantro, the juice of the second lime and the remaining 1/2 tsp salt. Let it stand for at least 10 minutes.',
       'Heat the remaining 1 tbsp oil in a large cast-iron skillet over high heat until it just smokes. Lift the steak from the marinade and scrape off the garlic bits, which burn.',
       'Sear the steak until well charred, 4–5 minutes per side, until an instant-read thermometer in the thickest part reads 130°F (54°C) for medium-rare or 145°F (63°C) for medium.',
