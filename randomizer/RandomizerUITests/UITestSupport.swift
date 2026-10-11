@@ -95,6 +95,8 @@ extension XCTestCase {
         XCTAssertTrue(app.revealNextButton.waitForExistence(timeout: 5), file: file, line: line)
         app.revealNextButton.tap()
         waitForCount(app.revealedSlots, before + 1, timeout: 15, file: file, line: line)
+        // Let the landing transition finish so screenshots aren't mid-fade.
+        Thread.sleep(forTimeInterval: 0.6)
     }
 
     /// Saves a screenshot to the test report and, when SCREENSHOT_DIR is set

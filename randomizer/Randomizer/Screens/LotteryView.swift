@@ -50,7 +50,9 @@ struct LotteryView: View {
                 .padding(.top, 8)
             stageCaption(league)
                 .frame(maxWidth: .infinity, minHeight: 64)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal, 16)
+                .layoutPriority(1)
             board(league)
         }
         .background(Theme.background.ignoresSafeArea())

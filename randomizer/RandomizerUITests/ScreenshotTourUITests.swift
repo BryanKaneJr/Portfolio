@@ -30,6 +30,7 @@ final class ScreenshotTourUITests: XCTestCase {
         Thread.sleep(forTimeInterval: 0.9)
         snap("05-balls-drawing")
         waitForCount(app.revealedSlots, 5, timeout: 15)
+        Thread.sleep(forTimeInterval: 0.6)
         snap("06-pick-revealed")
         revealNext(app)
         revealNext(app)
@@ -37,6 +38,7 @@ final class ScreenshotTourUITests: XCTestCase {
         snap("07-countdown")
         app.revealAllButton.tap()
         waitForCount(app.revealedSlots, 10)
+        Thread.sleep(forTimeInterval: 0.6)
         snap("08-order-set")
 
         app.openLotteryMenu()
@@ -68,6 +70,7 @@ final class ScreenshotTourUITests: XCTestCase {
         Thread.sleep(forTimeInterval: 0.7)
         snap("14-card-flip")
         waitForCount(app.revealedSlots, 9, timeout: 15)
+        Thread.sleep(forTimeInterval: 0.6)
         snap("15-card-revealed")
         app.goBack()
 
