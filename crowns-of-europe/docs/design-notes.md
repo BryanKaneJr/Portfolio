@@ -75,7 +75,7 @@ convoys, native battles, a 25-year AI soak and save/load determinism) and three 
 build at iPhone size (title, nation picker, map, every sheet and menu tab, war declaration, marching through a
 strait, sieges, events, offers, peace screen, map modes; the uncharted Atlantic, an expedition, discovery, a colony,
 the Colonies tab, trade goods and an army crossing to Brazil) with no runtime errors. The simulation runs at about
-3–4 ms per day on a laptop (the bigger map and ocean routes cost about 1.5 ms more than before).
+2.8 ms per day on a laptop (the bigger map and ocean routes cost about 0.8 ms more than before).
 
 Not yet done:
 

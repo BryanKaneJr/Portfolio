@@ -3,7 +3,7 @@
  * Monthly (staggered per nation): economy, diplomacy, war and peace decisions, weighted by personality.
  * Every few days per army: attack beatable stacks, besiege enemy land, retreat from bigger stacks, merge.
  */
-import { GRAPH, NATION, POLICIES, REGION, SEAS, SEA_COAST, hops, isNativeNation, isSea } from './content';
+import { GRAPH, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
 import {
@@ -50,7 +50,7 @@ import { buildDemands, casusBelli, declareWar, leaveWar, likelySides, makePeace,
 import { coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
 import { minSiegeRegs } from './siege';
-import { fleetPower, findSeaPath } from './navy';
+import { fleetPower, findSeaPath, seaDistances } from './navy';
 import type { Army, GameState, Nation, NationId, NodeId, PeaceTerms, Region, War } from './types';
 import { chance, months, pick, yearOf, years } from './util';
 
@@ -624,7 +624,15 @@ function peaceStation(s: GameState, a: Army): void {
   if (!home || s.regions[home]?.controller !== a.owner) return;
   const others = Object.values(s.armies).filter(o => o.owner === a.owner && o.id !== a.id && o.node === a.node && !o.path.length && !o.battle);
   for (const o of others) mergeArmies(s, a, o);
-  const here = (node: NodeId) => Object.values(s.armies).reduce((t, o) => t + (o.owner === a.owner && (o.node === node || o.path[o.path.length - 1] === node) ? armyRegs(o) : 0), 0);
+  // Regiments of ours in (or marching to) each region.
+  const regsAt = new Map<NodeId, number>();
+  for (const id in s.armies) {
+    const o = s.armies[id];
+    if (o.owner !== a.owner) continue;
+    const at = o.path.length ? o.path[o.path.length - 1] : o.node;
+    regsAt.set(at, (regsAt.get(at) ?? 0) + armyRegs(o));
+  }
+  const here = (node: NodeId) => regsAt.get(node) ?? 0;
   if (a.node !== home && !isSea(a.node)) {
     // Stay in our own land while it can feed us; otherwise go home (now and then, also to regroup).
     const reg = s.regions[a.node];
@@ -662,15 +670,22 @@ function rebelAI(s: GameState, a: Army): void {
 
 /** Naval AI: fleets at war go blockade enemy coasts they can hold; outmatched fleets go home. */
 export function monthlyFleetAI(s: GameState): void {
+  const bySea = new Map<string, typeof s.fleets[string][]>();
+  for (const g of Object.values(s.fleets)) {
+    const l = bySea.get(g.sea);
+    if (l) l.push(g);
+    else bySea.set(g.sea, [g]);
+  }
   for (const f of Object.values(s.fleets)) {
     if (isHuman(s, f.owner) || f.path.length || f.retreating) continue;
     const n = f.owner;
     const enemies = enemiesOf(s, n);
     if (!enemies.size) continue;
     const myPower = fleetPower(s, f);
+    const hopsTo = seaDistances(f.sea, !!s.discovery);
     let best: { sea: string; score: number } | null = null;
-    for (const { id: sea } of SEAS) {
-      const enemyPower = Object.values(s.fleets).filter(g => g.sea === sea && enemies.has(g.owner)).reduce((t, g) => t + fleetPower(s, g), 0);
+    for (const [sea, d] of hopsTo) {
+      const enemyPower = (bySea.get(sea) ?? []).filter(g => enemies.has(g.owner)).reduce((t, g) => t + fleetPower(s, g), 0);
       if (enemyPower > myPower * 0.8) continue;
       let coast = 0;
       for (const id of SEA_COAST[sea] ?? []) {
@@ -678,9 +693,7 @@ export function monthlyFleetAI(s: GameState): void {
         if (r.controller && enemies.has(r.controller)) coast += r.dev;
       }
       if (!coast) continue;
-      const route = findSeaPath(f.sea, sea, !!s.discovery);
-      if (route === null) continue;
-      const score = coast / (route.length + 1);
+      const score = coast / (d + 1);
       if (!best || score > best.score) best = { sea, score };
     }
     if (best && best.sea !== f.sea) {

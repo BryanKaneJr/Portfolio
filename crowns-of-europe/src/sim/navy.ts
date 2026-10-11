@@ -50,6 +50,22 @@ export function findSeaPath(from: SeaId, to: SeaId, newWorldOpen = true): SeaId[
   return null;
 }
 
+/** Hops from one sea zone to every reachable one (one search instead of one per destination). */
+export function seaDistances(from: SeaId, newWorldOpen = true): Map<SeaId, number> {
+  const dist = new Map<SeaId, number>([[from, 0]]);
+  const q = [from];
+  while (q.length) {
+    const cur = q.shift()!;
+    for (const e of GRAPH[cur]) {
+      if (e.kind !== 'sea' || dist.has(e.to)) continue;
+      if (!newWorldOpen && SEA[e.to]?.nw) continue;
+      dist.set(e.to, dist.get(cur)! + 1);
+      q.push(e.to);
+    }
+  }
+  return dist;
+}
+
 export function dailyFleets(s: GameState): void {
   for (const f of Object.values(s.fleets)) {
     if (!f.path.length) continue;
