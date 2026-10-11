@@ -229,7 +229,7 @@ struct LotteryView: View {
                 }
                 .accessibilityIdentifier("drawingInProgress")
             } else {
-                PickBanner(pick: pick, presenting: presenting)
+                PickBanner(pick: pick, inLottery: run.isLotteryPick(pick), presenting: presenting)
                     .id(pick.id)
                     .transition(reduceMotion ? .opacity : .scale(scale: 0.85).combined(with: .opacity))
             }
@@ -256,8 +256,10 @@ struct LotteryView: View {
     private func board(_ league: League) -> some View {
         if let run = league.latestRun {
             RunBoard(run: run, hiddenPick: driver.phase.isAnimating ? stagePick : nil, latestPick: stagePick)
+                .mask(BoardFade())
         } else {
             OddsPreviewBoard(league: league)
+                .mask(BoardFade())
         }
     }
 
@@ -266,11 +268,11 @@ struct LotteryView: View {
     private func footer(_ league: League) -> some View {
         VStack(spacing: 10) {
             if let run = league.latestRun {
-                if let next = run.nextToReveal {
+                if !run.isFullyRevealed || driver.phase.isAnimating {
                     Button {
                         revealNext(league)
                     } label: {
-                        Label("Reveal pick #\(next.pick)", systemImage: "sparkles")
+                        Label(revealButtonTitle(run), systemImage: "sparkles")
                     }
                     .buttonStyle(PrimaryButtonStyle())
                     .disabled(driver.phase.isAnimating)
@@ -281,7 +283,7 @@ struct LotteryView: View {
                             .disabled(driver.phase.isAnimating)
                             .accessibilityIdentifier("revealAllButton")
                         Spacer(minLength: 0)
-                        Text("\(run.lotteryTeams - run.revealedCount) of \(run.lotteryTeams) lottery picks hidden")
+                        Text("\(hiddenCount(run)) of \(run.lotteryTeams) lottery picks hidden")
                             .font(.caption)
                             .foregroundStyle(Theme.textSecondary)
                             .accessibilityIdentifier("hiddenCountLabel")
@@ -312,6 +314,16 @@ struct LotteryView: View {
                 }
                 .ignoresSafeArea(edges: .bottom)
         }
+    }
+
+    /// While a pick is being drawn on stage it still counts as hidden.
+    private func revealButtonTitle(_ run: LotteryRun) -> String {
+        if driver.phase.isAnimating, let stagePick { return "Revealing pick #\(stagePick)\u{2026}" }
+        return "Reveal pick #\(run.nextToReveal?.pick ?? 1)"
+    }
+
+    private func hiddenCount(_ run: LotteryRun) -> Int {
+        run.lotteryTeams - run.revealedCount + (driver.phase.isAnimating ? 1 : 0)
     }
 
     private func finishedControls(_ league: League, run: LotteryRun) -> some View {
@@ -460,8 +472,7 @@ struct LotteryView: View {
 
     private func announceLanding(_ league: League) {
         guard let run = league.latestRun, let number = stagePick, let pick = run.picks.first(where: { $0.pick == number }) else { return }
-        let how = pick.wasDrawn ? "drawn with a \(pick.chanceText) chance" : "by standings"
-        AccessibilityNotification.Announcement("Pick \(number): \(pick.teamName), \(how).").post()
+        AccessibilityNotification.Announcement("Pick \(number): \(pick.teamName), \(ResultsExporter.detail(pick, in: run)).").post()
     }
 }
 
@@ -480,25 +491,67 @@ private struct FormatHeader: View {
                     .font(Theme.rounded(.footnote, weight: .semibold))
                     .accessibilityIdentifier("lotteryOddsButton")
             }
-            Text(formatLine)
-                .font(.caption)
-                .foregroundStyle(Theme.textSecondary)
-                .multilineTextAlignment(.center)
-                .accessibilityIdentifier("formatSummary")
+            VStack(spacing: 1) {
+                Text(league.lotteryTeamsText)
+                Text(Self.unbroken([league.drawnPicksText, league.standingsPicksText].compactMap { $0 }.joined(separator: " \u{00B7} ")))
+            }
+            .font(.caption)
+            .foregroundStyle(Theme.textSecondary)
+            .multilineTextAlignment(.center)
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("formatSummary")
         }
         .frame(maxWidth: .infinity)
     }
 
-    private var formatLine: String {
-        [league.lotteryTeamsText, league.drawnPicksText, league.standingsPicksText]
-            .compactMap { $0 }
-            .joined(separator: " \u{00B7} ")
+    /// Keeps a range like "5–12" on one line.
+    static func unbroken(_ text: String) -> String {
+        text.replacingOccurrences(of: "\u{2013}", with: "\u{2060}\u{2013}\u{2060}")
+    }
+}
+
+/// Fades the board's top edge so a half-scrolled row doesn't butt against
+/// the caption above it.
+private struct BoardFade: View {
+    var body: some View {
+        VStack(spacing: 0) {
+            LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
+                .frame(height: 14)
+            Color.black
+        }
+    }
+}
+
+/// How far a lottery team moved from its finish: ▲3, ▼2 or a dash.
+struct MovementBadge: View {
+    let movement: Int
+
+    var body: some View {
+        HStack(spacing: 2) {
+            Image(systemName: movement > 0 ? "arrowtriangle.up.fill" : movement < 0 ? "arrowtriangle.down.fill" : "minus")
+                .imageScale(.small)
+            if movement != 0 {
+                Text("\(abs(movement))")
+                    .monospacedDigit()
+            }
+        }
+        .font(Theme.rounded(.caption, weight: .heavy))
+        .foregroundStyle(tint)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(Capsule().fill(tint.opacity(0.14)))
+        .accessibilityHidden(true)
+    }
+
+    private var tint: Color {
+        movement > 0 ? Theme.positive : movement < 0 ? Theme.danger : Theme.textTertiary
     }
 }
 
 /// The pick that just landed: who, and how they got it.
 private struct PickBanner: View {
     let pick: LotteryPick
+    let inLottery: Bool
     let presenting: Bool
 
     var body: some View {
@@ -513,10 +566,20 @@ private struct PickBanner: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .accessibilityIdentifier("pickName")
-            Text(pick.wasDrawn ? "Drawn \u{00B7} \(pick.chanceText) chance at this pick" : "Not drawn \u{00B7} picks by standings")
-                .font(.footnote)
-                .foregroundStyle(Theme.textSecondary)
+            HStack(spacing: 6) {
+                Text(subtitle)
+                    .font(.footnote)
+                    .foregroundStyle(Theme.textSecondary)
+                if inLottery {
+                    MovementBadge(movement: pick.movement)
+                }
+            }
         }
+    }
+
+    private var subtitle: String {
+        guard inLottery else { return "By standings" }
+        return "\(pick.wasDrawn ? "Drawn" : "Not drawn") \u{00B7} \(pick.finishText.lowercased())"
     }
 }
 
@@ -667,14 +730,14 @@ private struct RunBoard: View {
                     .accessibilityIdentifier("runNumberLabel")
                     BoardHeader(title: "Lottery", detail: "Picks 1\u{2013}\(run.lotteryTeams)")
                     ForEach(run.lotteryPicks) { pick in
-                        DraftSlot(pick: pick, isRevealed: isShown(pick), isLatest: pick.pick == latestPick && isShown(pick))
+                        DraftSlot(pick: pick, inLottery: true, isRevealed: isShown(pick), isLatest: pick.pick == latestPick && isShown(pick))
                             .id(pick.pick)
                     }
                     if !run.standingsPicks.isEmpty {
                         BoardHeader(title: "By standings", detail: "Picks \(run.lotteryTeams + 1)\u{2013}\(run.picks.count)")
                             .padding(.top, 8)
                         ForEach(run.standingsPicks) { pick in
-                            DraftSlot(pick: pick, isRevealed: true, isLatest: false)
+                            DraftSlot(pick: pick, inLottery: false, isRevealed: true, isLatest: false)
                                 .id(pick.pick)
                         }
                     }
@@ -696,6 +759,7 @@ private struct RunBoard: View {
 
 private struct DraftSlot: View {
     let pick: LotteryPick
+    let inLottery: Bool
     let isRevealed: Bool
     let isLatest: Bool
 
@@ -713,9 +777,9 @@ private struct DraftSlot: View {
                     .foregroundStyle(Theme.textPrimary)
                     .lineLimit(1)
                 Spacer(minLength: 4)
-                Text(pick.wasDrawn ? pick.chanceText : "Standings")
-                    .font(.caption.monospacedDigit())
-                    .foregroundStyle(pick.wasDrawn ? Theme.textSecondary : Theme.textTertiary)
+                if inLottery {
+                    MovementBadge(movement: pick.movement)
+                }
             } else {
                 Text("? ? ?")
                     .font(Theme.rounded(.headline, weight: .bold))
@@ -740,7 +804,8 @@ private struct DraftSlot: View {
 
     private var accessibilityText: String {
         guard isRevealed else { return "Pick \(pick.pick): not revealed yet" }
-        let how = pick.wasDrawn ? "drawn, \(pick.chanceText) chance" : "by standings"
-        return "Pick \(pick.pick): \(pick.teamName), \(how)"
+        guard inLottery else { return "Pick \(pick.pick): \(pick.teamName), by standings" }
+        let how = pick.wasDrawn ? "drawn" : "by standings"
+        return "Pick \(pick.pick): \(pick.teamName), \(how), \(pick.finishText.lowercased()), \(pick.movementText)"
     }
 }

@@ -10,7 +10,6 @@ struct ShareLine: Identifiable {
 }
 
 /// The image people share: built on device, never uploaded anywhere.
-/// Percentages are each drawn pick's chance at the moment it was drawn.
 struct ResultCardView: View {
     let title: String
     let subtitle: String
@@ -93,8 +92,8 @@ enum ShareRenderer {
 
     /// The full order, pick 1 first, with the run number on it.
     static func runImage(title: String, run: LotteryRun) -> Image? {
-        let lines = run.picks.sorted { $0.pick < $1.pick }.map {
-            ShareLine(position: "#\($0.pick)", name: $0.teamName, detail: $0.wasDrawn ? $0.chanceText : "Standings")
+        let lines = run.picks.sorted { $0.pick < $1.pick }.map { pick in
+            ShareLine(position: "#\(pick.pick)", name: pick.teamName, detail: movement(pick, in: run))
         }
         let date = run.ranAt.formatted(date: .abbreviated, time: .shortened)
         return image(
@@ -103,6 +102,16 @@ enum ShareRenderer {
             lines: lines,
             footnote: ResultsExporter.formatLine(run)
         )
+    }
+
+    /// "▲ 3 from 4th" for lottery teams that moved, "4th" for one that
+    /// didn't, nothing for teams outside the lottery.
+    private static func movement(_ pick: LotteryPick, in run: LotteryRun) -> String? {
+        guard run.isLotteryPick(pick) else { return nil }
+        let finish = Ordinal.text(pick.standing)
+        if pick.movement > 0 { return "\u{25B2} \(pick.movement) from \(finish)" }
+        if pick.movement < 0 { return "\u{25BC} \(-pick.movement) from \(finish)" }
+        return finish
     }
 }
 

@@ -6,31 +6,29 @@ public enum AppInfo {
 
 /// Plain-text draft order for the share sheet, built entirely on device.
 public enum ResultsExporter {
-    /// The full order, pick 1 first, with how each pick was decided. The
-    /// run number is always there, so a re-run can't pass as the first.
-    /// `dateText` is formatted by the caller in the person's locale.
-    public static func runText(
-        title: String,
-        run: LotteryRun,
-        dateText: String,
-        includeChances: Bool = true
-    ) -> String {
+    /// The full order, pick 1 first, with how each pick was decided and
+    /// how far each lottery team moved from its finish. The run number is
+    /// always there, so a re-run can't pass as the first. `dateText` is
+    /// formatted by the caller in the person's locale.
+    public static func runText(title: String, run: LotteryRun, dateText: String) -> String {
         var lines = ["\(title): draft order"]
         lines.append("Lottery run #\(run.number) \u{00B7} \(dateText)")
         lines.append(formatLine(run))
         lines.append("")
         for pick in run.picks.sorted(by: { $0.pick < $1.pick }) {
-            var line = "\(pick.pick). \(pick.teamName)"
-            if pick.wasDrawn {
-                if includeChances { line += " (drawn, \(pick.chanceText) chance)" }
-            } else {
-                line += " (by standings)"
-            }
-            lines.append(line)
+            lines.append("\(pick.pick). \(pick.teamName) (\(detail(pick, in: run)))")
         }
         lines.append("")
         lines.append("Drawn with \(AppInfo.name)")
         return lines.joined(separator: "\n")
+    }
+
+    /// "drawn, finished 4th, up 3", "by standings, finished 1st, down 4",
+    /// or "by standings" for a team outside the lottery.
+    public static func detail(_ pick: LotteryPick, in run: LotteryRun) -> String {
+        guard run.isLotteryPick(pick) else { return "by standings" }
+        let how = pick.wasDrawn ? "drawn" : "by standings"
+        return "\(how), finished \(Ordinal.text(pick.standing)), \(pick.movementText)"
     }
 
     /// "Worst 6 of 10 teams, weighted by standings. Picks 1–4 drawn."

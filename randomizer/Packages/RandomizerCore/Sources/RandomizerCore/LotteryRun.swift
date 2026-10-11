@@ -51,6 +51,42 @@ public struct LotteryPick: Codable, Identifiable, Equatable, Hashable, Sendable 
         guard wasDrawn else { return "By standings" }
         return OddsCalculator.formatPercent(numerator: numeratorWeight, denominator: totalWeight)
     }
+
+    /// Spots gained on the team's finish: 3 when the 4th-worst team lands
+    /// pick 1, negative when a team falls.
+    public var movement: Int {
+        standing - pick
+    }
+
+    /// "up 3", "down 2" or "no change".
+    public var movementText: String {
+        if movement > 0 { return "up \(movement)" }
+        if movement < 0 { return "down \(-movement)" }
+        return "no change"
+    }
+
+    /// "Finished 4th".
+    public var finishText: String {
+        "Finished \(Ordinal.text(standing))"
+    }
+}
+
+public enum Ordinal {
+    /// 1st, 2nd, 3rd, 4th ... 11th, 12th, 13th ... 21st.
+    public static func text(_ number: Int) -> String {
+        let suffix: String
+        if (11...13).contains(number % 100) {
+            suffix = "th"
+        } else {
+            switch number % 10 {
+            case 1: suffix = "st"
+            case 2: suffix = "nd"
+            case 3: suffix = "rd"
+            default: suffix = "th"
+            }
+        }
+        return "\(number)\(suffix)"
+    }
 }
 
 /// A complete draft order from one run of the lottery.
@@ -115,6 +151,12 @@ public struct LotteryRun: Codable, Identifiable, Equatable, Sendable {
     public var nextToReveal: LotteryPick? {
         let order = revealOrder
         return order.indices.contains(revealedCount) ? order[revealedCount] : nil
+    }
+
+    /// True for picks the lottery decides (drawn or not); false for teams
+    /// that finished above the lottery.
+    public func isLotteryPick(_ pick: LotteryPick) -> Bool {
+        pick.pick <= lotteryTeams
     }
 
     public func isRevealed(_ pick: LotteryPick) -> Bool {

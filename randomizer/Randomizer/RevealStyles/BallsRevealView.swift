@@ -48,7 +48,7 @@ struct BallsRevealView: View {
         let diameter = min(size.width * 0.86, size.height * 0.74)
         let radius = diameter / 2
         let center = CGPoint(x: size.width / 2, y: size.height - radius - 14)
-        let ballRadius = radius * (count > 12 ? 0.125 : 0.16)
+        let ballRadius = radius * (count > 12 ? 0.125 : count > 6 ? 0.16 : 0.19)
         let top = center.y - radius
         let slotY = max(ballRadius * 2.6, top / 2)
         return Layout(drumCenter: center, drumRadius: radius, ballRadius: ballRadius, slot: CGPoint(x: size.width / 2, y: slotY))

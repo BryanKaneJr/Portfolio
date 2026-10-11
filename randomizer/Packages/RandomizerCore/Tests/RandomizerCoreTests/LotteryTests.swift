@@ -234,11 +234,23 @@ final class LotteryTests: XCTestCase {
         XCTAssertEqual(lines[0], "Sunday League: draft order")
         XCTAssertEqual(lines[1], "Lottery run #2 \u{00B7} Oct 11")
         XCTAssertEqual(lines[2], "Worst 4 of 6 teams, weighted by standings. Picks 1\u{2013}2 drawn.")
-        XCTAssertEqual(lines[4], "1. \(run.picks[0].teamName) (drawn, \(run.picks[0].chanceText) chance)")
+        let first = run.picks[0]
+        XCTAssertEqual(lines[4], "1. \(first.teamName) (drawn, finished \(Ordinal.text(first.standing)), \(first.movementText))")
+        let third = run.picks[2]
+        XCTAssertEqual(lines[6], "3. \(third.teamName) (by standings, finished \(Ordinal.text(third.standing)), \(third.movementText))")
         XCTAssertEqual(lines[9], "6. Team 6 (by standings)")
         XCTAssertEqual(lines.last, "Drawn with Draft Lottery")
+        XCTAssertFalse(text.contains("%"), "Per-pick chances read as odds of the whole lottery, so they're left out")
+    }
 
-        let plain = ResultsExporter.runText(title: "Sunday League", run: run, dateText: "Oct 11", includeChances: false)
-        XCTAssertFalse(plain.contains("chance"))
+    func testMovementAgainstTheFinish() {
+        let jump = LotteryPick(pick: 1, teamID: UUID(), teamName: "A", standing: 4, wasDrawn: true)
+        XCTAssertEqual(jump.movement, 3)
+        XCTAssertEqual(jump.movementText, "up 3")
+        XCTAssertEqual(jump.finishText, "Finished 4th")
+        let fall = LotteryPick(pick: 5, teamID: UUID(), teamName: "B", standing: 1, wasDrawn: false)
+        XCTAssertEqual(fall.movementText, "down 4")
+        XCTAssertEqual(LotteryPick(pick: 2, teamID: UUID(), teamName: "C", standing: 2, wasDrawn: true).movementText, "no change")
+        XCTAssertEqual([1, 2, 3, 4, 11, 12, 13, 21, 22, 23, 32].map(Ordinal.text), ["1st", "2nd", "3rd", "4th", "11th", "12th", "13th", "21st", "22nd", "23rd", "32nd"])
     }
 }

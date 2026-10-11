@@ -82,7 +82,7 @@ final class LotteryFlowUITests: XCTestCase {
         XCTAssertEqual(app.revealNextButton.label, "Reveal pick #2")
         app.revealAllButton.tap()
         waitForCount(app.revealedSlots, 8)
-        let standings = app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'draftSlotRevealed' AND label ENDSWITH 'by standings'"))
+        let standings = app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'draftSlotRevealed' AND label CONTAINS 'by standings'"))
         XCTAssertEqual(standings.count, 6)
         let drawn = app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'draftSlotRevealed' AND label CONTAINS 'drawn'"))
         XCTAssertEqual(drawn.count, 2)
