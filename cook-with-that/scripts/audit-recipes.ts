@@ -176,7 +176,7 @@ const sumCups = (r: Recipe, test: (id: string) => boolean) =>
   r.ingredients.filter(i => test(i.ingredientId) && !i.optional).reduce((n, i) => n + (cups(i.quantityText) ?? 0), 0);
 const has = (r: Recipe, id: string) => r.ingredients.some(i => i.ingredientId === id && !i.optional);
 const fmt = (x: number) => String(Math.round(x * 100) / 100);
-const LIQUID = /^(water|chicken_broth|beef_broth|vegetable_broth|broth|stock|coconut_milk)$/;
+const LIQUID = /^(water|chicken_broth|beef_broth|vegetable_broth|broth|stock|coconut_milk|milk|almond_milk|oat_milk)$/;
 const GRAIN_LIQUID: [RegExp, number, number, string][] = [
   [/^rice$/, 1.2, 2.3, 'white rice'],
   [/^brown_rice$/, 1.7, 3, 'brown rice'],
@@ -199,7 +199,10 @@ for (const r of LIBRARY) {
       : perCup('baking_soda');
     const yeast = perCup('yeast');
     const salt = perCup('salt');
-    if (bp > 2.25) flag(r, 'ratio', `${fmt(bp)} tsp baking powder per cup of flour (usual 1–1 1/4; pancakes up to 2)`);
+    // Pancake and waffle batters take about 3 tsp a cup; cakes and quick breads 1–1 1/4.
+    const griddle = /pancake|waffle|flapjack|hotcake/i.test(r.title);
+    if (bp > (griddle ? 3.5 : 2.25))
+      flag(r, 'ratio', `${fmt(bp)} tsp baking powder per cup of flour (usual 1–1 1/4; pancakes about 3)`);
     if (soda > 0.6) flag(r, 'ratio', `${fmt(soda)} tsp baking soda per cup of flour (usual 1/4, up to 1/2 with acid)`);
     if (has(r, 'yeast') && (yeast > 1.25 || yeast < 0.15))
       flag(r, 'ratio', `${fmt(yeast)} tsp yeast per cup of flour (usual 1/2–3/4)`);

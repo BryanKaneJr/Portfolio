@@ -100,7 +100,7 @@ export const COMFORT_RECIPES: Recipe[] = [
       r('cheddar', 'sharp cheddar', '2 cups (8 oz)', 'shredded, divided'),
     ],
     steps: [
-      'Heat the oven to 375°F (190°C). Grease a 2-quart baking dish (8-by-8-inch or 11-by-7-inch) with 1 tbsp of the butter.',
+      'Heat the oven to 375°F (190°C). Grease a 9-by-9-inch or other 2 1/2- to 3-quart baking dish with 1 tbsp of the butter.',
       'Bring a large pot of salted water to a boil. Cook the macaroni for 2 minutes less than the package says; it finishes in the oven. Drain.',
       'Meanwhile, melt the remaining 2 tbsp butter in a large skillet over medium heat. Add the onion and cook, stirring, until soft and golden at the edges, 5–6 minutes.',
       'Add the chopped tomatoes with all their juice, the sugar, 1 tsp salt and the pepper. Simmer, stirring now and then and pressing on the tomatoes with the spoon, until they break down into a loose, chunky sauce, 10–12 minutes.',
@@ -181,7 +181,7 @@ export const COMFORT_RECIPES: Recipe[] = [
       'Let the potatoes cool for 10 minutes. Cut each in half lengthwise and scoop the flesh into a bowl, leaving a 1/4-inch shell so the skins hold their shape. Set the shells on a sheet pan.',
       'Mash the potato flesh with the remaining 2 tbsp butter, the cream cheese, milk, the remaining 1 tsp salt, the pepper and nutmeg until fairly smooth.',
       'Fold in the spinach and 1 cup of the cheddar. Pile the filling back into the shells, mounding it up, and top with the remaining 1/2 cup cheddar.',
-      'Bake 15–20 minutes, until heated through and the cheese is melted and golden at the edges. Scatter with chives if you like.',
+      'Bake on the sheet pan, still at 425°F (220°C), for 15–20 minutes, until heated through and the cheese is melted and golden at the edges. Scatter with chives if you like.',
     ],
     source: ORIGINAL_DRAFT,
   },
@@ -247,7 +247,7 @@ export const COMFORT_RECIPES: Recipe[] = [
       'Meanwhile, pat the chicken dry. Brush the skin with the remaining 1 tbsp butter and season all over with the remaining 1/2 tsp thyme, 1 tsp salt and 1/4 tsp pepper.',
       'Uncover the dish and set the chicken skin side up on the potatoes, spaced evenly.',
       'Bake uncovered for 40–45 minutes, until the skin is crisp and deep golden, the potatoes are tender and browned at the edges, and the chicken reads at least 165°F (74°C) in the thickest part, not touching the bone.',
-      'Rest 5 minutes. Serve each thigh with a scoop of the potatoes and spoon the pan juices over. Scatter with parsley if you like.',
+      'Rest 5 minutes, and tilt the dish to spoon off any pooled fat. Serve each thigh with a scoop of the potatoes and spoon the pan juices over. Scatter with parsley if you like.',
     ],
     source: ORIGINAL_DRAFT,
   },
@@ -276,7 +276,7 @@ export const COMFORT_RECIPES: Recipe[] = [
     ],
     steps: [
       'Bring a large pot of well-salted water to a boil for the pasta.',
-      'Season the chicken with 3/4 tsp of the salt and the pepper. Heat 1 tbsp of the oil in a 12-inch skillet over medium-high heat. Add the chicken in a single layer and cook, turning once or twice, until browned and cooked through (165°F / 74°C inside), 6–8 minutes. Move it to a plate.',
+      'Season the chicken with 3/4 tsp of the salt and the pepper. Heat 1 tbsp of the oil in a large, deep skillet (12-inch) over medium-high heat. Add the chicken in a single layer and cook, turning once or twice, until browned and cooked through (165°F / 74°C inside), 6–8 minutes. Move it to a plate.',
       'Lower the heat to medium. Add the remaining 2 tbsp oil, the garlic and red pepper flakes and cook, stirring, until the garlic is pale golden, about 1 minute.',
       'Add the tomatoes and the remaining 1/2 tsp salt. Cook, stirring now and then, until they collapse and release their juices, 8–10 minutes. Press about half of them with the back of a spoon to make a chunky sauce.',
       'Meanwhile, cook the penne until al dente. Scoop out 1 cup of the pasta water, then drain.',
@@ -404,7 +404,7 @@ export const COMFORT_RECIPES: Recipe[] = [
     meals: ['dinner'],
     dishTypes: ['bake'],
     prepMinutes: 20,
-    cookMinutes: 50,
+    cookMinutes: 60,
     servings: 4,
     ingredients: [
       r('chicken', 'boneless, skinless chicken breasts', '1 1/2 lb'),
@@ -595,7 +595,7 @@ export const COMFORT_RECIPES: Recipe[] = [
     ],
     steps: [
       'Heat the oven to 375°F (190°C). Bring a large pot of well-salted water to a boil.',
-      'Cook the spaghetti for 2 minutes less than the package says; it finishes in the oven. Drain.',
+      'Cook the spaghetti for 2 minutes less than the package says; it finishes in the oven. Drain and rinse briefly with cool water so it doesn’t stick together while the sauce cooks.',
       'Meanwhile, melt 4 tbsp of the butter in a large, deep skillet or Dutch oven over medium heat. Add the mushrooms, onion and 1/2 tsp salt and cook, stirring, until the mushrooms are browned and their liquid has cooked off, 8–10 minutes.',
       'Stir in the garlic and thyme for 30 seconds. Pour in the wine and simmer until almost gone, about 2 minutes.',
       'Sprinkle in the flour and stir for 1 minute. Slowly whisk in the broth, then the milk, and simmer, stirring, until the sauce thickens enough to coat a spoon, 4–5 minutes.',
@@ -711,7 +711,7 @@ export const COMFORT_RECIPES: Recipe[] = [
     id: 'baked-potato-bar-with-chili-and-cheddar',
     title: 'Baked Potato Bar with Beef Chili and Cheddar',
     description:
-      'Salt-crusted baked russets split open and loaded with thick beef-and-bean chili and sharp cheddar. Everyone builds their own.',
+      'Crisp-skinned baked russets split open and loaded with thick beef-and-bean chili and sharp cheddar. Everyone builds their own.',
     meals: ['dinner'],
     dishTypes: ['bake'],
     prepMinutes: 15,

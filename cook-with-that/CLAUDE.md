@@ -178,7 +178,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   whether writers copy recipes from the internet: they write from their own knowledge and may only look up facts.
   This round was audited: no writer made a single web search or fetch (their transcripts were checked), and a web
   search of sample sentences found no published match. Owner's other worry, "recipes that simply dont work", is why
-  every batch still needs the paper review and cook-testing. Notes: `docs/import-notes/2026-10-11-round-5/`.
+  every batch gets the paper review (decision 18). Notes: `docs/import-notes/2026-10-11-round-5/`; review:
+  `docs/recipe-review/round-5/` (36 of 120 fixed; the soft pretzels and layer bars were rewritten from ratios after a
+  reviewer recognised published formulas).
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -192,9 +194,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Paper review of every new batch** (decision 18: no cook-testing). Round 5's 120 recipes are being reviewed the
-   same way as the first 548 (`docs/recipe-review/`). The cook-test-first list in `docs/recipe-review/README.md` is
-   now a list of the riskiest recipes to re-read, not to cook.
+1. **Paper review of every new batch** (decision 18: no cook-testing). Done for all 668: the first 548 in
+   `docs/recipe-review/`, round 5's 120 in `docs/recipe-review/round-5/` (36 fixed; two formulas a reviewer recognised
+   as published ones were rewritten from ratios). New batches get the same: reviewers reading each recipe as a cook,
+   plus `npm run audit:recipes`. The "cook-test first" lists are now lists of the riskiest recipes to re-read.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web
