@@ -633,4 +633,12 @@ export const INGREDIENTS: Ingredient[] = [
     aliases: ['crunchy chow mein noodles'],
   },
   { id: 'fennel_seeds', name: 'Fennel seeds', category: 'spice', aliases: [] },
+  { id: 'smoked_salmon', name: 'Smoked salmon', category: 'protein', aliases: [] },
+  { id: 'iceberg_lettuce', name: 'Iceberg lettuce', category: 'produce', aliases: [] },
+  { id: 'galangal', name: 'Galangal', category: 'produce', aliases: [] },
+  { id: 'makrut_lime_leaves', name: 'Makrut lime leaves', category: 'produce', aliases: ['kaffir lime leaves'] },
+  { id: 'tomatillo', name: 'Tomatillo', category: 'produce', aliases: ['tomatillos'] },
+  { id: 'pomegranate_molasses', name: 'Pomegranate molasses', category: 'pantry', aliases: [] },
+  { id: 'potato_chips', name: 'Potato chips', category: 'pantry', aliases: ['potato crisps'] },
+  { id: 'red_cabbage', name: 'Red cabbage', category: 'produce', aliases: [] },
 ];

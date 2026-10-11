@@ -913,6 +913,17 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'tomato sauce or ketchup': null, // the editor picks one
   'salt free seasoning blend': null, // a store blend; the editor names the herbs and spices
 
+  // ── Reviewed by parallel import worker r5-soups-salads-dips ──
+  'iceberg lettuce': { add: 'produce' }, // crisp pale head lettuce; romaine and leaf lettuce are separate (r5-grill-fry registered the same key)
+  galangal: { add: 'produce' }, // fresh or frozen Thai rhizome, piney and peppery; not ginger
+  'makrut lime leaves': { add: 'produce' }, // fresh or frozen citrus leaves for Thai soups and curries; not lime zest
+  'kaffir lime leaves': '=makrut lime leaves', // the older name still on many packages
+  tomatillo: { add: 'produce' }, // husked green fruit for salsa verde; not green (unripe) tomatoes
+  tomatillos: '=tomatillo',
+  'pomegranate molasses': { add: 'pantry' }, // thick, tart reduced pomegranate juice; not cane molasses
+  'potato chips': { add: 'pantry' }, // bagged fried potato slices for snacking; not potatoes or tater tots
+  'potato crisps': '=potato chips', // British name
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
