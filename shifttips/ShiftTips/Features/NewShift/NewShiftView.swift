@@ -2,8 +2,9 @@ import SwiftUI
 import ShiftTipsCore
 import ShiftTipsData
 
-/// The screen the app opens on: tips, crew, method, people, and a sticky
-/// bar that says what's being distributed and what's still missing.
+/// The screen the app opens on: the shift's date as the headline, then
+/// numbered sections (tips, crew, method, people) and a dock that says
+/// what's being distributed and what's still missing.
 struct NewShiftView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -14,38 +15,52 @@ struct NewShiftView: View {
     @State private var infoRow: ShiftForm.Row?
     @State private var confirmStartOver = false
     @State private var editingRules = false
+    @State private var pickingDate = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         @Bindable var store = store
         let live = store.form.live
         let readiness = store.form.readiness(live)
+        // With no saved crew and nothing entered, the first step leads the
+        // screen and the crew section steps aside.
+        let firstRun = store.crews.isEmpty && store.form.rows.isEmpty
 
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    header
-                    if store.isFormSaved {
-                        savedBanner
-                    } else if store.form.isExample {
-                        exampleBanner
-                    }
-                    Group {
+                VStack(alignment: .leading, spacing: Theme.sectionSpacing) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        header
+                        if store.isFormSaved {
+                            savedBanner
+                        } else if store.form.isExample {
+                            exampleBanner
+                        } else if firstRun {
+                            startHere
+                        }
                         if !store.isSimple {
                             ModePicker(mode: store.form.mode) { mode in
                                 focus = nil
-                                withAnimation { store.setMode(mode) }
+                                withAnimation(.snappy) { store.setMode(mode) }
                             }
+                            .disabled(store.isFormSaved)
                         }
+                    }
+                    Group {
                         switch live {
                         case .pool(let calculation):
                             TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple)
-                            crewSection
+                            if !firstRun {
+                                crewSection
+                            }
                             if !store.isSimple {
                                 MethodPicker(method: $store.form.method)
                             }
                             peopleSection(calculation)
                         case .tipOut(let calculation):
-                            crewSection
+                            if !firstRun {
+                                crewSection
+                            }
                             TipOutRulesCard(
                                 rules: store.form.tipOutRules,
                                 statuses: store.form.tipOutPlan.ruleStatuses,
@@ -60,9 +75,9 @@ struct NewShiftView: View {
                     }
                     .disabled(store.isFormSaved)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 4)
-                .padding(.bottom, 24)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+                .padding(.bottom, 28)
             }
             .scrollDismissesKeyboard(.interactively)
             .onChange(of: focus) { _, field in
@@ -70,11 +85,12 @@ struct NewShiftView: View {
                 withAnimation { proxy.scrollTo(field, anchor: .center) }
             }
         }
-        .background(Theme.background.ignoresSafeArea())
-        .safeAreaInset(edge: .bottom) {
+        .background { Theme.background.ignoresSafeArea() }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
             summaryBar(live: live, readiness: readiness)
         }
         .navigationTitle("ShiftTips")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar { toolbar }
         .sheet(isPresented: $showSettings) {
             SettingsView()
@@ -93,6 +109,9 @@ struct NewShiftView: View {
         .sheet(isPresented: $editingRules) {
             TipOutRulesSheet(rules: store.form.tipOutRules, roles: knownRoles)
         }
+        .sheet(isPresented: $pickingDate) {
+            ShiftDateSheet(day: $store.form.day)
+        }
         .confirmationDialog("Start over?", isPresented: $confirmStartOver, titleVisibility: .visible) {
             Button("Clear This Shift", role: .destructive) {
                 focus = nil
@@ -103,26 +122,55 @@ struct NewShiftView: View {
         }
     }
 
-    // MARK: - Sections
+    // MARK: - Header
 
+    /// The date, big, as the screen's headline, and the shift's label.
     private var header: some View {
         @Bindable var store = store
-        return HStack(spacing: 12) {
-            DatePicker(
-                "Shift date",
-                selection: Binding(get: { store.form.day.date() }, set: { store.form.day = CalendarDay($0) }),
-                displayedComponents: .date
-            )
-            .labelsHidden()
-            TextField("Label, e.g. Dinner", text: $store.form.label)
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                SectionLabel("Shift")
+                if store.form.day == store.today {
+                    Tag("Today", style: .muted)
+                }
+            }
+            Button {
+                focus = nil
+                pickingDate = true
+            } label: {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    Text(dayTitle)
+                        .font(.display(.largeTitle))
+                        .foregroundStyle(Theme.ink)
+                        .multilineTextAlignment(.leading)
+                    Image(systemName: "chevron.down")
+                        .font(.headline.weight(.heavy))
+                        .foregroundStyle(Theme.inkSecondary)
+                        .accessibilityHidden(true)
+                }
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Shift date, \(store.form.day.longText)")
+            .accessibilityHint("Changes the date")
+            .accessibilityIdentifier("shiftDate")
+
+            TextField("Add a label, like Dinner", text: $store.form.label)
                 .textInputAutocapitalization(.words)
-                .font(.subheadline)
-                .padding(.horizontal, 12)
-                .frame(minHeight: 40)
-                .background(Theme.surface, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .font(.body)
+                .foregroundStyle(Theme.ink)
+                .padding(.horizontal, 14)
+                .frame(minHeight: 46)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .padding(.top, 4)
                 .accessibilityLabel("Shift label")
         }
         .disabled(store.isFormSaved)
+    }
+
+    private var dayTitle: String {
+        store.form.day.date().formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day())
     }
 
     private var savedBanner: some View {
@@ -136,7 +184,7 @@ struct NewShiftView: View {
     }
 
     private var exampleBanner: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 12) {
             Banner(.info, store.form.mode == .pool
                 ? "This is an example with made-up people. Try changing the tips, hours or method. Nothing here is added to your crews."
                 : "This is an example with made-up people and rules. Try changing the amounts, hours or rules. Nothing here is added to your crews.")
@@ -148,68 +196,74 @@ struct NewShiftView: View {
         }
     }
 
-    @ViewBuilder
-    private var crewSection: some View {
-        if store.crews.isEmpty && store.form.rows.isEmpty {
-            VStack(alignment: .leading, spacing: 12) {
-                SectionLabel("CREW")
-                Text("Save your crew once and every shift starts with them. Just add tips and hours.")
-                    .foregroundStyle(Theme.ink)
-                Button("Add Your Crew") { editingCrew = .new }
-                    .buttonStyle(PrimaryButtonStyle())
-                Button("Try an Example") { store.loadExample() }
-                    .buttonStyle(SecondaryButtonStyle())
-                    .accessibilityIdentifier("tryExample")
+    // MARK: - Sections
+
+    /// First run: save a crew, or try the example, before anything else on
+    /// this screen can work.
+    private var startHere: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionLabel("Start here")
+            Text("Save your crew once and every shift starts with them. Then it's just tips and hours.")
+                .font(.title3)
+                .foregroundStyle(Theme.ink)
+                .fixedSize(horizontal: false, vertical: true)
+            Button("Add Your Crew") { editingCrew = .new }
+                .buttonStyle(PrimaryButtonStyle())
+            Button("Try an Example") {
+                focus = nil
+                store.loadExample()
             }
-            .card()
-        } else {
-            HStack(alignment: .center, spacing: 12) {
-                Menu {
-                    ForEach(store.crews) { crew in
-                        Button {
-                            store.selectCrew(id: crew.id)
-                        } label: {
-                            if crew.id == store.form.crewId {
-                                Label(crew.name, systemImage: "checkmark")
-                            } else {
-                                Text(crew.name)
-                            }
-                        }
-                    }
-                    Divider()
-                    Button {
-                        editingCrew = .new
-                    } label: {
-                        Label("New Crew", systemImage: "plus")
-                    }
-                } label: {
-                    VStack(alignment: .leading, spacing: 2) {
-                        SectionLabel("CREW")
-                        HStack(spacing: 4) {
-                            Text(crewTitle)
-                                .font(.headline)
-                                .foregroundStyle(Theme.ink)
-                                .multilineTextAlignment(.leading)
-                            Image(systemName: "chevron.up.chevron.down")
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
-                        if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
-                            Text("Starts as: \(crew.setupTitle)")
-                                .font(.caption)
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
-                    }
-                    .frame(minHeight: 44)
-                }
-                .accessibilityLabel("Crew: \(crewTitle)")
-                .accessibilityHint("Choose which saved crew this shift uses")
-                Spacer()
+            .buttonStyle(SecondaryButtonStyle())
+            .accessibilityIdentifier("tryExample")
+        }
+        .card()
+    }
+
+    private var crewSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            SectionHeader("Crew") {
                 if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
                     Button("Edit Crew") { editingCrew = .edit(crew) }
-                        .font(.subheadline.weight(.semibold))
-                        .frame(minHeight: 44)
+                        .buttonStyle(TextButtonStyle())
                 }
+            }
+            Menu {
+                ForEach(store.crews) { crew in
+                    Button {
+                        store.selectCrew(id: crew.id)
+                    } label: {
+                        if crew.id == store.form.crewId {
+                            Label(crew.name, systemImage: "checkmark")
+                        } else {
+                            Text(crew.name)
+                        }
+                    }
+                }
+                Divider()
+                Button {
+                    editingCrew = .new
+                } label: {
+                    Label("New Crew", systemImage: "plus")
+                }
+            } label: {
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text(crewTitle)
+                        .font(.display(.title2, weight: .bold))
+                        .foregroundStyle(Theme.ink)
+                        .multilineTextAlignment(.leading)
+                    Image(systemName: "chevron.down")
+                        .font(.subheadline.weight(.heavy))
+                        .foregroundStyle(Theme.inkSecondary)
+                }
+                .frame(minHeight: 44, alignment: .leading)
+                .contentShape(Rectangle())
+            }
+            .accessibilityLabel("Crew: \(crewTitle)")
+            .accessibilityHint("Choose which saved crew this shift uses")
+            if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                Text("Starts as \(crew.setupTitle)")
+                    .font(.mono(.caption))
+                    .foregroundStyle(Theme.inkSecondary)
             }
         }
     }
@@ -228,40 +282,40 @@ struct NewShiftView: View {
 
         return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
-                HStack {
-                    SectionLabel("PEOPLE")
-                    Spacer()
+                SectionHeader("People") {
                     Text(inPool == 1 ? "1 in pool" : "\(inPool) in pool")
-                        .font(.footnote)
+                        .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
-            ForEach($store.form.rows) { $row in
-                ParticipantRow(
-                    row: $row,
-                    allocation: allocations[row.id],
-                    method: store.form.method,
-                    showAmounts: tipsEntered,
-                    focus: $focus,
-                    onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
-                    onInfo: { infoRow = row },
-                    onRemove: {
-                        focus = nil
-                        let id = row.id
-                        withAnimation { store.form.removeRow(id: id) }
+            if !store.form.rows.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach($store.form.rows) { $row in
+                        ParticipantRow(
+                            row: $row,
+                            allocation: allocations[row.id],
+                            method: store.form.method,
+                            showAmounts: tipsEntered,
+                            focus: $focus,
+                            onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
+                            onInfo: { infoRow = row },
+                            onRemove: {
+                                focus = nil
+                                let id = row.id
+                                withAnimation { store.form.removeRow(id: id) }
+                            }
+                        )
+                        if row.id != store.form.rows.last?.id {
+                            Rule()
+                                .padding(.leading, 54)
+                        }
                     }
-                )
+                }
+                .padding(.horizontal, 14)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
-                Button {
-                    focus = nil
-                    addingPerson = true
-                } label: {
-                    Label("Add someone for this shift", systemImage: "person.badge.plus")
-                        .font(.subheadline.weight(.semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }
-                .buttonStyle(.borderless)
+                addSomeoneButton
             }
         }
     }
@@ -274,41 +328,65 @@ struct NewShiftView: View {
 
         return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
-                HStack {
-                    SectionLabel("PEOPLE")
-                    Spacer()
+                SectionHeader("People") {
                     Text(taking == 1 ? "1 in tip-outs" : "\(taking) in tip-outs")
-                        .font(.footnote)
+                        .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
-            ForEach($store.form.rows) { $row in
-                TipOutParticipantRow(
-                    row: $row,
-                    person: people[row.id],
-                    bases: plan.bases(forRole: row.role),
-                    focus: $focus,
-                    onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
-                    onInfo: { infoRow = row },
-                    onRemove: {
-                        focus = nil
-                        let id = row.id
-                        withAnimation { store.form.removeRow(id: id) }
+            if !store.form.rows.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach($store.form.rows) { $row in
+                        TipOutParticipantRow(
+                            row: $row,
+                            person: people[row.id],
+                            bases: plan.bases(forRole: row.role),
+                            focus: $focus,
+                            onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
+                            onInfo: { infoRow = row },
+                            onRemove: {
+                                focus = nil
+                                let id = row.id
+                                withAnimation { store.form.removeRow(id: id) }
+                            }
+                        )
+                        if row.id != store.form.rows.last?.id {
+                            Rule()
+                                .padding(.leading, 54)
+                        }
                     }
-                )
+                }
+                .padding(.horizontal, 14)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
-                Button {
-                    focus = nil
-                    addingPerson = true
-                } label: {
-                    Label("Add someone for this shift", systemImage: "person.badge.plus")
-                        .font(.subheadline.weight(.semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }
-                .buttonStyle(.borderless)
+                addSomeoneButton
             }
         }
+    }
+
+    /// An empty slot at the end of the list, drawn dashed.
+    private var addSomeoneButton: some View {
+        Button {
+            focus = nil
+            addingPerson = true
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "plus")
+                    .font(.subheadline.weight(.heavy))
+                    .accessibilityHidden(true)
+                Text("Add someone for this shift")
+                    .font(.subheadline.weight(.semibold))
+            }
+            .foregroundStyle(Theme.ink)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .overlay {
+                RoundedRectangle(cornerRadius: Theme.corner, style: .continuous)
+                    .strokeBorder(Theme.inkSecondary, style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     /// Roles for the rule editor's menu: the crew's, this shift's, and the
@@ -323,19 +401,27 @@ struct NewShiftView: View {
         return roles
     }
 
-    // MARK: - Bottom bar
+    // MARK: - Dock
 
     private func summaryBar(live: ShiftForm.Live, readiness: ShiftForm.Readiness) -> some View {
         let pool = live.outcome.headlineCents
-        return VStack(spacing: 10) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(store.form.mode == .pool ? "Distributing" : "Tipping out")
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.inkSecondary)
-                Spacer()
-                MoneyText(cents: pool, font: .title3.weight(.bold))
+        // At accessibility text sizes the label sits over the amount, so
+        // neither has to break.
+        let stacked = dynamicTypeSize.isAccessibilitySize
+        let totalLayout = stacked
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 2))
+            : AnyLayout(HStackLayout(alignment: .firstTextBaseline))
+        return VStack(spacing: 12) {
+            totalLayout {
+                SectionLabel(store.form.mode == .pool ? "Distributing" : "Tipping out")
+                if !stacked { Spacer() }
+                MoneyText(cents: pool, font: .display(.title2))
+                    .foregroundStyle(Theme.ink)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
                     .accessibilityIdentifier("distributingAmount")
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityElement(children: .combine)
 
             if store.isFormSaved {
@@ -357,23 +443,27 @@ struct NewShiftView: View {
                 .accessibilityIdentifier("reviewSplit")
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 20)
         .padding(.top, 12)
         .padding(.bottom, 8)
-        .background(.bar)
+        .background { Theme.background.ignoresSafeArea() }
+        .overlay(alignment: .top) { Rule() }
     }
 
     // MARK: - Toolbar
 
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Wordmark()
+        }
         ToolbarItem(placement: .topBarLeading) {
             Menu {
                 Button {
                     focus = nil
                     store.loadExample()
                 } label: {
-                    Label("Try an Example", systemImage: "wand.and.stars")
+                    Label("Try an Example", systemImage: "play")
                 }
                 Button(role: .destructive) {
                     confirmStartOver = true
@@ -382,7 +472,8 @@ struct NewShiftView: View {
                 }
                 .disabled(!store.form.hasEnteredValues || store.isFormSaved)
             } label: {
-                Image(systemName: "ellipsis.circle")
+                Image(systemName: "ellipsis")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("More")
         }
@@ -392,6 +483,7 @@ struct NewShiftView: View {
                 router.path.append(.history)
             } label: {
                 Image(systemName: "clock.arrow.circlepath")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("History")
             .accessibilityIdentifier("historyButton")
@@ -402,8 +494,10 @@ struct NewShiftView: View {
                 showSettings = true
             } label: {
                 Image(systemName: "gearshape")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("Crew and settings")
+            .accessibilityIdentifier("settingsButton")
         }
         ToolbarItemGroup(placement: .keyboard) {
             Button("Next") {
@@ -414,5 +508,42 @@ struct NewShiftView: View {
             Button("Done") { focus = nil }
                 .fontWeight(.semibold)
         }
+    }
+}
+
+/// Picks the shift's date on a full calendar.
+struct ShiftDateSheet: View {
+    @Binding var day: CalendarDay
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(day.longText)
+                    .font(.display(.title3, weight: .bold))
+                    .foregroundStyle(Theme.ink)
+                Rule()
+                DatePicker(
+                    "Shift date",
+                    selection: Binding(get: { day.date() }, set: { day = CalendarDay($0) }),
+                    displayedComponents: .date
+                )
+                .datePickerStyle(.graphical)
+                .labelsHidden()
+                .tint(Theme.ink)
+                Spacer(minLength: 0)
+            }
+            .padding(20)
+            .background { Theme.background.ignoresSafeArea() }
+            .navigationTitle("Shift Date")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                        .fontWeight(.semibold)
+                }
+            }
+        }
+        .presentationDetents([.large])
     }
 }

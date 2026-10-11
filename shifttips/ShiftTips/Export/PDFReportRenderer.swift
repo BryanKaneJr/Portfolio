@@ -210,42 +210,70 @@ enum PDFReportRenderer {
 
         private var bottomLimit: CGFloat { Layout.page.height - Layout.margin - Layout.footerHeight }
 
+        // The app's look, in print: ink, hairlines, monospaced figures and
+        // the yellow behind the line that proves the split.
+        private static let ink = UIColor(hex: 0x141414)
+        private static let gray = UIColor(hex: 0x5C5B56)
+        private static let hairline = UIColor(hex: 0xDEDDD6)
+        private static let highlight = UIColor(hex: 0xFFD60A)
+
+        private static func mono(_ size: CGFloat, _ weight: UIFont.Weight = .regular) -> UIFont {
+            .monospacedSystemFont(ofSize: size, weight: weight)
+        }
+
         mutating func draw() {
             newPage()
             drawHeader()
             drawTableHeader()
-            for (index, row) in report.rows.enumerated() {
+            for row in report.rows {
                 if y + Layout.rowHeight > bottomLimit {
                     newPage()
                     drawTableHeader()
                 }
-                drawRow(row, shaded: index % 2 == 1)
+                drawRow(row)
             }
             drawTotals()
 
             for section in report.sections where !section.lines.isEmpty {
-                ensureSpace(40)
-                y += 14
-                y += text(section.title, at: y, font: .systemFont(ofSize: 11, weight: .semibold))
+                ensureSpace(44)
+                y += 18
+                y += text(section.title.uppercased(), at: y, font: Self.mono(8.5, .bold), color: Self.gray) + 3
+                fill(CGRect(x: Layout.margin, y: y, width: Layout.contentWidth, height: 0.75), Self.ink)
+                y += 6
                 for line in section.lines {
-                    let height = measure(line, font: .systemFont(ofSize: 9), width: Layout.contentWidth)
+                    let height = measure(line, font: .systemFont(ofSize: 9.5), width: Layout.contentWidth)
                     ensureSpace(height + 4)
-                    y += text(line, at: y, font: .systemFont(ofSize: 9), color: .darkGray) + 3
+                    y += text(line, at: y, font: .systemFont(ofSize: 9.5), color: Self.ink) + 4
                 }
             }
 
             let note = PolicyCopy.allocationNote + " " + PolicyCopy.disclaimer
             let noteHeight = measure(note, font: .systemFont(ofSize: 8.5), width: Layout.contentWidth)
-            ensureSpace(noteHeight + 20)
-            y += 16
-            text(note, at: y, font: .systemFont(ofSize: 8.5), color: .darkGray)
+            ensureSpace(noteHeight + 24)
+            y += 18
+            dashedLine(at: y)
+            y += 8
+            text(note, at: y, font: .systemFont(ofSize: 8.5), color: Self.gray)
         }
 
         private mutating func newPage() {
             context.beginPage()
             pageNumber += 1
             y = Layout.margin
-            text("\(report.footer) \u{00B7} Page \(pageNumber)", at: Layout.page.height - Layout.margin, font: .systemFont(ofSize: 8), color: .gray)
+            // Masthead: the wordmark, and what this document is and isn't.
+            let markFont = UIFont.rounded(ofSize: 10.5, weight: .black)
+            let shift = NSAttributedString(string: "SHIFT", attributes: [.font: markFont, .foregroundColor: Self.ink])
+            let tips = NSAttributedString(string: "TIPS", attributes: [.font: markFont, .foregroundColor: Self.ink])
+            shift.draw(at: CGPoint(x: Layout.margin, y: y))
+            let tipsX = Layout.margin + ceil(shift.size().width) + 1
+            fill(CGRect(x: tipsX, y: y - 1, width: ceil(tips.size().width) + 4, height: markFont.lineHeight + 2), Self.highlight, radius: 3)
+            tips.draw(at: CGPoint(x: tipsX + 2, y: y))
+            text("ALLOCATION, NOT PAYMENT", at: y + 1, font: Self.mono(7.5, .semibold), color: Self.gray, alignment: .right, singleLine: true)
+            y += 16
+            fill(CGRect(x: Layout.margin, y: y, width: Layout.contentWidth, height: 1.5), Self.ink)
+            y += 18
+            fill(CGRect(x: Layout.margin, y: Layout.page.height - Layout.margin - 8, width: Layout.contentWidth, height: 0.5), Self.hairline)
+            text("\(report.footer) \u{00B7} Page \(pageNumber)", at: Layout.page.height - Layout.margin, font: Self.mono(7.5), color: Self.gray)
         }
 
         private mutating func ensureSpace(_ height: CGFloat) {
@@ -253,64 +281,77 @@ enum PDFReportRenderer {
         }
 
         private mutating func drawHeader() {
-            y += text(report.title, at: y, font: .systemFont(ofSize: 20, weight: .bold))
-            y += text(report.subtitle, at: y, font: .systemFont(ofSize: 12), color: .darkGray) + 10
+            y += text(report.title, at: y, font: .rounded(ofSize: 24, weight: .heavy), color: Self.ink) + 2
+            y += text(report.subtitle, at: y, font: .systemFont(ofSize: 11), color: Self.gray) + 14
             for (label, value) in report.facts {
-                text(label, at: y, font: .systemFont(ofSize: 10), color: .darkGray)
-                text(value, at: y, x: Layout.margin + 110, width: Layout.contentWidth - 110, font: .monospacedDigitSystemFont(ofSize: 10, weight: .semibold))
+                text(label.uppercased(), at: y + 1, font: Self.mono(8, .semibold), color: Self.gray)
+                text(value, at: y, x: Layout.margin + 110, width: Layout.contentWidth - 110, font: Self.mono(10, .semibold), color: Self.ink)
                 y += 15
             }
-            y += 6
-            let color = report.reconciles ? UIColor(hex: 0x1E7A46) : UIColor(hex: 0x8F5300)
-            y += text(report.reconciliation, at: y, font: .systemFont(ofSize: 11, weight: .semibold), color: color) + 14
+            y += 10
+            let font = Self.mono(10, .bold)
+            let width = min(Layout.contentWidth, ceil(NSAttributedString(string: report.reconciliation, attributes: [.font: font]).size().width) + 12)
+            fill(CGRect(x: Layout.margin, y: y - 3, width: width, height: font.lineHeight + 6), report.reconciles ? Self.highlight : UIColor(hex: 0xFBEBDA), radius: 5)
+            y += text(report.reconciliation, at: y, x: Layout.margin + 6, width: Layout.contentWidth - 6, font: font, color: report.reconciles ? Self.ink : UIColor(hex: 0x9A4400)) + 18
         }
 
         private mutating func drawTableHeader() {
             var x = Layout.margin
             for (column, width) in zip(report.columns, widths) {
-                text(column.title.uppercased(), at: y, x: x + 4, width: width - 8, font: .systemFont(ofSize: 8, weight: .semibold), color: .darkGray, alignment: column.alignment)
+                text(column.title.uppercased(), at: y, x: x + 4, width: width - 8, font: Self.mono(7.5, .bold), color: Self.gray, alignment: column.alignment)
                 x += width
             }
-            y += 14
-            line(at: y)
+            y += 13
+            fill(CGRect(x: Layout.margin, y: y, width: Layout.contentWidth, height: 1), Self.ink)
             y += 4
         }
 
-        private mutating func drawRow(_ row: [String], shaded: Bool) {
-            if shaded {
-                UIColor(white: 0.96, alpha: 1).setFill()
-                UIRectFill(CGRect(x: Layout.margin, y: y - 2, width: Layout.contentWidth, height: Layout.rowHeight))
-            }
+        private mutating func drawRow(_ row: [String]) {
             var x = Layout.margin
             for (index, value) in row.enumerated() where index < widths.count {
                 let isLast = index == widths.count - 1
                 let font: UIFont = isLast
-                    ? .monospacedDigitSystemFont(ofSize: 10, weight: .semibold)
-                    : (index == 0 ? .systemFont(ofSize: 10) : .monospacedDigitSystemFont(ofSize: 10, weight: .regular))
-                text(value, at: y + 3, x: x + 4, width: widths[index] - 8, font: font, alignment: report.columns[index].alignment, singleLine: true)
+                    ? Self.mono(9.5, .bold)
+                    : (index == 0 ? .systemFont(ofSize: 10, weight: .medium) : Self.mono(9.5))
+                text(value, at: y + 4, x: x + 4, width: widths[index] - 8, font: font, color: Self.ink, alignment: report.columns[index].alignment, singleLine: true)
                 x += widths[index]
             }
             y += Layout.rowHeight
+            fill(CGRect(x: Layout.margin, y: y - 1, width: Layout.contentWidth, height: 0.5), Self.hairline)
         }
 
         private mutating func drawTotals() {
-            ensureSpace(Layout.rowHeight + 6)
-            line(at: y + 1)
-            y += 5
+            ensureSpace(Layout.rowHeight + 8)
+            fill(CGRect(x: Layout.margin, y: y + 1, width: Layout.contentWidth, height: 1), Self.ink)
+            fill(CGRect(x: Layout.margin, y: y + 4, width: Layout.contentWidth, height: 1), Self.ink)
+            y += 9
             var x = Layout.margin
             for (index, value) in report.totals.enumerated() where index < widths.count {
                 if !value.isEmpty {
-                    let font: UIFont = index == 0 ? .systemFont(ofSize: 10, weight: .bold) : .monospacedDigitSystemFont(ofSize: 10, weight: .bold)
-                    text(value, at: y, x: x + 4, width: widths[index] - 8, font: font, alignment: report.columns[index].alignment, singleLine: true)
+                    text(index == 0 ? value.uppercased() : value, at: y, x: x + 4, width: widths[index] - 8, font: Self.mono(9.5, .bold), color: Self.ink, alignment: report.columns[index].alignment, singleLine: true)
                 }
                 x += widths[index]
             }
             y += Layout.rowHeight
         }
 
-        private func line(at y: CGFloat) {
-            UIColor(white: 0.8, alpha: 1).setFill()
-            UIRectFill(CGRect(x: Layout.margin, y: y, width: Layout.contentWidth, height: 0.75))
+        private func fill(_ rect: CGRect, _ color: UIColor, radius: CGFloat = 0) {
+            color.setFill()
+            if radius > 0 {
+                UIBezierPath(roundedRect: rect, cornerRadius: radius).fill()
+            } else {
+                UIRectFill(rect)
+            }
+        }
+
+        private func dashedLine(at y: CGFloat) {
+            let path = UIBezierPath()
+            path.move(to: CGPoint(x: Layout.margin, y: y))
+            path.addLine(to: CGPoint(x: Layout.margin + Layout.contentWidth, y: y))
+            path.lineWidth = 0.75
+            path.setLineDash([2, 3], count: 2, phase: 0)
+            Self.gray.setStroke()
+            path.stroke()
         }
 
         /// Draws text and returns its height.

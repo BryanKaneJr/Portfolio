@@ -2,7 +2,7 @@
 
 GitHub builds, signs and uploads ShiftTips to TestFlight for you. You do the Apple side once in a web browser, add four secrets to GitHub, then press **Run workflow** whenever you want a new build on your phone.
 
-The workflow is `.github/workflows/shifttips-testflight.yml`. Every normal CI run also builds the Release version unsigned, so by the time you run it, the only new step is signing.
+The workflow is `.github/workflows/shifttips-testflight.yml`. It builds with Xcode 26, which App Store Connect requires for uploads. Every normal CI run also builds the Release version unsigned with the same Xcode, so by the time you run it, the only new step is signing.
 
 ## 1. Apple Developer Program
 

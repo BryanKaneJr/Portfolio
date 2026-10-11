@@ -15,7 +15,7 @@ struct ShiftDetailView: View {
     var body: some View {
         if let shift = store.shift(id: shiftId) {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 14) {
                     if let sourceId = shift.duplicatedFrom, let source = store.shift(id: sourceId) {
                         Banner(.info, "Duplicated from the shift on \(source.draft.title).")
                     }
@@ -38,13 +38,15 @@ struct ShiftDetailView: View {
                                 .multilineTextAlignment(.center)
                         }
                         Button("Delete Shift", role: .destructive) { confirmDelete = true }
-                            .frame(minHeight: 44)
+                            .buttonStyle(TextButtonStyle(color: Theme.danger))
                     }
                     .padding(.top, 8)
                 }
-                .padding(16)
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+                .padding(.bottom, 24)
             }
-            .background(Theme.background.ignoresSafeArea())
+            .background { Theme.background.ignoresSafeArea() }
             .navigationTitle(shift.day.mediumText)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -68,7 +70,16 @@ struct ShiftDetailView: View {
                 Text("The tips and hours you've typed on the New Shift screen will be replaced by a copy of this shift.")
             }
         } else {
-            ContentUnavailableView("Shift Deleted", systemImage: "trash", description: Text("This shift is no longer on this iPhone."))
+            VStack(alignment: .leading, spacing: 12) {
+                SectionHeader("Shift deleted")
+                Text("This shift is no longer on this iPhone.")
+                    .font(.title3)
+                    .foregroundStyle(Theme.ink)
+                Spacer()
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background { Theme.background.ignoresSafeArea() }
         }
     }
 

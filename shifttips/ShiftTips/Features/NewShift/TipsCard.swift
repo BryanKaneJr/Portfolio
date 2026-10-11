@@ -1,86 +1,112 @@
 import SwiftUI
 import ShiftTipsCore
 
-/// The big pooled-tips input, with optional separate cash and card fields.
+/// The pooled tips, typed big on the dark tips card, with optional
+/// separate cash and card amounts.
 struct TipsCard: View {
     @Binding var form: ShiftForm
     var focus: FocusState<ShiftForm.Field?>.Binding
     /// Simple hides the separate cash and card amounts.
     var allowsCashAndCard = true
-    @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 46
+    @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 52
 
     var body: some View {
-        VStack(spacing: 14) {
-            Text("TODAY'S POOLED TIPS")
-                .font(.caption.weight(.semibold))
-                .tracking(1)
-                .foregroundStyle(Theme.onHeroSecondary)
-                .accessibilityAddTraits(.isHeader)
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader("Tips to split")
 
-            if form.splitCashAndCard {
-                amountRow("Cash", text: $form.cashText, field: .cash)
-                amountRow("Card", text: $form.cardText, field: .card)
-                Divider().overlay(Theme.onHeroSecondary.opacity(0.4))
-                HStack {
-                    Text("Total pool")
-                        .font(.subheadline.weight(.semibold))
-                    Spacer()
-                    Text(totalText)
-                        .font(.title2.weight(.bold))
+            VStack(alignment: .leading, spacing: 14) {
+                if form.splitCashAndCard {
+                    amountRow("Cash", text: $form.cashText, field: .cash)
+                    amountRow("Card", text: $form.cardText, field: .card)
+                    Rectangle()
+                        .fill(Theme.onHeroSecondary.opacity(0.35))
+                        .frame(height: 1)
+                        .accessibilityHidden(true)
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("TOTAL POOL")
+                            .font(.mono(.caption, weight: .semibold))
+                            .tracking(1)
+                            .foregroundStyle(Theme.onHeroSecondary)
+                        Spacer()
+                        Text(totalText)
+                            .font(.display(.title2))
+                            .monospacedDigit()
+                            .foregroundStyle(Theme.onHero)
+                    }
+                    .accessibilityElement(children: .combine)
+                } else {
+                    HStack(alignment: .firstTextBaseline) {
+                        TextField(
+                            "Pooled tips",
+                            text: dollarBinding($form.tipsText),
+                            prompt: Text("$0.00").foregroundStyle(Theme.onHeroSecondary)
+                        )
+                        .font(.system(size: heroSize, weight: .heavy, design: .rounded))
                         .monospacedDigit()
+                        .foregroundStyle(Theme.onHero)
+                        .tint(Theme.highlight)
+                        .keyboardType(.decimalPad)
+                        .focused(focus, equals: .tips)
+                        .id(ShiftForm.Field.tips)
+                        .accessibilityLabel("Pooled tips")
+                        .accessibilityIdentifier("tipsField")
+                        Text("USD")
+                            .font(.mono(.caption, weight: .semibold))
+                            .foregroundStyle(Theme.onHeroSecondary)
+                            .accessibilityHidden(true)
+                    }
                 }
-                .accessibilityElement(children: .combine)
-            } else {
-                TextField(
-                    "Pooled tips",
-                    text: dollarBinding($form.tipsText),
-                    prompt: Text("$0.00").foregroundStyle(Theme.onHeroSecondary)
-                )
-                .font(.system(size: heroSize, weight: .bold, design: .rounded))
-                .monospacedDigit()
-                .multilineTextAlignment(.center)
-                .keyboardType(.decimalPad)
-                .focused(focus, equals: .tips)
-                .minimumScaleFactor(0.6)
-                .id(ShiftForm.Field.tips)
-                .accessibilityLabel("Pooled tips")
-                .accessibilityIdentifier("tipsField")
-            }
 
-            if let error = errorText {
-                Label(error, systemImage: "exclamationmark.triangle.fill")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(Theme.onHero)
+                if let error = errorText {
+                    Label(error, systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.highlight)
+                }
             }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.hero, in: RoundedRectangle(cornerRadius: Theme.cardCorner + 4, style: .continuous))
+            .overlay {
+                // A yellow ring while typing the tips.
+                RoundedRectangle(cornerRadius: Theme.cardCorner + 4, style: .continuous)
+                    .strokeBorder(Theme.highlight, lineWidth: focus.wrappedValue == .tips ? 2 : 0)
+            }
+            .animation(.snappy(duration: 0.2), value: focus.wrappedValue == .tips)
 
             if allowsCashAndCard {
                 Toggle(isOn: Binding(get: { form.splitCashAndCard }, set: { form.setSplitCashAndCard($0) })) {
-                    Text("Separate cash & card")
+                    Text("Separate cash and card")
                         .font(.subheadline)
                 }
-                .tint(Theme.accent)
+                .toggleStyle(CheckboxToggleStyle())
+                .padding(.horizontal, 4)
                 .accessibilityIdentifier("splitCashCardToggle")
             }
         }
-        .padding(20)
-        .foregroundStyle(Theme.onHero)
-        .background(Theme.hero, in: RoundedRectangle(cornerRadius: Theme.corner + 4, style: .continuous))
     }
 
     private func amountRow(_ title: String, text: Binding<String>, field: ShiftForm.Field) -> some View {
         HStack(spacing: 12) {
-            Text(title)
-                .font(.headline)
+            Text(title.uppercased())
+                .font(.mono(.subheadline, weight: .semibold))
+                .foregroundStyle(Theme.onHeroSecondary)
                 .frame(width: 56, alignment: .leading)
+                .accessibilityHidden(true)
             TextField(title, text: dollarBinding(text), prompt: Text("$0.00").foregroundStyle(Theme.onHeroSecondary))
-                .font(.system(.title, design: .rounded).weight(.bold))
+                .font(.display(.title))
                 .monospacedDigit()
+                .foregroundStyle(Theme.onHero)
+                .tint(Theme.highlight)
                 .multilineTextAlignment(.trailing)
                 .keyboardType(.decimalPad)
                 .focused(focus, equals: field)
                 .padding(.horizontal, 12)
                 .frame(minHeight: 52)
                 .background(Theme.heroField, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .strokeBorder(Theme.highlight, lineWidth: focus.wrappedValue == field ? 2 : 0)
+                }
                 .id(field)
                 .accessibilityLabel("\(title) tips")
         }

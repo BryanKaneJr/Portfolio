@@ -1,4 +1,5 @@
 import PDFKit
+import UIKit
 import XCTest
 import ShiftTipsCore
 @testable import ShiftTips
@@ -19,6 +20,7 @@ final class PDFReportRendererTests: XCTestCase {
         XCTAssertTrue(text.contains("Ava (Server)"))
         XCTAssertTrue(text.contains("$113.37"))
         XCTAssertTrue(text.contains("not a record") || text.contains("isn't a record"))
+        attachFirstPage(document, "PDF Tip Pool")
     }
 
     func testCashAndCardColumnsAppear() throws {
@@ -43,6 +45,9 @@ final class PDFReportRendererTests: XCTestCase {
         XCTAssertTrue(text.contains("Busser: $75.91"))
         XCTAssertTrue(text.contains("Server \u{2192} Busser: 2% of sales"))
         XCTAssertTrue(text.contains("$322.30"))
+        if let document = PDFDocument(data: PDFReportRenderer.render(.tipOut(result), savedAt: nil)) {
+            attachFirstPage(document, "PDF Tip Out")
+        }
     }
 
     func testLongCrewsContinueOnMorePages() throws {
@@ -59,5 +64,15 @@ final class PDFReportRendererTests: XCTestCase {
         let text = try XCTUnwrap(document.string)
         XCTAssertTrue(text.contains("Person 80"))
         XCTAssertTrue(text.contains("Page 2"))
+    }
+
+    /// Keeps a picture of the first page with the results, for checking
+    /// the report's design without a Mac.
+    private func attachFirstPage(_ document: PDFDocument, _ name: String) {
+        guard let page = document.page(at: 0) else { return }
+        let attachment = XCTAttachment(image: page.thumbnail(of: CGSize(width: 1224, height: 1584), for: .mediaBox))
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }
