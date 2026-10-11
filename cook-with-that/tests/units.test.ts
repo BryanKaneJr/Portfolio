@@ -79,6 +79,13 @@ describe('steps in metric', () => {
     expect(step('Warm the milk (about 100°F / 38°C).')).toBe('Warm the milk (about 38°C).');
     expect(step('Heat the air fryer to 400°F (200°C).')).toBe('Heat the air fryer to 200°C.');
     expect(step('Bake at 400°F.')).toBe('Bake at 200°C (180°C fan, gas 6).');
+    // Air-frying, frying oil and sugar work aren't ovens: no fan or gas mark.
+    expect(step('Or air-fry them at 400°F (200°C) for 10 minutes.')).toBe('Or air-fry them at 200°C for 10 minutes.');
+    expect(step('Heat the oil to 350°F.')).toBe('Heat the oil to 180°C.');
+    expect(step('Boil the syrup to 240°F.')).toBe('Boil the syrup to 116°C.');
+    expect(step('Heat the oven to 400°F (200°C) and oil a baking sheet.')).toBe(
+      'Heat the oven to 200°C (180°C fan, gas 6) and oil a baking sheet.',
+    );
     expect(step('Fry until it reads 350°F on a thermometer')).toContain('180°C');
   });
 

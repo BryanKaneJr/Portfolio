@@ -363,10 +363,15 @@ export function displayStep(text: string, system: UnitSystem, index?: Ingredient
     (whole, f: string, c1?: string, c2?: string, offset?: number) => {
       const fahrenheit = Number(f);
       const sentence = text.slice(Math.max(0, (offset ?? 0) - 60), (offset ?? 0) + whole.length + 20);
-      const oven = fahrenheit >= 250 && !/air[ -]?fryer/i.test(sentence);
-      // The author's °C when given; otherwise convert (ovens to the nearest 10, like UK recipes).
+      // Air fryers, frying oil and sugar work get plain °C: fan and gas marks only mean something for an oven.
+      const notOven =
+        /air[ -]?fr(y|ie)/i.test(sentence) ||
+        (/\b(oil|fat|lard|fry|frying|deep-fry|candy|syrup|caramel)\b/i.test(sentence) &&
+          !/\b(oven|bake|roast|broil)/i.test(sentence));
+      const oven = fahrenheit >= 250 && !notOven;
+      // The author's °C when given; otherwise convert (oven and frying heats to the nearest 10, like UK recipes).
       const exact = (fahrenheit - 32) * (5 / 9);
-      const celsius = Number(c1 ?? c2 ?? (oven ? Math.round(exact / 10) * 10 : Math.round(exact)));
+      const celsius = Number(c1 ?? c2 ?? (fahrenheit >= 250 ? Math.round(exact / 10) * 10 : Math.round(exact)));
       return oven
         ? `${celsius}°C (${Math.round((celsius - 20) / 5) * 5}°C fan, gas ${gasMark(fahrenheit)})`
         : `${celsius}°C`;
