@@ -205,7 +205,7 @@ class GameStore {
         break;
       }
     }
-    if (s.achievements.length > before) recordAchievements(s.achievements.slice(before));
+    if (s.achievements.length > before) recordAchievements(s.achievements.slice(before)).catch(() => {});
     const y = dateOf(s.day).year;
     if (y !== this.lastSavedYear) {
       this.lastSavedYear = y;

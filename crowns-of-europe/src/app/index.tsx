@@ -91,7 +91,7 @@ export default function Title() {
                     <Pressable
                       hitSlop={10}
                       onPress={async () => {
-                        await deleteSave(m.slot);
+                        await deleteSave(m.slot).catch(() => {});
                         setSaves(await listSaves());
                         setLatest(await latestSave());
                       }}
