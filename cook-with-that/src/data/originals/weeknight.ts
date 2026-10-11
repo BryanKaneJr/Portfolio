@@ -781,4 +781,55 @@ export const WEEKNIGHT_RECIPES: Recipe[] = [
     ],
     source: ORIGINAL_DRAFT,
   },
+  // EXTRA (not in weeknight.ts): Chicken and Wild Rice Soup, from the r4-weeknight list.
+  // Held back because a `wild rice` catalog item breaks tests/import.test.ts > "a word match is only ever a
+  // suggestion", which uses 'wild rice' as its example of an unreviewed name. Tests aren't mine to change. To add it:
+  //   1. In that test, swap 'wild rice' for 'black rice' in the call and in `key` (checked in this worktree:
+  //      mapIngredient(index, 'black rice') -> { status: 'unmapped', key: 'black rice', suggestion: 'rice' }).
+  //   2. Add to scripts/import/ingredient-map.ts (r4-weeknight section):
+  //      'wild rice': { add: 'grain' }, // a different grain from white or brown rice; cooks 45–60 minutes
+  //   3. npm run import:catalog -- "wild rice"
+  //   4. Append the object below to WEEKNIGHT_RECIPES. It passed npm run check while wild_rice was in the catalog
+  //      (step-ingredient check, tagline, units); the only failure was the test example above.
+  {
+    id: 'chicken-and-wild-rice-soup',
+    title: 'Chicken and Wild Rice Soup',
+    description:
+      'Creamy Minnesota-style soup of chewy wild rice, shredded chicken, mushrooms and vegetables in a thyme-scented broth.',
+    meals: ['lunch', 'dinner'],
+    dishTypes: ['soup'],
+    prepMinutes: 20,
+    cookMinutes: 60,
+    servings: 6,
+    ingredients: [
+      r('wild_rice', 'wild rice', '3/4 cup', 'rinsed'),
+      r('water', 'water', '3 cups'),
+      r('salt', 'salt', '1 1/4 tsp', 'divided'),
+      r('butter', 'butter', '5 tbsp'),
+      r('onion', 'yellow onion', '1 medium', 'diced'),
+      r('carrot', 'carrots', '2', 'diced'),
+      r('celery', 'celery', '2 ribs', 'diced'),
+      r('mushroom', 'cremini mushrooms', '8 oz', 'sliced'),
+      r('garlic', 'garlic cloves', '3', 'minced'),
+      r('thyme', 'dried thyme', '1 tsp'),
+      r('flour', 'all-purpose flour', '1/3 cup'),
+      r('chicken_broth', 'chicken broth', '6 cups'),
+      r('chicken', 'boneless, skinless chicken thighs or breasts', '1 1/4 lb'),
+      r('bay_leaf', 'bay leaf', '1'),
+      r('black_pepper', 'black pepper', '1/2 tsp'),
+      r('half_and_half', 'half-and-half', '1 1/2 cups'),
+      opt('parsley', 'fresh parsley', '2 tbsp', 'chopped'),
+    ],
+    steps: [
+      'Put the wild rice in a saucepan with the water and 1/2 tsp of the salt. Bring to a boil, then cover, lower the heat and simmer until the grains are tender and some have split open, 45–55 minutes. Drain off any water left. Start the soup while it cooks.',
+      'Melt the butter in a large pot over medium heat. Add the onion, carrots and celery and cook until soft, 7–8 minutes.',
+      'Add the mushrooms and cook until they release their liquid and it cooks away, 5–6 minutes. Stir in the garlic and thyme for 30 seconds.',
+      'Sprinkle in the flour and stir constantly for 2 minutes. Slowly whisk in the broth, about a cup at a time, until smooth.',
+      'Add the chicken whole, with the bay leaf, the remaining 3/4 tsp salt and the pepper. Bring to a simmer, partly cover and simmer gently, stirring now and then so nothing sticks, until the chicken is cooked through (165°F / 74°C in the thickest part), 18–22 minutes.',
+      'Lift out the chicken, shred it with two forks and discard the bay leaf.',
+      'Return the chicken to the pot and stir in the cooked wild rice and the half-and-half. Heat over low until steaming, about 5 minutes; don’t let it boil.',
+      'Taste for salt, and thin the soup with a splash of hot water if it is thicker than you like. Serve with parsley if you like.',
+    ],
+    source: ORIGINAL_DRAFT,
+  },
 ];

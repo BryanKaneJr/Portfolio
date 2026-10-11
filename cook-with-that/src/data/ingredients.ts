@@ -598,4 +598,5 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'almond_extract', name: 'Almond extract', category: 'pantry', aliases: [] },
   { id: 'poppy_seeds', name: 'Poppy seeds', category: 'pantry', aliases: [] },
   { id: 'almond_flour', name: 'Almond flour', category: 'grain', aliases: ['ground almonds'] },
+  { id: 'wild_rice', name: 'Wild rice', category: 'grain', aliases: [] },
 ];

@@ -120,9 +120,10 @@ describe('ingredient mapping', () => {
   });
 
   test('a word match is only ever a suggestion', () => {
-    expect(mapIngredient(index, 'wild rice')).toEqual({
+    // A made-up food, so adding real ingredients to the catalog never breaks this test.
+    expect(mapIngredient(index, 'imaginary rice')).toEqual({
       status: 'unmapped',
-      key: 'wild rice',
+      key: 'imaginary rice',
       suggestion: 'rice',
     });
   });

@@ -842,6 +842,9 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'almond flour': { add: 'grain' }, // finely ground blanched almonds; whole or sliced almonds are `almonds`
   'ground almonds': '=almond flour', // the British name for the same thing
 
+  // ── Chicken and Wild Rice Soup (r4-weeknight extra) ──
+  'wild rice': { add: 'grain' }, // a different grain from white rice (a grass seed); cooks far longer
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
