@@ -57,8 +57,10 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
   add the ingredient's weight per cup to `GRAMS_PER_CUP`.
 - **Write the tagline** (`description`) in the house style; see "Taglines" below.
 - **Tag meals and dish types.** The guesses come from the source's tags and title, so check them.
-  Give a dish type only when one honestly fits; desserts, sides and grilled mains often have none and are
-  found by their meal. Dips, salsas and spreads are "Dips & Salsas" (`dip`); pancakes and crêpes are Skillet.
+  Every recipe needs at least one (`npm run check` fails without). Appetizers, sides and desserts get theirs
+  from the meal automatically; give any other kind that fits too. Grill or broiler as the main method is
+  `grilled`; deep-, shallow- (1/4 inch of oil or more) or air-fried is `fried`; dips, salsas and spreads are
+  `dip`; pancakes and crêpes are Skillet; toast-based dishes are Sandwich/Wrap.
 - **Set realistic times**, including chilling or resting.
 - **Leave out the source's chatter**: "Enjoy!", anecdotes, links to other pages.
 - **Optional means optional.** Only garnishes and serve-withs are `opt(...)`; the recipe must work

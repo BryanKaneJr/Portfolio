@@ -31,7 +31,8 @@ The editing checklist in [recipe-import.md](recipe-import.md) applies in full. I
   chilling. No warnings on runny yolks or raw-yolk dishes.
 - **Steps** a beginner can follow: one action per step, visual cues ("until golden at the edges"), no filler.
 - **A tagline** in the house style (see "Taglines" in recipe-import.md).
-- **Meals and a dish type** from `src/data/types.ts`. Give a dish type whenever one honestly fits.
+- **Meals and a dish type** from `src/data/types.ts`; every recipe needs a dish type (see the checklist in
+  recipe-import.md).
 - **Ingredients come from the catalog.** If a recipe needs one the catalog lacks, review its key into
   `scripts/import/ingredient-map.ts` as `{ add: category }` and run `npm run import:catalog -- "<key>"`. Never alias a
   different food to an existing ID.

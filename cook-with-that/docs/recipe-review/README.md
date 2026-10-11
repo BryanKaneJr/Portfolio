@@ -25,13 +25,15 @@ were small and practical:
 
 ## Owner decisions (applied 2026-10-11)
 
-1. **Dish types.** Added one type, **Dips & Salsas** (`dip`): hummus, tzatziki, guacamole, pico de gallo, corn salsa,
-   seven-layer dip, refried black beans, and spinach-artichoke dip and baba ganoush (also Casserole/Bake). Pancakes
-   and crêpes are Skillet; fresh lumpia is a wrap. No "No-Bake Desserts" type (owner: they "can just go in dessert")
-   and no "Grilled" type. 34 recipes still have no dish type: desserts, sides and appetizers found by their meal, plus
-   grilled, air-fried and deep-fried mains that fit none of the nine types (huli huli and sesame-ginger chicken
-   skewers, chicken satay, ginger-soy pork tenderloin, Greek flank steak, turkey mole, air fryer tenders and
-   drumsticks, fish and chips). Thai peanut noodles stays Pasta: it's made with spaghetti or linguine.
+1. **Dish types.** First pass: added **Dips & Salsas** (`dip`) for hummus, tzatziki, guacamole, pico de gallo, corn
+   salsa, seven-layer dip, refried black beans, and spinach-artichoke dip and baba ganoush; pancakes and crêpes became
+   Skillet; fresh lumpia a wrap. Owner follow-up: "add dish types so none are absent from recipes". So five more:
+   **Grilled** (17: skewers, satay, kebabs, flank steak, pork tenderloin, souvlaki, kofta, turkey burgers…),
+   **Fried** (10: fish and chips, air fryer tenders, drumsticks and zucchini, churros, falafel, katsu, schnitzel,
+   guobaorou, torrijas), and **Appetizers** (38), **Sides** (82) and **Desserts** (70), which every appetizer, side
+   and dessert gets from its meal. Kettle corn is Desserts, waffles Baked Goods, eggs Benedict Sandwich/Wrap (like
+   the other toast dishes). Every recipe now has a dish type, and the validator keeps it that way. Thai peanut
+   noodles stays Pasta: it's made with spaghetti or linguine.
 2. **Eggs.** Owner: "being scared of people not cooking yolk is ridiculous... people eat over easy eggs every day."
    No egg warnings anywhere; the pasteurized-egg wording added to carbonara and tiramisu was taken out.
 3. **Steak doneness.** Owner: medium-rare is fine, with "a disclaimer of what the USDA says". Steaks and lamb chops

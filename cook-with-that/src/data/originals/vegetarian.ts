@@ -250,7 +250,7 @@ export const VEGETARIAN_RECIPES: Recipe[] = [
     description:
       'Crisp, herb-green falafel made the traditional way from soaked dried chickpeas, tucked into pita with lemony tahini sauce.',
     meals: ['lunch', 'dinner'],
-    dishTypes: ['sandwich'],
+    dishTypes: ['sandwich', 'fried'],
     prepMinutes: 780,
     cookMinutes: 20,
     servings: 4,

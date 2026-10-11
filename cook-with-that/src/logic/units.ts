@@ -388,6 +388,11 @@ function gasMark(f: number): string {
   return String(Math.min(10, Math.round((f - 250) / 25)));
 }
 
+/** A US measure followed by the author's metric in brackets: "1/3 inch (8 mm)", "1 1/4 cups (300 ml)". */
+const AUTHOR_METRIC = new RegExp(
+  String.raw`(?:${NUM})(?:\s*(?:–|—|-|to)\s*(?:${NUM}))?(?:-| )(?:inch(?:es)?|cups?|quarts?|pints?|ounces?|oz|pounds?|lbs?)\s*\(\s*((?:about\s+)?(?:${NUM})(?:\s*[–-]\s*(?:${NUM}))?\s*(?:cm|mm|g|kg|ml|l|lit(?:er|re)s?))\s*\)`,
+  'g',
+);
 const LIQUID_WORDS = /\b(water|milk|broth|stock|juice|oil|cream|sauce|wine|vinegar|batter)\b/i;
 const STEP_FILLERS = new Set([
   'of',
@@ -447,8 +452,21 @@ export function displayStep(text: string, system: UnitSystem, index?: Ingredient
     },
   );
 
+  // The author's own metric wins: "4 inches (10 cm)" → "10 cm", "3/4 cup (175 g)" → "175 g".
+  s = s.replace(AUTHOR_METRIC, (_, metric: string) => metric.replace(/\blit(?:er|re)(s?)\b/, 'litre$1'));
+
   s = convertLengths(s);
-  // "1 1/2-quart baking dish".
+  // "4- to 5-quart pot" (both ends), then "1 1/2-quart baking dish".
+  s = s.replace(
+    new RegExp(String.raw`(${NUM})-?\s*(?:–|—|-|to)\s*(${NUM})-quart\b`, 'g'),
+    (_, a: string, b: string) => {
+      const lo = formatVolume(parseNumber(a) * ML_PER_QUART);
+      const hi = formatVolume(parseNumber(b) * ML_PER_QUART);
+      return lo.endsWith(' litres') && hi.endsWith(' litres')
+        ? `${lo.replace(' litres', '')}–${hi.replace(' litres', '-litre')}`
+        : `${lo}–${hi}`;
+    },
+  );
   s = s.replace(new RegExp(String.raw`(${NUM})-quart\b`, 'g'), (_, a: string) =>
     formatVolume(parseNumber(a) * ML_PER_QUART).replace(' litres', '-litre'),
   );

@@ -29,7 +29,7 @@ export const VA_RECIPES: Recipe[] = [
     description:
       'Cumin-and-lime grilled chicken over romaine with black beans, corn, avocado and a cilantro-lime yogurt dressing.',
     meals: ['dinner', 'lunch'],
-    dishTypes: ['salad', 'bowl'],
+    dishTypes: ['salad', 'bowl', 'grilled'],
     prepMinutes: 25,
     cookMinutes: 15,
     servings: 4,
@@ -859,7 +859,7 @@ export const VA_RECIPES: Recipe[] = [
       r('brown_sugar', 'brown sugar', '1 tbsp'),
     ],
     steps: [
-      'Heat the oven to 350°F (175°C). Coat 8 cups of a standard 12-cup muffin tin with cooking spray, or brush them with the oil.',
+      'Heat the oven to 350°F (175°C). Coat 8 of the cups in a standard 12-cup muffin tin with cooking spray, or brush them with the oil.',
       'In a large bowl, combine the turkey, oats, carrot, thawed frozen spinach, Parmesan, egg, garlic powder, Italian seasoning, salt, pepper, Worcestershire sauce and 3 tbsp of the ketchup. Mix gently with your hands until evenly combined, without overworking it.',
       'Divide the mixture among the 8 greased cups (a heaping 1/3 cup each) and press it in lightly.',
       'Stir the remaining 3 tbsp ketchup with the brown sugar and spread about 1/2 tbsp over each meatloaf.',
@@ -874,7 +874,7 @@ export const VA_RECIPES: Recipe[] = [
     description:
       'Chicken marinated in soy, rice vinegar, sesame oil, ginger and lemon zest, then grilled or broiled on skewers until browned.',
     meals: ['dinner'],
-    dishTypes: [],
+    dishTypes: ['grilled'],
     prepMinutes: 80,
     cookMinutes: 10,
     servings: 4,
@@ -909,7 +909,7 @@ export const VA_RECIPES: Recipe[] = [
     description:
       'Drumsticks rubbed with paprika and garlic, cooked in the air fryer until the skin is browned and crisp. About 20 minutes.',
     meals: ['dinner'],
-    dishTypes: [],
+    dishTypes: ['fried'],
     prepMinutes: 5,
     cookMinutes: 25,
     servings: 2,

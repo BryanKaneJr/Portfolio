@@ -101,6 +101,15 @@ describe('steps in metric', () => {
     expect(step('a skillet 8 to 9 inches across')).toBe('a skillet 20–23 cm across');
     expect(step('Cut into 2- to 3-inch pieces.')).toBe('Cut into 5–8 cm pieces.');
     expect(step('Butter a 1 1/2-quart baking dish.')).toBe('Butter a 1.4-litre baking dish.');
+    expect(step('a heavy 4- to 5-quart pot')).toBe('a heavy 3.8–4.7-litre pot');
+  });
+
+  test('the author\'s own metric wins in steps (it once read "10 cm (10 cm)")', () => {
+    expect(step('about 4 inches (10 cm) below the broiler')).toBe('about 10 cm below the broiler');
+    expect(step('Cut it into 3/4-inch (2 cm) pieces.')).toBe('Cut it into 2 cm pieces.');
+    expect(step('Measure out 3/4 cup (175 g).')).toBe('Measure out 175 g.');
+    expect(step('and 1 1/4 cups (300 ml) of the water')).toBe('and 300 ml of the water');
+    expect(step('a 1 1/2-quart (1.5 liter) baking dish')).toBe('a 1.5 litre baking dish');
   });
 
   test('cups in steps follow the ingredient they measure', () => {
@@ -148,6 +157,17 @@ describe('the whole library in metric', () => {
         .flatMap(i => [i.displayName, i.preparation ?? ''])
         .map(t => displayStep(t, 'metric', ingredientIndex))
         .filter(t => IMPERIAL.test(t))
+        .map(t => `${r.id}: ${t}`),
+    );
+    expect(left).toEqual([]);
+  });
+
+  test('no measure is shown twice', () => {
+    const TWICE = /\d[\d.,]*\s*(cm|mm|g|kg|ml|litres?)\b[^()\d]{0,12}\(\s*(?:about\s+)?[\d.,–-]+\s*\1\b/;
+    const left = RECIPES.flatMap(r =>
+      [...r.steps, ...r.ingredients.flatMap(i => [i.displayName, i.preparation ?? ''])]
+        .map(t => displayStep(t, 'metric', ingredientIndex))
+        .filter(t => TWICE.test(t))
         .map(t => `${r.id}: ${t}`),
     );
     expect(left).toEqual([]);

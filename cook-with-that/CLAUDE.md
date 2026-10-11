@@ -51,9 +51,13 @@ Hard rules (from the plan, still in force):
    maybe in settings?"). Avoid stays per ingredient: avoiding pork chops doesn't hide bacon, and avoiding chicken
    doesn't hide chicken broth. Don't add food groups or "contains" tags. Instead, Settings has an **Allergies** note
    saying Avoid only sees listed ingredients and the cook must check labels. Keep that note off the Avoid list itself.
-11. **Dish types stay few** (owner, 2026-10-11). One was added: **Dips & Salsas** (`dip`). No "No-Bake Desserts" (they
-   "can just go in dessert") and no "Grilled" type. Tag a dish type only when one honestly fits; a recipe with none
-   is still found by its meal (34 have none: desserts, sides, appetizers, grilled and air-fried mains).
+11. **Every recipe has a dish type** (owner, 2026-10-11: "add dish types so none are absent from recipes"; no-bake
+   desserts "can just go in dessert"). Six were added to the plan's nine: **Grilled** (grill or broiler is the main
+   method), **Fried** (deep, shallow in 1/4 inch or more of oil, or air-fried), **Dips & Salsas**, and **Appetizers**,
+   **Sides** and **Desserts**. The last three follow from the meal: `RECIPES` adds them to every appetizer, side and
+   dessert (`MEAL_DISH_TYPES`, `withMealDishTypes`), so recipe files don't list them, and cards and recipe pages
+   don't repeat them next to the meal (`shownDishTypes`). The validator rejects a recipe with no dish type. Keep the
+   labels short: the Dish type button cuts off anything longer than about 13 characters.
 12. **No egg warnings** (owner: "being scared of people not cooking yolk is ridiculous... people eat over easy eggs
    every day"). Runny yolks, hollandaise, carbonara and tiramisu carry no caution or pasteurized-egg note.
 13. **Medium-rare is fine, with the USDA's number beside it** (owner: "just put a disclaimer of what the usda says").

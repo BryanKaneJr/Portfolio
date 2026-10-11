@@ -1,7 +1,7 @@
 import { IMPORTED_RECIPES } from './imported';
 import { ORIGINAL_RECIPES } from './originals';
 import { ORIGINAL_DRAFT, opt, r } from './recipeBuilders';
-import type { Recipe } from './types';
+import { MEAL_DISH_TYPES, type Recipe } from './types';
 
 /**
  * Seed recipe library (Phase 1).
@@ -792,4 +792,10 @@ const SEED_RECIPES: Recipe[] = [
  * The shipped library: hand-written seed recipes, original recipes written since (src/data/originals), then
  * everything imported from open collections (src/data/imported).
  */
-export const RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES, ...IMPORTED_RECIPES];
+/** Adds the dish types a recipe's meals imply (a dessert is also a Desserts dish); see `MEAL_DISH_TYPES`. */
+export function withMealDishTypes(recipe: Recipe): Recipe {
+  const implied = recipe.meals.flatMap(m => MEAL_DISH_TYPES[m] ?? []).filter(d => !recipe.dishTypes.includes(d));
+  return implied.length ? { ...recipe, dishTypes: [...recipe.dishTypes, ...implied] } : recipe;
+}
+
+export const RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES, ...IMPORTED_RECIPES].map(withMealDishTypes);

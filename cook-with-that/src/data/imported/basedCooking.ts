@@ -484,7 +484,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     title: 'Air Fryer Zucchini',
     description: 'Zucchini cubes tossed in olive oil and seasoned salt, air-fried until browned at the edges.',
     meals: ['side'],
-    dishTypes: [],
+    dishTypes: ['fried'],
     prepMinutes: 10,
     cookMinutes: 10,
     servings: 2,
@@ -1021,7 +1021,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Thin pork shoulder steaks soaked in a soy, honey and lime marinade, then seared and basted to a sticky glaze.',
     meals: ['dinner'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'grilled'],
     prepMinutes: 40,
     cookMinutes: 20,
     servings: 4,
@@ -1525,7 +1525,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       "Australia's barbecue classic: a grilled sausage and golden fried onions folded into buttered white bread with ketchup.",
     meals: ['lunch', 'snack'],
-    dishTypes: ['sandwich'],
+    dishTypes: ['sandwich', 'grilled'],
     prepMinutes: 5,
     cookMinutes: 20,
     servings: 4,
@@ -1579,7 +1579,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Breaded chicken strips air-fried with just a brush of olive oil until crunchy, with a two-minute honey mustard dip.',
     meals: ['dinner', 'snack', 'appetizer'],
-    dishTypes: [],
+    dishTypes: ['fried'],
     prepMinutes: 15,
     cookMinutes: 20,
     servings: 4,
@@ -1992,7 +1992,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Sweet-and-salty popcorn made on the stove, with the sugar added to the pot so it coats every kernel. Ready in 10 minutes.',
     meals: ['snack'],
-    dishTypes: [],
+    dishTypes: ['sweets'],
     prepMinutes: 2,
     cookMinutes: 6,
     servings: 3,
@@ -2016,7 +2016,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     title: 'Eggs Benedict',
     description: 'Poached eggs and seared Canadian bacon on English muffins, under a quick blender hollandaise.',
     meals: ['breakfast'],
-    dishTypes: [],
+    dishTypes: ['sandwich'],
     prepMinutes: 15,
     cookMinutes: 20,
     servings: 2,
@@ -2542,7 +2542,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Bite-size sardine cakes seasoned with Old Bay, broiled until golden and served with a spicy yogurt dip.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['grilled'],
     prepMinutes: 40,
     cookMinutes: 10,
     servings: 6,
@@ -3033,7 +3033,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Turmeric and coconut-marinated chicken strips, grilled and served with a quick massaman peanut dipping sauce.',
     meals: ['appetizer', 'dinner'],
-    dishTypes: [],
+    dishTypes: ['grilled'],
     prepMinutes: 75,
     cookMinutes: 15,
     servings: 6,
@@ -3385,7 +3385,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Crackly batter-fried pork slices tossed in a sweet-and-sour tomato glaze with carrot, in the style of northeast China.',
     meals: ['dinner'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'fried'],
     prepMinutes: 50,
     cookMinutes: 30,
     servings: 2,
@@ -4432,7 +4432,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       "Spain's Easter treat: slices of day-old bread soaked in cinnamon-lemon milk, dipped in egg, fried in olive oil and sugared.",
     meals: ['dessert', 'snack'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'fried'],
     prepMinutes: 30,
     cookMinutes: 25,
     servings: 8,

@@ -244,7 +244,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
     description:
       'Buttery waffles with crisp, deep pockets and a fluffy middle from egg whites whipped and folded into the batter.',
     meals: ['breakfast'],
-    dishTypes: [],
+    dishTypes: ['baked_goods'],
     prepMinutes: 15,
     cookMinutes: 35,
     servings: 4,

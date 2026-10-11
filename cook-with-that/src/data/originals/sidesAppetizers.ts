@@ -106,7 +106,7 @@ export const SIDES_APPETIZERS_RECIPES: Recipe[] = [
     description:
       'Elote: corn on the cob charred under the broiler, spread with lime crema, rolled in salty cotija and dusted with chili powder.',
     meals: ['side', 'snack'],
-    dishTypes: ['bake'],
+    dishTypes: ['bake', 'grilled'],
     prepMinutes: 10,
     cookMinutes: 15,
     servings: 6,
@@ -423,7 +423,7 @@ export const SIDES_APPETIZERS_RECIPES: Recipe[] = [
     description:
       'Eggplant broiled until blackened and collapsed, then beaten with tahini, lemon and garlic into a smoky, silky dip.',
     meals: ['appetizer', 'snack'],
-    dishTypes: ['bake', 'dip'],
+    dishTypes: ['bake', 'dip', 'grilled'],
     prepMinutes: 40,
     cookMinutes: 40,
     servings: 6,

@@ -223,7 +223,7 @@ export const WORLD_RECIPES: Recipe[] = [
     description:
       'Japanese panko-crusted chicken cutlets fried until shatteringly crisp, sliced over rice with a tangy homemade katsu sauce.',
     meals: ['dinner'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'fried'],
     prepMinutes: 25,
     cookMinutes: 30,
     servings: 4,
@@ -305,7 +305,7 @@ export const WORLD_RECIPES: Recipe[] = [
     description:
       'Lemon-oregano chicken skewers broiled until charred, tucked into warm pitas with garlicky tzatziki, tomato and red onion.',
     meals: ['dinner', 'lunch'],
-    dishTypes: ['sandwich'],
+    dishTypes: ['sandwich', 'grilled'],
     prepMinutes: 50,
     cookMinutes: 15,
     servings: 4,

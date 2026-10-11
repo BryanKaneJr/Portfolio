@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { ingredientName } from '../data/catalog';
-import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
+import { DISH_TYPE_LABELS, MEAL_LABELS, shownDishTypes } from '../data/labels';
 import type { Meal } from '../data/types';
 import type { RecipeResult } from '../logic/matchRecipes';
 import { useColors } from '../theme/colors';
@@ -36,7 +36,7 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
   const meta = [
     formatMinutes(totalMinutes),
     MEAL_LABELS[metaMeal],
-    recipe.dishTypes[0] && DISH_TYPE_LABELS[recipe.dishTypes[0]],
+    shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d])[0],
   ]
     .filter(Boolean)
     .join(' · ');

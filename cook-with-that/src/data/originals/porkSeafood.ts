@@ -271,7 +271,7 @@ export const PORK_SEAFOOD_RECIPES: Recipe[] = [
     description:
       'Pork cutlets pounded thin, coated in bread crumbs and fried in butter and oil until crisp and puffy. Serve with lemon.',
     meals: ['dinner'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'fried'],
     prepMinutes: 20,
     cookMinutes: 15,
     servings: 4,
@@ -537,7 +537,7 @@ export const PORK_SEAFOOD_RECIPES: Recipe[] = [
     description:
       'Cod in a crackling beer batter with twice-fried chips, cooked in one pot of oil the way a British chip shop does it.',
     meals: ['dinner'],
-    dishTypes: [],
+    dishTypes: ['fried'],
     prepMinutes: 30,
     cookMinutes: 45,
     servings: 4,

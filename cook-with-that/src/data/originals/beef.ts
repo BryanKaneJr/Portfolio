@@ -541,7 +541,7 @@ export const BEEF_RECIPES: Recipe[] = [
     description:
       'Spiced beef kofta with onion, parsley and cumin, browned under the broiler and tucked into pita with garlicky lemon yogurt.',
     meals: ['dinner', 'lunch'],
-    dishTypes: ['sandwich'],
+    dishTypes: ['sandwich', 'grilled'],
     prepMinutes: 25,
     cookMinutes: 15,
     servings: 4,

@@ -92,7 +92,7 @@ export const BAKING_BREAKFAST_RECIPES: Recipe[] = [
     description:
       'Ridged, crisp-fried churros rolled in cinnamon sugar while hot, with a thick dark chocolate sauce for dunking.',
     meals: ['dessert', 'snack'],
-    dishTypes: [],
+    dishTypes: ['fried'],
     prepMinutes: 25,
     cookMinutes: 30,
     servings: 6,
