@@ -14,8 +14,10 @@ import {
   REGIONS,
   RIVERS,
   SCENARIO,
+  SEA,
   TRAITS,
 } from '../src/sim/content';
+import { GOOD_VALUE } from '../src/sim/colonies';
 import { EVENT_IMAGES, FAITHS, MODIFIER_KEYS, validateCondition, validateEffect } from '../src/sim/dsl';
 
 const errs: string[] = [];
@@ -24,12 +26,20 @@ const TERRAIN = ['plains', 'forest', 'hills', 'marsh', 'mountains'];
 
 // Regions and map
 for (const r of REGIONS) {
-  if (!NATION[r.owner]) errs.push(`region ${r.id}: unknown owner ${r.owner}`);
+  if (r.owner !== null && !NATION[r.owner]) errs.push(`region ${r.id}: unknown owner ${r.owner}`);
+  if (r.owner === null && r.fort > 0) errs.push(`region ${r.id}: uncolonized land can't have a fort`);
+  if (r.owner === null && r.faith !== 'native') errs.push(`region ${r.id}: uncolonized land has faith "native"`);
+  if (r.owner !== null && (r.natives || r.hostility)) errs.push(`region ${r.id}: natives and hostility are for uncolonized land`);
+  if (r.natives !== undefined && !(r.natives >= 0 && r.natives <= 8)) errs.push(`region ${r.id}: natives must be 0-8 (thousands)`);
+  if (r.hostility !== undefined && !(r.hostility >= 0 && r.hostility <= 3)) errs.push(`region ${r.id}: hostility must be 0-3`);
+  if (r.good !== undefined && !(r.good in GOOD_VALUE)) errs.push(`region ${r.id}: unknown good ${r.good}`);
+  if (r.nw && !r.good) warns.push(`region ${r.id}: New World regions should trade in a good`);
   if (!TERRAIN.includes(r.terrain)) errs.push(`region ${r.id}: bad terrain`);
   if (!(r.dev >= 1 && r.dev <= 10)) errs.push(`region ${r.id}: dev must be 1-10`);
   if (!(r.fort >= 0 && r.fort <= 3)) errs.push(`region ${r.id}: fort must be 0-3`);
   if (!FAITHS.includes(r.faith)) errs.push(`region ${r.id}: bad faith`);
 }
+for (const m of MAP.regions) for (const sea of m.seas) if (!SEA[sea]) errs.push(`region ${m.id}: coast on unknown or closed sea ${sea}`);
 const mapIds = new Set(MAP.regions.map(r => r.id));
 for (const r of REGIONS) if (!mapIds.has(r.id)) errs.push(`region ${r.id} is missing from map.json (run npm run map:build)`);
 for (const id of mapIds) if (!REGION[id]) errs.push(`map.json has region ${id} that regions.json doesn't (run npm run map:build)`);
@@ -41,6 +51,8 @@ for (const key of RIVERS.keys()) if (!borderKeys.has(key)) errs.push(`river ${RI
 // Nations
 for (const n of NATIONS) {
   if (!REGION[n.capital] || REGION[n.capital].owner !== n.id) errs.push(`nation ${n.id}: capital must be a region it owns`);
+  if (!!n.native !== (n.faith === 'native')) errs.push(`nation ${n.id}: native nations (and only they) follow the native faith`);
+  if (n.native && n.playable) errs.push(`nation ${n.id}: native nations are not playable`);
   if (!TRAITS.national[n.trait]) errs.push(`nation ${n.id}: unknown trait ${n.trait}`);
   for (const t of [...n.ruler.traits, ...(n.heir?.traits ?? [])]) if (!TRAITS.ruler[t]) errs.push(`nation ${n.id}: unknown ruler trait ${t}`);
 }

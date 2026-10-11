@@ -1,5 +1,6 @@
 /** Armies: pathfinding, movement, recruitment, merging/splitting, supply, attrition and reinforcement. */
-import { GRAPH, MAP_REGION, REGION, UNITS, isSea, regionName, type Edge } from './content';
+import { GRAPH, MAP_REGION, REGION, SEA, UNITS, isSea, regionName, type Edge } from './content';
+import { charted } from './colonies';
 import { log, requestPause } from './log';
 import {
   REBELS,
@@ -18,7 +19,7 @@ import {
 import { joinOrStartBattle } from './battle';
 import { fleetPower, transportCapacity } from './navy';
 import { makeArmy } from './state';
-import type { Army, GameState, NationId, NodeId, RegionId, Terrain, UnitType } from './types';
+import type { Army, Fleet, GameState, NationId, NodeId, RegionId, Terrain, UnitType } from './types';
 import { dateOf } from './util';
 
 export const TERRAIN_DAYS: Record<Terrain, number> = { plains: 8, forest: 11, hills: 11, marsh: 13, mountains: 16 };
@@ -31,30 +32,68 @@ export const fullMen = (a: Army) => (a.regs.inf.n + a.regs.cav.n + a.regs.art.n)
 // ---------------------------------------------------------------- pathfinding
 
 /** Fleets of `n` that can carry an army of `regs` regiments through sea `sea` right now. */
-export function canSail(s: GameState, n: NationId, sea: string, regs: number): boolean {
+export function canSail(s: GameState, n: NationId, sea: string, regs: number, here?: Fleet[]): boolean {
   if (n === REBELS) return false;
-  const own = fleetsOf(s, n).filter(f => f.sea === sea && f.path.length === 0);
+  const inSea = here ?? Object.values(s.fleets).filter(f => f.sea === sea);
+  const own = inSea.filter(f => f.owner === n && f.path.length === 0);
   if (transportCapacity(own) < regs) return false;
   const ownPower = own.reduce((a, f) => a + fleetPower(s, f), 0);
-  const enemy = Object.values(s.fleets).filter(f => f.sea === sea && hostile(s, n, f.owner));
-  const enemyPower = enemy.reduce((a, f) => a + fleetPower(s, f), 0);
+  const enemyPower = inSea.filter(f => hostile(s, n, f.owner)).reduce((a, f) => a + fleetPower(s, f), 0);
   return enemyPower <= ownPower;
 }
 
-/** A strait is closed if an enemy fleet sits in its sea and outguns yours there. */
-export function straitOpen(s: GameState, n: NationId, sea: string): boolean {
-  const enemy = Object.values(s.fleets).filter(f => f.sea === sea && hostile(s, n, f.owner));
+/** A strait (or, for a convoy, a sea) is closed if an enemy fleet sits there and outguns yours. */
+export function straitOpen(s: GameState, n: NationId, sea: string, here?: Fleet[]): boolean {
+  const inSea = here ?? Object.values(s.fleets).filter(f => f.sea === sea);
+  const enemy = inSea.filter(f => hostile(s, n, f.owner));
   if (!enemy.length) return true;
   const enemyPower = enemy.reduce((a, f) => a + fleetPower(s, f), 0);
-  const ownPower = fleetsOf(s, n)
-    .filter(f => f.sea === sea)
-    .reduce((a, f) => a + fleetPower(s, f), 0);
+  const ownPower = inSea.filter(f => f.owner === n).reduce((a, f) => a + fleetPower(s, f), 0);
   return ownPower >= enemyPower;
+}
+
+/** A small binary min-heap of [priority, node] for route searches. */
+class NodeHeap {
+  private items: [number, NodeId][] = [];
+  get size() {
+    return this.items.length;
+  }
+  push(p: number, node: NodeId): void {
+    const a = this.items;
+    a.push([p, node]);
+    let i = a.length - 1;
+    while (i > 0) {
+      const up = (i - 1) >> 1;
+      if (a[up][0] <= a[i][0]) break;
+      [a[up], a[i]] = [a[i], a[up]];
+      i = up;
+    }
+  }
+  pop(): [number, NodeId] {
+    const a = this.items;
+    const top = a[0];
+    const last = a.pop()!;
+    if (a.length) {
+      a[0] = last;
+      let i = 0;
+      for (;;) {
+        const l = i * 2 + 1;
+        const r = l + 1;
+        let m = i;
+        if (l < a.length && a[l][0] < a[m][0]) m = l;
+        if (r < a.length && a[r][0] < a[m][0]) m = r;
+        if (m === i) break;
+        [a[m], a[i]] = [a[i], a[m]];
+        i = m;
+      }
+    }
+    return top;
+  }
 }
 
 export function edgeDays(s: GameState, a: Pick<Army, 'owner' | 'general' | 'rebelOf'>, from: NodeId, e: Edge, retreating = false): number {
   let d: number;
-  if (e.kind === 'sea' || (e.kind === 'coast' && isSea(e.to))) d = SEA_DAYS;
+  if (e.kind === 'sea' || (e.kind === 'coast' && isSea(e.to))) d = SEA[e.to]?.days ?? SEA_DAYS;
   else if (e.kind === 'coast') d = SEA_DAYS;
   else if (e.kind === 'strait') d = STRAIT_DAYS;
   else d = TERRAIN_DAYS[REGION[e.to].terrain];
@@ -85,7 +124,9 @@ export interface PathTree {
 
 /**
  * Cheapest routes from an army's position. Rules: no entering land you have no access to, hostile forts
- * stop you (you may end on one, not pass it), seas need your own transports, enemy fleets close straits.
+ * stop you (you may end on one, not pass it), boarding at a coast needs your own transports in that sea
+ * (they then sail along with the army, so one fleet can carry it across the ocean), a stronger enemy fleet
+ * bars a sea, enemy fleets close straits, and the New World is closed until it is discovered.
  * With `to`, stops as soon as that node is settled.
  */
 export function pathTree(
@@ -99,12 +140,19 @@ export function pathTree(
   const dist = new Map<NodeId, number>([[from, 0]]);
   const prev = new Map<NodeId, NodeId>();
   const done = new Set<NodeId>();
-  const open: NodeId[] = [from];
+  const open = new NodeHeap();
+  open.push(0, from);
   const sailOk = new Map<string, boolean>();
-  while (open.length) {
-    let bi = 0;
-    for (let i = 1; i < open.length; i++) if (dist.get(open[i])! < dist.get(open[bi])!) bi = i;
-    const cur = open.splice(bi, 1)[0];
+  const seaOpen = new Map<string, boolean>();
+  const bySea = new Map<string, Fleet[]>();
+  for (const id in s.fleets) {
+    const f = s.fleets[id];
+    const l = bySea.get(f.sea);
+    if (l) l.push(f);
+    else bySea.set(f.sea, [f]);
+  }
+  while (open.size) {
+    const cur = open.pop()[1];
     if (done.has(cur)) continue;
     done.add(cur);
     if (cur === opts.to) break;
@@ -113,22 +161,27 @@ export function pathTree(
     if (cur !== from && !isSea(cur) && !opts.retreat && hostileFort(s, n, cur)) continue;
     for (const e of GRAPH[cur]) {
       if (done.has(e.to)) continue;
+      if (!charted(s, e.to)) continue;
       if (isSea(e.to)) {
-        let ok = sailOk.get(e.to);
+        // Boarding needs transports here; once aboard, the fleet comes along unless an enemy bars the way.
+        const boarding = !isSea(cur);
+        const cache = boarding ? sailOk : seaOpen;
+        let ok = cache.get(e.to);
         if (ok === undefined) {
-          ok = canSail(s, n, e.to, regs);
-          sailOk.set(e.to, ok);
+          const here = bySea.get(e.to) ?? [];
+          ok = boarding ? canSail(s, n, e.to, regs, here) : straitOpen(s, n, e.to, here);
+          cache.set(e.to, ok);
         }
         if (!ok) continue;
       } else {
         if (!opts.ignoreAccess && !opts.retreat && !canEnter(s, n, e.to, army.rebelOf)) continue;
-        if (e.kind === 'strait' && e.sea && !straitOpen(s, n, e.sea)) continue;
+        if (e.kind === 'strait' && e.sea && !straitOpen(s, n, e.sea, bySea.get(e.sea) ?? [])) continue;
       }
       const nd = dist.get(cur)! + edgeDays(s, army, cur, e, opts.retreat);
       if (nd < (dist.get(e.to) ?? Infinity)) {
         dist.set(e.to, nd);
         prev.set(e.to, cur);
-        open.push(e.to);
+        open.push(nd, e.to);
       }
     }
   }
@@ -208,7 +261,21 @@ export function dailyMovement(s: GameState): void {
     a.node = a.path.shift()!;
     a.progress = 0;
     a.edgeDays = 0;
+    if (isSea(a.from) && isSea(a.node)) convoy(s, a, a.from, a.node);
     arrive(s, a);
+  }
+}
+
+/** The transports carrying an army sail on with it from one sea zone to the next. */
+function convoy(s: GameState, a: Army, from: string, to: string): void {
+  let need = armyRegs(a);
+  for (const f of fleetsOf(s, a.owner)) {
+    if (need <= 0) break;
+    if (f.sea !== from || f.path.length || f.retreating) continue;
+    const cap = transportCapacity([f]);
+    if (cap <= 0) continue;
+    f.sea = to;
+    need -= cap;
   }
 }
 

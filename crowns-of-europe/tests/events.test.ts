@@ -14,7 +14,8 @@ const sample: Record<string, unknown> = {
   vassalsAtLeast: 1, regionFaith: { region: 'london', faith: 'catholic' }, faithRegionsAtLeast: { faith: 'catholic', count: 10 },
   gov: 'monarchy', tier: 'major', hasPolicy: 'tax_reform', warsWonAtLeast: 0, battlesWonAtLeast: 0, stackWipesAtLeast: 0,
   bestWinRatioAtLeast: 0, regionsConqueredAtLeast: 0, fleetsAtLeast: 0, shipsAtLeast: 0, coastal: true, inCoalition: false,
-  coalitionAgainst: false, hreMember: false, papalFavorAtLeast: 0, chance: 0.5,
+  coalitionAgainst: false, hreMember: false, papalFavorAtLeast: 0, discovered: false, coloniesAtLeast: 0, colonizingAtLeast: 0,
+  ownsGood: 'sugar', native: false, chance: 0.5,
 };
 
 describe('event language', () => {

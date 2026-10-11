@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 import { MAP_REGION } from '../../sim/content';
 import { moveArmy, moveFleet } from '../../sim/commands';
 import { store } from '../../state/store';
-import { regionAt, seaAt } from './geometry';
+import { regionAt, seaAt, wasteAt } from './geometry';
 import { unitPositions } from './MapView';
 
 const HIT = 22; // points
@@ -26,7 +26,8 @@ export function onMapTap(mx: number, my: number, k: number): void {
     if (!best || (mine && !best.mine) || (mine === best.mine && d < best.d)) best = { kind: c.kind, id: c.id, d, mine };
   }
   const region = regionAt(mx, my);
-  const sea = region ? null : seaAt(mx, my);
+  // Wilderness and closed waters are scenery: tapping them selects nothing.
+  const sea = region || wasteAt(mx, my) ? null : seaAt(mx, my);
 
   // With your army selected, tapping a region (not another of your units) sends it there.
   if (sel?.kind === 'army' && s.armies[sel.id]?.owner === s.player && region && !(best && best.mine)) {

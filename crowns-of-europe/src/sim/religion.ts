@@ -18,7 +18,7 @@ export function monthlyReligion(s: GameState): void {
   if ('reformation' in s.flags && year < 1660) {
     const fade = year > 1600 ? 0.4 : 1;
     for (const r of Object.values(s.regions)) {
-      if (r.faith !== 'catholic') continue;
+      if (r.faith !== 'catholic' || !r.owner) continue;
       const def = REGION[r.id];
       const [lon, lat] = MAP_REGION[r.id].lonlat;
       const zone = def.hre || lat > 53 || (lon > 12 && lat > 50) || ['switzerland', 'bohemia', 'hungary', 'transylvania', 'lowlands', 'london', 'midlands'].includes(r.id);
@@ -42,7 +42,7 @@ export function sanctionTargets(s: GameState, n: NationId): RegionId[] {
     for (const e of GRAPH[r.id]) {
       if (e.kind !== 'land' && e.kind !== 'strait') continue;
       const reg = s.regions[e.to];
-      const owner = s.nations[reg.owner];
+      const owner = reg.owner ? s.nations[reg.owner] : undefined;
       if (!owner || owner.id === n || e.to in s.nations[n].claims) continue;
       if (owner.faith !== 'catholic' || owner.flags.excommunicated) out.add(e.to);
     }

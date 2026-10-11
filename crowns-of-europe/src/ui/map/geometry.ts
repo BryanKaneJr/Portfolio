@@ -54,10 +54,18 @@ const regionShapes: Shape[] = MAP.regions.map(r => {
   const rings = parsePath(r.path);
   return { id: r.id, rings, bbox: bboxOf(rings) };
 });
-const seaShapes: Shape[] = MAP.seas.map(s => {
-  const rings = parsePath(s.path);
-  return { id: s.id, rings, bbox: bboxOf(rings) };
+const seaShapes: Shape[] = MAP.seas
+  .filter(s => !s.closed)
+  .map(s => {
+    const rings = parsePath(s.path);
+    return { id: s.id, rings, bbox: bboxOf(rings) };
+  });
+const wasteShapes: Shape[] = MAP.wastelands.map(w => {
+  const rings = parsePath(w.path);
+  return { id: w.id, rings, bbox: bboxOf(rings) };
 });
+/** Bounding boxes of the wildernesses (for drawing only what is on screen). */
+export const WASTE_BBOX: Record<string, [number, number, number, number]> = Object.fromEntries(wasteShapes.map(w => [w.id, w.bbox]));
 
 function inside(shape: Shape, x: number, y: number): boolean {
   const [x0, y0, x1, y1] = shape.bbox;
@@ -79,6 +87,10 @@ export function regionAt(x: number, y: number): RegionId | null {
   for (const s of regionShapes) if (inside(s, x, y)) return s.id;
   return null;
 }
+export function wasteAt(x: number, y: number): string | null {
+  for (const s of wasteShapes) if (inside(s, x, y)) return s.id;
+  return null;
+}
 export function seaAt(x: number, y: number): string | null {
   for (const s of seaShapes) if (inside(s, x, y)) return s.id;
   return null;
@@ -98,6 +110,7 @@ export interface NationLabel {
 export function nationLabels(s: GameState): NationLabel[] {
   const byOwner = new Map<NationId, RegionId[]>();
   for (const r of Object.values(s.regions)) {
+    if (!r.owner) continue;
     const l = byOwner.get(r.owner);
     if (l) l.push(r.id);
     else byOwner.set(r.owner, [r.id]);

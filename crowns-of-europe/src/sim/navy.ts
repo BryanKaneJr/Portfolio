@@ -26,7 +26,8 @@ export function transportCapacity(fleets: Fleet[]): number {
   return c;
 }
 
-export function findSeaPath(from: SeaId, to: SeaId): SeaId[] | null {
+/** Shortest route between sea zones; New World waters only once they are charted. */
+export function findSeaPath(from: SeaId, to: SeaId, newWorldOpen = true): SeaId[] | null {
   if (from === to) return [];
   const prev = new Map<SeaId, SeaId>();
   const q = [from];
@@ -35,6 +36,7 @@ export function findSeaPath(from: SeaId, to: SeaId): SeaId[] | null {
     const cur = q.shift()!;
     for (const e of GRAPH[cur]) {
       if (e.kind !== 'sea' || seen.has(e.to)) continue;
+      if (!newWorldOpen && SEA[e.to]?.nw) continue;
       seen.add(e.to);
       prev.set(e.to, cur);
       if (e.to === to) {
@@ -52,7 +54,7 @@ export function dailyFleets(s: GameState): void {
   for (const f of Object.values(s.fleets)) {
     if (!f.path.length) continue;
     f.progress++;
-    if (f.edgeDays === 0) f.edgeDays = FLEET_EDGE_DAYS;
+    if (f.edgeDays === 0) f.edgeDays = Math.max(FLEET_EDGE_DAYS, SEA[f.path[0]]?.days ?? 0);
     if (f.progress < f.edgeDays) continue;
     f.sea = f.path.shift()!;
     f.progress = 0;
@@ -151,7 +153,7 @@ export function monthlyNavy(s: GameState): void {
     for (const mr of Object.values(MAP_REGION)) {
       if (!mr.seas.includes(f.sea)) continue;
       const reg = s.regions[mr.id];
-      if (!hostile(s, f.owner, reg.controller)) continue;
+      if (!reg.controller || !hostile(s, f.owner, reg.controller)) continue;
       const guard = Object.values(s.fleets).filter(g => g.sea === f.sea && friendlyTo(s, g.owner, reg.controller));
       const guardPower = guard.reduce((t, g) => t + fleetPower(s, g), 0);
       if (guardPower < myPower) reg.blockaded = true;

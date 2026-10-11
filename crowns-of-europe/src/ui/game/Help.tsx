@@ -21,7 +21,9 @@ const TOPICS: { title: string; body: string }[] = [
   { title: 'Diplomacy', body: 'Every nation has an opinion of you; tap it to see why. Ally against common threats, marry dynasties (a chance to inherit), declare rivals, demand vassalage from weak friends. Allies are called to your wars; refusing a defensive call breaks the alliance.' },
   { title: 'Eras and policies', body: 'Four eras: Late Medieval, Renaissance (1500), Wars of Religion (1575), Absolutism (1650). When one begins you pay gold to adopt it for better troops and a new policy slot.' },
   { title: 'Missions', body: 'Your nation’s missions (in the Realm menu) are concrete goals with rewards: claims for the next war, gold, prestige and lasting bonuses.' },
-  { title: 'Map modes', body: 'The chip at the top right switches the map: political, terrain, development, faith, diplomatic (how others see you) and threat.' },
+  { title: 'The New World', body: 'Across the Atlantic lie uncharted lands. From 1470 a crown with an ocean coast can fund an expedition west (Colonies tab); by 1500 everyone knows the way. Then send colonists to the pale, uncolonized regions: a colony grows until it has 1,000 settlers and becomes a region of yours. Natives slow it down and may attack it; any of your regiments standing there keeps the settlers safe. Every New World region trades in a good (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
+  { title: 'Ships and the ocean', body: 'An army boards from a coast when your transports are in that sea, and the fleet then carries it as far as it needs to go, across the ocean if you like. Crossing the open Atlantic takes weeks. A stronger enemy fleet bars the way.' },
+  { title: 'Map modes', body: 'The chip at the top right switches the map: political, terrain, development, faith, diplomatic (how others see you), threat and trade goods.' },
 ];
 
 export function HelpPanel() {
@@ -60,6 +62,11 @@ const HINTS: Hint[] = [
     id: 'war',
     text: 'You are at war. Occupy enemy regions and win battles to raise your war score (the red chip at the top). Tap it to negotiate peace when you’re ahead.',
     when: () => !!store.state && Object.values(store.state.wars).some(w => w.attackers.includes(store.state!.player) || w.defenders.includes(store.state!.player)),
+  },
+  {
+    id: 'newworld',
+    text: 'A New World has been found! Open the Colonies tab in the Realm menu to see your colonists, then tap a pale, uncolonized region across the Atlantic and choose Start a colony.',
+    when: () => !!store.state?.discovery,
   },
   {
     id: 'mission',

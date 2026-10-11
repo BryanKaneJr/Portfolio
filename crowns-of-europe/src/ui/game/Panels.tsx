@@ -274,7 +274,7 @@ export function PeacePanel({ warId }: { warId: string }) {
                 const on = regions.includes(r);
                 return (
                   <Pressable key={r} testID={`peace-${r}`} onPress={() => toggle(r)} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
-                    <Flag nation={s.regions[r].owner} size={22} />
+                    <Flag nation={s.regions[r].owner ?? ''} size={22} />
                     <View style={{ flex: 1 }}>
                       <Text style={styles.optionText}>{regionName(r)}</Text>
                       <Text style={styles.optionSub}>

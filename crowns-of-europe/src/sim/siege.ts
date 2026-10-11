@@ -41,7 +41,7 @@ export function siegeInfo(s: GameState, r: RegionId, here?: Army[]): SiegeInfo |
   if (reg.fort <= 0) daily = 1 / CONTROL_DAYS;
   else {
     const siegeMod = lead.owner === REBELS ? 0 : nationMods(s, lead.owner).siegeSpeed;
-    const defMod = reg.controller === REBELS || !s.nations[reg.controller] ? 0 : nationMods(s, reg.controller).fortDefense;
+    const defMod = !reg.controller || reg.controller === REBELS || !s.nations[reg.controller] ? 0 : nationMods(s, reg.controller).fortDefense;
     const speed = (1 + Math.min(1.5, art * 0.1)) * (1 + siegeMod) * (1 + Math.min(0.5, 0.02 * Math.max(0, regs - need))) / (1 + defMod);
     daily = speed / (FORT_DAYS * reg.fort);
   }

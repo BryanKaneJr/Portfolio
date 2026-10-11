@@ -17,6 +17,7 @@ export interface UnrestPart {
 }
 
 export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
+  if (!r.owner) return [];
   const nat = s.nations[r.owner];
   if (!nat) return [];
   const out: UnrestPart[] = [];
@@ -37,6 +38,7 @@ export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
 export function monthlyUnrest(s: GameState): void {
   const quiet = '__noEvents' in s.flags;
   for (const r of Object.values(s.regions)) {
+    if (!r.owner) continue;
     r.unrestMods = r.unrestMods.filter(m => m.until > s.day);
     r.unrest = clamp(
       unrestBreakdown(s, r).reduce((t, p) => t + p.value, 0),
@@ -55,7 +57,7 @@ export function monthlyUnrest(s: GameState): void {
 
 export function spawnRebels(s: GameState, region: RegionId, regiments: number): void {
   const reg = s.regions[region];
-  if (!reg) return;
+  if (!reg?.owner) return;
   const target = reg.owner;
   const cav = Math.round(regiments * 0.2);
   const a = makeArmy(s, REBELS, region, regiments - cav, cav, 0);
@@ -75,7 +77,7 @@ export function spawnRebels(s: GameState, region: RegionId, regiments: number): 
 /** Rebels who hold their region for a year force their demands, then go home. */
 function rebelOutcomes(s: GameState): void {
   for (const reg of Object.values(s.regions)) {
-    if (reg.controller !== REBELS) continue;
+    if (reg.controller !== REBELS || !reg.owner) continue;
     const owner = reg.owner;
     const flagKey = `_rebelheld_${reg.id}`;
     const nat = s.nations[owner];

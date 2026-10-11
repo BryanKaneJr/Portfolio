@@ -3,7 +3,8 @@
  * Monthly (staggered per nation): economy, diplomacy, war and peace decisions, weighted by personality.
  * Every few days per army: attack beatable stacks, besiege enemy land, retreat from bigger stacks, merge.
  */
-import { GRAPH, NATION, POLICIES, isSea } from './content';
+import { GRAPH, NATION, POLICIES, REGION, SEAS, SEA_COAST, hops, isNativeNation, isSea } from './content';
+import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
 import {
   REBELS,
@@ -51,7 +52,7 @@ import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree,
 import { minSiegeRegs } from './siege';
 import { fleetPower, findSeaPath } from './navy';
 import type { Army, GameState, Nation, NationId, NodeId, PeaceTerms, Region, War } from './types';
-import { chance, months, pick, years } from './util';
+import { chance, months, pick, yearOf, years } from './util';
 
 /** The player's nation is run by the AI only in spectator mode (dev tools, title-screen demo). */
 export const isHuman = (s: GameState, n: NationId) => n === s.player && !('__spectate' in s.flags);
@@ -64,9 +65,12 @@ export function monthlyAI(s: GameState): void {
     if (!nat.alive || isHuman(s, nat.id) || s.day < nat.ai.nextEval) continue;
     nat.ai.nextEval = s.day + 30;
     aiEconomy(s, nat);
+    aiPeace(s, nat);
+    // New World peoples defend their land but never start wars or court European crowns.
+    if (isNativeNation(nat.id)) continue;
+    aiColonies(s, nat);
     aiDiplomacy(s, nat);
     aiWar(s, nat);
-    aiPeace(s, nat);
   }
   coalitionWarCheck(s, (attacker, target) => {
     const cbs = casusBelli(s, attacker, target);
@@ -93,9 +97,10 @@ function aiEconomy(s: GameState, nat: Nation): void {
     nat.loans--;
     nat.gold -= LOAN_SIZE;
   }
+  const native = isNativeNation(n);
   // New era.
   const avail = availableEra(s);
-  if (nat.era < avail) {
+  if (nat.era < avail && !native) {
     const cost = techCost(s, n, nat.era + 1);
     if (nat.gold >= cost + res * 0.5) {
       nat.gold -= cost;
@@ -113,6 +118,8 @@ function aiEconomy(s: GameState, nat: Nation): void {
           : p === 'defensive'
             ? ['fortress_doctrine', 'diplomatic_corps', 'conscription', 'religious_zeal', 'tax_reform']
             : ['tax_reform', 'standing_army', 'diplomatic_corps', 'royal_administration', 'conscription'];
+    // Atlantic crowns want colonists once there is somewhere to send them.
+    if (s.discovery && p !== 'defensive' && ['POR', 'CAS', 'ENG', 'FRA', 'BUR'].includes(n)) wanted.unshift('overseas_charters');
     const choice = wanted.find(id => !nat.policies.includes(id) && (POLICIES.find(x => x.id === id)?.era ?? 9) <= nat.era);
     if (choice) nat.policies.push(choice);
   }
@@ -131,13 +138,12 @@ function aiEconomy(s: GameState, nat: Nation): void {
   const target = Math.round(fl * (war ? 1.05 : threatened ? 0.95 : personalityShare));
   const current = totalRegiments(s, n) + nat.recruiting.length;
   let toRecruit = Math.min(4, target - current);
-  const capital = s.regions[nat.capital];
-  const musterAt = capital && capital.controller === n ? capital.id : ownedRegions(s, n).find(r => r.controller === n)?.id;
+  const musterAt = musterRegion(s, n, war);
   if (balance < 1.5 && !war) toRecruit = 0;
   while (toRecruit > 0 && musterAt) {
     const steppe = NATION[n].trait === 'steppe_horde';
     const roll = (current + toRecruit) % 10;
-    const type = nat.era >= 2 && roll === 0 ? 'art' : roll < (steppe ? 6 : 3) ? 'cav' : 'inf';
+    const type = native ? 'inf' : nat.era >= 2 && roll === 0 ? 'art' : roll < (steppe ? 6 : 3) ? 'cav' : 'inf';
     const cost = unitCost(s, n, type);
     if (nat.gold < cost + 15 || nat.manpower < 1000) break;
     nat.gold -= cost;
@@ -184,7 +190,7 @@ function aiEconomy(s: GameState, nat: Nation): void {
       return;
     }
   }
-  if (isCoastal(s, n) && (NATION[n].personality === 'trader' || chance(s, 0.3))) {
+  if (!native && isCoastal(s, n) && (NATION[n].personality === 'trader' || chance(s, 0.3))) {
     const ships = Object.values(s.fleets).filter(f => f.owner === n).reduce((t, f) => t + f.ships.galley + f.ships.transport + f.ships.warship, 0);
     const want = Math.round(totalDev(s, n) / (NATION[n].personality === 'trader' ? 3 : 6));
     if (ships + nat.shipyard.length < want) {
@@ -200,6 +206,60 @@ function aiEconomy(s: GameState, nat: Nation): void {
       }
     }
   }
+}
+
+/**
+ * Where new regiments gather: the capital, unless the war is overseas (no land route from the capital to
+ * the enemy), then the region of ours closest to the enemy by land.
+ */
+function musterRegion(s: GameState, n: NationId, war: boolean): string | undefined {
+  const nat = s.nations[n];
+  const capital = s.regions[nat.capital];
+  const home = capital && capital.controller === n ? capital.id : ownedRegions(s, n).find(r => r.controller === n)?.id;
+  if (!war || !home) return home;
+  const enemies = enemiesOf(s, n);
+  const targets = Object.values(s.regions).filter(r => !!r.controller && enemies.has(r.controller)).map(r => r.id);
+  if (!targets.length || targets.some(t => hops(home, t) < 99)) return home;
+  let best: string | undefined;
+  let bestHops = 99;
+  for (const r of ownedRegions(s, n)) {
+    if (r.controller !== n) continue;
+    for (const t of targets) {
+      const h = hops(r.id, t);
+      if (h < bestHops) {
+        bestHops = h;
+        best = r.id;
+      }
+    }
+  }
+  return best ?? home;
+}
+
+// ---------------------------------------------------------------- the New World
+
+function aiColonies(s: GameState, nat: Nation): void {
+  const n = nat.id;
+  const res = reserve(s, nat);
+  // Atlantic crowns gamble on a voyage west; Portugal and Castile most of all.
+  if (!s.discovery && !canSendExpedition(s, n) && nat.gold > EXPEDITION_COST + res) {
+    const keen = n === 'POR' || n === 'CAS' ? 4 : NATION[n].tier === 'minor' ? 0.25 : 1;
+    const ripe = 1 + (yearOf(s.day) - EXPEDITION_YEAR) / 8;
+    if (chance(s, 0.0006 * keen * ripe)) sendExpedition(s, n);
+  }
+  if (freeColonists(s, n) <= 0 || nat.gold < COLONY_COST + res * 0.5 || nat.lastMonthIncome - nat.lastMonthExpenses < 0.5) return;
+  let best: string | null = null;
+  let bestScore = -Infinity;
+  for (const r of Object.values(s.regions)) {
+    if (r.owner || r.colony || canColonize(s, n, r.id)) continue;
+    const def = REGION[r.id];
+    const nextToOwn = GRAPH[r.id].some(e => e.kind === 'land' && s.regions[e.to]?.owner === n);
+    const score = (def.good ? GOOD_VALUE[def.good] * 3 : 0) + def.dev - r.natives * 0.8 - (def.hostility ?? 0) + (nextToOwn ? 4 : 0) + (r.id.charCodeAt(0) % 7) * 0.05;
+    if (score > bestScore) {
+      bestScore = score;
+      best = r.id;
+    }
+  }
+  if (best) startColony(s, n, best);
 }
 
 function disbandMercs(s: GameState, n: NationId): void {
@@ -488,8 +548,10 @@ function armyAI(s: GameState, a: Army): void {
     move(s, a, bestSiege.node, tree);
     return;
   }
-  // 4) Nothing to do: join the biggest friendly army.
-  mergeWithNearby(s, a, tree);
+  // 4) Nothing to do. With enemies in reach, join the biggest friendly army; with the war out of reach
+  // (overseas, say), wait as in peacetime, spread out so the troops don't starve.
+  if (hostileArmies.some(o => tree.dist.has(o.node))) mergeWithNearby(s, a, tree);
+  else peaceStation(s, a);
 }
 
 function friendlyStrengthAt(s: GameState, a: Army): number {
@@ -516,12 +578,17 @@ function move(s: GameState, a: Army, node: NodeId, tree: ReturnType<typeof pathT
 function safeSpot(s: GameState, a: Army, tree: ReturnType<typeof pathTree>, danger: Army[]): NodeId | null {
   let best: NodeId | null = null;
   let bestScore = -Infinity;
+  const friendsAt = new Map<NodeId, number>();
+  for (const id in s.armies) {
+    const o = s.armies[id];
+    if (o.owner === a.owner && o.id !== a.id) friendsAt.set(o.node, (friendsAt.get(o.node) ?? 0) + armyStrength(s, o));
+  }
   for (const [node, d] of tree.dist) {
     if (isSea(node) || d > 40) continue;
     const reg = s.regions[node];
     if (!friendlyTo(s, a.owner, reg.controller)) continue;
     const near = danger.reduce((t, o) => t + Math.max(0, 25 - (pathDistanceGuess(o.node, node) * 8)), 0);
-    const friends = Object.values(s.armies).filter(o => o.node === node && o.owner === a.owner && o.id !== a.id).reduce((t, o) => t + armyStrength(s, o), 0);
+    const friends = friendsAt.get(node) ?? 0;
     const score = reg.fort * 10 + friends * 2 - near - d / 4;
     if (score > bestScore) {
       bestScore = score;
@@ -557,17 +624,25 @@ function peaceStation(s: GameState, a: Army): void {
   if (!home || s.regions[home]?.controller !== a.owner) return;
   const others = Object.values(s.armies).filter(o => o.owner === a.owner && o.id !== a.id && o.node === a.node && !o.path.length && !o.battle);
   for (const o of others) mergeArmies(s, a, o);
+  const here = (node: NodeId) => Object.values(s.armies).reduce((t, o) => t + (o.owner === a.owner && (o.node === node || o.path[o.path.length - 1] === node) ? armyRegs(o) : 0), 0);
   if (a.node !== home && !isSea(a.node)) {
-    // Return home unless standing in our own land within supply.
+    // Stay in our own land while it can feed us; otherwise go home (now and then, also to regroup).
     const reg = s.regions[a.node];
-    const ok = reg && reg.owner === a.owner && armyRegs(a) <= supplyLimit(s, a.node, a.owner);
-    if (!ok || chance(s, 0.1)) orderMove(s, a, home);
+    const ok = reg && reg.owner === a.owner && here(a.node) <= supplyLimit(s, a.node, a.owner);
+    if (!ok || chance(s, 0.05)) orderMove(s, a, home);
   } else if (armyRegs(a) > supplyLimit(s, home, a.owner) * 1.2) {
-    // Too big for the capital: park half next door.
-    const next = GRAPH[home].find(e => e.kind === 'land' && s.regions[e.to].owner === a.owner);
-    if (next) {
-      const b = splitArmy(s, a, { inf: Math.floor(a.regs.inf.n / 2), cav: Math.floor(a.regs.cav.n / 2), art: 0 });
-      if (b) orderMove(s, b, next.to);
+    // Too big for the capital: send as many regiments as fit to the nearest region of ours with food to spare.
+    let best: { to: NodeId; room: number; d: number } | null = null;
+    const tree = pathTree(s, a, { maxDays: 60 });
+    for (const [node, d] of tree.dist) {
+      if (node === home || isSea(node) || s.regions[node]?.owner !== a.owner) continue;
+      const room = supplyLimit(s, node, a.owner) - here(node);
+      if (room >= 3 && (!best || d < best.d)) best = { to: node, room, d };
+    }
+    if (best) {
+      const share = Math.min(1, best.room / Math.max(1, armyRegs(a)));
+      const b = splitArmy(s, a, { inf: Math.floor(a.regs.inf.n * share), cav: Math.floor(a.regs.cav.n * share), art: Math.floor(a.regs.art.n * share) });
+      if (b) orderMove(s, b, best.to);
     }
   }
 }
@@ -594,23 +669,26 @@ export function monthlyFleetAI(s: GameState): void {
     if (!enemies.size) continue;
     const myPower = fleetPower(s, f);
     let best: { sea: string; score: number } | null = null;
-    for (const sea of Object.keys(GRAPH).filter(isSea)) {
+    for (const { id: sea } of SEAS) {
       const enemyPower = Object.values(s.fleets).filter(g => g.sea === sea && enemies.has(g.owner)).reduce((t, g) => t + fleetPower(s, g), 0);
       if (enemyPower > myPower * 0.8) continue;
-      const coast = Object.values(s.regions).filter(r => enemies.has(r.controller) && GRAPH[r.id].some(e => e.to === sea)).reduce((t, r) => t + r.dev, 0);
+      let coast = 0;
+      for (const id of SEA_COAST[sea] ?? []) {
+        const r = s.regions[id];
+        if (r.controller && enemies.has(r.controller)) coast += r.dev;
+      }
       if (!coast) continue;
-      const route = findSea(f.sea, sea);
+      const route = findSeaPath(f.sea, sea, !!s.discovery);
       if (route === null) continue;
       const score = coast / (route.length + 1);
       if (!best || score > best.score) best = { sea, score };
     }
     if (best && best.sea !== f.sea) {
-      const route = findSea(f.sea, best.sea);
+      const route = findSeaPath(f.sea, best.sea, !!s.discovery);
       if (route) f.path = route;
     }
   }
 }
 
-const findSea = (from: string, to: string) => findSeaPath(from, to);
 
 export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace };

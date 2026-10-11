@@ -3,6 +3,7 @@
  * Commands mutate the state in place; the UI re-renders from the store afterwards.
  */
 import { GRAPH, MAP_REGION, POLICY, UNITS, isSea, nationName, regionName } from './content';
+import { COLONY_COST, EXPEDITION_MONTHS, abandonColony, charted, sendExpedition, startColony } from './colonies';
 import {
   CONVERT_DAYS,
   FABRICATE_COST,
@@ -77,6 +78,7 @@ export function moveArmy(s: GameState, armyId: string, to: NodeId): Result {
   if (a.battle) return no('The army is in battle.');
   if (a.retreating) return no('The army is retreating.');
   if (isSea(to)) return no('Armies need a destination on land.');
+  if (!charted(s, to)) return no('These lands are uncharted. Send an expedition west first (Realm menu, Colonies).');
   const res = orderMove(s, a, to);
   if (!res) return no(`No route to ${regionName(to)}. You may need military access, transports, or to besiege a fort first.`);
   return ok(res.days ? `Marching to ${regionName(to)}: ${res.days} days.` : 'Holding position.');
@@ -340,12 +342,33 @@ export function moveFleet(s: GameState, fleetId: string, sea: string): Result {
   const f = s.fleets[fleetId];
   if (!f || f.owner !== s.player) return no('Not your fleet.');
   if (!isSea(sea)) return no('Fleets sail between sea zones.');
-  const path = findSeaPath(f.sea, sea);
+  if (!charted(s, sea)) return no('These waters are uncharted. Send an expedition west first (Realm menu, Colonies).');
+  const path = findSeaPath(f.sea, sea, !!s.discovery);
   if (!path) return no('No sea route.');
   f.path = path;
   f.progress = 0;
   f.edgeDays = 0;
   return ok(`Sailing to the ${regionName(sea)}.`);
+}
+
+// ---------------------------------------------------------------- the New World
+
+export function colonize(s: GameState, region: string): Result {
+  const why = startColony(s, s.player, region);
+  if (why) return no(why);
+  return ok(`Settlers sail for ${regionName(region)} (−${COLONY_COST} gold). The colony is founded at 1,000 settlers.`);
+}
+
+export function abandonPlayerColony(s: GameState, region: string): Result {
+  const why = abandonColony(s, s.player, region);
+  if (why) return no(why);
+  return ok(`Your settlers leave ${regionName(region)}. The colonist is free again.`);
+}
+
+export function fundExpedition(s: GameState): Result {
+  const why = sendExpedition(s, s.player);
+  if (why) return no(why);
+  return ok(`Your ships sail west into the unknown. They should be back in about ${EXPEDITION_MONTHS} months.`);
 }
 
 // ---------------------------------------------------------------- diplomacy & war

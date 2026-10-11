@@ -40,6 +40,7 @@ export const FAITH_COLOR: Record<string, string> = {
   orthodox: '#6f9fd3',
   muslim: '#4f9a5a',
   protestant: '#b9619a',
+  native: '#a88560',
 };
 export const TERRAIN_COLOR: Record<string, string> = {
   plains: '#cfd89a',

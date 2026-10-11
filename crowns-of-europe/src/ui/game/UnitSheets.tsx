@@ -16,6 +16,8 @@ import { Bar, Btn, Line, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, kmen } from '../theme';
 import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
+import { charted } from '../../sim/colonies';
+import { UnchartedSheet } from './ColonySheets';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
 
@@ -185,10 +187,14 @@ export function SeaSheet({ id }: { id: string }) {
   const st = useStore();
   const s = st.state!;
   const fleets = Object.values(s.fleets).filter(f => f.sea === id);
+  if (!charted(s, id)) return <UnchartedSheet />;
+  const def = SEA[id];
   return (
-    <Sheet title={SEA[id].name} subtitle="Sea zone" onClose={() => st.select(null)}>
+    <Sheet title={def.name} subtitle={`${def.ocean ? 'Open ocean' : 'Sea zone'} · ${def.days ?? 4} days to cross`} onClose={() => st.select(null)}>
       {fleets.length ? fleets.map(f => <Line key={f.id} label={`${nationName(f.owner)}: ${f.name}`} value={`${shipCount(f)} ships`} />) : <T v="small">No fleets here.</T>}
-      <T v="tiny" style={{ marginTop: 8 }}>With your own transports here, your armies can sail across. Enemy fleets close nearby straits.</T>
+      <T v="tiny" style={{ marginTop: 8 }}>
+        With your own transports in a sea next to your army, it can board and sail on: the fleet carries it as far as it needs, across the ocean if need be. A stronger enemy fleet bars the way and closes nearby straits.
+      </T>
     </Sheet>
   );
 }

@@ -1,5 +1,5 @@
 /** Read-only questions about the game state used everywhere: who owns what, who is at war with whom. */
-import { ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, UNITS, isSea } from './content';
+import { ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, UNITS, isNativeNation, isNewWorld, isSea } from './content';
 import type { Army, Fleet, GameState, Modifiers, Nation, NationId, NodeId, Region, RegionId, UnitType, War } from './types';
 import { setNewsHelpers } from './log';
 import { pairKey, yearOf } from './util';
@@ -22,6 +22,7 @@ export function ownedRegions(s: GameState, n: NationId): Region[] {
     const byOwner = new Map<NationId, Region[]>();
     for (const id in s.regions) {
       const r = s.regions[id];
+      if (!r.owner) continue;
       const l = byOwner.get(r.owner);
       if (l) l.push(r);
       else byOwner.set(r.owner, [r]);
@@ -32,7 +33,7 @@ export function ownedRegions(s: GameState, n: NationId): Region[] {
 }
 export const regionCount = (s: GameState, n: NationId) => ownedRegions(s, n).length;
 export const totalDev = (s: GameState, n: NationId) => ownedRegions(s, n).reduce((a, r) => a + r.dev, 0);
-export const isCored = (r: Region) => r.cores.includes(r.owner);
+export const isCored = (r: Region) => !!r.owner && r.cores.includes(r.owner);
 
 export function aliveNations(s: GameState): Nation[] {
   return Object.values(s.nations).filter(n => n.alive);
@@ -147,6 +148,10 @@ export function totalShips(s: GameState, n: NationId): number {
   return t;
 }
 
+/** New World peoples fight without steel, guns or horses: their armies are weaker and break sooner. */
+const NATIVE_POWER = 0.5;
+const NATIVE_MORALE = 0.8;
+
 /** Rough military power for AI comparisons: men weighted by era quality. */
 const powerCache = new Map<NationId, { state: GameState; day: number; v: number }>();
 export function militaryPower(s: GameState, n: NationId): number {
@@ -165,12 +170,14 @@ function computePower(s: GameState, n: NationId): number {
     p += (a.regs.inf.men * era.inf.power + a.regs.cav.men * era.cav.power + a.regs.art.men * (era.art?.power ?? 1)) / 1000;
   }
   // Manpower in reserve counts for a little: it becomes regiments over a war.
-  return p + nat.manpower / 4000;
+  return (p + nat.manpower / 4000) * (isNativeNation(n) ? NATIVE_POWER : 1);
 }
 
-/** Force limit: how many regiments a nation can field without extra upkeep. */
+/** Force limit: how many regiments a nation can field without extra upkeep. New World land counts half. */
 export function forceLimit(s: GameState, n: NationId): number {
-  return Math.round(6 + totalDev(s, n) / 2.5);
+  let dev = 0;
+  for (const r of ownedRegions(s, n)) dev += REGION[r.id].nw ? r.dev / 2 : r.dev;
+  return Math.round(6 + dev / 2.5);
 }
 
 // ---------------------------------------------------------------- modifiers
@@ -185,7 +192,7 @@ const ZERO: Required<Modifiers> = {
   taxIncome: 0, tradeIncome: 0, manpower: 0, morale: 0, infantryPower: 0, cavalryPower: 0, artilleryPower: 0,
   fortDefense: 0, siegeSpeed: 0, attrition: 0, upkeep: 0, mercCost: 0, devCost: 0, coreCost: 0, fortCost: 0,
   shipCost: 0, navalPower: 0, threatDecay: 0, threatGain: 0, opinion: 0, diplomacy: 0, holyWarMorale: 0, unrest: 0,
-  techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0,
+  techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0, colonists: 0, settlerGrowth: 0,
 };
 
 export interface ModSource {
@@ -228,7 +235,7 @@ export function nationMods(s: GameState, n: NationId): Required<Modifiers> {
 export function maxMorale(s: GameState, n: NationId): number {
   if (n === REBELS) return 2.0;
   const nat = s.nations[n];
-  return ERA(nat?.era ?? 1).morale * (1 + nationMods(s, n).morale);
+  return ERA(nat?.era ?? 1).morale * (1 + nationMods(s, n).morale) * (isNativeNation(n) ? NATIVE_MORALE : 1);
 }
 
 export function unitPower(s: GameState, n: NationId, t: UnitType): number {
@@ -236,9 +243,10 @@ export function unitPower(s: GameState, n: NationId, t: UnitType): number {
   const nat = s.nations[n];
   const era = ERA(nat.era);
   const m = nationMods(s, n);
-  if (t === 'inf') return era.inf.power * (1 + m.infantryPower);
-  if (t === 'cav') return era.cav.power * (1 + m.cavalryPower);
-  return (era.art?.power ?? 0.8) * (1 + m.artilleryPower);
+  const k = isNativeNation(n) ? NATIVE_POWER : 1;
+  if (t === 'inf') return era.inf.power * (1 + m.infantryPower) * k;
+  if (t === 'cav') return era.cav.power * (1 + m.cavalryPower) * k;
+  return (era.art?.power ?? 0.8) * (1 + m.artilleryPower) * k;
 }
 
 /** The latest era whose start year has passed (the player still has to pay to adopt it). */
@@ -257,12 +265,15 @@ export function rulerAge(s: GameState, n: NationId): number {
 
 /** May army owner `n` enter region `r`? */
 export function canEnter(s: GameState, n: NationId, node: NodeId, rebelOf?: NationId): boolean {
+  if (!s.discovery && isNewWorld(node)) return false;
   if (isSea(node)) return true;
   const r = s.regions[node];
   if (!r) return false;
   if (n === REBELS) return true;
   const o = r.owner;
   const c = r.controller;
+  // Uncolonized land is open to anyone.
+  if (!o || !c) return true;
   if (o === n || c === n) return true;
   if (topOverlord(s, o) === topOverlord(s, n)) return true;
   if (allied(s, n, o)) return true;
@@ -273,11 +284,13 @@ export function canEnter(s: GameState, n: NationId, node: NodeId, rebelOf?: Nati
 
 /** Is whoever holds region `r` right now an enemy of `n`? Rebels holding a region are enemies of its owner's camp. */
 export function controllerHostile(s: GameState, n: NationId, r: Region): boolean {
+  if (!r.controller || !r.owner) return false;
   if (r.controller === REBELS) return friendlyTo(s, n, r.owner);
   return hostile(s, n, r.controller);
 }
 /** Same nation, same overlord chain, or allied. */
-export function friendlyTo(s: GameState, a: NationId, b: NationId): boolean {
+export function friendlyTo(s: GameState, a: NationId, b: NationId | null): boolean {
+  if (!b) return false;
   if (a === b) return true;
   if (a === REBELS || b === REBELS) return false;
   return topOverlord(s, a) === topOverlord(s, b) || allied(s, a, b);

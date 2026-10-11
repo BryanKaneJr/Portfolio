@@ -13,7 +13,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { geoAzimuthalEqualArea, geoPath } from 'd3-geo';
+import { geoMercator, geoPath } from 'd3-geo';
 import { Delaunay } from 'd3-delaunay';
 import * as topojsonClient from 'topojson-client';
 import * as topojsonServer from 'topojson-server';
@@ -29,21 +29,25 @@ const regions: { id: string; name: string; seeds: LonLat[] }[] = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'src/content/regions.json'), 'utf8'),
 );
 const seaData: {
-  seas: { id: string; name: string; seeds: LonLat[] }[];
+  seas: { id: string; name: string; seeds: LonLat[]; closed?: boolean }[];
   wastelands: { id: string; name: string; seeds: LonLat[] }[];
+  lakes: { name: string; outline: LonLat[] }[];
 } = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/seas.json'), 'utf8'));
 
-// Lambert azimuthal equal-area centred on central Europe.
-const WIDTH = 1000;
-const projection = geoAzimuthalEqualArea().rotate([-16, -51]).scale(1).translate([0, 0]);
+// Mercator: north is up everywhere, so Europe and the Americas both keep their familiar shapes.
+// Window: the Pacific coast of Mexico to the Volga, the North Cape to southern Brazil.
+const WEST = -101;
+const EAST = 47;
+const NORTH = 71.2;
+const SOUTH = -25;
+const UNITS_PER_DEGREE = 17.4; // keeps Europe at about the size the UI was tuned for
+const WIDTH = Math.round((EAST - WEST) * UNITS_PER_DEGREE);
+const projection = geoMercator().scale(1).translate([0, 0]);
 const p = (ll: LonLat): Pt => projection(ll) as Pt;
-
-// Window: Ireland and Morocco's Atlantic coast to the Volga, North Cape to the Sahara's edge.
-const frame: LonLat[] = [[-9.9, 30.4], [-10.6, 52], [-9.6, 38.7], [25.8, 71.2], [32, 70.2], [47, 57], [47, 46], [44, 40], [0, 29.6], [31, 29.6]];
-const left = Math.min(...frame.map(f => p(f)[0]));
-const right = Math.max(...frame.map(f => p(f)[0]));
-const top = Math.min(...frame.map(f => p(f)[1]));
-const bottom = Math.max(...frame.map(f => p(f)[1]));
+const left = p([WEST, 0])[0];
+const right = p([EAST, 0])[0];
+const top = p([0, NORTH])[1];
+const bottom = p([0, SOUTH])[1];
 const scale = WIDTH / (right - left);
 const HEIGHT = Math.round((bottom - top) * scale);
 const toPx = (ll: LonLat): Pt => {
@@ -87,8 +91,7 @@ const loose: Polygon = [
 ];
 
 // Project land through d3's spherical pipeline: it handles the antimeridian seam and clips to the window.
-const pixelProjection = geoAzimuthalEqualArea()
-  .rotate([-16, -51])
+const pixelProjection = geoMercator()
   .scale(scale)
   .translate([-left * scale, -top * scale])
   .clipExtent([
@@ -122,7 +125,16 @@ for (const g of landGeoms) {
     projectedLand.push(...composed);
   }
 }
-const land: MultiPolygon = polygonClipping.intersection(polygonClipping.union(projectedLand), windowPoly);
+// Natural Earth's land has no lakes: cut the Great Lakes out by hand (they block marches, not ships).
+const lakePolys: Polygon[] = seaData.lakes.map(l => {
+  const ring: Pt[] = [];
+  l.outline.forEach((a, k) => {
+    const b = l.outline[(k + 1) % l.outline.length];
+    for (let t = 0; t < 4; t++) ring.push(toPx([a[0] + ((b[0] - a[0]) * t) / 4, a[1] + ((b[1] - a[1]) * t) / 4]));
+  });
+  return [[...ring, ring[0]] as Ring];
+});
+const land: MultiPolygon = polygonClipping.difference(polygonClipping.intersection(polygonClipping.union(projectedLand), windowPoly), ...(lakePolys as any));
 const landmasses = land.filter(poly => Math.abs(ringArea(poly[0])) > 0.6);
 console.log(`landmasses: ${landmasses.length}`);
 
@@ -176,13 +188,6 @@ function distToPoly(pt: Pt, poly: Polygon): number {
   return best;
 }
 
-// Deterministic pseudo-random numbers so the map is identical on every build.
-let rngState = 1444;
-function rand() {
-  rngState = (rngState * 1103515245 + 12345) & 0x7fffffff;
-  return rngState / 0x7fffffff;
-}
-
 // ---------- seeds ----------
 type Seed = { owner: string; kind: 'region' | 'waste'; pt: Pt };
 const seeds: Seed[] = [];
@@ -218,61 +223,109 @@ const addPiece = (owner: string, mp: MultiPolygon) => {
   pieces.set(owner, [...(pieces.get(owner) ?? []), ...mp]);
 };
 
+// A fixed jittered grid: the same grid point always gets the same wobble, so two neighbours that build
+// their borders from separate patches of the grid still agree on every cell.
 const CELL = 4.5;
+function jitter(gx: number, gy: number): Pt {
+  let h = (Math.imul(gx, 73856093) ^ Math.imul(gy, 19349663) ^ 1444) >>> 0;
+  h = Math.imul(h ^ (h >>> 15), 2246822519) >>> 0;
+  h = Math.imul(h ^ (h >>> 13), 3266489917) >>> 0;
+  const a = (h & 0xffff) / 0xffff;
+  const b = (h >>> 16) / 0xffff;
+  return [gx * CELL + (a - 0.5) * CELL * 0.9, gy * CELL + (b - 0.5) * CELL * 0.9];
+}
+function unionAll(polys: Polygon[]): MultiPolygon {
+  let merged: MultiPolygon = [];
+  // Union in chunks: polygon-clipping is much faster on a few hundred polygons at a time.
+  for (let c = 0; c < polys.length; c += 400) merged = polygonClipping.union(merged, ...(polys.slice(c, c + 400) as any));
+  return merged;
+}
+const wasteSeedsAll = seeds.filter(sd => sd.kind === 'waste');
+
 landmasses.forEach((lm, i) => {
-  let ls = landmassSeeds[i];
+  const ls = landmassSeeds[i];
   if (ls.length === 0) {
-    // Small islands with no seed of their own join the nearest seed within reach.
+    // Islands with no seed of their own join the nearest seed within reach, or else the nearest wilderness.
     const c = polylabel(lm as any, 1) as unknown as Pt;
-    let best: Seed | null = null;
-    let bd = Infinity;
-    for (const s of seeds) {
-      const d = Math.hypot(s.pt[0] - c[0], s.pt[1] - c[1]);
-      if (d < bd) {
-        bd = d;
-        best = s;
+    const nearest = (list: Seed[]) => {
+      let best: Seed | null = null;
+      let bd = Infinity;
+      for (const sd of list) {
+        const d = Math.hypot(sd.pt[0] - c[0], sd.pt[1] - c[1]);
+        if (d < bd) {
+          bd = d;
+          best = sd;
+        }
       }
+      return { best, bd };
+    };
+    const near = nearest(seeds);
+    if (near.best && near.bd < 120) addPiece(near.best.owner, [lm]);
+    else {
+      const w = nearest(wasteSeedsAll).best;
+      if (w) addPiece(w.owner, [lm]);
     }
-    if (best && bd < 120) addPiece(best.owner, [lm]);
     return;
   }
-  const owners = new Set(ls.map(s => s.owner));
+  const owners = new Set(ls.map(sd => sd.owner));
   if (owners.size === 1) {
     addPiece(ls[0].owner, [lm]);
     return;
   }
   const [x0, y0, x1, y1] = bboxOf(lm);
-  const pts: number[] = [];
-  for (let y = y0 - CELL; y <= y1 + CELL; y += CELL)
-    for (let x = x0 - CELL; x <= x1 + CELL; x += CELL) pts.push(x + (rand() - 0.5) * CELL * 0.9, y + (rand() - 0.5) * CELL * 0.9);
-  const delaunay = new Delaunay(Float64Array.from(pts));
-  const vor = delaunay.voronoi([x0 - CELL * 2, y0 - CELL * 2, x1 + CELL * 2, y1 + CELL * 2]);
-  const byOwner = new Map<string, Polygon[]>();
-  const n = pts.length / 2;
-  for (let k = 0; k < n; k++) {
-    const cx = pts[2 * k];
-    const cy = pts[2 * k + 1];
-    let best = ls[0];
-    let bd = Infinity;
-    for (const s of ls) {
-      const d = Math.hypot(s.pt[0] - cx, s.pt[1] - cy);
-      if (d < bd) {
-        bd = d;
-        best = s;
+  const seedDel = Delaunay.from(ls.map(sd => sd.pt));
+  const seedVor = seedDel.voronoi([x0 - CELL, y0 - CELL, x1 + CELL, y1 + CELL]);
+  // Regions: grid cells handed to the nearest seed, built only around each region's own Voronoi cells.
+  const regionOwners = [...new Set(ls.filter(sd => sd.kind === 'region').map(sd => sd.owner))];
+  const regionPieces: MultiPolygon = [];
+  for (const owner of regionOwners) {
+    let bx0 = Infinity,
+      by0 = Infinity,
+      bx1 = -Infinity,
+      by1 = -Infinity;
+    ls.forEach((sd, k) => {
+      if (sd.owner !== owner) return;
+      const cell = seedVor.cellPolygon(k);
+      if (!cell) return;
+      for (const [x, y] of cell) {
+        bx0 = Math.min(bx0, x);
+        by0 = Math.min(by0, y);
+        bx1 = Math.max(bx1, x);
+        by1 = Math.max(by1, y);
       }
+    });
+    const gx0 = Math.floor(bx0 / CELL) - 3;
+    const gx1 = Math.ceil(bx1 / CELL) + 3;
+    const gy0 = Math.floor(by0 / CELL) - 3;
+    const gy1 = Math.ceil(by1 / CELL) + 3;
+    const pts: number[] = [];
+    for (let gy = gy0; gy <= gy1; gy++) for (let gx = gx0; gx <= gx1; gx++) pts.push(...jitter(gx, gy));
+    const del = new Delaunay(Float64Array.from(pts));
+    const vor = del.voronoi([gx0 * CELL - CELL, gy0 * CELL - CELL, gx1 * CELL + CELL, gy1 * CELL + CELL]);
+    const cells: Polygon[] = [];
+    let hint = 0;
+    for (let k = 0; k < pts.length / 2; k++) {
+      hint = seedDel.find(pts[2 * k], pts[2 * k + 1], hint);
+      if (ls[hint].owner !== owner) continue;
+      const cell = vor.cellPolygon(k);
+      if (cell) cells.push([cell as unknown as Ring]);
     }
-    const cell = vor.cellPolygon(k);
-    if (!cell) continue;
-    const arr = byOwner.get(best.owner) ?? [];
-    arr.push([cell as unknown as Ring]);
-    byOwner.set(best.owner, arr);
+    const piece = polygonClipping.intersection(unionAll(cells), lm);
+    addPiece(owner, piece);
+    regionPieces.push(...piece);
   }
-  for (const [owner, cells] of byOwner) {
-    let merged: MultiPolygon = [];
-    // Union in chunks: polygon-clipping is much faster on a few hundred polygons at a time.
-    for (let c = 0; c < cells.length; c += 400) merged = polygonClipping.union(merged, ...(cells.slice(c, c + 400) as any));
-    addPiece(owner, polygonClipping.intersection(merged, lm));
-  }
+  // Wilderness: whatever land is left, split between the wilderness seeds by plain Voronoi.
+  const wasteSeeds = ls.filter(sd => sd.kind === 'waste');
+  if (!wasteSeeds.length) return;
+  const rest = regionPieces.length ? polygonClipping.difference([lm], ...(regionPieces as any)) : [lm];
+  if (!rest.length) return;
+  const wasteVor = Delaunay.from(wasteSeeds.map(sd => sd.pt)).voronoi([x0 - CELL, y0 - CELL, x1 + CELL, y1 + CELL]);
+  const byWaste = new Map<string, Polygon[]>();
+  wasteSeeds.forEach((sd, k) => {
+    const cell = wasteVor.cellPolygon(k);
+    if (cell) byWaste.set(sd.owner, [...(byWaste.get(sd.owner) ?? []), [cell as unknown as Ring]]);
+  });
+  for (const [owner, cells] of byWaste) addPiece(owner, polygonClipping.intersection(unionAll(cells), rest));
 });
 
 // ---------- sea zones ----------
@@ -310,13 +363,35 @@ for (const poly of land) {
     }
   }
 }
+for (const lake of lakePolys) {
+  const r0 = lake[0];
+  for (let row = 0; row < RH; row++) {
+    const y = (row + 0.5) / 2;
+    const xs: number[] = [];
+    for (let i = 0, j = r0.length - 1; i < r0.length; j = i++) {
+      const [xi, yi] = r0[i];
+      const [xj, yj] = r0[j];
+      if (yi > y !== yj > y) xs.push(((xj - xi) * (y - yi)) / (yj - yi) + xi);
+    }
+    xs.sort((a, b) => a - b);
+    for (let k = 0; k + 1 < xs.length; k += 2) {
+      const a = Math.max(0, Math.ceil(xs[k] * 2 - 0.5));
+      const b = Math.min(RW - 1, Math.floor(xs[k + 1] * 2 - 0.5));
+      for (let col = a; col <= b; col++) raster[row * RW + col] = 2;
+    }
+  }
+}
+/** Open sea (lakes don't count: they make no coast). */
 const isWater = (x: number, y: number) => {
   const c = Math.floor(x * 2);
   const r = Math.floor(y * 2);
   if (c < 0 || r < 0 || c >= RW || r >= RH) return true;
   return raster[r * RW + c] === 0;
 };
+for (const sd of seaSeeds) if (!isWater(sd.pt[0], sd.pt[1])) warnings.push(`sea seed of ${sd.owner} at ${toLonLat(sd.pt).join(", ")} is on land`);
 const nearestSea = (pt: Pt) => seaSeeds[seaDel.find(pt[0], pt[1])].owner;
+// Closed waters (the Pacific, Hudson Bay...) are drawn but sit outside the game: no coasts, no links.
+const CLOSED = new Set(seaData.seas.filter(sd => sd.closed).map(sd => sd.id));
 
 // ---------- topology: simplify shared borders once, get neighbours and border lines ----------
 const ids = [...pieces.keys()];
@@ -326,6 +401,22 @@ const fc = {
 };
 let topo: any = topojsonServer.topology({ land: fc as any }, 1e5);
 topo = topojsonSimplify.presimplify(topo, topojsonSimplify.planarTriangleArea);
+// Wilderness outlines can be rougher than the land people fight over: weight their points down.
+{
+  const users = new Map<number, string[]>();
+  topo.objects.land.geometries.forEach((g: any, gi: number) => {
+    const walk = (a: any): void => {
+      if (typeof a === 'number') {
+        const k = a < 0 ? ~a : a;
+        users.set(k, [...(users.get(k) ?? []), ids[gi]]);
+      } else a.forEach(walk);
+    };
+    walk(g.arcs);
+  });
+  topo.arcs.forEach((arc: number[][], k: number) => {
+    if ((users.get(k) ?? []).every(id => id.startsWith('waste:'))) for (const pt of arc) if (pt.length > 2) pt[2] *= 0.3;
+  });
+}
 topo = topojsonSimplify.simplify(topo, 0.35);
 const simplified = topojsonClient.feature(topo, topo.objects.land) as any;
 const neigh = topojsonClient.neighbors(topo.objects.land.geometries);
@@ -414,7 +505,10 @@ simplified.features.forEach((f: any, gi: number) => {
           }
         }
       }
-  const seas = [...seaCount.entries()].filter(([, c]) => c >= 3).sort((a, b) => b[1] - a[1]).map(([s]) => s);
+  const seas = [...seaCount.entries()]
+    .filter(([sea, c]) => c >= 3 && !CLOSED.has(sea))
+    .sort((a, b) => b[1] - a[1])
+    .map(([sea]) => sea);
   const neighbors = neigh[gi].map((ni: number) => ids[ni]).filter((n: string) => regionIds.has(n)).sort();
   regionOut.push({
     id,
@@ -448,6 +542,7 @@ const seaOut = seaData.seas.map(s => {
     path: pathOf(shape as any),
     label: [round(label[0]), round(label[1])],
     bbox: bboxOf(largest).map(v => round(v)),
+    ...(s.closed ? { closed: true } : {}),
   };
 });
 const seaNeighbors = new Map<string, Set<string>>();
@@ -455,7 +550,7 @@ for (let k = 0; k < seaSeeds.length; k++) {
   for (const j of seaDel.neighbors(k)) {
     const a = seaSeeds[k].owner;
     const b = seaSeeds[j].owner;
-    if (a === b) continue;
+    if (a === b || CLOSED.has(a) || CLOSED.has(b)) continue;
     // Only count the link if the midpoint between the two seeds is open water.
     const mid: Pt = [(seaSeeds[k].pt[0] + seaSeeds[j].pt[0]) / 2, (seaSeeds[k].pt[1] + seaSeeds[j].pt[1]) / 2];
     if (!isWater(mid[0], mid[1])) continue;
@@ -483,11 +578,15 @@ const coastPath = linePath(
 const out = {
   width: WIDTH,
   height: HEIGHT,
-  projection: { rotate: [-16, -51], left, top, scale },
+  projection: { type: 'mercator', west: WEST, east: EAST, north: NORTH, south: SOUTH },
   regions: regionOut.sort((a, b) => a.id.localeCompare(b.id)),
   borders,
   seas: seaOut,
   wastelands: wasteOut,
+  lakes: seaData.lakes.map((l, k) => {
+    const c = polylabel(lakePolys[k] as any, 0.5) as unknown as Pt;
+    return { name: l.name, label: [round(c[0]), round(c[1])] };
+  }),
   coast: coastPath,
 };
 fs.writeFileSync(path.join(ROOT, 'src/content/map.json'), JSON.stringify(out));

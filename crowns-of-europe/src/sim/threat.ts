@@ -3,7 +3,7 @@
  * in a Coalition, a defensive league that joins any war you start against a member, or attacks you if you
  * look weak. It's the main brake on steamrolling.
  */
-import { NATION, hops, nationName } from './content';
+import { NATION, hops, isNativeNation, nationName } from './content';
 import { log, involvesPlayer } from './log';
 import {
   aliveNations,
@@ -95,11 +95,12 @@ function updateCoalitions(s: GameState): void {
   for (const t of before) if (!s.coalitions.some(c => c.target === t) && involvesPlayer(s, t)) log(s, 'diplomacy', 'The coalition against you has dissolved.', { important: true });
 
   for (const target of aliveNations(s)) {
-    if (target.threat < 25) continue;
+    if (target.threat < 25 || isNativeNation(target.id)) continue;
     const candidates = aliveNations(s).filter(
       o =>
         o.id !== target.id &&
         !o.overlord &&
+        !isNativeNation(o.id) &&
         !allied(s, o.id, target.id) &&
         !s.coalitions.some(c => c.members.includes(o.id)) &&
         perceivedThreat(s, o.id, target.id) >= COALITION_JOIN,

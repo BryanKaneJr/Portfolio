@@ -8,13 +8,13 @@ import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import Svg, { Defs, G, Line, Path, Pattern, Rect, Text as SvgText } from 'react-native-svg';
-import { MAP, MAP_REGION, MAP_SEA, NATION, REGION, RIVERS, SEA, WASTELANDS } from '../../sim/content';
+import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, armyRegs, armyMen } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans, serif } from '../theme';
 import { nationColor, regionFills } from './colors';
-import { MAP_H, MAP_W, nationLabels, regionAt, regionPoint, seaAt } from './geometry';
+import { MAP_H, MAP_W, WASTE_BBOX, nationLabels, regionAt, regionPoint, seaAt } from './geometry';
 import { onMapTap } from './tap';
 
 export interface Camera {
@@ -197,7 +197,19 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const selRegion = selection?.kind === 'region' ? selection.id : null;
   const selSea = selection?.kind === 'sea' ? selection.id : null;
   const selNation = selection?.kind === 'nation' ? selection.id : null;
-  const occupiers = [...new Set(Object.values(s.regions).filter(r => r.controller !== r.owner).map(r => r.controller))];
+  const charted = !!s.discovery;
+  // Before the New World is found it is drawn as blank parchment: no borders, names or units.
+  const hidden = (id: string) => !charted && isNewWorld(id);
+  const striped = [
+    ...new Set([
+      ...Object.values(s.regions)
+        .filter(r => r.controller !== r.owner && r.controller)
+        .map(r => r.controller!),
+      ...Object.values(s.regions)
+        .filter(r => r.colony)
+        .map(r => r.colony!.by),
+    ]),
+  ];
   const stripe = px(7);
 
   return (
@@ -207,7 +219,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           <Rect width={px(6)} height={px(6)} fill={C.waste} />
           <Line x1={0} y1={px(6)} x2={px(6)} y2={0} stroke="#a89c7c" strokeWidth={px(0.8)} />
         </Pattern>
-        {occupiers.map(o => (
+        <Pattern id="uncharted" patternUnits="userSpaceOnUse" width={px(9)} height={px(9)}>
+          <Rect width={px(9)} height={px(9)} fill="#e6dcc0" />
+          <Line x1={0} y1={px(9)} x2={px(9)} y2={0} stroke="#cfc19c" strokeWidth={px(0.7)} />
+        </Pattern>
+        {striped.map(o => (
           <Pattern key={o} id={`occ_${o}`} patternUnits="userSpaceOnUse" width={stripe} height={stripe}>
             <Path d={`M0 ${stripe} L${stripe} 0 M${-stripe / 2} ${stripe / 2} L${stripe / 2} ${-stripe / 2} M${stripe / 2} ${stripe * 1.5} L${stripe * 1.5} ${stripe / 2}`} stroke={o === REBELS ? '#222' : nationColor(o)} strokeWidth={stripe * 0.32} />
           </Pattern>
@@ -215,26 +231,39 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       </Defs>
       <Rect x={vx} y={vy} width={vw} height={vh} fill={C.sea} />
       {MAP.seas.map(sea =>
-        visible(sea.bbox) ? (
+        !visible(sea.bbox) ? null : sea.closed ? (
+          <Path key={sea.id} d={sea.path} fill={C.seaDark} />
+        ) : hidden(sea.id) ? null : (
           <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke="rgba(255,255,255,0.45)" strokeWidth={px(1)} strokeDasharray={`${px(4)} ${px(4)}`} />
-        ) : null,
+        ),
       )}
-      {MAP.wastelands.map(wl => (
-        <Path key={wl.id} d={wl.path} fill="url(#waste)" stroke="#9c8f6f" strokeWidth={px(0.6)} />
-      ))}
+      {MAP.wastelands.map(wl =>
+        WASTE_BBOX[wl.id] && !visible(WASTE_BBOX[wl.id]) ? null : !charted && NW_WASTELANDS.has(wl.id) ? (
+          <Path key={wl.id} d={wl.path} fill="url(#uncharted)" />
+        ) : (
+          <Path key={wl.id} d={wl.path} fill="url(#waste)" stroke="#9c8f6f" strokeWidth={px(0.6)} />
+        ),
+      )}
       {MAP.regions.map(r =>
-        visible(r.bbox) ? <Path key={r.id} d={r.path} fill={fills[r.id]} stroke="rgba(42,33,24,0.38)" strokeWidth={px(0.7)} strokeLinejoin="round" /> : null,
+        !visible(r.bbox) ? null : hidden(r.id) ? (
+          <Path key={r.id} d={r.path} fill="url(#uncharted)" />
+        ) : (
+          <Path key={r.id} d={r.path} fill={fills[r.id]} stroke="rgba(42,33,24,0.38)" strokeWidth={px(0.7)} strokeLinejoin="round" />
+        ),
       )}
       {mode === 'political' || mode === 'diplomatic'
         ? MAP.regions.map(r => {
             const reg = s.regions[r.id];
-            return reg.controller !== reg.owner && visible(r.bbox) ? <Path key={`o${r.id}`} d={r.path} fill={`url(#occ_${reg.controller})`} /> : null;
+            if (!visible(r.bbox) || hidden(r.id)) return null;
+            if (reg.controller !== reg.owner && reg.controller) return <Path key={`o${r.id}`} d={r.path} fill={`url(#occ_${reg.controller})`} />;
+            if (reg.colony) return <Path key={`o${r.id}`} d={r.path} fill={`url(#occ_${reg.colony.by})`} opacity={0.75} />;
+            return null;
           })
         : null}
       {MAP.borders.map(b => {
         const oa = s.regions[b.a].owner;
         const ob = s.regions[b.b].owner;
-        return oa !== ob ? <Path key={`${b.a}|${b.b}`} d={b.path} fill="none" stroke="rgba(30,22,14,0.85)" strokeWidth={px(1.5)} strokeLinecap="round" strokeLinejoin="round" /> : null;
+        return oa !== ob && !hidden(b.a) ? <Path key={`${b.a}|${b.b}`} d={b.path} fill="none" stroke="rgba(30,22,14,0.85)" strokeWidth={px(1.5)} strokeLinecap="round" strokeLinejoin="round" /> : null;
       })}
       {MAP.borders.map(b => (RIVERS.has(`${b.a}|${b.b}`) ? <Path key={`r${b.a}|${b.b}`} d={b.path} fill="none" stroke="#4d86b8" strokeWidth={px(2)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null))}
       <Path d={MAP.coast} fill="none" stroke={C.coast} strokeWidth={px(0.9)} strokeLinejoin="round" />
@@ -245,7 +274,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="none" stroke={C.goldDark} strokeWidth={px(1.2)} strokeLinejoin="round" /> : null}
       {WASTELANDS.map(wl => {
         const m = MAP.wastelands.find(x => x.id === wl.id);
-        if (!m || !visible([m.label[0], m.label[1], m.label[0], m.label[1]])) return null;
+        if (!m || !visible([m.label[0], m.label[1], m.label[0], m.label[1]]) || (!charted && NW_WASTELANDS.has(wl.id))) return null;
         return (
           <SvgText key={`wl${wl.id}`} x={m.label[0]} y={m.label[1]} fontSize={px(11)} fontStyle="italic" fontFamily={serif} fill="#6f6448" textAnchor="middle">
             {wl.name}
@@ -254,16 +283,34 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       })}
       {k >= 0.9
         ? MAP.seas.map(sea =>
-            visible(sea.bbox) ? (
+            visible(sea.bbox) && !hidden(sea.id) && SEA[sea.id] ? (
               <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16)} fontSize={px(10)} fontStyle="italic" fontFamily={serif} fill="#4d6f80" textAnchor="middle" opacity={0.85}>
                 {SEA[sea.id].name}
               </SvgText>
             ) : null,
           )
         : null}
+      {k >= 1.0 && charted
+        ? MAP.lakes.map(l =>
+            visible([l.label[0], l.label[1], l.label[0], l.label[1]]) ? (
+              <SvgText key={`lk${l.name}`} x={l.label[0]} y={l.label[1] + px(3)} fontSize={px(8)} fontStyle="italic" fontFamily={serif} fill="#4d6f80" textAnchor="middle" opacity={0.85}>
+                {l.name}
+              </SvgText>
+            ) : null,
+          )
+        : null}
+      {!charted
+        ? UNCHARTED_LABELS.map(([x, y], i) =>
+            visible([x, y, x, y]) ? (
+              <SvgText key={`un${i}`} x={x} y={y} fontSize={px(15)} fontStyle="italic" fontFamily={serif} fill="#8d7f5c" textAnchor="middle" letterSpacing={px(2)}>
+                Uncharted lands
+              </SvgText>
+            ) : null,
+          )
+        : null}
       {showRegionNames
         ? MAP.regions.map(r => {
-            if (!visible(r.bbox)) return null;
+            if (!visible(r.bbox) || hidden(r.id)) return null;
             const screen = r.labelRadius * k;
             if (screen < 13) return null;
             const fs = Math.max(9, Math.min(14, screen * 0.42));
@@ -281,7 +328,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           })
         : placeLabels(labels, k).map(l => {
             const def = NATION[l.nation];
-            if (!def) return null;
+            if (!def || (def.native && !charted)) return null;
             const fs = l.fs;
             if (!visible([l.x, l.y, l.x, l.y])) return null;
             const text = def.name.toUpperCase();
@@ -299,6 +346,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
     </Svg>
   );
 });
+
+/** Where "Uncharted lands" is written across the Americas before they are found. */
+const UNCHARTED_LABELS: [number, number][] = ['ohio', 'maranhao', 'cuba'].map(id => MAP_REGION[id].label as [number, number]);
 
 /** Biggest nations first; skip a name that would overlap one already placed. */
 function placeLabels(labels: ReturnType<typeof nationLabels>, k: number) {
@@ -338,7 +388,7 @@ export function unitPositions(s: GameState, k: number): ChipPos[] {
     out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
   }
   for (const a of Object.values(s.armies)) {
-    if (a.battle) continue;
+    if (a.battle || (!s.discovery && isNewWorld(a.node))) continue;
     let [x, y] = regionPoint(a.node);
     if (a.path.length && a.edgeDays > 0) {
       const [nx, ny] = regionPoint(a.path[0]);

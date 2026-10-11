@@ -15,6 +15,7 @@ import {
   monthlyReinforce,
 } from './military';
 import { monthlyMissions } from './missions';
+import { monthlyColonies } from './colonies';
 import { dailyFleets, dailyShipyards, monthlyNavy } from './navy';
 import { invalidateMods, ownedRegions } from './queries';
 import { monthlyUnrest } from './rebels';
@@ -65,6 +66,7 @@ function monthly(s: GameState): void {
   monthlyThreat(s);
   monthlyWars(s);
   monthlyNavy(s);
+  monthlyColonies(s);
   monthlyReligion(s);
   monthlyEvents(s);
   monthlyMissions(s);

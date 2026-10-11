@@ -1,5 +1,6 @@
 /** Plain-English descriptions of effects, goals and modifiers ("every number explained"). */
 import { EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
+import { GOOD_NAME } from '../sim/colonies';
 import type { Condition, Effect, Modifiers } from '../sim/types';
 
 const reg = (r: string) => REGION[r]?.name ?? r;
@@ -28,6 +29,8 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   navalPower: ['fleet strength', 'pct', true],
   threatDecay: ['Threat decay per month', 'flat', true],
   threatGain: ['Threat gained', 'pct', false],
+  colonists: ['colonists', 'flat', true],
+  settlerGrowth: ['settler growth', 'pct', true],
   opinion: ['opinion of you', 'flat', true],
   diplomacy: ['diplomatic reputation', 'flat', true],
   holyWarMorale: ['morale against other faiths', 'pct', true],
@@ -142,6 +145,10 @@ export function effectLines(e: Effect): ModLine[] {
       return L(`${v} loan${v > 1 ? 's' : ''} (+${v * 100} gold, with interest)`, false);
     case 'emperor':
       return L('You become Holy Roman Emperor');
+    case 'discoverNewWorld':
+      return L('Your ships find the New World');
+    case 'settlers':
+      return L(`${sgn(v)} settlers in each of your colonies`, v > 0);
     default:
       return [];
   }
@@ -238,6 +245,16 @@ export function conditionText(c: Condition): string {
       return `Threat of ${v}`;
     case 'papalFavorAtLeast':
       return `${v} Papal Favor`;
+    case 'discovered':
+      return v ? 'The New World has been found' : 'Before anyone finds the New World';
+    case 'coloniesAtLeast':
+      return `Own ${v} region${v > 1 ? 's' : ''} in the New World`;
+    case 'colonizingAtLeast':
+      return `Settle ${v} colon${v > 1 ? 'ies' : 'y'} at once`;
+    case 'ownsGood':
+      return `Own a region that trades in ${GOOD_NAME[v as keyof typeof GOOD_NAME].toLowerCase()}`;
+    case 'native':
+      return v ? 'Be a New World people' : 'Be a European crown';
     case 'hreMember':
       return v ? 'Be part of the Empire' : 'Be outside the Empire';
     case 'isNation':

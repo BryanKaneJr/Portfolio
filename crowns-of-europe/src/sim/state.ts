@@ -6,7 +6,7 @@ import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 1;
+export const SAVE_VERSION = 2;
 
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,
@@ -101,8 +101,9 @@ export function newGame(opts: NewGameOptions): GameState {
       faith: r.faith,
       unrest: 0,
       unrestMods: [],
-      cores: [r.owner],
+      cores: r.owner ? [r.owner] : [],
       devBought: 0,
+      natives: r.owner ? 0 : (r.natives ?? 0),
     };
     s.regions[r.id] = reg;
   }

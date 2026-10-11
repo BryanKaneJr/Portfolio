@@ -16,7 +16,7 @@ export const takeMapDirty = () => {
   return d;
 };
 
-export function setController(s: GameState, r: RegionId, n: NationId): void {
+export function setController(s: GameState, r: RegionId, n: NationId | null): void {
   const reg = s.regions[r];
   if (reg.controller === n) return;
   reg.controller = n;
@@ -38,6 +38,7 @@ export function transferRegion(s: GameState, r: RegionId, to: NationId, opts: { 
   // A claim is used up once you own the region.
   delete s.nations[to]?.claims[r];
   markMapDirty();
+  if (!from) return;
   const old = s.nations[from];
   if (!old) return;
   if (old.capital === r) {

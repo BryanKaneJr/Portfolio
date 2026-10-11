@@ -23,6 +23,7 @@ import { addRegiments } from './military';
 import { newGeneral, rulerDies } from './rulers';
 import { spawnRebels } from './rebels';
 import { declareWar } from './war';
+import { SETTLERS_NEEDED, coloniesOf, discoverNewWorld, newWorldRegions } from './colonies';
 import type { Condition, Effect, EventDef, Faith, GameState, NationId } from './types';
 import { chance, clamp, months, pickWeighted, randInt, yearOf } from './util';
 
@@ -147,6 +148,16 @@ export function evalCondition(s: GameState, n: NationId, c: Condition): boolean 
       return isHreMember(s, n) === v;
     case 'papalFavorAtLeast':
       return nat.papalFavor >= v;
+    case 'discovered':
+      return !!s.discovery === v;
+    case 'coloniesAtLeast':
+      return newWorldRegions(s, n).length >= v;
+    case 'colonizingAtLeast':
+      return coloniesOf(s, n).length >= v;
+    case 'ownsGood':
+      return ownedRegions(s, n).some(r => REGION[r.id].good === v);
+    case 'native':
+      return !!NATION[n]?.native === v;
     case 'chance':
       return chance(s, v);
     default:
@@ -328,6 +339,12 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       break;
     case 'emperor':
       s.hre.emperor = n;
+      break;
+    case 'discoverNewWorld':
+      discoverNewWorld(s, n);
+      break;
+    case 'settlers':
+      for (const r of coloniesOf(s, n)) r.colony!.settlers = Math.min(SETTLERS_NEEDED - 1, r.colony!.settlers + v);
       break;
   }
 }

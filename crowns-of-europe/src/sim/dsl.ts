@@ -20,20 +20,22 @@ type ArgName =
   | 'faith'
   | 'gov'
   | 'tier'
+  | 'good'
   | 'string'
   | 'conds'
   | 'cond';
 /** A plain argument, or an object whose fields are arguments (a trailing "?" marks a field optional). */
 type Arg = ArgName | { [field: string]: string };
 
-export const FAITHS = ['catholic', 'orthodox', 'muslim', 'protestant'];
+export const FAITHS = ['catholic', 'orthodox', 'muslim', 'protestant', 'native'];
+const GOODS = ['silver', 'gold', 'sugar', 'tobacco', 'cocoa', 'dyes', 'furs', 'fish', 'grain'];
 const GOVS = ['monarchy', 'republic', 'theocracy'];
 const TIERS = ['major', 'hard', 'minor'];
 const MODIFIER_KEYS = [
   'taxIncome', 'tradeIncome', 'manpower', 'morale', 'infantryPower', 'cavalryPower', 'artilleryPower', 'fortDefense',
   'siegeSpeed', 'attrition', 'upkeep', 'mercCost', 'devCost', 'coreCost', 'fortCost', 'shipCost', 'navalPower',
   'threatDecay', 'threatGain', 'opinion', 'diplomacy', 'holyWarMorale', 'unrest', 'techCost', 'movement',
-  'prestigeGain', 'stabilityCost',
+  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth',
 ];
 export const EVENT_IMAGES = [
   'crown', 'swords', 'siege', 'ship', 'church', 'plague', 'harvest', 'scroll', 'coins', 'castle', 'cannon', 'treaty',
@@ -97,6 +99,11 @@ export const CONDITION_SCHEMA: Record<string, Arg> = {
   coalitionAgainst: 'bool',
   hreMember: 'bool',
   papalFavorAtLeast: 'number',
+  discovered: 'bool',
+  coloniesAtLeast: 'number',
+  colonizingAtLeast: 'number',
+  ownsGood: 'good',
+  native: 'bool',
   chance: 'chance',
 };
 
@@ -144,6 +151,8 @@ export const EFFECT_SCHEMA: Record<string, Arg> = {
   declareWar: { target: 'nation', cb: 'string?', region: 'region?' },
   loans: 'number',
   emperor: 'true',
+  discoverNewWorld: 'true',
+  settlers: 'number',
 };
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
@@ -210,6 +219,9 @@ function checkArg(arg: Arg, v: unknown, where: string, errs: string[], ctx: { co
       return;
     case 'tier':
       if (typeof v !== 'string' || !TIERS.includes(v)) bad('unknown tier');
+      return;
+    case 'good':
+      if (typeof v !== 'string' || !GOODS.includes(v)) bad('unknown trade good');
       return;
     case 'string':
       if (typeof v !== 'string' || !v) bad('expected text');

@@ -2,7 +2,7 @@
  * Wars: reasons for war, calls to arms, war score (0-100% from battles, occupation, blockades and the
  * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations.
  */
-import { GRAPH, NATION, REGION, nationName, regionName } from './content';
+import { GRAPH, NATION, REGION, isNativeNation, nationName, regionName } from './content';
 import { log, involvesPlayer, newsworthy, requestPause } from './log';
 import {
   REBELS,
@@ -25,7 +25,7 @@ import { addOpinion, isHreMember, opinion } from './diplomacy';
 import { addThreat, coalitionAgainst } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
-import { clamp, months, pairKey, yearOf, years } from './util';
+import { clamp, isIn, months, pairKey, yearOf, years } from './util';
 
 export const TRUCE_YEARS = 10;
 
@@ -45,11 +45,12 @@ const CB_LABEL: Record<CasusBelli, string> = {
   none: 'No reason (Threat and stability penalty)',
 };
 
-const isChristian = (f: string) => f !== 'muslim';
+const isChristian = (f: string) => f === 'catholic' || f === 'orthodox' || f === 'protestant';
 export function holyWarAllowed(s: GameState, a: NationId, b: NationId): boolean {
   const fa = s.nations[a].faith;
   const fb = s.nations[b].faith;
   if (fa === fb) return false;
+  if (fa === 'native' || fb === 'native') return true;
   if (isChristian(fa) !== isChristian(fb)) return true;
   return (fa === 'protestant' && fb === 'catholic') || (fa === 'catholic' && fb === 'protestant');
 }
@@ -60,7 +61,7 @@ export function casusBelli(s: GameState, a: NationId, b: NationId): CbOption[] {
   const out: CbOption[] = [];
   if (A.overlord === b) out.push({ cb: 'independence', label: CB_LABEL.independence });
   const camp = [b, ...subjectsOf(s, b)];
-  const theirRegions = Object.values(s.regions).filter(r => camp.includes(r.owner));
+  const theirRegions = Object.values(s.regions).filter(r => isIn(camp, r.owner));
   const cores = theirRegions.filter(r => r.cores.includes(a)).sort((x, y) => y.dev - x.dev);
   if (cores.length) out.push({ cb: 'reconquest', goal: cores[0].id, label: `${CB_LABEL.reconquest}: ${regionName(cores[0].id)}` });
   const claims = theirRegions.filter(r => r.id in A.claims).sort((x, y) => y.dev - x.dev);
@@ -239,7 +240,7 @@ function sideDev(s: GameState, leader: NationId): number {
 export function warScore(s: GameState, w: War): WarScore {
   const occupiedValue = (owners: NationId[], occupiers: NationId[]) => {
     let v = 0;
-    for (const r of Object.values(s.regions)) if (owners.includes(r.owner) && occupiers.includes(r.controller)) v += r.dev;
+    for (const r of Object.values(s.regions)) if (isIn(owners, r.owner) && isIn(occupiers, r.controller)) v += r.dev;
     return v;
   };
   const attOcc = occupiedValue(w.defenders, w.attackers) / Math.max(1, sideDev(s, w.defenders[0]));
@@ -249,8 +250,8 @@ export function warScore(s: GameState, w: War): WarScore {
   let blockDef = 0;
   for (const r of Object.values(s.regions)) {
     if (!r.blockaded) continue;
-    if (w.defenders.includes(r.owner)) blockAtt++;
-    if (w.attackers.includes(r.owner)) blockDef++;
+    if (isIn(w.defenders, r.owner)) blockAtt++;
+    if (isIn(w.attackers, r.owner)) blockDef++;
   }
   const blockade = clamp(blockAtt - blockDef, -10, 10);
   const total = clamp(w.battleScore + occupation + blockade + w.goalScore, -100, 100);
@@ -268,7 +269,7 @@ export function monthlyWars(s: GameState): void {
     // The war goal ticks: holding it pushes the attacker ahead, failing to take it slowly helps the defender.
     if (w.goal) {
       const holder = s.regions[w.goal].controller;
-      if (w.attackers.includes(holder)) w.goalScore = Math.min(25, w.goalScore + 1);
+      if (isIn(w.attackers, holder)) w.goalScore = Math.min(25, w.goalScore + 1);
       else if (s.day - w.started > months(12)) w.goalScore = Math.max(-10, w.goalScore - 0.5);
     }
     if (s.day - w.started > years(20)) {
@@ -310,7 +311,7 @@ export function demandableRegions(s: GameState, w: War, winner: NationId): Regio
   const loserSide = winSide === 0 ? w.defenders : w.attackers;
   const winners = winSide === 0 ? w.attackers : w.defenders;
   return Object.values(s.regions)
-    .filter(r => loserSide.includes(r.owner) && (winners.includes(r.controller) || r.id === w.goal || r.id in s.nations[winner].claims || r.cores.includes(winner)))
+    .filter(r => isIn(loserSide, r.owner) && (isIn(winners, r.controller) || r.id === w.goal || r.id in s.nations[winner].claims || r.cores.includes(winner)))
     .map(r => r.id);
 }
 
@@ -363,9 +364,10 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (!terms.white) {
     for (const r of terms.regions) {
       const reg = s.regions[r];
-      if (!losers.includes(reg.owner)) continue;
+      if (!isIn(losers, reg.owner)) continue;
       const claimed = r in s.nations[winner].claims || reg.cores.includes(winner);
-      threat += reg.dev * 2.5 * (claimed ? 0.6 : 1);
+      // Europe barely notices land taken from New World peoples.
+      threat += reg.dev * 2.5 * (claimed ? 0.6 : 1) * (isNativeNation(reg.owner!) ? 0.3 : 1);
       transferRegion(s, r, winner, { conquest: true });
       if (winner === s.player) s.stats.regionsConquered++;
     }
@@ -388,7 +390,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   // Occupations end and everyone gets a truce.
   const all = [...w.attackers, ...w.defenders];
   for (const r of Object.values(s.regions)) {
-    if (r.controller !== r.owner && all.includes(r.owner) && all.includes(r.controller)) {
+    if (r.controller !== r.owner && isIn(all, r.owner) && isIn(all, r.controller)) {
       r.controller = r.owner;
       r.siege = undefined;
     }
@@ -432,7 +434,7 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
     w.defenders = w.defenders.filter(x => x !== sub);
   }
   for (const r of Object.values(s.regions)) {
-    if ((r.owner === n && enemies.includes(r.controller)) || (enemies.includes(r.owner) && r.controller === n)) {
+    if ((r.owner === n && isIn(enemies, r.controller)) || (isIn(enemies, r.owner) && r.controller === n)) {
       r.controller = r.owner;
       r.siege = undefined;
     }

@@ -3,7 +3,7 @@ import { NATION, REGION } from '../../sim/content';
 import { opinion } from '../../sim/diplomacy';
 import { allied, hasTruce, topOverlord, warBetween } from '../../sim/queries';
 import { perceivedThreat } from '../../sim/threat';
-import type { GameState, Region } from '../../sim/types';
+import type { GameState, Good, Region } from '../../sim/types';
 import type { MapMode } from '../../state/store';
 import { FAITH_COLOR, TERRAIN_COLOR } from '../theme';
 
@@ -17,7 +17,20 @@ export function mix(a: string, b: string, t: number): string {
 }
 
 const PARCHMENT = '#efe3c2';
-export const nationColor = (n: string) => (NATION[n] ? mix(NATION[n].color, PARCHMENT, 0.12) : '#3a3a3a');
+export const nationColor = (n: string | null) => (n && NATION[n] ? mix(NATION[n].color, PARCHMENT, 0.12) : '#3a3a3a');
+/** Uncolonized land: pale and unclaimed, so it reads as "up for grabs". */
+export const WILD = '#f1e8cf';
+export const GOOD_COLOR: Record<Good, string> = {
+  silver: '#a7b3bd',
+  gold: '#d9a72e',
+  sugar: '#e9e2d4',
+  tobacco: '#8a6a3a',
+  cocoa: '#6b4129',
+  dyes: '#7b4fa0',
+  furs: '#a0703f',
+  fish: '#5f8fae',
+  grain: '#d7c46a',
+};
 
 /** Per-map-mode colour of a region. Diplomatic and threat modes are computed once per nation per render. */
 export function regionFills(s: GameState, mode: MapMode): Record<string, string> {
@@ -29,6 +42,11 @@ export function regionFills(s: GameState, mode: MapMode): Record<string, string>
 }
 
 function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<string, string>): string {
+  if (mode === 'goods') {
+    const g = REGION[r.id].good;
+    return g ? GOOD_COLOR[g] : '#d8d0bd';
+  }
+  if (!r.owner && mode !== 'terrain' && mode !== 'faith') return WILD;
   switch (mode) {
     case 'political':
       return nationColor(r.owner);
@@ -41,7 +59,7 @@ function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<stri
     case 'faith':
       return FAITH_COLOR[r.faith];
     case 'diplomatic': {
-      const o = r.owner;
+      const o = r.owner!;
       const hit = cache.get(o);
       if (hit) return hit;
       let c: string;
@@ -59,7 +77,7 @@ function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<stri
       return c;
     }
     case 'threat': {
-      const o = r.owner;
+      const o = r.owner!;
       if (o === p) return '#9b9387';
       const hit = cache.get(o);
       if (hit) return hit;
@@ -75,7 +93,8 @@ export const MAP_MODES: { key: MapMode; label: string; help: string }[] = [
   { key: 'political', label: 'Political', help: 'Who owns each region. Stripes show occupation.' },
   { key: 'terrain', label: 'Terrain', help: 'Plains, forest, hills, marsh and mountains: they change battles, movement and supply.' },
   { key: 'development', label: 'Development', help: 'Darker regions are richer: more taxes, manpower and supply.' },
-  { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple).' },
+  { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple), native beliefs (brown).' },
   { key: 'diplomatic', label: 'Diplomatic', help: 'How others see you: allies blue, enemies red, opinion from green to red.' },
   { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a coalition.' },
+  { key: 'goods', label: 'Trade goods', help: 'What each New World region and Atlantic island trades in: silver and gold pay most, then sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
 ];

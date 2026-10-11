@@ -57,7 +57,7 @@ if (await has('hint-ok')) await tapId('hint-ok');
 await coe(() => window.__coe.store.select(null));
 await tapId('menu');
 await shot('menu-military');
-for (const tab of ['diplomacy', 'economy', 'missions', 'ledger', 'settings']) {
+for (const tab of ['diplomacy', 'economy', 'colonies', 'missions', 'ledger', 'settings']) {
   await tapId(`tab-${tab}`);
   await shot(`menu-${tab}`);
 }
@@ -103,7 +103,7 @@ await shot('map-development');
 await page.getByTestId('mapmode').click();
 await page.getByText('Political', { exact: true }).first().click();
 // Zoomed-out Europe.
-await coe(() => window.__coe.store.focusOn(500, 470, 1400));
+await coe(() => { const { store, point } = window.__coe; const [x, y] = point('bohemia'); store.focusOn(x, y, 1400); });
 await shot('europe');
 // Messages.
 await page.getByLabel('Messages').first().click();

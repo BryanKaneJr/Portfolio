@@ -17,7 +17,8 @@ describe('long AI game', () => {
       if (n.alive) expect(s.regions[n.capital].owner).toBe(n.id);
     }
     for (const r of Object.values(s.regions)) {
-      expect(s.nations[r.owner].alive).toBe(true);
+      if (r.owner) expect(s.nations[r.owner].alive).toBe(true);
+      if (r.colony) expect(r.owner).toBeNull();
       expect(r.dev).toBeGreaterThanOrEqual(1);
       expect(r.dev).toBeLessThanOrEqual(10);
     }

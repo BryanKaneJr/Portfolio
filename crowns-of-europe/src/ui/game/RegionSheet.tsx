@@ -21,13 +21,15 @@ import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import { years } from '../../sim/util';
+import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
+import { UnchartedSheet, WildSheet } from './ColonySheets';
 import { useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
 
-const FAITH_NAME: Record<string, string> = { catholic: 'Catholic', orthodox: 'Orthodox', muslim: 'Muslim', protestant: 'Protestant' };
+export const FAITH_NAME: Record<string, string> = { catholic: 'Catholic', orthodox: 'Orthodox', muslim: 'Muslim', protestant: 'Protestant', native: 'Native beliefs' };
 
 export function RegionSheet({ id }: { id: string }) {
   const st = useStore();
@@ -37,7 +39,11 @@ export function RegionSheet({ id }: { id: string }) {
   const me = s.nations[s.player];
   const mine = r.owner === s.player;
   const [why, setWhy] = useState<null | 'unrest' | 'income'>(null);
+  if (!charted(s, id)) return <UnchartedSheet />;
+  if (!r.owner) return <WildSheet id={id} />;
+  const owner = r.owner;
   const tax = regionTax(s, r);
+  const goods = goodsIncome(s, r);
   const trade = regionTrade(s, r);
   const unrest = unrestBreakdown(s, r);
   const siege = r.siege ? siegeInfo(s, id) : null;
@@ -49,12 +55,12 @@ export function RegionSheet({ id }: { id: string }) {
   return (
     <Sheet
       title={def.name}
-      subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${FAITH_NAME[r.faith]}${def.hre ? ' · Holy Roman Empire' : ''}${def.trade ? ' · Trade centre' : ''}`}
+      subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${FAITH_NAME[r.faith]}${def.hre ? ' · Holy Roman Empire' : ''}${def.trade ? ' · Trade centre' : ''}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
-      left={<Flag nation={r.owner} size={34} />}
+      left={<Flag nation={owner} size={34} />}
     >
       <Row style={{ marginBottom: 8 }} gap={6}>
-        <Btn small tone="secondary" label={nationName(r.owner)} onPress={() => st.select({ kind: 'nation', id: r.owner })} />
+        <Btn small tone="secondary" label={nationName(owner)} onPress={() => st.select({ kind: 'nation', id: owner })} />
         {r.controller !== r.owner ? <Pill text={`Occupied by ${nationName(r.controller)}`} color={C.redSoft} textColor={C.red} /> : null}
         {id in me.claims && !mine ? <Pill text="Your claim" color={C.greenSoft} textColor={C.green} /> : null}
         {r.cores.includes(s.player) && !mine ? <Pill text="Your core" color={C.greenSoft} textColor={C.green} /> : null}
@@ -66,7 +72,7 @@ export function RegionSheet({ id }: { id: string }) {
         <Stat label="Unrest" value={fmt(r.unrest, 1)} tone={r.unrest > 7 ? 'bad' : undefined} onPress={() => setWhy(why === 'unrest' ? null : 'unrest')} icon="rebels" />
       </Row>
       <Row gap={6} style={{ marginTop: 6 }}>
-        <Stat label="Income" value={`${fmt(tax + trade, 1)}/mo`} onPress={() => setWhy(why === 'income' ? null : 'income')} icon="gold" />
+        <Stat label="Income" value={`${fmt(tax + trade + goods, 1)}/mo`} onPress={() => setWhy(why === 'income' ? null : 'income')} icon="gold" />
         <Stat label="Supply" value={`${supplyLimit(s, id, s.player)} regs`} icon="harvest" />
         <Stat label="Faith" value={FAITH_NAME[r.faith]} icon="church" />
       </Row>
@@ -79,6 +85,7 @@ export function RegionSheet({ id }: { id: string }) {
         <View style={{ marginTop: 8 }}>
           <Line label={`Taxes (${r.dev} dev × 0.3${isCored(r) ? '' : ', halved: not a core'})`} value={fmt(tax, 2)} />
           <Line label={def.trade ? 'Trade centre' : 'Trade (not a trade centre)'} value={fmt(trade, 2)} />
+          {def.good ? <Line label={`${GOOD_NAME[def.good]} (trade good, grows with development)`} value={fmt(goods, 2)} /> : null}
           {r.blockaded ? <Line label="Blockaded by an enemy fleet" value="−50%" tone="bad" /> : null}
           {r.controller !== r.owner ? <Line label="Occupied: no income" value="0" tone="bad" /> : null}
         </View>
@@ -142,12 +149,12 @@ export function RegionSheet({ id }: { id: string }) {
             {me.faith === 'catholic' && sanctionTargets(s, s.player).includes(id) ? (
               <Btn tone="secondary" icon="church" label="Ask the Pope for a claim" sub={`${SANCTION_COST} Papal Favor (you have ${Math.floor(me.papalFavor)})`} disabled={me.papalFavor < SANCTION_COST} onPress={() => st.run(x => requestSanction(x, id))} />
             ) : null}
-            <Btn tone="secondary" icon="flag" label={`Diplomacy with ${nationName(r.owner)}`} onPress={() => st.select({ kind: 'nation', id: r.owner })} />
+            <Btn tone="secondary" icon="flag" label={`Diplomacy with ${nationName(owner)}`} onPress={() => st.select({ kind: 'nation', id: owner })} />
           </View>
         </Section>
       ) : null}
       <T v="tiny" style={{ marginTop: 10 }}>
-        {NATION[r.owner] ? `Cores: ${r.cores.map(nationName).join(', ')}.` : ''} Tap a region with your army selected to march there.
+        {NATION[owner] ? `Cores: ${r.cores.map(nationName).join(', ')}.` : ''} Tap a region with your army selected to march there.
       </T>
     </Sheet>
   );

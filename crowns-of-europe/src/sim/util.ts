@@ -75,6 +75,8 @@ export const years = (n: number) => Math.round(n * DAYS_PER_YEAR);
 
 export const pairKey = (a: NationId, b: NationId) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 export const dirKey = (from: NationId, to: NationId) => `${from}>${to}`;
+/** `list.includes(x)` for an owner or controller that may be null (uncolonized land). */
+export const isIn = (list: readonly string[], x: string | null | undefined): boolean => !!x && list.includes(x);
 export const clamp = (v: number, lo: number, hi: number) => (v < lo ? lo : v > hi ? hi : v);
 export const nextId = (s: GameState, prefix: string) => `${prefix}${++s.seq}`;
 export const sum = <T>(arr: readonly T[], f: (t: T) => number) => arr.reduce((acc, t) => acc + f(t), 0);

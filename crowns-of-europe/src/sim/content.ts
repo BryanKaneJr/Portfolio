@@ -9,6 +9,7 @@ import policiesJson from '../content/policies.json';
 import unitsJson from '../content/units.json';
 import historicalEventsJson from '../content/events-historical.json';
 import genericEventsJson from '../content/events-generic.json';
+import newWorldEventsJson from '../content/events-newworld.json';
 import missionsJson from '../content/missions.json';
 import achievementsJson from '../content/achievements.json';
 import namesJson from '../content/names.json';
@@ -42,6 +43,10 @@ export const MAP_SEA: Record<SeaId, MapSea> = Object.fromEntries(MAP.seas.map(s 
 export interface SeaDef {
   id: SeaId;
   name: string;
+  ocean?: boolean; // open ocean: a coast here lets you send colonists overseas
+  nw?: boolean; // New World waters: closed until the New World is discovered
+  closed?: boolean; // outside the game: drawn on the map, never sailed
+  days?: number; // days to cross (default 4; the open Atlantic takes much longer)
 }
 export interface StraitDef {
   a: RegionId;
@@ -49,10 +54,14 @@ export interface StraitDef {
   sea: SeaId;
   name: string;
 }
-export const SEAS = (seasJson as any).seas as SeaDef[];
+export const SEAS = ((seasJson as any).seas as SeaDef[]).filter(s => !s.closed);
 export const SEA: Record<SeaId, SeaDef> = Object.fromEntries(SEAS.map(s => [s.id, s]));
 export const STRAITS = (seasJson as any).straits as StraitDef[];
 export const WASTELANDS = (seasJson as any).wastelands as { id: string; name: string }[];
+/** Wildernesses across the Atlantic (hidden with the rest of the New World until it is discovered). */
+export const NW_WASTELANDS = new Set(((seasJson as any).wastelands as { id: string; seeds: [number, number][] }[]).filter(w => w.seeds[0][0] < -30).map(w => w.id));
+/** Sea zones the game never uses (the Pacific, Hudson Bay...): drawn as darker water. */
+export const CLOSED_SEAS = new Set(((seasJson as any).seas as SeaDef[]).filter(s => s.closed).map(s => s.id));
 /** Borders along a major river ("a|b", sorted): attacking across one costs the attacker 1 on every roll. */
 export const RIVERS: Map<string, string> = new Map(
   ((seasJson as any).rivers as { name: string; between: [string, string][] }[]).flatMap(r => r.between.map(([a, b]) => [a < b ? `${a}|${b}` : `${b}|${a}`, r.name] as [string, string])),
@@ -96,7 +105,7 @@ export const UNITS = unitsJson as unknown as {
 };
 export const ERA = (n: number): UnitEra => UNITS.eras[Math.max(0, Math.min(UNITS.eras.length - 1, n - 1))];
 
-export const EVENTS = [...(historicalEventsJson as unknown[]), ...(genericEventsJson as unknown[])] as EventDef[];
+export const EVENTS = [...(historicalEventsJson as unknown[]), ...(genericEventsJson as unknown[]), ...(newWorldEventsJson as unknown[])] as EventDef[];
 export const EVENT: Record<string, EventDef> = Object.fromEntries(EVENTS.map(e => [e.id, e]));
 export const MISSIONS = missionsJson as unknown as MissionDef[];
 export const MISSION: Record<string, MissionDef> = Object.fromEntries(MISSIONS.map(m => [m.id, m]));
@@ -128,6 +137,7 @@ export const GRAPH: Record<NodeId, Edge[]> = (() => {
     ];
   }
   for (const s of MAP.seas) {
+    if (s.closed) continue;
     g[s.id] = [...s.neighbors.map(n => ({ to: n, kind: 'sea' as const }))];
   }
   for (const r of MAP.regions) for (const s of r.seas) g[s].push({ to: r.id, kind: 'coast' });
@@ -137,6 +147,13 @@ export const GRAPH: Record<NodeId, Edge[]> = (() => {
     g[st.b].push({ to: st.a, kind: 'strait', sea: st.sea });
   }
   return g;
+})();
+
+/** Coastal regions of each sea zone. */
+export const SEA_COAST: Record<SeaId, RegionId[]> = (() => {
+  const out: Record<SeaId, RegionId[]> = {};
+  for (const r of MAP.regions) for (const s of r.seas) (out[s] ??= []).push(r.id);
+  return out;
 })();
 
 /** Hop distance between two regions over land and straits (cached per source). */
@@ -170,5 +187,9 @@ export function mapDistance(a: RegionId, b: RegionId): number {
   return Math.hypot(pa[0] - pb[0], pa[1] - pb[1]);
 }
 
+/** Is this region or sea part of the New World (hidden until it is discovered)? */
+export const isNewWorld = (node: NodeId): boolean => !!(REGION[node]?.nw ?? SEA[node]?.nw);
+export const isNativeNation = (n: NationId): boolean => !!NATION[n]?.native;
+
 export const regionName = (id: NodeId): string => REGION[id]?.name ?? SEA[id]?.name ?? id;
-export const nationName = (id: NationId): string => (id === 'REB' ? 'Rebels' : (NATION[id]?.name ?? id));
+export const nationName = (id: NationId | null): string => (id === null ? 'Natives' : id === 'REB' ? 'Rebels' : (NATION[id]?.name ?? id));

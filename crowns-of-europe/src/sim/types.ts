@@ -12,7 +12,7 @@ export type FleetId = string;
 export type WarId = string;
 export type BattleId = string;
 
-export type Faith = 'catholic' | 'orthodox' | 'muslim' | 'protestant';
+export type Faith = 'catholic' | 'orthodox' | 'muslim' | 'protestant' | 'native';
 export type Terrain = 'plains' | 'forest' | 'hills' | 'marsh' | 'mountains';
 export type Gov = 'monarchy' | 'republic' | 'theocracy';
 export type Personality = 'expansionist' | 'defensive' | 'trader' | 'opportunist';
@@ -20,6 +20,8 @@ export type Tier = 'major' | 'hard' | 'minor';
 export type Difficulty = 'easy' | 'normal' | 'hard' | 'very_hard';
 export type UnitType = 'inf' | 'cav' | 'art';
 export type ShipType = 'galley' | 'warship' | 'transport';
+/** What a New World region (or an Atlantic island) trades in: extra gold for its owner every month. */
+export type Good = 'silver' | 'gold' | 'sugar' | 'tobacco' | 'cocoa' | 'dyes' | 'furs' | 'fish' | 'grain';
 export type CasusBelli = 'claim' | 'holy' | 'rival' | 'none' | 'independence' | 'coalition' | 'reconquest';
 
 /** Additive modifiers. Percentages are fractions (0.1 = +10%). */
@@ -51,6 +53,8 @@ export type Modifiers = Partial<{
   movement: number;
   prestigeGain: number;
   stabilityCost: number;
+  colonists: number;
+  settlerGrowth: number;
 }>;
 
 // ---------------------------------------------------------------- content
@@ -58,13 +62,17 @@ export type Modifiers = Partial<{
 export interface RegionDef {
   id: RegionId;
   name: string;
-  owner: NationId;
+  owner: NationId | null; // null: uncolonized land
   terrain: Terrain;
-  dev: number;
+  dev: number; // for uncolonized land: the development a finished colony starts with
   fort: number;
   faith: Faith;
   hre?: boolean;
   trade?: boolean;
+  natives?: number; // thousands of native people living on uncolonized land
+  hostility?: number; // 0-3: how fiercely they resist settlers
+  good?: Good;
+  nw?: boolean; // in the New World: unknown until it is discovered
   seeds: [number, number][];
 }
 
@@ -86,6 +94,7 @@ export interface MapSea {
   label: [number, number];
   bbox: number[];
   neighbors: SeaId[];
+  closed?: boolean; // waters outside the game (drawn, never sailed)
 }
 
 export interface MapData {
@@ -95,6 +104,7 @@ export interface MapData {
   borders: { a: RegionId; b: RegionId; path: string }[];
   seas: MapSea[];
   wastelands: { id: string; path: string; label: [number, number]; area: number }[];
+  lakes: { name: string; label: [number, number] }[];
   coast: string;
 }
 
@@ -123,6 +133,7 @@ export interface NationDef {
   trait: string;
   tier: Tier;
   playable: boolean;
+  native?: boolean; // a New World people: no colonists, no European diplomacy, weaker troops
   difficulty: Difficulty | null;
   flag: FlagDef;
   ruler: RulerDef;
@@ -215,6 +226,11 @@ export type Condition =
   | { coalitionAgainst: boolean }
   | { hreMember: boolean }
   | { papalFavorAtLeast: number }
+  | { discovered: boolean }
+  | { coloniesAtLeast: number }
+  | { colonizingAtLeast: number }
+  | { ownsGood: Good }
+  | { native: boolean }
   | { chance: number };
 
 export interface TimedModifier {
@@ -267,7 +283,9 @@ export type Effect =
   | { reformation: number }
   | { declareWar: { target: NationId; cb?: CasusBelli; region?: RegionId } }
   | { loans: number }
-  | { emperor: true };
+  | { emperor: true }
+  | { discoverNewWorld: true }
+  | { settlers: number };
 
 export interface EventChoice {
   text: string;
@@ -410,10 +428,16 @@ export interface Siege {
   started: number;
 }
 
+export interface Colony {
+  by: NationId;
+  settlers: number; // a colony is founded at 1,000
+  started: number; // day
+}
+
 export interface Region {
   id: RegionId;
-  owner: NationId;
-  controller: NationId; // differs from owner while occupied
+  owner: NationId | null; // null: uncolonized
+  controller: NationId | null; // differs from owner while occupied
   dev: number;
   fort: number;
   faith: Faith;
@@ -425,6 +449,8 @@ export interface Region {
   converting?: { to: Faith; done: number };
   blockaded?: boolean;
   devBought: number;
+  natives: number; // thousands, on uncolonized land
+  colony?: Colony;
 }
 
 export interface War {
@@ -474,6 +500,7 @@ export interface Nation {
   generals: General[];
   recruiting: { type: UnitType; region: RegionId; done: number }[];
   shipyard: { type: ShipType; region: RegionId; sea: SeaId; done: number }[];
+  expedition?: { done: number }; // a voyage west, before the New World is found
   lastEventDay: number;
   electionDay?: number;
   lastMonthIncome: number;
@@ -514,7 +541,7 @@ export interface LogEntry {
   id: number;
   day: number;
   text: string;
-  kind: 'war' | 'peace' | 'battle' | 'siege' | 'diplomacy' | 'event' | 'economy' | 'ruler' | 'news' | 'rebels' | 'mission';
+  kind: 'war' | 'peace' | 'battle' | 'siege' | 'diplomacy' | 'event' | 'economy' | 'ruler' | 'news' | 'rebels' | 'mission' | 'colony';
   node?: NodeId;
   nation?: NationId;
   important?: boolean;
@@ -570,6 +597,7 @@ export interface GameState {
   cooldowns: Record<string, number>; // "A>B:action" -> day available again
   coalitions: Coalition[];
   hre: { emperor: NationId | null; electors: NationId[]; centralized: boolean; rulerKey?: string };
+  discovery?: { day: number; by: NationId | null }; // when the New World was found, and by whom
   flags: Record<string, number>;
   firedEvents: Record<string, number>; // event id -> times fired (once-events)
   pendingEvents: PendingEvent[]; // the player's event cards waiting to be answered

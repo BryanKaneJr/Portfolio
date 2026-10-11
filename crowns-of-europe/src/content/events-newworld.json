@@ -1,0 +1,68 @@
+[
+  {
+    "id": "new_world",
+    "pool": "historical",
+    "title": "A New World",
+    "text": "Ships back from the western ocean bring parrots, gold rings and strange stories: islands, endless forests, rivers wider than any in Europe, and peoples no Christian has ever seen. Every crown with an ocean coast is already counting the colonists it could send.",
+    "image": "ship",
+    "hidden": true,
+    "trigger": {
+      "discovered": true
+    },
+    "choices": [
+      {
+        "text": "Then let us sail west",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "cas_council_of_the_indies",
+    "pool": "historical",
+    "title": "The Council of the Indies",
+    "text": "Gold, parrots and baptized captives have come back from across the ocean, and every hidalgo without an inheritance wants a ship. The crown can take the new lands in hand: a council in Seville to license every voyage, collect the royal fifth and send settlers west.",
+    "image": "ship",
+    "nations": [
+      "CAS"
+    ],
+    "window": [
+      1480,
+      1600
+    ],
+    "mtth": 6,
+    "news": "Castile founds a Council of the Indies to rule its lands across the ocean.",
+    "trigger": {
+      "discovered": true
+    },
+    "choices": [
+      {
+        "text": "Found the Council of the Indies",
+        "effects": [
+          {
+            "modifier": {
+              "id": "council_of_the_indies",
+              "name": "Council of the Indies",
+              "months": 3600,
+              "mods": {
+                "colonists": 1
+              }
+            }
+          }
+        ],
+        "ai": 9
+      },
+      {
+        "text": "Europe comes first",
+        "effects": [
+          {
+            "prestige": -5
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  }
+]

@@ -13,6 +13,7 @@ import {
   totalDev,
 } from './queries';
 import type { GameState, NationId, Region, ShipType } from './types';
+import { COLONY_UPKEEP, coloniesOf, goodsIncome } from './colonies';
 import { chance, clamp, years } from './util';
 
 export const TAX_PER_DEV = 0.3;
@@ -40,7 +41,7 @@ export function taxMultiplier(s: GameState, n: NationId): number {
 }
 
 export function regionTax(s: GameState, r: Region): number {
-  if (r.controller !== r.owner) return 0;
+  if (!r.owner || r.controller !== r.owner) return 0;
   const n = r.owner;
   const nat = s.nations[n];
   if (!nat) return 0;
@@ -52,21 +53,23 @@ export function regionTax(s: GameState, r: Region): number {
 }
 
 export function regionTrade(s: GameState, r: Region): number {
-  if (!REGION[r.id].trade || r.controller !== r.owner) return 0;
+  if (!REGION[r.id].trade || !r.owner || r.controller !== r.owner) return 0;
   const m = nationMods(s, r.owner);
   let v = (1.2 + r.dev * 0.12) * (isCored(r) ? 1 : 0.5) * (1 + m.tradeIncome);
   if (r.blockaded) v *= 0.4;
   return v;
 }
 
-function grossIncome(s: GameState, n: NationId): { tax: number; trade: number } {
+function grossIncome(s: GameState, n: NationId): { tax: number; trade: number; goods: number } {
   let tax = 0;
   let trade = 0;
+  let goods = 0;
   for (const r of ownedRegions(s, n)) {
     tax += regionTax(s, r);
     trade += regionTrade(s, r);
+    goods += goodsIncome(s, r);
   }
-  return { tax, trade };
+  return { tax, trade, goods };
 }
 
 export function tributeRate(s: GameState, n: NationId): number {
@@ -111,18 +114,19 @@ export function fortUpkeep(s: GameState, n: NationId): number {
 
 export function ledger(s: GameState, n: NationId): Ledger {
   const nat = s.nations[n];
-  const { tax, trade } = grossIncome(s, n);
+  const { tax, trade, goods } = grossIncome(s, n);
   let tributeIn = 0;
   for (const sub of subjectsOf(s, n)) {
     const g = grossIncome(s, sub);
-    tributeIn += (g.tax + g.trade) * tributeRate(s, sub);
+    tributeIn += (g.tax + g.trade + g.goods) * tributeRate(s, sub);
   }
-  const tributeOut = (tax + trade) * tributeRate(s, n);
+  const tributeOut = (tax + trade + goods) * tributeRate(s, n);
   const army = armyUpkeep(s, n);
   const income: LineItem[] = [
     { label: 'Taxes', value: tax },
     { label: 'Trade', value: trade },
   ];
+  if (goods > 0) income.push({ label: 'Colonial goods', value: goods });
   if (tributeIn > 0) income.push({ label: 'Tribute from subjects', value: tributeIn });
   const generals = (armiesOf(s, n).filter(a => a.general && !a.general.isRuler).length + nat.generals.length) * 0.25;
   const expenses: LineItem[] = [
@@ -134,6 +138,8 @@ export function ledger(s: GameState, n: NationId): Ledger {
   const forts = fortUpkeep(s, n);
   if (forts > 0) expenses.push({ label: 'Forts', value: forts });
   if (generals > 0) expenses.push({ label: 'Generals', value: generals });
+  const colonies = coloniesOf(s, n).length;
+  if (colonies > 0) expenses.push({ label: `Colonies being settled (${colonies})`, value: colonies * COLONY_UPKEEP });
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
   if (tributeOut > 0) expenses.push({ label: `Tribute to ${NATION[nat.overlord!]?.name}`, value: tributeOut });
   const totalIncome = income.reduce((a, i) => a + i.value, 0);
@@ -153,15 +159,15 @@ export const manpowerRecovery = (s: GameState, n: NationId) =>
 // ---------------------------------------------------------------- prices
 
 export function devCost(s: GameState, r: Region): number {
-  const m = nationMods(s, r.owner);
+  const m = nationMods(s, r.owner ?? '');
   return Math.round((20 + 8 * Math.pow(r.dev + 1, 1.5)) * (1 + 0.05 * r.devBought) * (1 + m.devCost));
 }
 export function fortCost(s: GameState, r: Region): number {
-  const m = nationMods(s, r.owner);
+  const m = nationMods(s, r.owner ?? '');
   return Math.round(60 * (r.fort + 1) * (1 + m.fortCost));
 }
 export function coreCost(s: GameState, r: Region): number {
-  const m = nationMods(s, r.owner);
+  const m = nationMods(s, r.owner ?? '');
   return Math.round(r.dev * 8 * (1 + m.coreCost));
 }
 export const convertCost = (s: GameState, r: Region) => Math.round(r.dev * 6);
@@ -223,6 +229,7 @@ export function monthlyEconomy(s: GameState): void {
   }
   // Regions: cores after 20 years, conversions complete.
   for (const r of Object.values(s.regions)) {
+    if (!r.owner) continue;
     if (!r.cores.includes(r.owner) && r.conquered !== undefined && s.day - r.conquered >= years(20)) {
       r.cores.push(r.owner);
       if (r.owner === s.player) log(s, 'economy', `${REGION[r.id].name} now counts as a core region.`, { node: r.id });

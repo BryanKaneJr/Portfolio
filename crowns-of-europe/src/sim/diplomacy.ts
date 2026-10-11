@@ -173,6 +173,9 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
   const dip = nationMods(s, from).diplomacy * 5;
   const cd = cooldownLeft(s, from, to, action);
   if (cd > 0) return fail(`Wait ${Math.ceil(cd / 30)} more month${cd > 45 ? 's' : ''}.`);
+  // New World peoples keep no envoys at European courts: no treaties either way.
+  if ((NATION[from]?.native || NATION[to]?.native) && ['alliance', 'marriage', 'access', 'vassalize', 'annex'].includes(action))
+    return fail(NATION[to]?.native ? `${nationName(to)} make no treaties with distant crowns.` : 'Your people make no treaties with distant crowns.');
   switch (action) {
     case 'alliance': {
       if (allied(s, from, to)) return fail('Already allied.');
