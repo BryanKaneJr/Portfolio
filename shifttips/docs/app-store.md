@@ -85,7 +85,7 @@ tip,tips,pool,tipout,split,calculator,server,bartender,restaurant,bar,payroll,ho
 
 ### Screenshots
 
-Upload the framed 6.9-inch screenshots (1320 x 2868) from the **ShiftTips App Store screenshots** workflow's artifact, in this order. App Store Connect scales them for smaller iPhones.
+Upload the framed 6.9-inch screenshots (1320 x 2868) in [`../store/app-store-iphone-6.9`](../store/app-store-iphone-6.9), in this order. App Store Connect scales them for smaller iPhones. The **ShiftTips App Store screenshots** workflow makes fresh ones whenever the app changes; copy them in from its artifact.
 
 1. `01-review.png`: Every cent, accounted for.
 2. `02-new-shift.png`: Tips and hours. Done.
@@ -96,7 +96,7 @@ Upload the framed 6.9-inch screenshots (1320 x 2868) from the **ShiftTips App St
 7. `07-styles.png`: Run it your way.
 8. `08-dark.png`: Easy on the eyes at close.
 
-The unframed versions are in the artifact's `raw/` folder if you'd rather use those.
+The unframed versions are in the workflow artifact's `raw/` folder if you'd rather use those.
 
 ### App Review information
 
