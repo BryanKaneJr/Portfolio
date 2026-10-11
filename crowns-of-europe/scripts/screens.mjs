@@ -68,6 +68,11 @@ await page.getByLabel('Close').first().click();
 const target = process.env.TARGET ?? (nation === 'POR' ? 'MOR' : nation === 'CAS' ? 'GRA' : 'BUR');
 await coe(t => window.__coe.store.select({ kind: 'nation', id: t }), target);
 await shot('nation-sheet');
+// A crown with historical aims: what it wants and its old friends and enemies.
+await coe(() => window.__coe.store.select({ kind: 'nation', id: 'FRA' }));
+await page.getByText('Crowns follow their history', { exact: false }).first().scrollIntoViewIfNeeded();
+await shot('nation-aims');
+await coe(t => window.__coe.store.select({ kind: 'nation', id: t }), target);
 await page.getByText('Declare war…').first().click();
 await shot('declare-war');
 await tapId('declare-war');
