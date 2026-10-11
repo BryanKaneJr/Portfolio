@@ -669,6 +669,16 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'golden syrup': { add: 'pantry' }, // British cane-sugar syrup; not corn syrup or honey
   'raspberry jam': { add: 'pantry' }, // not fresh raspberries (berries) or other jams
 
+  // ── Reviewed by parallel import worker o-chicken ──
+  'marsala wine': { add: 'pantry', name: 'Marsala wine' }, // fortified Sicilian wine; not red or white table wine
+  marsala: '=marsala wine',
+  'dry marsala': '=marsala wine',
+  'andouille sausage': { add: 'protein' }, // smoked Cajun pork sausage, sold fully cooked; raw Italian or breakfast sausage is `sausage`
+  andouille: '=andouille sausage',
+  'turkey breast': { add: 'protein' }, // bone-in or boneless roast; ground turkey is separate
+  'dried red chilies': { add: 'spice', name: 'Dried red chilies' }, // whole dried chiles (árbol or Chinese); not fresh red chili or flakes
+  'dried red chiles': '=dried red chilies',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

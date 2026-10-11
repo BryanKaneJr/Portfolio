@@ -505,4 +505,10 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'golden_syrup', name: 'Golden syrup', category: 'pantry', aliases: [] },
   { id: 'raspberry_jam', name: 'Raspberry jam', category: 'pantry', aliases: [] },
   { id: 'cream_of_tartar', name: 'Cream of tartar', category: 'pantry', aliases: [] },
+  { id: 'marsala_wine', name: 'Marsala wine', category: 'pantry', aliases: ['marsala', 'dry marsala'] },
+  { id: 'andouille_sausage', name: 'Andouille sausage', category: 'protein', aliases: ['andouille'] },
+  { id: 'turkey_breast', name: 'Turkey breast', category: 'protein', aliases: [] },
+  { id: 'dried_red_chilies', name: 'Dried red chilies', category: 'spice', aliases: ['dried red chiles'] },
+  { id: 'peanuts', name: 'Peanuts', category: 'pantry', aliases: [] },
+  { id: 'sesame_seeds', name: 'Sesame seeds', category: 'pantry', aliases: ['sesame'] },
 ];
