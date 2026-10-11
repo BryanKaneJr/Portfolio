@@ -758,6 +758,45 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'peanut oil or vegetable oil': null, // the editor picks one
   'peanut or vegetable oil': null, // the editor picks one
 
+  // ── Reviewed by parallel import worker va ──
+  'lowfat 1 milk': 'milk', // "lowfat (1%) milk"
+  'low fat 1 milk': 'milk',
+  'nonfat plain greek yogurt': 'greek_yogurt',
+  'plain nonfat greek yogurt': 'greek_yogurt',
+  'no salt added black beans': 'black_beans',
+  'no salt added cannellini beans': 'cannellini_beans',
+  'no salt added chicken broth': 'chicken_broth',
+  'low sodium beef broth': 'beef_broth',
+  'uncooked quinoa': 'quinoa',
+  'quick cooking brown rice': 'brown_rice', // instant brown rice: the same grain, parcooked
+  'uncooked quick cooking brown rice': 'brown_rice',
+  'cooked brown rice': 'brown_rice',
+  'dried sage': 'sage', // the catalog's sage is the dried herb
+  'italian seasoning blend': 'italian_seasoning',
+  'dried italian seasoning blend': 'italian_seasoning',
+  'part skim mozzarella cheese': 'mozzarella',
+  'lowfat ricotta': 'ricotta',
+  'tuna in water': 'canned_tuna',
+  'tuna packed in water': 'canned_tuna',
+  'olive oil mayonnaise': 'mayonnaise', // mayonnaise made with olive oil
+  'cooked ham': 'ham',
+  'frozen broccoli florets': 'broccoli', // unlike spinach, frozen broccoli swaps 1:1 by weight with fresh
+  'frozen chopped spinach': '=frozen spinach',
+  'frozen shredded hash brown potatoes': 'potato', // plain shredded potato, frozen
+  'white whole wheat flour': '=whole wheat flour', // whole-grain flour milled from white wheat
+  'great northern beans': { add: 'protein' }, // a white bean, but not cannellini (the catalog's "white beans")
+  'enchilada sauce': { add: 'pantry' }, // canned red chile sauce; not salsa or tomato sauce
+  'red enchilada sauce': '=enchilada sauce',
+  'canned green chiles': { add: 'pantry', name: 'Canned green chiles' }, // mild roasted chiles; not fresh green chili or jalapeño
+  'diced green chiles': '=canned green chiles',
+  'spaghetti squash': { add: 'produce' },
+  'red curry paste': { add: 'pantry' }, // jarred Thai paste; massaman and green pastes are different
+  'thai red curry paste': '=red curry paste',
+  'dried apricots': { add: 'pantry' },
+  okra: { add: 'produce' },
+  'cajun seasoning': { add: 'spice', name: 'Cajun seasoning' },
+  'pumpkin pie spice': { add: 'spice' },
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

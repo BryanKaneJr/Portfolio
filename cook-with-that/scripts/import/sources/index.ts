@@ -4,6 +4,7 @@ import type { RawRecipe } from '../types';
 import { readBasedCooking } from './basedCooking';
 import { readNhlbi } from './nhlbi';
 import { duplicatesInSnapshots, readNhlbiBooks } from './nhlbiBooks';
+import { readVa } from './va';
 
 const NHLBI_WEB_SNAPSHOT = 'content/import/nhlbi/recipes.json';
 const NHLBI_BOOKS_SNAPSHOT = 'content/import/nhlbi-books/recipes.json';
@@ -205,5 +206,96 @@ export const SOURCES: Record<string, SourceDef> = {
     // Written by `npm run import:fetch-nhlbi-books` from the PDFs, which aren't kept.
     snapshot: { kind: 'file', path: NHLBI_BOOKS_SNAPSHOT },
     read: readNhlbiBooks,
+  },
+  va: {
+    collection: 'va',
+    exportName: 'VA_RECIPES',
+    file: 'va.ts',
+    // US government work, not copyright protected (content/import/va/README.md).
+    textPolicy: 'reuse',
+    // Recipes whose PDF, or another upload of the same recipe, credits an outside original ("Adapted from" a
+    // website, magazine, cookbook or organization), then uncredited recipes traced to a published original by a
+    // web search (last six). A missing credit is not proof of VA authorship: search each pick before importing
+    // it. "Submitted by" or "Inspired by a recipe submitted by" a VA dietitian is fine on its own.
+    // content/import/va/README.md lists the same pages.
+    exclude: {
+      'asian-salmon-and-vegetable-packets': 'adapted from www.foodnetwork.com',
+      'barbecue-pork-sheet-pan-dinner': 'adapted from www.stockpilingmoms.com',
+      'bean-and-vegetable-tacos': 'adapted from HealthySeasonalRecipes.com',
+      'braised-chicken-and-vegetable-skillet': 'adapted from www.lyndasrecipebox.com',
+      'bread-stuffing-with-apples-and-celery': 'adapted from Delicious on a Dime',
+      'broccoli-salad': 'adapted from TheKitchn.com',
+      'brussels-sprout-and-apple-salad': 'adapted from Onceuponachef.com',
+      'cauliflower-quinoa-meatballs': 'adapted from pinchofyum.com',
+      'chickpea-shakshuka': 'adapted from minimalistbaker.com',
+      'chocolate-peanut-butter-smoothie': 'adapted from minimalistbaker.com',
+      'creamy-tomato-chicken-skillet': 'adapted from diethood.com',
+      'crispy-garlic-ginger-tofu': 'adapted from tablefortwo',
+      'crispy-lemon-fish': 'adapted from themediterraneandish.com',
+      'crunchy-thai-chicken-salad': 'adapted from The Lean Green Bean Blog',
+      'fall-quinoa-salad': 'adapted from EmilieEats.com',
+      'fish-and-vegetable-foil-packets': 'adapted from the Low-Fat Soul Cookbook',
+      'flourless-almond-butter-cookies': 'adapted from Live Well Bake Often',
+      'foil-packet-fish':
+        '"Adapted from" another VA dietitian\'s recipe, which names no source of its own; left out to be safe',
+      'fruit-salad-with-honey-yogurt-dressing': 'adapted from TheLemonBowl.com',
+      'ground-turkey-sweet-potato-skillet': 'adapted from Cooking Light',
+      'hearty-red-lentil-soup':
+        'an older upload says adapted from Diabetes.org; the newer one dropped the credit, not the recipe',
+      'indian-spinach-with-tofu': 'adapted from connoisseurusveg.com',
+      'italian-pasta-skillet': 'adapted from accenthealth.com',
+      'kale-chips':
+        'an older upload says adapted from Ohsheglows.com; the newer one dropped the credit, not the recipe',
+      'lemon-bars': 'adapted from Sparkpeople.com',
+      'lemon-chicken-stir-fry': 'adapted from www.eatingwell.com',
+      'mediterranean-chicken-and-bulgur-skillet': 'adapted from Cooking Light',
+      'mediterranean-lamb-kabobs-with-tzatziki': 'adapted from Recipes.SparkPeople.com',
+      'mediterranean-salmon-salad': 'adapted from eatingwell.com',
+      'mexican-stuffed-sweet-potatoes': 'adapted from delish.com',
+      'pasta-with-chickpeas': 'adapted from dinnerwithjulie.com',
+      'peanut-slaw-with-noodles': 'adapted from Cookie and Kate Blog',
+      'plant-powered-chocolate-muffins': 'adapted from Sarahremmer.com',
+      'pork-and-rice-skillet': 'adapted from www.iwashyoudry.com',
+      'pork-and-vegetable-fried-rice': 'adapted from www.smittenkitchen.com',
+      'pork-egg-roll-in-a-bowl': 'adapted from nomnompaleo.com',
+      'pork-tenderloin-kebabs': 'adapted from America’s Test Kitchen',
+      'pressure-cooker-braised-chicken-thighs': 'adapted from America’s Test Kitchen',
+      'quinoa-and-black-bean-burrito-bowls': 'adapted from toriavey.com',
+      'quinoa-tabbouleh': 'adapted from Thekitchn.com',
+      'rosemary-chicken-salad-sandwiches': 'adapted from MyRecipes',
+      'rosemary-tuna-salad-sandwiches': 'adapted from www.myrecipes.com',
+      'sheet-pan-tilapia-and-vegetable-medley': 'adapted from www.tasteofhome.com',
+      'skillet-shepherd-s-pie': 'adapted from Cullyskitchen.com',
+      'slow-cooker-roasted-chicken': 'adapted from FamilyFreshMeals.com',
+      'slow-cooker-stuffed-peppers': 'adapted from www.pinchofyum.com',
+      'southwest-chicken-soup': 'adapted from eatingwell.com',
+      'spinach-artichoke-dip': 'adapted from House of Nash Eats Blog',
+      'stovetop-chicken-divan': 'adapted from www.eatingwell.com',
+      'summer-fruit-salad-with-lime-yogurt-sauce':
+        '"Adapted from" another VA dietitian\'s recipe, which names no source of its own; left out to be safe',
+      'sweet-and-tangy-kale-salad': 'adapted from CookieAndKate.com',
+      'sweet-potato-swirl-pie-bars': 'adapted from Eating Well',
+      'sweet-vanilla-acorn-squash': 'adapted from Dessert for Two',
+      'tomato-and-sausage-bean-stew': 'adapted from www.budgetbytes.com',
+      'tropical-tex-mex-shrimp-fajitas': 'adapted from www.smittenkitchen.com',
+      'tuna-sushi-bowl': 'adapted from EatingWell.com',
+      'unstuffed-cabbage-roll-soup': 'adapted from the Wholesome Dish',
+      'zucchini-muffins': 'adapted from Cookie and Kate',
+      'walnut-chili-mac':
+        'uncredited, but the California Walnut Commission\'s "Walnut Chili Mac" (walnuts.org): 1/2 lb lean ground beef, 3/4 cup chopped walnuts, 1/2 cup onion, 1 tbsp oil and salsa, with beans and macaroni',
+      'black-bean-covered-sweet-potato':
+        'uncredited, but the "Black-Bean Smothered Sweet Potatoes" posted on SparkPeople: 2 medium sweet potatoes, a 15-oz can of black beans, 1 medium tomato, 1/2 tsp each cumin and coriander, microwaved',
+      'flourless-black-bean-brownies':
+        'uncredited, but the widely published flourless black bean brownie (Prevention RD, Skinnytaste): 1 tsp balsamic and 1/2 tsp coffee, beans pulsed before the eggs, chips stirred in and the batter "spread to the edges"',
+      'tuscan-bean-soup':
+        'uncredited, but the American Heart Association\'s "Tuscan Bean Soup" step for step: onion, celery and garlic; oregano, thyme and red pepper flakes; white beans, diced tomatoes and broth; spinach; about 1/3 cup Parmesan',
+      'creamy-roasted-cauliflower-soup':
+        'uncredited, but Cookie and Kate\'s "Creamy Roasted Cauliflower Soup": 2 lb cauliflower roasted at 425°F, 4 cups vegetable broth, butter, lemon juice and nutmeg, garnished with parsley, chives or scallion',
+      'braised-cod-and-green-beans-with-pesto':
+        'uncredited, but the widely syndicated "Poached Cod & Green Beans with Pesto" (Orlando Health, Just A Pinch): green beans and 3/4 cup shallot, cod poached in 1 1/2 cups broth, broth "reduced to about 1/2 cup", pesto stirred in',
+    },
+    // Written by `npm run import:fetch-va` from the PDFs; the site has no repository to pin.
+    snapshot: { kind: 'file', path: 'content/import/va/recipes.json' },
+    read: readVa,
   },
 };

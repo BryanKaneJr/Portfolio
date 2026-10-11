@@ -27,4 +27,11 @@ export const RECIPE_COLLECTIONS: Record<string, RecipeCollection> = {
     credit:
       'Source: National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services.',
   },
+  va: {
+    name: 'VA Nutrition and Food Services',
+    license: 'Public domain (US government work)',
+    home: 'nutrition.va.gov',
+    // Never VA logos or photos, and never anything implying endorsement.
+    credit: 'Source: U.S. Department of Veterans Affairs, Nutrition and Food Services',
+  },
 };

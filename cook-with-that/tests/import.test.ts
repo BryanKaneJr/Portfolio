@@ -30,6 +30,18 @@ import {
   titleCase,
   titleWords,
 } from '../scripts/import/sources/nhlbiBooks';
+import {
+  joinIngredientLines,
+  joinSteps,
+  OUTSIDE_CREDIT,
+  parseVaListing,
+  parseVaSnapshot,
+  parseVaText,
+  splitColumns as splitVaColumns,
+  vaKey,
+  vaRawRecipe,
+  type VaEntry,
+} from '../scripts/import/sources/va';
 import { SOURCES } from '../scripts/import/sources';
 import { stageRecipe, unlockOrder } from '../scripts/import/stage';
 import { recipe } from './fixtures';
@@ -632,6 +644,240 @@ describe('NHLBI books reader', () => {
     expect(bookKeys.every(k => k.startsWith('book-'))).toBe(true);
     // Every web page that a book reprints is excluded on the book side.
     expect(books.exclude['book-dinners/chicken-picadillo']).toMatch(/nhlbi\/chicken-picadillo/);
+  });
+});
+
+/** A line of `pdftotext -layout` output with text in both columns (the right one starting at column 57). */
+const cols = (left: string, right = '') => (right ? `${left.padEnd(57)}${right}` : left);
+
+/** A two-column VA recipe PDF as `pdftotext -layout` prints it. */
+const VA_TWO_COLUMN = [
+  '                                      Garlic Bean',
+  '                                        Skillet',
+  '                                 Prep: 10 minutes | Cook: 1 hour 5 minutes | Total: 1 hour 15 minutes',
+  '                                          Yield: 4 servings | Serving Size: 1 cup',
+  '',
+  '',
+  cols('Ingredients', 'Directions'),
+  cols('1 tablespoon olive oil', '1. Heat a large skillet over medium heat.'),
+  cols('1 (15-ounce) can black beans,', '2. Add the oil and heat until shimmering. Add the'),
+  cols('drained and rinsed', '   onion and cook until soft, about 5 minutes.'),
+  cols('½ medium onion, diced (about ½ cup)'),
+  cols('', '3. Stir in the beans.'),
+  cols('Topping'),
+  cols('½ cup shredded cheddar cheese (or Monterey', '4. Sprinkle with the cheese and serve warm.'),
+  cols('Jack)'),
+  cols('Pinch ground black pepper'),
+  cols('Optional toppings: Sliced scallions, Pico de'),
+  cols('Gallo, plain Greek yogurt'),
+  cols('Recipe Notes', '5. Store leftovers in the refrigerator.'),
+  cols('•     Use any canned bean you like.'),
+  '•     Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.',
+  '',
+  '    Nutrition Facts Per Serving: Calories: 230 | Total Fat: 12 g | Saturated Fat: 4 g',
+  '    Sodium: 325 mg | Total Carbohydrate: 8 g | Dietary Fiber: 1 g | Protein: 22 g',
+  '',
+  '    Submitted by VHA Healthy Teaching Kitchen Program',
+  '    For more recipes, please visit www.nutrition.va.gov',
+  '\f',
+].join('\n');
+
+/** A stacked VA recipe PDF ("Ingredients" heading, then "Directions"), with group labels and an outside credit. */
+const VA_STACKED = [
+  '                                                     Lemony Bean Salad',
+  '                                                   Prep: 15 minutes | Chill: 1 hour | Total: 1 hour 15 minutes',
+  '                                                            Yield: 6 servings | Serving Size: 1 cup',
+  '',
+  '                                            Salad Ingredients',
+  '                                            2 cups cooked white beans',
+  '                                            1 cup diced cucumber',
+  '',
+  '                                            Dressing',
+  '                                            ¼ cup olive oil',
+  '                                            2 tablespoons lemon juice',
+  '',
+  '                                            Directions',
+  '                                            1. Whisk the oil and lemon juice in a large bowl.',
+  '                                            2. Add the beans and cucumber and toss',
+  '                                               to coat.',
+  '',
+  '                                            Serve It Later',
+  '                                            1. Chill for at least 1 hour.',
+  '',
+  'Nutrition Facts Per Serving: Calories: 120 | Total Fat: 6.5 g | Saturated Fat: 0 g',
+  'Sodium: 115 mg | Total Carbohydrate: 13 g | Dietary Fiber: 3 g | Protein: 3 g',
+  'Potassium: 200 mg',
+  '',
+  'Adapted from www.example.com | Submitted by VHA Healthy Teaching Kitchen Program',
+  'For more recipes, please visit www.nutrition.va.gov',
+].join('\n');
+
+describe('VA reader', () => {
+  const url = 'https://www.nutrition.va.gov/NUTRITION/docs/Recipes/MainDishes/Garlic-Bean-SkilletJAN2024.pdf';
+  const text = parseVaText(VA_TWO_COLUMN);
+  const entry: VaEntry = {
+    key: vaKey(text.title),
+    url,
+    ...text,
+    categories: ['Main Dishes: Vegetarian'],
+    fetchedAt: '2026-10-11',
+  };
+
+  test('parses a two-column PDF: wrapped title and lines, group labels, notes beside the directions, credit', () => {
+    expect(text).toEqual({
+      title: 'Garlic Bean Skillet',
+      servings: 4,
+      servingSize: '1 cup',
+      prepMinutes: 10,
+      cookMinutes: 65,
+      ingredientLines: [
+        '1 tablespoon olive oil',
+        '1 (15-ounce) can black beans, drained and rinsed',
+        '½ medium onion, diced (about ½ cup)',
+        '½ cup shredded cheddar cheese (or Monterey Jack)',
+        'Pinch ground black pepper',
+        'Optional toppings: Sliced scallions, Pico de Gallo, plain Greek yogurt',
+      ],
+      steps: [
+        'Heat a large skillet over medium heat.',
+        'Add the oil and heat until shimmering. Add the onion and cook until soft, about 5 minutes.',
+        'Stir in the beans.',
+        'Sprinkle with the cheese and serve warm.',
+        'Store leftovers in the refrigerator.',
+      ],
+      notes: [
+        'Use any canned bean you like.',
+        'Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.',
+      ],
+      credit: 'Submitted by VHA Healthy Teaching Kitchen Program',
+    });
+    expect(entry.key).toBe('garlic-bean-skillet');
+  });
+
+  test('parses a stacked PDF: chill time, dropped group headings, restarted numbering, outside credit', () => {
+    expect(parseVaText(VA_STACKED)).toEqual({
+      title: 'Lemony Bean Salad',
+      servings: 6,
+      servingSize: '1 cup',
+      prepMinutes: 15,
+      restMinutes: 60,
+      ingredientLines: [
+        '2 cups cooked white beans',
+        '1 cup diced cucumber',
+        '¼ cup olive oil',
+        '2 tablespoons lemon juice',
+      ],
+      steps: [
+        'Whisk the oil and lemon juice in a large bowl.',
+        'Add the beans and cucumber and toss to coat.',
+        'Chill for at least 1 hour.',
+      ],
+      notes: [],
+      credit: 'Adapted from www.example.com | Submitted by VHA Healthy Teaching Kitchen Program',
+    });
+  });
+
+  test('a PDF that is missing a part, or skips a direction number, fails loudly', () => {
+    expect(() => parseVaText(VA_TWO_COLUMN.replace(/Nutrition Facts/, 'Nutrients'))).toThrow(/Nutrition Facts/);
+    expect(() => parseVaText(VA_TWO_COLUMN.replace(/Prep:/, 'Time:'))).toThrow(/Prep/);
+    expect(() => parseVaText(VA_STACKED.replace(/ Directions\n/, ' Method\n'))).toThrow(/Directions/);
+    expect(() => parseVaText(VA_TWO_COLUMN.replace('3. Stir', '6. Stir'))).toThrow(/missing/);
+  });
+
+  test('template placeholders under the real header lines are skipped', () => {
+    const [title, times, yields, ...rest] = VA_STACKED.split('\n');
+    const page = [
+      '          Recipe Title',
+      title,
+      '          Prep: minutes | Cook: minutes | Total: minutes',
+      times,
+      '          Yield: servings | Serving Size:',
+      yields,
+      ...rest,
+    ].join('\n');
+    expect(parseVaText(page)).toMatchObject({ title: 'Lemony Bean Salad', servings: 6, prepMinutes: 15 });
+  });
+
+  test('a line splits at the column gap; full-width text stays on the left', () => {
+    expect(splitVaColumns(cols('1 egg', '2. Beat the egg.'), 57)).toEqual(['1 egg', '2. Beat the egg.']);
+    expect(splitVaColumns(`${' '.repeat(60)}to coat.`, 57)).toEqual(['', 'to coat.']);
+    expect(splitVaColumns('1 cup water', 57)).toEqual(['1 cup water', '']);
+    const note = '•     Leftovers keep for 3 days in the refrigerator, or up to 3 months in the freezer.';
+    expect(splitVaColumns(note, 57)).toEqual([note, '']);
+  });
+
+  test('ingredient and direction lines are joined into items', () => {
+    expect(joinIngredientLines(['2 pinches (about ⅛ teaspoon) ground black', 'pepper, divided', 'Water'])).toEqual([
+      '2 pinches (about ⅛ teaspoon) ground black pepper, divided',
+      'Water',
+    ]);
+    expect(
+      joinIngredientLines(['1 tablespoon mayonnaise or plain', 'Greek yogurt', 'For the sauce:', '1 cup salsa']),
+    ).toEqual(['1 tablespoon mayonnaise or plain Greek yogurt', '1 cup salsa']);
+    expect(joinSteps(['1. Bake.', '2. Cool for', '   10 minutes.'])).toEqual(['Bake.', 'Cool for 10 minutes.']);
+  });
+
+  test('listing pages give their heading, the recipe pages and the recipe PDFs they link (content area only)', () => {
+    const html =
+      '<nav><a href="/NUTRITION/docs/Cookbooks/Book.pdf">Cookbook</a></nav>' +
+      '<h2 class="page-title">Main Dishes: Beef </h2>' +
+      '<a href="/NUTRITION/Recipes/Pork_Recipes.asp" title="Pork">Pork</a>' +
+      '<a href="/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf#" target="_blank">Chili Mac</a>' +
+      '<a href="/NUTRITION/Recipes/Breakfast/docs/Oats.pdf">Oats</a>' +
+      '<a href="/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf">Chili Mac</a>' +
+      '<a href="/NUTRITION/docs/UpdatedPatientEd/Cookbook.pdf">Cookbook</a>' +
+      '<h2 id="va-crisis-title">Crisis line</h2><a href="/NUTRITION/Recipes/Sides.asp">Sides</a>';
+    expect(parseVaListing(html)).toEqual({
+      heading: 'Main Dishes: Beef',
+      pages: ['/NUTRITION/Recipes/Pork_Recipes.asp'],
+      pdfs: ['/NUTRITION/docs/Recipes/MainDishes/Chili-Mac.pdf', '/NUTRITION/Recipes/Breakfast/docs/Oats.pdf'],
+    });
+    expect(() => parseVaListing('<html></html>')).toThrow(/page title/);
+  });
+
+  test('snapshot entries become raw recipes: scheme-free location, rest time in prep, categories as tags', () => {
+    const raw = vaRawRecipe({ ...entry, restMinutes: 30 });
+    expect(raw).toEqual({
+      key: 'garlic-bean-skillet',
+      title: 'Garlic Bean Skillet',
+      location: 'nutrition.va.gov/NUTRITION/docs/Recipes/MainDishes/Garlic-Bean-SkilletJAN2024.pdf',
+      ingredientLines: entry.ingredientLines,
+      steps: entry.steps,
+      servings: 4,
+      prepMinutes: 40,
+      cookMinutes: 65,
+      tags: ['Main Dishes: Vegetarian'],
+    });
+    const c = stageRecipe(index, raw);
+    expect(c.meals).toContain('dinner');
+    expect(c.ingredients.slice(0, 2).map(i => [i.quantityText, i.ids])).toEqual([
+      ['1 tablespoon', ['olive_oil']],
+      ['1 can (15-ounce)', ['black_beans']],
+    ]);
+  });
+
+  test('the snapshot reader rejects malformed files', () => {
+    expect(parseVaSnapshot(JSON.stringify([entry]))).toEqual([entry]);
+    expect(() => parseVaSnapshot('{}')).toThrow(/array/);
+    expect(() => parseVaSnapshot(JSON.stringify([{ ...entry, credit: undefined }]))).toThrow(/entry 0/);
+    expect(() => parseVaSnapshot(JSON.stringify([entry, entry]))).toThrow(/twice/);
+    const { notes: _n, categories: _c, ...bare } = entry;
+    expect(parseVaSnapshot(JSON.stringify([bare]))[0]).toMatchObject({ notes: [], categories: [] });
+  });
+
+  test('"Adapted from" is an outside credit; a VA dietitian\'s "Submitted by" or "Inspired by" is not', () => {
+    expect(OUTSIDE_CREDIT.test('Adapted from Cooking Light | Submitted by a VA dietitian')).toBe(true);
+    expect(OUTSIDE_CREDIT.test('Submitted by VHA Healthy Teaching Kitchen Program')).toBe(false);
+    expect(OUTSIDE_CREDIT.test('Inspired by a recipe submitted by a VA dietitian')).toBe(false);
+  });
+
+  test('every snapshot recipe with an outside credit, on any upload of it, is excluded', () => {
+    const file = join(__dirname, '..', SOURCES.va.snapshot.kind === 'file' ? SOURCES.va.snapshot.path : '');
+    const credited = parseVaSnapshot(readFileSync(file, 'utf8'))
+      .filter(e => [e.credit, ...(e.otherCredits ?? [])].some(c => OUTSIDE_CREDIT.test(c)))
+      .map(e => e.key);
+    expect(credited.length).toBeGreaterThan(0);
+    expect(credited.filter(k => !(k in SOURCES.va.exclude))).toEqual([]);
   });
 });
 
