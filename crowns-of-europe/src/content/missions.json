@@ -3,9 +3,9 @@
     "id": "fra_compagnies_dordonnance",
     "nation": "FRA",
     "title": "Compagnies d'Ordonnance",
-    "desc": "Turn the routiers who plague the countryside into a paid royal army. Field 25 regiments and France will never again depend on unreliable vassals.",
+    "desc": "Turn the routiers who plague the countryside into a paid royal army. Field 28 regiments and France will never again depend on unreliable vassals.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 25 },
+    "goal": { "regimentsAtLeast": 28 },
     "reward": [
       { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 4, "name": "Jean de Dunois" } },
       { "manpower": 5000 }
@@ -65,9 +65,9 @@
     "id": "fra_universal_spider",
     "nation": "FRA",
     "title": "The Universal Spider",
-    "desc": "A clever king wins wars before they start. Gather three allies, and the French fiefs of the Duke of Burgundy become yours to claim.",
+    "desc": "A clever king wins wars before they start. Gather four allies, and the French fiefs of the Duke of Burgundy become yours to claim.",
     "requires": [],
-    "goal": { "alliesAtLeast": 3 },
+    "goal": { "alliesAtLeast": 4 },
     "reward": [
       { "addClaim": ["burgundy", "picardy"] },
       { "modifier": { "id": "fra_spider_web", "name": "The Spider's Web", "months": 120, "mods": { "diplomacy": 1 } } }
@@ -230,9 +230,9 @@
     "id": "eng_hammer_of_the_scots",
     "nation": "ENG",
     "title": "Hammer of the Scots",
-    "desc": "The Scots raid your north and side with France in every war. End the Auld Alliance for good: take the Lowlands and the Highlands.",
+    "desc": "The Scots raid your north and side with France in every war. End the Auld Alliance for good: take the Lowlands and the Highlands, or make Scotland your junior partner.",
     "requires": ["eng_lordship_of_ireland"],
-    "goal": { "owns": ["lowlands", "highlands"] },
+    "goal": { "any": [{ "owns": ["lowlands", "highlands"] }, { "overlordOf": "SCO" }] },
     "reward": [
       { "prestige": 20 },
       { "addCore": ["lowlands", "highlands"] },
@@ -638,9 +638,9 @@
     "id": "por_friends_across_the_sea",
     "nation": "POR",
     "title": "Friends Across the Sea",
-    "desc": "England is an old friend, but one ally is not enough against Castile. Gather two allies and you can look east with confidence.",
+    "desc": "England is an old friend, but one ally is not enough against Castile. Gather three allies and you can look east with confidence.",
     "requires": [],
-    "goal": { "alliesAtLeast": 2 },
+    "goal": { "alliesAtLeast": 3 },
     "reward": [
       { "addClaim": "galicia" },
       { "modifier": { "id": "por_old_friends", "name": "Old Friends", "months": 120, "mods": { "diplomacy": 1 } } }
@@ -724,9 +724,9 @@
     "id": "bur_companies_of_ordinance",
     "nation": "BUR",
     "title": "Companies of Ordinance",
-    "desc": "Raise a standing army paid from your Flemish taxes. Field 22 regiments, and the indebted lords of the Upper Rhine will pledge you their lands.",
+    "desc": "Raise a standing army paid from your Flemish taxes. Field 25 regiments, and the indebted lords of the Upper Rhine will pledge you their lands.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 22 },
+    "goal": { "regimentsAtLeast": 25 },
     "reward": [
       { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Antoine, Bastard of Burgundy" } },
       { "addClaim": "swabia" }
@@ -1165,9 +1165,9 @@
     "id": "hun_black_army",
     "nation": "HUN",
     "title": "The Black Army",
-    "desc": "Hire professional soldiers and pay them well. Field 16 regiments and you can afford a captain like Pál Kinizsi.",
+    "desc": "Hire professional soldiers and pay them well. Field 18 regiments and you can afford a captain like Pál Kinizsi.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 16 },
+    "goal": { "regimentsAtLeast": 18 },
     "reward": [
       { "hireGeneral": { "fire": 3, "shock": 5, "maneuver": 3, "name": "Pál Kinizsi" } },
       { "addClaim": ["moravia", "silesia"] }
@@ -1437,9 +1437,9 @@
     "id": "lit_grand_ducal_host",
     "nation": "LIT",
     "title": "The Grand Ducal Host",
-    "desc": "Your realm is vast but its army is small. Field 16 regiments and find a captain worthy of them.",
+    "desc": "Your realm is vast but its army is small. Field 18 regiments and find a captain worthy of them.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 16 },
+    "goal": { "regimentsAtLeast": 18 },
     "reward": [
       { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 4, "name": "Konstanty Ostrogski" } },
       { "addClaim": "livonia" }
@@ -2216,9 +2216,9 @@
     "id": "bra_duchy_of_prussia",
     "nation": "BRA",
     "title": "The Duchy of Prussia",
-    "desc": "The Teutonic Order is weakening, and Prussia's estates want a secular lord. Take Prussia.",
+    "desc": "The Teutonic Order is weakening, and Prussia's estates want a secular lord. Take Prussia, or bind the Order to you as your junior partner.",
     "requires": ["bra_pomeranian_claim"],
-    "goal": { "owns": "prussia" },
+    "goal": { "any": [{ "owns": "prussia" }, { "overlordOf": "TEU" }] },
     "reward": [{ "prestige": 15 }, { "addCore": "prussia" }, { "addClaim": "danzig" }]
   },
   {
@@ -2272,9 +2272,9 @@
     "id": "mlo_hire_sforza",
     "nation": "MLO",
     "title": "Hire Francesco Sforza",
-    "desc": "The finest condottiero in Italy is married to your duke's daughter. Pay for 10 regiments and he will lead them.",
+    "desc": "The finest condottiero in Italy is married to your duke's daughter. Pay for 12 regiments and he will lead them.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 10 },
+    "goal": { "regimentsAtLeast": 12 },
     "reward": [
       { "hireGeneral": { "fire": 4, "shock": 4, "maneuver": 5, "name": "Francesco Sforza" } },
       { "addClaim": "liguria" }
@@ -2464,9 +2464,9 @@
     "id": "teu_strengthen_marienburg",
     "nation": "TEU",
     "title": "Strengthen Marienburg",
-    "desc": "Marienburg in Prussia is the heart of the Order. Hold it, field 10 regiments of a new generation of knights, and make it the strongest fortress in the north.",
+    "desc": "Marienburg in Prussia is the heart of the Order. Hold it, field 12 regiments of a new generation of knights, and make it the strongest fortress in the north.",
     "requires": [],
-    "goal": { "all": [{ "owns": "prussia" }, { "regimentsAtLeast": 10 }] },
+    "goal": { "all": [{ "owns": "prussia" }, { "regimentsAtLeast": 12 }] },
     "reward": [
       { "fortRegion": { "region": "prussia", "amount": 1 } },
       { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Heinrich Reuss von Plauen" } },
@@ -2571,9 +2571,9 @@
     "id": "byz_new_guard",
     "nation": "BYZ",
     "title": "Raise a New Guard",
-    "desc": "Your army is a few thousand men behind old walls. Field 10 regiments and hire a captain worthy of them.",
+    "desc": "Your army is a few thousand men behind old walls. Field 12 regiments and hire a captain worthy of them.",
     "requires": [],
-    "goal": { "regimentsAtLeast": 10 },
+    "goal": { "regimentsAtLeast": 12 },
     "reward": [
       { "hireGeneral": { "fire": 4, "shock": 3, "maneuver": 3, "name": "Giovanni Giustiniani" } },
       { "manpower": 3000 }
