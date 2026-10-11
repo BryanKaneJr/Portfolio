@@ -147,10 +147,10 @@ Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=
 
 ## Review notes (App Review / Play app access)
 
-Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
+Paste into App Store Connect → App Review Information → Notes (leave "Sign-in required" unticked: reviewers use their own Apple ID), and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
 
 ```
 Sign in with Apple using your own Apple ID; no demo account is needed.
-Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
+Unlimited can be bought with a Sandbox account. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
 Account deletion: Profile > Settings > Delete account.
 ```
