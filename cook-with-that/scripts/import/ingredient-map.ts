@@ -694,6 +694,47 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'rice sticks': '=rice noodles',
   'tamarind paste': { add: 'pantry' }, // sour tamarind pulp sold in jars, the base of pad thai sauce
 
+  // ── Reviewed by parallel import worker sweep-bc ──
+  asparagus: { add: 'produce' },
+  'asparagus spears': '=asparagus',
+  cornflakes: { add: 'grain' }, // the breakfast cereal, crushed for a coating; not cornmeal or cornstarch
+  'corn flakes': '=cornflakes',
+  'anaheim pepper': { add: 'produce' }, // long, mild New Mexico-type green chile; not jalapeño or the slim green chili
+  'anaheim peppers': '=anaheim pepper',
+  'anaheim chiles': '=anaheim pepper',
+  mango: { add: 'produce' },
+  mangos: '=mango',
+  mangoes: '=mango',
+  nectarine: { add: 'produce' }, // not peach
+  nectarines: '=nectarine',
+  kiwi: { add: 'produce', name: 'Kiwi fruit' },
+  'kiwi fruit': '=kiwi',
+  jicama: { add: 'produce' },
+  'rice paper': { add: 'grain', name: 'Rice paper wrappers' }, // dried Vietnamese rounds, softened in water; not egg roll wrappers
+  'rice paper wrappers': '=rice paper',
+  'leaf lettuce': { add: 'produce' }, // green or red leaf; romaine and iceberg are separate
+  'red leaf lettuce': '=leaf lettuce',
+  'scotch bonnet': { add: 'produce', name: 'Scotch bonnet chili' }, // very hot Caribbean chili; not jalapeño or red chili
+  'scotch bonnet chili': '=scotch bonnet',
+  'apricot jam': { add: 'pantry' }, // flavor-specific, like o-baking's raspberry jam
+  'beef bones': { add: 'protein', name: 'Beef marrow bones' }, // for broth (only the deferred pho uses it)
+  'beef bones with marrow': '=beef bones',
+  'liver spread': { add: 'pantry' }, // canned Filipino-style spread for kaldereta; not fresh liver
+  buckwheat: { add: 'grain', name: 'Buckwheat groats' }, // whole groats (kasha); buckwheat flour is separate
+  'buckwheat groats': '=buckwheat',
+  kirsch: { add: 'pantry' }, // cherry brandy
+  'mixed spice': { add: 'spice' }, // British sweet spice blend (cinnamon, nutmeg, allspice…); not pumpkin pie spice
+  'tonkatsu sauce': { add: 'spice' }, // thick Japanese fruit-and-vegetable condiment (Bulldog); not Worcestershire
+  'dry lentils': 'lentils', // NHLBI wording for brown or green lentils
+  'onion greens': 'green_onion',
+  paprica: 'paprika', // Italian spelling
+  'milk cream': 'heavy_cream', // Italian "panna"
+  majoran: 'marjoram', // German spelling
+  broccli: 'broccoli', // misspelling
+  'fish fillets': null, // which fish?
+  'dry roasted peanuts': '=peanuts',
+  'unsweetened orange juice': 'orange', // like 'orange juice'
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

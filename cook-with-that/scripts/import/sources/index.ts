@@ -145,6 +145,12 @@ export const SOURCES: Record<string, SourceDef> = {
         'suspected, not confirmed: reads like magazine copy ("2 (3 1/2) pound whole chickens, wingtips removed", "Line a large rimmed baking sheet with foil", "Let stand 5 minutes before cutting each chicken into 8 pieces"); no match found online',
       'scandinavian-coffee-cake':
         'suspected, not confirmed: no author credited, and the wording reads like a mid-century published cookbook ("3 cup sifted enriched Flour", "(See a recipe for white bread)", "set oven for moderate 375°F"); no match found online',
+      'no-knead-pizza-dough':
+        'Serious Eats\' "Foolproof Pan Pizza" dough (J. Kenji López-Alt) halved: 400 g bread flour, 10 g salt, 4 g instant yeast, 8 g oil, 275 g water becomes 200 g flour, 5 g salt, 2 g yeast, 5 g oil, 140 g water, with the same 8–24 hour room-temperature rise for a cast-iron pan pizza',
+      'pan-pizza':
+        'same contributor\'s companion page to the dough above; its method (oil the cast-iron skillet, shape a ball, rest, press out to the edges, bake at max heat) follows the same Serious Eats "Foolproof Pan Pizza" recipe',
+      shakshouka:
+        'the headnote is the opening sentence of Wikipedia\'s "Shakshouka" article (CC BY-SA), copied without credit; the page is also too close to the library\'s Menemen and gives no quantities',
     },
     // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
     // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
