@@ -125,6 +125,8 @@ Use the App Store description above, with two changes:
 
 **No iPad screenshots:** the app is iPhone only (`ios.supportsTablet: false` in app/app.json), so leave the iPad slots empty. App Store Connect shows them anyway, and Apple only needs them for an app that supports iPad. iPhone frames in an iPad slot can be rejected (guideline 2.3.3).
 
+**Landscape art:** `store/app-store-promo/landscape/`, in the same gold, ink and Nunito. `header.png` (3840 × 1646) is the product page header: "Stop scrolling. Start leveling." / "History, science & more." beside Dr. Scroll presenting a planet, the Colosseum and a globe, with no phone. `search.png` (3840 × 2560) is the search result image: "Turn scrolling into learning." / "History, science & more." beside a crop of the real Andromeda lesson (galaxy and fact) in a rounded panel, no phone frame. Headline, face and lesson sit inside a 10% margin; check them in App Store Connect's Preview. `node store/app-store-promo/landscape.mjs` rebuilds both.
+
 The plain set below came first.
 
 **The iPhone set is made:** `store/app-store-iphone-6.9/`, nine PNGs at 1320 × 2868, taken by the owner on an iPhone with the TestFlight build (2026-10-09). That's the 6.9" display size, which App Store Connect also uses for the smaller iPhones. Upload them in their file order:
