@@ -21,6 +21,7 @@ export const EXPEDITION_COST = 100;
 export const EXPEDITION_MONTHS = 8;
 export const EXPEDITION_YEAR = 1470; // the earliest year a captain will sail west into the unknown
 export const DISCOVERY_YEAR = 1500; // by now the New World is common knowledge
+export const SPREAD_THIN = 0.06; // settler growth lost per New World region you already own (at most 60%)
 export const BASE_COLONIST_DEV = 30; // realms this large (with an ocean coast) get a colonist from the Wars of Religion on
 
 export const GOOD_NAME: Record<Good, string> = {
@@ -156,14 +157,27 @@ export function abandonColony(s: GameState, n: NationId, r: RegionId): string | 
 export function settlerGrowth(s: GameState, r: Region): ColonistPart[] {
   const c = r.colony;
   if (!c) return [];
-  const out: ColonistPart[] = [{ label: 'Settlers arriving', value: 10 }];
-  if (GRAPH[r.id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === c.by)) out.push({ label: 'Next to your land', value: 4 });
+  const out: ColonistPart[] = [{ label: 'Settlers arriving', value: 9 }];
+  if (GRAPH[r.id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === c.by)) out.push({ label: 'Next to your land', value: 3 });
   const base = out.reduce((t, p) => t + p.value, 0);
   const m = nationMods(s, c.by).settlerGrowth;
   if (m) out.push({ label: 'Traits, policies and modifiers', value: Math.round(base * m * 10) / 10 });
+  let left = base * (1 + m);
   if (r.natives > 0) {
-    const k = Math.max(0.5, 1 - 0.07 * r.natives);
-    out.push({ label: `Natives (${fmtK(r.natives)})`, value: -Math.round((base * (1 + m) * (1 - k)) * 10) / 10 });
+    const cut = left * (1 - Math.max(0.5, 1 - 0.07 * r.natives));
+    out.push({ label: `Natives (${fmtK(r.natives)})`, value: -Math.round(cut * 10) / 10 });
+    left -= cut;
+  }
+  if (!MAP_REGION[r.id].seas.length) {
+    const cut = left * 0.3;
+    out.push({ label: 'Inland: settlers come overland', value: -Math.round(cut * 10) / 10 });
+    left -= cut;
+  }
+  // Every region you already hold across the ocean draws settlers too: big empires grow slower.
+  const owned = newWorldRegions(s, c.by).length;
+  if (owned > 0) {
+    const cut = left * (1 - Math.max(0.4, 1 - SPREAD_THIN * owned));
+    out.push({ label: `Settlers spread thin (${owned} New World region${owned > 1 ? 's' : ''})`, value: -Math.round(cut * 10) / 10 });
   }
   return out;
 }
