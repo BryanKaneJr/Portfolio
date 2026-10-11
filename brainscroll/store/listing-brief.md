@@ -29,7 +29,7 @@ These are hard rules (Apple's or ours). A listing that breaks one can't be used.
 - **Unlimited** (the subscription) gives unlimited Brainpower and nothing else. Never imply it unlocks content, subjects, XP, trophies or "premium lessons". Every level can be unlocked free over time.
 - **Subscription disclosure:** the description ends with the auto-renewal paragraph in section 10 (keep it word for word). The privacy policy and terms links go in their own App Store Connect fields.
 - **No chat, messages, comments or public posts exist.** The social side is friends, weekly leagues, a world leaderboard and a feed of achievements with a heart button.
-- **iPhone only** (no iPad version). An account is required (Sign in with Apple, or Google). It needs an internet connection.
+- **iPhone only** (no iPad version). An account is required: Sign in with Apple. (Google sign-in isn't set up yet, so don't mention Google.) It needs an internet connection.
 - **Notifications are optional.** The daily reminder is off until the learner turns it on; friend and league notifications can be switched off. The app never guilt-trips: no streak threats, no countdowns, no "you'll lose your streak".
 - **Not for young children.** Don't pitch it to kids or parents of kids; it's for teens (13+) and adults.
 
@@ -126,7 +126,7 @@ These are hard rules (Apple's or ours). A listing that breaks one can't be used.
 
 **Notifications.** An optional daily reminder at a time you choose (off until you turn it on), plus friend and league notifications you can switch off. Never guilt trips.
 
-**Account.** Sign in with Apple (or Google); progress lives in your account and follows you to any iPhone. Delete your account from inside the app.
+**Account.** Sign in with Apple; progress lives in your account and follows you to any iPhone. Delete your account from inside the app.
 
 ## 7. The deal (pricing)
 
@@ -165,7 +165,7 @@ From the real app, on iPhone, dark theme:
 
 ## 10. The current draft (a starting point; improve it)
 
-Fine to keep what works. Known gaps: it doesn't mention leagues, friends, the world leaderboard or Weekly Quests, and its opening lines could hit the anti-doomscrolling angle harder.
+Fine to keep what works. Known gaps: it doesn't mention leagues, friends, the world leaderboard or Weekly Quests, and its opening lines could hit the anti-doomscrolling angle harder. (Its sign-in line now says Apple only; Google isn't available yet.)
 
 **Name:** BrainScroll: Level Your Brain
 
@@ -209,7 +209,7 @@ Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) giv
 
 No ads. No streak punishment. No selling your data.
 
-Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple or Google.
+Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```

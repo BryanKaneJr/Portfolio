@@ -52,7 +52,7 @@ Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) giv
 
 No ads. No streak punishment. No selling your data.
 
-Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple or Google.
+Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
@@ -109,7 +109,7 @@ Short lessons in real subjects, 100 levels deep. Level up your brain.  *(69)*
 
 Use the App Store description above, with two changes:
 
-1. Sign-in line: unchanged (`Sign in with Apple or Google.`; both work on Android).
+1. Sign-in line: say what the Android app offers when it ships. Android will sign in with Google, which isn't set up yet (owner, 2026-10-11: "we have to skip google for now"); the iPhone app offers Sign in with Apple only.
 2. Last paragraph: `Subscriptions renew automatically until cancelled. Manage or cancel them in Google Play > Payments & subscriptions.`
 
 ### Category and tags
@@ -142,7 +142,7 @@ Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=
 Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
 
 ```
-Sign in with Google using the test Google account in the sign-in fields of this form (App Store reviewers may also use Sign in with Apple with their own Apple ID).
+Sign in with Apple using your own Apple ID; no demo account is needed.
 Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
-Account deletion: Profile > Delete account.
+Account deletion: Profile > Settings > Delete account.
 ```
