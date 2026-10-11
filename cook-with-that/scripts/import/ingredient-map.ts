@@ -604,6 +604,32 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'parmigiano cheese': 'parmesan',
   'lemon rind': 'lemon', // zest or peel, like 'lemon peel'
 
+  // ── Reviewed by parallel import worker o-soups-salads ──
+  anchovies: { add: 'protein' }, // oil-packed fillets in a tin or jar; anchovy paste is a different product
+  'anchovy fillets': '=anchovies',
+  'blue cheese': { add: 'dairy' }, // crumbly blue-veined cheese; not feta
+  'kalamata olives': { add: 'pantry' }, // brine-cured Greek olives; not mild canned black olives
+  'split peas': { add: 'protein' }, // dried green split peas
+  'green split peas': '=split peas',
+  'ham hock': { add: 'protein' }, // smoked pork shank, mostly bone and skin; not sliced or diced ham
+  'smoked ham hock': '=ham hock',
+  'pearl barley': { add: 'grain' }, // polished barley; hulled barley cooks much longer
+  'ribeye steak': { add: 'protein' }, // well-marbled steak; sirloin is separate
+  'rib eye steak': '=ribeye steak',
+  provolone: { add: 'dairy' },
+  'provolone cheese': '=provolone',
+  sauerkraut: { add: 'pantry' }, // jarred or bagged fermented cabbage; not fresh cabbage
+  'swiss cheese': { add: 'dairy', name: 'Swiss cheese' }, // Emmental-style; Gruyère is separate
+  emmental: '=swiss cheese', // the cheese US "Swiss" copies; sold as Emmental in the UK
+  'tortilla chips': { add: 'grain' }, // fried or baked corn chips; corn tortillas are separate
+  grapes: { add: 'produce' }, // red or green seedless table grapes
+  'red grapes': '=grapes',
+  'seedless grapes': '=grapes',
+  'celery seed': { add: 'spice' }, // whole dried seed; not celery or celery salt
+  'celery seeds': '=celery seed',
+  'pork tenderloin': { add: 'protein' }, // also registered by o-pork-seafood; same key and category
+  'corned beef': { add: 'protein' }, // cooked and sliced, or a brisket to simmer; also registered by o-beef
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
