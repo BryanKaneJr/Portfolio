@@ -25,8 +25,9 @@ here.
    - Colonists: Portugal's Navigators trait, being first to the New World (30 years), Castile's Council of the
      Indies, the Overseas Charters policy (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
      Few colonists in the 1500s keep the race Iberian at first; England, France and the Netherlands join later.
-   - Colonies: 30 gold, then 1 gold a month; 10 settlers a month (+4 next to your land, policy +20%), slowed by
-     natives (−7% per thousand, at most half); founded at 1,000 settlers (6–12 years). Natives with hostility attack
+   - Colonies: 30 gold, then 1 gold a month; 9 settlers a month (+3 next to your land, policy +20%), slowed by
+     natives (−7% per thousand, at most half), by being inland (−30%) and by every New World region you already
+     own (−6% each, at most 60%: settlers spread thin); founded at 1,000 settlers (about 8–15 years). Natives with hostility attack
      (chance per month = natives × hostility × 0.25%, killing 50 + 25 × natives settlers); any regiment of yours in
      the region stops it. On founding the natives join the colony (+1 development per 3,000).
    - Trade goods pay value × (0.5 + 0.1 × development) a month (silver 2.0 … grain 0.4); colonies grow +1
@@ -65,7 +66,7 @@ here.
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Era adoption | 250 / 500 / 800 gold × (0.6 + development / 80) |
 | Expedition west | 100 gold, 8 months, from 1470; everyone knows the way by 1500 |
-| Colony | 30 gold + 1 gold/month; 1,000 settlers at 10/month (+4 next to your land), −7% per thousand natives |
+| Colony | 30 gold + 1 gold/month; 1,000 settlers at 9/month (+3 next to your land), −7% per thousand natives, −30% inland, −6% per New World region owned |
 | Trade goods | value × (0.5 + 0.1 × development): silver 2.0, gold 1.8, sugar 1.1, tobacco/cocoa 0.9, dyes 0.8, furs 0.7, fish 0.6, grain 0.4 |
 
 ## Status
