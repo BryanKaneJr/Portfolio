@@ -68,20 +68,31 @@ Hard rules (from the plan, still in force):
    salty sauce already seasons the dish ("you dont salt certain foods, like bacon").
 15. **Equipment never filters recipes** (owner: "we dont list equipment in filters"). A waffle iron or food processor
    is fine when it defines the dish.
+16. **My Kitchen: your recipes, notes, meal plan, shopping list** (owner, 2026-10-11: "save the recipes, then also edit
+   them… save the alterations you made… then maybe a meal plan calendar"). The owner chose: an edit **replaces** the
+   bundled recipe for that person everywhere (search, Avoid, pantry, plan), with "Show original" on the recipe page;
+   everything is editable; ingredients are picked from the catalog so search stays exact, with a "your own
+   ingredient" fallback (`custom:` IDs) that search and Avoid can't see; people can write recipes from scratch (`my-`
+   IDs); a week plan with breakfast, lunch and dinner slots plus a shopping list that leaves out the pantry and
+   staples. All on the phone (AsyncStorage, `src/state/favoritesStorage.ts`). ♥ on home opens **My Kitchen**
+   (Saved · Meal plan · Shopping list): a third header button doesn't fit beside the title at iPhone widths. Every
+   screen that searches uses `app.library` (bundled + edits + own), never the bundled `RECIPES` directly.
 
 ## Layout
 ```
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
-                 pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
-src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
+                 pantry, pantry-results, recipe/[id] (edit, notes, add to plan), favorites (My Kitchen: saved, meal
+                 plan, shopping list), edit (recipe editor), plan-add, _layout (ReadyGate waits for storage restore)
+src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard,
+                 AddToPlanSheet
 src/data/        types, ingredients (399, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
-                 validateContent, units (US/metric display)
+                 validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
 tests/           Jest: engine, pantry, staples, content validation, import pipeline, originals, units, taglines,
-                 offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
+                 myKitchen (edits, own recipes, plan, shopping), offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
 ```
 
 ## Commands

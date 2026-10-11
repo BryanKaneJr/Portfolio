@@ -7,7 +7,7 @@ import { Chip } from '../components/Chip';
 import { Dropdown } from '../components/Dropdown';
 import { IngredientBrowser } from '../components/IngredientBrowser';
 import { UseAvoidToggle } from '../components/UseAvoidToggle';
-import { RECIPES, ingredientName } from '../data/catalog';
+import { ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEALS } from '../data/types';
 import { countExact } from '../logic/matchRecipes';
@@ -26,10 +26,10 @@ export default function FindScreen() {
   const { search, mode, homeMode, pantry } = app;
 
   const { effectivePantry } = app;
-  const count = useMemo(() => countExact(RECIPES, search), [search]);
+  const count = useMemo(() => countExact(app.library, search), [app.library, search]);
   const canMake = useMemo(
-    () => countCanMake(RECIPES, effectivePantry, { meal: app.pantryMeal, dishType: app.pantryDishType }),
-    [effectivePantry, app.pantryMeal, app.pantryDishType],
+    () => countCanMake(app.library, effectivePantry, { meal: app.pantryMeal, dishType: app.pantryDishType }),
+    [app.library, effectivePantry, app.pantryMeal, app.pantryDishType],
   );
   const pantryFilters = { meal: app.pantryMeal, dishType: app.pantryDishType };
   const empty = isEmptySearch(search);
@@ -69,7 +69,7 @@ export default function FindScreen() {
           <Pressable
             onPress={() => router.push('/favorites')}
             accessibilityRole="button"
-            accessibilityLabel={`Favorites, ${app.favorites.length} saved`}
+            accessibilityLabel={`My Kitchen: ${app.favorites.length} saved, your recipes and meal plan`}
             hitSlop={4}
             style={({ pressed }) => [
               styles.iconBtn,
@@ -128,7 +128,7 @@ export default function FindScreen() {
                 labels={MEAL_LABELS}
                 value={search.meal}
                 onChange={app.setMeal}
-                countFor={meal => countExact(RECIPES, { ...search, meal })}
+                countFor={meal => countExact(app.library, { ...search, meal })}
               />
               <Dropdown
                 label="Dish type"
@@ -137,7 +137,7 @@ export default function FindScreen() {
                 labels={DISH_TYPE_LABELS}
                 value={search.dishType}
                 onChange={app.setDishType}
-                countFor={dishType => countExact(RECIPES, { ...search, dishType })}
+                countFor={dishType => countExact(app.library, { ...search, dishType })}
               />
             </View>
 
@@ -154,7 +154,7 @@ export default function FindScreen() {
                 labels={MEAL_LABELS}
                 value={app.pantryMeal}
                 onChange={app.setPantryMeal}
-                countFor={meal => countCanMake(RECIPES, effectivePantry, { ...pantryFilters, meal })}
+                countFor={meal => countCanMake(app.library, effectivePantry, { ...pantryFilters, meal })}
               />
               <Dropdown
                 label="Dish type"
@@ -163,7 +163,7 @@ export default function FindScreen() {
                 labels={DISH_TYPE_LABELS}
                 value={app.pantryDishType}
                 onChange={app.setPantryDishType}
-                countFor={dishType => countCanMake(RECIPES, effectivePantry, { ...pantryFilters, dishType })}
+                countFor={dishType => countCanMake(app.library, effectivePantry, { ...pantryFilters, dishType })}
               />
             </View>
             <StaplesLine />
