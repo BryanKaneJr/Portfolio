@@ -216,7 +216,8 @@ feeble, shrewd, builder, merchant.
 }
 ```
 
-Each major nation has 6-10 missions in a short tree (at most 3 branches; `requires` lists missions of the same
+Each major nation, and the Middle Eastern and West African minors (Aq Qoyunlu, Qara Qoyunlu, Georgia, Jolof,
+Mali, Songhai), has 6-10 missions in a short tree (at most 3 branches; `requires` lists missions of the same
 nation). The `generic` set is used by every nation without its own. Mission titles are at most 36 characters. A mission is claimable once its requirements
 are done and its goal is true; the player taps "Complete" to collect the reward.
 

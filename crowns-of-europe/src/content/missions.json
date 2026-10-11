@@ -3442,5 +3442,432 @@
     "requires": ["mam_royal_mamluks"],
     "goal": { "ownsAny": ["karaman", "diyarbakir"] },
     "reward": [{ "prestige": 10 }, { "addClaim": ["erzurum", "trebizond"] }]
+  },
+  {
+    "id": "akk_trebizond_bride",
+    "nation": "AKK",
+    "title": "A Bride from Trebizond",
+    "desc": "The Emperor of Trebizond has a daughter famed across Asia and a city that needs a strong friend. An alliance would bind the Komnenoi to your house.",
+    "requires": [],
+    "goal": {"allied": "TRE"},
+    "reward": [
+      {"prestige": 10},
+      {"modifier": {"id": "akk_despina", "name": "Despina Khatun", "months": 240, "mods": {"diplomacy": 1}}}
+    ]
+  },
+  {
+    "id": "akk_break_black_sheep",
+    "nation": "AKK",
+    "title": "Break the Black Sheep",
+    "desc": "Jahan Shah of the Black Sheep rules from Tabriz and calls you his vassal. Take his capital and every Turkmen tribe will follow the White Sheep.",
+    "requires": [],
+    "goal": {"owns": "tabriz"},
+    "reward": [
+      {"prestige": 15},
+      {"addCore": "tabriz"},
+      {"addClaim": ["van", "mosul"]}
+    ]
+  },
+  {
+    "id": "akk_two_rivers",
+    "nation": "AKK",
+    "title": "Lords of the Two Rivers",
+    "desc": "Mosul and Baghdad command the Tigris and the roads to the Gulf. Hold both and the old lands of the caliphs pay their taxes to you.",
+    "requires": ["akk_break_black_sheep"],
+    "goal": {"owns": ["mosul", "baghdad"]},
+    "reward": [
+      {"goldPerDev": 1},
+      {"addCore": ["mosul", "baghdad"]}
+    ]
+  },
+  {
+    "id": "akk_venetian_cannon",
+    "nation": "AKK",
+    "title": "Cannon from Venice",
+    "desc": "Venetian envoys promise guns and gunners against the Ottomans. Your horsemen must learn to fight beside them before the Sultan comes east.",
+    "requires": [],
+    "goal": {"all": [{"eraAtLeast": 2}, {"regimentsAtLeast": 12}]},
+    "reward": [
+      {"modifier": {"id": "akk_venetian_guns", "name": "Venetian Gunners", "months": -1, "mods": {"artilleryPower": 0.1, "siegeSpeed": 0.1}}}
+    ]
+  },
+  {
+    "id": "akk_stand_firm",
+    "nation": "AKK",
+    "title": "Stand Firm Against the Sultan",
+    "desc": "The Ottomans will suffer no rival in the east. Raise twenty regiments and keep your realm in good order, and the Sultan will think twice.",
+    "requires": ["akk_venetian_cannon"],
+    "goal": {"all": [{"regimentsAtLeast": 20}, {"stability": [2]}]},
+    "reward": [
+      {"hireGeneral": {"name": "Ughurlu Muhammad", "fire": 3, "shock": 3, "maneuver": 3}},
+      {"prestige": 10}
+    ]
+  },
+  {
+    "id": "akk_turkmen_empire",
+    "nation": "AKK",
+    "title": "A Turkmen Empire",
+    "desc": "From the Euphrates to the Caspian the tribes answer to one house. Rule eight regions and take the titles of the old Persian kings.",
+    "requires": ["akk_two_rivers"],
+    "goal": {"regionsAtLeast": 8},
+    "reward": [
+      {"prestige": 20},
+      {"modifier": {"id": "akk_padishah", "name": "Padishah of Iran", "months": -1, "mods": {"taxIncome": 0.1, "morale": 0.05}}}
+    ]
+  },
+  {
+    "id": "qar_blue_mosque",
+    "nation": "QAR",
+    "title": "The Blue Mosque",
+    "desc": "Your builders are covering a new mosque in Tabriz with tiles the colour of the evening sky. Make your capital worthy of it.",
+    "requires": [],
+    "goal": {"capitalDevAtLeast": 8},
+    "reward": [
+      {"prestige": 10},
+      {"modifier": {"id": "qar_blue_mosque", "name": "The Blue Mosque", "months": -1, "mods": {"unrest": -0.5, "tradeIncome": 0.05}}}
+    ]
+  },
+  {
+    "id": "qar_crush_white_sheep",
+    "nation": "QAR",
+    "title": "Crush the White Sheep",
+    "desc": "Uzun Hasan of the White Sheep is young, clever and hungry. Take Diyarbakir before he grows strong enough to take Tabriz from you.",
+    "requires": ["qar_blue_mosque"],
+    "goal": {"owns": "diyarbakir"},
+    "reward": [
+      {"prestige": 15},
+      {"addCore": "diyarbakir"},
+      {"addClaim": "erzurum"}
+    ]
+  },
+  {
+    "id": "qar_road_to_anatolia",
+    "nation": "QAR",
+    "title": "The Road into Anatolia",
+    "desc": "Erzurum guards the high road west to the Ottoman lands. Hold it and every caravan between Tabriz and Bursa pays you on the way.",
+    "requires": ["qar_crush_white_sheep"],
+    "goal": {"owns": "erzurum"},
+    "reward": [
+      {"goldPerDev": 1},
+      {"addCore": "erzurum"}
+    ]
+  },
+  {
+    "id": "qar_georgian_tribute",
+    "nation": "QAR",
+    "title": "Tribute from the Georgians",
+    "desc": "Your armies have burned Georgian towns before. Make the Georgian king your vassal, or take Kartli outright, and the mountains will pay.",
+    "requires": [],
+    "goal": {"any": [{"overlordOf": "GEO"}, {"owns": "kartli"}]},
+    "reward": [
+      {"gold": 100},
+      {"prestige": 5}
+    ]
+  },
+  {
+    "id": "qar_loyal_baghdad",
+    "nation": "QAR",
+    "title": "A Loyal Baghdad",
+    "desc": "Princes sent to govern Baghdad have a habit of declaring themselves sultans. Keep the city, and keep good order across your realm.",
+    "requires": [],
+    "goal": {"all": [{"owns": "baghdad"}, {"stability": [2]}]},
+    "reward": [
+      {"modifier": {"id": "qar_loyal_governors", "name": "Loyal Governors", "months": -1, "mods": {"unrest": -1}}}
+    ]
+  },
+  {
+    "id": "qar_sultan_of_iran",
+    "nation": "QAR",
+    "title": "Sultan of Iran",
+    "desc": "Isfahan, Shiraz and Kerman already send you tribute. Rule eight regions here and the Timurid princes in Herat will bow as well.",
+    "requires": ["qar_crush_white_sheep"],
+    "goal": {"regionsAtLeast": 8},
+    "reward": [
+      {"prestige": 20},
+      {"modifier": {"id": "qar_sultan_of_iran", "name": "Sultan of Iran", "months": -1, "mods": {"taxIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "geo_one_crown",
+    "nation": "GEO",
+    "title": "One Crown for Georgia",
+    "desc": "The princes of Kakheti, Imereti and Samtskhe already act like kings. Keep the realm whole and settled before it breaks into pieces.",
+    "requires": [],
+    "goal": {"all": [{"owns": ["kartli", "imereti"]}, {"stability": [2]}]},
+    "reward": [
+      {"prestige": 10},
+      {"modifier": {"id": "geo_one_crown", "name": "One Crown", "months": -1, "mods": {"unrest": -1}}}
+    ]
+  },
+  {
+    "id": "geo_comnenian_alliance",
+    "nation": "GEO",
+    "title": "The Comnenian Alliance",
+    "desc": "Trebizond is the last Greek empire on the Black Sea, and Georgian princesses sit on its throne. Turn the family tie into an alliance.",
+    "requires": [],
+    "goal": {"allied": "TRE"},
+    "reward": [
+      {"opinion": {"nation": "TRE", "amount": 25}},
+      {"modifier": {"id": "geo_comnenian", "name": "Comnenian Alliance", "months": 240, "mods": {"diplomacy": 1}}}
+    ]
+  },
+  {
+    "id": "geo_mountain_passes",
+    "nation": "GEO",
+    "title": "Guard the Mountain Passes",
+    "desc": "Every invader comes through the same few passes. Raise levies enough to hold them and build walls where the roads narrow.",
+    "requires": [],
+    "goal": {"regimentsAtLeast": 8},
+    "reward": [
+      {"fortRegion": {"region": "kartli", "amount": 1}},
+      {"modifier": {"id": "geo_mountain_levies", "name": "Mountain Levies", "months": -1, "mods": {"fortDefense": 0.15}}}
+    ]
+  },
+  {
+    "id": "geo_envoys_west",
+    "nation": "GEO",
+    "title": "Envoys to the West",
+    "desc": "Your envoys sat at the Council of Florence and still tour the courts of Europe asking for a crusade. Win friends who will answer.",
+    "requires": [],
+    "goal": {"alliesAtLeast": 2},
+    "reward": [
+      {"prestige": 10},
+      {"modifier": {"id": "geo_envoys", "name": "Friends in the West", "months": 240, "mods": {"diplomacy": 1}}}
+    ]
+  },
+  {
+    "id": "geo_avenge_tbilisi",
+    "nation": "GEO",
+    "title": "Avenge Tbilisi",
+    "desc": "The Black Sheep burned your capital and carried off its people. Take Van or Tabriz and let the Turkmen learn what fear is.",
+    "requires": ["geo_mountain_passes"],
+    "goal": {"ownsAny": ["van", "tabriz"]},
+    "reward": [
+      {"prestige": 20},
+      {"modifier": {"id": "geo_avengers", "name": "Avengers of Tbilisi", "months": 240, "mods": {"morale": 0.1}}}
+    ]
+  },
+  {
+    "id": "geo_ships_of_colchis",
+    "nation": "GEO",
+    "title": "Ships of Colchis",
+    "desc": "The ports of Imereti look out on the Black Sea. Build a fleet and Georgian merchants can carry their own silk to Caffa and Constantinople.",
+    "requires": [],
+    "goal": {"all": [{"owns": "imereti"}, {"shipsAtLeast": 6}]},
+    "reward": [
+      {"modifier": {"id": "geo_colchis", "name": "Ships of Colchis", "months": -1, "mods": {"tradeIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "jol_loyal_kings",
+    "nation": "JOL",
+    "title": "The Loyal Kings",
+    "desc": "The kings of Waalo, Kayor, Baol, Sine and Saloum pay tribute to the Buurba. Keep the peace and good order and they will stay loyal.",
+    "requires": [],
+    "goal": {"all": [{"stability": [2]}, {"atWar": false}]},
+    "reward": [
+      {"modifier": {"id": "jol_loyal_kings", "name": "Loyal Vassal Kings", "months": -1, "mods": {"taxIncome": 0.05, "unrest": -1}}}
+    ]
+  },
+  {
+    "id": "jol_horses",
+    "nation": "JOL",
+    "title": "Horses from the North",
+    "desc": "Desert traders and Portuguese caravels bring horses worth their weight in gold. Mount your best warriors and rule the open plains.",
+    "requires": [],
+    "goal": {"regimentsAtLeast": 6},
+    "reward": [
+      {"modifier": {"id": "jol_horses", "name": "Wolof Cavalry", "months": -1, "mods": {"cavalryPower": 0.15}}}
+    ]
+  },
+  {
+    "id": "jol_gambia",
+    "nation": "JOL",
+    "title": "The Gambia River",
+    "desc": "The river kingdoms of the Gambia still look to the distant Mansa of Mali. Bring them under the Buurba and the river trade is yours.",
+    "requires": [],
+    "goal": {"owns": "gambia"},
+    "reward": [
+      {"goldPerDev": 1},
+      {"addCore": "gambia"}
+    ]
+  },
+  {
+    "id": "jol_prince_in_lisbon",
+    "nation": "JOL",
+    "title": "A Prince in Lisbon",
+    "desc": "Portuguese captains offer friendship, guns and trade. Send a prince to Lisbon, or win allies nearer home, and you will not stand alone.",
+    "requires": [],
+    "goal": {"any": [{"allied": "POR"}, {"alliesAtLeast": 2}]},
+    "reward": [
+      {"modifier": {"id": "jol_lisbon", "name": "Friends Across the Sea", "months": 240, "mods": {"tradeIncome": 0.1, "diplomacy": 1}}}
+    ]
+  },
+  {
+    "id": "jol_scholars",
+    "nation": "JOL",
+    "title": "Scholars of the Faith",
+    "desc": "Teachers of the Quran travel from town to town. Give them schools and a fine capital and the faith will bind your people together.",
+    "requires": [],
+    "goal": {"all": [{"faith": "muslim"}, {"capitalDevAtLeast": 5}]},
+    "reward": [
+      {"prestige": 5},
+      {"modifier": {"id": "jol_scholars", "name": "Quranic Schools", "months": -1, "mods": {"unrest": -0.5, "techCost": -0.05}}}
+    ]
+  },
+  {
+    "id": "jol_great_jolof",
+    "nation": "JOL",
+    "title": "Great Jolof",
+    "desc": "From the Senegal to the Gambia the Wolof answer to one throne. Rule three regions and no vassal king will dare to break away.",
+    "requires": ["jol_loyal_kings", "jol_gambia"],
+    "goal": {"regionsAtLeast": 3},
+    "reward": [
+      {"prestige": 15},
+      {"modifier": {"id": "jol_great_jolof", "name": "Great Jolof", "months": -1, "mods": {"taxIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "mal_keep_timbuktu",
+    "nation": "MAL",
+    "title": "Keep Timbuktu",
+    "desc": "Tuareg raiders and the upstart Songhai covet the city of scholars. Hold Timbuktu until 1470 and the world will know Mali still stands.",
+    "requires": [],
+    "goal": {"all": [{"owns": "timbuktu"}, {"year": [1470]}]},
+    "reward": [
+      {"prestige": 15},
+      {"modifier": {"id": "mal_sankore", "name": "Scholars of Sankore", "months": -1, "mods": {"tradeIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "mal_gold_of_bure",
+    "nation": "MAL",
+    "title": "The Gold of Bure",
+    "desc": "The gold fields of Bure and Bambuk made Mansa Musa the richest man alive. Put miners and markets back to work around your capital.",
+    "requires": [],
+    "goal": {"capitalDevAtLeast": 7},
+    "reward": [
+      {"goldPerDev": 2}
+    ]
+  },
+  {
+    "id": "mal_mansa_army",
+    "nation": "MAL",
+    "title": "The Mansa's Army",
+    "desc": "Archers and armoured horsemen once marched from the ocean to the desert. Raise an army fit to remind your neighbours who rules here.",
+    "requires": [],
+    "goal": {"regimentsAtLeast": 12},
+    "reward": [
+      {"hireGeneral": {"name": "Mamadi Keita", "fire": 2, "shock": 3, "maneuver": 2}},
+      {"prestige": 5}
+    ]
+  },
+  {
+    "id": "mal_envoys_portugal",
+    "nation": "MAL",
+    "title": "Envoys to the Portuguese",
+    "desc": "Strange ships have reached the Gambia. Their friendship could help the Mansa against Songhai and the Fula. Send envoys and win allies.",
+    "requires": [],
+    "goal": {"any": [{"allied": "POR"}, {"alliesAtLeast": 2}]},
+    "reward": [
+      {"modifier": {"id": "mal_envoys", "name": "Envoys to Portugal", "months": 240, "mods": {"diplomacy": 1, "tradeIncome": 0.05}}}
+    ]
+  },
+  {
+    "id": "mal_pilgrimage",
+    "nation": "MAL",
+    "title": "A Pilgrimage to Mecca",
+    "desc": "Mansa Musa's pilgrimage is still talked about in Cairo. Gather 300 gold and go again: the cost is great, the honour greater.",
+    "requires": ["mal_gold_of_bure"],
+    "goal": {"goldAtLeast": 300},
+    "reward": [
+      {"gold": -200},
+      {"prestige": 25},
+      {"modifier": {"id": "mal_hajji", "name": "Hajji Mansa", "months": 240, "mods": {"diplomacy": 1, "unrest": -0.5}}}
+    ]
+  },
+  {
+    "id": "mal_restore_empire",
+    "nation": "MAL",
+    "title": "Restore the Empire",
+    "desc": "Mali once ruled from the Atlantic to beyond the Niger bend. Rule five regions again and the old provinces will remember their Mansa.",
+    "requires": ["mal_mansa_army"],
+    "goal": {"regionsAtLeast": 5},
+    "reward": [
+      {"prestige": 20},
+      {"modifier": {"id": "mal_restored", "name": "Empire Restored", "months": -1, "mods": {"taxIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "son_take_timbuktu",
+    "nation": "SON",
+    "title": "Take Timbuktu",
+    "desc": "Timbuktu's scholars and salt merchants grow fat under a weak Mansa. Take the city and its wealth will pay for the empire to come.",
+    "requires": [],
+    "goal": {"owns": "timbuktu"},
+    "reward": [
+      {"prestige": 15},
+      {"addCore": "timbuktu"},
+      {"modifier": {"id": "son_timbuktu", "name": "Salt of Timbuktu", "months": -1, "mods": {"tradeIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "son_horsemen",
+    "nation": "SON",
+    "title": "The Sunni's Horsemen",
+    "desc": "Songhai's kings ride at the head of their armies and strike before an enemy can gather. Raise ten regiments and teach them speed.",
+    "requires": [],
+    "goal": {"regimentsAtLeast": 10},
+    "reward": [
+      {"modifier": {"id": "son_horsemen", "name": "Songhai Horsemen", "months": -1, "mods": {"cavalryPower": 0.1, "movement": 0.1}}}
+    ]
+  },
+  {
+    "id": "son_upper_niger",
+    "nation": "SON",
+    "title": "Djenné and the Upper Niger",
+    "desc": "Djenné's merchants and the gold roads of the upper Niger still answer to Mali. Take the Mansa's heartland and the river is yours.",
+    "requires": ["son_take_timbuktu"],
+    "goal": {"owns": "mali"},
+    "reward": [
+      {"goldPerDev": 2},
+      {"addCore": "mali"}
+    ]
+  },
+  {
+    "id": "son_askia_pilgrimage",
+    "nation": "SON",
+    "title": "The Askia's Pilgrimage",
+    "desc": "A Songhai ruler with gold to spare may go to Mecca as Mansa Musa did, and come home a caliph. Gather 300 gold after 1490.",
+    "requires": [],
+    "goal": {"all": [{"year": [1490]}, {"goldAtLeast": 300}]},
+    "reward": [
+      {"gold": -200},
+      {"prestige": 20},
+      {"modifier": {"id": "son_caliph", "name": "Caliph of the Sudan", "months": 240, "mods": {"diplomacy": 1, "unrest": -0.5}}}
+    ]
+  },
+  {
+    "id": "son_empire_of_the_niger",
+    "nation": "SON",
+    "title": "Empire of the Niger",
+    "desc": "From Gao to the upper Niger every town and caravan pays tribute to Songhai. Rule five regions and build the greatest empire in Africa.",
+    "requires": ["son_upper_niger"],
+    "goal": {"regionsAtLeast": 5},
+    "reward": [
+      {"prestige": 15},
+      {"modifier": {"id": "son_empire", "name": "Empire of the Niger", "months": -1, "mods": {"taxIncome": 0.1}}}
+    ]
+  },
+  {
+    "id": "son_guns_against_morocco",
+    "nation": "SON",
+    "title": "Guns Against Morocco",
+    "desc": "The Sultan of Morocco covets the gold of the Niger and buys guns from Europe. Arm your own soldiers before his musketeers cross the desert.",
+    "requires": [],
+    "goal": {"all": [{"year": [1560]}, {"eraAtLeast": 3}, {"regimentsAtLeast": 15}]},
+    "reward": [
+      {"modifier": {"id": "son_musketeers", "name": "Musketeers of Gao", "months": -1, "mods": {"infantryPower": 0.15}}}
+    ]
   }
 ]
