@@ -47,7 +47,8 @@ await coe(() => window.__coe.store.select({ kind: 'region', id: 'bahia' }));
 await shot('uncharted-sheet');
 await coe(() => window.__coe.store.select(null));
 // Jump to 1475, fund an expedition from the Colonies tab.
-await coe(() => { const s = window.__coe.store.state; s.day = 11323; s.nations[s.player].gold = 600; window.__coe.store.bump?.(); });
+// Thirty years on, Portugal's pilots have mastered Ocean Navigation.
+await coe(() => { const s = window.__coe.store.state; s.day = 11323; s.nations[s.player].gold = 600; s.nations[s.player].advances.push('ocean_navigation'); window.__coe.store.bump?.(); });
 await tapId('menu');
 await tapId('tab-colonies');
 await shot('colonies-before');

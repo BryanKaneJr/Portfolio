@@ -98,19 +98,21 @@ export function MapModeChip() {
       </Pressable>
       {open ? (
         <View style={styles.modeList}>
-          {MAP_MODES.map(m => (
-            <Pressable
-              key={m.key}
-              onPress={() => {
-                st.setMapMode(m.key);
-                setOpen(false);
-              }}
-              style={[styles.modeItem, m.key === st.mapMode && { backgroundColor: C.chromeLine }]}
-            >
-              <Text style={styles.modeItemText}>{m.label}</Text>
-              <Text style={styles.modeHelp}>{m.help}</Text>
-            </Pressable>
-          ))}
+          <View style={styles.modeGrid}>
+            {MAP_MODES.map(m => (
+              <Pressable
+                key={m.key}
+                onPress={() => {
+                  st.setMapMode(m.key);
+                  setOpen(false);
+                }}
+                style={[styles.modeItem, m.key === st.mapMode && { backgroundColor: C.chromeLine }]}
+              >
+                <Text style={styles.modeItemText}>{m.label}</Text>
+              </Pressable>
+            ))}
+          </View>
+          <Text style={styles.modeHelp}>{cur.help}</Text>
         </View>
       ) : null}
     </View>
@@ -178,9 +180,10 @@ const styles = StyleSheet.create({
   modeChip: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(33,24,16,0.88)', paddingHorizontal: 10, height: 30, borderRadius: 15 },
   modeText: { color: C.chromeText, fontFamily: sans, fontSize: 12, fontWeight: '700' },
   modeList: { marginTop: 6, backgroundColor: 'rgba(33,24,16,0.96)', borderRadius: 10, padding: 4, width: 250 },
-  modeItem: { padding: 8, borderRadius: 7 },
+  modeGrid: { flexDirection: 'row', flexWrap: 'wrap' },
+  modeItem: { width: '50%', paddingVertical: 9, paddingHorizontal: 8, borderRadius: 7 },
   modeItemText: { color: C.chromeText, fontFamily: sans, fontSize: 14, fontWeight: '700' },
-  modeHelp: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, marginTop: 2 },
+  modeHelp: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, padding: 8, paddingTop: 4, lineHeight: 15 },
   toasts: { position: 'absolute', top: 44, left: 12, right: 12, alignItems: 'center', gap: 6 },
   toast: { backgroundColor: 'rgba(33,24,16,0.94)', borderRadius: 10, paddingHorizontal: 14, paddingVertical: 9, borderWidth: 1, borderColor: C.chromeLine, maxWidth: 420 },
   toastText: { color: C.chromeText, fontFamily: sans, fontSize: 14, textAlign: 'center' },

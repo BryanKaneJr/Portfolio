@@ -58,12 +58,13 @@ function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<stri
       return mix('#f3ecd0', '#2f6b34', t);
     }
     case 'science': {
-      // Advances known compared with the most learned crown alive.
       const o = r.owner!;
       const hit = cache.get(o);
       if (hit) return hit;
-      const best = Math.max(1, ...Object.values(s.nations).filter(n => n.alive).map(n => n.advances.length));
-      const c = isNativeNation(o) ? '#cbbfa6' : mix('#f2e9cf', '#3b4f9a', s.nations[o].advances.length / best);
+      // Deepest blue for the most learned crown alive, paler for each advance behind it (palest at five or more).
+      const best = Math.max(...Object.values(s.nations).filter(n => n.alive).map(n => n.advances.length));
+      const behind = best - s.nations[o].advances.length;
+      const c = isNativeNation(o) ? '#cbbfa6' : mix('#f2e9cf', '#3b4f9a', 1 - Math.min(1, behind / 5));
       cache.set(o, c);
       return c;
     }
@@ -107,6 +108,6 @@ export const MAP_MODES: { key: MapMode; label: string; help: string }[] = [
   { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple), native beliefs (brown).' },
   { key: 'diplomatic', label: 'Diplomatic', help: 'How others see you: allies blue, enemies red, opinion from green to red.' },
   { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a coalition against you.' },
-  { key: 'science', label: 'Science', help: 'How many advances each crown knows: deep blue for the most learned, pale for those far behind.' },
+  { key: 'science', label: 'Science', help: 'How far each crown is behind the most learned: deep blue leads, each shade paler is one advance behind (palest: five or more).' },
   { key: 'goods', label: 'Exports', help: 'What each overseas region sends home: silver and gold pay most, then ivory, sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
 ];

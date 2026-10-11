@@ -118,6 +118,17 @@ await shot('europe');
 // Messages.
 await page.getByLabel('Messages').first().click();
 await shot('messages');
+await coe(() => { window.__coe.store.close(); window.__coe.store.select(null); });
+// A century later in the Science map mode: knowledge has spread out from Italy and the West.
+const start = await coe(() => window.__coe.store.state.day);
+for (let i = 0; i < 600 && (await coe(() => window.__coe.store.state.day)) < start + 365 * 100; i++) {
+  await coe(() => window.__coe.advance(365));
+  await answerCards();
+}
+await page.getByTestId('mapmode').click();
+await page.getByText('Science', { exact: true }).first().click();
+await coe(() => { const { store, point } = window.__coe; const [x, y] = point('bohemia'); store.focusOn(x, y, 1700); });
+await shot('map-science');
 console.log(errors.length ? errors.join('\n') : 'no errors');
 await browser.close();
 server.close();
