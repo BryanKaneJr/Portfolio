@@ -9,7 +9,7 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 
 | # | Source | License | Size | Effort | Risk | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review and a provenance check | Low once copied pages are excluded | **Use now.** 139 imported, 76 pages excluded |
+| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review and a provenance check | Low once copied pages are excluded | **Use now.** 157 imported, 79 pages excluded |
 | 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use, recipe by recipe.** Snapshots built: NHLBI web and books (54 + 172 recipes, 59 imported), VA (336 recipes, 64 excluded, 22 imported) |
 | 3 | [HowToCook](#3-howtocook) | Unlicense; contributors certify their recipes as public domain | 372 recipes (Chinese) | High: translation, plus Chinese pantry ingredients | Low; exclude the 64 that cite references | Later, for a Chinese home-cooking set |
 | 4 | [Project Gutenberg cookbooks](#4-project-gutenberg-cookbooks) | Public domain in the US (published before 1931) | Thousands | High: archaic measures, no oven temperatures | Low in the US; check other countries | Ideas plus text to adapt; strip all Project Gutenberg branding |
@@ -85,7 +85,7 @@ publicdomainrecipes.com and foss.cooking are near-identical copies that add one 
   The 11 "Miss Leslie" recipes are transcribed from Eliza Leslie's 1832/1857 books (public domain).
 - **Don't bundle `data/authors/`**: it holds email and donation addresses. The importer reads only the
   display name.
-- **Status:** pinned at commit `9d4a31a0`. 139 recipes imported; see `docs/import-reports/based-cooking.md` for
+- **Status:** pinned at commit `9d4a31a0`. 157 recipes imported; see `docs/import-reports/based-cooking.md` for
   what's ready and what waits on ingredient review.
 - **Provenance findings (2026-10-09):** parallel import workers searched a distinctive sentence of every page they
   considered and traced about 25 pages to commercial recipes: Food.com, Taste of Home, HelloFresh, BBC Good Food,
