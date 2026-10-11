@@ -134,6 +134,7 @@ iPhone first, in this order:
    - remove the ten screenshot test learners (stargazer_ana and the rest, added 2026-10-09 to fill @bryan's league, friends and feed; they can't sign in). In the Supabase SQL editor: `delete from auth.users where raw_app_meta_data ->> 'brainscroll_test' = 'true';` takes everything of theirs with them;
    - **leave sandbox purchases on**, at launch and after: nothing about purchases changes at launch, because real App Store purchases always count. Why, and what the switches are: [Sandbox purchases stay on](#app-review-sign-in);
    - ~~App Privacy and the age rating~~ done (2026-10-11; 9+), from [`store-privacy.md`](store-privacy.md); then submit.
+   - **once Apple approves:** set `APP_STORE_URL` in `scripts/site-build.ts` to `https://apps.apple.com/app/id6818598156` (it's already written in the comment there), so the website and invite pages show the App Store badge instead of "coming soon". Before approval the link would open a missing listing.
 
 Reviewers can sign in with their own Apple ID. A test Google account is only needed once Google sign-in is on.
 

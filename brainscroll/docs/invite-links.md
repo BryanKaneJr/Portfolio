@@ -35,7 +35,7 @@ Every value below is public; none is a secret.
 1. **Find the four values:**
    - `APPLE_TEAM_ID`: already in the repo (`X3837877NX`, read from the first TestFlight build's provisioning profile, 2026-10-09; `scripts/site-build.ts`). Set it in the host only to override it.
    - `ANDROID_CERT_SHA256`: Play Console → your app → Test and release → App integrity → App signing key certificate → SHA-256 fingerprint. If you also install EAS builds outside Play, add the upload key's fingerprint too, comma-separated (`eas credentials` shows it).
-   - `APP_STORE_URL` and `PLAY_STORE_URL`: the store listing links. Until the app is live, leave them out: the page says "coming soon".
+   - `APP_STORE_URL` and `PLAY_STORE_URL`: the store listing links. Each goes in `scripts/site-build.ts` (`STORE_URLS`, both written in its comment) once the app is live in that store; the host's variable overrides it. Until then the pages say "coming soon", for both or for whichever store isn't live yet, and each store's official badge appears once its link is set.
 2. **The site (Cloudflare Pages, free):**
    - Workers & Pages → Create → Pages → Connect to Git → this repository, production branch `master`.
    - Root directory `brainscroll`, build command `npm run site:build`, output directory `site/dist`.

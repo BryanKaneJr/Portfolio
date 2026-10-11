@@ -66,6 +66,9 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
   padding: 15px 22px; border-radius: 16px; color: #fff; background: var(--brand); border-bottom: 4px solid var(--brand-edge);
 }
 .button:active { transform: translateY(2px); border-bottom-width: 2px; }
+.badge { display: inline-block; line-height: 0; border-radius: 10px; }
+.badge img { height: 48px; width: auto; }
+.badge:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 .soon { display: inline-block; padding: 12px 18px; border-radius: 999px; border: 2px solid var(--border); color: var(--text); font-weight: 800; }
 [hidden] { display: none !important; }
 
@@ -126,6 +129,8 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
 .free .app-icon { margin: 0 auto 8px; width: min(280px, 70%); height: auto; filter: drop-shadow(0 24px 40px rgba(120, 86, 255, 0.35)); }
 .free p { color: var(--muted); max-width: 36em; margin: 16px auto 0; font-size: 18px; }
 .free .stores { justify-content: center; }
+/* The coming-soon note sits beside the badges, not as a centered paragraph. */
+.free .stores .soon { margin: 0; max-width: none; font-size: inherit; color: var(--text); }
 
 .foot { text-align: center; padding: 32px var(--gutter) 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 15px; }
 .foot a { color: var(--muted); }
