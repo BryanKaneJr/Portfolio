@@ -135,6 +135,16 @@ export const SOURCES: Record<string, SourceDef> = {
       'pork-carnitas':
         "Skinnytaste's slow-cooker carnitas (Gina Homolka): same ingredient list (2 1/2 lb boneless pork shoulder, 6 garlic cloves in slivers, 1 1/2 tsp cumin, 1/2 tsp sazon, 1/4 tsp dry adobo, 1/4 tsp oregano, 3/4 cup reduced-sodium chicken broth, 2-3 chipotles in adobo, 2 bay leaves) and the same steps (garlic slivers pushed into the meat, 8 hours on low, shred, 15-30 minutes more)",
       'peat-carrot-salad': "titled and credited as Ray Peat's carrot salad, another named person's recipe",
+      'shrimp-creole':
+        '"adaptation from my grandmother\'s recipe" of a published Junior League recipe: same unusual list (green pepper, celery with leaves, oil, chili sauce, golden raisins, slivered almonds, curry powder, "1 tsp each" thyme/salt/pepper, parsley, canned tomatoes, shrimp, served over rice) and the same four-line method as "Shrimp Pentagon" (RSVP, Junior League of Portland, reprinted by tsbvi.edu) and Viking Range\'s "Curried Shrimp Creole" (adapted from a Junior League of Augusta cookbook); quantities differ, wording doesn\'t match word for word',
+      'tarta-de-santiago':
+        'copied from El Mundo Eats\' "Spanish Almond Cake (Tarta de Santiago)" (elmundoeats.com): identical ingredient list (3 eggs, 3/4 cup/150 g sugar, 1 1/2 cups/150 g almond meal, 1/2 tsp cinnamon, 1/4 tsp salt, zest of 1 lemon and 1 clementine), 7-inch springform, 360°F/180°C for 40 minutes, same steps and blog-style intro',
+      'ukrainian-vareniki':
+        'same quantities and Allrecipes-style wording as "Vareniki with Potatoes and Mushrooms" credited to Flora S. (reprinted on stratfordlibrary.org): 18 oz potatoes, 3 cups flour, 1/4 cup sour cream, 1/2 tsp baking soda, 3 1/2 cups finely chopped button mushrooms, "Place potatoes into a large pot and cover with salted water"',
+      'spatchcock-chicken':
+        'suspected, not confirmed: reads like magazine copy ("2 (3 1/2) pound whole chickens, wingtips removed", "Line a large rimmed baking sheet with foil", "Let stand 5 minutes before cutting each chicken into 8 pieces"); no match found online',
+      'scandinavian-coffee-cake':
+        'suspected, not confirmed: no author credited, and the wording reads like a mid-century published cookbook ("3 cup sifted enriched Flour", "(See a recipe for white bread)", "set oven for moderate 375°F"); no match found online',
     },
     // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
     // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.

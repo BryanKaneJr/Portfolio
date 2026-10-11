@@ -590,6 +590,20 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   kefir: { add: 'dairy' }, // cultured milk drink; not buttermilk or yogurt
   'brewer s yeast': null, // Italian "lievito di birra" is fresh baker's yeast; in English it's an inactive supplement
 
+  // ── Reviewed by parallel import worker bc8 ──
+  'dried mint': { add: 'spice' }, // the catalog's mint is fresh leaves
+  masarepa: { add: 'grain' }, // precooked white corn flour for arepas; not cornmeal, masa harina or cornstarch
+  'precooked corn flour': '=masarepa',
+  'precooked cornmeal': '=masarepa',
+  'queso fresco': { add: 'dairy', name: 'Queso fresco' }, // fresh crumbly Latin American cheese; not feta
+  'five spice powder': { add: 'spice', name: 'Five-spice powder' }, // Chinese spice blend
+  'chinese five spice': '=five spice powder',
+  'chinese five spice powder': '=five spice powder',
+  'five spice': '=five spice powder',
+  'head of garlic': 'garlic', // a whole bulb, separated into cloves
+  'parmigiano cheese': 'parmesan',
+  'lemon rind': 'lemon', // zest or peel, like 'lemon peel'
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

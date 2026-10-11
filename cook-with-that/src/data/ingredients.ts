@@ -453,4 +453,13 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'condensed_tomato_soup', name: 'Condensed tomato soup', category: 'pantry', aliases: [] },
   { id: 'kefir', name: 'Kefir', category: 'dairy', aliases: [] },
   { id: 'spanish_chorizo', name: 'Spanish chorizo', category: 'protein', aliases: [] },
+  { id: 'masarepa', name: 'Masarepa', category: 'grain', aliases: ['precooked corn flour', 'precooked cornmeal'] },
+  { id: 'queso_fresco', name: 'Queso fresco', category: 'dairy', aliases: [] },
+  { id: 'dried_mint', name: 'Dried mint', category: 'spice', aliases: [] },
+  {
+    id: 'five_spice_powder',
+    name: 'Five-spice powder',
+    category: 'spice',
+    aliases: ['chinese five spice', 'chinese five spice powder', 'five spice'],
+  },
 ];
