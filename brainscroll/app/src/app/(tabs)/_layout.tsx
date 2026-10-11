@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Image, StyleSheet, View, type ImageSourcePropType } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, radius } from '@/theme/tokens';
 
 /**
@@ -53,15 +52,17 @@ const tabStyles = StyleSheet.create({
  */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
-  const reduce = useReduceMotion();
   return (
     <Tabs
       initialRouteName="(home)"
       backBehavior="initialRoute"
       screenOptions={{
         headerShown: false,
-        // Switching tabs slides the new one in a little; Reduce Motion switches instantly.
-        animation: reduce ? 'none' : 'shift',
+        // Tabs switch instantly, like iPhone tab bars (owner, 2026-10-11). The slide-in
+        // ('shift') ran on the native side, and on a tab's first visit it could start
+        // before the new screen existed, leaving the tab invisible (gray) until the
+        // next switch: Social after a lesson, every launch.
+        animation: 'none',
         tabBarActiveTintColor: color.brandText,
         tabBarInactiveTintColor: color.textMuted,
         tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: 0, borderTopWidth: depth.border },
