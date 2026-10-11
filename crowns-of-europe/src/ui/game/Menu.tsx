@@ -1,10 +1,11 @@
-/** The realm menu: Military, Diplomacy, Economy, Missions, Ledger and Settings (one tap from the map). */
+/** The realm menu: Military, Diplomacy, Realm, Science, Colonies, Missions, Ledger and Settings (one tap from the map). */
 import { useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { router } from 'expo-router';
-import { ERA, NATION, POLICIES, POLICY, TRAITS, UNITS, nationName, regionName } from '../../sim/content';
-import { adoptEra, choosePolicy, GENERAL_COST, hireGeneral, repayLoan, setArmyMode, takeLoan, boostStability, playerCompleteMission } from '../../sim/commands';
-import { ledger, stabilityCost, techCost } from '../../sim/economy';
+import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, nationName, regionName } from '../../sim/content';
+import { choosePolicy, GENERAL_COST, hireGeneral, repayLoan, setArmyMode, takeLoan, boostStability, playerCompleteMission } from '../../sim/commands';
+import { ledger, stabilityCost } from '../../sim/economy';
+import { availableAdvances, policySlots } from '../../sim/science';
 import { etaDays } from '../../sim/military';
 import { missionState, missionsFor } from '../../sim/missions';
 import { evalCondition } from '../../sim/events';
@@ -15,7 +16,6 @@ import {
   armiesOf,
   armyMen,
   armyRegs,
-  availableEra,
   fleetsOf,
   forceLimit,
   militaryPower,
@@ -36,6 +36,7 @@ import type { PauseReason } from '../../sim/types';
 import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab } from './ColonySheets';
+import { ScienceTab } from './Science';
 import { freeColonists } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
 import { Flag } from '../components/Flag';
@@ -54,6 +55,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
     { key: 'military', label: 'Military' },
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
+    { key: 'science', label: 'Science', badge: !s.nations[s.player].researching && availableAdvances(s, s.player).length ? 1 : 0 },
     { key: 'colonies', label: 'Colonies', badge: Math.max(0, freeColonists(s, s.player)) },
     { key: 'missions', label: 'Missions', badge: missionsReady },
     { key: 'ledger', label: 'Ledger' },
@@ -67,6 +69,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
       {tab === 'military' ? <Military /> : null}
       {tab === 'diplomacy' ? <Diplomacy /> : null}
       {tab === 'economy' ? <Realm /> : null}
+      {tab === 'science' ? <ScienceTab /> : null}
       {tab === 'colonies' ? <ColoniesTab /> : null}
       {tab === 'missions' ? <Missions /> : null}
       {tab === 'ledger' ? <Ledger /> : null}
@@ -242,7 +245,7 @@ function Diplomacy() {
   );
 }
 
-// ---------------------------------------------------------------- realm (economy, ruler, eras, policies)
+// ---------------------------------------------------------------- realm (economy, ruler, science summary, policies)
 
 function Realm() {
   const st = useStore();
@@ -251,8 +254,7 @@ function Realm() {
   const me = s.nations[p];
   const def = NATION[p];
   const l = ledger(s, p);
-  const avail = availableEra(s);
-  const nextEra = me.era < UNITS.eras.length ? ERA(me.era + 1) : null;
+  const slots = policySlots(me);
   const [policyPick, setPolicyPick] = useState<string | null>(null);
   const [showMods, setShowMods] = useState(false);
   const traits = [TRAITS.national[def.trait]];
@@ -299,37 +301,27 @@ function Realm() {
         <Line label="Order (−3 to +3)" value={signed(me.stability)} tone={me.stability < 0 ? 'bad' : undefined} />
         <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
       </Section>
-      <Section title="Era">
-        <Line label="Adopted" value={`${me.era}. ${ERA(me.era).name}`} />
-        {nextEra ? (
-          avail > me.era ? (
-            <>
-              <T v="small">The {nextEra.name} has begun: {nextEra.inf.name}, {nextEra.cav.name}{nextEra.art ? `, ${nextEra.art.name}` : ''}, better morale and a new policy slot. Armies stay weaker until you pay for it.</T>
-              <Btn style={{ marginTop: 6 }} label={`Adopt the ${nextEra.name} (${techCost(s, p, me.era + 1)} gold)`} disabled={me.gold < techCost(s, p, me.era + 1)} onPress={() => st.run(adoptEra)} />
-            </>
-          ) : (
-            <T v="small">Next: the {nextEra.name}, from {nextEra.start}.</T>
-          )
-        ) : (
-          <T v="small">You live in the final era.</T>
-        )}
+      <Section title="Science">
+        <Line label="Your troops' age" value={ERA(me.era).name} />
+        <Line label="Studying" value={me.researching ? ADVANCE[me.researching].name : 'nothing'} tone={me.researching ? undefined : 'bad'} />
+        <Btn small tone="secondary" style={{ marginTop: 6 }} label="Open Science" onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
       </Section>
-      <Section title={`Policies (${me.policies.length}/${me.era})`}>
+      <Section title={`Policies (${me.policies.length}/${slots})`}>
         {me.policies.map(id => (
           <View key={id} style={styles.policy}>
             <Text style={styles.rowTitle}>{POLICY[id].name}</Text>
             <Text style={styles.rowSub}>{modLines(POLICY[id].mods).map(m => m.text).join(', ')}</Text>
           </View>
         ))}
-        <T v="tiny" style={{ marginBottom: 6 }}>One policy per era. You may swap one per era for −1 order.</T>
+        <T v="tiny" style={{ marginBottom: 6 }}>One slot, and one more for every five advances. You may swap one per slot for −1 order.</T>
         {POLICIES.filter(pol => !me.policies.includes(pol.id)).map(pol => {
-          const locked = pol.era > me.era;
-          const slotFree = me.policies.length < me.era;
+          const locked = !!pol.requires && !me.advances.includes(pol.requires);
+          const slotFree = me.policies.length < slots;
           return (
             <View key={pol.id} style={[styles.policy, { opacity: locked ? 0.5 : 1 }]}>
               <Row style={{ justifyContent: 'space-between' }}>
                 <Text style={styles.rowTitle}>{pol.name}</Text>
-                {locked ? <Pill text={`Era ${pol.era}`} /> : null}
+                {locked ? <Pill text={`Needs ${ADVANCE[pol.requires!].name}`} /> : null}
               </Row>
               <Text style={styles.rowSub}>{pol.desc}</Text>
               <Text style={[styles.rowSub, { color: C.inkSoft }]}>{modLines(pol.mods).map(m => m.text).join(', ')}</Text>
@@ -343,7 +335,7 @@ function Realm() {
                     ))}
                   </Row>
                 ) : (
-                  <Btn small tone="ghost" style={{ marginTop: 6 }} label="Swap in…" disabled={me.policySwappedEra === me.era} onPress={() => setPolicyPick(pol.id)} />
+                  <Btn small tone="ghost" style={{ marginTop: 6 }} label="Swap in…" disabled={me.policySwappedEra === slots} onPress={() => setPolicyPick(pol.id)} />
                 )
               ) : null}
             </View>

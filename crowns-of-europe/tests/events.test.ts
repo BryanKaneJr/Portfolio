@@ -12,7 +12,7 @@ const sample: Record<string, unknown> = {
   capitalDevAtLeast: 1, allied: 'SCO', alliesAtLeast: 1, borders: 'BUR', rulerSkill: [1], rulerAgeAtLeast: 1, hasHeir: true,
   eraAtLeast: 1, flag: 'x', nationFlag: 'x', loansAtLeast: 0, isEmperor: false, isElector: false, subjectOf: true, overlordOf: true,
   vassalsAtLeast: 1, regionFaith: { region: 'london', faith: 'catholic' }, faithRegionsAtLeast: { faith: 'catholic', count: 10 },
-  gov: 'monarchy', tier: 'major', hasPolicy: 'tax_reform', warsWonAtLeast: 0, battlesWonAtLeast: 0, stackWipesAtLeast: 0,
+  gov: 'monarchy', tier: 'major', hasPolicy: 'tax_reform', hasAdvance: 'bombards', warsWonAtLeast: 0, battlesWonAtLeast: 0, stackWipesAtLeast: 0,
   bestWinRatioAtLeast: 0, regionsConqueredAtLeast: 0, fleetsAtLeast: 0, shipsAtLeast: 0, coastal: true, inCoalition: false,
   coalitionAgainst: false, hreMember: false, papalFavorAtLeast: 0, discovered: false, coloniesAtLeast: 0, colonizingAtLeast: 0,
   ownsGood: 'sugar', native: false, chance: 0.5,

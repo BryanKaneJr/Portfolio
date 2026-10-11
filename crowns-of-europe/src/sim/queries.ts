@@ -1,5 +1,5 @@
 /** Read-only questions about the game state used everywhere: who owns what, who is at war with whom. */
-import { ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, UNITS, isNativeNation, isNewWorld, isSea } from './content';
+import { ADVANCE, ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, isNativeNation, isNewWorld, isSea } from './content';
 import type { Army, Fleet, GameState, Modifiers, Nation, NationId, NodeId, Region, RegionId, UnitType, War } from './types';
 import { setNewsHelpers } from './log';
 import { pairKey, yearOf } from './util';
@@ -192,7 +192,7 @@ const ZERO: Required<Modifiers> = {
   taxIncome: 0, tradeIncome: 0, manpower: 0, morale: 0, infantryPower: 0, cavalryPower: 0, artilleryPower: 0,
   fortDefense: 0, siegeSpeed: 0, attrition: 0, upkeep: 0, mercCost: 0, devCost: 0, coreCost: 0, fortCost: 0,
   shipCost: 0, navalPower: 0, threatDecay: 0, threatGain: 0, opinion: 0, diplomacy: 0, holyWarMorale: 0, unrest: 0,
-  techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0, colonists: 0, settlerGrowth: 0,
+  techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0, colonists: 0, settlerGrowth: 0, science: 0,
 };
 
 export interface ModSource {
@@ -213,6 +213,7 @@ export function modifierSources(s: GameState, n: NationId): ModSource[] {
     if (rt) out.push({ name: `${nat.ruler.name}: ${rt.name}`, mods: rt.mods });
   }
   for (const p of nat.policies) if (POLICY[p]) out.push({ name: POLICY[p].name, mods: POLICY[p].mods });
+  for (const a of nat.advances) if (ADVANCE[a]?.mods) out.push({ name: ADVANCE[a].name, mods: ADVANCE[a].mods! });
   for (const m of nat.modifiers) if (m.until < 0 || m.until > s.day) out.push({ name: m.name, mods: m.mods });
   if (s.hre.emperor === n) out.push({ name: 'Holy Roman Emperor', mods: { manpower: 0.1, diplomacy: 1, opinion: 10 } });
   // Difficulty: the AI gets a small bonus or malus.
@@ -248,14 +249,6 @@ export function unitPower(s: GameState, n: NationId, t: UnitType): number {
   if (t === 'cav') return era.cav.power * (1 + m.cavalryPower) * k;
   return (era.art?.power ?? 0.8) * (1 + m.artilleryPower) * k;
 }
-
-/** The latest era whose start year has passed (the player still has to pay to adopt it). */
-export const availableEra = (s: GameState) => {
-  const y = yearOf(s.day);
-  let e = 1;
-  for (const era of UNITS.eras) if (y >= era.start) e = era.id;
-  return e;
-};
 
 export function rulerAge(s: GameState, n: NationId): number {
   return yearOf(s.day) - s.nations[n].ruler.born;

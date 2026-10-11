@@ -55,6 +55,7 @@ export type Modifiers = Partial<{
   stabilityCost: number;
   colonists: number;
   settlerGrowth: number;
+  science: number;
 }>;
 
 // ---------------------------------------------------------------- content
@@ -151,15 +152,31 @@ export interface PolicyDef {
   id: string;
   name: string;
   desc: string;
-  era: number; // first era it can be picked
+  requires?: string; // an advance that must be known first
   mods: Modifiers;
 }
 
+/** What an advance opens up besides its modifiers. */
+export type AdvanceUnlock = 'artillery' | 'warships' | 'coastColonies' | 'oceanColonies';
+
+/** One step of science (content/advances.json). */
+export interface AdvanceDef {
+  id: string;
+  name: string;
+  field: 'war' | 'sea' | 'state';
+  year: number; // when the most learned crowns had it historically; earlier costs more
+  cost: number; // science, before the early/late and neighbour factors
+  requires: string[];
+  desc: string;
+  mods?: Modifiers;
+  unlock?: AdvanceUnlock;
+  armyEra?: number; // troops of this age (units.json eras)
+}
+
+/** An age of troops, reached through the war advances (Pike and Shot, Musket and Volley, Flintlock and Bayonet). */
 export interface UnitEra {
   id: number;
   name: string;
-  start: number; // year it becomes available to adopt
-  cost: number; // base gold cost to adopt
   morale: number;
   inf: { name: string; power: number };
   cav: { name: string; power: number };
@@ -214,6 +231,7 @@ export type Condition =
   | { gov: Gov }
   | { tier: Tier }
   | { hasPolicy: string }
+  | { hasAdvance: string }
   | { warsWonAtLeast: number }
   | { battlesWonAtLeast: number }
   | { stackWipesAtLeast: number }
@@ -246,6 +264,7 @@ export type Effect =
   | { manpower: number }
   | { stability: number }
   | { prestige: number }
+  | { science: number }
   | { threat: number }
   | { papalFavor: number }
   | { warExhaustion: number }
@@ -471,6 +490,7 @@ export interface Region {
   devBought: number;
   natives: number; // thousands, on uncolonized land
   colony?: Colony;
+  university?: boolean;
 }
 
 export interface War {
@@ -510,7 +530,11 @@ export interface Nation {
   subjectSince?: number;
   policies: string[];
   policySwappedEra?: number;
-  era: number;
+  era: number; // age of its troops (1-4), raised by the war advances
+  advances: string[];
+  science: number; // banked toward the next advance
+  researching: string | null;
+  scienceFunding: number; // 0-3, see FUNDING in science.ts
   armyMode: 'peace' | 'war';
   modifiers: TimedModifier[];
   flags: Record<string, number>;

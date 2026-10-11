@@ -1,5 +1,5 @@
 /** Gold, manpower, stability and prestige: the monthly economy and the prices of everything. */
-import { ERA, NATION, REGION, UNITS } from './content';
+import { NATION, REGION, UNITS } from './content';
 import { log, involvesPlayer } from './log';
 import {
   armiesOf,
@@ -14,6 +14,7 @@ import {
 } from './queries';
 import type { GameState, NationId, Region, ShipType } from './types';
 import { COLONY_UPKEEP, coloniesOf, goodsIncome } from './colonies';
+import { FUNDING } from './science';
 import { chance, clamp, years } from './util';
 
 export const TAX_PER_DEV = 0.3;
@@ -138,6 +139,8 @@ export function ledger(s: GameState, n: NationId): Ledger {
   const forts = fortUpkeep(s, n);
   if (forts > 0) expenses.push({ label: 'Forts', value: forts });
   if (generals > 0) expenses.push({ label: 'Generals', value: generals });
+  const funding = FUNDING[nat.scienceFunding]?.gold ?? 0;
+  if (funding > 0) expenses.push({ label: 'Science funding', value: funding });
   const colonies = coloniesOf(s, n).length;
   if (colonies > 0) expenses.push({ label: `Colonies being settled (${colonies})`, value: colonies * COLONY_UPKEEP });
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
@@ -177,10 +180,6 @@ export const FABRICATE_DAYS = 365;
 export function stabilityCost(s: GameState, n: NationId): number {
   const nat = s.nations[n];
   return Math.round((60 + 25 * (nat.stability + 3)) * (1 + 0.15 * (totalDev(s, n) / 40)) * (1 + nationMods(s, n).stabilityCost));
-}
-export function techCost(s: GameState, n: NationId, era: number): number {
-  const base = ERA(era).cost;
-  return Math.round(base * (0.6 + totalDev(s, n) / 80) * (1 + nationMods(s, n).techCost));
 }
 export function unitCost(s: GameState, n: NationId, t: 'inf' | 'cav' | 'art'): number {
   const era = s.nations[n].era;

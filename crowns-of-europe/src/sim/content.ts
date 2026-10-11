@@ -13,9 +13,11 @@ import newWorldEventsJson from '../content/events-newworld.json';
 import missionsJson from '../content/missions.json';
 import achievementsJson from '../content/achievements.json';
 import aimsJson from '../content/aims.json';
+import advancesJson from '../content/advances.json';
 import namesJson from '../content/names.json';
 import type {
   AchievementDef,
+  AdvanceDef,
   AimDef,
   BondDef,
   EventDef,
@@ -98,7 +100,7 @@ export interface ShipDef {
   upkeep: number;
   power: number;
   capacity: number;
-  era: number;
+  advance?: string; // an advance needed to build it
 }
 export const UNITS = unitsJson as unknown as {
   eras: UnitEra[];
@@ -113,6 +115,12 @@ export const EVENT: Record<string, EventDef> = Object.fromEntries(EVENTS.map(e =
 export const MISSIONS = missionsJson as unknown as MissionDef[];
 export const AIMS = (aimsJson as unknown as { aims: AimDef[] }).aims;
 export const BONDS = (aimsJson as unknown as { bonds: BondDef[] }).bonds;
+const advancesData = advancesJson as unknown as { advances: AdvanceDef[]; learning: Record<NationId, number>; start: Record<string, NationId[]> };
+export const ADVANCES = advancesData.advances;
+export const ADVANCE: Record<string, AdvanceDef> = Object.fromEntries(ADVANCES.map(a => [a.id, a]));
+/** How quickly each crown's scholars learn (1 = average; Italy fastest, the steppe and West Africa slowest). */
+export const LEARNING = advancesData.learning;
+export const START_ADVANCES = advancesData.start;
 export const MISSION: Record<string, MissionDef> = Object.fromEntries(MISSIONS.map(m => [m.id, m]));
 export const ACHIEVEMENTS = achievementsJson as unknown as AchievementDef[];
 

@@ -1,12 +1,13 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
 import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
+import { startingAdvances } from './science';
 import { forceLimit, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,
@@ -126,6 +127,10 @@ export function newGame(opts: NewGameOptions): GameState {
       rivals: [],
       policies: [],
       era: 1,
+      advances: startingAdvances(def.id),
+      science: 0,
+      researching: null,
+      scienceFunding: 0,
       armyMode: 'peace',
       modifiers: [],
       flags: {},

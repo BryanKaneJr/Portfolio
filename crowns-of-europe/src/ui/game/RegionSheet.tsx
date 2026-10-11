@@ -9,6 +9,7 @@ import {
   develop,
   fabricateClaim,
   hireMercenaries,
+  foundUniversity,
   makeCore,
   moveCapital,
   recruit,
@@ -23,6 +24,7 @@ import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import { years } from '../../sim/util';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { UnchartedSheet, WildSheet } from './ColonySheets';
+import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
@@ -49,6 +51,8 @@ export function RegionSheet({ id }: { id: string }) {
   const siege = r.siege ? siegeInfo(s, id) : null;
   const armiesHere = Object.values(s.armies).filter(a => a.node === id);
   const coastal = MAP_REGION[id].seas.length > 0;
+  const canArt = unlocked(s, s.player, 'artillery');
+  const canWarship = unlocked(s, s.player, 'warships');
   const nearMine = GRAPH[id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === s.player);
   const coreIn = r.conquered !== undefined && !isCored(r) ? Math.max(0, Math.ceil((r.conquered + years(20) - s.day) / 365)) : null;
 
@@ -65,6 +69,7 @@ export function RegionSheet({ id }: { id: string }) {
         {id in me.claims && !mine ? <Pill text="Your claim" color={C.greenSoft} textColor={C.green} /> : null}
         {r.cores.includes(s.player) && !mine ? <Pill text="Integrated by you" color={C.greenSoft} textColor={C.green} /> : null}
         {me.capital === id ? <Pill text="Capital" color={C.gold} /> : null}
+        {r.university ? <Pill text="University" color={C.blueSoft} textColor={C.blue} /> : null}
       </Row>
       <Row gap={6}>
         <Stat label="Prosperity" value={`${r.dev}/10`} icon="coins" />
@@ -115,6 +120,9 @@ export function RegionSheet({ id }: { id: string }) {
             <Btn tone="secondary" icon="castle" label={r.fort >= 3 ? 'Fort at maximum' : `Build fort level ${r.fort + 1}`} sub={r.fort >= 3 ? undefined : `${fortCost(s, r)} gold · +0.35 gold/mo upkeep`} disabled={r.fort >= 3 || me.gold < fortCost(s, r)} onPress={() => st.run(x => buildFort(x, id))} />
             {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Integrate now" sub={`${coreCost(s, r)} gold · full taxes and levies`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
             {r.faith !== me.faith && !r.converting ? <Btn tone="secondary" icon="church" label={`Convert to ${FAITH_NAME[me.faith]}`} sub={`${convertCost(s, r)} gold · 12 months`} disabled={me.gold < convertCost(s, r)} onPress={() => st.run(x => convertRegion(x, id))} /> : null}
+            {!r.university ? (
+              <Btn tone="secondary" icon="book" label="Found a university" sub={r.dev >= UNIVERSITY_MIN_DEV ? `${universityCost(s, s.player)} gold · +${UNIVERSITY_SCIENCE} science a month` : `needs prosperity ${UNIVERSITY_MIN_DEV}`} disabled={r.dev < UNIVERSITY_MIN_DEV || me.gold < universityCost(s, s.player)} onPress={() => st.run(x => foundUniversity(x, id))} testID="university" />
+            ) : null}
             {me.capital !== id && isCored(r) ? <Btn small tone="ghost" label="Move capital here (100 gold)" onPress={() => st.run(x => moveCapital(x, id))} /> : null}
           </View>
         </Section>
@@ -124,7 +132,7 @@ export function RegionSheet({ id }: { id: string }) {
           <Row gap={6}>
             <Btn small style={{ flex: 1 }} label="Infantry" sub={`${unitCost(s, s.player, 'inf')}g`} onPress={() => st.run(x => recruit(x, id, 'inf'))} testID="recruit-inf" />
             <Btn small style={{ flex: 1 }} label="Cavalry" sub={`${unitCost(s, s.player, 'cav')}g`} onPress={() => st.run(x => recruit(x, id, 'cav'))} />
-            <Btn small style={{ flex: 1 }} label="Artillery" sub={me.era < 2 ? 'Era 2' : `${unitCost(s, s.player, 'art')}g`} disabled={me.era < 2} onPress={() => st.run(x => recruit(x, id, 'art'))} />
+            <Btn small style={{ flex: 1 }} label="Artillery" sub={canArt ? `${unitCost(s, s.player, 'art')}g` : `needs ${advanceFor('artillery').name}`} disabled={!canArt} onPress={() => st.run(x => recruit(x, id, 'art'))} />
           </Row>
           <Row gap={6} style={{ marginTop: 6 }}>
             <Btn small tone="secondary" style={{ flex: 1 }} label="5 infantry" sub={`${unitCost(s, s.player, 'inf') * 5}g`} onPress={() => st.run(x => recruit(x, id, 'inf', 5))} />
@@ -135,7 +143,7 @@ export function RegionSheet({ id }: { id: string }) {
             <Row gap={6} style={{ marginTop: 6 }}>
               <Btn small tone="secondary" style={{ flex: 1 }} label="Galley" sub={`${shipCost(s, s.player, 'galley')}g`} onPress={() => st.run(x => buildShip(x, id, 'galley'))} />
               <Btn small tone="secondary" style={{ flex: 1 }} label="Transport" sub={`${shipCost(s, s.player, 'transport')}g`} onPress={() => st.run(x => buildShip(x, id, 'transport'))} />
-              <Btn small tone="secondary" style={{ flex: 1 }} label="Warship" sub={me.era < 3 ? 'Era 3' : `${shipCost(s, s.player, 'warship')}g`} disabled={me.era < UNITS.ships.warship.era} onPress={() => st.run(x => buildShip(x, id, 'warship'))} />
+              <Btn small tone="secondary" style={{ flex: 1 }} label={UNITS.ships.warship.name} sub={canWarship ? `${shipCost(s, s.player, 'warship')}g` : `needs ${advanceFor('warships').name}`} disabled={!canWarship} onPress={() => st.run(x => buildShip(x, id, 'warship'))} />
             </Row>
           ) : null}
         </Section>

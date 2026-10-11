@@ -1,5 +1,5 @@
 /** Fill colours for each map mode. */
-import { NATION, REGION } from '../../sim/content';
+import { NATION, REGION, isNativeNation } from '../../sim/content';
 import { opinion } from '../../sim/diplomacy';
 import { allied, hasTruce, topOverlord, warBetween } from '../../sim/queries';
 import { perceivedThreat } from '../../sim/threat';
@@ -57,6 +57,16 @@ function fill(s: GameState, r: Region, mode: MapMode, p: string, cache: Map<stri
       const t = (r.dev - 1) / 9;
       return mix('#f3ecd0', '#2f6b34', t);
     }
+    case 'science': {
+      // Advances known compared with the most learned crown alive.
+      const o = r.owner!;
+      const hit = cache.get(o);
+      if (hit) return hit;
+      const best = Math.max(1, ...Object.values(s.nations).filter(n => n.alive).map(n => n.advances.length));
+      const c = isNativeNation(o) ? '#cbbfa6' : mix('#f2e9cf', '#3b4f9a', s.nations[o].advances.length / best);
+      cache.set(o, c);
+      return c;
+    }
     case 'faith':
       return FAITH_COLOR[r.faith];
     case 'diplomatic': {
@@ -97,5 +107,6 @@ export const MAP_MODES: { key: MapMode; label: string; help: string }[] = [
   { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple), native beliefs (brown).' },
   { key: 'diplomatic', label: 'Diplomatic', help: 'How others see you: allies blue, enemies red, opinion from green to red.' },
   { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a coalition against you.' },
+  { key: 'science', label: 'Science', help: 'How many advances each crown knows: deep blue for the most learned, pale for those far behind.' },
   { key: 'goods', label: 'Exports', help: 'What each overseas region sends home: silver and gold pay most, then ivory, sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
 ];

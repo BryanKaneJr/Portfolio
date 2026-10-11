@@ -10,6 +10,7 @@
 import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, regionName } from './content';
 import { log, requestPause } from './log';
 import { armyRegs, bumpOwnership, invalidateMods, modifierSources, nationMods, ownedRegions } from './queries';
+import { advanceFor, hasAdvance, unlocked } from './science';
 import { markMapDirty } from './territory';
 import type { Faith, GameState, Good, NationId, NodeId, Region, RegionId } from './types';
 import { chance, clamp, months, yearOf, years } from './util';
@@ -19,7 +20,7 @@ export const COLONY_UPKEEP = 1; // gold per month for each colony still growing
 export const SETTLERS_NEEDED = 1000;
 export const EXPEDITION_COST = 100;
 export const EXPEDITION_MONTHS = 8;
-export const EXPEDITION_YEAR = 1470; // the earliest year a captain will sail west into the unknown
+export const EXPEDITION_YEAR = 1470; // the AI's urge to sail west grows from here (expeditions need Ocean Navigation)
 export const DISCOVERY_YEAR = 1500; // by now the New World is common knowledge
 export const SPREAD_THIN = 0.06; // settler growth lost per New World region you already own (at most 60%)
 export const BASE_COLONIST_DEV = 30; // realms this large (with an ocean coast) get a colonist from the Wars of Religion on
@@ -67,7 +68,7 @@ export function canSendExpedition(s: GameState, n: NationId): string | null {
   const nat = s.nations[n];
   if (s.discovery) return 'The New World has already been found.';
   if (isNativeNation(n)) return 'Your people have no ships for the open ocean.';
-  if (yearOf(s.day) < EXPEDITION_YEAR) return `No captain will sail into the unknown before ${EXPEDITION_YEAR}.`;
+  if (!unlocked(s, n, 'oceanColonies')) return `Your captains need ${advanceFor('oceanColonies').name} first (see Science).`;
   if (!hasOceanCoast(s, n)) return 'You need a coast on the open ocean.';
   if (nat.expedition) return 'Your expedition is already at sea.';
   if (nat.gold < EXPEDITION_COST) return `You need ${EXPEDITION_COST} gold.`;
@@ -113,7 +114,7 @@ export function colonistSources(s: GameState, n: NationId): ColonistPart[] {
   const nat = s.nations[n];
   if (!nat || isNativeNation(n)) return [];
   const out: ColonistPart[] = [];
-  if (CHRISTIAN.has(nat.faith) && nat.era >= 3 && homeDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast (era 3)', value: 1 });
+  if (CHRISTIAN.has(nat.faith) && hasAdvance(s, n, 'cartography') && homeDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast and Scientific Cartography', value: 1 });
   for (const src of modifierSources(s, n)) if (src.mods.colonists) out.push({ label: src.name, value: src.mods.colonists });
   return out;
 }
@@ -130,6 +131,8 @@ export function canColonize(s: GameState, n: NationId, r: RegionId): string | nu
   if (!charted(s, r)) return 'These lands are uncharted.';
   if (reg.colony) return reg.colony.by === n ? 'Your settlers are already here.' : `${NATION[reg.colony.by]?.name ?? 'Someone'} is already settling here.`;
   if (isNativeNation(n)) return 'Your people do not send colonists.';
+  const needs = REGION[r].nw ? advanceFor('oceanColonies') : advanceFor('coastColonies');
+  if (!hasAdvance(s, n, needs.id)) return `Settling here needs ${needs.name} (see Science).`;
   if (freeColonists(s, n) <= 0) return colonistsOf(s, n) ? 'All your colonists are busy.' : 'You have no colonists yet (see the Colonies tab of the Realm menu).';
   const coastal = MAP_REGION[r].seas.length > 0;
   const nextToOwn = GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);

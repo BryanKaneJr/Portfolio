@@ -1,5 +1,5 @@
 /** Plain-English descriptions of effects, goals and modifiers ("every number explained"). */
-import { EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
+import { ADVANCE, ERA, EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
 import { GOOD_NAME } from '../sim/colonies';
 import type { Condition, Effect, Modifiers } from '../sim/types';
 
@@ -35,10 +35,11 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   diplomacy: ['diplomatic reputation', 'flat', true],
   holyWarMorale: ['morale against other faiths', 'pct', true],
   unrest: ['unrest', 'flat', false],
-  techCost: ['era adoption cost', 'pct', false],
+  techCost: ['cost of advances', 'pct', false],
   movement: ['movement speed', 'pct', true],
   prestigeGain: ['renown gained', 'pct', true],
   stabilityCost: ['cost to raise order', 'pct', false],
+  science: ['science', 'pct', true],
 };
 
 export interface ModLine {
@@ -72,6 +73,8 @@ export function effectLines(e: Effect): ModLine[] {
       return L(`Order ${sgn(v)}`, v > 0);
     case 'prestige':
       return L(`Renown ${sgn(v)}`, v > 0);
+    case 'science':
+      return L(`${sgn(v)} science`, v > 0);
     case 'threat':
       return L(`Threat ${sgn(v)}`, v < 0);
     case 'papalFavor':
@@ -210,7 +213,7 @@ export function conditionText(c: Condition): string {
     case 'borders':
       return `Border ${nat(v)}`;
     case 'eraAtLeast':
-      return `Adopt era ${v}`;
+      return `Troops of the ${ERA(v).name} age`;
     case 'isEmperor':
       return v ? 'Be Holy Roman Emperor' : 'Not be Emperor';
     case 'overlordOf':
@@ -233,6 +236,8 @@ export function conditionText(c: Condition): string {
       return `Have ${v} fleet${v > 1 ? 's' : ''}`;
     case 'shipsAtLeast':
       return `Have ${v} ships`;
+    case 'hasAdvance':
+      return `Know ${ADVANCE[v]?.name ?? v}`;
     case 'hasPolicy':
       return `Adopt the ${POLICY[v]?.name ?? v} policy`;
     case 'regionFaith':

@@ -30,6 +30,9 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes), then
   `npm run map:build`. Never hand-edit `map.json`. The builder warns about seeds in the water; fix those.
+- **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
+  expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
+  (`science.ts`, `advances.json`). Gate new unlocks with `hasAdvance`/`unlocked()`, never with the year.
 - **Uncolonized land has `owner: null`** (and `controller: null`). Anything that loops over all regions must skip
   it (`if (!r.owner) continue`) or use `ownedRegions()`. Use `isIn(list, r.owner)` from `util.ts` for
   "is this region's owner one of these nations". Before discovery, `charted()` (colonies.ts) closes the New World
@@ -40,20 +43,20 @@ a Mercator map, light tutorial, no audio yet).
 src/sim/       types, content (JSON loaders + movement graph), state (new game), tick (daily/monthly), commands,
                military (paths, convoys, movement, supply), battle, siege, navy, war (war score, peace), diplomacy
                (opinion, actions), threat (coalitions), economy, colonies (discovery, colonists, settlers, natives,
-               trade goods), events (DSL eval), dsl (schema), missions, aims (what each AI crown wants: historical
-               aims, mission goals, bonds), rulers, religion (Reformation, Papal Favor, HRE), rebels, territory,
-               ai, queries, util, log
+               trade goods), science (science a month, advances, costs, research), events (DSL eval), dsl (schema),
+               missions, aims (what each AI crown wants: historical aims, mission goals, bonds), rulers, religion
+               (Reformation, Papal Favor, HRE), rebels, territory, ai, queries, util, log
 src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, scenario1444, traits, policies, units,
-               names, events-historical, events-generic, events-newworld, missions, achievements, aims (historical
-               aims and old friendships/enmities), map.json (generated)
+               names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
+               aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, colors, geometry, tap, MiniMap), game/ (Bars, Sheet, RegionSheet, ColonySheets,
-               UnitSheets, NationSheet, Cards, Panels, Menu, Help), components/ (kit, Flag, Icon), describe
+               UnitSheets, NationSheet, Cards, Panels, Menu, Science, Help), components/ (kit, Flag, Icon), describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace)
-tests/         battle, movement, siege, war, colonies, aims, events, soak (Jest, node)
+tests/         battle, movement, siege, war, colonies, aims, science, events, soak (Jest, node)
 ```
 
 ## Commands

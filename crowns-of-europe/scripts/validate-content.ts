@@ -4,6 +4,8 @@
  */
 import {
   ACHIEVEMENTS,
+  ADVANCE,
+  ADVANCES,
   AIMS,
   BONDS,
   EVENTS,
@@ -18,6 +20,9 @@ import {
   SCENARIO,
   SEA,
   TRAITS,
+  UNITS,
+  LEARNING,
+  START_ADVANCES,
 } from '../src/sim/content';
 import { GOOD_VALUE } from '../src/sim/colonies';
 import { EVENT_IMAGES, FAITHS, MODIFIER_KEYS, validateCondition, validateEffect } from '../src/sim/dsl';
@@ -138,6 +143,30 @@ for (const b of BONDS) {
   if (b.from && b.until && b.from >= b.until) errs.push(`${w}: from must be before until`);
 }
 
+// Science (advances.json), and what needs an advance
+const advIds = new Set<string>();
+for (const a of ADVANCES) {
+  const w = `advance ${a.id}`;
+  if (advIds.has(a.id)) errs.push(`${w}: duplicate id`);
+  advIds.add(a.id);
+  if (!['war', 'sea', 'state'].includes(a.field)) errs.push(`${w}: field must be war, sea or state`);
+  if (!(a.cost > 0) || !(a.year >= 1400 && a.year <= 1800)) errs.push(`${w}: needs a cost and a year between 1400 and 1800`);
+  if (!a.name || a.name.length > 30 || !a.desc || a.desc.length > 160) errs.push(`${w}: name 1-30 and desc 1-160 characters`);
+  for (const r of a.requires) if (!ADVANCE[r]) errs.push(`${w}: requires unknown advance ${r}`);
+  else if (ADVANCE[r].year > a.year) errs.push(`${w}: requires ${r}, which comes later in history`);
+  if (a.armyEra && !UNITS.eras.some(e => e.id === a.armyEra)) errs.push(`${w}: unknown troop age ${a.armyEra}`);
+  if (a.unlock && !['artillery', 'warships', 'coastColonies', 'oceanColonies'].includes(a.unlock)) errs.push(`${w}: unknown unlock ${a.unlock}`);
+  if (a.mods) for (const k of Object.keys(a.mods)) if (!MODIFIER_KEYS.includes(k)) errs.push(`${w}: unknown modifier ${k}`);
+}
+for (const u of ['artillery', 'warships', 'coastColonies', 'oceanColonies']) if (ADVANCES.filter(a => a.unlock === u).length !== 1) errs.push(`exactly one advance must unlock ${u}`);
+for (const [n, v] of Object.entries(LEARNING)) if (!NATION[n] || !(v > 0)) errs.push(`learning: bad entry ${n}`);
+for (const [id, who] of Object.entries(START_ADVANCES)) {
+  if (!ADVANCE[id]) errs.push(`start: unknown advance ${id}`);
+  for (const n of who) if (!NATION[n]) errs.push(`start ${id}: unknown nation ${n}`);
+}
+for (const p of POLICIES) if (p.requires && !ADVANCE[p.requires]) errs.push(`policy ${p.id}: requires unknown advance ${p.requires}`);
+for (const [t, sh] of Object.entries(UNITS.ships)) if (sh.advance && !ADVANCE[sh.advance]) errs.push(`ship ${t}: needs unknown advance ${sh.advance}`);
+
 // Achievements
 const achIds = new Set<string>();
 for (const a of ACHIEVEMENTS) {
@@ -154,5 +183,5 @@ if (errs.length) {
   process.exit(1);
 }
 console.log(
-  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements, ${AIMS.length} aims`,
+  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements, ${AIMS.length} aims, ${ADVANCES.length} advances`,
 );

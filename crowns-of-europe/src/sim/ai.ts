@@ -6,6 +6,7 @@
 import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
+import { FUNDING, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
 import { wantedRegions, wantsFrom } from './aims';
 import {
   REBELS,
@@ -14,7 +15,6 @@ import {
   armiesHostile,
   armyRegs,
   atWar,
-  availableEra,
   controllerHostile,
   forceLimit,
   friendlyTo,
@@ -44,7 +44,6 @@ import {
   shipCost,
   SHIP_DAYS,
   stabilityCost,
-  techCost,
   unitCost,
   LOAN_SIZE,
 } from './economy';
@@ -102,17 +101,9 @@ function aiEconomy(s: GameState, nat: Nation): void {
     nat.gold -= LOAN_SIZE;
   }
   const native = isNativeNation(n);
-  // New era.
-  const avail = availableEra(s);
-  if (nat.era < avail && !native) {
-    const cost = techCost(s, n, nat.era + 1);
-    if (nat.gold >= cost + res * 0.5) {
-      nat.gold -= cost;
-      nat.era++;
-    }
-  }
-  // Policies: one slot per era.
-  if (nat.policies.length < nat.era) {
+  if (!native) aiScience(s, nat, res);
+  // Policies: one slot, and one more for every five advances.
+  if (nat.policies.length < policySlots(nat)) {
     const p = NATION[n].personality;
     const wanted =
       p === 'expansionist'
@@ -124,7 +115,10 @@ function aiEconomy(s: GameState, nat: Nation): void {
             : ['tax_reform', 'standing_army', 'diplomatic_corps', 'royal_administration', 'conscription'];
     // Atlantic crowns want colonists once there is somewhere to send them.
     if (s.discovery && p !== 'defensive' && ['POR', 'CAS', 'ENG', 'FRA', 'BUR'].includes(n)) wanted.unshift('overseas_charters');
-    const choice = wanted.find(id => !nat.policies.includes(id) && (POLICIES.find(x => x.id === id)?.era ?? 9) <= nat.era);
+    const choice = wanted.find(id => {
+      const pol = POLICIES.find(x => x.id === id);
+      return pol && !nat.policies.includes(id) && (!pol.requires || nat.advances.includes(pol.requires));
+    });
     if (choice) nat.policies.push(choice);
   }
   // Stability.
@@ -147,7 +141,7 @@ function aiEconomy(s: GameState, nat: Nation): void {
   while (toRecruit > 0 && musterAt) {
     const steppe = NATION[n].trait === 'steppe_horde';
     const roll = (current + toRecruit) % 10;
-    const type = native ? 'inf' : nat.era >= 2 && roll === 0 ? 'art' : roll < (steppe ? 6 : 3) ? 'cav' : 'inf';
+    const type = native ? 'inf' : roll === 0 && unlocked(s, n, 'artillery') ? 'art' : roll < (steppe ? 6 : 3) ? 'cav' : 'inf';
     const cost = unitCost(s, n, type);
     if (nat.gold < cost + 15 || nat.manpower < 1000) break;
     nat.gold -= cost;
@@ -201,7 +195,7 @@ function aiEconomy(s: GameState, nat: Nation): void {
       const coast = regions.find(r => GRAPH[r.id].some(e => e.kind === 'coast') && r.controller === n);
       const sea = coast && GRAPH[coast.id].find(e => e.kind === 'coast')?.to;
       if (coast && sea) {
-        const type = nat.era >= 3 && chance(s, 0.4) ? 'warship' : chance(s, 0.3) ? 'transport' : 'galley';
+        const type = unlocked(s, n, 'warships') && chance(s, 0.4) ? 'warship' : chance(s, 0.3) ? 'transport' : 'galley';
         const cost = shipCost(s, n, type);
         if (nat.gold > cost + res) {
           nat.gold -= cost;
@@ -237,6 +231,34 @@ function musterRegion(s: GameState, n: NationId, war: boolean): string | undefin
     }
   }
   return best ?? home;
+}
+
+// ---------------------------------------------------------------- science
+
+/** Fund scholars when the treasury allows it, and found universities in rich regions. (What to study is chosen in science.ts.) */
+function aiScience(s: GameState, nat: Nation, res: number): void {
+  const n = nat.id;
+  const balance = ledger(s, n).balance;
+  const war = atWar(s, n);
+  // Spend roughly a quarter of the surplus on scholars, never into debt.
+  let level = 0;
+  for (let l = FUNDING.length - 1; l > 0; l--)
+    if (balance + (FUNDING[nat.scienceFunding]?.gold ?? 0) > FUNDING[l].gold * (war ? 6 : 4) && nat.gold > res * 0.5) {
+      level = l;
+      break;
+    }
+  if (nat.loans > 0) level = 0;
+  nat.scienceFunding = level;
+  // A university in the richest region without one, a few per realm.
+  const owned = ownedRegions(s, n);
+  const unis = owned.filter(r => r.university).length;
+  if (!war && unis < Math.min(4, 1 + Math.floor(totalDev(s, n) / 80)) && nat.gold > universityCost(s, n) + res && chance(s, 0.1)) {
+    const site = owned.filter(r => !r.university && r.dev >= UNIVERSITY_MIN_DEV && r.controller === n).sort((a, b) => b.dev - a.dev)[0];
+    if (site) {
+      nat.gold -= universityCost(s, n);
+      site.university = true;
+    }
+  }
 }
 
 // ---------------------------------------------------------------- the New World

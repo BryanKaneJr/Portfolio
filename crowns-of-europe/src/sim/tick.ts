@@ -16,6 +16,7 @@ import {
 } from './military';
 import { monthlyMissions } from './missions';
 import { monthlyColonies } from './colonies';
+import { monthlyScience } from './science';
 import { dailyFleets, dailyShipyards, monthlyNavy } from './navy';
 import { invalidateMods, ownedRegions } from './queries';
 import { monthlyUnrest } from './rebels';
@@ -57,6 +58,7 @@ export function advanceDay(s: GameState): TickResult {
 function monthly(s: GameState): void {
   invalidateMods();
   monthlyEconomy(s);
+  monthlyScience(s);
   monthlyReinforce(s);
   monthlyAttrition(s);
   monthlyUnrest(s);

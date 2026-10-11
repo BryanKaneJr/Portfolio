@@ -12,7 +12,7 @@ import type { Result } from '../sim/commands';
 import * as commands from '../sim/commands';
 import { MAP_REGION, MAP_SEA } from '../sim/content';
 
-export type MapMode = 'political' | 'terrain' | 'development' | 'faith' | 'diplomatic' | 'threat' | 'goods';
+export type MapMode = 'political' | 'terrain' | 'development' | 'faith' | 'diplomatic' | 'threat' | 'goods' | 'science';
 export type Selection =
   | { kind: 'region'; id: string }
   | { kind: 'army'; id: string }
@@ -30,7 +30,7 @@ export type Overlay =
   | { kind: 'breakdown'; what: 'gold' | 'manpower' | 'stability' | 'prestige' | 'threat' }
   | { kind: 'report'; id: string }
   | { kind: 'help' };
-export type MenuTab = 'military' | 'diplomacy' | 'economy' | 'colonies' | 'missions' | 'ledger' | 'settings';
+export type MenuTab = 'military' | 'diplomacy' | 'economy' | 'science' | 'colonies' | 'missions' | 'ledger' | 'settings';
 
 /** Days per real second at each speed (1×, 2×, 4×). */
 export const SPEEDS = [1.5, 3, 6];

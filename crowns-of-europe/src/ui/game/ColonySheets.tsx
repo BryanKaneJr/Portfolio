@@ -155,7 +155,7 @@ export function ColoniesTab() {
             <Btn icon="ship" label={me.expedition ? 'Your expedition is at sea' : 'Fund an expedition west'} sub={me.expedition ? `Back around ${formatDate(me.expedition.done)}` : `${EXPEDITION_COST} gold · back in about ${EXPEDITION_MONTHS} months`} disabled={!!why} onPress={() => st.run(fundExpedition)} testID="menu-expedition" />
             {why && !me.expedition ? <T v="tiny">{why}</T> : null}
           </View>
-          <T v="small" style={{ marginTop: 8 }}>Closer to home, the African coast from Arguin to the Gold Coast is open now: tap a pale region there to settle it.</T>
+          <T v="small" style={{ marginTop: 8 }}>Closer to home, the African coast from Arguin to the Gold Coast can be settled once you know Caravels: tap a pale region there.</T>
         </Section>
       ) : (
         <T v="small" style={{ marginBottom: 6 }}>

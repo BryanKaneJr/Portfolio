@@ -58,9 +58,13 @@ await coe(() => window.__coe.store.select(null));
 await tapId('menu');
 await tapId('tab-military');
 await shot('menu-military');
-for (const tab of ['diplomacy', 'economy', 'colonies', 'missions', 'ledger', 'settings']) {
+for (const tab of ['diplomacy', 'economy', 'science', 'colonies', 'missions', 'ledger', 'settings']) {
   await tapId(`tab-${tab}`);
   await shot(`menu-${tab}`);
+  if (tab === 'science') {
+    await tapId('advance-ocean_navigation');
+    await shot('menu-science-picked');
+  }
 }
 await page.getByLabel('Close').first().click();
 

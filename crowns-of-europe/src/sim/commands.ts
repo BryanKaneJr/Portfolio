@@ -2,7 +2,7 @@
  * Everything the player can do, validated. Each command returns { ok, msg } so the UI can show a toast.
  * Commands mutate the state in place; the UI re-renders from the store afterwards.
  */
-import { GRAPH, MAP_REGION, POLICY, UNITS, isSea, nationName, regionName } from './content';
+import { ADVANCE, GRAPH, MAP_REGION, POLICY, UNITS, isSea, nationName, regionName } from './content';
 import { COLONY_COST, EXPEDITION_MONTHS, abandonColony, charted, sendExpedition, startColony } from './colonies';
 import {
   CONVERT_DAYS,
@@ -18,7 +18,6 @@ import {
   mercCost,
   shipCost,
   stabilityCost,
-  techCost,
   unitCost,
 } from './economy';
 import { doDiplomacy, type DiploAction, addOpinion } from './diplomacy';
@@ -31,7 +30,6 @@ import {
   allied,
   armyMen,
   armyRegs,
-  availableEra,
   invalidateMods,
   maxMorale,
   ownedRegions,
@@ -39,6 +37,7 @@ import {
 } from './queries';
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral } from './rulers';
+import { FUNDING, UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
 import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
 import { clamp, months } from './util';
@@ -172,7 +171,7 @@ export function recruit(s: GameState, region: string, type: UnitType, count = 1)
   const nat = me(s);
   const reg = s.regions[region];
   if (!reg || reg.owner !== s.player || reg.controller !== s.player) return no('You can only recruit in regions you hold.');
-  if (type === 'art' && nat.era < 2) return no('Artillery arrives with the Renaissance (era 2).');
+  if (type === 'art' && !unlocked(s, s.player, 'artillery')) return no(`Artillery needs ${advanceFor('artillery').name} (see Science).`);
   const cost = unitCost(s, s.player, type) * count;
   if (nat.manpower < 1000 * count) return no(`Not enough levies (${count * 1000} men needed).`);
   if (!pay(s, cost)) return no(`Not enough gold (${cost} needed).`);
@@ -277,15 +276,34 @@ export function boostStability(s: GameState): Result {
   return ok(`Order rises to ${nat.stability > 0 ? '+' : ''}${nat.stability}.`);
 }
 
-export function adoptEra(s: GameState): Result {
+// ---------------------------------------------------------------- science
+
+export function setResearch(s: GameState, id: string | null): Result {
   const nat = me(s);
-  const avail = availableEra(s);
-  if (nat.era >= avail) return no('No new era has dawned yet.');
-  const cost = techCost(s, s.player, nat.era + 1);
-  if (!pay(s, cost)) return no(`Adopting the new era costs ${cost} gold.`);
-  nat.era++;
-  invalidateMods();
-  return ok(`You enter the ${UNITS.eras[nat.era - 1].name}: better troops and a new policy slot.`);
+  if (id === null) {
+    nat.researching = null;
+    return ok('Your scholars wait for a new subject.');
+  }
+  if (!availableAdvances(s, s.player).some(a => a.id === id)) return no('Your scholars cannot study that yet.');
+  nat.researching = id;
+  return ok(`Your scholars turn to ${ADVANCE[id].name}.`);
+}
+
+export function setScienceFunding(s: GameState, level: number): Result {
+  if (!FUNDING[level]) return no('No such level.');
+  me(s).scienceFunding = level;
+  return ok(level ? `Science funding: ${FUNDING[level].label.toLowerCase()} (${FUNDING[level].gold} gold a month).` : 'You stop funding your scholars.');
+}
+
+export function foundUniversity(s: GameState, region: string): Result {
+  const reg = s.regions[region];
+  if (!reg || reg.owner !== s.player) return no('Not your region.');
+  if (reg.university) return no('It already has a university.');
+  if (reg.dev < UNIVERSITY_MIN_DEV) return no(`A university needs prosperity ${UNIVERSITY_MIN_DEV}.`);
+  const cost = universityCost(s, s.player);
+  if (!pay(s, cost)) return no(`A university costs ${cost} gold.`);
+  reg.university = true;
+  return ok(`A university opens in ${regionName(region)}: +${UNIVERSITY_SCIENCE} science a month.`);
 }
 
 export function takeLoan(s: GameState): Result {
@@ -308,15 +326,16 @@ export function choosePolicy(s: GameState, id: string, replace?: string): Result
   const nat = me(s);
   const p = POLICY[id];
   if (!p) return no('Unknown policy.');
-  if (p.era > nat.era) return no(`${p.name} needs era ${p.era}.`);
+  if (p.requires && !nat.advances.includes(p.requires)) return no(`${p.name} needs ${ADVANCE[p.requires].name}.`);
   if (nat.policies.includes(id)) return no('Already adopted.');
+  const slots = policySlots(nat);
   if (replace) {
     if (!nat.policies.includes(replace)) return no('Nothing to replace.');
-    if (nat.policySwappedEra === nat.era) return no('You can only swap a policy once per era.');
+    if (nat.policySwappedEra === slots) return no('You can only swap a policy once until your next policy slot.');
     nat.policies = nat.policies.filter(x => x !== replace);
-    nat.policySwappedEra = nat.era;
+    nat.policySwappedEra = slots;
     nat.stability = clamp(nat.stability - 1, -3, 3);
-  } else if (nat.policies.length >= nat.era) return no('All policy slots are full. Swap one instead.');
+  } else if (nat.policies.length >= slots) return no('All policy slots are full. Swap one instead.');
   nat.policies.push(id);
   if (id === 'tax_reform') nat.modifiers.push({ id: 'tax_reform_unrest', name: 'Tax Reform grumbling', mods: { unrest: 1 }, until: s.day + months(60) });
   invalidateMods();
@@ -331,7 +350,8 @@ export function buildShip(s: GameState, region: string, type: ShipType): Result 
   if (!reg || reg.controller !== s.player) return no('Ships are built in a port you hold.');
   const sea = MAP_REGION[region].seas[0];
   if (!sea) return no(`${regionName(region)} has no coast.`);
-  if (UNITS.ships[type].era > nat.era) return no(`${UNITS.ships[type].name}s need era ${UNITS.ships[type].era}.`);
+  const needs = UNITS.ships[type].advance;
+  if (needs && !nat.advances.includes(needs)) return no(`${UNITS.ships[type].name}s need ${ADVANCE[needs].name} (see Science).`);
   const cost = shipCost(s, s.player, type);
   if (!pay(s, cost)) return no(`A ${UNITS.ships[type].name.toLowerCase()} costs ${cost} gold.`);
   nat.shipyard.push({ type, region, sea, done: s.day + SHIP_DAYS });

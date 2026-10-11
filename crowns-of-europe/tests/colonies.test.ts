@@ -3,6 +3,7 @@ import { advanceDays } from '../src/sim/tick';
 import { findPath } from '../src/sim/military';
 import { findSeaPath } from '../src/sim/navy';
 import { canColonize, colonistsOf, discoverNewWorld, sendExpedition, startColony, SETTLERS_NEEDED } from '../src/sim/colonies';
+import { learnAdvance } from '../src/sim/science';
 import { ledger } from '../src/sim/economy';
 import { holyWarAllowed } from '../src/sim/war';
 import { unitPower } from '../src/sim/queries';
@@ -35,6 +36,9 @@ describe('the New World', () => {
     const s = emptyGame('POR');
     s.day = dayOf(1475, 0, 1);
     s.nations.POR.gold = 500;
+    // Sailing west needs Ocean Navigation.
+    expect(sendExpedition(s, 'POR')).toMatch(/Ocean Navigation/);
+    learnAdvance(s, 'POR', 'ocean_navigation');
     expect(sendExpedition(s, 'POR')).toBeNull();
     advanceDays(s, 300);
     expect(s.discovery?.by).toBe('POR');
@@ -67,6 +71,7 @@ describe('the New World', () => {
   test('natives can wipe out an unguarded colony, but not a guarded one', () => {
     const s = emptyGame('POR');
     discoverNewWorld(s, 'POR');
+    learnAdvance(s, 'POR', 'ocean_navigation');
     s.nations.POR.gold = 5000;
     s.regions.florida.natives = 8;
     s.regions.rio.natives = 8;
@@ -121,6 +126,8 @@ describe('the New World', () => {
     const s = newGame({ player: 'FRA', seed: 11 });
     s.flags.__spectate = 1;
     s.day = dayOf(1490, 0, 1);
+    // Jumping ahead 46 years: the Atlantic crowns have learned to cross the ocean meanwhile.
+    for (const n of ['POR', 'CAS', 'ENG', 'FRA']) learnAdvance(s, n, 'ocean_navigation');
     discoverNewWorld(s, 'POR');
     advanceDays(s, 365 * 14);
     const colonized = Object.values(s.regions).filter(r => r.owner && REGION[r.id].nw && !NATION[r.owner].native);

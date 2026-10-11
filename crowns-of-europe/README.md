@@ -22,15 +22,15 @@ bundled and works in airplane mode.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
-- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonists (from
-  Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters policy and
-  era 3) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
+- **The New World:** uncharted until an expedition finds it (it needs Ocean Navigation) or 1500 arrives.
+  Colonists (from Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters
+  policy and Scientific Cartography) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
   troops keep it safe. Every New World region has an export (silver, gold, sugar, tobacco, cocoa, dyes, furs,
   fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic
   takes weeks to cross.
 - **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy, and automatic pauses (all configurable)
   for wars declared on you, events and offers.
-- **Armies:** regiments of 1,000 men (infantry, cavalry, artillery from 1500), merge and split, generals with
+- **Armies:** regiments of 1,000 men (infantry, cavalry, artillery once you know Bombards), merge and split, generals with
   Fire/Shock/Maneuver, the ruler leading in person, mercenaries, supply limits and winter attrition.
 - **Battles** that run for days so reinforcements can join: each day 1d10 plus general and terrain, damage
   scaled by the front line (20 wide on plains, 10 in mountains), morale, retreat, cavalry pursuit, and the
@@ -47,7 +47,13 @@ bundled and works in airplane mode.
 - **Diplomacy:** opinion from −200 to +200 with a breakdown, alliances, royal marriages (inheritance and personal
   unions), military access, rivals, vassalization and annexation, gifts and insults.
 - **Realm:** gold, manpower and stability (no abstract point currencies), loans and bankruptcy, rulers who age
-  and die, heirs, republican elections, four eras with paid adoption and new troops, one policy per era.
+  and die, heirs, republican elections, policies (a slot for every five advances).
+- **Science:** scholars earn science every month (faster in rich towns and trade centres, with universities and
+  gold funding, and much faster in Italy and the West than on the steppe or in West Africa) and spend it on 18
+  advances: Bombards for artillery, Caravels and Ocean Navigation for colonies, Galleons for warships, Pike and
+  Shot, Musket and Volley and Flintlock and Bayonet for new ages of troops, and statecraft. An advance costs more
+  the earlier it is taken than its historical year and less once neighbours know it, so the most learned crowns
+  reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
 - **Story:** 246 events (104 historical, 69 generic, 45 era, 28 New World), 231 missions, 42 achievements, unrest and rebels.

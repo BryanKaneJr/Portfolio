@@ -3,7 +3,7 @@
  * The validator (scripts/validate-content.ts) and the evaluator (events.ts) both read this table,
  * so a new key has to be added here, implemented in events.ts, and documented in docs/content-guide.md.
  */
-import { NATION, REGION, EVENT } from './content';
+import { ADVANCE, NATION, REGION, EVENT } from './content';
 
 type ArgName =
   | 'bool'
@@ -35,7 +35,7 @@ const MODIFIER_KEYS = [
   'taxIncome', 'tradeIncome', 'manpower', 'morale', 'infantryPower', 'cavalryPower', 'artilleryPower', 'fortDefense',
   'siegeSpeed', 'attrition', 'upkeep', 'mercCost', 'devCost', 'coreCost', 'fortCost', 'shipCost', 'navalPower',
   'threatDecay', 'threatGain', 'opinion', 'diplomacy', 'holyWarMorale', 'unrest', 'techCost', 'movement',
-  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth',
+  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth', 'science',
 ];
 export const EVENT_IMAGES = [
   'crown', 'swords', 'siege', 'ship', 'church', 'plague', 'harvest', 'scroll', 'coins', 'castle', 'cannon', 'treaty',
@@ -87,6 +87,7 @@ export const CONDITION_SCHEMA: Record<string, Arg> = {
   gov: 'gov',
   tier: 'tier',
   hasPolicy: 'string',
+  hasAdvance: 'string',
   warsWonAtLeast: 'number',
   battlesWonAtLeast: 'number',
   stackWipesAtLeast: 'number',
@@ -113,6 +114,7 @@ export const EFFECT_SCHEMA: Record<string, Arg> = {
   manpower: 'number',
   stability: 'number',
   prestige: 'number',
+  science: 'number',
   threat: 'number',
   papalFavor: 'number',
   warExhaustion: 'number',
@@ -243,6 +245,7 @@ export function validateCondition(c: unknown, where: string, errs: string[]): vo
   const arg = CONDITION_SCHEMA[key];
   if (!arg) return void errs.push(`${where}: unknown condition "${key}"`);
   checkArg(arg, c[key], `${where}.${key}`, errs, { conds: true });
+  if (key === 'hasAdvance' && !ADVANCE[c[key] as string]) errs.push(`${where}.hasAdvance: unknown advance "${c[key]}"`);
 }
 
 export function validateEffect(e: unknown, where: string, errs: string[]): void {

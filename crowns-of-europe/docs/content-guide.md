@@ -15,7 +15,8 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 | `events-newworld.json` | Discovery, colonies, natives and the colonial powers |
 | `missions.json` | Mission trees per major nation, plus a `generic` set for everyone else |
 | `achievements.json` | Local achievements checked for the player |
-| `traits.json`, `policies.json`, `units.json` | National/ruler traits, era policies, unit stats per era |
+| `traits.json`, `policies.json`, `units.json` | National/ruler traits, policies, unit stats per troops' age |
+| `advances.json` | The 18 advances of science, each nation's learning speed and the advances known in 1444 |
 
 ## Writing rules
 
@@ -140,7 +141,7 @@ owning the mission).
 | `{ "overlordOf": "SWE" }` / `{ "overlordOf": true }`, `{ "vassalsAtLeast": 2 }` | has subjects |
 | `{ "regionFaith": { "region": "saxony", "faith": "protestant" } }` | a region's faith |
 | `{ "faithRegionsAtLeast": { "faith": "protestant", "count": 10 } }` | regions of that faith on the whole map |
-| `{ "gov": "republic" }`, `{ "tier": "major" }`, `{ "hasPolicy": "standing_army" }` | misc |
+| `{ "gov": "republic" }`, `{ "tier": "major" }`, `{ "hasPolicy": "standing_army" }`, `{ "hasAdvance": "bombards" }` | misc |
 | `{ "warsWonAtLeast": 1 }`, `{ "battlesWonAtLeast": 5 }`, `{ "stackWipesAtLeast": 1 }`, `{ "bestWinRatioAtLeast": 5 }`, `{ "regionsConqueredAtLeast": 10 }` | this nation's record |
 | `{ "fleetsAtLeast": 1 }`, `{ "shipsAtLeast": 20 }`, `{ "coastal": true }` | navy |
 | `{ "inCoalition": true }`, `{ "coalitionAgainst": true }` | member of a coalition / a coalition targets this nation |
@@ -163,6 +164,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "manpower": 5000 }` | men |
 | `{ "stability": 1 }` | -3..+3 |
 | `{ "prestige": 10 }` | 0..100 |
+| `{ "science": 200 }` | science added toward the next advance |
 | `{ "threat": -10 }` | Threat (never below 0) |
 | `{ "papalFavor": 10 }` | Catholics only, 0..100 |
 | `{ "warExhaustion": 2 }` | 0..20 |
@@ -224,6 +226,20 @@ are done and its goal is true; the player taps "Complete" to collect the reward.
 Missions also steer the AI: the regions named in an open mission's goal
 (`owns`, `ownsAny`, `controls`) are land that nation wants (see aims below), so write goals for the land a crown
 historically went after.
+
+## Science (`advances.json`)
+
+```json
+{ "id": "bombards", "name": "Bombards", "field": "war", "year": 1450, "cost": 700, "requires": [], "desc": "...", "unlock": "artillery" }
+```
+
+Each advance has a `field` (war, sea, state), the `year` the most learned crowns had it, a base `cost` in
+science, `requires` (earlier advances), and what it gives: `mods`, an `unlock` (artillery, warships,
+coastColonies, oceanColonies; exactly one advance each) and/or `armyEra` (the troops' age, 2-4). `learning`
+sets each nation's speed (default 1) and `start` the advances crowns know in 1444. Policies can name an advance
+in `requires`, and ships in units.json an `advance`. After changing costs, check the timing with an AI game:
+the first crown to learn each advance should do so near its `year`. Use `hasAdvance` in conditions and
+`science` in effects.
 
 ## Historical aims and bonds (`aims.json`)
 

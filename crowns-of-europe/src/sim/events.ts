@@ -124,6 +124,8 @@ export function evalCondition(s: GameState, n: NationId, c: Condition): boolean 
       return NATION[n].tier === v;
     case 'hasPolicy':
       return nat.policies.includes(v);
+    case 'hasAdvance':
+      return nat.advances.includes(v);
     case 'warsWonAtLeast':
       return nat.record.warsWon >= v;
     case 'battlesWonAtLeast':
@@ -193,6 +195,9 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       break;
     case 'prestige':
       nat.prestige = clamp(nat.prestige + v, 0, 100);
+      break;
+    case 'science':
+      nat.science = Math.max(0, nat.science + v);
       break;
     case 'threat':
       if (v > 0) addThreat(s, n, v);
