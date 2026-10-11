@@ -1,0 +1,589 @@
+/**
+ * Game state and content types. The simulation is plain TypeScript with no React or platform imports:
+ * the whole game is one serializable GameState mutated by advanceDay() and by player commands.
+ */
+
+export type NationId = string;
+export type RegionId = string;
+export type SeaId = string;
+export type NodeId = string; // a RegionId or a SeaId
+export type ArmyId = string;
+export type FleetId = string;
+export type WarId = string;
+export type BattleId = string;
+
+export type Faith = 'catholic' | 'orthodox' | 'muslim' | 'protestant';
+export type Terrain = 'plains' | 'forest' | 'hills' | 'marsh' | 'mountains';
+export type Gov = 'monarchy' | 'republic' | 'theocracy';
+export type Personality = 'expansionist' | 'defensive' | 'trader' | 'opportunist';
+export type Tier = 'major' | 'hard' | 'minor';
+export type Difficulty = 'easy' | 'normal' | 'hard' | 'very_hard';
+export type UnitType = 'inf' | 'cav' | 'art';
+export type ShipType = 'galley' | 'warship' | 'transport';
+export type CasusBelli = 'claim' | 'holy' | 'rival' | 'none' | 'independence' | 'coalition' | 'reconquest';
+
+/** Additive modifiers. Percentages are fractions (0.1 = +10%). */
+export type Modifiers = Partial<{
+  taxIncome: number;
+  tradeIncome: number;
+  manpower: number;
+  morale: number;
+  infantryPower: number;
+  cavalryPower: number;
+  artilleryPower: number;
+  fortDefense: number;
+  siegeSpeed: number;
+  attrition: number;
+  upkeep: number;
+  mercCost: number;
+  devCost: number;
+  coreCost: number;
+  fortCost: number;
+  shipCost: number;
+  navalPower: number;
+  threatDecay: number;
+  threatGain: number;
+  opinion: number;
+  diplomacy: number;
+  holyWarMorale: number;
+  unrest: number;
+  techCost: number;
+  movement: number;
+  prestigeGain: number;
+  stabilityCost: number;
+}>;
+
+// ---------------------------------------------------------------- content
+
+export interface RegionDef {
+  id: RegionId;
+  name: string;
+  owner: NationId;
+  terrain: Terrain;
+  dev: number;
+  fort: number;
+  faith: Faith;
+  hre?: boolean;
+  trade?: boolean;
+  seeds: [number, number][];
+}
+
+export interface MapRegion {
+  id: RegionId;
+  path: string;
+  label: [number, number];
+  labelRadius: number;
+  lonlat: [number, number];
+  bbox: [number, number, number, number];
+  area: number;
+  neighbors: RegionId[];
+  seas: SeaId[];
+}
+
+export interface MapSea {
+  id: SeaId;
+  path: string;
+  label: [number, number];
+  bbox: number[];
+  neighbors: SeaId[];
+}
+
+export interface MapData {
+  width: number;
+  height: number;
+  regions: MapRegion[];
+  borders: { a: RegionId; b: RegionId; path: string }[];
+  seas: MapSea[];
+  wastelands: { id: string; path: string; label: [number, number]; area: number }[];
+  coast: string;
+}
+
+export interface RulerDef {
+  name: string;
+  born: number;
+  skill: number;
+  traits: string[];
+}
+
+export interface FlagDef {
+  pattern: string;
+  colors: [string, string] | string[];
+  charge?: string;
+}
+
+export interface NationDef {
+  id: NationId;
+  name: string;
+  adj: string;
+  color: string;
+  faith: Faith;
+  capital: RegionId;
+  gov: Gov;
+  personality: Personality;
+  trait: string;
+  tier: Tier;
+  playable: boolean;
+  difficulty: Difficulty | null;
+  flag: FlagDef;
+  ruler: RulerDef;
+  heir?: RulerDef;
+  desc: string;
+}
+
+export interface TraitDef {
+  name: string;
+  desc: string;
+  mods: Modifiers;
+}
+
+export interface PolicyDef {
+  id: string;
+  name: string;
+  desc: string;
+  era: number; // first era it can be picked
+  mods: Modifiers;
+}
+
+export interface UnitEra {
+  id: number;
+  name: string;
+  start: number; // year it becomes available to adopt
+  cost: number; // base gold cost to adopt
+  morale: number;
+  inf: { name: string; power: number };
+  cav: { name: string; power: number };
+  art: { name: string; power: number } | null;
+  warships: boolean;
+}
+
+// ---------------------------------------------------------------- events & missions DSL
+
+/** Conditions are evaluated for one nation ("this nation"). */
+export type Condition =
+  | { all: Condition[] }
+  | { any: Condition[] }
+  | { not: Condition }
+  | { year: [number, number] | [number] }
+  | { isNation: NationId | NationId[] }
+  | { isPlayer: boolean }
+  | { owns: RegionId | RegionId[] }
+  | { ownsAny: RegionId[] }
+  | { controls: RegionId }
+  | { nationOwns: { nation: NationId; region: RegionId } }
+  | { exists: NationId }
+  | { atWar: boolean }
+  | { atWarWith: NationId }
+  | { faith: Faith }
+  | { nationFaith: { nation: NationId; faith: Faith } }
+  | { stability: [number, number] }
+  | { goldAtLeast: number }
+  | { prestigeAtLeast: number }
+  | { threatAtLeast: number }
+  | { regionsAtLeast: number }
+  | { regimentsAtLeast: number }
+  | { devAtLeast: number }
+  | { capitalDevAtLeast: number }
+  | { allied: NationId }
+  | { alliesAtLeast: number }
+  | { borders: NationId }
+  | { rulerSkill: [number, number] }
+  | { rulerAgeAtLeast: number }
+  | { hasHeir: boolean }
+  | { eraAtLeast: number }
+  | { flag: string }
+  | { nationFlag: string }
+  | { loansAtLeast: number }
+  | { isEmperor: boolean }
+  | { isElector: boolean }
+  | { subjectOf: NationId | true }
+  | { overlordOf: NationId | true }
+  | { vassalsAtLeast: number }
+  | { regionFaith: { region: RegionId; faith: Faith } }
+  | { faithRegionsAtLeast: { faith: Faith; count: number } }
+  | { gov: Gov }
+  | { tier: Tier }
+  | { hasPolicy: string }
+  | { warsWonAtLeast: number }
+  | { battlesWonAtLeast: number }
+  | { stackWipesAtLeast: number }
+  | { bestWinRatioAtLeast: number }
+  | { regionsConqueredAtLeast: number }
+  | { fleetsAtLeast: number }
+  | { shipsAtLeast: number }
+  | { coastal: boolean }
+  | { inCoalition: boolean }
+  | { coalitionAgainst: boolean }
+  | { hreMember: boolean }
+  | { papalFavorAtLeast: number }
+  | { chance: number };
+
+export interface TimedModifier {
+  id: string;
+  name: string;
+  mods: Modifiers;
+  until: number; // day; -1 = permanent
+}
+
+export type Effect =
+  | { gold: number }
+  | { goldPerDev: number }
+  | { manpower: number }
+  | { stability: number }
+  | { prestige: number }
+  | { threat: number }
+  | { papalFavor: number }
+  | { warExhaustion: number }
+  | { addClaim: RegionId | RegionId[] }
+  | { addCore: RegionId | RegionId[] }
+  | { devRegion: { region: RegionId; amount: number } }
+  | { devCapital: number }
+  | { fortRegion: { region: RegionId; amount: number } }
+  | { unrestAll: number }
+  | { unrestRegion: { region: RegionId; amount: number } }
+  | { convertRegion: { region: RegionId; faith: Faith } }
+  | { changeFaith: Faith }
+  | { setFlag: string }
+  | { clearFlag: string }
+  | { setNationFlag: string }
+  | { modifier: { id: string; name: string; months: number; mods: Modifiers } }
+  | { removeModifier: string }
+  | { rebels: { region?: RegionId; regiments: number } }
+  | { addRegiments: { inf?: number; cav?: number; art?: number; region?: RegionId } }
+  | { hireGeneral: { fire: number; shock: number; maneuver: number; name?: string } }
+  | { opinion: { nation: NationId; amount: number } }
+  | { ally: NationId }
+  | { breakAlliance: NationId }
+  | { personalUnion: NationId }
+  | { inherit: NationId }
+  | { independence: true }
+  | { releaseSubject: NationId }
+  | { transferRegion: { region: RegionId; to: NationId } }
+  | { newRuler: { name: string; skill: number; traits?: string[]; age?: number } }
+  | { rulerSkill: number }
+  | { rulerTrait: string }
+  | { killRuler: true }
+  | { newHeir: { name: string; skill: number; traits?: string[]; age?: number } }
+  | { triggerEvent: { id: string; months?: number; nation?: NationId } }
+  | { reformation: number }
+  | { declareWar: { target: NationId; cb?: CasusBelli; region?: RegionId } }
+  | { loans: number }
+  | { emperor: true };
+
+export interface EventChoice {
+  text: string;
+  effects: Effect[];
+  ai?: number; // relative weight for AI picks (default 1)
+}
+
+export interface EventDef {
+  id: string;
+  pool: 'historical' | 'generic' | 'era';
+  title: string;
+  text: string;
+  image: string;
+  nations?: NationId[]; // only these nations can get it
+  window?: [number, number]; // years
+  mtth?: number; // mean months to happen once eligible (default 36)
+  once?: boolean; // fires at most once per game (historical events default true)
+  news?: string; // shown to the player when an AI nation gets this event
+  hidden?: boolean; // only fired by triggerEvent, never on its own
+  trigger: Condition;
+  choices: EventChoice[];
+}
+
+export interface MissionDef {
+  id: string;
+  nation: NationId | 'generic';
+  title: string;
+  desc: string;
+  requires: string[];
+  goal: Condition;
+  reward: Effect[];
+}
+
+export interface AchievementDef {
+  id: string;
+  title: string;
+  desc: string;
+  goal: Condition;
+  nations?: NationId[];
+}
+
+// ---------------------------------------------------------------- state
+
+export interface Ruler {
+  name: string;
+  born: number; // year
+  skill: number; // 1..5
+  traits: string[];
+  regency?: boolean;
+}
+
+export interface General {
+  id: string;
+  name: string;
+  fire: number;
+  shock: number;
+  maneuver: number;
+  hired: number; // day
+  lifespan: number; // days of service before retiring
+  isRuler?: boolean;
+}
+
+export interface Regs {
+  n: number; // regiments
+  men: number; // current men (full strength = n * 1000)
+}
+
+export interface Army {
+  id: ArmyId;
+  name: string;
+  owner: NationId;
+  node: NodeId; // where it is (or departed from)
+  regs: Record<UnitType, Regs>;
+  mercs: number; // how many regiments are mercenaries
+  morale: number; // current morale (max depends on era & modifiers)
+  general?: General;
+  path: NodeId[]; // remaining nodes to walk, path[0] = next node
+  progress: number; // days walked on the current edge
+  edgeDays: number; // total days for the current edge
+  battle?: BattleId;
+  retreating?: boolean;
+  rebelOf?: NationId; // rebel armies: who they rebel against
+  rebelSince?: number;
+  stance?: 'hold';
+  aiTask?: string;
+  aiUntil?: number;
+}
+
+export interface Fleet {
+  id: FleetId;
+  name: string;
+  owner: NationId;
+  sea: SeaId;
+  ships: Record<ShipType, number>;
+  hull: number; // 0..1
+  path: SeaId[];
+  progress: number;
+  edgeDays: number;
+  retreating?: boolean;
+}
+
+export interface BattleSide {
+  armies: ArmyId[];
+  nations: NationId[];
+  startMen: number;
+  losses: number;
+  roll: number;
+}
+
+export interface Battle {
+  id: BattleId;
+  node: RegionId;
+  started: number;
+  days: number;
+  sides: [BattleSide, BattleSide]; // 0 = attacker, 1 = defender
+  river: boolean;
+  log: { day: number; rolls: [number, number]; losses: [number, number] }[];
+}
+
+export interface BattleReport {
+  id: string;
+  day: number;
+  node: RegionId;
+  winner: 0 | 1;
+  leaders: [NationId, NationId];
+  nations: [NationId[], NationId[]];
+  startMen: [number, number];
+  losses: [number, number];
+  wiped: boolean;
+  days: number;
+  generals: [string | null, string | null];
+  warScore: number; // points gained by the winner's side
+  playerSide: 0 | 1 | null;
+}
+
+export interface Siege {
+  by: NationId;
+  progress: number; // 0..1
+  started: number;
+}
+
+export interface Region {
+  id: RegionId;
+  owner: NationId;
+  controller: NationId; // differs from owner while occupied
+  dev: number;
+  fort: number;
+  faith: Faith;
+  unrest: number;
+  unrestMods: { amount: number; until: number }[];
+  cores: NationId[];
+  conquered?: number; // day it changed hands (cores itself after 20 years)
+  siege?: Siege;
+  converting?: { to: Faith; done: number };
+  blockaded?: boolean;
+  devBought: number;
+}
+
+export interface War {
+  id: WarId;
+  name: string;
+  attackers: NationId[]; // [0] is the war leader
+  defenders: NationId[];
+  cb: CasusBelli;
+  goal?: RegionId;
+  started: number;
+  battleScore: number; // attacker-side points from battles (+ attacker, - defender)
+  goalScore: number; // ticking score from holding (or failing to take) the war goal
+}
+
+export interface Relation {
+  opinionMods: { id: string; name: string; value: number; decay: number }[];
+}
+
+export interface Nation {
+  id: NationId;
+  alive: boolean;
+  gold: number;
+  manpower: number;
+  stability: number;
+  prestige: number;
+  threat: number;
+  loans: number;
+  ruler: Ruler;
+  heir?: Ruler;
+  faith: Faith;
+  capital: RegionId;
+  claims: Record<RegionId, number>; // expiry day, -1 = permanent
+  fabricating?: { region: RegionId; done: number };
+  rivals: NationId[];
+  overlord?: NationId;
+  subjectType?: 'vassal' | 'union';
+  subjectSince?: number;
+  policies: string[];
+  policySwappedEra?: number;
+  era: number;
+  armyMode: 'peace' | 'war';
+  modifiers: TimedModifier[];
+  flags: Record<string, number>;
+  papalFavor: number;
+  warExhaustion: number;
+  missionsDone: string[];
+  generals: General[];
+  recruiting: { type: UnitType; region: RegionId; done: number }[];
+  shipyard: { type: ShipType; region: RegionId; sea: SeaId; done: number }[];
+  lastEventDay: number;
+  electionDay?: number;
+  lastMonthIncome: number;
+  lastMonthExpenses: number;
+  record: { battlesWon: number; battlesLost: number; warsWon: number; warsLost: number; stackWipes: number; bestRatio: number; regionsTaken: number };
+  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number };
+}
+
+export interface Coalition {
+  target: NationId;
+  members: NationId[];
+  formed: number;
+}
+
+export interface PendingEvent {
+  event: string;
+  nation: NationId;
+  day: number;
+}
+
+export type Offer =
+  | { id: string; kind: 'callToArms'; from: NationId; war: WarId; day: number }
+  | { id: string; kind: 'peace'; from: NationId; war: WarId; day: number; terms: PeaceTerms }
+  | { id: string; kind: 'alliance' | 'marriage' | 'access'; from: NationId; day: number };
+
+export interface PeaceTerms {
+  regions: RegionId[];
+  gold: number;
+  vassalize: boolean;
+  release: NationId[];
+  white?: boolean;
+  /** whose demands: the side that receives the regions/gold */
+  winner: NationId;
+  loser: NationId;
+}
+
+export interface LogEntry {
+  id: number;
+  day: number;
+  text: string;
+  kind: 'war' | 'peace' | 'battle' | 'siege' | 'diplomacy' | 'event' | 'economy' | 'ruler' | 'news' | 'rebels' | 'mission';
+  node?: NodeId;
+  nation?: NationId;
+  important?: boolean;
+}
+
+export type PauseReason =
+  | 'warDeclaredOnYou'
+  | 'battleStarted'
+  | 'event'
+  | 'siegeWon'
+  | 'armyArrived'
+  | 'peaceOffer'
+  | 'offer'
+  | 'gameOver';
+
+export interface Stats {
+  battlesWon: number;
+  battlesLost: number;
+  stackWipes: number;
+  bestWinRatio: number;
+  warsWon: number;
+  warsLost: number;
+  regionsConquered: number;
+  peakRegions: number;
+  menLost: number;
+  enemiesKilled: number;
+}
+
+export interface GameSettings {
+  difficulty: 'easy' | 'normal' | 'hard';
+  ironman: boolean;
+  autoPause: Record<PauseReason, boolean>;
+  tutorial: boolean;
+}
+
+export interface GameState {
+  version: number;
+  day: number; // days since 1 Jan 1444
+  rng: number;
+  player: NationId;
+  settings: GameSettings;
+  nations: Record<NationId, Nation>;
+  regions: Record<RegionId, Region>;
+  armies: Record<ArmyId, Army>;
+  fleets: Record<FleetId, Fleet>;
+  battles: Record<BattleId, Battle>;
+  wars: Record<WarId, War>;
+  relations: Record<string, Relation>; // directed "A>B": how A feels about B
+  alliances: Record<string, number>; // "A|B" sorted -> since day
+  marriages: Record<string, number>;
+  access: Record<string, number>; // "A>B": A lets B's armies through
+  truces: Record<string, number>; // "A|B" sorted -> until day
+  cooldowns: Record<string, number>; // "A>B:action" -> day available again
+  coalitions: Coalition[];
+  hre: { emperor: NationId | null; electors: NationId[]; centralized: boolean; rulerKey?: string };
+  flags: Record<string, number>;
+  firedEvents: Record<string, number>; // event id -> times fired (once-events)
+  pendingEvents: PendingEvent[]; // the player's event cards waiting to be answered
+  scheduledEvents: { event: string; nation: NationId; day: number }[];
+  offers: Offer[]; // AI proposals waiting on the player
+  reports: BattleReport[]; // recent battle reports, newest first
+  unseenReports: string[]; // reports the player hasn't opened
+  log: LogEntry[];
+  stats: Stats;
+  achievements: string[]; // unlocked in this campaign
+  seq: number; // id counter
+  gameOver?: { reason: 'annexed' | 'end'; day: number };
+}
+
+export interface TickResult {
+  pause: PauseReason[];
+  mapChanged: boolean;
+}

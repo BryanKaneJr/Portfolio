@@ -1,0 +1,3607 @@
+[
+  {
+    "id": "tur_mehmed_ii",
+    "pool": "historical",
+    "title": "The Young Conqueror",
+    "text": "Sultan Murad is weary of the throne and longs for the quiet of his palace at Manisa. His son Mehmed is young and proud, and already dreams of the Red Apple, the city of the Caesars. The viziers fear his temper; the janissaries adore him.",
+    "image": "crown",
+    "nations": ["TUR"],
+    "window": [1448, 1460],
+    "mtth": 24,
+    "news": "Mehmed, son of Murad, now rules the Ottoman Empire.",
+    "trigger": {"rulerAgeAtLeast": 44},
+    "choices": [
+      {
+        "text": "Hand the sword of Osman to Mehmed",
+        "effects": [
+          {"newRuler": {"name": "Mehmed II", "skill": 5, "traits": ["ambitious", "warrior"], "age": 19}},
+          {"newHeir": {"name": "Bayezid", "skill": 3, "traits": ["pious"], "age": 4}},
+          {"threat": 5},
+          {
+            "modifier": {
+              "id": "conquerors_resolve",
+              "name": "Conqueror's Resolve",
+              "months": 120,
+              "mods": {"siegeSpeed": 0.1, "artilleryPower": 0.1}
+            }
+          }
+        ],
+        "ai": 4
+      },
+      {"text": "Keep the old sultan on the throne", "effects": [{"stability": 1}, {"prestige": 5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "tur_fall_of_constantinople",
+    "pool": "historical",
+    "title": "The Queen of Cities Falls",
+    "text": "Your great guns have broken the Theodosian walls, and your banners fly over the Hagia Sophia. A thousand years of Roman rule end today. The city is half empty and wholly yours; what it becomes now is up to you.",
+    "image": "siege",
+    "nations": ["TUR"],
+    "window": [1444, 1650],
+    "mtth": 1,
+    "news": "Constantinople has fallen to the Ottomans. The last Roman city is gone.",
+    "trigger": {"all": [{"owns": "constantinople"}, {"not": {"flag": "constantinople_fell"}}]},
+    "choices": [
+      {
+        "text": "Repopulate it as your imperial seat",
+        "effects": [
+          {"setFlag": "constantinople_fell"},
+          {"prestige": 25},
+          {"devRegion": {"region": "constantinople", "amount": 1}},
+          {"gold": -100},
+          {"threat": 10}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Give the city to your soldiers for three days",
+        "effects": [
+          {"setFlag": "constantinople_fell"},
+          {"goldPerDev": 3},
+          {"devRegion": {"region": "constantinople", "amount": -2}},
+          {"prestige": 10}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Protect the Patriarch and his flock",
+        "effects": [
+          {"setFlag": "constantinople_fell"},
+          {"stability": 1},
+          {"prestige": 15},
+          {"unrestRegion": {"region": "constantinople", "amount": -3}}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "tur_trebizond",
+    "pool": "historical",
+    "title": "The Last Greek Empire",
+    "text": "Far to the east on the Black Sea coast, the Komnenoi still call themselves emperors in Trebizond. They court the Turkmen and the Georgians against you and pay their tribute late. Your admirals say one summer's campaign would end the pretence.",
+    "image": "ship",
+    "nations": ["TUR"],
+    "window": [1455, 1520],
+    "mtth": 24,
+    "trigger": {"all": [{"owns": "constantinople"}, {"exists": "TRE"}, {"not": {"atWarWith": "TRE"}}]},
+    "choices": [
+      {
+        "text": "Sail for Trebizond this summer",
+        "effects": [
+          {"addClaim": "trebizond"},
+          {"declareWar": {"target": "TRE", "cb": "claim", "region": "trebizond"}},
+          {"threat": 5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Claim the city and wait for an opening",
+        "effects": [{"addClaim": "trebizond"}, {"gold": 50}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cri_ottoman_protection",
+    "pool": "historical",
+    "title": "The Sultan's Protection",
+    "text": "The Great Horde still demands your obedience, and the Genoese of Kaffa scheme with your rivals. The Ottoman Sultan offers his protection: his galleys on your coast and his name in your Friday prayers. The price is the freedom to choose your own wars.",
+    "image": "horse",
+    "nations": ["CRI"],
+    "window": [1470, 1550],
+    "mtth": 36,
+    "trigger": {
+      "all": [
+        {"exists": "TUR"},
+        {"nationOwns": {"nation": "TUR", "region": "constantinople"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "TUR"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the Sultan as your overlord",
+        "effects": [
+          {"stability": 1},
+          {"opinion": {"nation": "TUR", "amount": 30}},
+          {
+            "modifier": {
+              "id": "ottoman_garrisons",
+              "name": "Ottoman Garrisons",
+              "months": 120,
+              "mods": {"fortDefense": 0.15}
+            }
+          },
+          {"triggerEvent": {"id": "tur_crimea_client", "months": 1, "nation": "TUR"}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Keep the khanate free",
+        "effects": [{"prestige": 10}, {"opinion": {"nation": "TUR", "amount": -25}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_crimea_client",
+    "pool": "historical",
+    "title": "The Khan Bends the Knee",
+    "text": "The Giray khan sends envoys asking to rule Crimea as your client, his horsemen riding at your call. Taking him in gives you the finest cavalry of the steppe and a stake in the northern trade. It also makes his many enemies yours.",
+    "image": "horse",
+    "nations": ["TUR"],
+    "hidden": true,
+    "news": "The Crimean Khanate has placed itself under Ottoman protection.",
+    "trigger": {
+      "all": [
+        {"exists": "CRI"},
+        {"not": {"overlordOf": "CRI"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "CRI"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take the khan under your protection",
+        "effects": [{"personalUnion": "CRI"}, {"prestige": 10}, {"threat": 5}],
+        "ai": 4
+      },
+      {
+        "text": "Keep him as a friend, not a subject",
+        "effects": [{"ally": "CRI"}, {"opinion": {"nation": "CRI", "amount": 25}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_siege_of_rhodes",
+    "pool": "historical",
+    "title": "The Knights of Rhodes",
+    "text": "The Knights of St John sit on their fortress island off your coast, raiding your shipping and ransoming your pilgrims. Their walls are the strongest in the Aegean, and every Christian court sends them gold. While they hold Rhodes, your sea lanes are never safe.",
+    "image": "ship",
+    "nations": ["TUR"],
+    "window": [1478, 1560],
+    "mtth": 48,
+    "trigger": {
+      "all": [
+        {"owns": "constantinople"},
+        {"exists": "KNI"},
+        {"nationOwns": {"nation": "KNI", "region": "rhodes"}},
+        {"not": {"atWarWith": "KNI"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send the fleet against Rhodes",
+        "effects": [
+          {"addClaim": "rhodes"},
+          {"declareWar": {"target": "KNI", "cb": "claim", "region": "rhodes"}},
+          {"threat": 5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Guard your convoys and leave them be",
+        "effects": [
+          {
+            "modifier": {
+              "id": "hospitaller_raids",
+              "name": "Hospitaller Raids",
+              "months": 60,
+              "mods": {"tradeIncome": -0.05}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_knights_leave_rhodes",
+    "pool": "historical",
+    "title": "The Knights Depart",
+    "text": "The Grand Master of the Hospitallers surrenders Rhodes. He asks only that his knights, and any townsfolk who wish it, may sail away with their arms and relics. The rest of Christendom is watching how you treat a beaten enemy.",
+    "image": "treaty",
+    "nations": ["TUR"],
+    "window": [1450, 1700],
+    "mtth": 1,
+    "news": "The Knights of St John have surrendered Rhodes to the Ottomans.",
+    "trigger": {"owns": "rhodes"},
+    "choices": [
+      {"text": "Let them sail away with honour", "effects": [{"prestige": 15}, {"threat": -5}], "ai": 3},
+      {"text": "Hold the knights for ransom", "effects": [{"gold": 150}, {"prestige": -5}, {"threat": 5}], "ai": 1},
+      {
+        "text": "Rebuild the walls for your own garrison",
+        "effects": [{"fortRegion": {"region": "rhodes", "amount": 1}}, {"gold": -50}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_suleiman",
+    "pool": "historical",
+    "title": "The Lawgiver",
+    "text": "Your father's sword has doubled the empire, and now his son Suleiman takes the throne in the prime of life. He is learned, patient and ambitious. The court whispers about whether he will be remembered for his law codes or for the gates he breaks.",
+    "image": "scroll",
+    "nations": ["TUR"],
+    "window": [1520, 1540],
+    "mtth": 12,
+    "news": "Suleiman has taken the Ottoman throne.",
+    "trigger": {"regionsAtLeast": 10},
+    "choices": [
+      {
+        "text": "Codify the laws of the empire",
+        "effects": [
+          {"newRuler": {"name": "Suleiman I", "skill": 5, "traits": ["administrator", "just"], "age": 26}},
+          {"stability": 1},
+          {"modifier": {"id": "kanun_codes", "name": "The Kanun Codes", "months": 120, "mods": {"taxIncome": 0.1}}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Lead the armies into Europe",
+        "effects": [
+          {"newRuler": {"name": "Suleiman I", "skill": 5, "traits": ["warrior", "ambitious"], "age": 26}},
+          {"manpower": 6000},
+          {"threat": 10}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "tur_siege_of_vienna",
+    "pool": "historical",
+    "title": "Before the Walls of Vienna",
+    "text": "Your army stands before Vienna, the golden apple and the gate to Germany. The Habsburg garrison is small but stubborn, the season is late, and the roads behind you are mud. One more push could break the walls, or break your army.",
+    "image": "siege",
+    "nations": ["TUR"],
+    "window": [1520, 1700],
+    "mtth": 6,
+    "news": "An Ottoman army is besieging Vienna.",
+    "trigger": {
+      "all": [
+        {"atWarWith": "HAB"},
+        {"nationOwns": {"nation": "HAB", "region": "austria"}},
+        {"ownsAny": ["hungary", "upper_hungary", "croatia", "styria", "transylvania"]}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Throw everything at the walls",
+        "effects": [
+          {
+            "modifier": {
+              "id": "storm_of_vienna",
+              "name": "Storm of Vienna",
+              "months": 12,
+              "mods": {"siegeSpeed": 0.25, "morale": 0.05}
+            }
+          },
+          {"warExhaustion": 2}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Burn the countryside and withdraw",
+        "effects": [{"goldPerDev": 1}, {"devRegion": {"region": "austria", "amount": -1}}, {"prestige": -10}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_lepanto",
+    "pool": "historical",
+    "title": "Disaster at Lepanto",
+    "text": "A Christian fleet has caught your galleys in the Gulf of Patras and sunk or taken most of them. Thousands of trained oarsmen and archers are lost, and church bells ring across the Mediterranean. Your grand vizier insists that ships can be rebuilt; men cannot.",
+    "image": "ship",
+    "nations": ["TUR"],
+    "window": [1550, 1620],
+    "mtth": 24,
+    "news": "A Holy League fleet has smashed the Ottoman navy at Lepanto.",
+    "trigger": {"all": [{"any": [{"atWarWith": "VEN"}, {"atWarWith": "CAS"}]}, {"fleetsAtLeast": 1}]},
+    "choices": [
+      {"text": "Rebuild the whole fleet in one winter", "effects": [{"goldPerDev": -2}, {"prestige": -5}], "ai": 2},
+      {
+        "text": "Accept the loss and fight on land",
+        "effects": [
+          {"prestige": -15},
+          {"modifier": {"id": "lost_fleet", "name": "The Lost Fleet", "months": 60, "mods": {"navalPower": -0.2}}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_great_turkish_war",
+    "pool": "historical",
+    "title": "The Holy League",
+    "text": "The Ottomans still hold the plains of Hungary, but their armies look weaker than at any time in living memory. The Pope, Venice and Poland talk of a Holy League to drive the Turk out of Hungary for good. All they need is a prince to lead it.",
+    "image": "swords",
+    "nations": ["HAB"],
+    "window": [1680, 1730],
+    "mtth": 24,
+    "news": "The Habsburgs are gathering a Holy League against the Ottomans.",
+    "trigger": {
+      "all": [
+        {"exists": "TUR"},
+        {"not": {"flag": "great_turkish_war"}},
+        {
+          "any": [
+            {"nationOwns": {"nation": "TUR", "region": "hungary"}},
+            {"nationOwns": {"nation": "TUR", "region": "upper_hungary"}},
+            {"nationOwns": {"nation": "TUR", "region": "transylvania"}},
+            {"nationOwns": {"nation": "TUR", "region": "croatia"}}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Lead a Holy League into Hungary",
+        "effects": [
+          {"setFlag": "great_turkish_war"},
+          {"addClaim": ["hungary", "upper_hungary", "transylvania", "croatia"]},
+          {"papalFavor": 10},
+          {"threat": 5}
+        ],
+        "ai": 4
+      },
+      {"text": "Secure your western borders first", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "tur_treaty_of_karlowitz",
+    "pool": "historical",
+    "title": "The Peace of Karlowitz",
+    "text": "The long war with the Holy League has ended, and the peace confirms what the battlefields decided: the empire no longer advances into Europe. Your viziers argue over the cure. Some want new soldiers, some want stronger walls, and some want to make friends of old enemies.",
+    "image": "treaty",
+    "nations": ["TUR"],
+    "window": [1690, 1760],
+    "mtth": 24,
+    "trigger": {"all": [{"flag": "great_turkish_war"}, {"not": {"atWarWith": "HAB"}}, {"not": {"owns": "austria"}}]},
+    "choices": [
+      {
+        "text": "Reform the janissary corps",
+        "effects": [
+          {
+            "modifier": {
+              "id": "janissary_reform",
+              "name": "Janissary Reform",
+              "months": 120,
+              "mods": {"infantryPower": 0.1, "morale": 0.05}
+            }
+          },
+          {"stability": -1},
+          {"unrestAll": 1}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Fortify the Danube frontier",
+        "effects": [
+          {"gold": -100},
+          {
+            "modifier": {
+              "id": "danube_fortresses",
+              "name": "Danube Fortresses",
+              "months": 120,
+              "mods": {"fortDefense": 0.2}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Seek friendship with the West",
+        "effects": [
+          {"threat": -15},
+          {"prestige": -10},
+          {
+            "modifier": {
+              "id": "embassies_abroad",
+              "name": "Embassies Abroad",
+              "months": 120,
+              "mods": {"tradeIncome": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_relief_of_vienna",
+    "pool": "historical",
+    "title": "The Relief of Vienna",
+    "text": "The Turks are closing on Vienna, and your army is the only one near enough to save it. From the heights of the Kahlenberg your hussars can see the whole Ottoman camp spread out below. Whoever leads the charge will be remembered for centuries.",
+    "image": "horse",
+    "nations": ["POL"],
+    "window": [1660, 1720],
+    "mtth": 12,
+    "news": "Polish hussars have charged down from the Kahlenberg to relieve Vienna.",
+    "trigger": {
+      "all": [{"atWarWith": "TUR"}, {"allied": "HAB"}, {"nationOwns": {"nation": "HAB", "region": "austria"}}]
+    },
+    "choices": [
+      {
+        "text": "Lead the winged hussars yourself",
+        "effects": [
+          {"setFlag": "vienna_relieved"},
+          {"prestige": 20},
+          {"opinion": {"nation": "HAB", "amount": 40}},
+          {"warExhaustion": 2},
+          {
+            "modifier": {
+              "id": "saviours_of_vienna",
+              "name": "Saviours of Vienna",
+              "months": 120,
+              "mods": {"cavalryPower": 0.15}
+            }
+          }
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Let the Imperials bear the brunt",
+        "effects": [{"manpower": 5000}, {"opinion": {"nation": "HAB", "amount": -30}}, {"prestige": -10}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "byz_appeal_to_the_west",
+    "pool": "historical",
+    "title": "The Union of the Churches",
+    "text": "The emperor's journey to Florence bought a promise of Latin help at a terrible price: submission to the Pope. Monks and mobs in the capital cry that they would rather see the turban than the mitre. Yet without Western ships and gold, the walls will stand alone.",
+    "image": "church",
+    "nations": ["BYZ"],
+    "window": [1444, 1460],
+    "mtth": 12,
+    "trigger": {"all": [{"owns": "constantinople"}, {"exists": "TUR"}, {"exists": "PAP"}, {"exists": "VEN"}]},
+    "choices": [
+      {
+        "text": "Proclaim the union in the Hagia Sophia",
+        "effects": [
+          {"opinion": {"nation": "PAP", "amount": 30}},
+          {"opinion": {"nation": "VEN", "amount": 25}},
+          {"gold": 75},
+          {"stability": -1},
+          {"unrestAll": 2}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Reject the Latin terms",
+        "effects": [{"stability": 1}, {"prestige": 5}, {"opinion": {"nation": "PAP", "amount": -20}}],
+        "ai": 1
+      },
+      {
+        "text": "Hire Genoese defenders instead",
+        "effects": [
+          {"gold": -100},
+          {"addRegiments": {"inf": 2, "region": "constantinople"}},
+          {"hireGeneral": {"fire": 3, "shock": 3, "maneuver": 2, "name": "Giovanni Giustiniani"}}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "byz_constantine_xi",
+    "pool": "historical",
+    "title": "The Last Emperor's Crown",
+    "text": "Emperor John lies dead without a son, and his brother Constantine, Despot of the Morea, is the rightful heir. The capital is torn between those who accept the union with Rome and those who curse it. Even the place and rite of his crowning will be read as a declaration.",
+    "image": "crown",
+    "nations": ["BYZ"],
+    "window": [1446, 1456],
+    "mtth": 24,
+    "trigger": {"rulerAgeAtLeast": 52},
+    "choices": [
+      {
+        "text": "Crown him in the Latin rite",
+        "effects": [
+          {"newRuler": {"name": "Constantine XI", "skill": 3, "traits": ["warrior", "just"], "age": 43}},
+          {"newHeir": {"name": "Thomas", "skill": 2, "traits": ["craven"], "age": 39}},
+          {"opinion": {"nation": "PAP", "amount": 25}},
+          {"opinion": {"nation": "VEN", "amount": 20}},
+          {"unrestAll": 2}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Crown him quietly in Mistra",
+        "effects": [
+          {"newRuler": {"name": "Constantine XI", "skill": 3, "traits": ["warrior", "just"], "age": 43}},
+          {"newHeir": {"name": "Thomas", "skill": 2, "traits": ["craven"], "age": 39}},
+          {"stability": 1},
+          {"prestige": -5}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "byz_city_endures",
+    "pool": "historical",
+    "title": "The City Endures",
+    "text": "The Turkish storm has broken on the walls of Constantinople and passed. Merchants return to the Golden Horn, refugees to their homes, and the bells of the Hagia Sophia ring for a new generation. Across the Greek world, people dare to speak of Rome reborn.",
+    "image": "castle",
+    "nations": ["BYZ"],
+    "window": [1460, 1650],
+    "mtth": 12,
+    "news": "Constantinople still stands. The Roman Empire endures in the East.",
+    "trigger": {"owns": "constantinople"},
+    "choices": [
+      {
+        "text": "Reclaim the lost lands of Rome",
+        "effects": [
+          {"addClaim": ["rumelia", "bithynia", "thessaly", "macedonia", "bulgaria"]},
+          {"prestige": 15},
+          {"threat": 10}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Rebuild the walls and the markets",
+        "effects": [
+          {"prestige": 10},
+          {"devRegion": {"region": "constantinople", "amount": 1}},
+          {"fortRegion": {"region": "constantinople", "amount": 1}},
+          {"gold": -75}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_end_of_hundred_years_war",
+    "pool": "historical",
+    "title": "The End of the Hundred Years' War",
+    "text": "Normandy and Guyenne are French again, and the English have lost their grip on the mainland. After a century of burning, the war that made and nearly unmade France is over. The kingdom is exhausted, but it is whole.",
+    "image": "crown",
+    "nations": ["FRA"],
+    "window": [1444, 1550],
+    "mtth": 2,
+    "news": "France has driven the English from Normandy and Gascony. The Hundred Years' War is over.",
+    "trigger": {"owns": ["normandy", "gascony"]},
+    "choices": [
+      {
+        "text": "Hold a victory feast at Reims",
+        "effects": [{"setFlag": "hundred_years_war_over"}, {"prestige": 20}, {"stability": 1}],
+        "ai": 1
+      },
+      {
+        "text": "Keep the royal companies under arms",
+        "effects": [
+          {"setFlag": "hundred_years_war_over"},
+          {"prestige": 10},
+          {
+            "modifier": {
+              "id": "companies_of_ordnance",
+              "name": "Companies of Ordnance",
+              "months": 120,
+              "mods": {"infantryPower": 0.1, "cavalryPower": 0.1, "upkeep": 0.1}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Rebuild the ravaged provinces",
+        "effects": [
+          {"setFlag": "hundred_years_war_over"},
+          {"devRegion": {"region": "normandy", "amount": 1}},
+          {"devRegion": {"region": "gascony", "amount": 1}},
+          {"gold": -100}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_roses_begin",
+    "pool": "historical",
+    "title": "The Wars of the Roses",
+    "text": "The loss of France has shamed the crown, and the king is too weak to keep his quarrelling lords in check. Richard, Duke of York, demands the first place on the council, and the Queen will not hear of it. Every great house in England is choosing a rose.",
+    "image": "rebels",
+    "nations": ["ENG"],
+    "window": [1450, 1490],
+    "mtth": 24,
+    "news": "England slides into civil war between the houses of Lancaster and York.",
+    "trigger": {
+      "all": [
+        {"not": {"ownsAny": ["normandy", "gascony"]}},
+        {"any": [{"rulerSkill": [0, 2]}, {"stability": [-3, 0]}]},
+        {"not": {"flag": "wars_of_the_roses"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Stand with the King and Queen",
+        "effects": [
+          {"setFlag": "wars_of_the_roses"},
+          {"rebels": {"regiments": 5}},
+          {"triggerEvent": {"id": "eng_roses_towton", "months": 24}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Name York Lord Protector",
+        "effects": [
+          {"setFlag": "wars_of_the_roses"},
+          {"stability": -1},
+          {
+            "modifier": {
+              "id": "york_protectorate",
+              "name": "York's Protectorate",
+              "months": 36,
+              "mods": {"taxIncome": -0.1}
+            }
+          },
+          {"triggerEvent": {"id": "eng_roses_towton", "months": 36}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_roses_towton",
+    "pool": "historical",
+    "title": "The Sun in Splendour",
+    "text": "York's eldest son Edward has won a bloody field in the snow at Towton and marches on London. He is young, tall and a born soldier, and half the kingdom already calls him king. The old king's party is scattered but not yet beaten.",
+    "image": "swords",
+    "nations": ["ENG"],
+    "hidden": true,
+    "news": "Edward of York has won the field at Towton and claims the English crown.",
+    "trigger": {"all": [{"flag": "wars_of_the_roses"}, {"not": {"flag": "roses_over"}}]},
+    "choices": [
+      {
+        "text": "Crown Edward of York",
+        "effects": [
+          {"newRuler": {"name": "Edward IV", "skill": 4, "traits": ["warrior", "ambitious"], "age": 19}},
+          {"stability": -1},
+          {"triggerEvent": {"id": "eng_roses_bosworth", "months": 240}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Fight on for the House of Lancaster",
+        "effects": [
+          {"rebels": {"regiments": 7}},
+          {"warExhaustion": 2},
+          {"prestige": 5},
+          {"triggerEvent": {"id": "eng_roses_bosworth", "months": 120}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_roses_bosworth",
+    "pool": "historical",
+    "title": "Bosworth Field",
+    "text": "Henry Tudor, the last hope of Lancaster, has landed in Wales with French money and a small army. He promises to marry Elizabeth of York and join the two roses for good. Many lords are waiting to see which way the battle turns before they choose a side.",
+    "image": "swords",
+    "nations": ["ENG"],
+    "hidden": true,
+    "news": "Henry Tudor has landed in Wales to claim the English crown.",
+    "trigger": {"all": [{"flag": "wars_of_the_roses"}, {"not": {"flag": "roses_over"}}]},
+    "choices": [
+      {
+        "text": "Back Henry Tudor and unite the roses",
+        "effects": [
+          {"newRuler": {"name": "Henry VII", "skill": 4, "traits": ["administrator", "shrewd"], "age": 28}},
+          {"stability": 1},
+          {"setFlag": "roses_over"},
+          {"setFlag": "tudor_dynasty"}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Ride out and crush the pretender",
+        "effects": [{"rebels": {"regiments": 7}}, {"prestige": 10}, {"setFlag": "roses_over"}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bur_treaty_of_arras",
+    "pool": "historical",
+    "title": "Between France and England",
+    "text": "Your house made peace with the French king at Arras, but the peace is cold and old wounds still bleed. Paris offers friendship, London offers wool and trade, and your own lords urge you to answer to no one. Burgundy cannot lean on both sides at once.",
+    "image": "treaty",
+    "nations": ["BUR"],
+    "window": [1444, 1470],
+    "mtth": 36,
+    "trigger": {
+      "all": [{"exists": "FRA"}, {"exists": "ENG"}, {"not": {"atWarWith": "FRA"}}, {"not": {"allied": "FRA"}}]
+    },
+    "choices": [
+      {
+        "text": "Reconcile fully with France",
+        "effects": [
+          {"ally": "FRA"},
+          {"opinion": {"nation": "FRA", "amount": 40}},
+          {"threat": -10},
+          {"prestige": -10}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Renew the English alliance",
+        "effects": [
+          {"ally": "ENG"},
+          {"opinion": {"nation": "ENG", "amount": 30}},
+          {"opinion": {"nation": "FRA", "amount": -30}},
+          {"modifier": {"id": "wool_staple", "name": "The Wool Staple", "months": 60, "mods": {"tradeIncome": 0.1}}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Answer to no one",
+        "effects": [{"prestige": 10}, {"opinion": {"nation": "FRA", "amount": -15}}],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "bur_habsburg_marriage",
+    "pool": "historical",
+    "title": "A Match for the Heiress",
+    "text": "The ducal line rests on a single girl, Mary, and every prince in Europe wants her hand and the richest lands in Christendom with it. The Habsburgs ask for her for young Maximilian of Austria, while the King of France offers the Dauphin. Whoever marries Mary may one day rule Burgundy.",
+    "image": "marriage",
+    "nations": ["BUR"],
+    "window": [1465, 1490],
+    "mtth": 36,
+    "trigger": {
+      "all": [
+        {"exists": "HAB"},
+        {"exists": "FRA"},
+        {"not": {"atWarWith": "HAB"}},
+        {"not": {"flag": "hab_bur_marriage"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Promise Mary to Maximilian of Austria",
+        "effects": [
+          {"setFlag": "hab_bur_marriage"},
+          {"ally": "HAB"},
+          {"opinion": {"nation": "HAB", "amount": 40}},
+          {"prestige": 5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Promise Mary to the French Dauphin",
+        "effects": [{"setFlag": "fra_bur_marriage"}, {"ally": "FRA"}, {"opinion": {"nation": "FRA", "amount": 40}}],
+        "ai": 1
+      },
+      {"text": "Marry her to a loyal Burgundian lord", "effects": [{"stability": 1}, {"prestige": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "bur_death_of_charles",
+    "pool": "historical",
+    "title": "Death in the Snow at Nancy",
+    "text": "Your duke has fallen in battle, his body found days later stripped and frozen in a stream. His daughter Mary is the heir, young, unmarried and surrounded by enemies. France is already moving on Picardy, and the Flemish towns are restless.",
+    "image": "death",
+    "nations": ["BUR"],
+    "window": [1470, 1495],
+    "mtth": 36,
+    "news": "The Duke of Burgundy has been killed in battle. His heiress faces a world of enemies.",
+    "trigger": {"all": [{"atWar": true}, {"not": {"flag": "burgundian_succession"}}]},
+    "choices": [
+      {
+        "text": "Proclaim Mary duchess and stand firm",
+        "effects": [
+          {"newRuler": {"name": "Mary of Burgundy", "skill": 3, "traits": ["diplomat"], "age": 20}},
+          {"stability": -1},
+          {"setFlag": "burgundian_succession"},
+          {"triggerEvent": {"id": "hab_burgundian_union", "months": 2, "nation": "HAB"}},
+          {"triggerEvent": {"id": "hab_burgundian_claims", "months": 2, "nation": "HAB"}},
+          {"triggerEvent": {"id": "fra_burgundian_claims", "months": 2, "nation": "FRA"}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Buy the estates' loyalty with privileges",
+        "effects": [
+          {"newRuler": {"name": "Mary of Burgundy", "skill": 3, "traits": ["diplomat"], "age": 20}},
+          {"setFlag": "burgundian_succession"},
+          {"unrestAll": -2},
+          {
+            "modifier": {
+              "id": "great_privilege",
+              "name": "The Great Privilege",
+              "months": 120,
+              "mods": {"taxIncome": -0.15}
+            }
+          },
+          {"triggerEvent": {"id": "hab_burgundian_union", "months": 2, "nation": "HAB"}},
+          {"triggerEvent": {"id": "hab_burgundian_claims", "months": 2, "nation": "HAB"}},
+          {"triggerEvent": {"id": "fra_burgundian_claims", "months": 2, "nation": "FRA"}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_burgundian_union",
+    "pool": "historical",
+    "title": "The Burgundian Inheritance",
+    "text": "Mary of Burgundy, promised to Maximilian, now rules the Low Countries alone and begs for help against France. If the wedding happens at once, the richest lands of Christendom pass to your house. France will never forgive it.",
+    "image": "marriage",
+    "nations": ["HAB"],
+    "hidden": true,
+    "news": "Maximilian of Austria has married Mary of Burgundy.",
+    "trigger": {
+      "all": [
+        {"exists": "BUR"},
+        {"flag": "hab_bur_marriage"},
+        {"not": {"overlordOf": "BUR"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "BUR"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Marry them now and claim it all",
+        "effects": [
+          {"personalUnion": "BUR"},
+          {"prestige": 15},
+          {"threat": 15},
+          {"opinion": {"nation": "FRA", "amount": -30}}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Defend Burgundy as an ally only",
+        "effects": [
+          {"ally": "BUR"},
+          {"opinion": {"nation": "BUR", "amount": 30}},
+          {"addClaim": ["brabant", "holland"]}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_burgundian_claims",
+    "pool": "historical",
+    "title": "The Spoils of Burgundy",
+    "text": "The Duke of Burgundy is dead, and his heiress is unwed and friendless. Many of her lands are fiefs of the Empire, and your house has a strong case to decide who holds them. France is already on the move.",
+    "image": "map",
+    "nations": ["HAB"],
+    "hidden": true,
+    "trigger": {"all": [{"exists": "BUR"}, {"not": {"flag": "hab_bur_marriage"}}]},
+    "choices": [
+      {
+        "text": "Claim the imperial fiefs of Burgundy",
+        "effects": [{"addClaim": ["brabant", "holland", "luxembourg"]}, {"threat": 5}],
+        "ai": 3
+      },
+      {"text": "Let France and Burgundy bleed each other", "effects": [{"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "fra_burgundian_claims",
+    "pool": "historical",
+    "title": "The Duchy Returns to the Crown",
+    "text": "The Duke of Burgundy is dead, leaving only a daughter. By ancient law the duchy itself returns to the French crown when the male line fails. Your lawyers say Picardy and more besides belong to you, if you have the soldiers to collect them.",
+    "image": "map",
+    "nations": ["FRA"],
+    "hidden": true,
+    "trigger": {"exists": "BUR"},
+    "choices": [
+      {
+        "text": "Reclaim Burgundy and Picardy",
+        "effects": [{"addClaim": ["burgundy", "picardy"]}, {"threat": 5}],
+        "ai": 4
+      },
+      {
+        "text": "Claim the whole inheritance",
+        "effects": [{"addClaim": ["burgundy", "picardy", "flanders", "brabant"]}, {"threat": 15}, {"prestige": 5}],
+        "ai": 2
+      },
+      {
+        "text": "Leave the girl in peace",
+        "effects": [{"stability": 1}, {"opinion": {"nation": "BUR", "amount": 25}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swi_victory_over_burgundy",
+    "pool": "historical",
+    "title": "Grandson and Morat",
+    "text": "Your pikemen have shattered the army of the Duke of Burgundy, the proudest knight in Christendom. His tents, guns, jewels and even his ducal hat lie in your mud. Every king in Europe now wants Swiss soldiers, and every canton wants a share of the loot.",
+    "image": "swords",
+    "nations": ["SWI"],
+    "window": [1444, 1520],
+    "mtth": 6,
+    "news": "The Swiss have routed the Duke of Burgundy's army.",
+    "trigger": {"all": [{"atWarWith": "BUR"}, {"battlesWonAtLeast": 1}]},
+    "choices": [
+      {
+        "text": "Share out the duke's treasure",
+        "effects": [{"gold": 100}, {"prestige": 15}, {"stability": -1}],
+        "ai": 1
+      },
+      {
+        "text": "Hire out your pikemen to foreign kings",
+        "effects": [
+          {"prestige": 10},
+          {"gold": 40},
+          {
+            "modifier": {
+              "id": "swiss_pikes_for_hire",
+              "name": "Pikes for Hire",
+              "months": 120,
+              "mods": {"infantryPower": 0.15, "mercCost": -0.1}
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "fra_italian_wars",
+    "pool": "historical",
+    "title": "The Road to Italy",
+    "text": "Italy is rich, divided and close. Your house holds an old claim to Naples through the Angevins and another to Milan through the Visconti. Your nobles are restless and your guns are the best in Europe; all you need is a reason to cross the Alps.",
+    "image": "cannon",
+    "nations": ["FRA"],
+    "window": [1490, 1540],
+    "mtth": 24,
+    "news": "The King of France has laid claim to Italy. The Italian Wars have begun.",
+    "trigger": {"all": [{"not": {"ownsAny": ["naples", "lombardy"]}}, {"regionsAtLeast": 10}]},
+    "choices": [
+      {"text": "Press the Angevin claim to Naples", "effects": [{"addClaim": "naples"}, {"threat": 5}], "ai": 2},
+      {"text": "Press the Orléans claim to Milan", "effects": [{"addClaim": "lombardy"}, {"threat": 5}], "ai": 2},
+      {
+        "text": "Claim both and cross the Alps",
+        "effects": [{"addClaim": ["naples", "lombardy"]}, {"threat": 15}, {"prestige": 10}],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "fra_huguenots",
+    "pool": "historical",
+    "title": "The Huguenots",
+    "text": "Preachers trained in Geneva are winning converts across the south and west of your kingdom, among nobles and townsmen alike. They meet in barns and fields and sing the psalms in French. The Church demands that you act before the heresy takes root.",
+    "image": "book",
+    "nations": ["FRA"],
+    "window": [1530, 1600],
+    "mtth": 36,
+    "trigger": {
+      "all": [
+        {"faith": "catholic"},
+        {"flag": "reformation"},
+        {"owns": ["languedoc", "poitou"]},
+        {"regionFaith": {"region": "languedoc", "faith": "catholic"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Tolerate the new preachers",
+        "effects": [
+          {"convertRegion": {"region": "languedoc", "faith": "protestant"}},
+          {"convertRegion": {"region": "poitou", "faith": "protestant"}},
+          {"papalFavor": -10},
+          {
+            "modifier": {
+              "id": "huguenot_trade",
+              "name": "Huguenot Merchants",
+              "months": 120,
+              "mods": {"tradeIncome": 0.05}
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Burn their books and their preachers",
+        "effects": [
+          {"convertRegion": {"region": "languedoc", "faith": "protestant"}},
+          {"papalFavor": 15},
+          {"unrestAll": 2}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "fra_st_bartholomew",
+    "pool": "historical",
+    "title": "St Bartholomew's Day",
+    "text": "A royal wedding meant to reconcile Catholics and Huguenots has filled Paris with Protestant nobles. Now a botched assassination has the capital boiling, and your council urges you to strike first. Once the bells ring, there will be no calling the mob back.",
+    "image": "death",
+    "nations": ["FRA"],
+    "window": [1550, 1640],
+    "mtth": 24,
+    "news": "Catholic mobs have massacred Huguenots in the streets of Paris.",
+    "trigger": {
+      "all": [
+        {"faith": "catholic"},
+        {"flag": "reformation"},
+        {
+          "any": [
+            {"all": [{"owns": "ile_de_france"}, {"regionFaith": {"region": "ile_de_france", "faith": "protestant"}}]},
+            {"all": [{"owns": "champagne"}, {"regionFaith": {"region": "champagne", "faith": "protestant"}}]},
+            {"all": [{"owns": "orleans"}, {"regionFaith": {"region": "orleans", "faith": "protestant"}}]},
+            {"all": [{"owns": "anjou"}, {"regionFaith": {"region": "anjou", "faith": "protestant"}}]},
+            {"all": [{"owns": "poitou"}, {"regionFaith": {"region": "poitou", "faith": "protestant"}}]},
+            {"all": [{"owns": "auvergne"}, {"regionFaith": {"region": "auvergne", "faith": "protestant"}}]},
+            {"all": [{"owns": "languedoc"}, {"regionFaith": {"region": "languedoc", "faith": "protestant"}}]},
+            {"all": [{"owns": "lyonnais"}, {"regionFaith": {"region": "lyonnais", "faith": "protestant"}}]},
+            {"all": [{"owns": "normandy"}, {"regionFaith": {"region": "normandy", "faith": "protestant"}}]},
+            {"all": [{"owns": "gascony"}, {"regionFaith": {"region": "gascony", "faith": "protestant"}}]},
+            {"all": [{"owns": "brittany"}, {"regionFaith": {"region": "brittany", "faith": "protestant"}}]},
+            {"all": [{"owns": "provence"}, {"regionFaith": {"region": "provence", "faith": "protestant"}}]},
+            {"all": [{"owns": "picardy"}, {"regionFaith": {"region": "picardy", "faith": "protestant"}}]},
+            {"all": [{"owns": "burgundy"}, {"regionFaith": {"region": "burgundy", "faith": "protestant"}}]}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Give the order and let the bells ring",
+        "effects": [
+          {"setNationFlag": "fra_wars_of_religion"},
+          {"papalFavor": 20},
+          {"stability": -1},
+          {"unrestAll": 3},
+          {"prestige": -5}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Arrest the plotters and protect the guests",
+        "effects": [
+          {"setNationFlag": "fra_wars_of_religion"},
+          {"papalFavor": -15},
+          {"rebels": {"regiments": 4}},
+          {"prestige": 5}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_edict_of_nantes",
+    "pool": "historical",
+    "title": "The Edict of Nantes",
+    "text": "Decades of religious war have bled your kingdom white. Your council proposes an edict granting Protestants freedom of worship and fortified towns of their own. The Catholic zealots call it surrender; the weary call it peace.",
+    "image": "scroll",
+    "nations": ["FRA"],
+    "window": [1580, 1680],
+    "mtth": 24,
+    "news": "France has granted toleration to its Protestants.",
+    "trigger": {"all": [{"faith": "catholic"}, {"nationFlag": "fra_wars_of_religion"}]},
+    "choices": [
+      {
+        "text": "Grant the Huguenots toleration",
+        "effects": [{"stability": 2}, {"papalFavor": -20}, {"prestige": 5}],
+        "ai": 3
+      },
+      {
+        "text": "Insist on one king, one law, one faith",
+        "effects": [{"papalFavor": 15}, {"prestige": 10}, {"unrestAll": 2}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_the_fronde",
+    "pool": "historical",
+    "title": "The Fronde",
+    "text": "Crushing war taxes have finally broken the patience of Paris. The judges of the Parlement refuse to register your edicts, barricades rise in the streets, and princes of the blood scent a chance to rule in your name. The court must decide whether to bend or break.",
+    "image": "rebels",
+    "nations": ["FRA"],
+    "window": [1640, 1665],
+    "mtth": 36,
+    "trigger": {"any": [{"atWar": true}, {"loansAtLeast": 1}, {"stability": [-3, 0]}]},
+    "choices": [
+      {
+        "text": "Arrest the leaders of the Parlement",
+        "effects": [{"rebels": {"regiments": 6}}, {"prestige": 5}],
+        "ai": 2
+      },
+      {
+        "text": "Concede to the judges' demands",
+        "effects": [
+          {"stability": -1},
+          {"prestige": -10},
+          {
+            "modifier": {
+              "id": "parlement_remonstrance",
+              "name": "The Parlement's Remonstrance",
+              "months": 60,
+              "mods": {"taxIncome": -0.1}
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Flee Paris and wait them out",
+        "effects": [{"unrestAll": 3}, {"devCapital": -1}, {"prestige": -5}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_sun_king",
+    "pool": "historical",
+    "title": "The Sun King",
+    "text": "The old cardinal is dead, and young Louis declares that he will be his own first minister. He means to make France the first power of Europe and its king the sun around which everything turns. The nobles are about to learn what that means.",
+    "image": "crown",
+    "nations": ["FRA"],
+    "window": [1655, 1700],
+    "mtth": 12,
+    "news": "Louis XIV has taken personal control of France.",
+    "trigger": {"not": {"subjectOf": true}},
+    "choices": [
+      {
+        "text": "Tame the nobles in a palace of gold",
+        "effects": [
+          {"newRuler": {"name": "Louis XIV", "skill": 5, "traits": ["ambitious", "builder"], "age": 22}},
+          {"goldPerDev": -2},
+          {"prestige": 20},
+          {"stability": 1}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Build the greatest army in Europe",
+        "effects": [
+          {"newRuler": {"name": "Louis XIV", "skill": 5, "traits": ["ambitious", "warrior"], "age": 22}},
+          {"threat": 15},
+          {
+            "modifier": {
+              "id": "the_kings_army",
+              "name": "The King's Army",
+              "months": 120,
+              "mods": {"manpower": 0.2, "infantryPower": 0.1}
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "cas_isabella_ferdinand",
+    "pool": "historical",
+    "title": "A Husband for Isabella",
+    "text": "The Infanta Isabella is the most sought-after bride in Iberia, and she has a mind of her own. Ferdinand, heir of Aragon, offers a union of the two great Spanish crowns. The King of Portugal offers an older, safer alliance on your western border.",
+    "image": "marriage",
+    "nations": ["CAS"],
+    "window": [1465, 1485],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {"exists": "ARA"},
+        {"exists": "POR"},
+        {"not": {"atWarWith": "ARA"}},
+        {"not": {"flag": "catholic_monarchs_wed"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Wed Isabella to Ferdinand of Aragon",
+        "effects": [
+          {"setFlag": "catholic_monarchs_wed"},
+          {"ally": "ARA"},
+          {"opinion": {"nation": "ARA", "amount": 30}}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Wed her to the King of Portugal",
+        "effects": [{"ally": "POR"}, {"opinion": {"nation": "POR", "amount": 30}}, {"prestige": 5}],
+        "ai": 1
+      },
+      {"text": "Keep her at court, unwed", "effects": [{"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "cas_union_of_crowns",
+    "pool": "historical",
+    "title": "The Union of the Crowns",
+    "text": "Isabella and Ferdinand now wear the crowns of Castile and Aragon. Each kingdom keeps its own laws and parliaments, but they share one marriage bed, one foreign policy and one army. Spain, a word once used only by geographers, is becoming a power.",
+    "image": "crown",
+    "nations": ["CAS"],
+    "window": [1474, 1530],
+    "mtth": 24,
+    "news": "Castile and Aragon are joined under one royal couple. Spain is born.",
+    "trigger": {
+      "all": [
+        {"flag": "catholic_monarchs_wed"},
+        {"exists": "ARA"},
+        {"allied": "ARA"},
+        {"not": {"overlordOf": "ARA"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "ARA"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Bind Aragon to the Castilian crown",
+        "effects": [{"personalUnion": "ARA"}, {"setFlag": "spain_united"}, {"prestige": 15}, {"threat": 10}],
+        "ai": 9
+      },
+      {
+        "text": "Keep the two crowns apart",
+        "effects": [{"stability": 1}, {"opinion": {"nation": "ARA", "amount": 30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_fall_of_granada",
+    "pool": "historical",
+    "title": "The Fall of Granada",
+    "text": "The keys of the Alhambra have been handed over, and the last Muslim king in Iberia rides into exile. Nearly eight centuries of Reconquista are over. Granada's terms promised its people their faith and their laws, and all of Christendom is watching to see whether you keep them.",
+    "image": "castle",
+    "nations": ["CAS", "ARA", "POR"],
+    "window": [1444, 1650],
+    "mtth": 1,
+    "news": "Granada has fallen. The last Muslim kingdom in Iberia is no more.",
+    "trigger": {"all": [{"faith": "catholic"}, {"owns": "granada"}, {"not": {"flag": "granada_fell"}}]},
+    "choices": [
+      {
+        "text": "Honour the terms of surrender",
+        "effects": [{"setFlag": "granada_fell"}, {"stability": 1}, {"prestige": 10}],
+        "ai": 1
+      },
+      {
+        "text": "Demand conversion or exile",
+        "effects": [
+          {"setFlag": "granada_fell"},
+          {"convertRegion": {"region": "granada", "faith": "catholic"}},
+          {"unrestRegion": {"region": "granada", "amount": 4}},
+          {"devRegion": {"region": "granada", "amount": -1}},
+          {"papalFavor": 20}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Carry the crusade into Africa",
+        "effects": [{"setFlag": "granada_fell"}, {"addClaim": ["fez", "tlemcen"]}, {"prestige": 10}, {"threat": 10}],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "por_tordesillas",
+    "pool": "historical",
+    "title": "The Treaty of Tordesillas",
+    "text": "Your captains and the Castilians are racing for the same unknown seas, and the Pope has drawn a line on the map to keep the peace. Your envoys can sign it and divide the world between two crowns, or hold out for more and risk a war at sea.",
+    "image": "map",
+    "nations": ["POR"],
+    "window": [1488, 1530],
+    "mtth": 24,
+    "news": "Portugal and Castile have divided the unknown world at Tordesillas.",
+    "trigger": {"all": [{"exists": "CAS"}, {"not": {"atWarWith": "CAS"}}, {"coastal": true}]},
+    "choices": [
+      {
+        "text": "Sign and divide the world",
+        "effects": [
+          {"setFlag": "tordesillas"},
+          {"opinion": {"nation": "CAS", "amount": 25}},
+          {
+            "modifier": {
+              "id": "line_of_tordesillas",
+              "name": "Line of Tordesillas",
+              "months": 120,
+              "mods": {"tradeIncome": 0.1}
+            }
+          },
+          {"triggerEvent": {"id": "cas_tordesillas_signed", "months": 1, "nation": "CAS"}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Refuse to share the seas",
+        "effects": [
+          {"prestige": 10},
+          {"opinion": {"nation": "CAS", "amount": -30}},
+          {
+            "modifier": {
+              "id": "ocean_rivalry",
+              "name": "Ocean Rivalry",
+              "months": 120,
+              "mods": {"navalPower": 0.1, "shipCost": -0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_tordesillas_signed",
+    "pool": "historical",
+    "title": "A Line Across the Ocean",
+    "text": "Portugal has signed the treaty drawn up at Tordesillas: everything west of the line is yours to discover, everything east is theirs. Your pilots grumble that a line on a map is easy to cross at sea. Your treasurers would rather have peace.",
+    "image": "map",
+    "nations": ["CAS"],
+    "hidden": true,
+    "trigger": {"all": [{"exists": "POR"}, {"flag": "tordesillas"}]},
+    "choices": [
+      {
+        "text": "Honour the line",
+        "effects": [
+          {"opinion": {"nation": "POR", "amount": 20}},
+          {
+            "modifier": {
+              "id": "line_of_tordesillas",
+              "name": "Line of Tordesillas",
+              "months": 120,
+              "mods": {"tradeIncome": 0.1}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Sign it, then ignore it at sea",
+        "effects": [
+          {"opinion": {"nation": "POR", "amount": -25}},
+          {
+            "modifier": {
+              "id": "interlopers",
+              "name": "Interlopers",
+              "months": 120,
+              "mods": {"tradeIncome": 0.05, "navalPower": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_habsburg_match",
+    "pool": "historical",
+    "title": "The Habsburg Match",
+    "text": "The Habsburgs propose a double marriage: your daughter to their heir, their daughter to your son. It would bind the richest dynasty of the north to the new power of Iberia. If your own line ever fails, though, a foreign prince could wear your crown.",
+    "image": "marriage",
+    "nations": ["CAS"],
+    "window": [1490, 1520],
+    "mtth": 24,
+    "trigger": {"all": [{"exists": "HAB"}, {"not": {"atWarWith": "HAB"}}]},
+    "choices": [
+      {
+        "text": "Agree to the double marriage",
+        "effects": [{"setFlag": "hab_spanish_match"}, {"opinion": {"nation": "HAB", "amount": 30}}, {"prestige": 5}],
+        "ai": 3
+      },
+      {"text": "Keep the succession in Iberian hands", "effects": [{"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "cas_habsburg_succession",
+    "pool": "historical",
+    "title": "A Foreign Heir",
+    "text": "Your monarch has no heir of the body, and by the marriage treaties the next in line is a Habsburg prince raised in Flanders who barely speaks your language. The cities fear foreign courtiers will strip them bare. Rejecting him means offending the most powerful family in Europe.",
+    "image": "crown",
+    "nations": ["CAS"],
+    "window": [1500, 1580],
+    "mtth": 24,
+    "trigger": {
+      "all": [{"flag": "hab_spanish_match"}, {"exists": "HAB"}, {"hasHeir": false}, {"not": {"subjectOf": true}}]
+    },
+    "choices": [
+      {
+        "text": "Accept the Habsburg prince",
+        "effects": [
+          {"stability": -1},
+          {"unrestAll": 2},
+          {"triggerEvent": {"id": "hab_charles_v", "months": 1, "nation": "HAB"}}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Name a Castilian grandee instead",
+        "effects": [
+          {"newHeir": {"name": "Fernando de Trastámara", "skill": 2, "traits": ["pious"], "age": 30}},
+          {"opinion": {"nation": "HAB", "amount": -40}},
+          {"prestige": -5}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_charles_v",
+    "pool": "historical",
+    "title": "An Empire Where the Sun Never Sets",
+    "text": "The crowns of Castile and its lands have passed to Charles, a prince of your house. If he takes them up, your dynasty will rule from the Danube to the Atlantic and beyond. No family has held so much since Charlemagne, and none has ever had so many enemies.",
+    "image": "crown",
+    "nations": ["HAB"],
+    "hidden": true,
+    "news": "A Habsburg prince has inherited the crowns of Spain.",
+    "trigger": {
+      "all": [
+        {"exists": "CAS"},
+        {"flag": "hab_spanish_match"},
+        {"not": {"overlordOf": "CAS"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "CAS"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Unite Spain and Austria under Charles",
+        "effects": [
+          {"personalUnion": "CAS"},
+          {"newRuler": {"name": "Charles V", "skill": 4, "traits": ["diplomat", "ambitious"], "age": 19}},
+          {"prestige": 20},
+          {"threat": 20}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Let a cadet branch rule in Spain",
+        "effects": [{"ally": "CAS"}, {"opinion": {"nation": "CAS", "amount": 40}}, {"prestige": 5}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_spanish_armada",
+    "pool": "historical",
+    "title": "The Great Armada",
+    "text": "The English raid your treasure fleets and aid your rebels. Your admirals propose a vast armada to sweep the Channel and carry an army to their shores. It will cost a fortune, and the northern seas are cruel to galleons built for gentler waters.",
+    "image": "ship",
+    "nations": ["CAS"],
+    "window": [1560, 1620],
+    "mtth": 12,
+    "news": "A great Spanish armada is gathering against England.",
+    "trigger": {"all": [{"atWarWith": "ENG"}, {"fleetsAtLeast": 1}]},
+    "choices": [
+      {
+        "text": "Launch the Armada now",
+        "effects": [
+          {"goldPerDev": -2},
+          {"prestige": 10},
+          {"warExhaustion": 1},
+          {
+            "modifier": {
+              "id": "grand_armada",
+              "name": "The Grand Armada",
+              "months": 24,
+              "mods": {"navalPower": 0.25}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Build a stronger fleet first",
+        "effects": [
+          {"prestige": -5},
+          {
+            "modifier": {
+              "id": "naval_programme",
+              "name": "Naval Programme",
+              "months": 60,
+              "mods": {"shipCost": -0.2}
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Hunt their privateers instead",
+        "effects": [
+          {"gold": -50},
+          {"modifier": {"id": "convoy_system", "name": "Convoy System", "months": 60, "mods": {"tradeIncome": 0.1}}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_spanish_succession",
+    "pool": "historical",
+    "title": "The Bewitched King's Will",
+    "text": "Your sickly king is dying without children, and all of Europe is circling his deathbed. France proposes a Bourbon prince, Austria an archduke, and the other powers a partition of your empire. Whichever way the will is written, someone will go to war over it.",
+    "image": "death",
+    "nations": ["CAS"],
+    "window": [1695, 1730],
+    "mtth": 24,
+    "news": "The King of Spain's will has set the great powers against each other.",
+    "trigger": {"all": [{"hasHeir": false}, {"exists": "FRA"}, {"exists": "HAB"}, {"not": {"subjectOf": true}}]},
+    "choices": [
+      {
+        "text": "Leave the crown to a French prince",
+        "effects": [
+          {"newHeir": {"name": "Philip of Anjou", "skill": 3, "traits": ["pious"], "age": 17}},
+          {"opinion": {"nation": "FRA", "amount": 40}},
+          {"setFlag": "spanish_succession"},
+          {"triggerEvent": {"id": "hab_spanish_succession_claims", "months": 2, "nation": "HAB"}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Leave the crown to an Austrian archduke",
+        "effects": [
+          {"newHeir": {"name": "Archduke Charles", "skill": 3, "traits": ["diplomat"], "age": 15}},
+          {"opinion": {"nation": "HAB", "amount": 40}},
+          {"setFlag": "spanish_succession"},
+          {"triggerEvent": {"id": "fra_spanish_succession_claims", "months": 2, "nation": "FRA"}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Agree to a partition treaty",
+        "effects": [
+          {"stability": 1},
+          {"prestige": -15},
+          {"setFlag": "spanish_succession"},
+          {"triggerEvent": {"id": "fra_spanish_succession_claims", "months": 2, "nation": "FRA"}},
+          {"triggerEvent": {"id": "hab_spanish_succession_claims", "months": 2, "nation": "HAB"}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_spanish_succession_claims",
+    "pool": "historical",
+    "title": "The Spanish Inheritance",
+    "text": "The dying King of Spain's will does not give your house what it wants, but your lawyers point to old royal marriages that say otherwise. Your generals are confident and your treasury is not. Pressing the claim means war with half of Europe.",
+    "image": "scroll",
+    "nations": ["FRA"],
+    "hidden": true,
+    "trigger": {"exists": "CAS"},
+    "choices": [
+      {
+        "text": "Press your claim to the Spanish throne",
+        "effects": [{"addClaim": ["castile", "toledo", "andalusia"]}, {"threat": 15}],
+        "ai": 3
+      },
+      {"text": "Accept the will and keep the peace", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "hab_spanish_succession_claims",
+    "pool": "historical",
+    "title": "The Spanish Inheritance",
+    "text": "The dying King of Spain's will does not give your house what it wants, though your family ruled in Madrid for generations. His lands in Italy and the Low Countries, at least, ought to come to you. Pressing the claim means war with France.",
+    "image": "scroll",
+    "nations": ["HAB"],
+    "hidden": true,
+    "trigger": {"exists": "CAS"},
+    "choices": [
+      {
+        "text": "Claim Spain's lands in Italy and Flanders",
+        "effects": [{"addClaim": ["lombardy", "naples", "flanders", "brabant"]}, {"threat": 15}],
+        "ai": 3
+      },
+      {"text": "Accept the will and keep the peace", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "por_restoration",
+    "pool": "historical",
+    "title": "The Restoration of Portugal",
+    "text": "Years under a foreign crown have left Portugal taxed, ignored and dragged into wars that are not its own. A band of nobles has stormed the palace in Lisbon and offers the crown to the Duke of Braganza. If he accepts, there is no going back.",
+    "image": "rebels",
+    "nations": ["POR"],
+    "window": [1600, 1720],
+    "mtth": 36,
+    "news": "Portugal has risen to restore its independence.",
+    "trigger": {"subjectOf": true},
+    "choices": [
+      {
+        "text": "Acclaim the Duke of Braganza as king",
+        "effects": [
+          {"independence": true},
+          {"newRuler": {"name": "João IV", "skill": 3, "traits": ["shrewd"], "age": 36}},
+          {"prestige": 15},
+          {"stability": -1},
+          {"addRegiments": {"inf": 3, "cav": 1}}
+        ],
+        "ai": 3
+      },
+      {"text": "Stay loyal to the foreign crown", "effects": [{"stability": 1}, {"prestige": -10}], "ai": 1}
+    ]
+  },
+  {
+    "id": "hre_luthers_theses",
+    "pool": "historical",
+    "title": "Ninety-Five Theses",
+    "text": "A monk named Martin Luther has nailed a list of complaints against the sale of indulgences to a church door in Wittenberg. Printers are copying it faster than the Church can burn it. Rome demands that you hand him over, but your subjects are reading his words with startling hunger.",
+    "image": "book",
+    "window": [1515, 1560],
+    "mtth": 12,
+    "news": "A monk in Wittenberg has defied the Pope. The Reformation has begun.",
+    "trigger": {
+      "all": [
+        {"owns": "saxony"},
+        {"faith": "catholic"},
+        {"regionFaith": {"region": "saxony", "faith": "catholic"}},
+        {"not": {"flag": "reformation"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Shelter the monk of Wittenberg",
+        "effects": [
+          {"setFlag": "reformation"},
+          {"convertRegion": {"region": "saxony", "faith": "protestant"}},
+          {"reformation": 4},
+          {"papalFavor": -15},
+          {"prestige": 10}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Send him to Rome in chains",
+        "effects": [{"setFlag": "reformation"}, {"reformation": 3}, {"papalFavor": 20}, {"unrestAll": 2}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "rel_reformation_reaches_us",
+    "pool": "historical",
+    "title": "The Reformation Reaches Us",
+    "text": "Protestant preachers are filling the churches and marketplaces of your realm, and some of your lands have already turned from Rome. Your nobles eye the rich estates of the monasteries; your bishops demand fire and sword. Whatever you decide, the old unity of faith is gone.",
+    "image": "church",
+    "window": [1517, 1650],
+    "mtth": 24,
+    "once": false,
+    "trigger": {
+      "all": [
+        {"flag": "reformation"},
+        {"faith": "catholic"},
+        {"not": {"isNation": ["ENG", "FRA", "SWE", "TEU"]}},
+        {"not": {"nationFlag": "reform_choice_made"}},
+        {
+          "any": [
+            {"all": [{"owns": "lorraine"}, {"regionFaith": {"region": "lorraine", "faith": "protestant"}}]},
+            {"all": [{"owns": "brabant"}, {"regionFaith": {"region": "brabant", "faith": "protestant"}}]},
+            {"all": [{"owns": "holland"}, {"regionFaith": {"region": "holland", "faith": "protestant"}}]},
+            {"all": [{"owns": "luxembourg"}, {"regionFaith": {"region": "luxembourg", "faith": "protestant"}}]},
+            {"all": [{"owns": "savoy"}, {"regionFaith": {"region": "savoy", "faith": "protestant"}}]},
+            {"all": [{"owns": "lombardy"}, {"regionFaith": {"region": "lombardy", "faith": "protestant"}}]},
+            {"all": [{"owns": "tyrol"}, {"regionFaith": {"region": "tyrol", "faith": "protestant"}}]},
+            {"all": [{"owns": "austria"}, {"regionFaith": {"region": "austria", "faith": "protestant"}}]},
+            {"all": [{"owns": "styria"}, {"regionFaith": {"region": "styria", "faith": "protestant"}}]},
+            {"all": [{"owns": "bavaria"}, {"regionFaith": {"region": "bavaria", "faith": "protestant"}}]},
+            {"all": [{"owns": "swabia"}, {"regionFaith": {"region": "swabia", "faith": "protestant"}}]},
+            {"all": [{"owns": "palatinate"}, {"regionFaith": {"region": "palatinate", "faith": "protestant"}}]},
+            {"all": [{"owns": "mainz"}, {"regionFaith": {"region": "mainz", "faith": "protestant"}}]},
+            {"all": [{"owns": "trier"}, {"regionFaith": {"region": "trier", "faith": "protestant"}}]},
+            {"all": [{"owns": "cologne"}, {"regionFaith": {"region": "cologne", "faith": "protestant"}}]},
+            {"all": [{"owns": "brunswick"}, {"regionFaith": {"region": "brunswick", "faith": "protestant"}}]},
+            {"all": [{"owns": "holstein"}, {"regionFaith": {"region": "holstein", "faith": "protestant"}}]},
+            {"all": [{"owns": "pomerania"}, {"regionFaith": {"region": "pomerania", "faith": "protestant"}}]},
+            {"all": [{"owns": "brandenburg"}, {"regionFaith": {"region": "brandenburg", "faith": "protestant"}}]},
+            {"all": [{"owns": "altmark"}, {"regionFaith": {"region": "altmark", "faith": "protestant"}}]},
+            {"all": [{"owns": "saxony"}, {"regionFaith": {"region": "saxony", "faith": "protestant"}}]},
+            {"all": [{"owns": "bohemia"}, {"regionFaith": {"region": "bohemia", "faith": "protestant"}}]},
+            {"all": [{"owns": "moravia"}, {"regionFaith": {"region": "moravia", "faith": "protestant"}}]},
+            {"all": [{"owns": "silesia"}, {"regionFaith": {"region": "silesia", "faith": "protestant"}}]},
+            {"all": [{"owns": "jutland"}, {"regionFaith": {"region": "jutland", "faith": "protestant"}}]},
+            {"all": [{"owns": "zealand"}, {"regionFaith": {"region": "zealand", "faith": "protestant"}}]},
+            {"all": [{"owns": "scania"}, {"regionFaith": {"region": "scania", "faith": "protestant"}}]},
+            {"all": [{"owns": "norway"}, {"regionFaith": {"region": "norway", "faith": "protestant"}}]},
+            {"all": [{"owns": "svealand"}, {"regionFaith": {"region": "svealand", "faith": "protestant"}}]},
+            {"all": [{"owns": "gotaland"}, {"regionFaith": {"region": "gotaland", "faith": "protestant"}}]},
+            {"all": [{"owns": "finland"}, {"regionFaith": {"region": "finland", "faith": "protestant"}}]},
+            {"all": [{"owns": "london"}, {"regionFaith": {"region": "london", "faith": "protestant"}}]},
+            {"all": [{"owns": "wessex"}, {"regionFaith": {"region": "wessex", "faith": "protestant"}}]},
+            {"all": [{"owns": "midlands"}, {"regionFaith": {"region": "midlands", "faith": "protestant"}}]},
+            {"all": [{"owns": "yorkshire"}, {"regionFaith": {"region": "yorkshire", "faith": "protestant"}}]},
+            {"all": [{"owns": "wales"}, {"regionFaith": {"region": "wales", "faith": "protestant"}}]},
+            {"all": [{"owns": "lowlands"}, {"regionFaith": {"region": "lowlands", "faith": "protestant"}}]},
+            {"all": [{"owns": "highlands"}, {"regionFaith": {"region": "highlands", "faith": "protestant"}}]},
+            {"all": [{"owns": "danzig"}, {"regionFaith": {"region": "danzig", "faith": "protestant"}}]},
+            {"all": [{"owns": "prussia"}, {"regionFaith": {"region": "prussia", "faith": "protestant"}}]},
+            {"all": [{"owns": "livonia"}, {"regionFaith": {"region": "livonia", "faith": "protestant"}}]},
+            {"all": [{"owns": "switzerland"}, {"regionFaith": {"region": "switzerland", "faith": "protestant"}}]},
+            {"all": [{"owns": "flanders"}, {"regionFaith": {"region": "flanders", "faith": "protestant"}}]},
+            {"all": [{"owns": "hungary"}, {"regionFaith": {"region": "hungary", "faith": "protestant"}}]},
+            {"all": [{"owns": "upper_hungary"}, {"regionFaith": {"region": "upper_hungary", "faith": "protestant"}}]},
+            {"all": [{"owns": "transylvania"}, {"regionFaith": {"region": "transylvania", "faith": "protestant"}}]}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Embrace the reformed faith",
+        "effects": [
+          {"changeFaith": "protestant"},
+          {"stability": -1},
+          {"goldPerDev": 2},
+          {"setNationFlag": "embraced_reform"},
+          {"setNationFlag": "reform_choice_made"}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Tolerate both confessions",
+        "effects": [
+          {"papalFavor": -10},
+          {
+            "modifier": {
+              "id": "confessional_peace",
+              "name": "Confessional Peace",
+              "months": 120,
+              "mods": {"tradeIncome": 0.05, "stabilityCost": 0.1}
+            }
+          },
+          {"setNationFlag": "reform_choice_made"}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Suppress the heretics",
+        "effects": [{"unrestAll": 3}, {"papalFavor": 15}, {"prestige": 5}, {"setNationFlag": "reform_choice_made"}],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "hre_peace_of_augsburg",
+    "pool": "historical",
+    "title": "The Peace of Augsburg",
+    "text": "Years of strife between Catholic and Protestant princes have left the Empire bitterly divided. The princes propose a settlement at Augsburg: each ruler decides the faith of his own lands. It would end the fighting, but it would also admit that the Emperor cannot rule men's souls.",
+    "image": "treaty",
+    "window": [1540, 1630],
+    "mtth": 24,
+    "news": "The princes of the Empire meet at Augsburg to settle the question of faith.",
+    "trigger": {
+      "all": [
+        {"isEmperor": true},
+        {"faith": "catholic"},
+        {"flag": "reformation"},
+        {"faithRegionsAtLeast": {"faith": "protestant", "count": 6}},
+        {"not": {"flag": "peace_of_augsburg"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Let each prince choose his faith",
+        "effects": [
+          {"setFlag": "peace_of_augsburg"},
+          {"stability": 1},
+          {"unrestAll": -2},
+          {"papalFavor": -15},
+          {"prestige": -5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Restore the old Church by force",
+        "effects": [
+          {"setFlag": "counter_reformation"},
+          {"papalFavor": 15},
+          {"prestige": 10},
+          {"unrestAll": 3},
+          {"stability": -1}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "boh_defenestration_of_prague",
+    "pool": "historical",
+    "title": "The Defenestration of Prague",
+    "text": "Protestant nobles in Prague have thrown the Habsburg envoys out of a castle window. The men survived the fall, landing in a dung heap, but the insult cannot be undone. Your estates demand that you defy Vienna openly and rally the Protestant princes.",
+    "image": "rebels",
+    "nations": ["BOH"],
+    "window": [1600, 1660],
+    "mtth": 36,
+    "news": "Envoys have been thrown from a window in Prague. War is coming to the Empire.",
+    "trigger": {
+      "all": [
+        {"flag": "reformation"},
+        {"owns": "bohemia"},
+        {"exists": "HAB"},
+        {"nationFaith": {"nation": "HAB", "faith": "catholic"}},
+        {"any": [{"faith": "protestant"}, {"regionFaith": {"region": "bohemia", "faith": "protestant"}}]},
+        {"not": {"flag": "thirty_years_war"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Defy the Habsburgs and raise an army",
+        "effects": [
+          {"setFlag": "thirty_years_war"},
+          {"breakAlliance": "HAB"},
+          {"prestige": 10},
+          {"addRegiments": {"inf": 3, "cav": 1}},
+          {"opinion": {"nation": "HAB", "amount": -50}},
+          {"triggerEvent": {"id": "hab_thirty_years_war", "months": 2, "nation": "HAB"}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Apologise to Vienna and punish the nobles",
+        "effects": [
+          {"stability": -1},
+          {"unrestAll": 3},
+          {"prestige": -10},
+          {"opinion": {"nation": "HAB", "amount": 30}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_bohemian_revolt",
+    "pool": "historical",
+    "title": "Revolt in Bohemia",
+    "text": "The Protestant estates of Bohemia have thrown your regents from a window of Prague Castle and declared that they will choose their own king. The men survived, landing in a dung heap, but your authority did not. Every Protestant prince in the Empire is watching.",
+    "image": "rebels",
+    "nations": ["HAB"],
+    "window": [1600, 1660],
+    "mtth": 36,
+    "news": "Envoys have been thrown from a window in Prague. War is coming to the Empire.",
+    "trigger": {
+      "all": [
+        {"faith": "catholic"},
+        {"flag": "reformation"},
+        {"owns": "bohemia"},
+        {"regionFaith": {"region": "bohemia", "faith": "protestant"}},
+        {"not": {"flag": "thirty_years_war"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Crush the rebels and restore the faith",
+        "effects": [
+          {"setFlag": "thirty_years_war"},
+          {"rebels": {"regiments": 6, "region": "bohemia"}},
+          {"papalFavor": 15},
+          {"prestige": 5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Confirm their religious liberties",
+        "effects": [{"stability": -1}, {"papalFavor": -15}, {"unrestRegion": {"region": "bohemia", "amount": -3}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_thirty_years_war",
+    "pool": "historical",
+    "title": "The Winter King",
+    "text": "Bohemia has crowned a Protestant king of its own and declared your house its enemy. If the rebellion is allowed to stand, every Protestant estate in the Empire will learn the lesson. Your confessor and your generals give the same advice.",
+    "image": "swords",
+    "nations": ["HAB"],
+    "hidden": true,
+    "news": "The Thirty Years' War has begun.",
+    "trigger": {"all": [{"exists": "BOH"}, {"flag": "thirty_years_war"}, {"not": {"atWarWith": "BOH"}}]},
+    "choices": [
+      {
+        "text": "March on Prague",
+        "effects": [
+          {"addClaim": ["bohemia", "moravia", "silesia"]},
+          {"breakAlliance": "BOH"},
+          {"declareWar": {"target": "BOH", "cb": "claim", "region": "bohemia"}},
+          {"papalFavor": 10},
+          {"threat": 10}
+        ],
+        "ai": 4
+      },
+      {"text": "Leave Bohemia to its heresy", "effects": [{"prestige": -15}, {"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "hre_peace_of_westphalia",
+    "pool": "historical",
+    "title": "The Peace of Westphalia",
+    "text": "A generation of war has burned Germany from end to end. Envoys from every power have spent years in Münster and Osnabrück arguing over seating and titles, and at last a treaty is ready. It would end the fighting, but it leaves the princes all but sovereign and the Emperor a figurehead.",
+    "image": "treaty",
+    "window": [1640, 1720],
+    "mtth": 12,
+    "news": "The Peace of Westphalia ends a generation of religious war in the Empire.",
+    "trigger": {
+      "all": [
+        {"isEmperor": true},
+        {"flag": "thirty_years_war"},
+        {"not": {"atWar": true}},
+        {"not": {"flag": "peace_of_westphalia"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Sign the peace",
+        "effects": [
+          {"setFlag": "peace_of_westphalia"},
+          {"stability": 1},
+          {"threat": -15},
+          {"prestige": -10},
+          {"unrestAll": -2}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Refuse to sign away imperial rights",
+        "effects": [{"prestige": 10}, {"papalFavor": 10}, {"stability": -1}, {"unrestAll": 2}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "teu_prussian_homage",
+    "pool": "historical",
+    "title": "The Prussian Homage",
+    "text": "Half your knights have read Luther, and the Grand Master himself is tempted. A crusading order with no crusade left could become a secular duchy, its Grand Master a hereditary duke. The King of Poland offers to accept such a duke as his vassal and protect him.",
+    "image": "church",
+    "nations": ["TEU"],
+    "window": [1520, 1600],
+    "mtth": 24,
+    "news": "The Teutonic Order is torn over the teachings of Luther.",
+    "trigger": {"all": [{"faith": "catholic"}, {"flag": "reformation"}]},
+    "choices": [
+      {
+        "text": "Secularise and kneel to the Polish king",
+        "effects": [
+          {"changeFaith": "protestant"},
+          {"setFlag": "prussia_secularized"},
+          {"setNationFlag": "embraced_reform"},
+          {"setNationFlag": "reform_choice_made"},
+          {"stability": -1},
+          {"triggerEvent": {"id": "pol_prussian_homage", "months": 1, "nation": "POL"}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Secularise as a sovereign duchy",
+        "effects": [
+          {"changeFaith": "protestant"},
+          {"setFlag": "prussia_secularized"},
+          {"setNationFlag": "embraced_reform"},
+          {"setNationFlag": "reform_choice_made"},
+          {"prestige": 10},
+          {"unrestAll": 2},
+          {"opinion": {"nation": "POL", "amount": -30}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Remain a crusading order",
+        "effects": [{"papalFavor": 15}, {"unrestAll": 2}, {"setNationFlag": "reform_choice_made"}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_prussian_homage",
+    "pool": "historical",
+    "title": "Homage in Kraków",
+    "text": "The last Grand Master of the Teutonic Order has become the Lutheran Duke of Prussia, and he kneels in the market square of Kraków to swear loyalty to you. Taking his oath makes your old enemy a vassal. A heretic vassal, the bishops point out.",
+    "image": "treaty",
+    "nations": ["POL"],
+    "hidden": true,
+    "news": "The Duke of Prussia has paid homage to the King of Poland.",
+    "trigger": {
+      "all": [
+        {"exists": "TEU"},
+        {"not": {"overlordOf": "TEU"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "TEU"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the duke's homage",
+        "effects": [{"personalUnion": "TEU"}, {"prestige": 10}, {"papalFavor": -5}],
+        "ai": 4
+      },
+      {
+        "text": "Refuse and claim Prussia outright",
+        "effects": [{"addClaim": "prussia"}, {"papalFavor": 10}, {"opinion": {"nation": "TEU", "amount": -30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "teu_hohenzollern_succession",
+    "pool": "historical",
+    "title": "The Hohenzollern Heir",
+    "text": "Your ducal line is failing, and the nearest heir is your cousin the Elector of Brandenburg. Joining Prussia to Brandenburg would make a Protestant power of real weight on the Baltic. It would also mean the end of Prussia as a state of its own.",
+    "image": "marriage",
+    "nations": ["TEU"],
+    "window": [1600, 1700],
+    "mtth": 36,
+    "trigger": {
+      "all": [
+        {"faith": "protestant"},
+        {"flag": "prussia_secularized"},
+        {"exists": "BRA"},
+        {"not": {"atWarWith": "BRA"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Name the Elector your heir",
+        "effects": [{"stability": 1}, {"triggerEvent": {"id": "bra_inherits_prussia", "months": 1, "nation": "BRA"}}],
+        "ai": 4
+      },
+      {
+        "text": "Keep the duchy for your own line",
+        "effects": [{"prestige": 5}, {"stability": -1}, {"opinion": {"nation": "BRA", "amount": -25}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bra_inherits_prussia",
+    "pool": "historical",
+    "title": "Brandenburg-Prussia",
+    "text": "The Duke of Prussia has died and his lands pass to you. Brandenburg and Prussia lie apart, ruled by different laws and suspicious of each other. You can merge them into one state, or rule each as a separate crown.",
+    "image": "crown",
+    "nations": ["BRA"],
+    "hidden": true,
+    "news": "Brandenburg has inherited the Duchy of Prussia.",
+    "trigger": {"all": [{"exists": "TEU"}, {"not": {"atWarWith": "TEU"}}, {"not": {"subjectOf": true}}]},
+    "choices": [
+      {
+        "text": "Merge them into one state",
+        "effects": [{"inherit": "TEU"}, {"prestige": 10}, {"threat": 10}, {"unrestAll": 1}],
+        "ai": 3
+      },
+      {"text": "Rule Prussia as a separate crown", "effects": [{"personalUnion": "TEU"}, {"threat": 5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "bra_kingdom_in_prussia",
+    "pool": "historical",
+    "title": "A King in Prussia",
+    "text": "Your Prussian lands lie outside the Empire, so no emperor can forbid you a crown there. A coronation in Königsberg would make you a king among kings, not just one elector among seven. It would also cost a fortune in silk, jewels and bribes.",
+    "image": "crown",
+    "nations": ["BRA"],
+    "window": [1700, 1750],
+    "mtth": 12,
+    "news": "The Elector of Brandenburg has crowned himself King in Prussia.",
+    "trigger": {"any": [{"owns": "prussia"}, {"overlordOf": "TEU"}]},
+    "choices": [
+      {
+        "text": "Crown yourself King in Prussia",
+        "effects": [{"gold": -100}, {"prestige": 20}, {"stability": 1}],
+        "ai": 3
+      },
+      {
+        "text": "Spend the money on the army instead",
+        "effects": [
+          {"prestige": -5},
+          {
+            "modifier": {
+              "id": "drill_and_discipline",
+              "name": "Drill and Discipline",
+              "months": 120,
+              "mods": {"infantryPower": 0.1, "morale": 0.05}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_imperial_election",
+    "pool": "historical",
+    "title": "Electing the King of the Romans",
+    "text": "Your ruler is ageing, and the seven electors are already being courted by rival houses. If your heir is chosen King of the Romans now, the imperial crown stays in the family. The electors know exactly how much that is worth to you.",
+    "image": "crown",
+    "nations": ["HAB"],
+    "window": [1444, 1740],
+    "mtth": 60,
+    "trigger": {"all": [{"isEmperor": true}, {"hasHeir": true}, {"rulerAgeAtLeast": 50}]},
+    "choices": [
+      {"text": "Buy the electors' votes", "effects": [{"gold": -150}, {"prestige": 10}, {"stability": 1}], "ai": 2},
+      {
+        "text": "Promise them new liberties",
+        "effects": [
+          {"prestige": 5},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "electoral_capitulation",
+              "name": "Electoral Capitulation",
+              "months": 120,
+              "mods": {"taxIncome": -0.1}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let the electors choose freely",
+        "effects": [{"prestige": -10}, {"stability": -1}, {"threat": -10}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_lit_union",
+    "pool": "historical",
+    "title": "Two Crowns, One King",
+    "text": "The Polish throne has stood empty while your lords haggle, and the obvious candidate is Casimir, Grand Duke of Lithuania. If he takes the crown, the two realms will share one ruler and one list of enemies. The Lithuanian lords fear becoming a Polish province; the Polish lords fear the opposite.",
+    "image": "crown",
+    "nations": ["POL"],
+    "window": [1445, 1465],
+    "mtth": 12,
+    "news": "Poland and Lithuania are joined under one king.",
+    "trigger": {
+      "all": [{"exists": "LIT"}, {"allied": "LIT"}, {"not": {"overlordOf": "LIT"}}, {"not": {"subjectOf": true}}]
+    },
+    "choices": [
+      {
+        "text": "Crown Casimir and join the realms",
+        "effects": [
+          {"personalUnion": "LIT"},
+          {"newRuler": {"name": "Casimir IV", "skill": 3, "traits": ["diplomat"], "age": 20}},
+          {"prestige": 10}
+        ],
+        "ai": 9
+      },
+      {
+        "text": "Elect a Polish lord instead",
+        "effects": [{"stability": 1}, {"prestige": 5}, {"opinion": {"nation": "LIT", "amount": -20}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_union_of_lublin",
+    "pool": "historical",
+    "title": "The Union of Lublin",
+    "text": "For generations Poland and Lithuania have shared a king but little else. Now the Lithuanian lords, frightened by Muscovy, will accept a single Commonwealth with one parliament, one coinage and one elected king. Some will resent it bitterly, but the union will be far stronger.",
+    "image": "treaty",
+    "nations": ["POL"],
+    "window": [1550, 1650],
+    "mtth": 24,
+    "news": "Poland and Lithuania have merged into a single Commonwealth.",
+    "trigger": {"overlordOf": "LIT"},
+    "choices": [
+      {
+        "text": "Forge one Commonwealth at Lublin",
+        "effects": [{"inherit": "LIT"}, {"prestige": 15}, {"stability": -1}, {"unrestAll": 2}],
+        "ai": 9
+      },
+      {"text": "Keep the bond a personal one", "effects": [{"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "pol_thirteen_years_war",
+    "pool": "historical",
+    "title": "The Prussian Confederation",
+    "text": "The towns and knights of Prussia have risen against the Teutonic Order and its taxes. Their envoys kneel before you and offer Danzig, Thorn and the rest if you will take them under your crown. Accepting means war with the Order; refusing means watching them be crushed.",
+    "image": "rebels",
+    "nations": ["POL"],
+    "window": [1450, 1480],
+    "mtth": 24,
+    "news": "The Prussian towns have risen against the Teutonic Order and turned to Poland.",
+    "trigger": {
+      "all": [
+        {"exists": "TEU"},
+        {"nationOwns": {"nation": "TEU", "region": "danzig"}},
+        {"not": {"atWarWith": "TEU"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept their homage and declare war",
+        "effects": [
+          {"addClaim": ["danzig", "prussia"]},
+          {"setFlag": "thirteen_years_war"},
+          {"declareWar": {"target": "TEU", "cb": "claim", "region": "danzig"}},
+          {"triggerEvent": {"id": "teu_prussian_confederation", "months": 1, "nation": "TEU"}},
+          {"threat": 5}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Accept their homage, but bide your time",
+        "effects": [
+          {"addClaim": ["danzig", "prussia"]},
+          {"setFlag": "thirteen_years_war"},
+          {"triggerEvent": {"id": "teu_prussian_confederation", "months": 1, "nation": "TEU"}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Send the envoys home",
+        "effects": [{"opinion": {"nation": "TEU", "amount": 30}}, {"stability": 1}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "teu_prussian_confederation",
+    "pool": "historical",
+    "title": "The Towns Revolt",
+    "text": "Danzig and the Prussian towns have renounced their oath to the Order and invited the King of Poland to be their lord. Your castles in the towns are besieged by the burghers' militias. Crushing them will be bloody; buying them back will be expensive.",
+    "image": "rebels",
+    "nations": ["TEU"],
+    "hidden": true,
+    "trigger": {"owns": "danzig"},
+    "choices": [
+      {
+        "text": "Crush the burghers by force",
+        "effects": [{"rebels": {"regiments": 4, "region": "danzig"}}, {"prestige": 5}],
+        "ai": 2
+      },
+      {
+        "text": "Restore their old charters",
+        "effects": [
+          {"stability": -1},
+          {"modifier": {"id": "town_charters", "name": "Town Charters", "months": 120, "mods": {"taxIncome": -0.15}}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_peace_of_thorn",
+    "pool": "historical",
+    "title": "The Peace of Thorn",
+    "text": "The war with the Order is over, and Danzig is yours. The Grand Master's envoys offer terms: the Order keeps the rest of Prussia, but as your vassal. Your treasurers would rather spend the peace on Danzig's grain trade than on ruling a sullen order of knights.",
+    "image": "treaty",
+    "nations": ["POL"],
+    "window": [1455, 1510],
+    "mtth": 6,
+    "news": "Poland and the Teutonic Order have made peace at Thorn.",
+    "trigger": {
+      "all": [
+        {"owns": "danzig"},
+        {"flag": "thirteen_years_war"},
+        {"exists": "TEU"},
+        {"not": {"atWarWith": "TEU"}},
+        {"not": {"overlordOf": "TEU"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Make the Grand Master your vassal",
+        "effects": [{"personalUnion": "TEU"}, {"prestige": 10}, {"threat": 10}],
+        "ai": 3
+      },
+      {
+        "text": "Leave the Order free but weakened",
+        "effects": [
+          {"devRegion": {"region": "danzig", "amount": 1}},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "danzig_grain_trade",
+              "name": "Danzig Grain Trade",
+              "months": 120,
+              "mods": {"tradeIncome": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hun_matthias_elected",
+    "pool": "historical",
+    "title": "Matthias Corvinus",
+    "text": "The great regent John Hunyadi is gone, and the lords gather on the frozen Danube at Pest to choose a king. The crowd chants for Hunyadi's teenage son Matthias, but the barons would prefer a pliable foreign prince. A boy king could be a puppet, or a prodigy.",
+    "image": "crown",
+    "nations": ["HUN"],
+    "window": [1452, 1470],
+    "mtth": 18,
+    "news": "Matthias Corvinus has been elected King of Hungary.",
+    "trigger": {"rulerAgeAtLeast": 45},
+    "choices": [
+      {
+        "text": "Crown young Matthias",
+        "effects": [
+          {"newRuler": {"name": "Matthias Corvinus", "skill": 5, "traits": ["ambitious", "scholar"], "age": 15}},
+          {"stability": -1},
+          {"prestige": 10}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Elect a Habsburg prince",
+        "effects": [
+          {"newRuler": {"name": "Ladislaus the Posthumous", "skill": 1, "traits": ["feeble"], "age": 17}},
+          {"opinion": {"nation": "HAB", "amount": 40}},
+          {"stability": 1}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hun_black_army",
+    "pool": "historical",
+    "title": "The Black Army",
+    "text": "The barons' levies come late, leave early and fight for themselves. Your treasurers propose something new: a standing army of paid professionals, Czech and German veterans with handguns, loyal to the crown alone. It will eat half your revenue, and it will win battles.",
+    "image": "swords",
+    "nations": ["HUN"],
+    "window": [1460, 1500],
+    "mtth": 36,
+    "trigger": {"goldAtLeast": 50},
+    "choices": [
+      {
+        "text": "Raise a standing army of professionals",
+        "effects": [
+          {"gold": -100},
+          {"addRegiments": {"inf": 4, "cav": 2}},
+          {"hireGeneral": {"fire": 3, "shock": 4, "maneuver": 3, "name": "Pál Kinizsi"}},
+          {
+            "modifier": {
+              "id": "black_army",
+              "name": "The Black Army",
+              "months": 120,
+              "mods": {"infantryPower": 0.15, "upkeep": 0.15}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {"text": "Rely on the barons' banners", "effects": [{"manpower": 5000}, {"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "hun_mohacs",
+    "pool": "historical",
+    "title": "The Field of Mohács",
+    "text": "Your army has been destroyed on the plain of Mohács, and your king drowned in a stream as he fled. The Sultan's road to Buda lies open. In the chaos, one party of lords offers the crown to the Habsburgs while another rallies around a native magnate.",
+    "image": "death",
+    "nations": ["HUN"],
+    "window": [1490, 1600],
+    "mtth": 12,
+    "news": "The Hungarian army has been destroyed at Mohács and its king is dead.",
+    "trigger": {
+      "all": [
+        {"atWarWith": "TUR"},
+        {"exists": "HAB"},
+        {"any": [{"stability": [-3, 0]}, {"not": {"regimentsAtLeast": 15}}]}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Offer the crown to the Habsburgs",
+        "effects": [
+          {"newRuler": {"name": "Ferdinand of Habsburg", "skill": 3, "traits": ["administrator"], "age": 23}},
+          {"prestige": -15},
+          {"warExhaustion": 2},
+          {"triggerEvent": {"id": "hab_mohacs_union", "months": 1, "nation": "HAB"}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Crown a native magnate",
+        "effects": [
+          {"newRuler": {"name": "John Zápolya", "skill": 3, "traits": ["ambitious"], "age": 39}},
+          {"prestige": -10},
+          {"stability": -1},
+          {"manpower": 4000},
+          {"triggerEvent": {"id": "hab_mohacs_claims", "months": 1, "nation": "HAB"}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_mohacs_union",
+    "pool": "historical",
+    "title": "The Crown of St Stephen",
+    "text": "Hungary's king is dead at Mohács, and the Hungarian lords offer his crown to your house to save them from the Turk. Accepting brings a great kingdom under your rule, along with a frontier that is on fire. Refusing leaves the Sultan at the gates of Austria.",
+    "image": "crown",
+    "nations": ["HAB"],
+    "hidden": true,
+    "news": "The Habsburgs have been offered the crown of Hungary.",
+    "trigger": {
+      "all": [
+        {"exists": "HUN"},
+        {"not": {"overlordOf": "HUN"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "HUN"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the crown of Hungary",
+        "effects": [{"personalUnion": "HUN"}, {"prestige": 15}, {"threat": 10}],
+        "ai": 4
+      },
+      {
+        "text": "Decline, but keep a claim to it",
+        "effects": [{"addClaim": ["hungary", "croatia"]}, {"stability": 1}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_mohacs_claims",
+    "pool": "historical",
+    "title": "A Rival King in Buda",
+    "text": "After the disaster at Mohács, the Hungarian lords have crowned one of their own instead of your candidate. Your old treaties with the Hungarian royal house say the crown should be yours. The Sultan, meanwhile, is not waiting for lawyers.",
+    "image": "map",
+    "nations": ["HAB"],
+    "hidden": true,
+    "trigger": {"all": [{"exists": "HUN"}, {"not": {"overlordOf": "HUN"}}]},
+    "choices": [
+      {
+        "text": "Press your claim to Hungary",
+        "effects": [{"addClaim": ["hungary", "upper_hungary", "croatia"]}, {"threat": 5}],
+        "ai": 3
+      },
+      {"text": "Leave Hungary to its fate", "effects": [{"stability": 1}, {"prestige": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "mol_stephen_the_great",
+    "pool": "historical",
+    "title": "Stephen the Great",
+    "text": "Stephen, son of a murdered prince, has returned from exile at the head of an army of exiles and Wallachian allies. Boyars are deserting to him by the hundred. He promises to make Moldavia a fortress of the faith that no Turk or Hungarian can take.",
+    "image": "crown",
+    "nations": ["MOL"],
+    "window": [1450, 1470],
+    "mtth": 18,
+    "news": "Stephen, called the Great, has taken the throne of Moldavia.",
+    "trigger": {"rulerAgeAtLeast": 40},
+    "choices": [
+      {
+        "text": "Welcome Stephen as your prince",
+        "effects": [
+          {"newRuler": {"name": "Stephen III", "skill": 5, "traits": ["warrior", "pious"], "age": 24}},
+          {"unrestAll": 1},
+          {"prestige": 10}
+        ],
+        "ai": 3
+      },
+      {"text": "Keep the old prince and his peace", "effects": [{"stability": 1}, {"gold": 50}], "ai": 1}
+    ]
+  },
+  {
+    "id": "wal_vlad_the_impaler",
+    "pool": "historical",
+    "title": "The Son of the Dragon",
+    "text": "Your prince has been murdered by rebel boyars, and two of his sons, raised as hostages at the Sultan's court, now compete for his throne. Vlad is hard, vengeful and hates the Turks who held him. His brother Radu is charming and the Sultan's favourite.",
+    "image": "crown",
+    "nations": ["WAL"],
+    "window": [1447, 1476],
+    "mtth": 18,
+    "trigger": {"rulerAgeAtLeast": 50},
+    "choices": [
+      {
+        "text": "Back Vlad's claim to the throne",
+        "effects": [
+          {"newRuler": {"name": "Vlad III", "skill": 4, "traits": ["cruel", "warrior"], "age": 25}},
+          {"opinion": {"nation": "TUR", "amount": -30}},
+          {"prestige": 5},
+          {
+            "modifier": {
+              "id": "fear_of_the_stakes",
+              "name": "Fear of the Stakes",
+              "months": 120,
+              "mods": {"morale": 0.1}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept the Sultan's choice, Radu",
+        "effects": [
+          {"newRuler": {"name": "Radu the Fair", "skill": 2, "traits": ["diplomat"], "age": 20}},
+          {"opinion": {"nation": "TUR", "amount": 30}},
+          {"stability": 1}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "alb_league_of_lezhe",
+    "pool": "historical",
+    "title": "The League of Lezhë",
+    "text": "You have called the Albanian lords to the Venetian town of Lezhë and urged them to fight as one under your banner. United, their mountains could break army after army; divided, they will fall one valley at a time. Venice and the Sultan both have offers of their own.",
+    "image": "swords",
+    "nations": ["ALB"],
+    "window": [1444, 1468],
+    "mtth": 12,
+    "news": "Skanderbeg has united the Albanian lords at Lezhë.",
+    "trigger": {"all": [{"exists": "TUR"}, {"exists": "VEN"}]},
+    "choices": [
+      {
+        "text": "Unite the lords under your banner",
+        "effects": [
+          {"prestige": 10},
+          {"opinion": {"nation": "TUR", "amount": -25}},
+          {
+            "modifier": {
+              "id": "league_of_lezhe",
+              "name": "League of Lezhë",
+              "months": 120,
+              "mods": {"manpower": 0.2, "fortDefense": 0.15}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Seek Venetian protection",
+        "effects": [{"ally": "VEN"}, {"opinion": {"nation": "VEN", "amount": 25}}, {"gold": 50}],
+        "ai": 1
+      },
+      {
+        "text": "Pay tribute to the Sultan",
+        "effects": [{"gold": -50}, {"stability": 1}, {"prestige": -10}, {"opinion": {"nation": "TUR", "amount": 30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mos_ivan_and_novgorod",
+    "pool": "historical",
+    "title": "Lord Novgorod the Great",
+    "text": "Novgorod, the proud merchant republic of the north, is flirting with Lithuania and the Latin faith. Your boyars say its lands and furs belong to Moscow by right, and that its veche bell should hang in your Kremlin. The republic's own Moscow party would open the gates if you came in force.",
+    "image": "map",
+    "nations": ["MOS"],
+    "window": [1460, 1500],
+    "mtth": 24,
+    "trigger": {"all": [{"exists": "NOV"}, {"not": {"atWarWith": "NOV"}}]},
+    "choices": [
+      {
+        "text": "Claim Novgorod as your patrimony",
+        "effects": [
+          {"addClaim": ["novgorod", "karelia"]},
+          {"threat": 10},
+          {"triggerEvent": {"id": "nov_moscow_party", "months": 6, "nation": "NOV"}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Demand tribute and leave them be",
+        "effects": [{"gold": 75}, {"opinion": {"nation": "NOV", "amount": -25}}, {"prestige": 5}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nov_moscow_party",
+    "pool": "historical",
+    "title": "The Moscow Party",
+    "text": "Moscow has laid claim to your lands, and half the city cheers. The boyar families who trade with the Grand Prince say resistance is hopeless, while the Boretsky clan urges an alliance with Catholic Lithuania. The veche bell rings day and night.",
+    "image": "rebels",
+    "nations": ["NOV"],
+    "hidden": true,
+    "trigger": {"all": [{"exists": "MOS"}, {"exists": "LIT"}]},
+    "choices": [
+      {
+        "text": "Turn to Lithuania for protection",
+        "effects": [{"ally": "LIT"}, {"unrestAll": 2}, {"opinion": {"nation": "MOS", "amount": -25}}],
+        "ai": 2
+      },
+      {
+        "text": "Bow to Moscow's demands",
+        "effects": [{"gold": -50}, {"prestige": -10}, {"stability": 1}, {"opinion": {"nation": "MOS", "amount": 30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mos_tsardom",
+    "pool": "historical",
+    "title": "Tsar of All Rus",
+    "text": "Your realm now stretches from the northern forests to the edge of the steppe, and your scholars call Moscow the Third Rome. A grand coronation as Tsar would put you on a level with emperors. Your neighbours in Lithuania and Poland will hear it as a claim to every Orthodox land they hold.",
+    "image": "crown",
+    "nations": ["MOS"],
+    "window": [1540, 1620],
+    "mtth": 12,
+    "news": "The Grand Prince of Moscow has been crowned Tsar of All Rus.",
+    "trigger": {"regionsAtLeast": 8},
+    "choices": [
+      {
+        "text": "Be crowned Tsar of All Rus",
+        "effects": [{"prestige": 20}, {"threat": 10}, {"addClaim": ["kiev", "smolensk", "polotsk"]}],
+        "ai": 4
+      },
+      {"text": "Remain Grand Prince for now", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "mos_time_of_troubles",
+    "pool": "historical",
+    "title": "The Time of Troubles",
+    "text": "The old dynasty has died out, famine stalks the land and the boyars are at each other's throats. Now a young man appears in Poland claiming to be Dmitry, the murdered son of Ivan the Terrible. Polish magnates are already lending him an army.",
+    "image": "plague",
+    "nations": ["MOS"],
+    "window": [1598, 1625],
+    "mtth": 12,
+    "news": "Muscovy has fallen into the Time of Troubles.",
+    "trigger": {"not": {"subjectOf": true}},
+    "choices": [
+      {
+        "text": "Accept the man who claims to be Dmitry",
+        "effects": [
+          {"newRuler": {"name": "False Dmitry", "skill": 1, "traits": ["ambitious"], "age": 24}},
+          {"stability": -2},
+          {"rebels": {"regiments": 4}},
+          {"opinion": {"nation": "POL", "amount": 30}},
+          {"triggerEvent": {"id": "pol_dimitriads", "months": 3, "nation": "POL"}},
+          {"triggerEvent": {"id": "mos_romanov_election", "months": 60}}
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Stand by the boyar tsar",
+        "effects": [
+          {"stability": -1},
+          {"rebels": {"regiments": 7}},
+          {"unrestAll": 2},
+          {"triggerEvent": {"id": "pol_dimitriads", "months": 6, "nation": "POL"}},
+          {"triggerEvent": {"id": "mos_romanov_election", "months": 60}}
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "pol_dimitriads",
+    "pool": "historical",
+    "title": "A Pretender for Moscow",
+    "text": "Muscovy is in chaos, and Polish magnates are already riding east behind a pretender tsar. If the crown backs them, Smolensk and perhaps Moscow itself could be yours. If it does not, the magnates will go anyway and drag you in after them.",
+    "image": "horse",
+    "nations": ["POL"],
+    "hidden": true,
+    "trigger": {"exists": "MOS"},
+    "choices": [
+      {
+        "text": "March on Moscow",
+        "effects": [{"addClaim": ["smolensk", "moscow"]}, {"threat": 10}, {"prestige": 5}],
+        "ai": 3
+      },
+      {"text": "Disown the magnates' adventure", "effects": [{"stability": 1}, {"prestige": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "mos_romanov_election",
+    "pool": "historical",
+    "title": "The Romanov Election",
+    "text": "After years of famine, pretenders and foreign armies, an assembly of the land gathers in Moscow to choose a new tsar. The favourite is Michael Romanov, a shy sixteen-year-old from an old boyar family. Some still argue for a Polish prince to buy peace with the west.",
+    "image": "crown",
+    "nations": ["MOS"],
+    "hidden": true,
+    "news": "Michael Romanov may soon be chosen as Tsar of Muscovy.",
+    "trigger": {"faith": "orthodox"},
+    "choices": [
+      {
+        "text": "Elect young Michael Romanov",
+        "effects": [
+          {"newRuler": {"name": "Michael Romanov", "skill": 2, "traits": ["just"], "age": 16}},
+          {"stability": 2},
+          {"prestige": 5}
+        ],
+        "ai": 5
+      },
+      {
+        "text": "Offer the throne to a Polish prince",
+        "effects": [
+          {"newRuler": {"name": "Władysław Vasa", "skill": 3, "traits": ["warrior"], "age": 18}},
+          {"opinion": {"nation": "POL", "amount": 40}},
+          {"stability": -1},
+          {"unrestAll": 2}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mos_livonian_war",
+    "pool": "historical",
+    "title": "The Livonian War",
+    "text": "The Livonian Order is old, weak and divided, and it bars you from the Baltic ports. Its knights have stopped paying the tribute they owe for Dorpat. Your boyars say one hard campaign would give Moscow a window on the sea; your envoys warn that Poland, Sweden and Denmark want the same prize.",
+    "image": "swords",
+    "nations": ["MOS"],
+    "window": [1550, 1600],
+    "mtth": 24,
+    "news": "Muscovy has turned its eyes on Livonia.",
+    "trigger": {"all": [{"exists": "LIV"}, {"not": {"atWarWith": "LIV"}}, {"ownsAny": ["novgorod", "pskov"]}]},
+    "choices": [
+      {
+        "text": "Invade Livonia",
+        "effects": [
+          {"addClaim": "livonia"},
+          {"declareWar": {"target": "LIV", "cb": "claim", "region": "livonia"}},
+          {"threat": 10}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Demand the Dorpat tribute in gold",
+        "effects": [{"gold": 75}, {"opinion": {"nation": "LIV", "amount": -30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "rut_union_of_brest",
+    "pool": "historical",
+    "title": "The Union of Brest",
+    "text": "Orthodox bishops in your eastern lands, tired of neglect from Constantinople, offer to accept the Pope's authority while keeping their own rites. Rome is delighted. Many of their priests and Cossacks are not, and they call the bishops traitors.",
+    "image": "church",
+    "nations": ["POL", "LIT"],
+    "window": [1590, 1630],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {"faith": "catholic"},
+        {
+          "any": [
+            {"all": [{"owns": "red_ruthenia"}, {"regionFaith": {"region": "red_ruthenia", "faith": "orthodox"}}]},
+            {"all": [{"owns": "volhynia"}, {"regionFaith": {"region": "volhynia", "faith": "orthodox"}}]},
+            {"all": [{"owns": "kiev"}, {"regionFaith": {"region": "kiev", "faith": "orthodox"}}]},
+            {"all": [{"owns": "polotsk"}, {"regionFaith": {"region": "polotsk", "faith": "orthodox"}}]},
+            {"all": [{"owns": "minsk"}, {"regionFaith": {"region": "minsk", "faith": "orthodox"}}]},
+            {"all": [{"owns": "smolensk"}, {"regionFaith": {"region": "smolensk", "faith": "orthodox"}}]}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Bring the bishops into union with Rome",
+        "effects": [{"papalFavor": 20}, {"prestige": 5}, {"unrestAll": 2}],
+        "ai": 3
+      },
+      {"text": "Leave the Orthodox Church in peace", "effects": [{"stability": 1}, {"papalFavor": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "rut_khmelnytsky_uprising",
+    "pool": "historical",
+    "title": "The Khmelnytsky Uprising",
+    "text": "Bohdan Khmelnytsky, a Cossack officer wronged by a noble neighbour, has raised the whole Dnieper against your lords. Cossacks, peasants and Tatar allies are burning manors across Ruthenia. The Orthodox clergy bless the rebels as defenders of the faith.",
+    "image": "rebels",
+    "window": [1640, 1680],
+    "mtth": 24,
+    "news": "The Cossacks of the Dnieper have risen under Bohdan Khmelnytsky.",
+    "trigger": {
+      "all": [
+        {"owns": "kiev"},
+        {"regionFaith": {"region": "kiev", "faith": "orthodox"}},
+        {"not": {"faith": "orthodox"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send the crown army against them",
+        "effects": [{"rebels": {"regiments": 8, "region": "kiev"}}, {"prestige": 5}],
+        "ai": 2
+      },
+      {
+        "text": "Register the Cossacks and pay them",
+        "effects": [
+          {"goldPerDev": -2},
+          {"unrestRegion": {"region": "kiev", "amount": -3}},
+          {"prestige": -5},
+          {
+            "modifier": {
+              "id": "registered_cossacks",
+              "name": "Registered Cossacks",
+              "months": 120,
+              "mods": {"cavalryPower": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pol_the_deluge",
+    "pool": "historical",
+    "title": "The Deluge",
+    "text": "Enemy armies are pouring into the Commonwealth from every side, and magnates are switching allegiance to save their estates. Only the monastery of Jasna Góra still holds out, its monks firing cannon from the walls. The realm needs a miracle, or money, or men.",
+    "image": "siege",
+    "nations": ["POL"],
+    "window": [1650, 1690],
+    "mtth": 36,
+    "trigger": {"atWar": true},
+    "choices": [
+      {
+        "text": "Rally the realm around Jasna Góra",
+        "effects": [{"stability": 1}, {"prestige": 10}, {"papalFavor": 10}, {"warExhaustion": 2}],
+        "ai": 2
+      },
+      {"text": "Pay the invaders to withdraw", "effects": [{"goldPerDev": -3}, {"prestige": -10}], "ai": 1},
+      {"text": "Call out the noble levy", "effects": [{"manpower": 8000}, {"unrestAll": 2}], "ai": 2}
+    ]
+  },
+  {
+    "id": "mos_peter_the_great",
+    "pool": "historical",
+    "title": "Peter the Great",
+    "text": "The young tsar has returned from a tour of the dockyards and workshops of the west, and he is in a hurry. Beards are to be shaved, the army drilled in foreign fashion, and a new capital raised from the Baltic marshes. The boyars mutter that the realm is being turned inside out.",
+    "image": "ship",
+    "nations": ["MOS"],
+    "window": [1689, 1730],
+    "mtth": 12,
+    "news": "Tsar Peter has begun to remake Muscovy on western lines.",
+    "trigger": {"not": {"subjectOf": true}},
+    "choices": [
+      {
+        "text": "Westernise the realm by decree",
+        "effects": [
+          {"newRuler": {"name": "Peter I", "skill": 5, "traits": ["ambitious", "builder"], "age": 25}},
+          {"stability": -1},
+          {"unrestAll": 2},
+          {
+            "modifier": {
+              "id": "petrine_reforms",
+              "name": "Petrine Reforms",
+              "months": 120,
+              "mods": {"techCost": -0.15, "infantryPower": 0.1}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Build a navy and a new capital",
+        "effects": [
+          {"newRuler": {"name": "Peter I", "skill": 5, "traits": ["ambitious", "builder"], "age": 25}},
+          {"goldPerDev": -2},
+          {
+            "modifier": {
+              "id": "baltic_fleet",
+              "name": "The Baltic Fleet",
+              "months": 120,
+              "mods": {"navalPower": 0.15, "shipCost": -0.2}
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Reform slowly, with the boyars' consent",
+        "effects": [
+          {"newRuler": {"name": "Peter I", "skill": 5, "traits": ["ambitious", "builder"], "age": 25}},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "gradual_reform",
+              "name": "Gradual Reform",
+              "months": 120,
+              "mods": {"techCost": -0.05}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swe_kalmar_strains",
+    "pool": "historical",
+    "title": "Strains in the Kalmar Union",
+    "text": "The Danish king's bailiffs squeeze your miners and peasants, and his wars in Germany are paid for with Swedish iron. The council of the realm grumbles that the Union serves Copenhagen alone. Some lords urge you to elect your own king, as your fathers did.",
+    "image": "scroll",
+    "nations": ["SWE"],
+    "window": [1448, 1520],
+    "mtth": 48,
+    "news": "Sweden is restless under the Kalmar Union.",
+    "trigger": {"subjectOf": "DAN"},
+    "choices": [
+      {
+        "text": "Elect your own king and leave the Union",
+        "effects": [
+          {"independence": true},
+          {"prestige": 10},
+          {"opinion": {"nation": "DAN", "amount": -40}},
+          {"stability": -1}
+        ],
+        "ai": 1
+      },
+      {"text": "Keep faith with the Union for now", "effects": [{"stability": 1}, {"prestige": -5}], "ai": 2}
+    ]
+  },
+  {
+    "id": "swe_gustav_vasa",
+    "pool": "historical",
+    "title": "Gustav Vasa",
+    "text": "The Danish king has had scores of Swedish nobles beheaded in Stockholm's great square, and the realm is sick with fury. A young nobleman named Gustav Vasa, escaped from Danish captivity, is raising the miners of Dalarna. If you follow him, there will be no making peace with Copenhagen.",
+    "image": "rebels",
+    "nations": ["SWE"],
+    "window": [1515, 1560],
+    "mtth": 12,
+    "news": "Gustav Vasa has risen against Danish rule in Sweden.",
+    "trigger": {"subjectOf": "DAN"},
+    "choices": [
+      {
+        "text": "Rise with Gustav Vasa",
+        "effects": [
+          {"independence": true},
+          {"newRuler": {"name": "Gustav Vasa", "skill": 4, "traits": ["administrator", "ambitious"], "age": 27}},
+          {"prestige": 15},
+          {"addRegiments": {"inf": 3, "cav": 1}},
+          {"opinion": {"nation": "DAN", "amount": -50}}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Submit to the Danish crown",
+        "effects": [{"stability": -1}, {"prestige": -15}, {"unrestAll": 2}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swe_vasteras_riksdag",
+    "pool": "historical",
+    "title": "The Riksdag of Västerås",
+    "text": "Your crown is drowning in debt, while the Church owns a fifth of the land and pays almost nothing. Lutheran preachers have friends at court, and the estates gathered at Västerås are ready to hand the bishops' castles and silver to the crown. Rome will not forgive it.",
+    "image": "church",
+    "nations": ["SWE"],
+    "window": [1523, 1600],
+    "mtth": 24,
+    "trigger": {"all": [{"faith": "catholic"}, {"flag": "reformation"}, {"not": {"subjectOf": true}}]},
+    "choices": [
+      {
+        "text": "Seize the Church's lands and silver",
+        "effects": [
+          {"changeFaith": "protestant"},
+          {"goldPerDev": 3},
+          {"stability": -1},
+          {"setNationFlag": "embraced_reform"},
+          {"setNationFlag": "reform_choice_made"}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Keep faith with Rome",
+        "effects": [{"papalFavor": 15}, {"stability": 1}, {"loans": 1}, {"setNationFlag": "reform_choice_made"}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "dan_oldenburg_succession",
+    "pool": "historical",
+    "title": "The Oldenburg Succession",
+    "text": "King Christopher has died young and childless, leaving three Nordic crowns without a master. Your council favours his kinsman Count Christian of Oldenburg, a capable young prince. The only question is what the nobles will demand for their votes.",
+    "image": "crown",
+    "nations": ["DAN"],
+    "window": [1446, 1455],
+    "mtth": 24,
+    "news": "Christian of Oldenburg has been elected King of Denmark.",
+    "trigger": {"rulerAgeAtLeast": 30},
+    "choices": [
+      {
+        "text": "Elect Christian and demand Swedish loyalty",
+        "effects": [
+          {"newRuler": {"name": "Christian I", "skill": 3, "traits": ["diplomat"], "age": 22}},
+          {"prestige": 10},
+          {"opinion": {"nation": "SWE", "amount": -25}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Elect Christian and grant the nobles a charter",
+        "effects": [
+          {"newRuler": {"name": "Christian I", "skill": 3, "traits": ["diplomat"], "age": 22}},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "noble_charter",
+              "name": "The Noble Charter",
+              "months": 60,
+              "mods": {"taxIncome": -0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swe_gustavus_adolphus",
+    "pool": "historical",
+    "title": "The Lion of the North",
+    "text": "Your new king Gustavus Adolphus is barely seventeen, but he has inherited three wars and the brains to win them. He talks of light guns, small brigades and soldiers who fire in volleys. His chancellor Axel Oxenstierna talks of courts, taxes and roads.",
+    "image": "swords",
+    "nations": ["SWE"],
+    "window": [1611, 1640],
+    "mtth": 12,
+    "news": "Gustavus Adolphus has become King of Sweden.",
+    "trigger": {"not": {"subjectOf": true}},
+    "choices": [
+      {
+        "text": "Rebuild the army on new lines",
+        "effects": [
+          {"newRuler": {"name": "Gustavus Adolphus", "skill": 5, "traits": ["warrior", "ambitious"], "age": 17}},
+          {"gold": -100},
+          {"hireGeneral": {"fire": 5, "shock": 3, "maneuver": 4, "name": "Lennart Torstensson"}},
+          {
+            "modifier": {
+              "id": "swedish_brigades",
+              "name": "Swedish Brigades",
+              "months": 120,
+              "mods": {"infantryPower": 0.1, "artilleryPower": 0.15}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Rebuild the state with Oxenstierna",
+        "effects": [
+          {"newRuler": {"name": "Gustavus Adolphus", "skill": 5, "traits": ["administrator", "just"], "age": 17}},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "oxenstierna_reforms",
+              "name": "Oxenstierna's Reforms",
+              "months": 120,
+              "mods": {"taxIncome": 0.1, "stabilityCost": -0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swe_great_northern_war",
+    "pool": "historical",
+    "title": "The Great Northern War",
+    "text": "The Tsar has joined a coalition of your neighbours to tear your Baltic empire apart. Your young king has already beaten them once and burns to march on Moscow itself. His older generals beg him to defend what Sweden already holds.",
+    "image": "swords",
+    "nations": ["SWE"],
+    "window": [1695, 1730],
+    "mtth": 6,
+    "news": "Sweden and Muscovy are locked in a great northern war.",
+    "trigger": {"atWarWith": "MOS"},
+    "choices": [
+      {
+        "text": "March deep into Russia",
+        "effects": [
+          {"prestige": 10},
+          {"warExhaustion": 2},
+          {
+            "modifier": {
+              "id": "carolean_offensive",
+              "name": "Carolean Offensive",
+              "months": 24,
+              "mods": {"morale": 0.15, "attrition": 0.1}
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Hold the Baltic provinces",
+        "effects": [
+          {"manpower": 5000},
+          {
+            "modifier": {
+              "id": "baltic_fortresses",
+              "name": "Baltic Fortresses",
+              "months": 60,
+              "mods": {"fortDefense": 0.2}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_act_of_supremacy",
+    "pool": "historical",
+    "title": "The King's Great Matter",
+    "text": "The Pope will not grant the annulment your king demands, and the king will not take no for an answer. Clever lawyers argue that the crown, not Rome, is the true head of the English Church. The monasteries' lands alone would refill the treasury.",
+    "image": "church",
+    "nations": ["ENG"],
+    "window": [1525, 1600],
+    "mtth": 24,
+    "news": "England is quarrelling with the Pope over the king's marriage.",
+    "trigger": {"all": [{"faith": "catholic"}, {"flag": "reformation"}]},
+    "choices": [
+      {
+        "text": "Break with Rome and head the Church",
+        "effects": [
+          {"changeFaith": "protestant"},
+          {"goldPerDev": 3},
+          {"stability": -1},
+          {"unrestAll": 2},
+          {"setNationFlag": "embraced_reform"},
+          {"setNationFlag": "reform_choice_made"}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Bow to the Pope's judgement",
+        "effects": [{"papalFavor": 15}, {"prestige": -10}, {"setNationFlag": "reform_choice_made"}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_thistle_and_rose",
+    "pool": "historical",
+    "title": "The Thistle and the Rose",
+    "text": "Your eldest daughter is of an age to marry, and the King of Scots has asked for her hand as the price of a lasting peace. A Scottish match could end two centuries of border war, and might one day put a Scot on your throne. A continental match would bring more prestige.",
+    "image": "marriage",
+    "nations": ["ENG"],
+    "window": [1495, 1530],
+    "mtth": 24,
+    "trigger": {"all": [{"exists": "SCO"}, {"not": {"atWarWith": "SCO"}}]},
+    "choices": [
+      {
+        "text": "Wed her to the King of Scots",
+        "effects": [{"setFlag": "thistle_and_rose"}, {"opinion": {"nation": "SCO", "amount": 30}}, {"threat": -5}],
+        "ai": 3
+      },
+      {"text": "Seek a grander match abroad", "effects": [{"prestige": 10}], "ai": 1}
+    ]
+  },
+  {
+    "id": "eng_union_of_crowns",
+    "pool": "historical",
+    "title": "One King for Two Kingdoms",
+    "text": "Your monarch is old, and the nearest heir by blood is the King of Scots. He is learned, vain and eager to come south. Accepting him would join England and Scotland under one crown for the first time; passing him over would mean a disputed succession.",
+    "image": "crown",
+    "nations": ["ENG"],
+    "window": [1595, 1660],
+    "mtth": 24,
+    "news": "England and Scotland now share a single king.",
+    "trigger": {
+      "all": [
+        {"exists": "SCO"},
+        {"any": [{"allied": "SCO"}, {"flag": "thistle_and_rose"}]},
+        {"not": {"overlordOf": "SCO"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "SCO"}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Invite the King of Scots south",
+        "effects": [
+          {"personalUnion": "SCO"},
+          {"newRuler": {"name": "James I", "skill": 3, "traits": ["scholar", "spendthrift"], "age": 37}},
+          {"prestige": 10}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Pass over the Scottish line",
+        "effects": [{"stability": -1}, {"opinion": {"nation": "SCO", "amount": -30}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_act_of_union",
+    "pool": "historical",
+    "title": "The Act of Union",
+    "text": "England and Scotland have shared a monarch for generations, but each keeps its own parliament, laws and quarrels. Merging them into one kingdom would end the threat of a separate Scottish succession. Many Scots will call it the sale of their nation.",
+    "image": "treaty",
+    "nations": ["ENG"],
+    "window": [1680, 1750],
+    "mtth": 24,
+    "news": "England and Scotland have merged into a single kingdom.",
+    "trigger": {"overlordOf": "SCO"},
+    "choices": [
+      {
+        "text": "Unite the two parliaments",
+        "effects": [{"inherit": "SCO"}, {"prestige": 10}, {"stability": -1}, {"unrestAll": 1}],
+        "ai": 4
+      },
+      {"text": "Keep separate parliaments", "effects": [{"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "eng_civil_war",
+    "pool": "historical",
+    "title": "King against Parliament",
+    "text": "Parliament refuses to grant taxes until the king answers its grievances, and the king has tried to arrest its leaders in their own chamber. London's trained bands have turned out against him. Both sides are raising armies.",
+    "image": "rebels",
+    "nations": ["ENG"],
+    "window": [1635, 1665],
+    "mtth": 36,
+    "news": "England is on the brink of civil war between king and Parliament.",
+    "trigger": {"any": [{"loansAtLeast": 1}, {"stability": [-3, 0]}, {"atWar": true}]},
+    "choices": [
+      {
+        "text": "Raise the royal standard",
+        "effects": [
+          {"setFlag": "english_civil_war"},
+          {"rebels": {"regiments": 8}},
+          {"stability": -1},
+          {"triggerEvent": {"id": "eng_kings_head", "months": 36}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Yield to Parliament's demands",
+        "effects": [
+          {"prestige": -15},
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "parliaments_purse",
+              "name": "Parliament's Purse",
+              "months": 120,
+              "mods": {"taxIncome": -0.15}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_kings_head",
+    "pool": "historical",
+    "title": "The King on Trial",
+    "text": "The royalist armies are broken and the king is a prisoner. The army's grandees and their Puritan preachers demand that he be tried for treason against his own people. Others in Parliament still hope to restore him with his wings clipped.",
+    "image": "death",
+    "nations": ["ENG"],
+    "hidden": true,
+    "news": "England's king has been put on trial by his own Parliament.",
+    "trigger": {"flag": "english_civil_war"},
+    "choices": [
+      {
+        "text": "Try the king and rule as a Commonwealth",
+        "effects": [
+          {"newRuler": {"name": "Oliver Cromwell", "skill": 4, "traits": ["warrior", "pious"], "age": 49}},
+          {"stability": -1},
+          {"prestige": -10},
+          {"triggerEvent": {"id": "eng_restoration", "months": 120}}
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Restore the king with his powers cut",
+        "effects": [
+          {"stability": 1},
+          {
+            "modifier": {
+              "id": "parliamentary_purse",
+              "name": "Parliamentary Control",
+              "months": 120,
+              "mods": {"taxIncome": -0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_restoration",
+    "pool": "historical",
+    "title": "The Restoration",
+    "text": "The Lord Protector is dead and no one can fill his boots. The army quarrels, the republic drifts, and the exiled heir of the old king offers a pardon to all if he is invited home. A general in the north is ready to march on London either way.",
+    "image": "crown",
+    "nations": ["ENG"],
+    "hidden": true,
+    "news": "The English monarchy may soon be restored.",
+    "trigger": {"flag": "english_civil_war"},
+    "choices": [
+      {
+        "text": "Invite the king home",
+        "effects": [
+          {"newRuler": {"name": "Charles II", "skill": 3, "traits": ["shrewd", "spendthrift"], "age": 30}},
+          {"stability": 1},
+          {"prestige": 10}
+        ],
+        "ai": 4
+      },
+      {
+        "text": "Keep the Protectorate and its army",
+        "effects": [
+          {"stability": -1},
+          {
+            "modifier": {
+              "id": "new_model_army",
+              "name": "New Model Army",
+              "months": 60,
+              "mods": {"infantryPower": 0.1, "morale": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "eng_glorious_revolution",
+    "pool": "historical",
+    "title": "The Glorious Revolution",
+    "text": "Your king has filled the army and the council with Catholics and has just fathered a Catholic heir. Leading Protestant lords have secretly invited his son-in-law, William of Orange, to come over with a Dutch army. The king's officers are wondering whose side they are on.",
+    "image": "ship",
+    "nations": ["ENG"],
+    "window": [1680, 1720],
+    "mtth": 36,
+    "news": "William of Orange has landed in England.",
+    "trigger": {"faith": "protestant"},
+    "choices": [
+      {
+        "text": "Welcome William and a Bill of Rights",
+        "effects": [
+          {"newRuler": {"name": "William III", "skill": 4, "traits": ["diplomat", "warrior"], "age": 38}},
+          {"prestige": -10},
+          {
+            "modifier": {
+              "id": "bill_of_rights",
+              "name": "Bill of Rights",
+              "months": 120,
+              "mods": {"taxIncome": 0.1, "stabilityCost": -0.1}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Stand by the king",
+        "effects": [{"rebels": {"regiments": 6}}, {"prestige": 10}, {"stability": 1}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mlo_sforza",
+    "pool": "historical",
+    "title": "The Sforza Seize Milan",
+    "text": "Duke Filippo Maria Visconti is dying without a legitimate son. The citizens dream of an Ambrosian Republic, while his son-in-law Francesco Sforza, the greatest condottiere in Italy, has an army camped outside the walls. Milan will have a master; the only question is which.",
+    "image": "castle",
+    "nations": ["MLO"],
+    "window": [1446, 1452],
+    "mtth": 12,
+    "news": "Milan's duke is dying, and Francesco Sforza's army waits outside the city.",
+    "trigger": {"rulerAgeAtLeast": 52},
+    "choices": [
+      {
+        "text": "Open the gates to Francesco Sforza",
+        "effects": [
+          {"newRuler": {"name": "Francesco Sforza", "skill": 4, "traits": ["warrior", "shrewd"], "age": 46}},
+          {"gold": -50},
+          {"stability": 1}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Proclaim the Ambrosian Republic",
+        "effects": [
+          {"newRuler": {"name": "Captains of Liberty", "skill": 2, "traits": ["merchant"], "age": 50}},
+          {"stability": -1},
+          {"rebels": {"regiments": 4}},
+          {
+            "modifier": {
+              "id": "ambrosian_republic",
+              "name": "Ambrosian Republic",
+              "months": 60,
+              "mods": {"tradeIncome": 0.1}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ita_peace_of_lodi",
+    "pool": "historical",
+    "title": "The Peace of Lodi",
+    "text": "Worn out by endless wars and alarmed by the Turk, the powers of Italy are meeting at Lodi to agree a general peace. Each state would keep what it holds and join a league against any outsider. It means setting aside old claims, at least for a generation.",
+    "image": "treaty",
+    "nations": ["MLO", "VEN", "FLO", "NAP", "PAP", "GEN", "SAV"],
+    "window": [1454, 1480],
+    "mtth": 18,
+    "once": false,
+    "trigger": {"all": [{"not": {"atWar": true}}, {"not": {"nationFlag": "lodi_answered"}}]},
+    "choices": [
+      {
+        "text": "Join the Italian League",
+        "effects": [
+          {"setNationFlag": "lodi_answered"},
+          {"stability": 1},
+          {"threat": -10},
+          {
+            "modifier": {
+              "id": "italian_league",
+              "name": "Italian League",
+              "months": 120,
+              "mods": {"threatGain": -0.1, "tradeIncome": 0.05}
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Keep your hands free",
+        "effects": [
+          {"setNationFlag": "lodi_answered"},
+          {"prestige": 5},
+          {"modifier": {"id": "free_hand", "name": "A Free Hand", "months": 60, "mods": {"mercCost": -0.15}}}
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "flo_medici_patronage",
+    "pool": "historical",
+    "title": "Medici Patronage",
+    "text": "Medici florins flow from London to Constantinople, and their profits pay for the glory of Florence. Brunelleschi's dome rises over the cathedral, and painters and scholars crowd your palaces in search of patrons. The family's enemies say the money would be better kept.",
+    "image": "coins",
+    "nations": ["FLO"],
+    "window": [1444, 1500],
+    "mtth": 24,
+    "trigger": {"gov": "republic"},
+    "choices": [
+      {
+        "text": "Fund the artists and the dome",
+        "effects": [{"gold": -100}, {"prestige": 15}, {"devCapital": 1}],
+        "ai": 2
+      },
+      {
+        "text": "Lend to the crowned heads of Europe",
+        "effects": [
+          {"modifier": {"id": "medici_bank", "name": "Medici Loans", "months": 60, "mods": {"tradeIncome": 0.15}}},
+          {"threat": 5}
+        ],
+        "ai": 1
+      },
+      {"text": "Buy the loyalty of the guilds", "effects": [{"gold": -50}, {"stability": 1}], "ai": 1}
+    ]
+  },
+  {
+    "id": "flo_bonfire_of_vanities",
+    "pool": "historical",
+    "title": "The Bonfire of the Vanities",
+    "text": "The Dominican friar Savonarola preaches that Florence's luxury has called down God's wrath. His followers go from house to house collecting mirrors, dice, books and paintings, and pile them high in the Piazza della Signoria. The Pope has ordered him to stop preaching; Florence has not.",
+    "image": "church",
+    "nations": ["FLO"],
+    "window": [1490, 1510],
+    "mtth": 24,
+    "trigger": {"faith": "catholic"},
+    "choices": [
+      {
+        "text": "Let the friar light his bonfire",
+        "effects": [{"stability": 1}, {"devCapital": -1}, {"papalFavor": -10}, {"prestige": -5}],
+        "ai": 2
+      },
+      {"text": "Hand Savonarola over to Rome", "effects": [{"papalFavor": 15}, {"unrestAll": 2}], "ai": 1}
+    ]
+  },
+  {
+    "id": "ven_caterina_cornaro",
+    "pool": "historical",
+    "title": "A Venetian Queen for Cyprus",
+    "text": "The young King of Cyprus needs money and a strong friend, and he has asked for the hand of a Venetian noblewoman, Caterina Cornaro. The Senate could adopt her as a daughter of the Republic and pay her dowry. If the king died young, Venice would have a very good claim to his island.",
+    "image": "marriage",
+    "nations": ["VEN"],
+    "window": [1460, 1485],
+    "mtth": 24,
+    "trigger": {"all": [{"exists": "CYP"}, {"not": {"atWarWith": "CYP"}}]},
+    "choices": [
+      {
+        "text": "Adopt Caterina as a daughter of Venice",
+        "effects": [
+          {"setFlag": "venetian_queen_of_cyprus"},
+          {"gold": -100},
+          {"ally": "CYP"},
+          {"opinion": {"nation": "CYP", "amount": 30}}
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Spend the dowry on the fleet",
+        "effects": [
+          {
+            "modifier": {
+              "id": "arsenal_expansion",
+              "name": "Arsenal Expansion",
+              "months": 60,
+              "mods": {"shipCost": -0.1, "navalPower": 0.05}
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ven_cyprus",
+    "pool": "historical",
+    "title": "The Queen Abdicates",
+    "text": "The King of Cyprus is dead, and his widow rules alone among plotting nobles and Ottoman envoys. Your Senate believes the island is too valuable to leave to chance. The queen can be persuaded to hand it over to the Republic, or kept on her throne under your protection.",
+    "image": "treaty",
+    "nations": ["VEN"],
+    "window": [1485, 1520],
+    "mtth": 24,
+    "news": "Venice has taken control of the Kingdom of Cyprus.",
+    "trigger": {
+      "all": [
+        {"exists": "CYP"},
+        {"any": [{"allied": "CYP"}, {"flag": "venetian_queen_of_cyprus"}]},
+        {"not": {"atWarWith": "CYP"}},
+        {"not": {"subjectOf": true}}
+      ]
+    },
+    "choices": [
+      {
+        "text": "Persuade her to cede the island",
+        "effects": [{"inherit": "CYP"}, {"threat": 10}, {"prestige": 10}],
+        "ai": 3
+      },
+      {
+        "text": "Keep her on the throne as your client",
+        "effects": [{"personalUnion": "CYP"}, {"threat": 5}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pap_sack_of_rome",
+    "pool": "historical",
+    "title": "The Sack of Rome",
+    "text": "Unpaid and mutinous imperial soldiers have stormed the walls of Rome. Churches are looted and cardinals ransomed in the streets, while you watch the smoke from the battlements of Castel Sant'Angelo. The city will not recover for a generation.",
+    "image": "siege",
+    "nations": ["PAP"],
+    "window": [1500, 1650],
+    "mtth": 3,
+    "news": "Rome has been sacked by mutinous imperial troops.",
+    "trigger": {
+      "all": [{"owns": "rome"}, {"not": {"controls": "rome"}}, {"any": [{"atWarWith": "HAB"}, {"atWarWith": "CAS"}]}]
+    },
+    "choices": [
+      {
+        "text": "Pay the ransom for the city",
+        "effects": [{"goldPerDev": -4}, {"prestige": -10}, {"devRegion": {"region": "rome", "amount": -1}}],
+        "ai": 2
+      },
+      {
+        "text": "Wait in the fortress for rescue",
+        "effects": [{"devRegion": {"region": "rome", "amount": -2}}, {"stability": -1}, {"prestige": 5}],
+        "ai": 1
+      }
+    ]
+  }
+]

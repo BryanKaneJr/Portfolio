@@ -1,0 +1,2594 @@
+[
+  {
+    "id": "gen_plague_outbreak",
+    "pool": "generic",
+    "title": "Pestilence in the Capital",
+    "text": "Sailors and carters have carried the pestilence through your gates. Black swellings appear in the poorer quarters, and the bells toll for the dead from dawn to dusk. Your physicians beg you to close the city before the sickness spreads.",
+    "image": "plague",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Seal the gates and quarantine the sick",
+        "effects": [
+          { "modifier": { "id": "gen_quarantine", "name": "Quarantine", "months": 12, "mods": { "taxIncome": -0.15, "tradeIncome": -0.2 } } },
+          { "triggerEvent": { "id": "gen_plague_recedes", "months": 10 } }
+        ],
+        "ai": 2
+      },
+      { "text": "Keep the markets open", "effects": [{ "triggerEvent": { "id": "gen_plague_spreads", "months": 8 } }] }
+    ]
+  },
+  {
+    "id": "gen_plague_spreads",
+    "pool": "generic",
+    "title": "The Pestilence Spreads",
+    "text": "The sickness has escaped the capital and now runs along every road and river. Whole villages lie empty, fields go unharvested and the survivors whisper that heaven has turned its face away. Unless you act, the dying will go on all year.",
+    "image": "plague",
+    "hidden": true,
+    "trigger": { "chance": 0.6 },
+    "choices": [
+      {
+        "text": "Burn the infected quarters",
+        "effects": [
+          { "devCapital": -1 },
+          { "unrestAll": 1 },
+          { "triggerEvent": { "id": "gen_plague_recedes", "months": 8 } }
+        ]
+      },
+      {
+        "text": "Wait for it to burn itself out",
+        "effects": [
+          { "modifier": { "id": "gen_pestilence", "name": "Pestilence", "months": 24, "mods": { "manpower": -0.2, "taxIncome": -0.15 } } },
+          { "stability": -1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_plague_recedes",
+    "pool": "generic",
+    "title": "The Pestilence Recedes",
+    "text": "No new cases have been reported for a month, and the death carts no longer rattle through the streets at night. The survivors open their shutters and count the empty houses. Your people look to you to mark the end of the dying.",
+    "image": "plague",
+    "hidden": true,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Hold a great service of thanksgiving",
+        "effects": [
+          { "removeModifier": "gen_quarantine" },
+          { "goldPerDev": -1 },
+          { "stability": 1 }
+        ]
+      },
+      {
+        "text": "Offer the empty farms to settlers",
+        "effects": [
+          { "removeModifier": "gen_quarantine" },
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "gen_resettlement", "name": "Resettled Farms", "months": 60, "mods": { "manpower": 0.1, "taxIncome": 0.05 } } }
+        ]
+      },
+      { "text": "Simply reopen the gates", "effects": [{ "removeModifier": "gen_quarantine" }] }
+    ]
+  },
+  {
+    "id": "gen_bad_harvest",
+    "pool": "generic",
+    "title": "A Wet Summer",
+    "text": "It has rained since spring and the wheat is rotting in the fields. Bread prices in your towns have doubled in a month and the poor are already muttering. Your stewards ask whether you mean to feed them.",
+    "image": "harvest",
+    "mtth": 150,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Open your granaries to the poor", "effects": [{ "goldPerDev": -1.5 }, { "unrestAll": -1 }], "ai": 2 },
+      {
+        "text": "Forbid all grain exports",
+        "effects": [
+          { "modifier": { "id": "gen_grain_embargo", "name": "Grain Embargo", "months": 12, "mods": { "tradeIncome": -0.15 } } }
+        ]
+      },
+      { "text": "Let prices find their own level", "effects": [{ "unrestAll": 2 }, { "triggerEvent": { "id": "gen_famine", "months": 8 } }] }
+    ]
+  },
+  {
+    "id": "gen_famine",
+    "pool": "generic",
+    "title": "Famine",
+    "text": "The granaries are empty and the next harvest is months away. Families eat their seed corn, then grass and bark, and the roads fill with the hungry walking toward your towns. Every week of delay costs lives.",
+    "image": "death",
+    "hidden": true,
+    "trigger": { "chance": 0.5 },
+    "choices": [
+      { "text": "Buy grain abroad at any price", "effects": [{ "goldPerDev": -2.5 }] },
+      { "text": "Seize the stores of lords and abbeys", "effects": [{ "stability": -1 }] },
+      { "text": "Let the hungry fend for themselves", "effects": [{ "manpower": -4000 }, { "unrestAll": 3 }] }
+    ]
+  },
+  {
+    "id": "gen_bumper_harvest",
+    "pool": "generic",
+    "title": "A Golden Harvest",
+    "text": "Sun and rain have come at the right times all year, and the barns cannot hold the grain. Markets overflow, bread is cheap and the villages are holding feasts. Your treasurer notes that a full harvest can bear a heavier tax.",
+    "image": "harvest",
+    "mtth": 150,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Levy a harvest tax", "effects": [{ "goldPerDev": 2 }] },
+      { "text": "Let the peasants keep the surplus", "effects": [{ "stability": 1 }] },
+      {
+        "text": "Fill the public granaries",
+        "effects": [
+          { "modifier": { "id": "gen_full_granaries", "name": "Full Granaries", "months": 60, "mods": { "manpower": 0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_peasant_revolt",
+    "pool": "generic",
+    "title": "The Villages Rise",
+    "text": "Peasants armed with flails, scythes and stolen hunting spears are marching on the nearest town. They demand an end to new dues and the heads of the bailiffs who collect them. Their numbers grow at every village they pass.",
+    "image": "rebels",
+    "mtth": 60,
+    "trigger": { "stability": [-3, -1] },
+    "choices": [
+      { "text": "Meet them with steel", "effects": [{ "rebels": { "regiments": 2 } }] },
+      {
+        "text": "Grant them a charter of rights",
+        "effects": [
+          { "modifier": { "id": "gen_peasant_charter", "name": "Peasant Charter", "months": 60, "mods": { "taxIncome": -0.1 } } },
+          { "stability": 1 }
+        ]
+      },
+      { "text": "Hang the bailiffs they hate", "effects": [{ "prestige": -10 }, { "unrestAll": -2 }] }
+    ]
+  },
+  {
+    "id": "gen_tax_revolt",
+    "pool": "generic",
+    "title": "The Towns Refuse to Pay",
+    "text": "Burghers in several of your towns have shut their gates on the tax collectors and rung the alarm bells. Guild militias man the walls, and their leaders say they will pay nothing more until their old privileges are restored.",
+    "image": "rebels",
+    "mtth": 60,
+    "trigger": { "all": [{ "stability": [-3, -1] }, { "devAtLeast": 15 }] },
+    "choices": [
+      { "text": "Send soldiers to collect what is owed", "effects": [{ "goldPerDev": 1 }, { "rebels": { "regiments": 4 } }] },
+      {
+        "text": "Restore their privileges",
+        "effects": [
+          { "modifier": { "id": "gen_town_privileges", "name": "Restored Town Privileges", "months": 48, "mods": { "taxIncome": -0.15 } } },
+          { "unrestAll": -1 }
+        ]
+      },
+      { "text": "Blame your treasurer and dismiss him", "effects": [{ "prestige": -15 }, { "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_bandits",
+    "pool": "generic",
+    "title": "Bandits on the Roads",
+    "text": "Merchants arrive at your capital stripped to their shirts, if they arrive at all. A band of former soldiers rules the forest roads, taking tolls in your name and hanging anyone who argues. Trade along the highways is drying up.",
+    "image": "rebels",
+    "mtth": 120,
+    "trigger": { "stability": [-3, 0] },
+    "choices": [
+      { "text": "Hunt them down", "effects": [{ "rebels": { "regiments": 1 } }, { "prestige": 5 }] },
+      { "text": "Pardon any who enlist", "effects": [{ "manpower": 2000 }, { "unrestAll": 1 }] },
+      {
+        "text": "Leave the roads to merchant guards",
+        "effects": [
+          { "modifier": { "id": "gen_bandit_roads", "name": "Bandit-Ridden Roads", "months": 24, "mods": { "tradeIncome": -0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_defiant_governor",
+    "pool": "generic",
+    "title": "A Governor Grows Proud",
+    "text": "The governor of one of your distant provinces has stopped forwarding taxes, raised his own guard and begun holding court like a prince. He still swears loyalty in every letter. Your council is divided on whether to bribe him or break him.",
+    "image": "rebels",
+    "mtth": 150,
+    "trigger": { "regionsAtLeast": 5 },
+    "choices": [
+      { "text": "Recall him and seize his estates", "effects": [{ "goldPerDev": 1 }, { "rebels": { "regiments": 3 } }] },
+      { "text": "Buy his loyalty with honours", "effects": [{ "goldPerDev": -1 }] },
+      {
+        "text": "Let him keep his little kingdom",
+        "effects": [
+          { "modifier": { "id": "gen_proud_governor", "name": "Overmighty Governor", "months": 60, "mods": { "taxIncome": -0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_born_commander",
+    "pool": "generic",
+    "title": "A Born Commander",
+    "text": "A younger son of a minor house has won every tourney and skirmish he has entered, and the soldiers already sing about him. He asks for a real command. Your marshals grumble that he is untested and far too popular.",
+    "image": "horse",
+    "mtth": 180,
+    "trigger": { "regimentsAtLeast": 4 },
+    "choices": [
+      { "text": "Give him an army to lead", "effects": [{ "hireGeneral": { "fire": 2, "shock": 4, "maneuver": 3 } }, { "goldPerDev": -0.5 }] },
+      {
+        "text": "Make him master of the horse",
+        "effects": [
+          { "modifier": { "id": "gen_master_of_horse", "name": "Master of the Horse", "months": 120, "mods": { "cavalryPower": 0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_siege_engineer",
+    "pool": "generic",
+    "title": "A Master of Mines",
+    "text": "A grizzled engineer who has dug tunnels under a dozen walls offers you his services. He brings his own miners, sappers and a chest of plans. His fee is steep, and he expects to be paid in advance.",
+    "image": "siege",
+    "mtth": 120,
+    "trigger": { "atWar": true },
+    "choices": [
+      {
+        "text": "Hire him and his sappers",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_master_sappers", "name": "Master Sappers", "months": 36, "mods": { "siegeSpeed": 0.2 } } }
+        ]
+      },
+      { "text": "Give him command of an army", "effects": [{ "goldPerDev": -0.5 }, { "hireGeneral": { "fire": 4, "shock": 1, "maneuver": 2 } }] },
+      { "text": "Send him away", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_army_mutiny",
+    "pool": "generic",
+    "title": "Mutiny in the Ranks",
+    "text": "Your soldiers have not been paid in months, and this morning a regiment threw its officers out of camp. Other units are watching to see what you do. The mutineers say they will fight again the day their arrears are paid in full.",
+    "image": "rebels",
+    "mtth": 90,
+    "trigger": { "all": [{ "atWar": true }, { "regimentsAtLeast": 6 }] },
+    "choices": [
+      { "text": "Pay their arrears in full", "effects": [{ "goldPerDev": -1.5 }], "ai": 2 },
+      {
+        "text": "Hang the ringleaders",
+        "effects": [
+          { "modifier": { "id": "gen_harsh_discipline", "name": "Harsh Discipline", "months": 12, "mods": { "morale": -0.15 } } },
+          { "unrestAll": 1 }
+        ]
+      },
+      { "text": "Let them plunder the countryside", "effects": [{ "unrestAll": 3 }, { "warExhaustion": 1 }] }
+    ]
+  },
+  {
+    "id": "gen_deserters",
+    "pool": "generic",
+    "title": "Deserters",
+    "text": "Every morning the roll call comes up shorter. Homesick levies slip away at night to bring in their harvests, and some take their weapons with them. Your captains want examples made; your stewards point out that the fields need the men.",
+    "image": "swords",
+    "mtth": 90,
+    "trigger": { "atWar": true },
+    "choices": [
+      { "text": "Pay a bounty for every man returned", "effects": [{ "goldPerDev": -1 }] },
+      { "text": "Hang deserters at the crossroads", "effects": [{ "unrestAll": 2 }] },
+      { "text": "Let them go home to their farms", "effects": [{ "manpower": -3000 }, { "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_mercenary_offer",
+    "pool": "generic",
+    "title": "A Sword for Hire",
+    "text": "A famous mercenary captain rides into your capital at the head of his company and offers you their services. His men are veterans, well armed and expensive. If you do not hire them, he says cheerfully, someone else surely will.",
+    "image": "swords",
+    "mtth": 120,
+    "trigger": { "devAtLeast": 10 },
+    "choices": [
+      { "text": "Hire the whole company", "effects": [{ "addRegiments": { "inf": 3, "cav": 1 } }, { "gold": -40 }, { "goldPerDev": -1 }] },
+      { "text": "Hire only his horsemen", "effects": [{ "addRegiments": { "cav": 1 } }, { "gold": -15 }, { "goldPerDev": -0.5 }] },
+      { "text": "Send him on his way", "effects": [], "ai": 2 }
+    ]
+  },
+  {
+    "id": "gen_war_weariness",
+    "pool": "generic",
+    "title": "Weary of War",
+    "text": "Widows and maimed veterans crowd your market squares, and the war taxes grow heavier every season. Preachers pray openly for peace. Your councillors warn that patience at home is running out faster than your enemies' armies.",
+    "image": "rebels",
+    "mtth": 90,
+    "trigger": { "all": [{ "atWar": true }, { "stability": [-3, 0] }] },
+    "choices": [
+      { "text": "Demand more sacrifice", "effects": [{ "warExhaustion": 3 }] },
+      {
+        "text": "Ease the war taxes",
+        "effects": [
+          { "warExhaustion": 1 },
+          { "modifier": { "id": "gen_eased_taxes", "name": "Eased War Taxes", "months": 24, "mods": { "taxIncome": -0.15 } } }
+        ]
+      },
+      { "text": "Promise a swift peace", "effects": [{ "prestige": -10 }] }
+    ]
+  },
+  {
+    "id": "gen_victory_songs",
+    "pool": "generic",
+    "title": "Songs of Victory",
+    "text": "Ballads of your victories are sung in every tavern, and foreign envoys speak of your armies with respect. Your veterans want rewarding and your people want a celebration. Neighbouring courts are watching how you carry your glory.",
+    "image": "crown",
+    "mtth": 120,
+    "trigger": { "all": [{ "not": { "atWar": true } }, { "prestigeAtLeast": 60 }, { "warsWonAtLeast": 1 }] },
+    "choices": [
+      { "text": "Hold a triumph in the capital", "effects": [{ "goldPerDev": -1 }, { "stability": 1 }] },
+      { "text": "Settle your veterans on public land", "effects": [{ "manpower": 3000 }, { "goldPerDev": -0.5 }] },
+      { "text": "Boast of it at every foreign court", "effects": [{ "prestige": 10 }, { "threat": 10 }] }
+    ]
+  },
+  {
+    "id": "gen_noble_prisoner",
+    "pool": "generic",
+    "title": "A Noble Prisoner",
+    "text": "Your soldiers have captured an enemy commander of high birth, still in his gilded armour. His family will pay handsomely for his return. Some of your officers would rather see him hanged for the villages his men burned.",
+    "image": "swords",
+    "mtth": 120,
+    "trigger": { "all": [{ "atWar": true }, { "battlesWonAtLeast": 1 }] },
+    "choices": [
+      { "text": "Ransom him to his family", "effects": [{ "goldPerDev": 1.5 }] },
+      { "text": "Release him without ransom", "effects": [{ "prestige": 10 }] },
+      {
+        "text": "Hang him before the army",
+        "effects": [
+          { "modifier": { "id": "gen_no_quarter", "name": "No Quarter", "months": 12, "mods": { "morale": 0.1 } } },
+          { "threat": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_idle_garrisons",
+    "pool": "generic",
+    "title": "Idle Garrisons",
+    "text": "With no enemy in sight, your soldiers spend their days dicing, drinking and brawling with townsfolk. Their captains want to drill them hard through the winter. Your treasurer would rather send half of them home for a season.",
+    "image": "swords",
+    "mtth": 150,
+    "trigger": { "all": [{ "not": { "atWar": true } }, { "regimentsAtLeast": 10 }] },
+    "choices": [
+      {
+        "text": "Drill them through the winter",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_winter_drill", "name": "Winter Drill", "months": 24, "mods": { "morale": 0.1 } } }
+        ]
+      },
+      {
+        "text": "Send half home on reduced pay",
+        "effects": [
+          { "modifier": { "id": "gen_furlough", "name": "Furloughed Troops", "months": 24, "mods": { "upkeep": -0.15, "morale": -0.05 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_border_raid",
+    "pool": "generic",
+    "title": "Raiders Across the Border",
+    "text": "Horsemen from across the border have burned a string of your villages and driven off the cattle. Their lord claims to know nothing about it. Your frontier barons want revenge, and they would like you to lead it.",
+    "image": "swords",
+    "mtth": 150,
+    "trigger": { "all": [{ "not": { "atWar": true } }, { "regionsAtLeast": 2 }] },
+    "choices": [
+      { "text": "Raid them back twice as hard", "effects": [{ "prestige": 5 }, { "threat": 5 }, { "manpower": -1000 }] },
+      {
+        "text": "Strengthen the frontier forts",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_frontier_watch", "name": "Frontier Watch", "months": 60, "mods": { "fortDefense": 0.1 } } }
+        ]
+      },
+      { "text": "Send a sharply worded letter", "effects": [{ "prestige": -5 }] }
+    ]
+  },
+  {
+    "id": "gen_heir_fever",
+    "pool": "generic",
+    "title": "The Heir Falls Ill",
+    "text": "Your heir has taken to bed with a burning fever, and the court physicians argue over bleeding and purges. Foreign doctors of great reputation could be summoned at great cost. Meanwhile, ambassadors are already asking pointed questions.",
+    "image": "death",
+    "mtth": 180,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "hasHeir": true }] },
+    "choices": [
+      { "text": "Summon the finest doctors abroad", "effects": [{ "goldPerDev": -1 }] },
+      { "text": "Keep the illness secret", "effects": [{ "triggerEvent": { "id": "gen_succession_whispers", "months": 8 } }] }
+    ]
+  },
+  {
+    "id": "gen_succession_whispers",
+    "pool": "generic",
+    "title": "Whispers of Succession",
+    "text": "Word of your heir's illness has leaked from the palace, and every tavern has its own story of poison or death. Nobles quietly weigh which cousin to back. The heir has recovered, but the damage is done.",
+    "image": "scroll",
+    "hidden": true,
+    "trigger": { "chance": 0.5 },
+    "choices": [
+      { "text": "Show the heir at a public feast", "effects": [{ "goldPerDev": -1 }] },
+      { "text": "Ignore the gossip", "effects": [{ "stability": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_court_scandal",
+    "pool": "generic",
+    "title": "Scandal at Court",
+    "text": "Your favourite at court has been caught selling offices and pardons, and the whole capital knows it. The great nobles demand his head. He swears he has always been loyal to you, and he knows a great many of your secrets.",
+    "image": "crown",
+    "mtth": 150,
+    "trigger": { "gov": "monarchy" },
+    "choices": [
+      { "text": "Hand him over to his enemies", "effects": [{ "prestige": -5 }, { "unrestAll": -1 }] },
+      { "text": "Protect him and share his takings", "effects": [{ "goldPerDev": 1.5 }, { "stability": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_noble_feud",
+    "pool": "generic",
+    "title": "A Feud Between Great Houses",
+    "text": "Two of your greatest noble families have quarrelled over a marriage contract, and now their retainers are burning each other's villages. Both houses appeal to you for justice, and both have hinted at what they will do if you rule against them.",
+    "image": "castle",
+    "mtth": 150,
+    "trigger": { "gov": "monarchy" },
+    "choices": [
+      { "text": "Judge the case yourself at court", "effects": [{ "goldPerDev": -0.5 }, { "prestige": 5 }, { "unrestAll": 1 }] },
+      { "text": "Back the stronger house", "effects": [{ "manpower": 3000 }, { "stability": -1 }] },
+      {
+        "text": "Let them bleed each other",
+        "effects": [
+          { "manpower": -2000 },
+          { "modifier": { "id": "gen_weakened_nobles", "name": "Weakened Nobility", "months": 60, "mods": { "taxIncome": 0.05 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_restless_heir",
+    "pool": "generic",
+    "title": "A Restless Heir",
+    "text": "Your heir is bored with court ceremony and has gathered a circle of young hotheads. They talk of glory, of old claims and of what they will do when their turn comes. It would be wise to give the heir something to do.",
+    "image": "crown",
+    "mtth": 180,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "hasHeir": true }, { "not": { "atWar": true } }] },
+    "choices": [
+      {
+        "text": "Give the heir a frontier command",
+        "effects": [
+          { "prestige": 5 },
+          { "threat": 5 },
+          { "modifier": { "id": "gen_heir_command", "name": "Heir's Command", "months": 36, "mods": { "morale": 0.05 } } }
+        ]
+      },
+      {
+        "text": "Send the heir to tour foreign courts",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_heir_tour", "name": "Heir's Grand Tour", "months": 48, "mods": { "opinion": 15 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_council_quarrels",
+    "pool": "generic",
+    "title": "Quarrels on the Council",
+    "text": "With a weak hand on the throne, your councillors no longer pretend to cooperate. The chancellor and the marshal block each other's orders, and every decision stalls. Each asks you to dismiss the other.",
+    "image": "scroll",
+    "mtth": 150,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "rulerSkill": [0, 2] }] },
+    "choices": [
+      {
+        "text": "Back the chancellor",
+        "effects": [
+          { "modifier": { "id": "gen_chancellor_rules", "name": "Chancellor's Ascendancy", "months": 48, "mods": { "taxIncome": 0.1, "manpower": -0.1 } } }
+        ]
+      },
+      {
+        "text": "Back the marshal",
+        "effects": [
+          { "modifier": { "id": "gen_marshal_rules", "name": "Marshal's Ascendancy", "months": 48, "mods": { "manpower": 0.1, "taxIncome": -0.1 } } }
+        ]
+      },
+      { "text": "Dismiss them both", "effects": [{ "stability": -1 }, { "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_ruler_failing",
+    "pool": "generic",
+    "title": "The Ruler's Health Fails",
+    "text": "You now need help to climb the palace stairs and doze through council meetings. Physicians mutter about dropsy and a weak heart. Your heir waits respectfully, but the court has already begun to drift toward the rising sun.",
+    "image": "death",
+    "mtth": 120,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "rulerAgeAtLeast": 60 }, { "hasHeir": true }] },
+    "choices": [
+      { "text": "Carry on with the help of physicians", "effects": [{ "goldPerDev": -0.5 }], "ai": 2 },
+      { "text": "Abdicate in favour of your heir", "effects": [{ "killRuler": true }, { "prestige": -5 }] }
+    ]
+  },
+  {
+    "id": "gen_marriage_offer",
+    "pool": "generic",
+    "title": "A Marriage Proposal",
+    "text": "A foreign court proposes a match between one of its princes and a daughter of your house. The alliance would bring friends abroad, but the dowry they expect is steep. Some at court think you could aim higher.",
+    "image": "marriage",
+    "mtth": 180,
+    "trigger": { "gov": "monarchy" },
+    "choices": [
+      {
+        "text": "Accept the match and pay the dowry",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_foreign_match", "name": "Foreign Marriage", "months": 60, "mods": { "diplomacy": 1, "opinion": 10 } } }
+        ]
+      },
+      { "text": "Hold out for a grander match", "effects": [{ "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_tournament",
+    "pool": "generic",
+    "title": "A Grand Tournament",
+    "text": "Knights from across the land, and a few famous champions from abroad, ask you to proclaim a great tournament. There would be jousts, melees and feasting for a week, and every noble house would want a seat in the stands.",
+    "image": "horse",
+    "mtth": 150,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "not": { "atWar": true } }, { "year": [1444, 1620] }] },
+    "choices": [
+      { "text": "Proclaim a tournament worthy of legend", "effects": [{ "goldPerDev": -1.5 }, { "prestige": 10 }, { "unrestAll": -1 }] },
+      {
+        "text": "Hold a modest contest of arms",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "gen_tourney_veterans", "name": "Tourney Veterans", "months": 24, "mods": { "cavalryPower": 0.05 } } }
+        ]
+      },
+      { "text": "Forbid it as a waste of good men", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_council_factions",
+    "pool": "generic",
+    "title": "Factions in the Council",
+    "text": "Your council is split between the old landed families and the newer merchant houses, and each blocks the other's bills. Votes are bought openly and armed servants follow councillors through the streets. The election is a month away.",
+    "image": "scroll",
+    "mtth": 150,
+    "trigger": { "gov": "republic" },
+    "choices": [
+      {
+        "text": "Back the merchant houses",
+        "effects": [
+          { "modifier": { "id": "gen_merchant_council", "name": "Merchant Council", "months": 60, "mods": { "tradeIncome": 0.1, "manpower": -0.1 } } }
+        ]
+      },
+      {
+        "text": "Back the old families",
+        "effects": [
+          { "modifier": { "id": "gen_patrician_council", "name": "Patrician Council", "months": 60, "mods": { "manpower": 0.1, "tradeIncome": -0.05 } } }
+        ]
+      },
+      { "text": "Broker a compromise", "effects": [{ "goldPerDev": -1 }, { "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_office_for_sale",
+    "pool": "generic",
+    "title": "An Office for Sale",
+    "text": "A wealthy canon with powerful relatives offers a chest of gold for the vacant provostship of your chapter. He is ambitious, worldly and not especially devout. The older brothers are scandalised that you would even consider it.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "all": [{ "gov": "theocracy" }, { "faith": "catholic" }] },
+    "choices": [
+      { "text": "Accept his gold", "effects": [{ "goldPerDev": 2 }, { "prestige": -10 }, { "papalFavor": -5 }] },
+      { "text": "Give the office to a pious brother", "effects": [{ "prestige": 5 }, { "papalFavor": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_guild_charter",
+    "pool": "generic",
+    "title": "The Guilds Want a Charter",
+    "text": "The richest guilds of your capital offer a generous gift in return for a charter confirming their monopolies. Their goods would be shielded from foreign competition, but prices would rise and outsiders would be shut out of the trade.",
+    "image": "coins",
+    "mtth": 150,
+    "trigger": { "devAtLeast": 8 },
+    "choices": [
+      {
+        "text": "Grant the charter for their gift",
+        "effects": [
+          { "goldPerDev": 2 },
+          { "modifier": { "id": "gen_guild_monopoly", "name": "Guild Monopolies", "months": 60, "mods": { "tradeIncome": -0.1 } } }
+        ]
+      },
+      {
+        "text": "Open the trades to all comers",
+        "effects": [
+          { "modifier": { "id": "gen_open_trades", "name": "Open Trades", "months": 60, "mods": { "tradeIncome": 0.1 } } },
+          { "unrestAll": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_great_fair",
+    "pool": "generic",
+    "title": "A Great Fair",
+    "text": "Merchants from a dozen lands ask your leave to hold a great fair outside your capital each summer. They promise cloth, spices, furs and silver, and ask only that their goods pass your tolls untaxed while the fair lasts.",
+    "image": "coins",
+    "mtth": 150,
+    "trigger": { "devAtLeast": 6 },
+    "choices": [
+      {
+        "text": "Grant the fair its freedoms",
+        "effects": [
+          { "modifier": { "id": "gen_great_fair", "name": "Great Fair", "months": 60, "mods": { "tradeIncome": 0.1 } } }
+        ]
+      },
+      { "text": "Allow it, but tax every stall", "effects": [{ "goldPerDev": 1.5 }] }
+    ]
+  },
+  {
+    "id": "gen_silver_vein",
+    "pool": "generic",
+    "title": "Silver in the Hills",
+    "text": "Shepherds have found bright ore in a stream bed, and your assayers confirm a rich vein of silver. Working it will need shafts, pumps and skilled miners from abroad. Several banking houses have already offered to lease it from you.",
+    "image": "coins",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Work it as a state mine",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "gen_silver_mine", "name": "Silver Mine", "months": 120, "mods": { "taxIncome": 0.1 } } }
+        ]
+      },
+      { "text": "Lease it to the bankers", "effects": [{ "goldPerDev": 2.5 }] }
+    ]
+  },
+  {
+    "id": "gen_bankers_credit",
+    "pool": "generic",
+    "title": "Bankers at the Door",
+    "text": "Agents of a great banking house have come to your chancery with an offer of credit, secured against your future revenues. The terms are fair for now, though interest has a way of growing. They hint that your rivals have already borrowed.",
+    "image": "coins",
+    "mtth": 120,
+    "trigger": { "all": [{ "not": { "loansAtLeast": 3 } }, { "any": [{ "atWar": true }, { "not": { "goldAtLeast": 50 } }] }] },
+    "choices": [
+      { "text": "Accept a modest loan", "effects": [{ "loans": 1 }] },
+      { "text": "Borrow as much as they will lend", "effects": [{ "loans": 2 }], "ai": 0.5 },
+      { "text": "Decline politely", "effects": [], "ai": 2 }
+    ]
+  },
+  {
+    "id": "gen_debt_crisis",
+    "pool": "generic",
+    "title": "Creditors at the Gates",
+    "text": "Your creditors have stopped asking politely. Interest now swallows a large share of your revenues, and the bankers refuse to lend another coin until you show them you can pay. Your treasurer lays out the unpleasant options.",
+    "image": "coins",
+    "mtth": 60,
+    "trigger": { "loansAtLeast": 3 },
+    "choices": [
+      {
+        "text": "Debase the coinage",
+        "effects": [
+          { "goldPerDev": 2 },
+          { "modifier": { "id": "gen_debased_coin", "name": "Debased Coinage", "months": 36, "mods": { "taxIncome": -0.1, "tradeIncome": -0.1 } } }
+        ]
+      },
+      { "text": "Sell offices and titles", "effects": [{ "goldPerDev": 1.5 }, { "prestige": -10 }] },
+      { "text": "Squeeze the clergy for a subsidy", "effects": [{ "goldPerDev": 1.5 }, { "unrestAll": 2 }] }
+    ]
+  },
+  {
+    "id": "gen_new_trade_route",
+    "pool": "generic",
+    "title": "A New Trade Route",
+    "text": "One of your merchant houses has found a shorter road to a rich foreign market that avoids a rival's tolls entirely. Other merchants are clamouring to follow. The founding house asks for a monopoly on the route in return for a share of the profits.",
+    "image": "map",
+    "mtth": 180,
+    "trigger": { "any": [{ "coastal": true }, { "devAtLeast": 15 }] },
+    "choices": [
+      {
+        "text": "Grant them the monopoly",
+        "effects": [
+          { "goldPerDev": 1.5 },
+          { "modifier": { "id": "gen_chartered_route", "name": "Chartered Route", "months": 60, "mods": { "tradeIncome": 0.05 } } }
+        ]
+      },
+      {
+        "text": "Open the route to every merchant",
+        "effects": [
+          { "modifier": { "id": "gen_open_route", "name": "Open Trade Route", "months": 60, "mods": { "tradeIncome": 0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_smugglers",
+    "pool": "generic",
+    "title": "Smugglers' Coves",
+    "text": "Your customs officers report that half the wine, salt and cloth landed on your coast never passes a toll house. Smuggling gangs run whole villages and pay the local gentry to look away. The officers want soldiers and new powers.",
+    "image": "ship",
+    "mtth": 180,
+    "trigger": { "coastal": true },
+    "choices": [
+      {
+        "text": "Crack down on the gangs",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "unrestAll": 1 },
+          { "modifier": { "id": "gen_customs_crackdown", "name": "Customs Crackdown", "months": 48, "mods": { "tradeIncome": 0.1 } } }
+        ]
+      },
+      { "text": "Take a quiet cut of their profits", "effects": [{ "goldPerDev": 1 }, { "prestige": -5 }] }
+    ]
+  },
+  {
+    "id": "gen_salt_works",
+    "pool": "generic",
+    "title": "The Salt Trade",
+    "text": "Your salt works have never produced so much, and salt is worth its weight in silver to every fisherman and butcher. Your treasurer proposes making it a state monopoly. The merchants who now handle the trade are not pleased.",
+    "image": "coins",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Declare a salt monopoly",
+        "effects": [
+          { "modifier": { "id": "gen_salt_monopoly", "name": "Salt Monopoly", "months": 60, "mods": { "taxIncome": 0.1 } } },
+          { "unrestAll": 2 }
+        ]
+      },
+      { "text": "Lease the works to the merchants", "effects": [{ "goldPerDev": 1.5 }] }
+    ]
+  },
+  {
+    "id": "gen_fine_vintage",
+    "pool": "generic",
+    "title": "A Splendid Yield",
+    "text": "Your vineyards and orchards have given the finest yield in a generation, and foreign buyers are crowding the markets and river landings. Your stewards suggest the best of it might do more good on your own table, in front of foreign envoys.",
+    "image": "harvest",
+    "mtth": 180,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Sell it abroad", "effects": [{ "goldPerDev": 1.5 }] },
+      {
+        "text": "Serve it to foreign envoys",
+        "effects": [
+          { "modifier": { "id": "gen_famous_table", "name": "Famous Table", "months": 36, "mods": { "opinion": 15 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_exiles_seek_home",
+    "pool": "generic",
+    "title": "Exiles Seek a Home",
+    "text": "Jewish families expelled from a neighbouring kingdom ask leave to settle in your towns. They bring physicians, scholars, printers and merchants with partners in every port of the Mediterranean. Some of your preachers already rail against them.",
+    "image": "scroll",
+    "mtth": 240,
+    "trigger": { "all": [{ "year": [1450] }, { "not": { "nationFlag": "gen_exiles_settled" } }] },
+    "choices": [
+      {
+        "text": "Welcome them under your protection",
+        "effects": [
+          { "modifier": { "id": "gen_exile_communities", "name": "Exile Communities", "months": 120, "mods": { "taxIncome": 0.05, "tradeIncome": 0.1 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "gen_exiles_settled" }
+        ],
+        "ai": 2
+      },
+      { "text": "Admit them for a heavy fee", "effects": [{ "goldPerDev": 1.5 }] },
+      { "text": "Close your borders to them", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_capital_fire",
+    "pool": "generic",
+    "title": "Fire in the Capital",
+    "text": "A baker's oven set a thatched roof alight, and a dry wind did the rest. A third of your capital lies in ash, from the river wharves to the market square. Thousands sleep in the fields, and the guilds ask how the city will be rebuilt.",
+    "image": "castle",
+    "mtth": 200,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Rebuild in stone at your expense", "effects": [{ "goldPerDev": -2 }] },
+      { "text": "Rebuild on a grand new plan", "effects": [{ "goldPerDev": -3 }, { "prestige": 10 }] },
+      { "text": "Let the townsfolk rebuild as they can", "effects": [{ "devCapital": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_river_flood",
+    "pool": "generic",
+    "title": "The River Bursts Its Banks",
+    "text": "After weeks of rain upstream, the river has burst its banks and drowned the low fields for miles. Mills are smashed, granaries spoiled and livestock lost. Your engineers say proper dikes would stop it happening again, if you can pay for them.",
+    "image": "harvest",
+    "mtth": 180,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Build new dikes and sluices",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "gen_new_dikes", "name": "New Dikes", "months": 120, "mods": { "taxIncome": 0.05 } } }
+        ]
+      },
+      {
+        "text": "Repair what you can cheaply",
+        "effects": [
+          { "modifier": { "id": "gen_flooded_fields", "name": "Flooded Fields", "months": 24, "mods": { "taxIncome": -0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_earthquake",
+    "pool": "generic",
+    "title": "The Earth Shakes",
+    "text": "A great earthquake has struck your lands, toppling towers and cracking town walls from end to end. Aftershocks keep the survivors sleeping in the open. Preachers proclaim it a judgement, and the homeless look to you for bread and timber.",
+    "image": "death",
+    "mtth": 240,
+    "trigger": { "ownsAny": ["naples", "apulia", "sicily", "rome", "romagna", "tuscany", "constantinople", "bithynia", "aydin", "rumelia", "thessaly", "morea", "macedonia", "albania", "dalmatia", "croatia", "candia", "rhodes", "cyprus", "ankara", "karaman", "lisbon", "andalusia", "granada"] },
+    "choices": [
+      { "text": "Fund relief and rebuilding", "effects": [{ "goldPerDev": -1.5 }] },
+      {
+        "text": "Leave rebuilding to the towns",
+        "effects": [
+          { "unrestAll": 2 },
+          { "modifier": { "id": "gen_quake_ruins", "name": "Earthquake Ruins", "months": 36, "mods": { "taxIncome": -0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_bridge_collapse",
+    "pool": "generic",
+    "title": "The Great Bridge Falls",
+    "text": "The old bridge that carried the main road over the river has collapsed under a laden wagon train, drowning carters and their teams. Trade must now wait on slow ferries. Your engineers have plans for a new bridge in stone, at a price.",
+    "image": "castle",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Build a grand new stone bridge",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "prestige": 5 },
+          { "modifier": { "id": "gen_stone_bridge", "name": "Stone Bridge", "months": 120, "mods": { "tradeIncome": 0.05 } } }
+        ]
+      },
+      {
+        "text": "Patch it with timber",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "gen_makeshift_crossing", "name": "Makeshift Crossing", "months": 24, "mods": { "tradeIncome": -0.05 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_wolves",
+    "pool": "generic",
+    "title": "Wolves in Winter",
+    "text": "The hardest winter in living memory has driven wolf packs down from the forests and hills. They take sheep from the folds and travellers on the roads, and villagers bar their doors at dusk. They beg you for help.",
+    "image": "death",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Pay a bounty for every pelt", "effects": [{ "goldPerDev": -0.5 }, { "unrestAll": -1 }] },
+      { "text": "Lead your nobles on a great hunt", "effects": [{ "goldPerDev": -0.5 }, { "prestige": 5 }] },
+      { "text": "Let the villages see to it", "effects": [{ "unrestAll": 1 }] }
+    ]
+  },
+  {
+    "id": "gen_raiders_coast",
+    "pool": "generic",
+    "title": "Raiders on the Coast",
+    "text": "Raiders from across the sea struck your coast at dawn, burning a fishing town and carrying off its people to sell in foreign markets. The survivors demand protection. Your captains say the raiders' nests could be found, if you pay for ships.",
+    "image": "ship",
+    "mtth": 120,
+    "trigger": { "coastal": true },
+    "choices": [
+      {
+        "text": "Fit out ships to hunt them",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "prestige": 5 },
+          { "modifier": { "id": "gen_coastal_patrols", "name": "Coastal Patrols", "months": 36, "mods": { "navalPower": 0.1 } } }
+        ]
+      },
+      { "text": "Pay them to raid elsewhere", "effects": [{ "goldPerDev": -0.5 }, { "prestige": -10 }] },
+      {
+        "text": "Let the coast fend for itself",
+        "effects": [
+          { "modifier": { "id": "gen_raided_coast", "name": "Raided Coast", "months": 24, "mods": { "tradeIncome": -0.15 } } },
+          { "unrestAll": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_storm_at_sea",
+    "pool": "generic",
+    "title": "Storm at Sea",
+    "text": "A sudden gale has scattered your fleet along a hostile coast. Several ships ran aground and others limped home with shattered masts and drowned crews. Your admiral blames the pilots; the pilots blame the admiral.",
+    "image": "ship",
+    "mtth": 150,
+    "trigger": { "fleetsAtLeast": 1 },
+    "choices": [
+      { "text": "Pay for the repairs at once", "effects": [{ "goldPerDev": -1 }] },
+      {
+        "text": "Leave the hulls until spring",
+        "effects": [
+          { "modifier": { "id": "gen_storm_damage", "name": "Storm-Damaged Fleet", "months": 24, "mods": { "navalPower": -0.2 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_refugees",
+    "pool": "generic",
+    "title": "Refugees at the Border",
+    "text": "Thousands of families fleeing a war in a neighbouring land have crossed into your territory with their carts and cattle. They ask for land to farm and protection from the soldiers who burned their homes. Your own peasants eye them warily.",
+    "image": "scroll",
+    "mtth": 180,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Settle them around your capital", "effects": [{ "devCapital": 1 }, { "unrestAll": 2 }] },
+      { "text": "Enlist their young men", "effects": [{ "manpower": 3000 }, { "unrestAll": 1 }] },
+      { "text": "Turn them back at the border", "effects": [{ "prestige": -5 }] }
+    ]
+  },
+  {
+    "id": "gen_comet",
+    "pool": "generic",
+    "title": "A Comet in the Sky",
+    "text": "A star with a burning tail hangs over your lands each night, brighter than the moon. Preachers call it a warning of plague and war; your astrologers insist it heralds a triumph. The common people wait to hear what you say it means.",
+    "image": "book",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Proclaim it a sign of your coming glory", "effects": [{ "prestige": 10 }, { "threat": 5 }] },
+      { "text": "Order prayers to avert disaster", "effects": [{ "goldPerDev": -0.5 }, { "stability": 1 }] },
+      {
+        "text": "Have your scholars chart its path",
+        "effects": [
+          { "modifier": { "id": "gen_comet_studies", "name": "Comet Studies", "months": 36, "mods": { "techCost": -0.05 } } },
+          { "unrestAll": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_astrologer",
+    "pool": "generic",
+    "title": "The Astrologer's Prophecy",
+    "text": "Your court astrologer has cast your horoscope and announces that the stars favour a great victory before the year is out. He has told half the court already. The soldiers are delighted; your more sober advisers are not.",
+    "image": "book",
+    "mtth": 200,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Reward him and spread the news",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "gen_favourable_stars", "name": "Favourable Stars", "months": 12, "mods": { "morale": 0.1 } } }
+        ]
+      },
+      { "text": "Dismiss him as a charlatan", "effects": [{ "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_alchemist",
+    "pool": "generic",
+    "title": "The Alchemist",
+    "text": "A learned stranger with stained fingers swears he is one step from turning lead into gold. He asks only for a laboratory, a furnace and a modest stipend. Your treasurer rolls his eyes, but your curiosity is harder to dismiss.",
+    "image": "book",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Fund his laboratory", "effects": [{ "goldPerDev": -1 }, { "triggerEvent": { "id": "gen_alchemist_discovery", "months": 12 } }] },
+      { "text": "Show him the door", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_alchemist_discovery",
+    "pool": "generic",
+    "title": "Gold, of a Sort",
+    "text": "Your alchemist has not made gold, but his furnaces have produced something almost as useful: a finer gunpowder and a hard white glaze that potters would kill for. He begs for more funding to finish the great work.",
+    "image": "book",
+    "hidden": true,
+    "trigger": { "chance": 0.4 },
+    "choices": [
+      {
+        "text": "Put his powder to use",
+        "effects": [
+          { "modifier": { "id": "gen_refined_powder", "name": "Refined Powder", "months": 120, "mods": { "siegeSpeed": 0.1, "artilleryPower": 0.05 } } }
+        ]
+      },
+      { "text": "Sell the glaze recipe", "effects": [{ "goldPerDev": 1.5 }] }
+    ]
+  },
+  {
+    "id": "gen_university",
+    "pool": "generic",
+    "title": "A University for Your Realm",
+    "text": "Scholars and doctors of law petition you to found a university in your capital. They promise lawyers for your courts, physicians for your household and learned clerks for your chancery. They need buildings, salaries and a charter under your seal.",
+    "image": "book",
+    "mtth": 240,
+    "trigger": { "all": [{ "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "gen_university_founded" } }] },
+    "choices": [
+      {
+        "text": "Endow it generously",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "prestige": 10 },
+          { "modifier": { "id": "gen_university", "name": "University Charter", "months": 120, "mods": { "techCost": -0.1 } } },
+          { "setNationFlag": "gen_university_founded" }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let the religious houses fund it",
+        "effects": [
+          { "modifier": { "id": "gen_cloister_university", "name": "Cloister University", "months": 120, "mods": { "techCost": -0.05 } } },
+          { "setNationFlag": "gen_university_founded" }
+        ]
+      },
+      { "text": "Refuse the petition", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_painter_patronage",
+    "pool": "generic",
+    "title": "A Painter Seeks Patronage",
+    "text": "A painter praised in every court has arrived with letters of introduction and a folio of sketches. He asks for a salary, a workshop and a great commission worthy of his talent. Rival courts are bidding for him too.",
+    "image": "crown",
+    "mtth": 200,
+    "trigger": { "devAtLeast": 6 },
+    "choices": [
+      { "text": "Commission a great work for the capital", "effects": [{ "goldPerDev": -1.5 }, { "prestige": 10 }] },
+      {
+        "text": "Have him paint portraits for envoys",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "gen_court_portraits", "name": "Court Portraits", "months": 60, "mods": { "opinion": 10 } } }
+        ]
+      },
+      { "text": "Let a rival court have him", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_distant_envoy",
+    "pool": "generic",
+    "title": "An Envoy from Afar",
+    "text": "An envoy from a realm few of your courtiers could find on a map has arrived with gifts of strange beasts, silks and spices. He has travelled for two years and wishes to learn about your country. The whole capital turns out to watch his procession.",
+    "image": "treaty",
+    "mtth": 240,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Host him lavishly", "effects": [{ "goldPerDev": -1 }, { "prestige": 10 }] },
+      {
+        "text": "Ask him about the roads he travelled",
+        "effects": [
+          { "modifier": { "id": "gen_distant_contacts", "name": "Distant Contacts", "months": 60, "mods": { "tradeIncome": 0.05 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_spy_unmasked",
+    "pool": "generic",
+    "title": "A Spy Unmasked",
+    "text": "Your guards have caught a foreign agent copying letters in your chancery. Under questioning he names his employers and offers to tell much more in exchange for his life. His masters will certainly deny knowing him.",
+    "image": "scroll",
+    "mtth": 180,
+    "trigger": { "year": [1444] },
+    "choices": [
+      { "text": "Execute him in the public square", "effects": [{ "prestige": 5 }] },
+      {
+        "text": "Turn him against his masters",
+        "effects": [
+          { "modifier": { "id": "gen_double_agent", "name": "Double Agent", "months": 36, "mods": { "diplomacy": 1 } } }
+        ]
+      },
+      { "text": "Ransom him back quietly", "effects": [{ "goldPerDev": 1 }] }
+    ]
+  },
+  {
+    "id": "gen_diplomatic_alarm",
+    "pool": "generic",
+    "title": "Your Envoys Grow Nervous",
+    "text": "Your ambassadors report that foreign courts speak of you with alarm. Old enemies are exchanging envoys, and treaties are being drafted that do not mention your name. Your chancellor urges you to calm the waters before a coalition forms.",
+    "image": "treaty",
+    "mtth": 60,
+    "trigger": { "threatAtLeast": 30 },
+    "choices": [
+      { "text": "Send lavish gifts to wary courts", "effects": [{ "goldPerDev": -1.5 }, { "threat": -10 }] },
+      { "text": "Renounce further conquests in public", "effects": [{ "threat": -10 }, { "prestige": -10 }] },
+      { "text": "Let them tremble", "effects": [{ "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_new_cathedral",
+    "pool": "generic",
+    "title": "A New Cathedral",
+    "text": "Your bishops present plans for a great cathedral whose spire would be seen for a day's ride. It will take generations to finish, and the masons want paying from the first stone. The clergy say a realm without such a church shames itself before God.",
+    "image": "church",
+    "mtth": 240,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "gen_cathedral_built" } }] },
+    "choices": [
+      {
+        "text": "Pay for it from the treasury",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "prestige": 10 },
+          { "stability": 1 },
+          { "setNationFlag": "gen_cathedral_built" }
+        ]
+      },
+      { "text": "Raise a special building tax", "effects": [{ "prestige": 10 }, { "unrestAll": 2 }, { "setNationFlag": "gen_cathedral_built" }] },
+      { "text": "Postpone it yet again", "effects": [{ "unrestAll": 1 }] }
+    ]
+  },
+  {
+    "id": "gen_great_mosque",
+    "pool": "generic",
+    "title": "A Great Mosque",
+    "text": "Your architects present plans for a congregational mosque with a dome to rival any in the world and minarets seen from the hills. Its endowments would also fund a school, a hospital and a kitchen for the poor. The cost would be enormous.",
+    "image": "church",
+    "mtth": 240,
+    "trigger": { "all": [{ "faith": "muslim" }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "gen_mosque_built" } }] },
+    "choices": [
+      {
+        "text": "Build it in the grandest style",
+        "effects": [
+          { "goldPerDev": -2.5 },
+          { "prestige": 15 },
+          { "stability": 1 },
+          { "setNationFlag": "gen_mosque_built" }
+        ]
+      },
+      { "text": "Endow a smaller mosque", "effects": [{ "goldPerDev": -1 }, { "unrestAll": -1 }, { "setNationFlag": "gen_mosque_built" }] },
+      { "text": "Spend the money elsewhere", "effects": [] }
+    ]
+  },
+  {
+    "id": "gen_zealous_preachers",
+    "pool": "generic",
+    "title": "Zealous Preachers",
+    "text": "A band of fiery preachers is touring your towns, calling on the faithful to purge sin at home and take up arms against unbelievers abroad. Crowds follow them from market to market. Foreign merchants have begun closing their shops early.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "year": [1444] },
+    "choices": [
+      {
+        "text": "Channel their zeal into the army",
+        "effects": [
+          { "manpower": 3000 },
+          { "modifier": { "id": "gen_zealous_recruits", "name": "Zealous Recruits", "months": 60, "mods": { "holyWarMorale": 0.1 } } },
+          { "threat": 5 }
+        ]
+      },
+      { "text": "Arrest the loudest of them", "effects": [{ "unrestAll": 2 }] },
+      {
+        "text": "Let them preach as they please",
+        "effects": [
+          { "unrestAll": -1 },
+          { "modifier": { "id": "gen_fiery_sermons", "name": "Fiery Sermons", "months": 24, "mods": { "tradeIncome": -0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_monks_and_town",
+    "pool": "generic",
+    "title": "Monks Against the Town",
+    "text": "The abbot of a rich monastery and the burghers of the neighbouring town are at each other's throats over mill rights and market tolls. Brawls break out every market day. Both sides have sent delegations to your court with gifts and petitions.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "not": { "faith": "protestant" } }] },
+    "choices": [
+      { "text": "Uphold the abbey's charters", "effects": [{ "prestige": 5 }, { "unrestAll": 1 }] },
+      { "text": "Side with the townsmen", "effects": [{ "goldPerDev": 1 }, { "unrestAll": 1 }] },
+      { "text": "Split the tolls between them", "effects": [{ "goldPerDev": -0.5 }, { "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "gen_witch_accused",
+    "pool": "generic",
+    "title": "A Witch Accused",
+    "text": "Villagers have dragged a midwife before the local court, accusing her of souring milk and causing a neighbour's death. Half the village swears to her guilt and the other half keeps silent. The judge writes to ask what you wish done.",
+    "image": "death",
+    "mtth": 200,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "year": [1450] }] },
+    "choices": [
+      { "text": "Let the trial run its course", "effects": [{ "unrestAll": -1 }, { "prestige": -5 }] },
+      { "text": "Demand proper evidence under law", "effects": [{ "unrestAll": 1 }, { "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_preacher_against_clergy",
+    "pool": "generic",
+    "title": "A Preacher Against the Clergy",
+    "text": "A wandering preacher draws crowds of thousands by denouncing fat abbots, sold pardons and priests with mistresses. He reads scripture aloud in the common tongue in open fields. Your bishops demand that you arrest him.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "any": [{ "all": [{ "faith": "catholic" }, { "not": { "flag": "reformation" } }] }, { "faith": "orthodox" }] },
+    "choices": [
+      { "text": "Hand him over to the bishops", "effects": [{ "unrestAll": 2 }] },
+      { "text": "Protect him from the bishops", "effects": [{ "stability": -1 }, { "unrestAll": -1 }] },
+      { "text": "Use his sermons to tax the abbeys", "effects": [{ "goldPerDev": 1.5 }, { "stability": -1 }, { "unrestAll": 1 }] }
+    ]
+  },
+  {
+    "id": "gen_papal_legate",
+    "pool": "generic",
+    "title": "The Papal Legate",
+    "text": "A papal legate has arrived in your capital with a train of clerks, asking for a tithe on your clergy to fund the defence of Christendom. He hints that the Holy Father remembers generous sons. He also hints at what happens to the other kind.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "all": [{ "faith": "catholic" }, { "not": { "isNation": "PAP" } }, { "exists": "PAP" }] },
+    "choices": [
+      { "text": "Pay the full tithe", "effects": [{ "goldPerDev": -1 }, { "papalFavor": 15 }, { "opinion": { "nation": "PAP", "amount": 20 } }] },
+      { "text": "Pay half and plead poverty", "effects": [{ "goldPerDev": -0.5 }, { "papalFavor": 5 }] },
+      { "text": "Refuse him outright", "effects": [{ "papalFavor": -10 }, { "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_holy_fool",
+    "pool": "generic",
+    "title": "A Holy Fool",
+    "text": "A barefoot holy fool in iron chains has taken up his post in your capital's market and rails against your officials by name. The crowds revere him as a man of God who cannot be silenced. Several of the officials he names are indeed corrupt.",
+    "image": "church",
+    "mtth": 200,
+    "trigger": { "faith": "orthodox" },
+    "choices": [
+      { "text": "Kneel and ask his blessing", "effects": [{ "unrestAll": -2 }, { "prestige": -5 }] },
+      {
+        "text": "Dismiss the officials he names",
+        "effects": [
+          { "goldPerDev": 1 },
+          { "unrestAll": -1 },
+          { "modifier": { "id": "gen_purged_officials", "name": "Purged Officials", "months": 12, "mods": { "taxIncome": -0.1 } } }
+        ]
+      },
+      { "text": "Have him carried out of the city", "effects": [{ "unrestAll": 2 }, { "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "gen_pious_endowment",
+    "pool": "generic",
+    "title": "A Pious Endowment",
+    "text": "A wealthy widow has endowed a madrasa, a hospital and a public fountain in your capital, and the people bless her name in the mosques. Your religious scholars suggest you match her generosity. Your treasurer suggests otherwise.",
+    "image": "church",
+    "mtth": 200,
+    "trigger": { "faith": "muslim" },
+    "choices": [
+      { "text": "Match her gift with your own", "effects": [{ "goldPerDev": -1.5 }, { "stability": 1 }] },
+      { "text": "Place her endowment under state control", "effects": [{ "goldPerDev": 1 }, { "unrestAll": 2 }] }
+    ]
+  },
+  {
+    "id": "gen_pastors_at_odds",
+    "pool": "generic",
+    "title": "Pastors at Odds",
+    "text": "Your pastors have met in synod and spent a month quarrelling over the Lord's Supper, predestination and the cut of vestments. Pamphlets fly between the factions and congregations split. Both sides demand that you settle the matter.",
+    "image": "church",
+    "mtth": 180,
+    "trigger": { "faith": "protestant" },
+    "choices": [
+      { "text": "Impose a single confession by law", "effects": [{ "stability": 1 }, { "unrestAll": 2 }] },
+      {
+        "text": "Let each parish follow its conscience",
+        "effects": [
+          { "modifier": { "id": "gen_liberty_of_conscience", "name": "Liberty of Conscience", "months": 60, "mods": { "tradeIncome": 0.05 } } },
+          { "prestige": -5 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gen_heirless_estate",
+    "pool": "generic",
+    "title": "An Estate Without an Heir",
+    "text": "One of your wealthiest lords has died without children, and three cousins are suing for his lands in your courts. By old law the estate could revert to you. The other nobles are watching closely to see whether their own lands are safe.",
+    "image": "scroll",
+    "mtth": 150,
+    "trigger": { "regionsAtLeast": 2 },
+    "choices": [
+      { "text": "Claim the estate for yourself", "effects": [{ "goldPerDev": 2 }, { "stability": -1 }] },
+      { "text": "Sell it to the highest bidder", "effects": [{ "goldPerDev": 1 }] },
+      { "text": "Award it to the eldest cousin", "effects": [{ "prestige": 5 }, { "unrestAll": -1 }] }
+    ]
+  },
+  {
+    "id": "era_printing_press",
+    "pool": "era",
+    "title": "The Printing Press",
+    "text": "A printer from the Rhineland has set up a press with movable metal type in your capital. In a week he turns out more books than a monastery of scribes copies in a year. Your clergy fear what cheap books will do to common minds.",
+    "image": "book",
+    "window": [1455, 1560],
+    "mtth": 72,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_printing_press" } },
+    "choices": [
+      {
+        "text": "Grant the printers your privilege",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_printing_privilege", "name": "Printing Privilege", "months": 120, "mods": { "techCost": -0.1 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_printing_press" }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "License and censor every press",
+        "effects": [
+          { "modifier": { "id": "era_licensed_presses", "name": "Licensed Presses", "months": 120, "mods": { "techCost": -0.05 } } },
+          { "setNationFlag": "era_printing_press" }
+        ]
+      },
+      {
+        "text": "Ban the presses",
+        "effects": [
+          { "unrestAll": -1 },
+          { "setNationFlag": "banned_printing" },
+          { "setNationFlag": "era_printing_press" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_gunfounders",
+    "pool": "era",
+    "title": "The Gunfounders",
+    "text": "Gunfounders who learned their trade casting church bells offer to make you great bombards of bronze and iron. They promise that walls which once held out for a year will fall in weeks. Your knights call the guns a coward's weapon.",
+    "image": "cannon",
+    "window": [1444, 1520],
+    "mtth": 72,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_gunfounders" } },
+    "choices": [
+      {
+        "text": "Cast a train of siege bombards",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "era_bombard_train", "name": "Bombard Train", "months": 120, "mods": { "siegeSpeed": 0.2 } } },
+          { "setNationFlag": "era_gunfounders" }
+        ]
+      },
+      {
+        "text": "Arm the militia with handguns",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_handgunners", "name": "Handgunners", "months": 120, "mods": { "infantryPower": 0.1 } } },
+          { "setNationFlag": "era_gunfounders" }
+        ]
+      },
+      {
+        "text": "Trust in your knights",
+        "effects": [
+          { "prestige": 5 },
+          { "modifier": { "id": "era_knightly_pride", "name": "Knightly Pride", "months": 60, "mods": { "cavalryPower": 0.05 } } },
+          { "setNationFlag": "era_gunfounders" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_plate_armour",
+    "pool": "era",
+    "title": "Harness of Steel",
+    "text": "Armourers in Milan and Augsburg now forge full harness of tempered steel, so well fitted that a knight can mount without help. Your nobles want it, but the best suits cost as much as a farm. They ask whether you will help them pay.",
+    "image": "horse",
+    "window": [1444, 1530],
+    "mtth": 72,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_plate_armour" } },
+    "choices": [
+      {
+        "text": "Subsidise armour for your knights",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_full_plate", "name": "Full Plate", "months": 120, "mods": { "cavalryPower": 0.1 } } },
+          { "setNationFlag": "era_plate_armour" }
+        ]
+      },
+      {
+        "text": "Let the nobles pay their own way",
+        "effects": [
+          { "modifier": { "id": "era_nobles_harness", "name": "Nobles' Harness", "months": 120, "mods": { "cavalryPower": 0.05 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_plate_armour" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_chivalric_order",
+    "pool": "era",
+    "title": "An Order of Chivalry",
+    "text": "Your heralds propose founding an order of knighthood under your patronage, with a collar, a chapel and a feast day of its own. Membership would bind your greatest nobles to you with honour rather than gold. Every lord left out will feel the slight.",
+    "image": "crown",
+    "window": [1444, 1530],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "not": { "nationFlag": "era_chivalric_order" } }] },
+    "choices": [
+      {
+        "text": "Found an order of royal knights",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "prestige": 15 },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_chivalric_order" }
+        ]
+      },
+      {
+        "text": "Dedicate the order to holy war",
+        "effects": [
+          { "prestige": 5 },
+          { "threat": 5 },
+          { "modifier": { "id": "era_crusading_order", "name": "Crusading Order", "months": 120, "mods": { "holyWarMorale": 0.1 } } },
+          { "setNationFlag": "era_chivalric_order" }
+        ]
+      },
+      { "text": "Leave knighthood to the old ways", "effects": [{ "setNationFlag": "era_chivalric_order" }] }
+    ]
+  },
+  {
+    "id": "era_humanists",
+    "pool": "era",
+    "title": "The New Learning",
+    "text": "Scholars trained in Italy arrive with Greek manuscripts and a passion for Cicero's Latin. They write elegant letters, edit ancient texts and argue that a prince should be educated like a philosopher. They are also looking for employment.",
+    "image": "book",
+    "window": [1450, 1540],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_humanists" } },
+    "choices": [
+      {
+        "text": "Hire them for your chancery",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_humanist_secretaries", "name": "Humanist Secretaries", "months": 120, "mods": { "diplomacy": 1 } } },
+          { "setNationFlag": "era_humanists" }
+        ]
+      },
+      {
+        "text": "Found a library for them",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "prestige": 10 },
+          { "modifier": { "id": "era_court_library", "name": "Court Library", "months": 120, "mods": { "techCost": -0.05 } } },
+          { "setNationFlag": "era_humanists" }
+        ]
+      },
+      { "text": "Leave them to the universities", "effects": [{ "setNationFlag": "era_humanists" }] }
+    ]
+  },
+  {
+    "id": "era_new_painters",
+    "pool": "era",
+    "title": "Painters of a New Style",
+    "text": "A new school of painters has learned to show depth, light and living faces as if seen through a window. Princes and bankers compete for their brushes. Your court could have its own masterpieces, if you are willing to pay for genius.",
+    "image": "crown",
+    "window": [1460, 1560],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_new_painters" } }] },
+    "choices": [
+      { "text": "Commission a great fresco cycle", "effects": [{ "goldPerDev": -2 }, { "prestige": 15 }, { "setNationFlag": "era_new_painters" }] },
+      {
+        "text": "Commission portraits for foreign courts",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "era_painted_diplomacy", "name": "Painted Diplomacy", "months": 60, "mods": { "opinion": 10 } } },
+          { "setNationFlag": "era_new_painters" }
+        ]
+      },
+      { "text": "Keep to the old devotional masters", "effects": [{ "unrestAll": -1 }, { "setNationFlag": "era_new_painters" }] }
+    ]
+  },
+  {
+    "id": "era_walls_against_cannon",
+    "pool": "era",
+    "title": "Walls Against Cannon",
+    "text": "Your engineers warn that tall medieval walls shatter like pottery under modern guns. They propose low, thick ramparts with angled bastions so that every face is covered by fire. It is an untried idea, and your old castellans scoff at it.",
+    "image": "castle",
+    "window": [1470, 1530],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_walls_against_cannon" } },
+    "choices": [
+      {
+        "text": "Fund a trial bastion",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_trial_bastion", "name": "Angled Bastions", "months": 120, "mods": { "fortDefense": 0.1 } } },
+          { "setNationFlag": "era_walls_against_cannon" }
+        ]
+      },
+      {
+        "text": "Thicken the old walls instead",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "era_thick_walls", "name": "Thickened Walls", "months": 60, "mods": { "fortDefense": 0.05 } } },
+          { "setNationFlag": "era_walls_against_cannon" }
+        ]
+      },
+      { "text": "Trust the walls of your fathers", "effects": [{ "setNationFlag": "era_walls_against_cannon" }] }
+    ]
+  },
+  {
+    "id": "era_free_companies",
+    "pool": "era",
+    "title": "Companies Without a War",
+    "text": "A truce elsewhere has left whole mercenary companies without employers, and one of them has camped on your border. Their captain offers a long contract at a fair price. If no one hires them, they will feed themselves from your villages.",
+    "image": "swords",
+    "window": [1444, 1510],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_free_companies" } },
+    "choices": [
+      {
+        "text": "Take them into permanent service",
+        "effects": [
+          { "addRegiments": { "inf": 2, "cav": 1 } },
+          { "modifier": { "id": "era_free_company_contract", "name": "Free Company Contract", "months": 60, "mods": { "upkeep": 0.1 } } },
+          { "setNationFlag": "era_free_companies" }
+        ]
+      },
+      { "text": "Pay them to march elsewhere", "effects": [{ "gold": -20 }, { "goldPerDev": -0.5 }, { "setNationFlag": "era_free_companies" }] },
+      {
+        "text": "Drive them off by force",
+        "effects": [
+          { "rebels": { "regiments": 3 } },
+          { "prestige": 5 },
+          { "setNationFlag": "era_free_companies" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_caravel",
+    "pool": "era",
+    "title": "The Caravel",
+    "text": "Your shipwrights have built a small, nimble ship with lateen sails that can beat into the wind and ride out ocean swells. Pilots say it could reach coasts no one in your land has seen. Merchants and admirals both want the first of them.",
+    "image": "ship",
+    "window": [1444, 1530],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_caravel" } }] },
+    "choices": [
+      {
+        "text": "Fund voyages of exploration",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "prestige": 5 },
+          { "modifier": { "id": "era_voyages", "name": "Voyages of Discovery", "months": 120, "mods": { "tradeIncome": 0.1 } } },
+          { "setNationFlag": "era_caravel" }
+        ]
+      },
+      {
+        "text": "Build them for your navy",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_caravel_squadrons", "name": "Caravel Squadrons", "months": 120, "mods": { "navalPower": 0.1 } } },
+          { "setNationFlag": "era_caravel" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_crusade_call",
+    "pool": "era",
+    "title": "A Call for Crusade",
+    "text": "The Pope has proclaimed a crusade against the Turks, and preachers in every parish urge the faithful to take the cross. Pardons are promised to all who fight or pay. Your own nobles are torn between piety and prudence.",
+    "image": "church",
+    "window": [1444, 1530],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "faith": "catholic" }, { "not": { "isNation": "PAP" } }, { "exists": "TUR" }, { "not": { "nationFlag": "era_crusade_call" } }] },
+    "choices": [
+      {
+        "text": "Take the cross",
+        "effects": [
+          { "papalFavor": 15 },
+          { "prestige": 10 },
+          { "manpower": -2000 },
+          { "modifier": { "id": "era_crusading_zeal", "name": "Crusading Zeal", "months": 60, "mods": { "holyWarMorale": 0.15 } } },
+          { "setNationFlag": "era_crusade_call" }
+        ]
+      },
+      {
+        "text": "Pay the crusade tithe instead",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "papalFavor": 10 },
+          { "setNationFlag": "era_crusade_call" }
+        ],
+        "ai": 2
+      },
+      { "text": "Plead pressing troubles at home", "effects": [{ "papalFavor": -10 }, { "setNationFlag": "era_crusade_call" }] }
+    ]
+  },
+  {
+    "id": "era_first_pike_squares",
+    "pool": "era",
+    "title": "The First Pike Squares",
+    "text": "Your new companies of pikemen and gunners are the talk of every court in Europe. Foreign officers come to watch them drill, and your recruiting sergeants are turning men away. For a time, at least, no army is more modern than yours.",
+    "image": "swords",
+    "window": [1500, 1750],
+    "mtth": 3,
+    "once": true,
+    "news": "Word spreads of a realm whose pike squares are the most modern army in Europe.",
+    "trigger": { "eraAtLeast": 2 },
+    "choices": [
+      { "text": "Show them off in a grand review", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
+      { "text": "Hire out your drillmasters", "effects": [{ "goldPerDev": 1.5 }, { "prestige": 5 }] }
+    ]
+  },
+  {
+    "id": "era_price_revolution",
+    "pool": "era",
+    "title": "Prices Keep Rising",
+    "text": "Silver pours into Europe from mines old and new, and every year bread, wool and iron cost more. Your fixed rents and old tolls buy less each season while merchants grow rich. Your treasurer says the old revenues cannot keep up.",
+    "image": "coins",
+    "window": [1520, 1630],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_price_revolution" } },
+    "choices": [
+      {
+        "text": "Reassess every tax in coin",
+        "effects": [
+          { "modifier": { "id": "era_reassessed_taxes", "name": "Reassessed Taxes", "months": 120, "mods": { "taxIncome": 0.1 } } },
+          { "unrestAll": 2 },
+          { "setNationFlag": "era_price_revolution" }
+        ]
+      },
+      {
+        "text": "Fix prices by decree",
+        "effects": [
+          { "unrestAll": -1 },
+          { "modifier": { "id": "era_price_controls", "name": "Price Controls", "months": 60, "mods": { "tradeIncome": -0.1 } } },
+          { "setNationFlag": "era_price_revolution" }
+        ]
+      },
+      {
+        "text": "Debase the coin to keep pace",
+        "effects": [
+          { "goldPerDev": 2 },
+          { "modifier": { "id": "era_runaway_inflation", "name": "Runaway Inflation", "months": 60, "mods": { "taxIncome": -0.1 } } },
+          { "setNationFlag": "era_price_revolution" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_trace_italienne",
+    "pool": "era",
+    "title": "Fortresses of the New Style",
+    "text": "Italian engineers now build star-shaped fortresses whose low bastions shrug off cannon fire and sweep every ditch with crossfire. A single such fortress can hold an army at bay for a season. They cost a fortune and take years to finish.",
+    "image": "castle",
+    "window": [1500, 1640],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "nationFlag": "era_trace_italienne" } }] },
+    "choices": [
+      {
+        "text": "Ring your frontier with star forts",
+        "effects": [
+          { "goldPerDev": -2.5 },
+          { "modifier": { "id": "era_star_forts", "name": "Star Forts", "months": 120, "mods": { "fortDefense": 0.2 } } },
+          { "setNationFlag": "era_trace_italienne" }
+        ]
+      },
+      {
+        "text": "Train your own military engineers",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_military_engineers", "name": "Military Engineers", "months": 120, "mods": { "siegeSpeed": 0.15 } } },
+          { "setNationFlag": "era_trace_italienne" }
+        ]
+      },
+      { "text": "Rely on your field armies", "effects": [{ "setNationFlag": "era_trace_italienne" }] }
+    ]
+  },
+  {
+    "id": "era_soldiers_who_stay",
+    "pool": "era",
+    "title": "Soldiers Who Stay",
+    "text": "Your captains argue that levies called up for each campaign are no match for professionals who drill all year. They want permanent companies, paid even in peacetime. The cost would be ruinous, but so is losing battles.",
+    "image": "swords",
+    "window": [1500, 1620],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "hasPolicy": "standing_army" } }, { "not": { "nationFlag": "era_soldiers_who_stay" } }] },
+    "choices": [
+      {
+        "text": "Raise permanent companies",
+        "effects": [
+          { "addRegiments": { "inf": 3 } },
+          { "modifier": { "id": "era_permanent_companies", "name": "Permanent Companies", "months": 120, "mods": { "upkeep": 0.1, "morale": 0.05 } } },
+          { "setNationFlag": "era_soldiers_who_stay" }
+        ]
+      },
+      { "text": "Strengthen the old levy", "effects": [{ "manpower": 4000 }, { "setNationFlag": "era_soldiers_who_stay" }] }
+    ]
+  },
+  {
+    "id": "era_navigation",
+    "pool": "era",
+    "title": "Instruments of Navigation",
+    "text": "Pilots now cross open ocean using the astrolabe, the cross-staff and charts drawn from careful observation. Foreign captains guard their secrets jealously. A school for pilots would give your sailors the same skills, at a price.",
+    "image": "map",
+    "window": [1500, 1620],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_navigation" } }] },
+    "choices": [
+      {
+        "text": "Found a school for pilots",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_pilot_school", "name": "School of Pilots", "months": 120, "mods": { "tradeIncome": 0.1, "navalPower": 0.05 } } },
+          { "setNationFlag": "era_navigation" }
+        ]
+      },
+      {
+        "text": "Hire foreign pilots",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "era_foreign_pilots", "name": "Foreign Pilots", "months": 60, "mods": { "tradeIncome": 0.05 } } },
+          { "setNationFlag": "era_navigation" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_reformers_in_pulpits",
+    "pool": "era",
+    "title": "Reformers in Your Pulpits",
+    "text": "Preachers inspired by the reformers in the Empire now fill your churches, denouncing the Pope, the sale of pardons and the wealth of the monasteries. Townsmen sing hymns in their own tongue. Your bishops demand action; your treasurer eyes the abbey lands.",
+    "image": "church",
+    "window": [1517, 1650],
+    "mtth": 60,
+    "once": false,
+    "trigger": { "all": [{ "faith": "catholic" }, { "flag": "reformation" }, { "any": [{ "hreMember": true }, { "ownsAny": ["london", "wessex", "midlands", "yorkshire", "wales", "lowlands", "highlands", "jutland", "zealand", "scania", "norway", "svealand", "gotaland", "finland", "prussia", "livonia", "danzig", "pomerania", "holstein", "brandenburg", "saxony", "bohemia", "moravia", "silesia"] }] }, { "not": { "nationFlag": "era_reformers_in_pulpits" } }] },
+    "choices": [
+      {
+        "text": "Burn their books and silence them",
+        "effects": [
+          { "unrestAll": 2 },
+          { "papalFavor": 15 },
+          { "setNationFlag": "era_reformers_in_pulpits" }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Tolerate them quietly",
+        "effects": [
+          { "unrestAll": -1 },
+          { "papalFavor": -10 },
+          { "setNationFlag": "era_reformers_in_pulpits" }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Embrace the reformed faith",
+        "effects": [
+          { "changeFaith": "protestant" },
+          { "goldPerDev": 3 },
+          { "stability": -1 },
+          { "setNationFlag": "embraced_reform" },
+          { "setNationFlag": "era_reformers_in_pulpits" }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "era_jesuit_colleges",
+    "pool": "era",
+    "title": "The Society of Jesus",
+    "text": "Disciplined priests of a new order offer to open colleges in your towns, teaching Latin, mathematics and rhetoric free of charge. They are superb teachers and fierce defenders of Rome. Some at court whisper that they answer to no prince.",
+    "image": "church",
+    "window": [1540, 1680],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "faith": "catholic" }, { "not": { "nationFlag": "era_jesuit_colleges" } }] },
+    "choices": [
+      {
+        "text": "Invite them to found colleges",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "papalFavor": 10 },
+          { "modifier": { "id": "era_jesuit_colleges", "name": "Jesuit Colleges", "months": 120, "mods": { "techCost": -0.1 } } },
+          { "setNationFlag": "era_jesuit_colleges" }
+        ]
+      },
+      {
+        "text": "Take one as your confessor",
+        "effects": [
+          { "papalFavor": 10 },
+          { "unrestAll": 1 },
+          { "modifier": { "id": "era_jesuit_confessor", "name": "Jesuit Confessor", "months": 60, "mods": { "diplomacy": 1 } } },
+          { "setNationFlag": "era_jesuit_colleges" }
+        ]
+      },
+      { "text": "Keep them out of your schools", "effects": [{ "papalFavor": -5 }, { "setNationFlag": "era_jesuit_colleges" }] }
+    ]
+  },
+  {
+    "id": "era_council_decrees",
+    "pool": "era",
+    "title": "Decrees of the Council",
+    "text": "The great council of the Church has finished its work, ordering bishops to live in their dioceses, a seminary in every see and an end to the worst abuses. Rome asks every Catholic prince to publish the decrees. Your own clergy are not eager to reform.",
+    "image": "scroll",
+    "window": [1563, 1640],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "faith": "catholic" }, { "flag": "reformation" }, { "not": { "nationFlag": "era_council_decrees" } }] },
+    "choices": [
+      {
+        "text": "Publish and enforce the decrees",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "papalFavor": 15 },
+          { "stability": 1 },
+          { "setNationFlag": "era_council_decrees" }
+        ]
+      },
+      {
+        "text": "Publish them but reserve your rights",
+        "effects": [
+          { "papalFavor": 5 },
+          { "prestige": 5 },
+          { "setNationFlag": "era_council_decrees" }
+        ]
+      },
+      { "text": "Leave them unpublished", "effects": [{ "papalFavor": -10 }, { "unrestAll": -1 }, { "setNationFlag": "era_council_decrees" }] }
+    ]
+  },
+  {
+    "id": "era_military_revolution",
+    "pool": "era",
+    "title": "Armies Grow Larger",
+    "text": "Across Europe, armies have doubled in size within living memory, and gunpowder decides more battles than lances. Princes who cannot field tens of thousands of men are swept aside. Your marshals ask whether you will keep pace.",
+    "image": "cannon",
+    "window": [1530, 1640],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "nationFlag": "era_military_revolution" } }] },
+    "choices": [
+      {
+        "text": "Expand recruitment everywhere",
+        "effects": [
+          { "modifier": { "id": "era_mass_recruitment", "name": "Mass Recruitment", "months": 120, "mods": { "manpower": 0.15, "upkeep": 0.05 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_military_revolution" }
+        ]
+      },
+      {
+        "text": "Invest in guns and gunners",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_trained_gunners", "name": "Trained Gunners", "months": 120, "mods": { "artilleryPower": 0.1 } } },
+          { "setNationFlag": "era_military_revolution" }
+        ]
+      },
+      {
+        "text": "Keep a small, elite army",
+        "effects": [
+          { "modifier": { "id": "era_elite_army", "name": "Elite Army", "months": 120, "mods": { "morale": 0.05, "manpower": -0.05 } } },
+          { "setNationFlag": "era_military_revolution" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_palace_architects",
+    "pool": "era",
+    "title": "Architects from Italy",
+    "text": "Architects trained in Rome and Florence offer to rebuild your residence with columns, loggias and gardens in the antique style. Ambassadors judge a ruler by their house, they remind you. The work would take a decade and empty a treasury.",
+    "image": "crown",
+    "window": [1500, 1620],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_palace_architects" } }] },
+    "choices": [
+      {
+        "text": "Build a palace in the new style",
+        "effects": [
+          { "goldPerDev": -2.5 },
+          { "prestige": 15 },
+          { "devCapital": 1 },
+          { "setNationFlag": "era_palace_architects" }
+        ]
+      },
+      { "text": "Add a new wing and gardens", "effects": [{ "goldPerDev": -1 }, { "prestige": 5 }, { "setNationFlag": "era_palace_architects" }] },
+      { "text": "Keep your old residence", "effects": [{ "setNationFlag": "era_palace_architects" }] }
+    ]
+  },
+  {
+    "id": "era_postal_service",
+    "pool": "era",
+    "title": "A Postal Service",
+    "text": "A family of couriers offers to run relays of riders along your main roads, carrying letters from frontier to capital in days rather than weeks. They want a monopoly on the service. Your governors would at last hear your orders before events overtake them.",
+    "image": "scroll",
+    "window": [1500, 1620],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_postal_service" } },
+    "choices": [
+      {
+        "text": "Grant the couriers a monopoly",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "era_courier_post", "name": "Courier Post", "months": 120, "mods": { "coreCost": -0.1, "tradeIncome": 0.05 } } },
+          { "setNationFlag": "era_postal_service" }
+        ]
+      },
+      {
+        "text": "Run the post as a state service",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_state_post", "name": "State Post", "months": 120, "mods": { "coreCost": -0.15, "diplomacy": 1 } } },
+          { "setNationFlag": "era_postal_service" }
+        ]
+      },
+      { "text": "Let letters travel as they always have", "effects": [{ "setNationFlag": "era_postal_service" }] }
+    ]
+  },
+  {
+    "id": "era_first_pike_and_shot",
+    "pool": "era",
+    "title": "The First Pike and Shot Army",
+    "text": "Your musketeers, pikemen and light field guns now fight as a single machine, and foreign generals ride a hundred miles to watch your manoeuvres. Rival courts are hurrying to copy you. The advantage will not last, but it is yours today.",
+    "image": "cannon",
+    "window": [1575, 1750],
+    "mtth": 3,
+    "once": true,
+    "news": "Word spreads of a realm whose musketeers and field guns have rewritten the art of war.",
+    "trigger": { "eraAtLeast": 3 },
+    "choices": [
+      { "text": "Hold a great review for the envoys", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
+      {
+        "text": "Keep your methods secret",
+        "effects": [
+          { "modifier": { "id": "era_secret_methods", "name": "Secret Methods", "months": 60, "mods": { "morale": 0.1 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_volley_drill",
+    "pool": "era",
+    "title": "Drill and Volley",
+    "text": "Officers schooled in the ancient manuals have devised a drill in which ranks of musketeers fire, step back and reload in turn, keeping up an unbroken rain of shot. It demands endless practice and veteran sergeants. Armies that master it win battles.",
+    "image": "swords",
+    "window": [1575, 1690],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 3 }, { "not": { "nationFlag": "era_volley_drill" } }] },
+    "choices": [
+      {
+        "text": "Drill the whole army the new way",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_volley_fire", "name": "Volley Fire", "months": 120, "mods": { "infantryPower": 0.1, "morale": 0.05 } } },
+          { "setNationFlag": "era_volley_drill" }
+        ]
+      },
+      {
+        "text": "Keep faith in the cavalry charge",
+        "effects": [
+          { "modifier": { "id": "era_cavalry_charge", "name": "Cavalry Charge", "months": 120, "mods": { "cavalryPower": 0.1 } } },
+          { "setNationFlag": "era_volley_drill" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_witch_craze",
+    "pool": "era",
+    "title": "The Witch Craze",
+    "text": "A panic over witchcraft has spread from village to village. Every failed harvest or stillborn calf brings a new accusation, and confessions extracted by torture name ever more neighbours. Your judges ask whether the trials should continue.",
+    "image": "death",
+    "window": [1580, 1670],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "not": { "nationFlag": "era_witch_craze" } }] },
+    "choices": [
+      {
+        "text": "Let the courts root out the witches",
+        "effects": [
+          { "unrestAll": -1 },
+          { "prestige": -10 },
+          { "modifier": { "id": "era_witch_trials", "name": "Witch Trials", "months": 36, "mods": { "taxIncome": -0.05 } } },
+          { "setNationFlag": "era_witch_craze" }
+        ]
+      },
+      { "text": "Forbid torture and demand proof", "effects": [{ "unrestAll": 2 }, { "prestige": 5 }, { "setNationFlag": "era_witch_craze" }] }
+    ]
+  },
+  {
+    "id": "era_cold_years",
+    "pool": "era",
+    "title": "The Cold Years",
+    "text": "Winters have grown longer and harsher for a generation. Frost comes in May, rivers freeze hard enough to hold fairs on the ice, and harvests fail one year in three. Your stewards say the old farming calendar no longer serves.",
+    "image": "harvest",
+    "window": [1590, 1710],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_cold_years" } },
+    "choices": [
+      { "text": "Import grain from abroad", "effects": [{ "goldPerDev": -2 }, { "setNationFlag": "era_cold_years" }] },
+      { "text": "Requisition hoarded grain", "effects": [{ "unrestAll": 2 }, { "setNationFlag": "era_cold_years" }] },
+      {
+        "text": "Endure the cold",
+        "effects": [
+          { "modifier": { "id": "era_cold_years", "name": "The Cold Years", "months": 60, "mods": { "manpower": -0.1, "taxIncome": -0.1 } } },
+          { "setNationFlag": "era_cold_years" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_exchange_bank",
+    "pool": "era",
+    "title": "A Bank of Exchange",
+    "text": "Merchants propose a public bank that would hold deposits, settle bills and lend to the state at low interest, all guaranteed by your treasury. Such banks have made other cities rich. If it fails, your credit fails with it.",
+    "image": "coins",
+    "window": [1590, 1700],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_exchange_bank" } },
+    "choices": [
+      {
+        "text": "Charter a public bank",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_public_bank", "name": "Public Bank", "months": 120, "mods": { "taxIncome": 0.05, "tradeIncome": 0.1 } } },
+          { "setNationFlag": "era_exchange_bank" }
+        ]
+      },
+      { "text": "Borrow from the merchants instead", "effects": [{ "loans": 1 }, { "setNationFlag": "era_exchange_bank" }] },
+      { "text": "Keep the bankers at arm's length", "effects": [{ "setNationFlag": "era_exchange_bank" }] }
+    ]
+  },
+  {
+    "id": "era_lands_stripped_bare",
+    "pool": "era",
+    "title": "Lands Stripped Bare",
+    "text": "Years of marching armies, friend and foe alike, have stripped your countryside bare. Villages stand empty, fields go back to forest and wolves roam where farms once stood. Your soldiers now forage in lands that have nothing left to give.",
+    "image": "rebels",
+    "window": [1600, 1670],
+    "mtth": 60,
+    "once": false,
+    "trigger": { "all": [{ "atWar": true }, { "not": { "nationFlag": "era_lands_stripped_bare" } }] },
+    "choices": [
+      {
+        "text": "Let the armies take what they need",
+        "effects": [
+          { "unrestAll": 3 },
+          { "warExhaustion": 1 },
+          { "setNationFlag": "era_lands_stripped_bare" }
+        ]
+      },
+      { "text": "Buy supplies abroad", "effects": [{ "goldPerDev": -2 }, { "setNationFlag": "era_lands_stripped_bare" }] },
+      {
+        "text": "Pull back to friendly ground",
+        "effects": [
+          { "modifier": { "id": "era_short_supply_lines", "name": "Short Supply Lines", "months": 24, "mods": { "attrition": -0.15, "movement": -0.1 } } },
+          { "setNationFlag": "era_lands_stripped_bare" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_secretaries_of_state",
+    "pool": "era",
+    "title": "Secretaries of State",
+    "text": "Your government has outgrown a council of nobles and a handful of clerks. Your chancellor proposes permanent ministries with salaried secretaries, registries and written procedures. The great nobles who ran things by favour will lose influence.",
+    "image": "scroll",
+    "window": [1575, 1700],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 3 }, { "not": { "nationFlag": "era_secretaries_of_state" } }] },
+    "choices": [
+      {
+        "text": "Create permanent ministries",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "era_ministries", "name": "Permanent Ministries", "months": 120, "mods": { "taxIncome": 0.1, "coreCost": -0.1 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_secretaries_of_state" }
+        ]
+      },
+      {
+        "text": "Sell offices to fund the state",
+        "effects": [
+          { "goldPerDev": 2 },
+          { "modifier": { "id": "era_venal_offices", "name": "Venal Offices", "months": 120, "mods": { "taxIncome": -0.05 } } },
+          { "setNationFlag": "era_secretaries_of_state" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_music_drama",
+    "pool": "era",
+    "title": "Music Drama",
+    "text": "Composers have invented a new art in which whole dramas are sung, with stage machines that lower gods from painted clouds. Every great court now wants its own theatre. Your nobles would sit through anything to be seen there with you.",
+    "image": "crown",
+    "window": [1600, 1720],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_music_drama" } }] },
+    "choices": [
+      {
+        "text": "Build a court theatre",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "prestige": 10 },
+          { "modifier": { "id": "era_court_opera", "name": "Court Opera", "months": 60, "mods": { "opinion": 10 } } },
+          { "setNationFlag": "era_music_drama" }
+        ]
+      },
+      {
+        "text": "Open a public opera house",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "prestige": 5 },
+          { "unrestAll": -1 },
+          { "setNationFlag": "era_music_drama" }
+        ]
+      },
+      { "text": "Dismiss it as vain extravagance", "effects": [{ "setNationFlag": "era_music_drama" }] }
+    ]
+  },
+  {
+    "id": "era_war_contractor",
+    "pool": "era",
+    "title": "The War Contractor",
+    "text": "A ruthless nobleman offers to raise and equip an entire army at his own expense. In return he wants the right to levy contributions from every district his troops pass through, yours included. His armies are formidable; his methods are brutal.",
+    "image": "swords",
+    "window": [1590, 1680],
+    "mtth": 60,
+    "once": false,
+    "trigger": { "all": [{ "atWar": true }, { "eraAtLeast": 3 }, { "not": { "nationFlag": "era_war_contractor" } }] },
+    "choices": [
+      {
+        "text": "Accept his offer",
+        "effects": [
+          { "addRegiments": { "inf": 4, "cav": 2 } },
+          { "unrestAll": 3 },
+          { "threat": 5 },
+          { "setNationFlag": "era_war_contractor" }
+        ]
+      },
+      {
+        "text": "Hire a smaller force on your terms",
+        "effects": [
+          { "addRegiments": { "inf": 2 } },
+          { "goldPerDev": -1 },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_war_contractor" }
+        ]
+      },
+      { "text": "Refuse him", "effects": [{ "setNationFlag": "era_war_contractor" }] }
+    ]
+  },
+  {
+    "id": "era_divided_by_faith",
+    "pool": "era",
+    "title": "Neighbours Divided by Faith",
+    "text": "Catholics and Protestants now live street by street in your towns, and every feast day risks a riot. Preachers on both sides call the others servants of the devil. Moderates beg you to proclaim a peace of religion before blood is spilled.",
+    "image": "church",
+    "window": [1560, 1660],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "any": [{ "faith": "catholic" }, { "faith": "protestant" }] }, { "flag": "reformation" }, { "faithRegionsAtLeast": { "faith": "protestant", "count": 10 } }, { "not": { "nationFlag": "era_divided_by_faith" } }] },
+    "choices": [
+      {
+        "text": "Proclaim a peace of religion",
+        "effects": [
+          { "stability": 1 },
+          { "prestige": -5 },
+          { "modifier": { "id": "era_religious_peace", "name": "Religious Peace", "months": 60, "mods": { "tradeIncome": 0.05 } } },
+          { "setNationFlag": "era_divided_by_faith" }
+        ]
+      },
+      {
+        "text": "Enforce your faith by law",
+        "effects": [
+          { "unrestAll": 3 },
+          { "modifier": { "id": "era_one_faith", "name": "One Faith", "months": 60, "mods": { "holyWarMorale": 0.1 } } },
+          { "setNationFlag": "era_divided_by_faith" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_peace_congress",
+    "pool": "era",
+    "title": "A Congress of Peace",
+    "text": "Diplomats from across Europe are gathering in a neutral city to end a generation of war. They speak of a balance of power and of princes who answer to no one within their own lands. Every realm that sends envoys will have a voice.",
+    "image": "treaty",
+    "window": [1630, 1680],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_peace_congress" } },
+    "choices": [
+      {
+        "text": "Send a grand embassy",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "prestige": 5 },
+          { "modifier": { "id": "era_congress_seat", "name": "Seat at the Congress", "months": 120, "mods": { "diplomacy": 1, "threatDecay": 0.2 } } },
+          { "setNationFlag": "era_peace_congress" }
+        ]
+      },
+      {
+        "text": "Send a modest envoy",
+        "effects": [
+          { "modifier": { "id": "era_congress_observer", "name": "Observer at the Congress", "months": 60, "mods": { "threatDecay": 0.1 } } },
+          { "setNationFlag": "era_peace_congress" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_telescope",
+    "pool": "era",
+    "title": "Through the Glass",
+    "text": "A lens-grinder's tube reveals mountains on the moon, spots on the sun and new stars beyond counting. Your scholars clamour for an observatory, while some churchmen warn that the new astronomy contradicts scripture.",
+    "image": "book",
+    "window": [1610, 1700],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_telescope" } },
+    "choices": [
+      {
+        "text": "Fund an observatory",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_observatory", "name": "Observatory", "months": 120, "mods": { "techCost": -0.1 } } },
+          { "setNationFlag": "era_telescope" }
+        ]
+      },
+      { "text": "Ban the new doctrines", "effects": [{ "unrestAll": -1 }, { "prestige": -5 }, { "setNationFlag": "era_telescope" }] }
+    ]
+  },
+  {
+    "id": "era_first_line_army",
+    "pool": "era",
+    "title": "The First Modern Army",
+    "text": "Your battalions in uniform coats march in step, fire by platoon and manoeuvre as one body under officers who have studied their trade. Military observers from every court take notes. Your army is, for now, the model for all of Europe.",
+    "image": "cannon",
+    "window": [1650, 1750],
+    "mtth": 3,
+    "once": true,
+    "news": "One European realm has fielded the first army of line infantry, and the rest of the continent hurries to follow.",
+    "trigger": { "eraAtLeast": 4 },
+    "choices": [
+      { "text": "Parade it before the ambassadors", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
+      {
+        "text": "Publish your regulations for all",
+        "effects": [
+          { "prestige": 5 },
+          { "modifier": { "id": "era_published_regulations", "name": "Published Regulations", "months": 60, "mods": { "opinion": 15 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_great_palace",
+    "pool": "era",
+    "title": "A Palace to Dazzle Europe",
+    "text": "Your architects present plans for a vast palace outside the capital, with a mile of gardens, galleries of mirrors and apartments for a thousand courtiers. Nobles who live under your eye cannot plot in their provinces. The price is staggering.",
+    "image": "crown",
+    "window": [1660, 1750],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "all": [{ "gov": "monarchy" }, { "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_great_palace" } }] },
+    "choices": [
+      {
+        "text": "Build it and summon the nobles to court",
+        "effects": [
+          { "goldPerDev": -3 },
+          { "prestige": 15 },
+          { "unrestAll": -2 },
+          { "setNationFlag": "era_great_palace" }
+        ]
+      },
+      { "text": "Build a modest hunting lodge", "effects": [{ "goldPerDev": -1 }, { "prestige": 5 }, { "setNationFlag": "era_great_palace" }] },
+      { "text": "Govern from the old palace", "effects": [{ "setNationFlag": "era_great_palace" }] }
+    ]
+  },
+  {
+    "id": "era_coffee_houses",
+    "pool": "era",
+    "title": "The Coffee Houses",
+    "text": "Coffee houses have opened in your capital, where merchants strike deals, scholars argue and gossip travels faster than any courier. For a penny anyone can read the newsletters and talk politics. Your ministers suspect the talk is not always loyal.",
+    "image": "coins",
+    "window": [1650, 1750],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_coffee_houses" } },
+    "choices": [
+      {
+        "text": "Let them flourish",
+        "effects": [
+          { "modifier": { "id": "era_coffee_trade", "name": "Coffee House Trade", "months": 120, "mods": { "tradeIncome": 0.1 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_coffee_houses" }
+        ]
+      },
+      { "text": "License and tax every one", "effects": [{ "goldPerDev": 1 }, { "setNationFlag": "era_coffee_houses" }] },
+      { "text": "Close them as dens of sedition", "effects": [{ "unrestAll": -1 }, { "prestige": -5 }, { "setNationFlag": "era_coffee_houses" }] }
+    ]
+  },
+  {
+    "id": "era_salons",
+    "pool": "era",
+    "title": "Salons and Philosophers",
+    "text": "In the salons of your capital, hostesses gather writers who question every tradition, from the rights of rulers to the miracles of saints. Their books are read across Europe. Some would gladly praise an enlightened patron; others write as if no ruler deserved one.",
+    "image": "book",
+    "window": [1690, 1750],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_salons" } },
+    "choices": [
+      {
+        "text": "Become their patron",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "prestige": 10 },
+          { "modifier": { "id": "era_enlightened_patron", "name": "Enlightened Patron", "months": 120, "mods": { "techCost": -0.05 } } },
+          { "unrestAll": 1 },
+          { "setNationFlag": "era_salons" }
+        ]
+      },
+      { "text": "Censor the boldest writers", "effects": [{ "unrestAll": -1 }, { "prestige": -5 }, { "setNationFlag": "era_salons" }] }
+    ]
+  },
+  {
+    "id": "era_academy_of_sciences",
+    "pool": "era",
+    "title": "An Academy of Sciences",
+    "text": "Natural philosophers propose an academy under your patronage where they could test ideas by experiment, publish their findings and advise your ministers on mines, canals and gunnery. Rival courts have founded such bodies already. Its members expect salaries and a fine building.",
+    "image": "book",
+    "window": [1660, 1750],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_academy_of_sciences" } },
+    "choices": [
+      {
+        "text": "Found and fund the academy",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "prestige": 5 },
+          { "modifier": { "id": "era_academy", "name": "Academy of Sciences", "months": 120, "mods": { "techCost": -0.15 } } },
+          { "setNationFlag": "era_academy_of_sciences" }
+        ]
+      },
+      {
+        "text": "Grant a charter but no funds",
+        "effects": [
+          { "modifier": { "id": "era_learned_society", "name": "Learned Society", "months": 120, "mods": { "techCost": -0.05 } } },
+          { "setNationFlag": "era_academy_of_sciences" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_great_canal",
+    "pool": "era",
+    "title": "A Great Canal",
+    "text": "Your engineers propose a canal with locks and aqueducts to join two rivers, so that barges could carry grain and timber across your lands at a fraction of the cost by road. It would take ten thousand labourers and a decade of work.",
+    "image": "map",
+    "window": [1660, 1750],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_great_canal" } },
+    "choices": [
+      {
+        "text": "Dig the canal",
+        "effects": [
+          { "goldPerDev": -3 },
+          { "devCapital": 1 },
+          { "modifier": { "id": "era_great_canal", "name": "Great Canal", "months": 120, "mods": { "tradeIncome": 0.1 } } },
+          { "setNationFlag": "era_great_canal" }
+        ]
+      },
+      {
+        "text": "Improve the post roads instead",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_post_roads", "name": "Paved Post Roads", "months": 120, "mods": { "movement": 0.1 } } },
+          { "setNationFlag": "era_great_canal" }
+        ]
+      },
+      { "text": "Leave transport to the carters", "effects": [{ "setNationFlag": "era_great_canal" }] }
+    ]
+  },
+  {
+    "id": "era_chartered_company",
+    "pool": "era",
+    "title": "A Chartered Company",
+    "text": "Merchants propose a joint-stock company with a charter to trade in distant seas, armed ships of its own and shares sold to anyone with savings. They ask you for the charter and invite you to buy shares. Such companies have made fortunes, and lost them.",
+    "image": "ship",
+    "window": [1650, 1750],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_chartered_company" } }] },
+    "choices": [
+      {
+        "text": "Grant the charter",
+        "effects": [
+          { "modifier": { "id": "era_company_charter", "name": "Chartered Company", "months": 120, "mods": { "tradeIncome": 0.1 } } },
+          { "setNationFlag": "era_chartered_company" }
+        ]
+      },
+      {
+        "text": "Grant it and buy a large stake",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "era_company_charter", "name": "Chartered Company", "months": 120, "mods": { "tradeIncome": 0.1 } } },
+          { "triggerEvent": { "id": "era_company_dividend", "months": 36 } },
+          { "setNationFlag": "era_chartered_company" }
+        ]
+      },
+      {
+        "text": "Keep the seas open to all",
+        "effects": [
+          { "modifier": { "id": "era_open_seas", "name": "Open Seas", "months": 60, "mods": { "tradeIncome": 0.05 } } },
+          { "unrestAll": -1 },
+          { "setNationFlag": "era_chartered_company" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_company_dividend",
+    "pool": "era",
+    "title": "The Company Pays Out",
+    "text": "Your company's ships have returned laden with spices, silks and porcelain, and the directors declare a dividend that makes your stake worth several times its price. The court talks of nothing else. Shareholders are already pressing for a second voyage.",
+    "image": "coins",
+    "once": false,
+    "hidden": true,
+    "trigger": { "chance": 0.7 },
+    "choices": [
+      { "text": "Take the profits", "effects": [{ "goldPerDev": 4 }] },
+      {
+        "text": "Reinvest in a larger fleet",
+        "effects": [
+          { "goldPerDev": 1.5 },
+          { "modifier": { "id": "era_company_fleet", "name": "Company Fleet", "months": 120, "mods": { "navalPower": 0.1, "tradeIncome": 0.05 } } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_officer_school",
+    "pool": "era",
+    "title": "A School for Officers",
+    "text": "Your generals complain that officers who bought their commissions cannot read a map or site a battery. They propose an academy where young nobles would learn mathematics, fortification and drill before they lead a single company.",
+    "image": "swords",
+    "window": [1650, 1750],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 4 }, { "not": { "nationFlag": "era_officer_school" } }] },
+    "choices": [
+      {
+        "text": "Found a cadet academy",
+        "effects": [
+          { "goldPerDev": -1.5 },
+          { "modifier": { "id": "era_cadet_academy", "name": "Cadet Academy", "months": 120, "mods": { "morale": 0.1 } } },
+          { "setNationFlag": "era_officer_school" }
+        ]
+      },
+      {
+        "text": "Keep selling commissions",
+        "effects": [
+          { "goldPerDev": 1.5 },
+          { "modifier": { "id": "era_bought_commissions", "name": "Purchased Commissions", "months": 60, "mods": { "morale": -0.05 } } },
+          { "setNationFlag": "era_officer_school" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_census",
+    "pool": "era",
+    "title": "Counting the People",
+    "text": "Your ministers want to know exactly how many subjects you have, what they own and what they could pay. A census would send clerks into every parish to count hearths, cattle and men of fighting age. Your people fear new taxes will follow the counting.",
+    "image": "scroll",
+    "window": [1680, 1750],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_census" } },
+    "choices": [
+      {
+        "text": "Order a full census",
+        "effects": [
+          { "goldPerDev": -1 },
+          { "modifier": { "id": "era_census_rolls", "name": "Census Rolls", "months": 120, "mods": { "taxIncome": 0.1, "manpower": 0.05 } } },
+          { "unrestAll": 2 },
+          { "setNationFlag": "era_census" }
+        ]
+      },
+      {
+        "text": "Count only the towns",
+        "effects": [
+          { "modifier": { "id": "era_town_registers", "name": "Town Registers", "months": 60, "mods": { "taxIncome": 0.05 } } },
+          { "setNationFlag": "era_census" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_manufactories",
+    "pool": "era",
+    "title": "State Manufactories",
+    "text": "Your ministers propose state workshops for glass, tapestry, silk and porcelain, staffed by craftsmen lured from abroad. Every luxury made at home is gold that stays in the realm. Private merchants protest that the state should not compete with them.",
+    "image": "coins",
+    "window": [1650, 1750],
+    "mtth": 96,
+    "once": false,
+    "trigger": { "not": { "nationFlag": "era_manufactories" } },
+    "choices": [
+      {
+        "text": "Found state manufactories",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "era_state_manufactories", "name": "State Manufactories", "months": 120, "mods": { "taxIncome": 0.1 } } },
+          { "setNationFlag": "era_manufactories" }
+        ]
+      },
+      {
+        "text": "Grant privileges to private workshops",
+        "effects": [
+          { "modifier": { "id": "era_privileged_workshops", "name": "Privileged Workshops", "months": 120, "mods": { "tradeIncome": 0.05 } } },
+          { "setNationFlag": "era_manufactories" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "era_socket_bayonet",
+    "pool": "era",
+    "title": "The Socket Bayonet",
+    "text": "A simple ring that fixes a blade beside the muzzle lets every musketeer be his own pikeman and still fire. Your generals predict the end of the pike. Re-arming a whole army, however, means new muskets, new drill and a great deal of money.",
+    "image": "swords",
+    "window": [1680, 1750],
+    "mtth": 84,
+    "once": false,
+    "trigger": { "all": [{ "eraAtLeast": 4 }, { "not": { "nationFlag": "era_socket_bayonet" } }] },
+    "choices": [
+      {
+        "text": "Re-arm the entire army at once",
+        "effects": [
+          { "goldPerDev": -2 },
+          { "modifier": { "id": "era_socket_bayonets", "name": "Socket Bayonets", "months": 120, "mods": { "infantryPower": 0.15 } } },
+          { "setNationFlag": "era_socket_bayonet" }
+        ]
+      },
+      {
+        "text": "Phase them in over time",
+        "effects": [
+          { "goldPerDev": -0.5 },
+          { "modifier": { "id": "era_partial_rearming", "name": "Partial Re-arming", "months": 120, "mods": { "infantryPower": 0.05 } } },
+          { "setNationFlag": "era_socket_bayonet" }
+        ]
+      }
+    ]
+  }
+]
