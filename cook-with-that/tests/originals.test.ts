@@ -35,3 +35,13 @@ describe('original recipes', () => {
     }
   });
 });
+
+describe('the step checker', () => {
+  test('reads each clause on its own: a list "garlic, salt" is not garlic salt', () => {
+    const listed = ['olive_oil', 'white_vinegar', 'garlic', 'salt', 'black_pepper'];
+    expect(unlistedStepIngredients(index, ['Whisk the oil, vinegar, garlic, salt and pepper.'], listed)).toEqual([]);
+    expect(unlistedStepIngredients(index, ['Season with garlic salt.'], ['garlic', 'salt'])).toEqual([
+      { id: 'garlic_salt', term: 'garlic salt' },
+    ]);
+  });
+});

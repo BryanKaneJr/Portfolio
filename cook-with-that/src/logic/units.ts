@@ -85,6 +85,50 @@ const GRAMS_PER_CUP: Record<string, number> = {
   mushroom: 70,
   honey: 340,
   peanut_butter: 255,
+  // Added for the 2026-10-11 recipe audit (solids that showed in ml).
+  cabbage: 70, // shredded
+  napa_cabbage: 75, // shredded
+  kale: 20, // chopped
+  whole_wheat_flour: 120,
+  almonds: 140, // whole; sliced and slivered below
+  peanuts: 145,
+  sunflower_seeds: 140,
+  dried_cranberries: 120,
+  dried_apricots: 130,
+  couscous: 175,
+  wild_rice: 160,
+  pearl_barley: 200,
+  great_northern_beans: 175,
+  black_olives: 135,
+  green_olives: 135,
+  sugar_snap_peas: 65,
+  frozen_spinach: 150,
+  mint: 25,
+  dill: 10,
+  shiitake_mushrooms: 70,
+  roasted_red_peppers: 150,
+  sun_dried_tomatoes: 55, // dry-packed; oil-packed below
+  ricotta: 250,
+  monterey_jack: 113,
+  jicama: 130,
+  cucumber: 135,
+  fennel: 90,
+  butternut_squash: 140,
+  ham: 140, // diced
+  chicken: 140, // cooked and shredded or diced: raw chicken isn't measured in cups
+  grapes: 150,
+  graham_crackers: 100, // crumbs
+  cornflakes: 30, // whole; crushed below
+  tortilla_chips: 30,
+  crispy_chow_mein_noodles: 45,
+  chocolate_sprinkles: 190,
+  paprika: 110,
+};
+/** Where the cut or form changes the weight a lot: [pattern on the ingredient line's name, grams per cup]. */
+const FORM_WEIGHTS: Record<string, [RegExp, number][]> = {
+  almonds: [[/\b(sliced|slivered|flaked)\b/i, 95]],
+  cornflakes: [[/\bcrushed\b/i, 100]],
+  sun_dried_tomatoes: [[/\boil\b/i, 110]],
 };
 /** Rice is weighed raw or cooked, and the two differ a lot. */
 const RICE_RAW = 185;
@@ -183,7 +227,8 @@ const UNIT_RE = new RegExp(
 export function gramsPerCup(ingredientId: string | undefined, displayName = ''): number | undefined {
   if (!ingredientId) return undefined;
   if (ingredientId === 'rice') return /\bcooked\b/i.test(displayName) ? RICE_COOKED : RICE_RAW;
-  return GRAMS_PER_CUP[ingredientId];
+  const form = FORM_WEIGHTS[ingredientId]?.find(([re]) => re.test(displayName));
+  return form ? form[1] : GRAMS_PER_CUP[ingredientId];
 }
 
 /** Convert every measure in `text`; returns the new text plus what each measure was. */
