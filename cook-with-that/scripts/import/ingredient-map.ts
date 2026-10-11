@@ -567,6 +567,29 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'ground cardamom': { add: 'spice' }, // cardamom pods are separate, like whole and ground cloves
   'dried cranberries': { add: 'pantry' },
 
+  // ── Reviewed by parallel import worker bc7 ──
+  meat: null, // which meat? The recipe must say
+  'cooked white or brown rice': null, // two different foods: the editor picks one
+  'zucchini or bok choy': null, // the editor picks one
+  'flat green beans': 'green_beans', // romano beans, a flat variety of green bean
+  'lima beans': { add: 'protein' }, // includes the large Valencian garrofó; not cannellini
+  'butter beans': '=lima beans', // the UK and US Southern name for lima beans
+  'baby lima beans': '=lima beans',
+  'penne rigate': 'pasta',
+  'salted water': 'water',
+  'sugar free ketchup': 'ketchup',
+  'condensed tomato soup': { add: 'pantry' }, // canned, undiluted; not tomato sauce or passata
+  'celery shoots': 'celery', // stalks
+  beet: { add: 'produce' }, // fresh beetroot
+  beets: '=beet',
+  beetroot: '=beet',
+  'dry brown lentils': 'lentils',
+  'spanish chorizo': { add: 'protein' }, // cured, ready to slice
+  chorizo: null, // Spanish (cured) or Mexican (raw)? They cook differently; the recipe must say
+  'spicy chorizo': null, // Spanish or Mexican?
+  kefir: { add: 'dairy' }, // cultured milk drink; not buttermilk or yogurt
+  'brewer s yeast': null, // Italian "lievito di birra" is fresh baker's yeast; in English it's an inactive supplement
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

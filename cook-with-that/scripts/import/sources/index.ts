@@ -128,6 +128,13 @@ export const SOURCES: Record<string, SourceDef> = {
         'derived from a published "Kropsu: Finnish Baked Pancake" (The Culinary Cellar; also hultgren.org): identical 1/2 cup (1 stick) butter, 2 eggs, 2 tbsp sugar, 1/2 tsp salt, 2 cups whole milk, 1 cup flour, 400°F 9x13 pan, 40 min, and the same "Using heavy oven mitts, remove pan from oven and pour batter" step',
       kaiserschmarrn:
         'suspected translation of a published German/Austrian recipe (likely gutekueche.at): a German-language Kaiserschmarrn handout linking gutekueche.at has the identical 200 g flour, 30 g sugar, 4 eggs, 300 ml milk, 40 g butter, 30 g raisins for 3 portions and the same yolk/stiff-white/180°C-oven method',
+      'nashville-chicken':
+        'earlier versions credited "BBQ-Nation" and linked grillnationbbq.com (wprm_print/1538) as the source; the credit was later dropped, and the intro still reads as that blog\'s copy',
+      'medieval-beef-soup':
+        'earlier versions said "Adapted from this video" (a YouTube video), later "Adapted from a recipe from Anonimo Toscano\'s Manuscript"; both credits were dropped in a later edit',
+      'pork-carnitas':
+        "Skinnytaste's slow-cooker carnitas (Gina Homolka): same ingredient list (2 1/2 lb boneless pork shoulder, 6 garlic cloves in slivers, 1 1/2 tsp cumin, 1/2 tsp sazon, 1/4 tsp dry adobo, 1/4 tsp oregano, 3/4 cup reduced-sodium chicken broth, 2-3 chipotles in adobo, 2 bay leaves) and the same steps (garlic slivers pushed into the meat, 8 hours on low, shred, 15-30 minutes more)",
+      'peat-carrot-salad': "titled and credited as Ray Peat's carrot salad, another named person's recipe",
     },
     // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
     // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
