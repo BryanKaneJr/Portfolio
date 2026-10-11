@@ -75,7 +75,7 @@ function prose(o: unknown, where: string): void {
       else prose(v, `${where}.${k}`);
     }
 }
-for (const f of ['events-historical', 'events-generic', 'events-newworld', 'missions', 'achievements', 'policies', 'traits', 'nations', 'units']) {
+for (const f of ['events-historical', 'events-generic', 'events-newworld', 'missions', 'achievements', 'policies', 'traits', 'nations', 'units', 'aims']) {
   prose(JSON.parse(fs.readFileSync(path.join(ROOT, `src/content/${f}.json`), 'utf8')), f);
 }
 

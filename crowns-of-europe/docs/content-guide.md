@@ -225,6 +225,25 @@ Each major nation has 6-10 missions in a short tree (at most 3 branches; `requir
 nation). The `generic` set is used by every nation without its own. Mission titles are at most 36 characters. A mission is claimable once its requirements
 are done and its goal is true; the player taps "Complete" to collect the reward.
 
+Missions (shown to the player as ambitions) also steer the AI: the regions named in an open mission's goal
+(`owns`, `ownsAny`, `controls`) are land that nation wants (see aims below), so write goals for the land a crown
+historically went after.
+
+## Historical aims and bonds (`aims.json`)
+
+```json
+{ "id": "fra_english_out", "nation": "FRA", "title": "Drive the English out of France", "regions": ["normandy", "gascony", "calais"], "until": 1700 }
+{ "a": "FRA", "b": "SCO", "kind": "friends", "label": "The Auld Alliance", "until": 1560 }
+```
+
+An **aim** is land an AI crown wants while the years fit (`from` inclusive, `until` exclusive, both optional) and
+it lacks some of the regions. The player's nation ignores aims (it has ambitions). Wanted land, from aims (weight 2)
+and from open missions (weight 1), makes the AI forge claims on it when it borders it, prefer wars against whoever
+holds it (higher score, 15% less strength needed), demand it first in peace deals, and think less of the holder
+(−12 −8 per region held, at most −40, aims only). A **bond** gives both crowns +25 (friends) or −25 (foes) opinion
+while its years fit, which also steers rivalries and alliances. The nation sheet shows a crown's aims and bonds
+under "What they want". Titles at most 48 characters, labels at most 40.
+
 ## Achievements
 
 ```json

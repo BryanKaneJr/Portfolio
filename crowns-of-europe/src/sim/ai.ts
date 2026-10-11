@@ -6,6 +6,7 @@
 import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
+import { wantedRegions, wantsFrom } from './aims';
 import {
   REBELS,
   allied,
@@ -32,6 +33,8 @@ import {
   warsOf,
 } from './queries';
 import {
+  FABRICATE_COST,
+  FABRICATE_DAYS,
   coreCost,
   devCost,
   fortCost,
@@ -70,6 +73,7 @@ export function monthlyAI(s: GameState): void {
     if (isNativeNation(nat.id)) continue;
     aiColonies(s, nat);
     aiDiplomacy(s, nat);
+    aiClaims(s, nat);
     aiWar(s, nat);
   }
   coalitionWarCheck(s, (attacker, target) => {
@@ -380,6 +384,23 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
   }
 }
 
+/** Forge a claim on land the crown wants (aims, ambitions) next to its own, as the player can. */
+function aiClaims(s: GameState, nat: Nation): void {
+  const n = nat.id;
+  if (nat.fabricating || nat.overlord || nat.gold < FABRICATE_COST + reserve(s, nat) * 0.5 || !chance(s, 0.25)) return;
+  let best: { r: string; score: number } | null = null;
+  for (const [r, w] of wantedRegions(s, n)) {
+    const o = s.regions[r]?.owner;
+    if (!o || o === n || r in nat.claims || s.nations[o].overlord === n || allied(s, n, o)) continue;
+    if (!GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n)) continue;
+    const score = w * 10 + s.regions[r].dev;
+    if (!best || score > best.score) best = { r, score };
+  }
+  if (!best) return;
+  nat.gold -= FABRICATE_COST;
+  nat.fabricating = { region: best.r, done: s.day + FABRICATE_DAYS };
+}
+
 // ---------------------------------------------------------------- war
 
 export function sideStrength(s: GameState, nations: NationId[]): number {
@@ -396,6 +417,7 @@ function aiWar(s: GameState, nat: Nation): void {
   const evalChance = pers === 'expansionist' ? 0.3 : pers === 'opportunist' ? 0.2 : 0.1;
   if (!chance(s, evalChance)) return;
   let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; score: number } | null = null;
+  const wanted = wantedRegions(s, n);
   const targets = new Set(neighborsOf(s, n));
   for (const t of targets) {
     if (canDeclareWar(s, n, t) || hasTruce(s, n, t)) continue;
@@ -407,11 +429,14 @@ function aiWar(s: GameState, nat: Nation): void {
     if (cb.cb === 'none' && pers !== 'expansionist') continue;
     const sides = likelySides(s, n, t);
     const ratio = sideStrength(s, sides.attackers) / Math.max(1, sideStrength(s, sides.defenders));
+    // Crowns follow their history: land they want makes a war worth more and worth more risk.
+    const desire = Math.min(4, wantsFrom(s, n, t).reduce((sum, r) => sum + (wanted.get(r) ?? 0), 0));
     let need = REQUIRED_RATIO[pers] * aggression;
     if (cb.cb === 'none') need *= 1.8;
+    if (desire) need *= 0.85;
     if (t === s.player && s.settings.difficulty === 'easy') need *= 1.3;
     if (ratio < need) continue;
-    const score = ratio + (cb.goal ? s.regions[cb.goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0);
+    const score = ratio + (cb.goal ? s.regions[cb.goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
     if (!best || score > best.score) best = { target: t, cb, score };
   }
   if (!best) return;

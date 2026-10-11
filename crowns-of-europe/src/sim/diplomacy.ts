@@ -3,7 +3,8 @@
  * improve relations, alliance, royal marriage, military access, rivalry, vassalization, gifts, insults.
  * Each action has a cooldown per target. Acceptance is a score with readable reasons.
  */
-import { NATION, REGION, nationName } from './content';
+import { NATION, REGION, nationName, regionName } from './content';
+import { AIM_WEIGHT, bondsBetween, wantsFrom } from './aims';
 import { log, involvesPlayer, newsworthy } from './log';
 import {
   aliveNations,
@@ -78,6 +79,9 @@ export function opinionBreakdown(s: GameState, from: NationId, to: NationId): Re
   if (mods) add('Reputation', mods);
   if (s.hre.emperor && ((s.hre.emperor === to && isHreMember(s, from)) || (s.hre.emperor === from && isHreMember(s, to)))) add('Empire', 10);
   if (borders(s, from, to) && NATION[from].personality === 'expansionist') add('Border friction', -10);
+  for (const bond of bondsBetween(s, from, to)) add(bond.label, bond.kind === 'friends' ? 25 : -25);
+  const wanted = wantsFrom(s, from, to, AIM_WEIGHT);
+  if (wanted.length) add(`Holds land we want (${regionName(wanted[0])}${wanted.length > 1 ? ` +${wanted.length - 1}` : ''})`, -Math.min(40, 12 + 8 * wanted.length));
   for (const m of opinionModsOf(s, from, to)) add(m.name, m.value);
   return out;
 }

@@ -39,10 +39,12 @@ a Mercator map, light tutorial, no audio yet).
 src/sim/       types, content (JSON loaders + movement graph), state (new game), tick (daily/monthly), commands,
                military (paths, convoys, movement, supply), battle, siege, navy, war (war score, peace), diplomacy
                (opinion, actions), threat (coalitions), economy, colonies (discovery, colonists, settlers, natives,
-               trade goods), events (DSL eval), dsl (schema), missions, rulers, religion (Reformation, Papal Favor,
-               HRE), rebels, territory, ai, queries, util, log
+               trade goods), events (DSL eval), dsl (schema), missions, aims (what each AI crown wants: historical
+               aims, mission goals, bonds), rulers, religion (Reformation, Papal Favor, HRE), rebels, territory,
+               ai, queries, util, log
 src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, scenario1444, traits, policies, units,
-               names, events-historical, events-generic, events-newworld, missions, achievements, map.json (generated)
+               names, events-historical, events-generic, events-newworld, missions, achievements, aims (historical
+               aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, colors, geometry, tap, MiniMap), game/ (Bars, Sheet, RegionSheet, ColonySheets,
                UnitSheets, NationSheet, Cards, Panels, Menu, Help), components/ (kit, Flag, Icon), describe
@@ -50,7 +52,7 @@ src/ui/        map/ (MapView, colors, geometry, tap, MiniMap), game/ (Bars, Shee
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace)
-tests/         battle, movement, siege, war, colonies, events, soak (Jest, node)
+tests/         battle, movement, siege, war, colonies, aims, events, soak (Jest, node)
 ```
 
 ## Commands

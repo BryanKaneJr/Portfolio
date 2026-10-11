@@ -4,6 +4,8 @@
  */
 import {
   ACHIEVEMENTS,
+  AIMS,
+  BONDS,
   EVENTS,
   MAP,
   MISSIONS,
@@ -116,6 +118,26 @@ for (const m of MISSIONS) byNation.set(m.nation, (byNation.get(m.nation) ?? 0) +
 for (const n of NATIONS.filter(x => x.tier !== 'minor'))
   if ((byNation.get(n.id) ?? 0) < 6 && MISSIONS.length) warns.push(`nation ${n.id} has ${byNation.get(n.id) ?? 0} missions (want 6-10)`);
 
+// Historical aims and bonds (aims.json)
+const aimIds = new Set<string>();
+for (const a of AIMS) {
+  const w = `aim ${a.id}`;
+  if (!a.id || aimIds.has(a.id)) errs.push(`${w}: missing or duplicate id`);
+  aimIds.add(a.id);
+  if (!NATION[a.nation]) errs.push(`${w}: unknown nation ${a.nation}`);
+  if (!a.title || a.title.length > 48) errs.push(`${w}: title must be 1-48 characters`);
+  if (!a.regions?.length) errs.push(`${w}: needs regions`);
+  for (const r of a.regions ?? []) if (!REGION[r]) errs.push(`${w}: unknown region ${r}`);
+  if (a.from && a.until && a.from >= a.until) errs.push(`${w}: from must be before until`);
+}
+for (const b of BONDS) {
+  const w = `bond ${b.a}-${b.b}`;
+  if (!NATION[b.a] || !NATION[b.b] || b.a === b.b) errs.push(`${w}: needs two different known nations`);
+  if (b.kind !== 'friends' && b.kind !== 'foes') errs.push(`${w}: kind must be friends or foes`);
+  if (!b.label || b.label.length > 40) errs.push(`${w}: label must be 1-40 characters`);
+  if (b.from && b.until && b.from >= b.until) errs.push(`${w}: from must be before until`);
+}
+
 // Achievements
 const achIds = new Set<string>();
 for (const a of ACHIEVEMENTS) {
@@ -132,5 +154,5 @@ if (errs.length) {
   process.exit(1);
 }
 console.log(
-  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements`,
+  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements, ${AIMS.length} aims`,
 );

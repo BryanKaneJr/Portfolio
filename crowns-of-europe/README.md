@@ -51,7 +51,10 @@ bundled and works in airplane mode.
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
 - **Story:** 246 events (104 historical, 69 generic, 45 era, 28 New World), 231 missions, 42 achievements, unrest and rebels.
 - **AI** that recruits, invests, forms alliances, declares wars it can win, chases beatable stacks, besieges,
-  retreats from bigger ones and negotiates peace.
+  retreats from bigger ones and negotiates peace. Crowns follow their history loosely: France wants the English
+  off the continent, Castile wants Granada, Muscovy wants the Russian lands. They forge claims on the land they
+  want and fight for it, and old friendships and enmities colour their opinions (see "What they want" on a
+  nation's sheet).
 - **Saves:** autosave every 1 January and on leaving the app, three manual slots, optional ironman.
 
 ## Getting started

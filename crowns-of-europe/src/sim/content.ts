@@ -12,9 +12,12 @@ import genericEventsJson from '../content/events-generic.json';
 import newWorldEventsJson from '../content/events-newworld.json';
 import missionsJson from '../content/missions.json';
 import achievementsJson from '../content/achievements.json';
+import aimsJson from '../content/aims.json';
 import namesJson from '../content/names.json';
 import type {
   AchievementDef,
+  AimDef,
+  BondDef,
   EventDef,
   MapData,
   MapRegion,
@@ -108,6 +111,8 @@ export const ERA = (n: number): UnitEra => UNITS.eras[Math.max(0, Math.min(UNITS
 export const EVENTS = [...(historicalEventsJson as unknown[]), ...(genericEventsJson as unknown[]), ...(newWorldEventsJson as unknown[])] as EventDef[];
 export const EVENT: Record<string, EventDef> = Object.fromEntries(EVENTS.map(e => [e.id, e]));
 export const MISSIONS = missionsJson as unknown as MissionDef[];
+export const AIMS = (aimsJson as unknown as { aims: AimDef[] }).aims;
+export const BONDS = (aimsJson as unknown as { bonds: BondDef[] }).bonds;
 export const MISSION: Record<string, MissionDef> = Object.fromEntries(MISSIONS.map(m => [m.id, m]));
 export const ACHIEVEMENTS = achievementsJson as unknown as AchievementDef[];
 

@@ -1,7 +1,8 @@
 /** Another nation: who they are, what they think of you (and why), and the diplomatic actions. */
 import { useState } from 'react';
 import { View } from 'react-native';
-import { NATION, TRAITS, nationName } from '../../sim/content';
+import { NATION, TRAITS, nationName, regionName } from '../../sim/content';
+import { activeAims, bondsOf, holds } from '../../sim/aims';
 import { diplomacy, freeSubject, playerExcommunicate } from '../../sim/commands';
 import { acceptance, annexCost, canRival, cooldownLeft, GIFT_AMOUNT, opinionBreakdown, type DiploAction } from '../../sim/diplomacy';
 import { REBELS, allied, alliesOf, hasTruce, married, militaryPower, ownedRegions, rulerAge, subjectsOf, totalDev, warBetween } from '../../sim/queries';
@@ -33,6 +34,8 @@ export function NationSheet({ id }: { id: string }) {
       </Sheet>
     );
   }
+  const aims = activeAims(s, id);
+  const bonds = bondsOf(s, id);
   const breakdown = opinionBreakdown(s, id, s.player);
   const op = breakdown.reduce((t, r) => t + r.value, 0);
   const war = warBetween(s, id, s.player);
@@ -92,6 +95,28 @@ export function NationSheet({ id }: { id: string }) {
         {alliesOf(s, id).length ? <Line label="Allies" value={alliesOf(s, id).map(nationName).join(', ')} /> : null}
         {subjectsOf(s, id).length ? <Line label="Subjects" value={subjectsOf(s, id).map(nationName).join(', ')} /> : null}
       </Section>
+      {aims.length || bonds.length ? (
+        <Section title="What they want">
+          {aims.map(a => {
+            const lacking = a.regions.filter(r => !holds(s, id, r));
+            const yours = lacking.filter(r => holds(s, s.player, r));
+            return (
+              <View key={a.id} style={{ marginBottom: 6 }}>
+                <T v="small" style={{ fontWeight: '700' }}>{a.title}</T>
+                <T v="tiny" style={yours.length ? { color: C.red } : undefined}>
+                  {lacking.map(regionName).join(', ')}
+                  {yours.length ? ` (${yours.length === lacking.length ? 'all yours' : `${yours.map(regionName).join(', ')} yours`})` : ''}
+                </T>
+              </View>
+            );
+          })}
+          {bonds.map(b => {
+            const other = b.a === id ? b.b : b.a;
+            return <Line key={`${b.a}${b.b}`} label={`${b.kind === 'friends' ? 'Old friends' : 'Old enemies'}: ${nationName(other)}`} value={b.label} tone={other === s.player ? (b.kind === 'friends' ? 'good' : 'bad') : undefined} />;
+          })}
+          <T v="tiny" style={{ marginTop: 4 }}>Crowns follow their history: they forge claims on the land they want, go to war for it and dislike whoever holds it.</T>
+        </Section>
+      ) : null}
       <Section title="Diplomacy">
         <View style={{ gap: 6 }}>
           {actions

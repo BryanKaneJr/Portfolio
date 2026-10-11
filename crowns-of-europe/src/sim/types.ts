@@ -319,6 +319,26 @@ export interface MissionDef {
   reward: Effect[];
 }
 
+/** A historical aim of an AI crown (content/aims.json): land it wants while the years fit. */
+export interface AimDef {
+  id: string;
+  nation: NationId;
+  title: string;
+  regions: RegionId[];
+  from?: number;
+  until?: number;
+}
+
+/** An old friendship or enmity between two crowns that colours their opinion of each other. */
+export interface BondDef {
+  a: NationId;
+  b: NationId;
+  kind: 'friends' | 'foes';
+  label: string;
+  from?: number;
+  until?: number;
+}
+
 export interface AchievementDef {
   id: string;
   title: string;

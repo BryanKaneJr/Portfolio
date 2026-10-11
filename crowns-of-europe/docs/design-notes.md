@@ -49,6 +49,12 @@ here.
     levies, order, renown, league, leverage, army limit, integrated, charters/settlers, exports, war weariness,
     decrees and ambitions instead, explained in a "Words used in this game" list on the How to Play page. The
     code and the tables below keep the old names (see the glossary in `content-guide.md`).
+11. **AI crowns follow history, loosely.** Each AI crown wants land: from its historical aims (`aims.json`,
+    e.g. France wants Normandy, Gascony and Calais back; the Ottomans want Constantinople, then the Balkans, then
+    the islands) and from the goals of its open ambitions. It forges claims on wanted land next to its own, likes
+    wars against the holder better, asks for that land first at the peace table and dislikes the holder. Old
+    friendships and enmities (the Auld Alliance, Poland and the Order) add ±25 opinion. Nothing is scripted: a
+    weak France still loses, and a strong England may keep Normandy. The nation sheet shows what a crown wants.
 
 ## Key numbers (all in `src/sim/`)
 

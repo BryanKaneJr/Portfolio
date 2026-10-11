@@ -22,6 +22,7 @@ import {
   warsOf,
 } from './queries';
 import { addOpinion, isHreMember, opinion } from './diplomacy';
+import { wantedRegions } from './aims';
 import { addThreat, coalitionAgainst } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
@@ -452,10 +453,12 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   const terms: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], winner, loser };
   if (w.cb === 'independence' && winSide === 0) return terms;
   const winnerRegions = new Set(ownedRegions(s, winner).map(r => r.id));
+  // Land the winner wants (historical aims, ambitions) comes first after the war goal and claims.
+  const wanted = wantedRegions(s, winner);
   const candidates = demandableRegions(s, w, winner)
     .map(r => ({ r, cost: regionPeaceCost(s, winner, r), dev: s.regions[r].dev }))
     .sort((a, b) => {
-      const prio = (x: { r: string }) => (x.r === w.goal ? 100 : 0) + (x.r in s.nations[winner].claims || s.regions[x.r].cores.includes(winner) ? 50 : 0);
+      const prio = (x: { r: string }) => (x.r === w.goal ? 100 : 0) + (x.r in s.nations[winner].claims || s.regions[x.r].cores.includes(winner) ? 50 : 0) + (wanted.get(x.r) ?? 0) * 30;
       return prio(b) - prio(a) || b.dev - a.dev;
     });
   let left = budget;
@@ -463,7 +466,7 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
     if (c.cost > left) continue;
     // Prefer regions that touch what the winner holds (or will hold).
     const touches = REGION[c.r] && (winnerRegions.size === 0 || [...winnerRegions, ...terms.regions].some(x => x === c.r || isNeighbor(c.r, x)));
-    if (!touches && c.r !== w.goal) continue;
+    if (!touches && c.r !== w.goal && !wanted.has(c.r)) continue;
     terms.regions.push(c.r);
     left -= c.cost;
     if (terms.regions.length >= 4) break;
