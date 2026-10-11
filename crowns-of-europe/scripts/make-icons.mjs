@@ -1,4 +1,5 @@
 /** Renders the app icon, adaptive icon, splash mark and favicon from SVG with Playwright. node scripts/make-icons.mjs */
+import { Buffer } from 'node:buffer';
 import { chromium } from 'playwright';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

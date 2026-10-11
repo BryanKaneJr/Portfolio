@@ -3,14 +3,13 @@
  * Monthly (staggered per nation): economy, diplomacy, war and peace decisions, weighted by personality.
  * Every few days per army: attack beatable stacks, besiege enemy land, retreat from bigger stacks, merge.
  */
-import { GRAPH, NATION, POLICIES, REGION, isSea } from './content';
+import { GRAPH, NATION, POLICIES, isSea } from './content';
 import { log } from './log';
 import {
   REBELS,
   allied,
   alliesOf,
   armiesHostile,
-  armyMen,
   armyRegs,
   atWar,
   availableEra,
@@ -18,7 +17,6 @@ import {
   forceLimit,
   friendlyTo,
   hasTruce,
-  hostile,
   isCoastal,
   maxMorale,
   militaryPower,
@@ -46,7 +44,7 @@ import {
   unitCost,
   LOAN_SIZE,
 } from './economy';
-import { acceptance, canRival, doDiplomacy, opinion, addOpinion } from './diplomacy';
+import { acceptance, canRival, doDiplomacy, opinion } from './diplomacy';
 import { buildDemands, casusBelli, declareWar, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, canDeclareWar } from './war';
 import { coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';

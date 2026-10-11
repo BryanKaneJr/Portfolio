@@ -349,6 +349,7 @@ export interface Army {
   edgeDays: number; // total days for the current edge
   battle?: BattleId;
   retreating?: boolean;
+  from?: NodeId; // the node it last left (for river crossings)
   rebelOf?: NationId; // rebel armies: who they rebel against
   rebelSince?: number;
   stance?: 'hold';

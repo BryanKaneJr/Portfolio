@@ -12,6 +12,7 @@ import {
   POLICIES,
   REGION,
   REGIONS,
+  RIVERS,
   SCENARIO,
   TRAITS,
 } from '../src/sim/content';
@@ -32,6 +33,10 @@ for (const r of REGIONS) {
 const mapIds = new Set(MAP.regions.map(r => r.id));
 for (const r of REGIONS) if (!mapIds.has(r.id)) errs.push(`region ${r.id} is missing from map.json (run npm run map:build)`);
 for (const id of mapIds) if (!REGION[id]) errs.push(`map.json has region ${id} that regions.json doesn't (run npm run map:build)`);
+
+// Rivers must run along a real border.
+const borderKeys = new Set(MAP.borders.map(b => `${b.a}|${b.b}`));
+for (const key of RIVERS.keys()) if (!borderKeys.has(key)) errs.push(`river ${RIVERS.get(key)}: ${key} is not a border between neighbours`);
 
 // Nations
 for (const n of NATIONS) {

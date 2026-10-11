@@ -8,7 +8,7 @@ import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import Svg, { Defs, G, Line, Path, Pattern, Rect, Text as SvgText } from 'react-native-svg';
-import { MAP, MAP_REGION, MAP_SEA, NATION, REGION, SEA, WASTELANDS } from '../../sim/content';
+import { MAP, MAP_REGION, MAP_SEA, NATION, REGION, RIVERS, SEA, WASTELANDS } from '../../sim/content';
 import { REBELS, armyRegs, armyMen } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
@@ -62,14 +62,13 @@ export function MapView() {
   };
 
   // Focus requests from elsewhere in the UI ("go to army").
-  const focusSeq = useRef(0);
-  useEffect(() => {
-    const f = st.focus;
-    if (f && f.seq !== focusSeq.current && cam) {
-      focusSeq.current = f.seq;
-      setCam(clampCam({ cx: f.x, cy: f.y, k: f.zoom ? size.w / f.zoom : Math.max(cam.k, size.w / 420) }));
-    }
-  });
+  // Focus requests ("go to army") move the camera once per request.
+  const focus = st.focus;
+  const [focusSeen, setFocusSeen] = useState(0);
+  if (focus && focus.seq !== focusSeen && cam) {
+    setFocusSeen(focus.seq);
+    setCam(clampCam({ cx: focus.x, cy: focus.y, k: focus.zoom ? size.w / focus.zoom : Math.max(cam.k, size.w / 420) }));
+  }
 
   const commit = useCallback(
     (t0x: number, t0y: number, s0: number) => {
@@ -79,10 +78,11 @@ export function MapView() {
   );
   // After the re-render at the new camera, drop the temporary transform.
   useLayoutEffect(() => {
-    tx.value = 0;
-    ty.value = 0;
-    sc.value = 1;
-  }, [cam]);
+    tx.set(0);
+    ty.set(0);
+    sc.set(1);
+    store.camera = cam;
+  }, [cam, tx, ty, sc]);
 
   const handleTap = useCallback(
     (x: number, y: number) => {
@@ -99,29 +99,30 @@ export function MapView() {
     .minDistance(6)
     .averageTouches(true)
     .onStart(() => {
-      startT.value = { x: tx.value, y: ty.value, s: sc.value, fx: 0, fy: 0 };
+      startT.set({ x: tx.get(), y: ty.get(), s: sc.get(), fx: 0, fy: 0 });
     })
     .onUpdate(e => {
-      tx.value = startT.value.x + e.translationX;
-      ty.value = startT.value.y + e.translationY;
+      tx.set(startT.get().x + e.translationX);
+      ty.set(startT.get().y + e.translationY);
     })
     .onEnd(() => {
-      runOnJS(commit)(tx.value, ty.value, sc.value);
+      runOnJS(commit)(tx.get(), ty.get(), sc.get());
     });
   const pinch = Gesture.Pinch()
     .onStart(e => {
-      startT.value = { x: tx.value, y: ty.value, s: sc.value, fx: e.focalX - half.w, fy: e.focalY - half.h };
+      startT.set({ x: tx.get(), y: ty.get(), s: sc.get(), fx: e.focalX - half.w, fy: e.focalY - half.h });
     })
     .onUpdate(e => {
       const g = e.scale;
       const fx = e.focalX - half.w;
       const fy = e.focalY - half.h;
-      sc.value = startT.value.s * g;
-      tx.value = fx - g * (startT.value.fx - startT.value.x);
-      ty.value = fy - g * (startT.value.fy - startT.value.y);
+      const st0 = startT.get();
+      sc.set(st0.s * g);
+      tx.set(fx - g * (st0.fx - st0.x));
+      ty.set(fy - g * (st0.fy - st0.y));
     })
     .onEnd(() => {
-      runOnJS(commit)(tx.value, ty.value, sc.value);
+      runOnJS(commit)(tx.get(), ty.get(), sc.get());
     });
   const tap = Gesture.Tap()
     .maxDuration(300)
@@ -132,7 +133,7 @@ export function MapView() {
   const gesture = Gesture.Race(Gesture.Simultaneous(pan, pinch), tap);
 
   const animStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: tx.value }, { translateY: ty.value }, { scale: sc.value }],
+    transform: [{ translateX: tx.get() }, { translateY: ty.get() }, { scale: sc.get() }],
   }));
 
   // Mouse wheel zoom on the web build.
@@ -235,6 +236,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         const ob = s.regions[b.b].owner;
         return oa !== ob ? <Path key={`${b.a}|${b.b}`} d={b.path} fill="none" stroke="rgba(30,22,14,0.85)" strokeWidth={px(1.5)} strokeLinecap="round" strokeLinejoin="round" /> : null;
       })}
+      {MAP.borders.map(b => (RIVERS.has(`${b.a}|${b.b}`) ? <Path key={`r${b.a}|${b.b}`} d={b.path} fill="none" stroke="#4d86b8" strokeWidth={px(2)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null))}
       <Path d={MAP.coast} fill="none" stroke={C.coast} strokeWidth={px(0.9)} strokeLinejoin="round" />
       {selNation
         ? MAP.regions.map(r => (s.regions[r.id].owner === selNation ? <Path key={`n${r.id}`} d={r.path} fill="rgba(255,255,255,0.18)" stroke={C.gold} strokeWidth={px(1.6)} /> : null))

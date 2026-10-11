@@ -22,9 +22,8 @@ import {
   totalDev,
   warBetween,
 } from './queries';
-import { coalitionAgainst, coalitionOf, perceivedThreat, proximity } from './threat';
+import { addThreat, coalitionAgainst, coalitionOf, perceivedThreat, proximity } from './threat';
 import { annexNation, makeSubject } from './territory';
-import { addThreat } from './threat';
 import type { GameState, NationId } from './types';
 import { clamp, dirKey, months, pairKey, years } from './util';
 

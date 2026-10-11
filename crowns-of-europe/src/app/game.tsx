@@ -70,7 +70,7 @@ export default function GameScreen() {
         <ReportCard
           report={reportOverlay}
           onClose={() => {
-            s.unseenReports = s.unseenReports.filter(id => id !== reportOverlay.id);
+            st.markReportSeen(reportOverlay.id);
             st.open({ kind: 'log' });
           }}
         />
@@ -80,10 +80,7 @@ export default function GameScreen() {
       {s.pendingEvents.length ? <EventCard /> : s.offers.length ? <OfferCard /> : unseen && !ov ? (
         <ReportCard
           report={unseen}
-          onClose={() => {
-            s.unseenReports = s.unseenReports.filter(id => id !== unseen.id);
-            st.emit();
-          }}
+          onClose={() => st.markReportSeen(unseen.id)}
         />
       ) : null}
       {s.gameOver ? <GameOverCard /> : null}

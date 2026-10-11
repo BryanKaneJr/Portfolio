@@ -57,7 +57,6 @@ export function holyWarAllowed(s: GameState, a: NationId, b: NationId): boolean 
 /** All reasons `a` has to attack `b`, best first. */
 export function casusBelli(s: GameState, a: NationId, b: NationId): CbOption[] {
   const A = s.nations[a];
-  const B = s.nations[b];
   const out: CbOption[] = [];
   if (A.overlord === b) out.push({ cb: 'independence', label: CB_LABEL.independence });
   const camp = [b, ...subjectsOf(s, b)];

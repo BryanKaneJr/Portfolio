@@ -1,0 +1,27 @@
+name: Crowns of Europe
+
+on:
+  push:
+    paths: ['crowns-of-europe/**', '.github/workflows/crowns-of-europe.yml']
+  pull_request:
+    paths: ['crowns-of-europe/**', '.github/workflows/crowns-of-europe.yml']
+
+defaults:
+  run:
+    working-directory: crowns-of-europe
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: crowns-of-europe/package-lock.json
+      - run: npm ci
+      - name: Typecheck, lint, content validation, simulation tests
+        run: npm run check
+      - name: Web build compiles
+        run: npx expo export --platform web

@@ -1,5 +1,4 @@
-import { newGame } from '../src/sim/state';
-import { makeArmy } from '../src/sim/state';
+import { makeArmy, newGame } from '../src/sim/state';
 import type { Army, GameState, NationId } from '../src/sim/types';
 
 /** A fresh game with every starting army and fleet removed, so a test controls exactly what is on the map. */

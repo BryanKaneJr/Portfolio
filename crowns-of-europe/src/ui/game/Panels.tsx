@@ -1,5 +1,5 @@
 /** Full-height panels: resource breakdowns, declaring war, peace deals and the message log. */
-import { useMemo, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NATION, REGION, nationName, regionName } from '../../sim/content';
@@ -57,7 +57,7 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
             <Line key={i.label} label={i.label} value={fmt(i.value, 1)} tone="good" />
           ))}
           <Line label="Total" value={fmt(l.totalIncome, 1)} bold />
-          <T v="tiny">Taxes = development × 0.3 per region, ×{taxMultiplier(s, s.player).toFixed(2)} from stability, your ruler and modifiers. Regions that aren't cores pay half.</T>
+          <T v="tiny">Taxes = development × 0.3 per region, ×{taxMultiplier(s, s.player).toFixed(2)} from stability, your ruler and modifiers. Regions that aren’t cores pay half.</T>
         </Section>
         <Section title="Expenses per month">
           {l.expenses.map(i => (
@@ -75,7 +75,7 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
         <T v="h2">{fmt(n.manpower)} men</T>
         <Line label="Maximum" value={fmt(maxManpower(s, s.player))} />
         <Line label="Recovery per month" value={`+${fmt(manpowerRecovery(s, s.player))}`} tone="good" />
-        <T v="small" style={{ marginTop: 8 }}>Each regiment needs 1,000 men to raise and draws on manpower to refill its losses. The maximum is 3,000 plus 400 per point of development (half for regions that aren't cores). War exhaustion slows recovery. Mercenaries need no manpower.</T>
+        <T v="small" style={{ marginTop: 8 }}>Each regiment needs 1,000 men to raise and draws on manpower to refill its losses. The maximum is 3,000 plus 400 per point of development (half for regions that aren’t cores). War exhaustion slows recovery. Mercenaries need no manpower.</T>
       </Panel>
     );
   }
@@ -208,6 +208,7 @@ export function PeacePanel({ warId }: { warId: string }) {
   const [regions, setRegions] = useState<string[]>([]);
   const [gold, setGold] = useState(0);
   const [vassalize, setVassalize] = useState(false);
+  const [release, setRelease] = useState<string[]>([]);
   const [mode, setMode] = useState<'demand' | 'offer'>('demand');
   if (!w || sideOf(w, s.player) === null) {
     return (
@@ -226,13 +227,20 @@ export function PeacePanel({ warId }: { warId: string }) {
   const winner = mode === 'demand' ? s.player : enemy;
   const loser = mode === 'demand' ? enemy : s.player;
   const candidates = demandableRegions(s, w, winner);
-  const terms: PeaceTerms = { regions, gold, vassalize, release: [], winner, loser };
+  const terms: PeaceTerms = { regions, gold, vassalize, release: mode === 'demand' ? release : [], winner, loser };
   const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: s.player, loser: enemy };
   const cost = peaceCost(s, terms);
   const answer = peaceAcceptance(s, w, terms, enemy);
   const whiteAnswer = peaceAcceptance(s, w, white, enemy);
   const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
   const canVassalize = mode === 'demand' && !s.nations[enemy].overlord && subjectsOf(s, enemy).length === 0;
+  // Nations the enemy could be made to free: its subjects, and peoples with cores on its land.
+  const releasable = mode === 'demand'
+    ? [
+        ...subjectsOf(s, enemy),
+        ...Object.keys(NATION).filter(n => n !== enemy && n !== s.player && !s.nations[n]?.alive && ownedRegions(s, enemy).some(r => r.cores.includes(n))),
+      ]
+    : [];
   return (
     <Panel title={w.name} onClose={() => st.close()}>
       <View style={styles.score}>
@@ -257,15 +265,15 @@ export function PeacePanel({ warId }: { warId: string }) {
       ) : (
         <>
           <Row style={{ marginTop: 12 }} gap={6}>
-            <Btn small style={{ flex: 1 }} tone={mode === 'demand' ? 'primary' : 'secondary'} label="Demand" onPress={() => (setMode('demand'), setRegions([]), setGold(0), setVassalize(false))} />
-            <Btn small style={{ flex: 1 }} tone={mode === 'offer' ? 'primary' : 'secondary'} label="Offer concessions" onPress={() => (setMode('offer'), setRegions([]), setGold(0), setVassalize(false))} />
+            <Btn small style={{ flex: 1 }} tone={mode === 'demand' ? 'primary' : 'secondary'} label="Demand" onPress={() => (setMode('demand'), setRegions([]), setGold(0), setVassalize(false), setRelease([]))} />
+            <Btn small style={{ flex: 1 }} tone={mode === 'offer' ? 'primary' : 'secondary'} label="Offer concessions" onPress={() => (setMode('offer'), setRegions([]), setGold(0), setVassalize(false), setRelease([]))} />
           </Row>
           <Section title={mode === 'demand' ? 'Regions to take' : 'Regions to give up'}>
             {candidates.length ? (
               candidates.map(r => {
                 const on = regions.includes(r);
                 return (
-                  <Pressable key={r} onPress={() => toggle(r)} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
+                  <Pressable key={r} testID={`peace-${r}`} onPress={() => toggle(r)} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
                     <Flag nation={s.regions[r].owner} size={22} />
                     <View style={{ flex: 1 }}>
                       <Text style={styles.optionText}>{regionName(r)}</Text>
@@ -291,6 +299,22 @@ export function PeacePanel({ warId }: { warId: string }) {
             </Row>
             <T v="tiny" style={{ marginTop: 4 }}>Every 10 gold costs 1% war score.</T>
           </Section>
+          {releasable.length ? (
+            <Section title="Free a nation">
+              {releasable.map(n => {
+                const on = release.includes(n);
+                return (
+                  <Pressable key={n} onPress={() => setRelease(rs => (on ? rs.filter(x => x !== n) : [...rs, n]))} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
+                    <Flag nation={n} size={22} />
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.optionText}>{nationName(n)}</Text>
+                      <Text style={styles.optionSub}>{s.nations[n]?.alive ? 'Becomes independent' : 'Restored on its old lands'}</Text>
+                    </View>
+                  </Pressable>
+                );
+              })}
+            </Section>
+          ) : null}
           {canVassalize ? (
             <Pressable onPress={() => setVassalize(v => !v)} style={[styles.option, vassalize && styles.optionOn, { marginTop: 10 }]}>
               <Text style={styles.optionText}>Make {nationName(enemy)} your vassal</Text>
@@ -302,7 +326,7 @@ export function PeacePanel({ warId }: { warId: string }) {
             <Line label={mode === 'demand' ? 'Your war score' : 'Their war score'} value={`${mode === 'demand' ? sc : -sc}%`} />
             <T v="small" style={{ marginTop: 6, color: answer.accept ? C.green : C.red }}>{answer.accept ? `${nationName(enemy)} would accept.` : `${nationName(enemy)} would refuse.`}</T>
           </View>
-          <Btn style={{ marginTop: 10 }} label="Send peace offer" disabled={!regions.length && !gold && !vassalize} onPress={() => {
+          <Btn style={{ marginTop: 10 }} label="Send peace offer" disabled={!regions.length && !gold && !vassalize && !release.length} onPress={() => {
             const r = st.run(x => proposePeace(x, w.id, terms));
             if (r.ok) st.close();
           }} testID="send-peace" />

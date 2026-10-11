@@ -81,7 +81,7 @@ export function Hints() {
     const next = [...seen, hint.id];
     setSeen(next);
     const p = await loadPrefs();
-    await savePrefs({ ...p, hintsSeen: next });
+    await savePrefs({ ...p, hintsSeen: next }).catch(() => {});
   };
   return (
     <View style={styles.hint}>

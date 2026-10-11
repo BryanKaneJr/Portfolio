@@ -3,7 +3,7 @@
  * damage = roll × front-line strength, which costs the enemy men and morale. A side at 0 morale retreats;
  * if the winner has five times the loser's remaining men, the loser is annihilated.
  */
-import { NATION, REGION, regionName, nationName } from './content';
+import { NATION, REGION, regionName, nationName, riverBetween } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armiesHostile, armyMen, armyRegs, maxMorale, nationMods, sideOf, unitPower } from './queries';
 import { FRONT_WIDTH, retreat } from './military';
@@ -51,7 +51,7 @@ export function joinOrStartBattle(s: GameState, node: NodeId, a: Army): void {
     node,
     started: s.day,
     days: 0,
-    river: false,
+    river: !!(a.from && riverBetween(a.from, node)),
     sides: [
       { armies: [], nations: [], startMen: 0, losses: 0, roll: 0 },
       { armies: [], nations: [], startMen: 0, losses: 0, roll: 0 },
@@ -65,7 +65,7 @@ export function joinOrStartBattle(s: GameState, node: NodeId, a: Army): void {
   for (const o of here) if (!o.battle && !armiesHostile(s, a, o) && enemies.some(e => armiesHostile(s, o, e))) addToSide(s, b, 0, o);
   const involved = [...b.sides[0].nations, ...b.sides[1].nations];
   if (involved.includes(s.player)) {
-    log(s, 'battle', `Battle of ${regionName(node)}: ${b.sides[0].nations.map(nationName).join(', ')} attack ${b.sides[1].nations.map(nationName).join(', ')}.`, {
+    log(s, 'battle', `Battle of ${regionName(node)}: ${b.sides[0].nations.map(nationName).join(', ')} attack ${b.sides[1].nations.map(nationName).join(', ')}${b.river ? ` across the ${riverBetween(a.from!, node)}` : ''}.`, {
       node,
       important: true,
     });

@@ -204,6 +204,7 @@ export function dailyMovement(s: GameState): void {
     }
     a.progress += 1;
     if (a.progress < a.edgeDays) continue;
+    a.from = a.node;
     a.node = a.path.shift()!;
     a.progress = 0;
     a.edgeDays = 0;

@@ -20,7 +20,7 @@ import { addOpinion, isHreMember } from './diplomacy';
 import { addThreat } from './threat';
 import { annexNation, makeSubject, releaseSubject, transferRegion } from './territory';
 import { addRegiments } from './military';
-import { newGeneral, newPerson, rulerDies } from './rulers';
+import { newGeneral, rulerDies } from './rulers';
 import { spawnRebels } from './rebels';
 import { declareWar } from './war';
 import type { Condition, Effect, EventDef, Faith, GameState, NationId } from './types';

@@ -53,6 +53,11 @@ export const SEAS = (seasJson as any).seas as SeaDef[];
 export const SEA: Record<SeaId, SeaDef> = Object.fromEntries(SEAS.map(s => [s.id, s]));
 export const STRAITS = (seasJson as any).straits as StraitDef[];
 export const WASTELANDS = (seasJson as any).wastelands as { id: string; name: string }[];
+/** Borders along a major river ("a|b", sorted): attacking across one costs the attacker 1 on every roll. */
+export const RIVERS: Map<string, string> = new Map(
+  ((seasJson as any).rivers as { name: string; between: [string, string][] }[]).flatMap(r => r.between.map(([a, b]) => [a < b ? `${a}|${b}` : `${b}|${a}`, r.name] as [string, string])),
+);
+export const riverBetween = (a: string, b: string) => RIVERS.get(a < b ? `${a}|${b}` : `${b}|${a}`);
 /** Inland seas where galleys fight at full strength. */
 export const INLAND_SEAS = new Set(['west_med', 'tyrrhenian', 'adriatic', 'ionian', 'aegean', 'levant', 'black_sea', 'baltic', 'bothnia']);
 

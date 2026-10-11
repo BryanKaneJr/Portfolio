@@ -21,10 +21,10 @@ import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import { years } from '../../sim/util';
-import { store, useStore } from '../../state/store';
+import { useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
-import { C, FAITH_COLOR, fmt, signed } from '../theme';
+import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
 
 const FAITH_NAME: Record<string, string> = { catholic: 'Catholic', orthodox: 'Orthodox', muslim: 'Muslim', protestant: 'Protestant' };

@@ -108,7 +108,7 @@ export function ArmySheet({ id }: { id: string }) {
           ) : siege ? (
             <T v="small">Needs {minSiegeRegs(reg.fort)} regiments to besiege this fort.</T>
           ) : (
-            <T v="small">Not at war with the region's holder, or enemies are here.</T>
+            <T v="small">Not at war with the region’s holder, or enemies are here.</T>
           )}
         </Section>
       ) : null}
@@ -207,7 +207,7 @@ export function BattleSheet({ id }: { id: string }) {
   const sides = battleSides(s, b);
   const terrain = REGION[b.node].terrain;
   return (
-    <Sheet title={`Battle of ${regionName(b.node)}`} subtitle={`Day ${b.days} · ${battlePhase(b) === 'fire' ? 'Fire phase (artillery strong)' : 'Shock phase (cavalry strong)'} · ${terrain}, ${FRONT_WIDTH[terrain]} wide`} onClose={() => st.select(null)}>
+    <Sheet title={`Battle of ${regionName(b.node)}`} subtitle={`Day ${b.days} · ${battlePhase(b) === 'fire' ? 'Fire phase (artillery strong)' : 'Shock phase (cavalry strong)'} · ${terrain}, ${FRONT_WIDTH[terrain]} wide${b.river ? ' · attacker crossed a river' : ''}`} onClose={() => st.select(null)}>
       {[0, 1].map(i => {
         const side = sides[i];
         const nat = b.sides[i].nations[0];
@@ -227,7 +227,7 @@ export function BattleSheet({ id }: { id: string }) {
           </View>
         );
       })}
-      <T v="tiny">Each day both sides roll a die, plus their general's skill in this phase; the attacker loses 1 (2 in mountains) in rough terrain. Damage = roll × front-line strength. A side at zero morale retreats; with 5× the enemy's remaining men, the winner annihilates them.</T>
+      <T v="tiny">Each day both sides roll a die, plus their general’s skill in this phase; the attacker loses 1 (2 in mountains) in rough terrain. Damage = roll × front-line strength. A side at zero morale retreats; with 5× the enemy’s remaining men, the winner annihilates them.</T>
       <Btn small tone="secondary" style={{ marginTop: 8 }} label="Show on map" onPress={() => store.focusOn(...regionPoint(b.node))} />
     </Sheet>
   );

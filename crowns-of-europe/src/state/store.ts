@@ -53,6 +53,8 @@ class GameStore {
   lastPause: PauseReason[] = [];
   toasts: Toast[] = [];
   focus: { x: number; y: number; zoom?: number; seq: number } | null = null;
+  /** The map camera, published by MapView (read by play-test scripts). */
+  camera: { cx: number; cy: number; k: number } | null = null;
   private listeners = new Set<() => void>();
   private timer: ReturnType<typeof setInterval> | null = null;
   private lastFrame = 0;
@@ -108,6 +110,13 @@ class GameStore {
       this.toasts = this.toasts.filter(x => x.id !== t.id);
       this.emit();
     }, 3200);
+  }
+
+  /** The player has read a battle report. */
+  markReportSeen(id: string) {
+    if (!this.state) return;
+    this.state.unseenReports = this.state.unseenReports.filter(x => x !== id);
+    this.emit();
   }
 
   select(sel: Selection) {

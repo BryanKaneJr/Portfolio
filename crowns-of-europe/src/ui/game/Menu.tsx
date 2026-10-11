@@ -39,7 +39,7 @@ import { saveGame, type SlotId } from '../../state/storage';
 import { Flag } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Bar, Btn, Card, Empty, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
-import { C, fmt, kmen, sans, serif, signed } from '../theme';
+import { C, fmt, kmen, sans, signed } from '../theme';
 import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 import { ModifiersList, Panel } from './Panels';
@@ -349,7 +349,7 @@ function Realm() {
       <Section title="Faith">
         <Line label="State faith" value={me.faith[0].toUpperCase() + me.faith.slice(1)} />
         {me.faith === 'catholic' ? <Line label="Papal Favor" value={`${Math.floor(me.papalFavor)}/100`} /> : null}
-        {me.faith === 'catholic' ? <T v="tiny">Spend Papal Favor from a nation's sheet (excommunication) or a region's sheet (a claim on heretics' land).</T> : null}
+        {me.faith === 'catholic' ? <T v="tiny">Spend Papal Favor from a nation’s sheet (excommunication) or a region’s sheet (a claim on heretics’ land).</T> : null}
       </Section>
       <Section title="All modifiers" right={<Btn small tone="ghost" label={showMods ? 'Hide' : 'Show'} onPress={() => setShowMods(v => !v)} />}>
         {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, policies and events that change your numbers.</T>}
@@ -464,8 +464,12 @@ function Settings() {
   const st = useStore();
   const s = st.state!;
   const save = async (slot: SlotId) => {
-    await saveGame(slot, s);
-    st.toast(slot === 'auto' ? 'Autosaved.' : `Saved to slot ${slot}.`, 'good');
+    try {
+      await saveGame(slot, s);
+      st.toast(slot === 'auto' ? 'Autosaved.' : `Saved to slot ${slot}.`, 'good');
+    } catch {
+      st.toast('Could not save on this device.', 'bad');
+    }
   };
   return (
     <View>
@@ -506,7 +510,7 @@ function Settings() {
           tone="danger"
           label="Save and quit to title"
           onPress={async () => {
-            await saveGame('auto', s);
+            await saveGame('auto', s).catch(() => {});
             st.unload();
             router.replace('/');
           }}

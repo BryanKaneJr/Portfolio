@@ -1,5 +1,5 @@
 /** Bottom sheet that slides up over the map: half height by default, tap the handle for (almost) full. */
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { C, sans, serif } from '../theme';
 import { Icon } from '../components/Icon';
@@ -7,11 +7,11 @@ import { Icon } from '../components/Icon';
 export function Sheet({ title, subtitle, left, onClose, children, footer }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode }) {
   const { height } = useWindowDimensions();
   const [full, setFull] = useState(false);
-  const slide = useRef(new Animated.Value(1)).current;
+  const [slide] = useState(() => new Animated.Value(1));
   useEffect(() => {
     slide.setValue(1);
     Animated.timing(slide, { toValue: 0, duration: 180, useNativeDriver: true }).start();
-  }, [title]);
+  }, [title, slide]);
   const maxH = full ? height * 0.78 : height * 0.42;
   return (
     <Animated.View style={[styles.sheet, { maxHeight: maxH, transform: [{ translateY: slide.interpolate({ inputRange: [0, 1], outputRange: [0, 300] }) }] }]}>
