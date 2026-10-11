@@ -127,7 +127,11 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 - **Round 4 (2026-10-11, owner: "one more batch to get at least over 500"):** four workers wrote 81 originals (world
   dinners, weeknight one-pots and sheet pans, sides and appetizers, baking and breakfast) and one imported 25 more VA
   recipes, excluding 10 more VA pages that matched published recipes. 548 recipes, 380 ingredients. Notes in
-  `docs/import-notes/2026-10-11-round-4/`. Next, per the owner: a deep review of the recipes we have.
+  `docs/import-notes/2026-10-11-round-4/`.
+- **Deep recipe review (2026-10-11):** `npm run audit:recipes` (script flags, `docs/recipe-audit.md`), then eleven
+  reviewers read all 548 recipes as cooks and fixed 97 (yields, ratios, pan sizes, step order, safety, taglines, tags).
+  Summary, open owner decisions and the cook-test-first list: `docs/recipe-review/README.md`; per-group detail in
+  `docs/recipe-review/rv01.md` … `rv11.md`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -141,8 +145,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Culinary review** is now the biggest gap: 548 drafts, none cooked or checked. Release needs every recipe reviewed
-   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 49
+1. **Owner decisions from the recipe review** (`docs/recipe-review/README.md`: dish types for 45 untagged recipes,
+   lightly cooked eggs, unsalted government recipes, four suggested tweaks, rice instructions), then **cook-testing**:
+   548 drafts, read and fixed on paper but none cooked yet. Release needs every recipe reviewed
+   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 45
    recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them. Workers
    fixed source errors (ratios, missing leavening, unsafe temperatures); `docs/import-notes/` lists each change.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
