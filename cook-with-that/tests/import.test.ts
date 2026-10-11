@@ -18,6 +18,18 @@ import {
   parseNhlbiSnapshot,
   type NhlbiEntry,
 } from '../scripts/import/sources/nhlbi';
+import {
+  dropSymbolLetters,
+  duplicateBookRecipes,
+  joinSplitFractions,
+  NHLBI_BOOKS,
+  parseNhlbiBook,
+  parseNhlbiBooksSnapshot,
+  splitColumns,
+  tidyIngredient,
+  titleCase,
+  titleWords,
+} from '../scripts/import/sources/nhlbiBooks';
 import { SOURCES } from '../scripts/import/sources';
 import { stageRecipe, unlockOrder } from '../scripts/import/stage';
 import { recipe } from './fixtures';
@@ -401,6 +413,225 @@ describe('NHLBI reader', () => {
     expect(() => parseNhlbiSnapshot(JSON.stringify([ok, ok]))).toThrow(/twice/);
     const { tips: _tips, ...noTips } = ok;
     expect(parseNhlbiSnapshot(JSON.stringify([noTips]))[0].tips).toEqual([]);
+  });
+});
+
+/** A `pdftotext -layout` book: pages split by form feeds, columns kept by spaces. */
+const page = (...lines: string[]) => lines.join('\n');
+const DINNERS_TEXT = [
+  page(
+    'contents',
+    'side dishes..........................................3',
+    '    garlic toast with herbs.............................5',
+    '    missing recipe......................................9',
+    'appendix a. glossary.................................7',
+    '                                         deliciously healthy dinners   i',
+  ),
+  page(
+    '              • garlic toast with',
+    '                herbs',
+    '              • another side',
+    '              • a third side',
+    'side dishes',
+    '                                         deliciously healthy dinners   3',
+  ),
+  page(
+    'garlic toast with                                           Prep time:',
+    '                                                            Cook time:',
+    '                                                                         5 minutes',
+    '                                                                        10 minutes',
+    '',
+    '        herbs',
+    'crisp and quick, a side for any soup',
+    '4         slices whole-wheat bread       1    Preheat oven to 400 ºF.',
+    '1',
+    ' /8 tsp   salt                           2    Brush the bread with oil, and',
+    '2 Tbsp    olive oil, divided                  bake for 8–10 minutes.',
+    'For topping:',
+    '1C        low-sodium chicken broth,      3    Serve warm.',
+    '          heated                                                                   side dishes',
+    '',
+    'Tip: Serve with soup.',
+    '',
+    '          yield:                         each serving provides:',
+    '          4 servings                     calories        120',
+    '          serving size:                  total fat       5g',
+    '          1 slice                        sodium          150 mg',
+    '',
+    '                                                         deliciously healthy dinners   5',
+  ),
+  page('appendix a. glossary', 'braise: cook slowly in a little liquid', '', '7   deliciously healthy dinners'),
+].join('\f');
+
+const AA_TEXT = [
+  page(
+    'Table of Contents',
+    '   Greens',
+    '      Smothered Greens .................................... 2',
+    '      Spicy Okra ........................................... 4',
+    '      Candied Yams ......................................... 6',
+    '      Fruit Salad .......................................... 8',
+    '   Recipe Substitutions ................................... 10',
+  ),
+  page(
+    'Smothered Greens',
+    'These greens get their flavor from smoked turkey.',
+    '',
+    '3 cups water                             1. Wash the greens and remove',
+    '¼ pound smoked turkey breast,               the stems.',
+    'skinless                                 2. Simmer everything except',
+    '2 pounds greens (mustard, turnip,           the greens for 5 minutes.',
+    'collard, kale, or a mixture)             3. Add greens. Cook 20 to 30',
+    'nonstick cooking spray                      minutes until tender.',
+    '',
+    '  Makes 5 servings',
+    '  Serving size: 1 cup',
+    '  Calories: 80',
+    '  Sodium: 378 mg',
+    '',
+    ' 2                                                 Heart-Healthy Home Cooking',
+  ),
+].join('\f');
+
+describe('NHLBI books reader', () => {
+  const dinners = NHLBI_BOOKS.find(b => b.id === 'dinners')!;
+  const aa = NHLBI_BOOKS.find(b => b.id === 'african-american')!;
+
+  test('the books are NHLBI PDFs, named without the "Keep the Beat" program name', () => {
+    expect(NHLBI_BOOKS.map(b => b.id)).toEqual(['dinners', 'family', 'african-american', 'latino']);
+    for (const b of NHLBI_BOOKS) {
+      expect(b.title).not.toMatch(/keep the beat/i);
+      expect(b.pdf).toMatch(/^https:\/\/www\.nhlbi\.nih\.gov\/.+\.pdf$/);
+    }
+  });
+
+  test('a two-column page: title from the contents, headnote, times, split fractions, wraps, tip and yield', () => {
+    const { entries, skipped } = parseNhlbiBook(DINNERS_TEXT, dinners, '2026-10-11');
+    expect(skipped).toEqual([]);
+    expect(entries).toEqual([
+      {
+        key: 'book-dinners/garlic-toast-with-herbs',
+        url: `${dinners.pdf}#page=3`,
+        title: 'Garlic Toast With Herbs',
+        description: 'crisp and quick, a side for any soup',
+        recipeSource: 'Deliciously Healthy Dinners',
+        book: 'Deliciously Healthy Dinners',
+        servings: 4,
+        servingSize: '1 slice',
+        prepMinutes: 5,
+        cookMinutes: 10,
+        ingredientLines: [
+          '4 slices whole-wheat bread',
+          '1/8 tsp salt',
+          '2 Tbsp olive oil, divided',
+          '1 C low-sodium chicken broth, heated',
+        ],
+        steps: ['Preheat oven to 400 °F.', 'Brush the bread with oil, and bake for 8–10 minutes.', 'Serve warm.'],
+        tips: ['Serve with soup.'],
+        fetchedAt: '2026-10-11',
+      },
+    ]);
+  });
+
+  test('a flush-column page: unindented wraps, a nutrition panel under the ingredients', () => {
+    const { entries } = parseNhlbiBook(AA_TEXT, aa, '2026-10-11');
+    expect(entries).toEqual([
+      expect.objectContaining({
+        key: 'book-african-american/smothered-greens',
+        title: 'Smothered Greens',
+        description: 'These greens get their flavor from smoked turkey.',
+        servings: 5,
+        servingSize: '1 cup',
+        ingredientLines: [
+          '3 cups water',
+          '¼ pound smoked turkey breast, skinless',
+          '2 pounds greens (mustard, turnip, collard, kale, or a mixture)',
+          'nonstick cooking spray',
+        ],
+        steps: [
+          'Wash the greens and remove the stems.',
+          'Simmer everything except the greens for 5 minutes.',
+          'Add greens. Cook 20 to 30 minutes until tender.',
+        ],
+        tips: [],
+      }),
+    ]);
+    expect(entries[0]).not.toHaveProperty('prepMinutes');
+  });
+
+  test('pdftotext quirks: raised fractions, glued cups, glued step numbers, symbol letters', () => {
+    expect(joinSplitFractions(['1', ' /8 tsp salt'])).toEqual([' ', '1/8 tsp salt']);
+    expect(joinSplitFractions(['1', ' / tsp', '  8     ground black pepper'])).toEqual([
+      ' ',
+      '',
+      '1/8 tsp ground black pepper',
+    ]);
+    expect(joinSplitFractions(['/4 C', '3', '              kasha'])).toEqual(['', ' ', '3/4 C         kasha']);
+    expect(tidyIngredient('4C       low-sodium beef broth')).toBe('4 C low-sodium beef broth');
+    expect(tidyIngredient('11/3 C    water')).toBe('1 1/3 C water');
+    expect(tidyIngredient('2C grilled chicken, diced (Leftover Friendly)')).toBe('2 C grilled chicken, diced');
+    expect(splitColumns('2C         canned low-sodium black beans, 4.          Place pitas on a sheet', 48)).toEqual({
+      left: '2C         canned low-sodium black beans,',
+      right: '4. Place pitas on a sheet',
+      col: 48,
+    });
+    expect(dropSymbolLetters('½ C orange juice            HE A W T')).toBe('½ C orange juice                    ');
+    expect(dropSymbolLetters('1 C Tangy Salsa')).toBe('1 C Tangy Salsa');
+  });
+
+  test('contents titles become title case', () => {
+    expect(titleCase('cocoa-spiced beef tenderloin with pineapple salsa')).toBe(
+      'Cocoa-Spiced Beef Tenderloin With Pineapple Salsa',
+    );
+    expect(titleCase('sweet-and-sour chicken')).toBe('Sweet-and-Sour Chicken');
+    expect(titleCase('“fried” rice and chicken')).toBe('“Fried” Rice and Chicken');
+    expect(titleCase('Smothered Greens')).toBe('Smothered Greens');
+  });
+
+  test('a book recipe that reprints a web page or an earlier book is excluded, by title', () => {
+    const books = [
+      { key: 'book-dinners/chicken-picadillo', title: 'Chicken Picadillo' },
+      { key: 'book-dinners/quick-beef-casserole', title: 'Quick Beef Casserole' },
+      { key: 'book-latino/chickadillo-chicken-picadillo', title: 'Chickadillo (Chicken Picadillo)' },
+      { key: 'book-latino/quick-beef-casserole', title: 'Quick Beef Casserole' },
+      { key: 'book-latino/lentil-soup', title: 'Lentil Soup' },
+    ];
+    const web = [{ key: 'chicken-picadillo', title: 'Chicken Picadillo' }];
+    expect(duplicateBookRecipes(books, web)).toEqual({
+      'book-dinners/chicken-picadillo': 'same recipe as nhlbi/chicken-picadillo (the web page); import that one',
+      'book-latino/chickadillo-chicken-picadillo':
+        'same recipe as nhlbi/chicken-picadillo (the web page); import that one',
+      'book-latino/quick-beef-casserole': 'same recipe as book-dinners/quick-beef-casserole; import that one',
+    });
+    expect(titleWords('Cold Fusilli Pasta with Summer Vegetables')).toBe(
+      titleWords('Cold Fusilli Pasta With Summer Vegetables'),
+    );
+  });
+
+  test('the books snapshot needs a book and a book- key on every entry', () => {
+    const entry = parseNhlbiBook(DINNERS_TEXT, dinners, 'd').entries[0];
+    expect(parseNhlbiBooksSnapshot(JSON.stringify([entry]))).toEqual([entry]);
+    const { book: _book, ...noBook } = entry;
+    expect(() => parseNhlbiBooksSnapshot(JSON.stringify([noBook]))).toThrow(/no book/);
+    expect(() => parseNhlbiBooksSnapshot(JSON.stringify([{ ...entry, key: 'garlic-toast' }]))).toThrow(/book- prefix/);
+  });
+
+  test('the books feed the NHLBI collection and file, with keys that never collide with web pages', () => {
+    const books = SOURCES['nhlbi-books'];
+    expect([books.collection, books.file, books.exportName, books.textPolicy]).toEqual([
+      'nhlbi',
+      'nhlbi.ts',
+      'NHLBI_RECIPES',
+      'reuse',
+    ]);
+    expect(books.snapshot).toEqual({ kind: 'file', path: 'content/import/nhlbi-books/recipes.json' });
+    const root = join(__dirname, '..');
+    const bookKeys = books.read(join(root, 'content/import/nhlbi-books/recipes.json')).map(r => r.key);
+    const webKeys = new Set(SOURCES.nhlbi.read(join(root, 'content/import/nhlbi/recipes.json')).map(r => r.key));
+    expect(bookKeys.filter(k => webKeys.has(k))).toEqual([]);
+    expect(bookKeys.every(k => k.startsWith('book-'))).toBe(true);
+    // Every web page that a book reprints is excluded on the book side.
+    expect(books.exclude['book-dinners/chicken-picadillo']).toMatch(/nhlbi\/chicken-picadillo/);
   });
 });
 

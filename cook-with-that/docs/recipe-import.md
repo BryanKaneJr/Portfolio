@@ -11,6 +11,7 @@ npm run import:draft -- based-cooking --next 10  # append the next 10 ready reci
 npm run import:draft -- based-cooking chili tacos  # or name the source keys you want
 npm run import:catalog -- "ground ginger"        # add a reviewed ingredient by hand while editing
 npm run import:stage -- nhlbi                    # same loop for NHLBI, from its committed snapshot
+npm run import:stage -- nhlbi-books              # NHLBI's recipe books (PDFs); drafts also go to nhlbi.ts
 # edit the drafts in src/data/imported/basedCooking.ts (or nhlbi.ts)
 npm run check                                    # typecheck + validate + tests: must pass before committing
 ```
@@ -135,7 +136,15 @@ alone: the staples list is the owner's.
    - **`{ kind: 'file', path }`:** a file committed under `content/import/<source>/`, for a site with no
      repository (NHLBI). A fetch script in `scripts/import/` writes it (`npm run import:fetch-nhlbi`),
      a README next to it records the fetch date, license quote and exclusions, and the reader gets the
-     file's path. Stage and draft never touch the network for these.
+     file's path. Stage and draft never touch the network for these. A source published as PDFs works
+     the same way: its fetch script converts them with `pdftotext -layout` and commits only the parsed
+     recipes (`npm run import:fetch-nhlbi-books`, `content/import/nhlbi-books/`).
+
+   Two sources can feed one collection and one file (`nhlbi` and `nhlbi-books` both write to
+   `src/data/imported/nhlbi.ts` under the `nhlbi` credit). Their keys must never collide (the book keys
+   start with `book-<book>/`), and because `validateContent` only catches a repeated key, the second
+   source must exclude the recipes the first one already has (the books exclude every recipe whose title
+   matches a web page).
 
    The text policy is one of:
    - **`reuse`:** public domain, CC0 or Unlicense. The source's wording can be kept and edited.

@@ -1,7 +1,12 @@
+import { join } from 'path';
 import type { Snapshot } from '../snapshot';
 import type { RawRecipe } from '../types';
 import { readBasedCooking } from './basedCooking';
 import { readNhlbi } from './nhlbi';
+import { duplicatesInSnapshots, readNhlbiBooks } from './nhlbiBooks';
+
+const NHLBI_WEB_SNAPSHOT = 'content/import/nhlbi/recipes.json';
+const NHLBI_BOOKS_SNAPSHOT = 'content/import/nhlbi-books/recipes.json';
 
 export type SourceDef = {
   /** Key in RECIPE_COLLECTIONS (src/data/collections.ts). */
@@ -175,7 +180,30 @@ export const SOURCES: Record<string, SourceDef> = {
     // notice. A page that does (now or after a refetch) goes here.
     exclude: {},
     // Written by `npm run import:fetch-nhlbi`; the site has no repository to pin.
-    snapshot: { kind: 'file', path: 'content/import/nhlbi/recipes.json' },
+    snapshot: { kind: 'file', path: NHLBI_WEB_SNAPSHOT },
     read: readNhlbi,
+  },
+  // NHLBI's recipe books (PDFs): the same collection, credit and license as the web pages, and
+  // drafts land in the same file. Keys carry the book ("book-dinners/…"), so they never collide
+  // with a web page's key.
+  'nhlbi-books': {
+    collection: 'nhlbi',
+    exportName: 'NHLBI_RECIPES',
+    file: 'nhlbi.ts',
+    // US government publications, released as public domain (content/import/nhlbi-books/README.md).
+    textPolicy: 'reuse',
+    exclude: {
+      // The books reprint each other and the web pages; the web page (or the first book) is the one to import.
+      ...duplicatesInSnapshots(join(__dirname, '..', '..', '..'), NHLBI_BOOKS_SNAPSHOT, NHLBI_WEB_SNAPSHOT),
+      'book-latino/oven-fried-yuca':
+        'same recipe as nhlbi/oven-fried-yucca (the web page spells it "yucca"); import that one',
+      'book-african-american/mouth-watering-oven-fried-fish':
+        'same recipe as nhlbi/baked-fish (the web page renames it); import that one',
+      'book-african-american/scrumptious-meatloaf':
+        'the 2021 edition misprints its amounts (4 cups each of onion, green and red pepper, 8 teaspoons nutmeg and 4 cups breadcrumbs for 1 lb of beef); the printed page says the same, so the parse is right but the recipe is not',
+    },
+    // Written by `npm run import:fetch-nhlbi-books` from the PDFs, which aren't kept.
+    snapshot: { kind: 'file', path: NHLBI_BOOKS_SNAPSHOT },
+    read: readNhlbiBooks,
   },
 };

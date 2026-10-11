@@ -544,4 +544,13 @@ export const INGREDIENTS: Ingredient[] = [
     aliases: ['beef bones', 'beef bones with marrow'],
   },
   { id: 'star_anise', name: 'Star anise', category: 'spice', aliases: [] },
+  { id: 'mint', name: 'Fresh mint', category: 'produce', aliases: ['mint', 'mint leaves'] },
+  { id: 'lemongrass', name: 'Lemongrass', category: 'produce', aliases: [] },
+  { id: 'green_curry_paste', name: 'Thai green curry paste', category: 'pantry', aliases: ['green curry paste'] },
+  {
+    id: 'roasted_red_peppers',
+    name: 'Roasted red peppers',
+    category: 'pantry',
+    aliases: ['jarred roasted red peppers'],
+  },
 ];

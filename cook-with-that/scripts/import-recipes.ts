@@ -70,7 +70,7 @@ function runStage(name: string, source: SourceDef) {
   const done = importedKeys(source.collection);
   const ready = candidates.filter(c => !c.blocked.length && !done.has(c.key)).length;
   console.log(
-    `✓ ${candidates.length} recipes read, ${done.size} imported, ${ready} more ready to draft. Report: docs/import-reports/${name}.md`,
+    `✓ ${candidates.length} recipes read, ${candidates.filter(c => done.has(c.key)).length} imported, ${ready} more ready to draft. Report: docs/import-reports/${name}.md`,
   );
 }
 

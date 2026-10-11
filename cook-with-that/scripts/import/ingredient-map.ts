@@ -735,6 +735,29 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'dry roasted peanuts': '=peanuts',
   'unsweetened orange juice': 'orange', // like 'orange juice'
 
+  // ── Reviewed by parallel import worker nhlbi-books-data ──
+  'beef flank steak': '=flank steak',
+  'unseasoned pork tenderloin': '=pork tenderloin',
+  'turkey fillets': '=turkey breast', // boneless slices of turkey breast
+  'cornflake crumbs': '=cornflakes',
+  lemongrass: { add: 'produce' },
+  'green curry paste': { add: 'pantry', name: 'Thai green curry paste' }, // not massaman or red curry paste
+  'thai green curry paste': '=green curry paste',
+  'roasted red peppers': { add: 'pantry' }, // jarred roasted bell peppers
+  'jarred roasted red peppers': '=roasted red peppers',
+  'stewed tomatoes': 'canned_tomatoes', // canned tomatoes cooked with a little onion and pepper, like crushed or diced
+  'low sodium black beans': 'black_beans',
+  'canned low sodium black beans': 'black_beans',
+  'low fat sharp cheddar cheese': 'cheddar',
+  'reduced fat feta cheese': 'feta',
+  'white button mushrooms': 'mushroom',
+  'fat free milk': 'milk',
+  'nonfat plain yogurt': 'yogurt',
+  'uncooked rice': 'rice',
+  'white potato': 'potato',
+  'peanut oil or vegetable oil': null, // the editor picks one
+  'peanut or vegetable oil': null, // the editor picks one
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
