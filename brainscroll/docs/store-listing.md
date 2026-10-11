@@ -52,7 +52,7 @@ Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) giv
 
 No ads. No streak punishment. No selling your data.
 
-Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple or Google.
+Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
@@ -109,7 +109,7 @@ Short lessons in real subjects, 100 levels deep. Level up your brain.  *(69)*
 
 Use the App Store description above, with two changes:
 
-1. Sign-in line: unchanged (`Sign in with Apple or Google.`; both work on Android).
+1. Sign-in line: say what the Android app offers when it ships. Android will sign in with Google, which isn't set up yet (owner, 2026-10-11: "we have to skip google for now"); the iPhone app offers Sign in with Apple only.
 2. Last paragraph: `Subscriptions renew automatically until cancelled. Manage or cancel them in Google Play > Payments & subscriptions.`
 
 ### Category and tags
@@ -120,6 +120,14 @@ Use the App Store description above, with two changes:
 - **Ads:** "No, my app does not contain ads."
 
 ## Screenshots
+
+**Upload the promo set:** `store/app-store-promo/`, 1320 × 2868, in the iPhone 6.9" slot, `store/app-store-promo/6.3/`, the same slides at 1206 × 2622, in the 6.1" / 6.3" slot (it refuses the 6.9" size), and `store/app-store-promo/duo/`, the same slides laid out again at 2007 × 2853 (named `-duo` so they don't clash with the others in a downloads folder), in the slot that asks for 2007 × 2853 or 1398 × 2034, each in file order (owner, 2026-10-11, styled after listings they liked). Each slide is a bold colour, a two-line headline and the real screen in a phone. Captions: 1 "Turn scrolling into learning.", 2 "26 skills. Follow your curiosity.", 3 "From curious to Level 100", 4 "Level up what you know", 5 "Review it. Build on it.", 6 "Get it wrong. Learn why.", 7 "A new quest every week", 8 "A little friendly competition", 9 "Watch your knowledge grow", 10 "Cheer on your friends". `node store/app-store-promo/build.mjs` rebuilds them from the phone screenshots in `screens/` (slide 7's is the web build at phone size: The Roman World in its week, 3 of 25 levels in). The profile's username is repainted as @curious_mind.
+
+**No iPad screenshots:** the app is iPhone only (`ios.supportsTablet: false` in app/app.json), so leave the iPad slots empty. App Store Connect shows them anyway, and Apple only needs them for an app that supports iPad. iPhone frames in an iPad slot can be rejected (guideline 2.3.3).
+
+**Landscape art:** `store/app-store-promo/landscape/`, in the same gold, ink and Nunito. `header.png` (3840 × 1646) is the product page header: "Stop scrolling. Start leveling." / "History, science & more." beside Dr. Scroll presenting a planet, the Colosseum and a globe, with no phone. `search.png` (3840 × 2560) is the search result image: "Turn scrolling into learning." / "History, science & more." beside a crop of the real Andromeda lesson (galaxy and fact) in a rounded panel, no phone frame. Headline, face and lesson sit inside a 10% margin; check them in App Store Connect's Preview. `node store/app-store-promo/landscape.mjs` rebuilds both.
+
+The plain set below came first.
 
 **The iPhone set is made:** `store/app-store-iphone-6.9/`, nine PNGs at 1320 × 2868, taken by the owner on an iPhone with the TestFlight build (2026-10-09). That's the 6.9" display size, which App Store Connect also uses for the smaller iPhones. Upload them in their file order:
 
@@ -142,7 +150,7 @@ Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=
 Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
 
 ```
-Sign in with Google using the test Google account in the sign-in fields of this form (App Store reviewers may also use Sign in with Apple with their own Apple ID).
+Sign in with Apple using your own Apple ID; no demo account is needed.
 Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
-Account deletion: Profile > Delete account.
+Account deletion: Profile > Settings > Delete account.
 ```
