@@ -643,4 +643,8 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'red_cabbage', name: 'Red cabbage', category: 'produce', aliases: [] },
   { id: 'glutinous_rice', name: 'Glutinous rice', category: 'grain', aliases: ['sticky rice'] },
   { id: 'maraschino_cherries', name: 'Maraschino cherries', category: 'pantry', aliases: [] },
+  { id: 'plantain', name: 'Plantain', category: 'produce', aliases: ['plantains'] },
+  { id: 'catfish', name: 'Catfish', category: 'protein', aliases: ['catfish fillets'] },
+  { id: 'cube_steak', name: 'Cube steak', category: 'protein', aliases: ['cubed steak'] },
+  { id: 'chickpea_flour', name: 'Chickpea flour', category: 'grain', aliases: ['besan', 'gram flour', 'garbanzo bean flour'] },
 ];

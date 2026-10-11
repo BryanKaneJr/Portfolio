@@ -929,6 +929,20 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'sticky rice': '=glutinous rice', // its everyday name
   'maraschino cherries': { add: 'pantry' }, // jarred, bright red cherries in syrup; not fresh, tart or dried cherries
 
+  // ── Reviewed by parallel import worker r5-grill-fry ──
+  plantain: { add: 'produce' }, // the starchy cooking banana, green or ripe; the recipe says which. Not banana
+  plantains: '=plantain',
+  catfish: { add: 'protein' }, // fresh or frozen fillets; not cod or tilapia
+  'catfish fillets': '=catfish',
+  'cube steak': { add: 'protein' }, // thin beef round steak run through a tenderizer; not sirloin or flank steak
+  'cubed steak': '=cube steak',
+  'chickpea flour': { add: 'grain' }, // ground dried chickpeas, for pakoras and socca; not wheat flour
+  besan: '=chickpea flour',
+  'gram flour': '=chickpea flour',
+  'garbanzo bean flour': '=chickpea flour',
+  iceberg: '=iceberg lettuce',
+  'green tomatoes': 'tomato', // unripe fresh tomatoes, the same fruit; the recipe names the ripeness (see notes.md)
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
