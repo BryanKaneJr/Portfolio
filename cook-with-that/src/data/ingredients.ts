@@ -599,4 +599,23 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'poppy_seeds', name: 'Poppy seeds', category: 'pantry', aliases: [] },
   { id: 'almond_flour', name: 'Almond flour', category: 'grain', aliases: ['ground almonds'] },
   { id: 'wild_rice', name: 'Wild rice', category: 'grain', aliases: [] },
+  { id: 'paneer', name: 'Paneer', category: 'dairy', aliases: ['paneer cheese'] },
+  { id: 'ramen_noodles', name: 'Ramen noodles', category: 'grain', aliases: [] },
+  {
+    id: 'chili_bean_paste',
+    name: 'Chili bean paste',
+    category: 'pantry',
+    aliases: ['doubanjiang', 'chili bean sauce'],
+  },
+  { id: 'sichuan_peppercorns', name: 'Sichuan peppercorns', category: 'spice', aliases: ['szechuan peppercorns'] },
+  { id: 'hominy', name: 'Hominy', category: 'pantry', aliases: ['canned hominy', 'white hominy'] },
+  {
+    id: 'guajillo_chiles',
+    name: 'Guajillo chiles',
+    category: 'spice',
+    aliases: ['guajillo chilies', 'dried guajillo chiles'],
+  },
+  { id: 'daikon', name: 'Daikon', category: 'produce', aliases: ['daikon radish'] },
+  { id: 'dark_soy_sauce', name: 'Dark soy sauce', category: 'pantry', aliases: [] },
+  { id: 'sweet_potato_noodles', name: 'Sweet potato noodles', category: 'grain', aliases: [] },
 ];

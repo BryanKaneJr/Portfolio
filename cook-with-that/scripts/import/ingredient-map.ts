@@ -845,6 +845,24 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   // ── Chicken and Wild Rice Soup (r4-weeknight extra) ──
   'wild rice': { add: 'grain' }, // a different grain from white rice (a grass seed); cooks far longer
 
+  // ── Reviewed by parallel import worker r4-world ──
+  paneer: { add: 'dairy' }, // firm fresh Indian cheese that holds its shape when cooked; not queso fresco, ricotta or tofu
+  'paneer cheese': '=paneer',
+  'ramen noodles': { add: 'grain' }, // springy wheat noodles, fresh or dried instant blocks (seasoning packet discarded); not lo mein or egg noodles
+  'chili bean paste': { add: 'pantry' }, // Sichuan fermented broad bean and chili paste; not gochujang, chili garlic sauce or sriracha
+  doubanjiang: '=chili bean paste', // its Chinese name
+  'chili bean sauce': '=chili bean paste', // how some brands label the same paste
+  'sichuan peppercorns': { add: 'spice' }, // dried husks of prickly ash, numbing rather than hot; not black peppercorns
+  'szechuan peppercorns': '=sichuan peppercorns',
+  hominy: { add: 'pantry' }, // canned nixtamalized whole corn kernels for pozole; not corn kernels or grits
+  'canned hominy': '=hominy',
+  'white hominy': '=hominy',
+  'guajillo chiles': { add: 'spice' }, // whole dried Mexican chiles, mild and fruity; not dried red chilies (árbol) or chili powder
+  'guajillo chilies': '=guajillo chiles',
+  'dried guajillo chiles': '=guajillo chiles',
+  daikon: { add: 'produce' }, // large white Asian radish; red radishes are separate
+  'daikon radish': '=daikon',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
