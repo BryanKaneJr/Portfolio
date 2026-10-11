@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, nationName, regionName } from '../../sim/content';
-import { choosePolicy, GENERAL_COST, hireGeneral, repayLoan, setArmyMode, takeLoan, boostStability, playerCompleteMission } from '../../sim/commands';
+import { choosePolicy, GENERAL_COST, hireGeneral, repayLoan, boostStability, playerCompleteMission } from '../../sim/commands';
 import { ledger, stabilityCost } from '../../sim/economy';
-import { availableAdvances, policySlots } from '../../sim/science';
+import { availableAdvances, policySlots, unlocked } from '../../sim/science';
 import { etaDays } from '../../sim/military';
 import { missionState, missionsFor } from '../../sim/missions';
 import { evalCondition } from '../../sim/events';
@@ -37,11 +37,11 @@ import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab } from './ColonySheets';
 import { ScienceTab } from './Science';
-import { freeColonists } from '../../sim/colonies';
+import { colonistsOf, coloniesOf, freeColonists, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
 import { Flag } from '../components/Flag';
 import { Icon } from '../components/Icon';
-import { Bar, Btn, Card, Empty, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
+import { Bar, Btn, Card, Empty, IconBtn, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
 import { C, fmt, kmen, sans, signed } from '../theme';
 import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
@@ -51,18 +51,28 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
   const s = st.state!;
   const missionsReady = missionsFor(s.player).filter(m => missionState(s, s.player, m) === 'ready').length;
+  const p = s.player;
+  // Colonies only matter to crowns that can settle somewhere, or already do.
+  const colonial = colonistsOf(s, p) > 0 || coloniesOf(s, p).length > 0 || newWorldRegions(s, p).length > 0 || (hasOceanCoast(s, p) && unlocked(s, p, 'coastColonies'));
   const tabs: { key: MenuTab; label: string; badge?: number }[] = [
-    { key: 'military', label: 'Military' },
+    { key: 'military', label: 'Army' },
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
-    { key: 'science', label: 'Science', badge: !s.nations[s.player].researching && availableAdvances(s, s.player).length ? 1 : 0 },
-    { key: 'colonies', label: 'Colonies', badge: Math.max(0, freeColonists(s, s.player)) },
+    { key: 'science', label: 'Science', badge: !s.nations[p].researching && availableAdvances(s, p).length ? 1 : 0 },
+    ...(colonial || tab === 'colonies' ? [{ key: 'colonies' as MenuTab, label: 'Colonies', badge: Math.max(0, freeColonists(s, p)) }] : []),
     { key: 'missions', label: 'Missions', badge: missionsReady },
-    { key: 'ledger', label: 'Ledger' },
-    { key: 'settings', label: 'Settings' },
   ];
   return (
-    <Panel title={NATION[s.player].name} onClose={() => st.close()} right={<Flag nation={s.player} size={32} />}>
+    <Panel
+      title={NATION[p].name}
+      onClose={() => st.close()}
+      right={
+        <Row gap={8}>
+          <IconBtn name="gear" label="Settings" onPress={() => st.open({ kind: 'menu', tab: 'settings' })} />
+          <Flag nation={p} size={32} />
+        </Row>
+      }
+    >
       <View style={{ marginHorizontal: -14, marginTop: -14, marginBottom: 10, backgroundColor: C.chrome, paddingVertical: 8 }}>
         <Tabs tabs={tabs} value={tab} onChange={t => st.open({ kind: 'menu', tab: t })} />
       </View>
@@ -73,7 +83,12 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
       {tab === 'colonies' ? <ColoniesTab /> : null}
       {tab === 'missions' ? <Missions /> : null}
       {tab === 'ledger' ? <Ledger /> : null}
-      {tab === 'settings' ? <Settings /> : null}
+      {tab === 'settings' ? (
+        <View>
+          <T v="h2" style={{ marginBottom: 4 }}>Settings</T>
+          <Settings />
+        </View>
+      ) : null}
     </Panel>
   );
 }
@@ -102,13 +117,9 @@ function Military() {
         <Stat label="Levies" value={kmen(me.manpower)} icon="manpower" />
         <Stat label="Training" value={`${me.recruiting.length}`} icon="castle" />
       </Row>
-      <T v="tiny" style={{ marginTop: 4 }}>Above your army limit ({fl}, from your prosperity) every regiment costs more upkeep.</T>
-      <Section title="Army pay">
-        <Row gap={6}>
-          <Btn small style={{ flex: 1 }} tone={me.armyMode === 'peace' ? 'primary' : 'secondary'} label="Peacetime" sub="half upkeep, slow refill" onPress={() => st.run(x => setArmyMode(x, 'peace'))} />
-          <Btn small style={{ flex: 1 }} tone={me.armyMode === 'war' ? 'primary' : 'secondary'} label="Wartime" sub="full upkeep, fast refill" onPress={() => st.run(x => setArmyMode(x, 'war'))} />
-        </Row>
-      </Section>
+      <T v="tiny" style={{ marginTop: 4 }}>
+        Above your army limit ({fl}, from your prosperity) every regiment costs more upkeep. In wartime your troops get full pay and refill faster; in peace, half pay.
+      </T>
       <Section title={`Armies (${armies.length})`}>
         {armies.length ? (
           armies.map(a => (
@@ -241,6 +252,9 @@ function Diplomacy() {
           </Pressable>
         ))}
       </Section>
+      <Section title="Great powers">
+        <Ledger />
+      </Section>
     </View>
   );
 }
@@ -292,19 +306,16 @@ function Realm() {
         <Line label="Monthly balance" value={signed(l.balance, 1)} tone={l.balance >= 0 ? 'good' : 'bad'} />
         <Line label="Loans" value={`${me.loans}`} tone={me.loans ? 'bad' : undefined} />
         <Row gap={6} style={{ marginTop: 6 }}>
-          <Btn small style={{ flex: 1 }} tone="secondary" label="Borrow 100" onPress={() => st.run(takeLoan)} />
           <Btn small style={{ flex: 1 }} tone="secondary" label="Repay 100" disabled={!me.loans} onPress={() => st.run(repayLoan)} />
           <Btn small style={{ flex: 1 }} tone="secondary" label="Details" onPress={() => st.open({ kind: 'breakdown', what: 'gold' })} />
         </Row>
       </Section>
-      <Section title="Order">
+      <Section title="Order and renown">
         <Line label="Order (−3 to +3)" value={signed(me.stability)} tone={me.stability < 0 ? 'bad' : undefined} />
+        <Pressable onPress={() => st.open({ kind: 'breakdown', what: 'prestige' })}>
+          <Line label="Renown (tap for why)" value={`${fmt(me.prestige)} / 100`} />
+        </Pressable>
         <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
-      </Section>
-      <Section title="Science">
-        <Line label="Your troops' age" value={ERA(me.era).name} />
-        <Line label="Studying" value={me.researching ? ADVANCE[me.researching].name : 'nothing'} tone={me.researching ? undefined : 'bad'} />
-        <Btn small tone="secondary" style={{ marginTop: 6 }} label="Open Science" onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
       </Section>
       <Section title={`Policies (${me.policies.length}/${slots})`}>
         {me.policies.map(id => (
@@ -313,20 +324,15 @@ function Realm() {
             <Text style={styles.rowSub}>{modLines(POLICY[id].mods).map(m => m.text).join(', ')}</Text>
           </View>
         ))}
-        <T v="tiny" style={{ marginBottom: 6 }}>One slot, and one more for every five advances. You may swap one per slot for −1 order.</T>
-        {POLICIES.filter(pol => !me.policies.includes(pol.id)).map(pol => {
-          const locked = !!pol.requires && !me.advances.includes(pol.requires);
+        <T v="tiny" style={{ marginBottom: 6 }}>One slot, and one more for every three advances. You may swap one per slot for −1 order.</T>
+        {POLICIES.filter(pol => !me.policies.includes(pol.id) && (!pol.requires || me.advances.includes(pol.requires))).map(pol => {
           const slotFree = me.policies.length < slots;
           return (
-            <View key={pol.id} style={[styles.policy, { opacity: locked ? 0.5 : 1 }]}>
-              <Row style={{ justifyContent: 'space-between' }}>
-                <Text style={styles.rowTitle}>{pol.name}</Text>
-                {locked ? <Pill text={`Needs ${ADVANCE[pol.requires!].name}`} /> : null}
-              </Row>
+            <View key={pol.id} style={styles.policy}>
+              <Text style={styles.rowTitle}>{pol.name}</Text>
               <Text style={styles.rowSub}>{pol.desc}</Text>
               <Text style={[styles.rowSub, { color: C.inkSoft }]}>{modLines(pol.mods).map(m => m.text).join(', ')}</Text>
-              {!locked ? (
-                slotFree ? (
+              {slotFree ? (
                   <Btn small style={{ marginTop: 6 }} label="Adopt" onPress={() => st.run(x => choosePolicy(x, pol.id))} />
                 ) : policyPick === pol.id ? (
                   <Row gap={6} style={{ marginTop: 6, flexWrap: 'wrap' }}>
@@ -336,11 +342,19 @@ function Realm() {
                   </Row>
                 ) : (
                   <Btn small tone="ghost" style={{ marginTop: 6 }} label="Swap in…" disabled={me.policySwappedEra === slots} onPress={() => setPolicyPick(pol.id)} />
-                )
-              ) : null}
+                )}
             </View>
           );
         })}
+        {POLICIES.some(pol => pol.requires && !me.advances.includes(pol.requires)) ? (
+          <T v="tiny" style={{ marginTop: 4 }}>
+            Later:{' '}
+            {POLICIES.filter(pol => pol.requires && !me.advances.includes(pol.requires))
+              .map(pol => `${pol.name} (needs ${ADVANCE[pol.requires!].name})`)
+              .join(', ')}
+            .
+          </T>
+        ) : null}
       </Section>
       <Section title="Faith">
         <Line label="State faith" value={me.faith[0].toUpperCase() + me.faith.slice(1)} />

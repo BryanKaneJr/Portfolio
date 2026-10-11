@@ -16,7 +16,6 @@ import {
   requestSanction,
 } from '../../sim/commands';
 import { convertCost, coreCost, devCost, fortCost, FABRICATE_COST, mercCost, regionTax, regionTrade, shipCost, unitCost } from '../../sim/economy';
-import { supplyLimit } from '../../sim/military';
 import { REBELS, armyRegs, isCored } from '../../sim/queries';
 import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
@@ -70,16 +69,12 @@ export function RegionSheet({ id }: { id: string }) {
         {r.cores.includes(s.player) && !mine ? <Pill text="Integrated by you" color={C.greenSoft} textColor={C.green} /> : null}
         {me.capital === id ? <Pill text="Capital" color={C.gold} /> : null}
         {r.university ? <Pill text="University" color={C.blueSoft} textColor={C.blue} /> : null}
+        {r.fort ? <Pill text={`Fort ${r.fort}`} /> : null}
       </Row>
       <Row gap={6}>
         <Stat label="Prosperity" value={`${r.dev}/10`} icon="coins" />
-        <Stat label="Fort" value={r.fort ? `Level ${r.fort}` : 'None'} icon="castle" />
-        <Stat label="Unrest" value={fmt(r.unrest, 1)} tone={r.unrest > 7 ? 'bad' : undefined} onPress={() => setWhy(why === 'unrest' ? null : 'unrest')} icon="rebels" />
-      </Row>
-      <Row gap={6} style={{ marginTop: 6 }}>
         <Stat label="Income" value={`${fmt(tax + trade + goods, 1)}/mo`} onPress={() => setWhy(why === 'income' ? null : 'income')} icon="gold" />
-        <Stat label="Supply" value={`${supplyLimit(s, id, s.player)} regs`} icon="harvest" />
-        <Stat label="Faith" value={FAITH_NAME[r.faith]} icon="church" />
+        <Stat label="Unrest" value={fmt(r.unrest, 1)} tone={r.unrest > 7 ? 'bad' : undefined} onPress={() => setWhy(why === 'unrest' ? null : 'unrest')} icon="rebels" />
       </Row>
       {why === 'unrest' ? (
         <View style={{ marginTop: 8 }}>

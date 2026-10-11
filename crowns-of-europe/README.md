@@ -24,7 +24,7 @@ bundled and works in airplane mode.
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
 - **The New World:** uncharted until an expedition finds it (it needs Ocean Navigation) or 1500 arrives.
   Colonists (from Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters
-  policy and Scientific Cartography) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
+  policy and Galleons) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
   troops keep it safe. Every New World region has an export (silver, gold, sugar, tobacco, cocoa, dyes, furs,
   fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic
   takes weeks to cross.
@@ -47,11 +47,13 @@ bundled and works in airplane mode.
 - **Diplomacy:** opinion from −200 to +200 with a breakdown, alliances, royal marriages (inheritance and personal
   unions), military access, rivals, vassalization and annexation, gifts and insults.
 - **Realm:** gold, manpower and stability (no abstract point currencies), loans and bankruptcy, rulers who age
-  and die, heirs, republican elections, policies (a slot for every five advances).
+  and die, heirs, republican elections, policies (a slot for every three advances). Army pay switches between
+  peace and war on its own, and the treasury borrows by itself when it runs dry.
 - **Science:** scholars earn science every month (faster in rich towns and trade centres, with universities and
-  gold funding, and much faster in Italy and the West than on the steppe or in West Africa) and spend it on 18
-  advances: Bombards for artillery, Caravels and Ocean Navigation for colonies, Galleons for warships, Pike and
-  Shot, Musket and Volley and Flintlock and Bayonet for new ages of troops, and statecraft. An advance costs more
+  a funding switch, and much faster in Italy and the West than on the steppe or in West Africa) and spend it on
+  three tracks of four advances: War (Bombards for artillery, then Pike and Shot, Musket and Volley and Flintlock
+  and Bayonet for new ages of troops), Sea (Caravels and Ocean Navigation for colonies, Galleons for warships,
+  Ships of the Line) and Statecraft (printing, banking, statecraft, bureaucracy). An advance costs more
   the earlier it is taken than its historical year and less once neighbours know it, so the most learned crowns
   reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading

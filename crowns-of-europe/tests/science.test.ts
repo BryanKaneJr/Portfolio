@@ -9,7 +9,7 @@ describe('science', () => {
   test('crowns start with the advances they had in 1444', () => {
     const s = emptyGame('HUN');
     expect(s.nations.POR.advances).toContain('caravels');
-    expect(s.nations.VEN.advances).toContain('bookkeeping');
+    expect(s.nations.VEN.advances).toContain('banking');
     expect(s.nations.TUR.advances).toContain('bombards');
     expect(s.nations.HUN.advances).toEqual([]);
     expect(availableAdvances(s, 'HUN').map(a => a.id)).toContain('bombards');
@@ -41,7 +41,7 @@ describe('science', () => {
     expect(factor('JOL')).toBeLessThan(0.7);
     const before = scienceRate(s, 'HUN').total;
     const gold = ledger(s, 'HUN').totalExpenses;
-    expect(setScienceFunding(s, 2).ok).toBe(true);
+    expect(setScienceFunding(s, true).ok).toBe(true);
     expect(scienceRate(s, 'HUN').total).toBeGreaterThan(before);
     expect(ledger(s, 'HUN').totalExpenses).toBeGreaterThan(gold); // funding is paid in gold
     s.nations.HUN.gold = 1000;
@@ -62,15 +62,15 @@ describe('science', () => {
     expect(advanceCost(s, 'HUN', 'printing_press').total).toBeLessThan(late);
   });
 
-  test('the AI chooses what to study and learns over time; every five advances open a policy slot', () => {
+  test('the AI chooses what to study and learns over time; every three advances open a policy slot', () => {
     const s = emptyGame('HUN', 7, { live: true });
     advanceDays(s, 365 * 10);
     expect(s.nations.FRA.researching ?? s.nations.FRA.advances.length).toBeTruthy();
     expect(s.nations.FRA.advances.length).toBeGreaterThan(1);
     const n = s.nations.HUN;
-    n.advances = ['bombards', 'caravels', 'bookkeeping', 'printing_press'];
+    n.advances = ['bombards', 'caravels'];
     expect(policySlots(n)).toBe(1);
-    n.advances.push('humanism');
+    n.advances.push('printing_press');
     expect(policySlots(n)).toBe(2);
   }, 60000);
 });

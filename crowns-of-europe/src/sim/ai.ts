@@ -6,7 +6,7 @@
 import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
-import { FUNDING, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
+import { FUNDING_SHARE, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
 import { wantedRegions, wantsFrom } from './aims';
 import {
   REBELS,
@@ -240,15 +240,10 @@ function aiScience(s: GameState, nat: Nation, res: number): void {
   const n = nat.id;
   const balance = ledger(s, n).balance;
   const war = atWar(s, n);
-  // Spend roughly a quarter of the surplus on scholars, never into debt.
-  let level = 0;
-  for (let l = FUNDING.length - 1; l > 0; l--)
-    if (balance + (FUNDING[nat.scienceFunding]?.gold ?? 0) > FUNDING[l].gold * (war ? 6 : 4) && nat.gold > res * 0.5) {
-      level = l;
-      break;
-    }
-  if (nat.loans > 0) level = 0;
-  nat.scienceFunding = level;
+  // Fund scholars when the treasury can spare a tenth of the income, never into debt.
+  const income = ledger(s, n).totalIncome;
+  const spare = balance + (nat.scienceFunding ? income * FUNDING_SHARE : 0);
+  nat.scienceFunding = nat.loans === 0 && nat.gold > res * 0.5 && spare > income * FUNDING_SHARE * (war ? 3 : 2) ? 1 : 0;
   // A university in the richest region without one, a few per realm.
   const owned = ownedRegions(s, n);
   const unis = owned.filter(r => r.university).length;

@@ -4,6 +4,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { readyMissionCount } from '../../sim/missions';
 import { charted, freeColonists } from '../../sim/colonies';
 import { ledger } from '../../sim/economy';
+import { scienceRate } from '../../sim/science';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
 import { SPEEDS, store, useStore } from '../../state/store';
@@ -31,7 +32,7 @@ export function TopBar() {
   const s = st.state!;
   const n = s.nations[s.player];
   const bal = ledger(s, s.player).balance;
-  const open = (what: 'gold' | 'manpower' | 'stability' | 'prestige' | 'threat') => st.open({ kind: 'breakdown', what });
+  const open = (what: 'gold' | 'manpower' | 'stability' | 'threat') => st.open({ kind: 'breakdown', what });
   return (
     <View style={styles.top}>
       <Pressable onPress={() => st.open({ kind: 'menu', tab: 'economy' })} style={{ paddingRight: 6 }} accessibilityLabel="Your nation">
@@ -40,7 +41,7 @@ export function TopBar() {
       <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)} a month`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
       <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />
       <Res icon="stability" label="Order" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
-      <Res icon="prestige" label="Renown" value={fmt(n.prestige)} onPress={() => open('prestige')} />
+      <Res icon="book" label="Science" value={fmt(scienceRate(s, s.player).total, 1)} sub={n.researching ? undefined : 'Pick one'} subTone={n.researching ? undefined : 'bad'} onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
       <Res icon="threat" label="Threat" value={fmt(n.threat)} tone={n.threat >= 40 ? 'bad' : undefined} onPress={() => open('threat')} />
     </View>
   );

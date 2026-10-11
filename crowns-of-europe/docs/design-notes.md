@@ -27,8 +27,8 @@ here.
    - Discovery: the Americas are uncharted (no movement, fog on the map) until a crown with an ocean coast funds
      an expedition (needs Ocean Navigation; 100 gold, 8 months; the AI odds rise from 1470) or 1500 arrives.
    - Colonists: Portugal's Navigators trait, being first to the New World (30 years), Castile's Council of the
-     Indies, the Overseas Charters policy (needs Scientific Cartography) and big realms (30+ development) with an
-     ocean coast once they know Scientific Cartography.
+     Indies, the Overseas Charters policy (needs Galleons) and big realms (30+ development) with an ocean coast
+     once they know Galleons.
      Few colonists in the 1500s keep the race Iberian at first; England, France and the Netherlands join later.
    - Colonies: 30 gold, then 1 gold a month; 9 settlers a month (+3 next to your land, policy +20%), slowed by
      natives (−7% per thousand, at most half), by being inland (−45%) and by every New World region you already
@@ -61,12 +61,18 @@ here.
     friendships and enmities (the Auld Alliance, Poland and the Order) add ±25 opinion. Nothing is scripted: a
     weak France still loses, and a strong England may keep Normandy. The nation sheet shows what a crown wants.
 12. **Science instead of eras bought with gold.** The doc's four eras unlocked by date and cost gold. Now science
-    builds up each month and buys 18 advances (`advances.json`); the three war advances (Pike and Shot, Musket and
-    Volley, Flintlock and Bayonet) raise the troops' age that the eras used to, others unlock artillery, colonies
-    and galleons, and every five advances open a policy slot. Learning differs by region (`learning` in
+    builds up each month and buys 12 advances in three tracks of four (war, sea, statecraft; `advances.json`);
+    the three later war advances (Pike and Shot, Musket and Volley, Flintlock and Bayonet) raise the troops' age
+    that the eras used to, others unlock artillery, colonies and galleons, and every three advances open a policy
+    slot. Learning differs by region (`learning` in
     advances.json), gold buys more (funding, universities), and costs are anchored to history: early costs more,
     late and next to neighbours who know it costs less. In AI games the first crown to master each advance does
     so within about 0-15 years of its historical date.
+13. **Civilization-like complexity, grand-strategy looks (on request).** Fewer, chunkier decisions: three
+    science tracks instead of a web of advances, one funding switch, automatic army pay and borrowing, five Realm
+    tabs (rankings live in Diplomacy, settings behind the gear, Colonies only for crowns that can settle), the
+    everyday diplomatic actions up front and the rest behind "More options", three numbers per region sheet, and
+    Science in the top bar instead of Renown.
 
 ## Key numbers (all in `src/sim/`)
 
@@ -86,8 +92,8 @@ here.
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
 | Peace cost | 3% per development per region (× 0.7 if claimed), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
-| Science a month | (1 + 0.4 × √prosperity + 0.3 × average prosperity + 0.4 per trade centre (5 max) + 0.5 per university + funding 1 / 2.2 / 3.6 for 3 / 7 / 14 gold) × learning (0.6 West Africa … 1.35 Florence) × (1 + 5% per order) × (1 + modifiers) |
-| Advance cost | base (600 … 6,000) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |
+| Science a month | (1 + 0.4 × √prosperity + 0.3 × average prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |
+| Advance cost | base (600 … 7,500) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |
 | University | 150 gold, +100 for each one you have; prosperity 5+ |
 | Expedition west | 100 gold, 8 months, needs Ocean Navigation; everyone knows the New World by 1500 |
 | Colony | 30 gold + 1 gold/month; 1,000 settlers at 9/month (+3 next to your land), −7% per thousand natives, −45% inland, −6% per New World region owned |

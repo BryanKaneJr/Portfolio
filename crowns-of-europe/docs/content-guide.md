@@ -16,7 +16,7 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 | `missions.json` | Mission trees per major nation, plus a `generic` set for everyone else |
 | `achievements.json` | Local achievements checked for the player |
 | `traits.json`, `policies.json`, `units.json` | National/ruler traits, policies, unit stats per troops' age |
-| `advances.json` | The 18 advances of science, each nation's learning speed and the advances known in 1444 |
+| `advances.json` | The 12 advances of science (three tracks of four), each nation's learning speed and the advances known in 1444 |
 
 ## Writing rules
 
@@ -233,8 +233,8 @@ historically went after.
 { "id": "bombards", "name": "Bombards", "field": "war", "year": 1450, "cost": 700, "requires": [], "desc": "...", "unlock": "artillery" }
 ```
 
-Each advance has a `field` (war, sea, state), the `year` the most learned crowns had it, a base `cost` in
-science, `requires` (earlier advances), and what it gives: `mods`, an `unlock` (artillery, warships,
+Each advance has a `field` (war, sea, state: each field is a track of four, shown in order of `year`), the
+`year` the most learned crowns had it, a base `cost` in science, `requires` (the previous advance in its track), and what it gives: `mods`, an `unlock` (artillery, warships,
 coastColonies, oceanColonies; exactly one advance each) and/or `armyEra` (the troops' age, 2-4). `learning`
 sets each nation's speed (default 1) and `start` the advances crowns know in 1444. Policies can name an advance
 in `requires`, and ships in units.json an `advance`. After changing costs, check the timing with an AI game:

@@ -17,6 +17,8 @@ import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
 
 const GOV: Record<string, string> = { monarchy: 'Monarchy', republic: 'Republic', theocracy: 'Theocracy' };
+/** Shown at once; the rest (access, gifts, rivals, vassalage, insults...) wait behind "More options". */
+const MAIN_ACTIONS: DiploAction[] = ['improve', 'alliance', 'marriage', 'annex'];
 const PERS: Record<string, string> = { expansionist: 'Expansionist', defensive: 'Defensive', trader: 'Trader', opportunist: 'Opportunist' };
 
 export function NationSheet({ id }: { id: string }) {
@@ -26,6 +28,7 @@ export function NationSheet({ id }: { id: string }) {
   const def = NATION[id];
   const [whyOpinion, setWhyOpinion] = useState(false);
   const [expanded, setExpanded] = useState<DiploAction | null>(null);
+  const [more, setMore] = useState(false);
   if (!n || !def) return null;
   if (id === s.player) {
     return (
@@ -120,7 +123,7 @@ export function NationSheet({ id }: { id: string }) {
       <Section title="Diplomacy">
         <View style={{ gap: 6 }}>
           {actions
-            .filter(a => a.show)
+            .filter(a => a.show && (more || MAIN_ACTIONS.includes(a.key)))
             .map(a => {
               const acc = acceptance(s, s.player, id, a.key);
               const cd = cooldownLeft(s, s.player, id, a.key);
@@ -153,8 +156,8 @@ export function NationSheet({ id }: { id: string }) {
                 </View>
               );
             })}
-          {n.overlord === s.player ? <Btn tone="ghost" label="Set them free" onPress={() => st.run(x => freeSubject(x, id))} /> : null}
-          {me.faith === 'catholic' && n.faith === 'catholic' && id !== REBELS ? (
+          {more && n.overlord === s.player ? <Btn tone="ghost" label="Set them free" onPress={() => st.run(x => freeSubject(x, id))} /> : null}
+          {more && me.faith === 'catholic' && n.faith === 'catholic' && id !== REBELS ? (
             <Btn tone="ghost" label="Ask the Pope to excommunicate their ruler" sub={`${EXCOMMUNICATE_COST} Papal Favor (you have ${Math.floor(me.papalFavor)})`} disabled={me.papalFavor < EXCOMMUNICATE_COST} onPress={() => st.run(x => playerExcommunicate(x, id))} />
           ) : null}
           {war ? (
@@ -162,7 +165,10 @@ export function NationSheet({ id }: { id: string }) {
           ) : (
             <Btn tone="danger" icon="swords" label="Declare war…" disabled={!!canDeclareWar(s, s.player, id)} sub={canDeclareWar(s, s.player, id) ?? undefined} onPress={() => st.open({ kind: 'declareWar', target: id })} />
           )}
-          <Btn small tone="ghost" label="Show on map" onPress={() => store.focusOn(...regionPoint(n.capital))} />
+          <Row gap={6}>
+            <Btn small tone="ghost" style={{ flex: 1 }} label={more ? 'Fewer options' : 'More options'} onPress={() => setMore(m => !m)} />
+            <Btn small tone="ghost" style={{ flex: 1 }} label="Show on map" onPress={() => store.focusOn(...regionPoint(n.capital))} />
+          </Row>
         </View>
       </Section>
     </Sheet>

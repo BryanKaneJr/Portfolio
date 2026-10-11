@@ -14,7 +14,7 @@ import {
 } from './queries';
 import type { GameState, NationId, Region, ShipType } from './types';
 import { COLONY_UPKEEP, coloniesOf, goodsIncome } from './colonies';
-import { FUNDING } from './science';
+import { FUNDING_SHARE } from './science';
 import { chance, clamp, years } from './util';
 
 export const TAX_PER_DEV = 0.3;
@@ -139,8 +139,7 @@ export function ledger(s: GameState, n: NationId): Ledger {
   const forts = fortUpkeep(s, n);
   if (forts > 0) expenses.push({ label: 'Forts', value: forts });
   if (generals > 0) expenses.push({ label: 'Generals', value: generals });
-  const funding = FUNDING[nat.scienceFunding]?.gold ?? 0;
-  if (funding > 0) expenses.push({ label: 'Science funding', value: funding });
+  if (nat.scienceFunding) expenses.push({ label: 'Funding your scholars (10% of income)', value: (tax + trade + goods + tributeIn) * FUNDING_SHARE });
   const colonies = coloniesOf(s, n).length;
   if (colonies > 0) expenses.push({ label: `Colonies being settled (${colonies})`, value: colonies * COLONY_UPKEEP });
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
@@ -200,6 +199,8 @@ export function monthlyEconomy(s: GameState): void {
   for (const nat of Object.values(s.nations)) {
     if (!nat.alive) continue;
     const n = nat.id;
+    // The player's army pay follows war and peace on its own (the AI sets its own in ai.ts).
+    if (n === s.player && !('__spectate' in s.flags)) nat.armyMode = atWar(s, n) ? 'war' : 'peace';
     const l = ledger(s, n);
     nat.lastMonthIncome = l.totalIncome;
     nat.lastMonthExpenses = l.totalExpenses;

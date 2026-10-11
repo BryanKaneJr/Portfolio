@@ -114,7 +114,7 @@ export function colonistSources(s: GameState, n: NationId): ColonistPart[] {
   const nat = s.nations[n];
   if (!nat || isNativeNation(n)) return [];
   const out: ColonistPart[] = [];
-  if (CHRISTIAN.has(nat.faith) && hasAdvance(s, n, 'cartography') && homeDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast and Scientific Cartography', value: 1 });
+  if (CHRISTIAN.has(nat.faith) && hasAdvance(s, n, 'galleons') && homeDev(s, n) >= BASE_COLONIST_DEV && hasOceanCoast(s, n)) out.push({ label: 'Great realm with an ocean coast and Galleons', value: 1 });
   for (const src of modifierSources(s, n)) if (src.mods.colonists) out.push({ label: src.name, value: src.mods.colonists });
   return out;
 }

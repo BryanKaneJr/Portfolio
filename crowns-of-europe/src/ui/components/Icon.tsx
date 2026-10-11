@@ -42,7 +42,8 @@ export type IconName =
   | 'info'
   | 'star'
   | 'shield'
-  | 'eye';
+  | 'eye'
+  | 'gear';
 
 const P: Record<IconName, string> = {
   gold: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18Zm0 3.5a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11Z',
@@ -85,6 +86,7 @@ const P: Record<IconName, string> = {
   star: 'M12 3l2.6 6.3l6.4.4l-4.9 4.2l1.5 6.3L12 16.8l-5.6 3.4l1.5-6.3L3 9.7l6.4-.4L12 3Z',
   shield: 'M12 3l7 3v6c0 4.5-3 8-7 9c-4-1-7-4.5-7-9V6l7-3Z',
   eye: 'M2 12s4-7 10-7s10 7 10 7s-4 7-10 7S2 12 2 12Zm10-3a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z',
+  gear: 'M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7ZM12 2.5v3m0 13v3M2.5 12h3m13 0h3M5.3 5.3l2.1 2.1m9.2 9.2l2.1 2.1M5.3 18.7l2.1-2.1m9.2-9.2l2.1-2.1',
 };
 
 const FILLED = new Set<IconName>(['gold', 'prestige', 'play', 'pause', 'star', 'shield', 'crown']);

@@ -13,13 +13,9 @@ import { markMapDirty } from './territory';
 import type { AdvanceDef, AdvanceUnlock, GameState, Nation, NationId } from './types';
 import { yearOf } from './util';
 
-/** Gold a month spent on scholars, and the science it buys (before the learning and modifier factors). */
-export const FUNDING = [
-  { label: 'None', gold: 0, science: 0 },
-  { label: 'Modest', gold: 3, science: 1 },
-  { label: 'Ample', gold: 7, science: 2.2 },
-  { label: 'Lavish', gold: 14, science: 3.6 },
-] as const;
+/** Funding your scholars: a tenth of your income buys a quarter more science. */
+export const FUNDING_SHARE = 0.1;
+export const FUNDING_BOOST = 0.25;
 export const UNIVERSITY_COST = 150; // and 100 more for each university you already have
 export const UNIVERSITY_SCIENCE = 0.5;
 export const UNIVERSITY_MIN_DEV = 5;
@@ -41,8 +37,8 @@ export const hasAdvance = (s: GameState, n: NationId, id: string) => knows(s.nat
 export const advanceFor = (what: AdvanceUnlock): AdvanceDef => ADVANCES.find(a => a.unlock === what)!;
 export const unlocked = (s: GameState, n: NationId, what: AdvanceUnlock) => hasAdvance(s, n, advanceFor(what).id);
 export const learningOf = (n: NationId) => LEARNING[n] ?? 1;
-/** One policy at first, one more for every five advances (four at most). */
-export const policySlots = (nat: Nation) => 1 + Math.min(3, Math.floor(nat.advances.length / 5));
+/** One policy at first, one more for every three advances (four at most). */
+export const policySlots = (nat: Nation) => 1 + Math.min(3, Math.floor(nat.advances.length / 3));
 /** New World peoples follow their own path: they gain no science. */
 export const studies = (s: GameState, n: NationId) => !!s.nations[n]?.alive && !isNativeNation(n);
 
@@ -65,9 +61,8 @@ export function scienceRate(s: GameState, n: NationId): ScienceBreakdown {
   if (trade) sources.push({ label: `Trade centres (${trade}${trade > MAX_TRADE_CENTRES ? `, ${MAX_TRADE_CENTRES} count` : ''})`, value: Math.min(MAX_TRADE_CENTRES, trade) * TRADE_CENTRE_SCIENCE });
   const unis = owned.filter(r => r.university).length;
   if (unis) sources.push({ label: `Universities (${unis})`, value: unis * UNIVERSITY_SCIENCE });
-  const f = FUNDING[nat.scienceFunding] ?? FUNDING[0];
-  if (f.science) sources.push({ label: `Funding (${f.label.toLowerCase()})`, value: f.science });
   const factors: ScienceBreakdown['factors'] = [];
+  if (nat.scienceFunding) factors.push({ label: 'Funding your scholars', value: 1 + FUNDING_BOOST });
   const learning = learningOf(n);
   if (learning !== 1) factors.push({ label: learning > 1 ? 'Learned lands' : 'Far from the centres of learning', value: learning });
   if (nat.stability) factors.push({ label: `Order ${nat.stability > 0 ? '+' : '−'}${Math.abs(nat.stability)}`, value: 1 + ORDER_FACTOR * nat.stability });
@@ -102,6 +97,10 @@ export function advanceCost(s: GameState, n: NationId, id: string): CostBreakdow
 export const universityCost = (s: GameState, n: NationId) => UNIVERSITY_COST + 100 * ownedRegions(s, n).filter(r => r.university).length;
 
 /** Advances this crown could study now (requirements met, not yet known). */
+export const FIELDS: AdvanceDef['field'][] = ['war', 'sea', 'state'];
+/** Each field is a track of four advances, one after another. */
+export const track = (field: AdvanceDef['field']) => ADVANCES.filter(a => a.field === field).sort((a, b) => a.year - b.year);
+
 export function availableAdvances(s: GameState, n: NationId): AdvanceDef[] {
   const nat = s.nations[n];
   return ADVANCES.filter(a => !knows(nat, a.id) && a.requires.every(r => knows(nat, r)));
@@ -114,7 +113,7 @@ export function advanceUnlockText(a: AdvanceDef): string | null {
     case 'artillery':
       return 'Recruit artillery';
     case 'warships':
-      return 'Build galleons';
+      return 'Build galleons, the strongest warships';
     case 'coastColonies':
       return 'Settle the African coast and Atlantic islands';
     case 'oceanColonies':

@@ -37,7 +37,7 @@ import {
 } from './queries';
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral } from './rulers';
-import { FUNDING, UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
+import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
 import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
 import { clamp, months } from './util';
@@ -289,10 +289,9 @@ export function setResearch(s: GameState, id: string | null): Result {
   return ok(`Your scholars turn to ${ADVANCE[id].name}.`);
 }
 
-export function setScienceFunding(s: GameState, level: number): Result {
-  if (!FUNDING[level]) return no('No such level.');
-  me(s).scienceFunding = level;
-  return ok(level ? `Science funding: ${FUNDING[level].label.toLowerCase()} (${FUNDING[level].gold} gold a month).` : 'You stop funding your scholars.');
+export function setScienceFunding(s: GameState, on: boolean): Result {
+  me(s).scienceFunding = on ? 1 : 0;
+  return ok(on ? 'You fund your scholars: a tenth of your income for a quarter more science.' : 'You stop funding your scholars.');
 }
 
 export function foundUniversity(s: GameState, region: string): Result {

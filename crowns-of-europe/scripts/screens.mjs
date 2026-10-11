@@ -58,7 +58,7 @@ await coe(() => window.__coe.store.select(null));
 await tapId('menu');
 await tapId('tab-military');
 await shot('menu-military');
-for (const tab of ['diplomacy', 'economy', 'science', 'colonies', 'missions', 'ledger', 'settings']) {
+for (const tab of ['diplomacy', 'economy', 'science', 'colonies', 'missions']) {
   await tapId(`tab-${tab}`);
   await shot(`menu-${tab}`);
   if (tab === 'science') {
@@ -66,6 +66,8 @@ for (const tab of ['diplomacy', 'economy', 'science', 'colonies', 'missions', 'l
     await shot('menu-science-picked');
   }
 }
+await page.getByLabel('Settings').first().click();
+await shot('menu-settings');
 await page.getByLabel('Close').first().click();
 
 // Diplomacy with a neighbour, then war.

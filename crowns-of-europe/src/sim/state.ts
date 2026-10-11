@@ -7,7 +7,7 @@ import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
 
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,
