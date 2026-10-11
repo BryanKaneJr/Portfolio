@@ -797,7 +797,7 @@ export const PORK_SEAFOOD_RECIPES: Recipe[] = [
       'Take the lamb chops out of the fridge 20 minutes before cooking. Pat them dry and season all over with the salt, pepper and chopped rosemary.',
       'Heat the oil in a large, heavy skillet over medium-high heat until it shimmers. Using tongs, stand the chops on their fatty edges, leaning them against each other, and sear 1–2 minutes to render some of the fat.',
       "Lay the chops flat (in two batches if they don't fit without crowding) and cook 3–4 minutes, until deeply browned. Flip them.",
-      'Lower the heat to medium and add the butter, garlic and rosemary sprigs. As the butter foams, tilt the pan and spoon it over the chops for 2–3 minutes, until an instant-read thermometer in the thickest chop reads 145°F (63°C).',
+      'Lower the heat to medium and add the butter, garlic and rosemary sprigs. As the butter foams, tilt the pan and spoon it over the chops for 2–3 minutes, until an instant-read thermometer in the thickest chop reads 130°F (54°C) for medium-rare. The USDA recommends 145°F (63°C) with a 3-minute rest.',
       'Move the chops to a plate, spoon the garlic and rosemary butter over them and rest 5 minutes. Serve with lemon wedges if you like.',
     ],
     source: ORIGINAL_DRAFT,

@@ -32,6 +32,7 @@ const DISH_HINTS: [DishType, RegExp][] = [
   ['bake', /\b(casseroles?|bake|baked|gratin|lasagna|enchiladas?)\b/],
   ['one_pot', /\b(one[ -]pot|curry|chili|risotto|jambalaya|paella)\b/],
   ['bowl', /\b(bowls?)\b/],
+  ['dip', /\b(dips?|salsas?|hummus|guacamole|tzatziki)\b/],
   ['baked_goods', /\b(bread|muffins?|biscuits?|scones?|cakes?|cookies?|brownies?|rolls|buns|pie|loaf)\b/],
 ];
 

@@ -389,7 +389,20 @@ function gasMark(f: number): string {
 }
 
 const LIQUID_WORDS = /\b(water|milk|broth|stock|juice|oil|cream|sauce|wine|vinegar|batter)\b/i;
-const STEP_FILLERS = new Set(['of', 'the', 'remaining', 'softened', 'melted', 'cold', 'warm', 'chopped', 'grated']);
+const STEP_FILLERS = new Set([
+  'of',
+  'the',
+  'remaining',
+  'softened',
+  'melted',
+  'cold',
+  'warm',
+  'chopped',
+  'grated',
+  'uncooked',
+  'raw',
+  'dry',
+]);
 
 /** Which ingredient a step measure refers to: "1/2 cup of the softened butter" → butter. */
 function stepIngredient(index: IngredientIndex | undefined, after: string): string | undefined {

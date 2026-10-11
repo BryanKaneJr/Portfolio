@@ -76,7 +76,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
       opt('cilantro', 'fresh cilantro', '1/4 cup', 'chopped'),
       opt('avocado', 'avocado', '1', 'diced'),
       opt('sour_cream', 'sour cream', '1/2 cup', 'for serving'),
-      opt('rice', 'cooked white rice', '3 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '3 cups', 'from 1 cup uncooked rice, for serving'),
     ],
     steps: [
       'Toss the chicken with the chili powder, cumin, smoked paprika, 1 tsp of the salt and the pepper.',
@@ -209,7 +209,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
   },
   {
     id: 'greek-lemon-chicken-and-rice',
-    title: 'Greek Lemon Chicken and Rice',
+    title: 'Greek Lemon Chicken and Rice Bake',
     description:
       'Lemon-and-oregano chicken thighs baked on garlicky rice, with fresh spinach stirred in at the end to wilt.',
     meals: ['dinner'],
@@ -456,7 +456,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
       r('sugar', 'sugar', '1 tsp'),
       r('heavy_cream', 'heavy cream', '3/4 cup'),
       opt('cilantro', 'fresh cilantro', '1/4 cup', 'chopped'),
-      opt('rice', 'cooked basmati rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'In a bowl, mix the yogurt, lemon juice, half the garlic and ginger, 1 tsp of the garam masala, 1 tsp each of the cumin and paprika, 1/2 tsp of the turmeric and 1 tsp of the salt. Stir in the chicken to coat, cover and refrigerate for at least 30 minutes or up to 24 hours.',
@@ -728,7 +728,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
       r('ginger', 'fresh ginger', '1 tbsp', 'minced'),
       r('green_onion', 'green onions', '5', 'cut into 1-inch pieces, whites and greens kept apart'),
       r('peanuts', 'unsalted roasted peanuts', '1/2 cup'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Toss the chicken with 1 tbsp of the soy sauce and 1 tbsp of the cornstarch. Let it sit 15 minutes while you prepare everything else.',
@@ -801,7 +801,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
       r('cucumber', 'cucumber', '1', 'diced'),
       r('tomato', 'tomatoes', '2 medium', 'diced'),
       r('parsley', 'fresh parsley', '1/2 cup', 'chopped'),
-      r('rice', 'cooked long-grain or basmati rice, warm', '4 cups'),
+      r('rice', 'cooked long-grain or basmati rice, warm', '4 cups', 'from about 1 1/3 cups uncooked rice'),
       opt('pita_bread', 'warm pita bread', '4', 'for serving'),
     ],
     steps: [

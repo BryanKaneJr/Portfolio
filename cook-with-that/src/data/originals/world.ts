@@ -32,7 +32,7 @@ export const WORLD_RECIPES: Recipe[] = [
       r('garam_masala', 'garam masala', '1 1/2 tsp'),
       r('lemon', 'lemon', '1/2', 'juiced'),
       opt('cilantro', 'fresh cilantro', '1/4 cup', 'chopped'),
-      opt('rice', 'cooked basmati rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Heat the oil in a large, heavy saucepan or deep skillet over medium heat. Add the onions and cook, stirring often, until deep golden brown, 12–15 minutes. Lower the heat if they darken at the edges before they soften.',
@@ -78,7 +78,7 @@ export const WORLD_RECIPES: Recipe[] = [
       r('sugar', 'sugar', '1 tsp'),
       r('garam_masala', 'garam masala', '1 tsp'),
       opt('cilantro', 'fresh cilantro', '2 tbsp', 'chopped'),
-      opt('rice', 'cooked basmati rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Toss the chicken with the yogurt, 1 tsp of the salt and the turmeric. Cover and refrigerate for at least 30 minutes, or up to 8 hours.',
@@ -121,7 +121,7 @@ export const WORLD_RECIPES: Recipe[] = [
       r('heavy_cream', 'heavy cream', '1/4 cup'),
       r('garam_masala', 'garam masala', '1 tsp'),
       opt('lemon', 'lemon', '1/2', 'cut into wedges'),
-      opt('rice', 'cooked basmati rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Bring a large pot of water to a boil and fill a large bowl with ice water. Push the spinach into the boiling water and cook for 1 minute, just until wilted and bright green. Drain, then plunge it into the ice water to stop the cooking.',
@@ -403,7 +403,7 @@ export const WORLD_RECIPES: Recipe[] = [
       r('beef_broth', 'beef broth', '1 1/2 cups'),
       r('bay_leaf', 'bay leaves', '2'),
       r('green_olives', 'pimiento-stuffed green olives', '1/2 cup', 'sliced'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Pat the beef dry and season it all over with 1 tsp of the salt, the pepper and 1 tsp of the cumin.',
@@ -558,7 +558,7 @@ export const WORLD_RECIPES: Recipe[] = [
       r('sugar', 'sugar', '1 tsp'),
       r('cornstarch', 'cornstarch', '1 tbsp'),
       r('water', 'cold water', '3 tbsp'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Bring a saucepan of water to a gentle simmer and add the salt. Slide in the tofu and simmer 2–3 minutes; this seasons it and firms it so it holds together. Drain gently.',

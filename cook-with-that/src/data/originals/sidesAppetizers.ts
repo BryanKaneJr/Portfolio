@@ -320,7 +320,7 @@ export const SIDES_APPETIZERS_RECIPES: Recipe[] = [
     description:
       'Spiced refried beans, guacamole, sour cream, salsa, cheddar, tomatoes, green onions and olives, layered in one dish for scooping.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 20,
     cookMinutes: 0,
     servings: 10,
@@ -423,7 +423,7 @@ export const SIDES_APPETIZERS_RECIPES: Recipe[] = [
     description:
       'Eggplant broiled until blackened and collapsed, then beaten with tahini, lemon and garlic into a smoky, silky dip.',
     meals: ['appetizer', 'snack'],
-    dishTypes: ['bake'],
+    dishTypes: ['bake', 'dip'],
     prepMinutes: 40,
     cookMinutes: 40,
     servings: 6,

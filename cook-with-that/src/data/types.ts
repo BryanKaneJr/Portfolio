@@ -13,6 +13,7 @@ export const DISH_TYPES = [
   'bake',
   'one_pot',
   'bowl',
+  'dip',
   'baked_goods',
 ] as const;
 export type DishType = (typeof DISH_TYPES)[number];

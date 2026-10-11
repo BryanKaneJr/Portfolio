@@ -306,7 +306,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
   },
   {
     id: 'rice-pilaf',
-    title: 'Rice Pilaf',
+    title: 'Rice Pilaf with Onion and Thyme',
     description:
       'Long-grain rice sautéed in butter with onion, then simmered in chicken broth with thyme so every grain stays separate.',
     meals: ['side', 'dinner'],
@@ -649,7 +649,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
     description:
       'A hot, bubbling dip of spinach and artichoke hearts in cream cheese, Parmesan and mozzarella. Built for a crowd.',
     meals: ['appetizer', 'snack'],
-    dishTypes: ['bake'],
+    dishTypes: ['bake', 'dip'],
     prepMinutes: 15,
     cookMinutes: 30,
     servings: 8,
@@ -790,7 +790,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
     description:
       'Fresh Mexican salsa of chopped tomato, white onion, jalapeño and cilantro, sharpened with lime juice and salt.',
     meals: ['appetizer', 'snack', 'side'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 30,
     cookMinutes: 0,
     servings: 6,

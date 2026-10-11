@@ -19,6 +19,7 @@ export const DISH_TYPE_LABELS: Record<DishType, string> = {
   bake: 'Casserole/Bake',
   one_pot: 'One-Pot',
   bowl: 'Bowl',
+  dip: 'Dips & Salsas',
   baked_goods: 'Baked Goods',
 };
 

@@ -51,6 +51,19 @@ Hard rules (from the plan, still in force):
    maybe in settings?"). Avoid stays per ingredient: avoiding pork chops doesn't hide bacon, and avoiding chicken
    doesn't hide chicken broth. Don't add food groups or "contains" tags. Instead, Settings has an **Allergies** note
    saying Avoid only sees listed ingredients and the cook must check labels. Keep that note off the Avoid list itself.
+11. **Dish types stay few** (owner, 2026-10-11). One was added: **Dips & Salsas** (`dip`). No "No-Bake Desserts" (they
+   "can just go in dessert") and no "Grilled" type. Tag a dish type only when one honestly fits; a recipe with none
+   is still found by its meal (34 have none: desserts, sides, appetizers, grilled and air-fried mains).
+12. **No egg warnings** (owner: "being scared of people not cooking yolk is ridiculous... people eat over easy eggs
+   every day"). Runny yolks, hollandaise, carbonara and tiramisu carry no caution or pasteurized-egg note.
+13. **Medium-rare is fine, with the USDA's number beside it** (owner: "just put a disclaimer of what the usda says").
+   Steaks and lamb chops cook to 130°F (54°C) for medium-rare, then "The USDA recommends 145°F (63°C) with a 3-minute
+   rest." Poultry, ground meat, pork and fish keep the USDA temperatures.
+14. **Season savory dishes, where fitting.** A savory recipe with nothing salty in it gets salt (to taste, or measured
+   when it can't be tasted raw), even from a low-sodium source. Don't add salt where bacon, ham, cheese, soy or a
+   salty sauce already seasons the dish ("you dont salt certain foods, like bacon").
+15. **Equipment never filters recipes** (owner: "we dont list equipment in filters"). A waffle iron or food processor
+   is fine when it defines the dish.
 
 ## Layout
 ```
@@ -130,7 +143,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   `docs/import-notes/2026-10-11-round-4/`.
 - **Deep recipe review (2026-10-11):** `npm run audit:recipes` (script flags, `docs/recipe-audit.md`), then eleven
   reviewers read all 548 recipes as cooks and fixed 97 (yields, ratios, pan sizes, step order, safety, taglines, tags).
-  Summary, open owner decisions and the cook-test-first list: `docs/recipe-review/README.md`; per-group detail in
+  The owner then settled the open questions (decisions 11–15; cooked-rice lines now give the uncooked amount; four
+  confusable titles were made clearer; four suggested tweaks were applied after checking). Summary, what changed
+  for each decision and the cook-test-first list: `docs/recipe-review/README.md`; per-group detail in
   `docs/recipe-review/rv01.md` … `rv11.md`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
@@ -145,12 +160,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Owner decisions from the recipe review** (`docs/recipe-review/README.md`: dish types for 45 untagged recipes,
-   lightly cooked eggs, unsalted government recipes, four suggested tweaks, rice instructions), then **cook-testing**:
-   548 drafts, read and fixed on paper but none cooked yet. Release needs every recipe reviewed
-   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 45
-   recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them. Workers
-   fixed source errors (ratios, missing leavening, unsafe temperatures); `docs/import-notes/` lists each change.
+1. **Cook-testing:** 548 drafts, read and fixed on paper but none cooked yet. Start with the cook-test-first list in
+   `docs/recipe-review/README.md`. Release needs every recipe reviewed (quantities, times, food safety). Consider a
+   review checklist or a sign-off field per recipe. Workers fixed source errors (ratios, missing leavening, unsafe
+   temperatures); `docs/import-notes/` lists each change.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web

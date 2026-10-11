@@ -108,7 +108,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     title: 'Banana Pancakes',
     description: 'Soft pancakes with two very ripe bananas mashed right into the batter.',
     meals: ['breakfast'],
-    dishTypes: [],
+    dishTypes: ['skillet'],
     prepMinutes: 10,
     cookMinutes: 15,
     servings: 4,
@@ -295,7 +295,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('honey', 'honey', '2–3 tbsp'),
       r('butter', 'butter', '1 tbsp'),
       r('flour', 'all-purpose flour', '2 tbsp'),
-      opt('rice', 'cooked rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Melt the butter in a large skillet over medium heat. Add the onion and peppers and cook, stirring now and then, until the onion turns translucent, about 5 minutes.',
@@ -714,7 +714,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     title: 'Tzatziki',
     description: 'Cool Greek yogurt dip with grated cucumber, garlic, dill and a squeeze of lemon.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 10,
     cookMinutes: 0,
     servings: 6,
@@ -1002,7 +1002,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('vegetable_oil', 'vegetable oil', '2 tbsp'),
       r('salt', 'salt', 'to taste'),
       r('black_pepper', 'black pepper', 'to taste'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Heat the oil in a large pot or deep skillet over medium heat. Cook the onion and garlic, stirring, until soft and fragrant, about 3 minutes.',
@@ -1168,7 +1168,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('canned_tomatoes', 'canned chopped tomatoes', '1 can (14 oz)'),
       r('coconut_milk', 'coconut milk', '1 can (13.5 oz)'),
       r('salt', 'salt', '1 tsp'),
-      opt('rice', 'cooked rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Heat the oven to 400°F (200°C).',
@@ -1202,7 +1202,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('vegetable_broth', 'vegetable broth', '2 cups'),
       r('salt', 'salt', '1 tsp, or to taste'),
       r('black_pepper', 'black pepper', '1/4 tsp'),
-      opt('rice', 'cooked rice', '6 cups', 'for serving'),
+      opt('rice', 'cooked rice', '6 cups', 'from 2 cups uncooked rice, for serving'),
     ],
     steps: [
       'Heat the oil in a large pot over medium heat. Add the onion and garlic and cook until soft, about 5 minutes.',
@@ -1260,7 +1260,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     servings: 4,
     ingredients: [
       r('pasta', 'spaghetti', '11 oz (320 g)'),
-      r('eggs', 'egg yolks', '5', 'from very fresh medium eggs, or pasteurized eggs'),
+      r('eggs', 'egg yolks', '5', 'from medium eggs'),
       r('pancetta', 'pancetta or guanciale', '5 oz (150 g)', 'cut into small cubes'),
       r('pecorino_romano', 'Pecorino Romano', '1/2 cup (about 35 g)', 'finely grated, plus more to serve'),
       r('black_pepper', 'black pepper', '1/2 tsp', 'freshly ground, plus more to serve'),
@@ -1371,7 +1371,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('rice_vinegar', 'rice vinegar', '1 tbsp'),
       r('sesame_oil', 'toasted sesame oil', '1 tbsp'),
       r('garlic', 'garlic cloves', '2', 'mashed to a paste'),
-      opt('rice', 'cooked white rice', '3 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '3 cups', 'from 1 cup uncooked rice, for serving'),
     ],
     steps: [
       'For the sauce, stir together the soy sauce, honey, ketchup, brown sugar, rice vinegar, sesame oil and garlic in a bowl.',
@@ -1610,7 +1610,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'A crunchy no-cook salsa of sweet corn, radish, red onion, jalapeño and cilantro, sharpened with plenty of lime.',
     meals: ['appetizer', 'side', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 75,
     cookMinutes: 0,
     servings: 8,
@@ -1829,7 +1829,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     servings: 2,
     ingredients: [
       r('pizza_dough', 'pizza dough, store-bought or homemade', '14 oz (400 g)'),
-      r('sour_cream', 'sour cream', '1/3 cup'),
+      r('sour_cream', 'full-fat sour cream', '3/4 cup (180 g)'),
       r('bacon', 'bacon', '5 oz (150 g)', 'cut into small pieces'),
       r('onion', 'red onion', '1', 'very thinly sliced'),
       r('salt', 'salt', '1 pinch'),
@@ -1838,7 +1838,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     steps: [
       'Heat the oven to 475°F (245°C) with racks in the upper and lower thirds.',
       'Divide the pizza dough in half. Roll each piece between two sheets of parchment paper as thin as you can, about 1/16 inch thick, until it nearly covers a baking sheet.',
-      'Peel off the top sheets and slide each base, still on its bottom sheet, onto a baking sheet. Spread the sour cream over both in a very thin layer that barely covers the dough.',
+      'Peel off the top sheets and slide each base, still on its bottom sheet, onto a baking sheet. Spread the sour cream evenly over both in a thin layer, almost to the edges.',
       'Scatter the onion and bacon evenly over the top.',
       'Bake for 10–12 minutes, swapping the sheets halfway, until the edges are browned and crisp and the bacon is cooked.',
       'Season with salt and pepper, let cool for 2–3 minutes, then cut into pieces and serve.',
@@ -1959,7 +1959,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Extra-smooth hummus: chickpeas boiled with baking soda to loosen their skins, then whipped with tahini and lemon.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 15,
     cookMinutes: 20,
     servings: 6,
@@ -2493,7 +2493,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('sugar_snap_peas', 'sugar snap peas', '6 oz (170 g)', 'trimmed'),
       r('cabbage', 'green cabbage', '1/4 small head', 'chopped'),
       r('eggs', 'large eggs', '3', 'beaten'),
-      opt('rice', 'cooked rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Press the tofu between paper towels to get out as much water as you can, then cut it into 3/4-inch cubes. (For a chewier, spongier texture, freeze the tofu in its package for at least 24 hours and thaw it before you start.)',
@@ -2605,7 +2605,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     cookMinutes: 0,
     servings: 8,
     ingredients: [
-      r('eggs', 'very fresh large eggs (or pasteurized eggs)', '4', 'separated'),
+      r('eggs', 'large eggs', '4', 'separated'),
       r('sugar', 'sugar', '1/2 cup (100 g)'),
       r('mascarpone', 'mascarpone', '1 lb (500 g)', 'at room temperature'),
       r('ladyfingers', 'crisp ladyfingers (savoiardi)', '10 oz (300 g)'),
@@ -2634,7 +2634,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     cookMinutes: 20,
     servings: 4,
     ingredients: [
-      r('rice', 'cooked white rice, preferably a day old', '4 cups', 'cold'),
+      r('rice', 'cooked white rice, preferably a day old', '4 cups', 'cold, from about 1 1/3 cups uncooked rice'),
       r('chicken', 'boneless chicken breasts or thighs', '1 lb', 'cut into 1/2-inch pieces'),
       r('eggs', 'large eggs', '3'),
       r('bell_pepper', 'red bell pepper', '1', 'cut into small squares'),
@@ -2668,7 +2668,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     ingredients: [
       r('bell_pepper', 'yellow bell peppers', '8 medium'),
       r('ground_beef', 'ground beef', '1 lb (about 480 g)'),
-      r('rice', 'cooked white rice', '1 1/2 cups'),
+      r('rice', 'cooked white rice', '1 1/2 cups', 'from 1/2 cup uncooked rice'),
       r('onion', 'onions', '2 small', 'finely chopped'),
       r('garlic', 'garlic cloves', '2', 'minced'),
       r('parsley', 'fresh parsley', '1/4 cup', 'chopped'),
@@ -2710,7 +2710,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('curry_powder', 'curry powder', '2 tbsp'),
       r('red_chili', 'fresh red chilies', '1–2', 'chopped'),
       r('salt', 'salt', '1 tsp'),
-      opt('rice', 'cooked rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Roughly chop the tomatoes and blend them with the red chilies in a blender or food processor until smooth. (Without a blender, peel the tomatoes and chop them finely.)',
@@ -2767,10 +2767,10 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     meals: ['dinner', 'lunch'],
     dishTypes: ['sandwich'],
     prepMinutes: 15,
-    cookMinutes: 420,
+    cookMinutes: 270,
     servings: 6,
     ingredients: [
-      r('chicken', 'boneless, skinless chicken breasts', '2 lb (about 4)'),
+      r('chicken', 'boneless, skinless chicken breasts', '2 lb (about 4)', 'thawed if frozen'),
       r('onion', 'red onions', '3', 'divided'),
       r('adobo_seasoning', 'adobo seasoning', '1 tbsp'),
       r('paprika', 'paprika', '2 tsp'),
@@ -2783,7 +2783,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     steps: [
       'Quarter 2 of the onions and spread them over the bottom of a slow cooker.',
       'Lay the chicken on top and sprinkle it all over with the adobo seasoning and paprika. Squeeze the juice of half the lime over it.',
-      'Cover and cook on low for 6–8 hours (or on high for 3–4 hours), until the chicken shreds easily and reads 165°F (74°C) in the thickest part.',
+      'Cover and cook on low for 4–5 hours (or on high for 2–3 hours), keeping the lid on, until the chicken shreds easily and reads 165°F (74°C) in the thickest part. If it isn’t there yet, cover and check again every 30 minutes.',
       'Shortly before serving, finely dice the remaining onion and cut the rest of the lime into wedges. Dice the tomato and chop the cilantro if using.',
       'Shred the chicken with two forks and stir it into the onions and juices in the pot.',
       'Fill the warm tortillas with the chicken and diced onion, plus cheese, tomato and cilantro if you like. Squeeze lime over each taco.',
@@ -3116,7 +3116,12 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     servings: 6,
     ingredients: [
       r('black_beans', 'dried black beans', '1 lb (500 g)', 'picked over and rinsed'),
-      r('pork_loin', 'boneless pork loin', '2 lb (1 kg)', 'cut into 2-inch chunks; pork ribs, or a mix, also work'),
+      r(
+        'pork_shoulder',
+        'boneless pork shoulder (pork butt)',
+        '2 lb (1 kg)',
+        'trimmed of thick fat and cut into 2-inch chunks; pork ribs, or a mix, also work',
+      ),
       r('water', 'water', '3 quarts (3 liters), plus more as needed'),
       r('onion', 'white onion', '1', 'peeled and halved'),
       r('cilantro', 'cilantro', '1 large bunch', 'about 8 sprigs tied with kitchen twine, the rest chopped'),
@@ -3326,7 +3331,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('coconut_milk', 'coconut milk', '3/4 cup (200 ml)'),
       r('red_chili', 'fresh red chili', '1', 'left whole, pierced once with a knife'),
       r('salt', 'salt', '1/2 tsp'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Heat the oil in a wok or large deep skillet over medium heat. Add the onions and garlic and cook, stirring, until soft, about 5 minutes. Add the ginger and curry powder and stir for 1 minute.',
@@ -3361,7 +3366,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('cardamom', 'green cardamom pods', '2–3'),
       r('cinnamon_sticks', 'small cinnamon sticks', '1–2'),
       r('bay_leaf', 'bay leaf', '1'),
-      opt('rice', 'cooked basmati rice', '3 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '3 cups', 'from 1 cup uncooked rice, for serving'),
     ],
     steps: [
       'Cut the chicken into bite-size pieces.',
@@ -3394,7 +3399,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('tomato_paste', 'tomato paste', '2 tbsp'),
       r('sugar', 'sugar', '2 tbsp'),
       r('rice_vinegar', 'rice vinegar', '1 tbsp'),
-      opt('rice', 'cooked white rice', '2 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '2 cups', 'from about 2/3 cup uncooked rice, for serving'),
     ],
     steps: [
       'Cut the pork into thin slices about 3/4 inch square, small enough to pick up with chopsticks.',
@@ -3424,7 +3429,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('garlic', 'garlic', '4 cloves', 'minced'),
       r('vegetable_oil', 'vegetable oil', '1 tbsp'),
       r('salt', 'salt', '1 tsp'),
-      opt('rice', 'cooked white rice', '6 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '6 cups', 'from 2 cups uncooked rice, for serving'),
     ],
     steps: [
       'Halve the squash, scoop out the seeds and peel it, then cut it into 1 1/2-inch cubes. (The easiest way to peel a raw squash is to cut it into strips first and slice the skin off each strip.)',
@@ -3598,7 +3603,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('tomato_sauce', 'canned tomato sauce', '1 can (29 oz)'),
       r('canned_tomatoes', 'canned diced tomatoes', '1 can (15 oz)'),
       r('corn', 'canned or frozen corn kernels', '3/4 cup', 'drained or thawed'),
-      r('rice', 'cooked white rice', '1 cup'),
+      r('rice', 'cooked white rice', '1 cup', 'from about 1/3 cup uncooked rice'),
       r('onion', 'yellow onion', '1 large', 'chopped'),
       r('garlic', 'garlic cloves', '3', 'minced'),
       r('olive_oil', 'olive oil', '2 tbsp'),
@@ -4109,7 +4114,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     description:
       'Canned black beans mashed and fried with onion, garlic, cumin and paprika until thick and creamy. A quick side or dip.',
     meals: ['side', 'appetizer', 'snack'],
-    dishTypes: ['skillet'],
+    dishTypes: ['skillet', 'dip'],
     prepMinutes: 5,
     cookMinutes: 15,
     servings: 2,
@@ -4307,7 +4312,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       r('ginger', 'fresh ginger', '1-inch piece', 'sliced'),
       r('five_spice_powder', 'Chinese five-spice powder', '1 tbsp'),
       r('olive_oil', 'olive oil', '1 tbsp'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'In a shallow dish just large enough to hold the chops in one layer, stir the soy sauce and honey until the honey dissolves. Stir in the garlic, ginger and five-spice powder.',
@@ -4579,7 +4584,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     title: 'French Crêpes',
     description: 'Thin, tender French crêpes made with a splash of beer in the batter. Fill them sweet or savory.',
     meals: ['breakfast', 'dessert'],
-    dishTypes: [],
+    dishTypes: ['skillet'],
     prepMinutes: 70,
     cookMinutes: 30,
     servings: 5,
@@ -5026,7 +5031,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     ],
     steps: [
       'Rub the steaks with the sliced garlic, leaving the slices on top, and season with half the salt.',
-      'Heat the olive oil in a large skillet over medium-high heat. Fry the steaks with their garlic, in batches if needed, until browned and 145°F (63°C) in the center, 2–3 minutes per side.',
+      'Heat the olive oil in a large skillet over medium-high heat. Fry the steaks with their garlic, in batches if needed, until browned and 130°F (54°C) in the center for medium-rare, 2–3 minutes per side. The USDA recommends 145°F (63°C) with a 3-minute rest.',
       'Move the steaks to a plate and cover with foil to keep warm. Leave the oil and garlic in the pan.',
       'Turn the heat to low, add the butter and let it melt. Pour in the milk and let it bubble gently for a minute.',
       'Stir the flour into the water until smooth. Add the beer, mustard and flour mixture to the pan with any juices from the steak plate, and stir until the sauce thickens, 3–4 minutes. Season with the pepper and the rest of the salt.',

@@ -311,7 +311,7 @@ export const WEEKNIGHT_RECIPES: Recipe[] = [
       r('thyme', 'dried thyme', '1/2 tsp'),
       r('chicken_broth', 'chicken broth', '2 1/2 cups'),
       r('worcestershire_sauce', 'Worcestershire sauce', '1 tbsp'),
-      opt('rice', 'cooked white rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked white rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
       opt('parsley', 'fresh parsley', '2 tbsp', 'chopped'),
     ],
     steps: [

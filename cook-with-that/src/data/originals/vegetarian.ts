@@ -311,7 +311,7 @@ export const VEGETARIAN_RECIPES: Recipe[] = [
       r('spinach', 'baby spinach', '5 oz (about 5 packed cups)'),
       r('lemon', 'lemon juice', '1 tbsp'),
       opt('cilantro', 'fresh cilantro', '1/4 cup', 'chopped'),
-      opt('rice', 'cooked basmati rice', '4 cups', 'for serving'),
+      opt('rice', 'cooked basmati rice', '4 cups', 'from about 1 1/3 cups uncooked rice, for serving'),
     ],
     steps: [
       'Put the red lentils, water and turmeric in a large saucepan and bring to a boil. Skim off any foam, then lower the heat and simmer, partly covered and stirring now and then, until the red lentils are completely soft and breaking down, 20–25 minutes. Stir in 1 tsp of the salt.',
@@ -473,7 +473,7 @@ export const VEGETARIAN_RECIPES: Recipe[] = [
       r('oregano', 'dried oregano', '1 tsp'),
       r('tomato', 'tomatoes', '2 medium', 'diced'),
       r('spinach', 'baby spinach', '6 oz (about 6 packed cups)', 'roughly chopped'),
-      r('rice', 'cooked long-grain white rice', '2 cups'),
+      r('rice', 'cooked long-grain white rice', '2 cups', 'from about 2/3 cup uncooked rice'),
       r('dill', 'fresh dill', '2 tbsp', 'chopped'),
       r('lemon', 'lemon', '1', 'zested, plus 1 tbsp juice'),
       r('black_pepper', 'black pepper', '1/2 tsp'),

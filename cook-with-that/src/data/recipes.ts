@@ -46,7 +46,7 @@ const SEED_RECIPES: Recipe[] = [
   },
   {
     id: 'chicken-spinach-garlic-pasta',
-    title: 'Chicken, Spinach & Garlic Pasta',
+    title: 'Chicken and Spinach Pasta in Garlic Broth',
     description: 'A light, brothy pasta — no cream — with chicken, garlic and spinach.',
     meals: ['dinner'],
     dishTypes: ['pasta'],
@@ -144,7 +144,7 @@ const SEED_RECIPES: Recipe[] = [
     cookMinutes: 10,
     servings: 3,
     ingredients: [
-      r('rice', 'cooked white rice, chilled (day-old is best)', '3 cups'),
+      r('rice', 'cooked white rice, chilled (day-old is best)', '3 cups', 'from 1 cup uncooked rice'),
       r('eggs', 'large eggs', '2', 'beaten'),
       r('peas', 'frozen peas', '1/2 cup'),
       r('carrot', 'carrot', '1 medium', 'finely diced'),
@@ -601,7 +601,7 @@ const SEED_RECIPES: Recipe[] = [
     title: 'Simple Guacamole',
     description: 'Chunky, lime-bright guacamole for chips, tacos or toast.',
     meals: ['appetizer', 'snack'],
-    dishTypes: [],
+    dishTypes: ['dip'],
     prepMinutes: 10,
     cookMinutes: 0,
     servings: 4,

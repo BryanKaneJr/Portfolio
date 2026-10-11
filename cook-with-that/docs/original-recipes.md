@@ -26,7 +26,9 @@ The editing checklist in [recipe-import.md](recipe-import.md) applies in full. I
 - **List every ingredient a step uses**, with a quantity (US units; metric is converted on screen). Optional means
   garnish or serve-with only.
 - **Exact heat, times and doneness:** ground meat 160°F / 71°C, poultry 165°F / 74°C, pork 145°F / 63°C, fish
-  145°F / 63°C; oven temperatures as "375°F (190°C)"; realistic prep and cook minutes, including resting or chilling.
+  145°F / 63°C; steaks and lamb chops 130°F / 54°C for medium-rare, with "The USDA recommends 145°F (63°C) with a
+  3-minute rest."; oven temperatures as "375°F (190°C)"; realistic prep and cook minutes, including resting or
+  chilling. No warnings on runny yolks or raw-yolk dishes.
 - **Steps** a beginner can follow: one action per step, visual cues ("until golden at the edges"), no filler.
 - **A tagline** in the house style (see "Taglines" in recipe-import.md).
 - **Meals and a dish type** from `src/data/types.ts`. Give a dish type whenever one honestly fits.

@@ -108,6 +108,8 @@ describe('steps in metric', () => {
     expect(step('Toss with 1/4 cup of the sugar.')).toBe('Toss with 50 g of the sugar.');
     expect(step('Knead in 1/4 cup of the softened butter.')).toBe('Knead in 55 g of the softened butter.');
     expect(step('Melt 8 tbsp (1 stick) of the butter.')).toBe('Melt 8 tbsp (115 g) of the butter.');
+    expect(step('from about 1 1/3 cups uncooked rice')).toBe('from about 245 g uncooked rice');
+    expect(step('Add 1/2 cup dry white wine.')).toBe('Add 120 ml dry white wine.');
   });
 
   test('counts that look like measures are left alone', () => {

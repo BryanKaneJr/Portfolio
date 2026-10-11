@@ -43,13 +43,22 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
   pancake fried in unlisted butter would wrongly show for someone avoiding butter. Pasta-cooking water
   is the one exception, and the test skips water.
 - **Exact heat, times and doneness.** Give oven temperatures in °F with °C, convert gas marks, and add
-  safe internal temperatures for meat (ground beef 160°F / 71°C, poultry 165°F / 74°C).
+  safe internal temperatures for meat (ground beef 160°F / 71°C, poultry 165°F / 74°C). Steaks and lamb
+  chops cook to 130°F (54°C) for medium-rare, followed by "The USDA recommends 145°F (63°C) with a 3-minute
+  rest." Runny yolks, hollandaise and raw-yolk desserts need no warning or pasteurized-egg note.
+- **Season it.** A savory dish with nothing salty in it (no cheese, cured meat, soy or salted broth) gets
+  "salt to taste" or a measured amount, even when the source left it out. Don't add salt where bacon, ham,
+  cheese or a salty sauce already seasons the dish.
+- **Cooked rice says how much to cook.** A "3 cups cooked rice" line gets "from 1 cup uncooked rice" in its
+  preparation (about 1 cup uncooked makes 3 cups).
 - **US units first**, with metric in parentheses where the source gave it. The Metric setting converts
   everything else on the fly (`src/logic/units.ts`) and prefers your parenthetical metric figure. If
   `npm run check` reports a US unit left over in metric mode, reword it ("1 cup of the X" is fine) or
   add the ingredient's weight per cup to `GRAMS_PER_CUP`.
 - **Write the tagline** (`description`) in the house style; see "Taglines" below.
 - **Tag meals and dish types.** The guesses come from the source's tags and title, so check them.
+  Give a dish type only when one honestly fits; desserts, sides and grilled mains often have none and are
+  found by their meal. Dips, salsas and spreads are "Dips & Salsas" (`dip`); pancakes and crêpes are Skillet.
 - **Set realistic times**, including chilling or resting.
 - **Leave out the source's chatter**: "Enjoy!", anecdotes, links to other pages.
 - **Optional means optional.** Only garnishes and serve-withs are `opt(...)`; the recipe must work
