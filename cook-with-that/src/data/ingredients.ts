@@ -618,4 +618,14 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'daikon', name: 'Daikon', category: 'produce', aliases: ['daikon radish'] },
   { id: 'dark_soy_sauce', name: 'Dark soy sauce', category: 'pantry', aliases: [] },
   { id: 'sweet_potato_noodles', name: 'Sweet potato noodles', category: 'grain', aliases: [] },
+  { id: 'napa_cabbage', name: 'Napa cabbage', category: 'produce', aliases: [] },
+  { id: 'bamboo_shoots', name: 'Bamboo shoots', category: 'pantry', aliases: [] },
+  { id: 'water_chestnuts', name: 'Water chestnuts', category: 'pantry', aliases: [] },
+  {
+    id: 'crispy_chow_mein_noodles',
+    name: 'Crispy chow mein noodles',
+    category: 'grain',
+    aliases: ['crunchy chow mein noodles'],
+  },
+  { id: 'fennel_seeds', name: 'Fennel seeds', category: 'spice', aliases: [] },
 ];

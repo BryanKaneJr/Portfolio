@@ -294,7 +294,6 @@ never applied automatically.
 | coffee at room temperature | 1 | 1 | unreviewed |  |
 | coffee beans | 1 | 0 | unreviewed |  |
 | cognac | 1 | 0 | unreviewed |  |
-| collard greens | 1 | 0 | unreviewed |  |
 | concentrated tomato paste | 1 | 0 | unreviewed | tomato_paste |
 | concentrated tomato puree | 1 | 0 | unreviewed | tomato_puree |
 | container of barbecue rub | 1 | 0 | unreviewed |  |
@@ -320,7 +319,7 @@ never applied automatically.
 | cubed stewing beef chuck | 1 | 0 | unreviewed |  |
 | cubes ice | 1 | 0 | unreviewed |  |
 | cubes of brown sugar | 1 | 0 | unreviewed | brown_sugar |
-| cubes paneer | 1 | 0 | unreviewed |  |
+| cubes paneer | 1 | 0 | unreviewed | paneer |
 | cup of warm water | 1 | 0 | unreviewed | water |
 | currants | 1 | 0 | unreviewed |  |
 | curry powder of your favourite variety | 1 | 0 | unreviewed | curry_powder |
@@ -340,7 +339,7 @@ never applied automatically.
 | dried plums | 1 | 0 | unreviewed |  |
 | dried tomatoes | 1 | 0 | unreviewed | tomato |
 | drop or two of vanilla | 1 | 0 | unreviewed | vanilla |
-| dry active baking yeast | 1 | 0 | unreviewed | yeast |
+| dry active baking yeast | 1 | 1 | unreviewed | yeast |
 | dry fenugreek leaves | 1 | 0 | unreviewed |  |
 | dry instant yeast | 1 | 0 | unreviewed | yeast |
 | dry mozzarella cheese | 1 | 0 | unreviewed | mozzarella |
@@ -429,7 +428,6 @@ never applied automatically.
 | ground beef or turkey | 1 | 0 | unreviewed | ground_beef |
 | ground meat | 1 | 0 | unreviewed |  |
 | ground spices i like to use cumin | 1 | 0 | unreviewed | cumin |
-| ground sumac | 1 | 0 | unreviewed |  |
 | guanciale or smoked pancetta cleaned and | 1 | 0 | unreviewed | pancetta |
 | guanciale preferably or bacon 3 5oz | 1 | 0 | unreviewed | bacon |
 | habanero chiles | 1 | 0 | unreviewed |  |
@@ -446,7 +444,7 @@ never applied automatically.
 | hearty white bread | 1 | 0 | unreviewed | bread |
 | heavy cream or whole milk | 1 | 0 | unreviewed | heavy_cream |
 | hemp hearts | 1 | 0 | unreviewed |  |
-| herbs and spices fennel seeds | 1 | 0 | unreviewed | fennel |
+| herbs and spices fennel seeds | 1 | 0 | unreviewed | fennel_seeds |
 | herbs de provence or dried parsley | 1 | 0 | unreviewed | herbes_de_provence |
 | high fat cream | 1 | 0 | unreviewed | heavy_cream |
 | high fat pork belly | 1 | 1 | unreviewed | pork_belly |
@@ -590,7 +588,6 @@ never applied automatically.
 | overfilled teaspoon mixed spice | 1 | 0 | unreviewed | mixed_spice |
 | packet unflavored | 1 | 0 | unreviewed |  |
 | pama porridge rice 180 g | 1 | 0 | unreviewed | rice |
-| paneer | 1 | 0 | unreviewed |  |
 | parmesan romano cheese blend | 1 | 0 | unreviewed | parmesan |
 | parsely | 1 | 0 | unreviewed |  |
 | parsley 150 grams of spinach leaves | 1 | 0 | unreviewed | spinach |
@@ -611,14 +608,13 @@ never applied automatically.
 | peels of five onions | 1 | 0 | unreviewed | onion |
 | pickle juice | 1 | 0 | unreviewed |  |
 | pickle relish | 1 | 1 | unreviewed |  |
-| pickled daikon | 1 | 0 | unreviewed |  |
+| pickled daikon | 1 | 0 | unreviewed | daikon |
 | pig s ear | 1 | 0 | unreviewed |  |
 | pinches of cilantro | 1 | 0 | unreviewed | cilantro |
 | pinches of oats | 1 | 0 | unreviewed | oats |
 | piripiri | 1 | 0 | unreviewed |  |
 | plain greek yogurt or sour cream | 1 | 0 | too vague |  |
 | pods of cardamom | 1 | 0 | unreviewed | cardamom |
-| poppy seeds | 1 | 0 | unreviewed |  |
 | pork butt with fat | 1 | 0 | unreviewed |  |
 | pork chops or 4 chicken breasts | 1 | 0 | unreviewed | chicken |
 | pork loin or ribs cut into 5 cm pieces | 1 | 0 | unreviewed | pork_loin |
@@ -648,7 +644,6 @@ never applied automatically.
 | quick cooking tapioca | 1 | 1 | unreviewed |  |
 | rab meat | 1 | 1 | unreviewed |  |
 | rabbit | 1 | 0 | unreviewed |  |
-| ramen noodles | 1 | 0 | unreviewed |  |
 | recipe of your favorite tuna salad | 1 | 0 | unreviewed | canned_tuna |
 | red beans azuki | 1 | 0 | unreviewed |  |
 | red chilli powder | 1 | 0 | unreviewed | red_chili |
@@ -693,7 +688,6 @@ never applied automatically.
 | sheet of dried nori | 1 | 0 | unreviewed |  |
 | sherry or regular white wine you cook with what you drink with | 1 | 0 | unreviewed | white_wine |
 | shot of kirsch | 1 | 0 | unreviewed | kirsch |
-| sichuan peppercorns | 1 | 0 | unreviewed | peppercorns |
 | sifted self raising flour | 1 | 0 | unreviewed | flour |
 | sized potatoes | 1 | 0 | unreviewed | potato |
 | slices of bell pepper | 1 | 0 | unreviewed | bell_pepper |
@@ -712,7 +706,7 @@ never applied automatically.
 | spices | 1 | 0 | unreviewed |  |
 | spices salt | 1 | 0 | unreviewed | salt |
 | spicy chorizo | 1 | 1 | too vague |  |
-| spicy doubanjiang | 1 | 0 | unreviewed |  |
+| spicy doubanjiang | 1 | 0 | unreviewed | chili_bean_paste |
 | spoon basil | 1 | 0 | unreviewed | basil |
 | spoon cloves | 1 | 0 | unreviewed |  |
 | spoon ginger powder | 1 | 0 | unreviewed | ginger |
@@ -747,7 +741,6 @@ never applied automatically.
 | sugar 4 tablespoons | 1 | 0 | unreviewed | sugar |
 | sugar for the top crust | 1 | 0 | unreviewed | sugar |
 | sugar per bottle for carbonation | 1 | 0 | unreviewed | sugar |
-| sumac | 1 | 0 | unreviewed |  |
 | summer squash | 1 | 0 | too vague |  |
 | sushi rice | 1 | 0 | unreviewed | rice |
 | swede | 1 | 0 | unreviewed |  |
@@ -755,7 +748,6 @@ never applied automatically.
 | sweet and or spicy italian sausage | 1 | 0 | unreviewed | sausage |
 | sweet and spicy red pepper | 1 | 0 | unreviewed | bell_pepper |
 | sweet herbs | 1 | 0 | unreviewed |  |
-| sweet or smoked paprika | 1 | 0 | unreviewed | paprika |
 | sweet pickle relish | 1 | 0 | unreviewed |  |
 | sweet pototoes | 1 | 1 | unreviewed |  |
 | sweet yellow onion | 1 | 0 | unreviewed | onion |
@@ -829,7 +821,7 @@ never applied automatically.
 | veal mince | 1 | 0 | unreviewed |  |
 | vegetable or tom yam quick noodles | 1 | 0 | unreviewed | sweet_potato |
 | venison | 1 | 0 | unreviewed |  |
-| vermicelli | 1 | 0 | unreviewed |  |
+| vermicelli | 1 | 1 | unreviewed |  |
 | vinegar or lemon juice | 1 | 0 | unreviewed | lemon |
 | virgin olive oil 1 4 cup | 1 | 0 | unreviewed | olive_oil |
 | virgin olive oil or lard | 1 | 0 | unreviewed | olive_oil |
@@ -837,7 +829,6 @@ never applied automatically.
 | warmed milk | 1 | 0 | unreviewed | milk |
 | water 1 2 cup | 1 | 0 | unreviewed | water |
 | water 3 dl | 1 | 0 | unreviewed | water |
-| water chestnut | 1 | 0 | unreviewed | water |
 | water mixed with a teaspoon of salt | 1 | 0 | unreviewed | water |
 | water or stock | 1 | 1 | unreviewed | water |
 | water to thin peanut sauce | 1 | 1 | unreviewed | water |

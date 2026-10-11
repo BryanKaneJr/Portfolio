@@ -13,3 +13,5 @@ Use them during culinary review: a recipe that differs from its original on purp
   `o-pork-seafood`, `o-vegetarian`, `o-soups-salads`, `o-breakfast-sides`, `o-baking`): their notes list ratios
   and choices to cook-test rather than source changes. `va` and `nhlbi-books` added two PDF sources, and `sweep`
   took what was left in Based Cooking and NHLBI's web recipes.
+- `2026-10-11-round-4/`: round 4. Four more originals workers (`r4-world`, `r4-weeknight`, `r4-sides-apps`,
+  `r4-baking-breakfast`) and `va2`, which imported 25 more VA recipes and found 10 more that copy published ones.

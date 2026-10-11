@@ -293,6 +293,26 @@ export const SOURCES: Record<string, SourceDef> = {
         'uncredited, but Cookie and Kate\'s "Creamy Roasted Cauliflower Soup": 2 lb cauliflower roasted at 425°F, 4 cups vegetable broth, butter, lemon juice and nutmeg, garnished with parsley, chives or scallion',
       'braised-cod-and-green-beans-with-pesto':
         'uncredited, but the widely syndicated "Poached Cod & Green Beans with Pesto" (Orlando Health, Just A Pinch): green beans and 3/4 cup shallot, cod poached in 1 1/2 cups broth, broth "reduced to about 1/2 cup", pesto stirred in',
+      'apple-pork-tenderloin':
+        '"Submitted by" a VA dietitian, but it is 12 Tomatoes\' "Slow Cooker Hasselback Pork Loin" (reposted on Just A Pinch): tenderloin slit and filled with apple slices over baby carrots and potatoes, glazed with honey, 2 tbsp soy sauce, 1 tbsp each Dijon and balsamic, cinnamon and 3 garlic cloves',
+      'braised-mustard-greens-with-red-beans':
+        'uncredited, but Food & Nutrition Magazine\'s "Sautéed Mustard Greens" (Marcy Gaston, 2018) with kidney beans added: 1/4 cup peanuts toasted first, 1 tbsp olive oil, 1 cup finely diced onion, garlic and curry powder, a 14.5-oz can of diced tomatoes, 1 tsp pepper, scallions and the nuts stirred in at the end, 8 servings',
+      'confetti-couscous':
+        'uncredited, but Vegetarian Times\' "Confetti Couscous": 1 cup couscous in 1 1/2 cups water with 1/2 tsp cumin, a 15-oz can of black beans, 1 cup corn, onion, bell pepper and cilantro, dressed with 2 tbsp olive oil and 3 tbsp lime juice ("about 2 limes"), 6 servings',
+      'cream-of-celery-soup':
+        'uncredited, but a lightened America\'s Test Kitchen "Cream of Celery Soup": celery, a peeled russet potato, onion, dried sage, salt and pepper sweated covered about 15 minutes, simmered uncovered in broth until the potato is tender, blended in batches and returned to the pot (the flour, sugar and cream dropped, lemon added)',
+      'egg-drop-cabbage-soup':
+        'uncredited, but Gimme Some Oven\'s "Cabbage Egg Drop Soup" at half size: onion and garlic softened in olive oil, stock, Napa cabbage, ground ginger and pepper simmered until tender, eggs drizzled in while the soup is stirred in a circle, toasted sesame oil and green onions',
+      'garden-fresh-gazpacho':
+        'uncredited, but Alton Brown\'s "Gazpacho" step for step: tomatoes blanched, peeled and seeded through a strainer with tomato juice added to make 1 cup, cucumber, red bell pepper, onion, jalapeño, garlic, lime juice, balsamic vinegar, cumin, olive oil and basil, 1 1/2 cups blended and stirred back in, chilled 2 hours (soy sauce here in place of Worcestershire)',
+      'lamb-vegetable-kabobs-with-tzatziki':
+        'the same recipe as mediterranean-lamb-kabobs-with-tzatziki (adapted from Recipes.SparkPeople.com) under a new title, with the credit dropped',
+      'lemon-thyme-orzo-primavera':
+        'uncredited, but the widely posted "Lemon Orzo Primavera" (Food.com, Allrecipes): orzo toasted in 1 tbsp olive oil about 2 minutes, zucchini, carrot and garlic for 2 minutes, a 14-oz can of broth, the zest of 1 lemon, 1 tbsp fresh thyme, about 10 minutes\' simmer, 1/4 cup Parmesan',
+      'one-pot-chicken-barley-stew':
+        'uncredited, but MyRecipes\' "Chicken and Barley Stew" (reposted on Just A Pinch): 1 cup quick-cooking barley, 1 tbsp olive oil, 1 3/4 cups onion, a 10-oz package of frozen mixed vegetables, cooked chicken and 1/4 tsp each salt, dried thyme and pepper in about 5 cups of broth',
+      'winter-vegetable-soup':
+        'uncredited, but Cooking Light\'s "Winter Vegetable Soup" (reposted on Food.com) step for step: 1 tsp olive oil and 2 oz pancetta (here bacon), acorn squash, red potatoes, 1/2 cup each celery and carrot, 1 tsp basil, 1/4 tsp each cinnamon and thyme, a 28-oz can of tomatoes, broth, 4 cups kale and a can of white beans',
     },
     // Written by `npm run import:fetch-va` from the PDFs; the site has no repository to pin.
     snapshot: { kind: 'file', path: 'content/import/va/recipes.json' },

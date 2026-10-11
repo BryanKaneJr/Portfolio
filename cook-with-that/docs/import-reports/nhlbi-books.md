@@ -23,33 +23,33 @@ the rows above it were resolved in `scripts/import/ingredient-map.ts`.
 | 1 | no salt added | 2 | 2 |
 | 2 | peanut oil or vegetable oil | 2 | 4 |
 | 3 | wheat bread | 1 | 5 |
-| 4 | canned no salt added | 1 | 6 |
-| 5 | beef top sirloin steaks | 2 | 8 |
-| 6 | soft tub margarine | 0 | 8 |
-| 7 | vinegar | 0 | 8 |
-| 8 | bag 12 oz frozen vegetable stir fry | 0 | 8 |
-| 9 | low sodium tomato juice | 1 | 9 |
-| 10 | assorted vegetables | 1 | 10 |
-| 11 | wheat tortillas | 0 | 10 |
-| 12 | jalapeno chili pepper | 0 | 10 |
-| 13 | 100 percent orange juice | 1 | 11 |
-| 14 | nonstick vegetable oil spray | 0 | 11 |
-| 15 | chili pepper | 0 | 11 |
-| 16 | chicken 4 breasts | 1 | 12 |
-| 17 | dried hot pepper | 1 | 13 |
-| 18 | grilled boneless skinless chicken breast | 0 | 13 |
-| 19 | asian hot chili sauce | 1 | 14 |
-| 20 | assorted cooked vegetables such as red pepper strips | 1 | 15 |
-| 21 | baby carrots | 1 | 16 |
-| 22 | bag 16 oz frozen green beans | 1 | 17 |
-| 23 | boiled potatoes | 1 | 18 |
-| 24 | cauliflower head | 1 | 19 |
-| 25 | center cut pork chops | 1 | 20 |
-| 26 | chili pepper flakes | 1 | 21 |
-| 27 | cooked mixed vegetables such as peppers | 1 | 22 |
-| 28 | corn oil or other vegetable oil | 1 | 23 |
-| 29 | creamy peanut butter | 0 | 23 |
-| 30 | egg substitute | 1 | 24 |
+| 4 | soft tub margarine | 1 | 6 |
+| 5 | canned no salt added | 1 | 7 |
+| 6 | beef top sirloin steaks | 2 | 9 |
+| 7 | vinegar | 0 | 9 |
+| 8 | bag 12 oz frozen vegetable stir fry | 0 | 9 |
+| 9 | low sodium tomato juice | 1 | 10 |
+| 10 | assorted vegetables | 1 | 11 |
+| 11 | wheat tortillas | 0 | 11 |
+| 12 | jalapeno chili pepper | 0 | 11 |
+| 13 | 100 percent orange juice | 1 | 12 |
+| 14 | nonstick vegetable oil spray | 0 | 12 |
+| 15 | chili pepper | 0 | 12 |
+| 16 | chicken 4 breasts | 1 | 13 |
+| 17 | dried hot pepper | 1 | 14 |
+| 18 | grilled boneless skinless chicken breast | 0 | 14 |
+| 19 | asian hot chili sauce | 1 | 15 |
+| 20 | assorted cooked vegetables such as red pepper strips | 1 | 16 |
+| 21 | baby carrots | 1 | 17 |
+| 22 | bag 16 oz frozen green beans | 1 | 18 |
+| 23 | beef | 1 | 19 |
+| 24 | boiled potatoes | 1 | 20 |
+| 25 | center cut pork chops | 1 | 21 |
+| 26 | chili pepper flakes | 1 | 22 |
+| 27 | cooked mixed vegetables such as peppers | 1 | 23 |
+| 28 | corn oil or other vegetable oil | 1 | 24 |
+| 29 | creamy peanut butter | 0 | 24 |
+| 30 | egg substitute | 1 | 25 |
 
 ## Catalog additions waiting on a draft
 
@@ -93,7 +93,6 @@ never applied automatically.
 | egg substitute | 2 | 0 | unreviewed | eggs |
 | frozen | 2 | 0 | unreviewed |  |
 | frozen yellow corn | 2 | 0 | unreviewed | corn |
-| ice cubes | 2 | 0 | unreviewed |  |
 | light teriyaki sauce | 2 | 0 | unreviewed |  |
 | low sodium tomato juice | 2 | 0 | unreviewed | tomato |
 | parsley sprigs | 2 | 0 | unreviewed | parsley |
@@ -122,7 +121,7 @@ never applied automatically.
 | bag 16 oz frozen peas and carrots | 1 | 0 | unreviewed | peas |
 | bag 16 oz frozen shelled edamame green soybeans | 1 | 0 | unreviewed |  |
 | bag 8 oz bag sundried tomato halves | 1 | 0 | unreviewed | tomato |
-| beef | 1 | 0 | too vague |  |
+| beef | 1 | 1 | too vague |  |
 | beef tenderloin roast | 1 | 0 | unreviewed |  |
 | beef top sirloin | 1 | 0 | unreviewed | sirloin_steak |
 | boiled potatoes | 1 | 0 | unreviewed | potato |
@@ -135,13 +134,12 @@ never applied automatically.
 | canned no salt added tomato sauce | 1 | 0 | unreviewed | tomato_sauce |
 | canned white albacore tuna in water | 1 | 0 | unreviewed | water |
 | canned whole clams | 1 | 0 | unreviewed | clams |
-| cauliflower head | 1 | 0 | unreviewed | cauliflower |
 | celery sticks | 1 | 0 | unreviewed | celery |
 | center cut pork chops | 1 | 1 | unreviewed | pork_chops |
 | chayote squash or yellow summer squash | 1 | 0 | unreviewed |  |
 | chicken broth skim fat from the top | 1 | 0 | unreviewed | chicken_broth |
 | chili pepper flakes | 1 | 0 | unreviewed | black_pepper |
-| chinese napa cabbage | 1 | 0 | unreviewed | cabbage |
+| chinese napa cabbage | 1 | 0 | unreviewed | napa_cabbage |
 | cloves | 1 | 0 | too vague |  |
 | cold | 1 | 0 | unreviewed |  |
 | cooked boneless skinless chicken breast | 1 | 0 | unreviewed | chicken |
@@ -154,7 +152,7 @@ never applied automatically.
 | dark seedless raisins | 1 | 0 | unreviewed | raisins |
 | distilled vinegar | 1 | 0 | unreviewed |  |
 | dried basil or parsley | 1 | 0 | unreviewed | dried_basil |
-| dried cherries | 1 | 0 | unreviewed |  |
+| dried cherries | 1 | 0 | unreviewed | cherries |
 | dried chives | 1 | 0 | unreviewed | chives |
 | dried marjoram | 1 | 0 | unreviewed | marjoram |
 | dried red pepper flakes | 1 | 0 | unreviewed | red_pepper_flakes |
@@ -177,7 +175,6 @@ never applied automatically.
 | frozen baby carrots | 1 | 0 | unreviewed | carrot |
 | frozen broccoli | 1 | 0 | unreviewed | broccoli |
 | frozen cut spinach | 1 | 0 | unreviewed | spinach |
-| frozen green peas | 1 | 0 | unreviewed | peas |
 | frozen lima beans | 1 | 0 | unreviewed | lima_beans |
 | frozen whole corn kernels | 1 | 0 | unreviewed | corn |
 | frozen whole kernel corn | 1 | 0 | unreviewed | corn |
@@ -188,7 +185,6 @@ never applied automatically.
 | grilled or roasted chicken breast | 1 | 0 | unreviewed | chicken |
 | ground chicken breast | 1 | 0 | unreviewed | chicken |
 | ground ginger or pumpkin pie spice | 1 | 0 | unreviewed | pumpkin_pie_spice |
-| hominy | 1 | 0 | unreviewed |  |
 | instant corn flour | 1 | 0 | unreviewed | flour |
 | instant white rice | 1 | 0 | unreviewed | rice |
 | jarred roasted red peppers in natural juice | 1 | 0 | unreviewed | roasted_red_peppers |
@@ -208,12 +204,12 @@ never applied automatically.
 | low fat mozzarella | 1 | 0 | unreviewed | mozzarella |
 | low fat mozzarella cheese | 1 | 0 | unreviewed | mozzarella |
 | low fat plain yogurt | 1 | 0 | unreviewed | yogurt |
-| low fat turkey kielbasa | 1 | 0 | unreviewed |  |
+| low fat turkey kielbasa | 1 | 0 | unreviewed | kielbasa |
 | low fat whipped cream cheese | 1 | 0 | unreviewed | cream_cheese |
 | low moisture part skim mozzarella cheese | 1 | 0 | unreviewed | mozzarella |
 | low sodium cannellini beans | 1 | 0 | unreviewed | cannellini_beans |
 | low sodium chicken broth or vegetable broth | 1 | 0 | too vague |  |
-| low sodium deli roast beef | 1 | 0 | unreviewed |  |
+| low sodium deli roast beef | 1 | 0 | unreviewed | roast_beef |
 | low sodium deli turkey breast | 1 | 0 | unreviewed | turkey_breast |
 | low sodium garbanzo beans | 1 | 0 | unreviewed | chickpeas |
 | low sodium pinto beans | 1 | 0 | unreviewed | pinto_beans |
@@ -268,7 +264,7 @@ never applied automatically.
 | smoked turkey breast | 1 | 0 | unreviewed | turkey_breast |
 | stir fry pork strips | 1 | 0 | unreviewed |  |
 | sugar free | 1 | 0 | unreviewed | sugar |
-| sugar free cherry gelatin | 1 | 0 | unreviewed | sugar |
+| sugar free cherry gelatin | 1 | 0 | unreviewed | unflavored_gelatin |
 | super quick chunky tomato sauce | 1 | 0 | unreviewed | tomato_sauce |
 | tangerine or clementine | 1 | 0 | unreviewed |  |
 | tangy salsa | 1 | 0 | unreviewed | salsa |
@@ -282,7 +278,6 @@ never applied automatically.
 | unsalted | 1 | 0 | unreviewed |  |
 | unsalted dry roasted peanuts | 1 | 0 | unreviewed | peanuts |
 | unsalted pecans | 1 | 0 | unreviewed | pecans |
-| water chestnuts | 1 | 0 | unreviewed | water |
 | watermelon | 1 | 0 | unreviewed |  |
 | wheat bow tie pasta | 1 | 0 | unreviewed | pasta |
 | wheat couscous | 1 | 0 | unreviewed | couscous |

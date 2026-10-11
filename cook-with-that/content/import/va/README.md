@@ -54,11 +54,11 @@ Lentil Soup, Kale Chips) are uncredited in their newest upload but "Adapted from
 credit was dropped, not the recipe. `npm run import:fetch-va` warns about all 58, and
 `tests/import.test.ts` fails if any of them is missing from `exclude` in `scripts/import/sources/index.ts`.
 
-**A missing credit is not proof that the VA wrote a recipe.** Web searches of the importer's picks traced
-six uncredited recipes to published originals, so they are excluded too. Search a distinctive ingredient
+**A missing credit is not proof that the VA wrote a recipe**, and neither is "Submitted by" a VA dietitian. Web
+searches of the importers' picks traced 16 such recipes to published originals, so they are excluded too. Search a distinctive ingredient
 list or sentence for every recipe before importing it.
 
-Excluded, with the reason recorded in `exclude` (64 in all):
+Excluded, with the reason recorded in `exclude` (74 in all):
 
 - **"Adapted from" an outside source (56):** asian-salmon-and-vegetable-packets (foodnetwork.com),
   barbecue-pork-sheet-pan-dinner (stockpilingmoms.com), bean-and-vegetable-tacos
@@ -99,7 +99,15 @@ Excluded, with the reason recorded in `exclude` (64 in all):
   creamy-roasted-cauliflower-soup (Cookie and Kate's), braised-cod-and-green-beans-with-pesto (the
   syndicated "Poached Cod & Green Beans with Pesto").
 
-That leaves 272 recipes that are importable on their credit line, each still needing a search before
+- **Matched published recipes in the second import round (10):** apple-pork-tenderloin ("Submitted by" a VA
+  dietitian, but 12 Tomatoes' Slow Cooker Hasselback Pork Loin), braised-mustard-greens-with-red-beans (Food &
+  Nutrition Magazine), confetti-couscous (Vegetarian Times), cream-of-celery-soup (America's Test Kitchen,
+  lightened), egg-drop-cabbage-soup (Gimme Some Oven), garden-fresh-gazpacho (Alton Brown),
+  lamb-vegetable-kabobs-with-tzatziki (the excluded SparkPeople kabobs re-uploaded without the credit),
+  lemon-thyme-orzo-primavera (Food.com and Allrecipes), one-pot-chicken-barley-stew (MyRecipes) and
+  winter-vegetable-soup (Cooking Light). Full evidence is in `exclude`.
+
+That leaves 262 recipes that are importable on their credit line, each still needing a search before
 import. Each batch's import notes list the recipes it searched and cleared.
 
 ## Refetching

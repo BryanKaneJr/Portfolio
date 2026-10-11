@@ -6,12 +6,12 @@ Source: the committed snapshot `content/import/nhlbi/recipes.json`.
 
 - Recipes read: 54
 - Already imported: 36
-- Ready to draft: 3
-  - every ingredient already in the catalog: 3
+- Ready to draft: 4
+  - every ingredient already in the catalog: 4
   - adds at least one reviewed ingredient to the catalog when drafted: 0
 - Excluded (provenance doubts, see the source definition): 0
 - Missing ingredients or steps in the source: 0
-- Waiting on ingredient review: 15
+- Waiting on ingredient review: 14
 
 ## Review next
 
@@ -21,35 +21,35 @@ the rows above it were resolved in `scripts/import/ingredient-map.ts`.
 | # | Name | Recipes unblocked | Running total |
 |---|---|---|---|
 | 1 | chunky tomato sauce | 1 | 1 |
-| 2 | ice cubes | 1 | 2 |
-| 3 | coarsely | 1 | 3 |
-| 4 | bags 10 oz each leaf spinach | 1 | 4 |
-| 5 | boxes 16 oz each frozen pureed winter butternut squash | 1 | 5 |
-| 6 | canned whole | 1 | 6 |
-| 7 | chicken 4 breasts | 1 | 7 |
-| 8 | dried pinto beans | 1 | 8 |
-| 9 | dried porcini mushrooms | 1 | 9 |
-| 10 | dry red beans | 1 | 10 |
-| 11 | grilled boneless skinless chicken breast | 1 | 11 |
-| 12 | low fat 1 percent milk | 0 | 11 |
-| 13 | frozen mango juice | 1 | 12 |
-| 14 | low fat 1 percent cottage cheese | 1 | 13 |
-| 15 | low sodium chicken broth or vegetable broth | 1 | 14 |
-| 16 | pumpkin pie spice or cinnamon | 1 | 15 |
-| 17 | rum or vanilla extract | 1 | 16 |
-| 18 | spinach or arugula | 1 | 17 |
-| 19 | very | 1 | 18 |
-| 20 | vinegar | 1 | 19 |
-| 21 | wheat fusilli spiral pasta | 1 | 20 |
-| 22 | yucca | 1 | 21 |
-| 23 | olive or canola oil | 0 | 21 |
-| 24 | bag 10 oz leaf spinach | 1 | 22 |
-| 25 | beaten egg yolks or 1 3 c egg substitute if using egg substitite | 0 | 22 |
-| 26 | cooked sweet potato | 1 | 23 |
-| 27 | canned | 0 | 23 |
-| 28 | cooked mixed vegetables or 1 2 bag frozen stir fry vegetable mix | 1 | 24 |
-| 29 | dried pink beans | 0 | 24 |
-| 30 | plantains | 1 | 25 |
+| 2 | coarsely | 1 | 2 |
+| 3 | bags 10 oz each leaf spinach | 1 | 3 |
+| 4 | boxes 16 oz each frozen pureed winter butternut squash | 1 | 4 |
+| 5 | canned whole | 1 | 5 |
+| 6 | chicken 4 breasts | 1 | 6 |
+| 7 | dried pinto beans | 1 | 7 |
+| 8 | dried porcini mushrooms | 1 | 8 |
+| 9 | dry red beans | 1 | 9 |
+| 10 | grilled boneless skinless chicken breast | 1 | 10 |
+| 11 | low fat 1 percent milk | 0 | 10 |
+| 12 | frozen mango juice | 1 | 11 |
+| 13 | low fat 1 percent cottage cheese | 1 | 12 |
+| 14 | low sodium chicken broth or vegetable broth | 1 | 13 |
+| 15 | pumpkin pie spice or cinnamon | 1 | 14 |
+| 16 | rum or vanilla extract | 1 | 15 |
+| 17 | spinach or arugula | 1 | 16 |
+| 18 | very | 1 | 17 |
+| 19 | vinegar | 1 | 18 |
+| 20 | wheat fusilli spiral pasta | 1 | 19 |
+| 21 | yucca | 1 | 20 |
+| 22 | olive or canola oil | 0 | 20 |
+| 23 | bag 10 oz leaf spinach | 1 | 21 |
+| 24 | beaten egg yolks or 1 3 c egg substitute if using egg substitite | 0 | 21 |
+| 25 | cooked sweet potato | 1 | 22 |
+| 26 | canned | 0 | 22 |
+| 27 | cooked mixed vegetables or 1 2 bag frozen stir fry vegetable mix | 1 | 23 |
+| 28 | dried pink beans | 0 | 23 |
+| 29 | plantains | 1 | 24 |
+| 30 | inner leaves of romaine lettuce | 0 | 24 |
 
 ## Catalog additions waiting on a draft
 
@@ -68,7 +68,6 @@ never applied automatically.
 |---|---|---|---|---|
 | chunky tomato sauce | 2 | 1 | too vague |  |
 | coarsely | 2 | 1 | unreviewed |  |
-| ice cubes | 2 | 1 | unreviewed |  |
 | low fat 1 percent milk | 2 | 0 | unreviewed | milk |
 | olive or canola oil | 2 | 0 | too vague |  |
 | 8 oz wine or parfait glasses | 1 | 0 | unreviewed |  |
@@ -115,7 +114,7 @@ never applied automatically.
 | pumpkin pie spice or cinnamon | 1 | 1 | too vague |  |
 | red seedless grapes | 1 | 0 | unreviewed | grapes |
 | rum or vanilla extract | 1 | 1 | unreviewed | vanilla |
-| salt free seasoning blend | 1 | 0 | unreviewed | salt |
+| salt free seasoning blend | 1 | 0 | too vague |  |
 | spinach or arugula | 1 | 1 | too vague |  |
 | summer squash | 1 | 0 | too vague |  |
 | turkey carcass it should have some meat at least 2 c remaining | 1 | 0 | unreviewed |  |

@@ -57,7 +57,7 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (346, with aliases), recipes (27 seed + originals/ + imported/), collections,
+src/data/        types, ingredients (380, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display)
@@ -82,9 +82,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 442 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 176 newer originals written
-  for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 23 from the VA (all public domain).
-  96% of common 2-ingredient picks find an exact match (64% of triples).
+- All 548 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 257 newer originals written
+  for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
+  98% of common 2-ingredient picks find an exact match (66% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 - **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
   1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
@@ -124,6 +124,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   web pages for 25 more. 442 recipes, 346 ingredients; pairs 80% → 96%, triples 30% → 64%. Worker notes, including
   what to cook-test, are in `docs/import-notes/2026-10-11-round-3/`. Worktrees from the Agent tool start at `master`,
   not the current branch: tell workers to fast-forward to the working branch before they start.
+- **Round 4 (2026-10-11, owner: "one more batch to get at least over 500"):** four workers wrote 81 originals (world
+  dinners, weeknight one-pots and sheet pans, sides and appetizers, baking and breakfast) and one imported 25 more VA
+  recipes, excluding 10 more VA pages that matched published recipes. 548 recipes, 380 ingredients. Notes in
+  `docs/import-notes/2026-10-11-round-4/`. Next, per the owner: a deep review of the recipes we have.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -137,14 +141,14 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Culinary review** is now the biggest gap: 442 drafts, none cooked or checked. Release needs every recipe reviewed
-   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 39
+1. **Culinary review** is now the biggest gap: 548 drafts, none cooked or checked. Release needs every recipe reviewed
+   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 49
    recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them. Workers
    fixed source errors (ratios, missing leavening, unsafe temperatures); `docs/import-notes/` lists each change.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
-   and a dish list so lists never overlap). Sources still hold more: VA 17 ready and 232 waiting on ingredient
-   review, NHLBI cookbooks 5 and 96, Based Cooking 27 and 174, NHLBI web 3 and 15 (`docs/import-reports/`). A VA
-   recipe with no credit line still needs a web search before import (6 turned out to be published recipes). The
+   and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
+   cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web
+   search before import, credited or not: 16 uncredited or "Submitted by" recipes turned out to be published ones. The
    common-pair gaps left are odd combinations (chicken with ground beef, rice with pasta or potato, pasta with black
    beans); the triples report shows where depth is thin. Merge workers one at a time: copy an originals file whole,
    append importers' recipes, then `npm run import:catalog` for each new key.

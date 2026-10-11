@@ -863,6 +863,56 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   daikon: { add: 'produce' }, // large white Asian radish; red radishes are separate
   'daikon radish': '=daikon',
 
+  // ── Reviewed by parallel import worker va2 ──
+  'sweet or smoked paprika': 'paprika', // both are the catalog's paprika (smoked paprika is its alias)
+  'reduced sodium lite soy sauce': 'soy_sauce', // like 'lite soy sauce'
+  'lite reduced sodium soy sauce': 'soy_sauce',
+  'unseasoned rice vinegar': 'rice_vinegar',
+  'canola or avocado oil': 'vegetable_oil', // both neutral cooking oils
+  'canola oil or avocado oil': 'vegetable_oil',
+  'uncooked arborio risotto rice': 'arborio_rice',
+  'block extra firm or firm tofu': 'tofu',
+  'canned pumpkin puree': 'canned_pumpkin',
+  '100 pure pumpkin puree': 'canned_pumpkin', // "100% pure pumpkin puree", not pie filling
+  'no salt added great northern beans': 'great_northern_beans',
+  'no salt added kidney beans': 'kidney_beans',
+  'no salt added garbanzo beans': 'chickpeas',
+  'no salt added chickpeas': 'chickpeas',
+  'no salt added vegetable broth': 'vegetable_broth',
+  'uncooked old fashioned rolled oats': 'oats',
+  'lowfat buttermilk': 'buttermilk',
+  'russet or yukon gold potato': 'potato', // both are the catalog's potato
+  'white or cremini mushrooms': 'mushroom', // the same species at two ages
+  'grape or cherry tomatoes': 'tomato',
+  'cherry or grape tomatoes': 'tomato',
+  'ground dried ginger': 'ground_ginger',
+  'uncooked brown lentils': 'lentils',
+  'cauliflower head': 'cauliflower',
+  'frozen green peas': 'peas',
+  'unsalted shelled sunflower seeds': 'sunflower_seeds',
+  '93 lean ground turkey': 'ground_turkey',
+  'frozen corn kernels': 'corn',
+  'frozen shrimp': 'shrimp',
+  'cooked chicken breast': 'chicken',
+  'ice cubes': false, // for an ice-water bath, like water
+  'napa cabbage': { add: 'produce' }, // long, pale Chinese cabbage; not green or red cabbage
+  'bamboo shoots': { add: 'pantry' }, // canned
+  'water chestnuts': { add: 'pantry' }, // canned
+  'crispy chow mein noodles': { add: 'grain' }, // crunchy fried noodles from a can or bag; not soft lo mein noodles
+  'crunchy chow mein noodles': '=crispy chow mein noodles',
+  'low sodium chicken or vegetable broth': null, // the editor picks one
+  'low sodium vegetable or chicken broth': null, // the editor picks one
+  'no salt added chicken or vegetable broth': null, // the editor picks one
+  'honey or maple syrup': null, // the editor picks one
+  'pumpkin pie spice or ground cinnamon': null, // the editor picks one
+  'lemon juice or white wine vinegar': null, // the editor picks one
+  'cilantro or parsley': null, // the editor picks one
+  'fennel seed or dill': null, // the editor picks one
+  'dried cranberries or dried cherries': null, // the editor picks one
+  'italian seasoning or oregano': null, // the editor picks one
+  'tomato sauce or ketchup': null, // the editor picks one
+  'salt free seasoning blend': null, // a store blend; the editor names the herbs and spices
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
