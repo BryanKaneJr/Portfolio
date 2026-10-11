@@ -15,14 +15,35 @@ here.
    change (`regions.json`, then `npm run map:build`).
 3. **Egypt and the Levant are off-map** ("Mamluk Sultanate", shaded like the Sahara, Lapland and the Caucasus).
    The doc scopes the map to Europe, Anatolia and the North African coast.
-4. **Sea movement:** armies cross a sea zone only where you have transports with enough capacity and no
-   stronger enemy fleet. Straits (Dover, Øresund, Bosphorus, Dardanelles, Messina, Gibraltar, Kerch, Bonifacio,
+4. **The New World is in (added after the first build, on request).** Only the eastern side of the Americas,
+   in 46 coarse regions (a whole captaincy or colony each), plus the Atlantic islands and Iceland. The west of
+   the continents is off-map wilderness (Inca Empire, Purépecha, Great Plains, Amazonia...). To fit both worlds
+   the map switched from a Lambert projection centred on Europe to Mercator: north is up everywhere and shapes
+   stay true, at the cost of a bigger Scandinavia. Colonization is a core system, not a side screen:
+   - Discovery: the Americas are uncharted (no movement, fog on the map) until a crown with an ocean coast funds
+     an expedition (from 1470, 100 gold, 8 months; the AI odds rise through the 1480s) or 1500 arrives.
+   - Colonists: Portugal's Navigators trait, being first to the New World (30 years), Castile's Council of the
+     Indies, the Overseas Charters policy (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
+     Few colonists in the 1500s keep the race Iberian at first; England, France and the Netherlands join later.
+   - Colonies: 30 gold, then 1 gold a month; 10 settlers a month (+4 next to your land, policy +20%), slowed by
+     natives (−7% per thousand, at most half); founded at 1,000 settlers (6–12 years). Natives with hostility attack
+     (chance per month = natives × hostility × 0.25%, killing 50 + 25 × natives settlers); any regiment of yours in
+     the region stops it. On founding the natives join the colony (+1 development per 3,000).
+   - Trade goods pay value × (0.5 + 0.1 × development) a month (silver 2.0 … grain 0.4); colonies grow +1
+     development every ~15 years up to 5. New World land counts half for the force limit.
+   - Native nations can't make treaties, fight at half strength and 80% morale, never declare wars, and are holy
+     war targets; land taken from them causes 30% of the usual Threat.
+   - Armies board where your transports are and the fleet sails along with them (one fleet can carry an army across
+     the ocean); open-ocean zones take 5–12 days each instead of 4.
+5. **Sea movement:** an army boards in a sea zone where your idle transports have room for it and no stronger
+   enemy fleet waits; the fleet then sails along with the army through further zones (unless a stronger enemy
+   fleet bars one) and stays where it lands. Straits (Dover, Øresund, Bosphorus, Dardanelles, Messina, Gibraltar, Kerch, Bonifacio,
    North Channel) are crossable by land unless an enemy fleet outguns yours there.
-5. **Recruiting takes 30 days** (the doc doesn't say); mercenaries arrive at once for three times the gold.
-6. **Rulers can lead armies** as generals; if one falls in battle the heir succeeds.
-7. **Tutorial:** short first-time hints ("your chancellor advises") and a How to Play page instead of a scripted
+6. **Recruiting takes 30 days** (the doc doesn't say); mercenaries arrive at once for three times the gold.
+7. **Rulers can lead armies** as generals; if one falls in battle the heir succeeds.
+8. **Tutorial:** short first-time hints ("your chancellor advises") and a How to Play page instead of a scripted
    20-minute tutorial. Portugal and Castile are marked "recommended for your first campaign".
-8. **Audio is not in yet** (no assets). Haptics fire on selections and orders.
+9. **Audio is not in yet** (no assets). Haptics fire on selections and orders.
 
 ## Key numbers (all in `src/sim/`)
 
@@ -43,18 +64,25 @@ here.
 | Peace cost | 3% per development per region (× 0.7 if claimed), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Era adoption | 250 / 500 / 800 gold × (0.6 + development / 80) |
+| Expedition west | 100 gold, 8 months, from 1470; everyone knows the way by 1500 |
+| Colony | 30 gold + 1 gold/month; 1,000 settlers at 10/month (+4 next to your land), −7% per thousand natives |
+| Trade goods | value × (0.5 + 0.1 × development): silver 2.0, gold 1.8, sugar 1.1, tobacco/cocoa 0.9, dyes 0.8, furs 0.7, fish 0.6, grain 0.4 |
 
 ## Status
 
-Verified: `npm run check` (typecheck, lint, content validation, 20 simulation tests including a 25-year AI soak
-and save/load determinism) and two Playwright walkthroughs of the web build at iPhone size (title, nation
-picker, map, every sheet and menu tab, war declaration, marching through a strait, sieges, events, offers,
-peace screen, map modes) with no runtime errors. The simulation runs at about 2 ms per day on a laptop.
+Verified: `npm run check` (typecheck, lint, content validation, 28 simulation tests including colonies, ocean
+convoys, native battles, a 25-year AI soak and save/load determinism) and three Playwright walkthroughs of the web
+build at iPhone size (title, nation picker, map, every sheet and menu tab, war declaration, marching through a
+strait, sieges, events, offers, peace screen, map modes; the uncharted Atlantic, an expedition, discovery, a colony,
+the Colonies tab, trade goods and an army crossing to Brazil) with no runtime errors. The simulation runs at about
+3–4 ms per day on a laptop (the bigger map and ocean routes cost about 1.5 ms more than before).
 
 Not yet done:
 
 - **Run it on a physical phone.** Gestures (pinch around the fingers, pan, tap) and SVG performance have only
   been checked in a browser. Test on a small phone (iPhone SE size) early, as the design doc asks.
 - Audio (period music, battle and UI sounds).
-- Balance passes over full 300-year campaigns: AI expansion pace, coalition frequency, late-game income.
+- Balance passes over full 300-year campaigns: AI expansion pace, coalition frequency, late-game income, and the
+  colonial race (in AI-only games the coasts are mostly settled by about 1600–1650, faster than history).
+- AI navies: the AI rarely builds transports, so overseas wars are mostly fought by troops raised in the colonies.
 - Store assets, bundle identifier (`com.crownsofeurope.app` is a placeholder) and EAS configuration.

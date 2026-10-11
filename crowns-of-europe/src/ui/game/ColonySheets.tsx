@@ -158,7 +158,7 @@ export function ColoniesTab() {
         </Section>
       ) : (
         <T v="small" style={{ marginBottom: 6 }}>
-          The New World was found in {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}. Tap a pale, uncolonized region on the map to settle it.
+          The New World was found on {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}. Tap a pale, uncolonized region on the map to settle it.
         </T>
       )}
       <Section title="Colonists" right={<Pill text={`${settling.length} / ${total} busy`} color={total ? C.greenSoft : C.parchment2} />}>

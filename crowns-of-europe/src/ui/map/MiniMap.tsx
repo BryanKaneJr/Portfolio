@@ -1,7 +1,7 @@
 /** A small static map (1444 borders) for the title screen and nation picker. */
 import { memo } from 'react';
 import Svg, { Path, Rect } from 'react-native-svg';
-import { MAP, REGION } from '../../sim/content';
+import { MAP, NATION, REGION, hops } from '../../sim/content';
 import { C } from '../theme';
 import { WILD, nationColor } from './colors';
 
@@ -31,7 +31,11 @@ export const MiniMap = memo(function MiniMap({
   const own = (id: string) => owners?.[id] ?? REGION[id].owner;
   let vb = OLD_WORLD;
   if (focus) {
-    const boxes = MAP.regions.filter(r => own(r.id) === focus).map(r => r.bbox);
+    // Frame the land around the capital (not far-flung islands like the Azores).
+    const capital = NATION[focus]?.capital;
+    const owned = MAP.regions.filter(r => own(r.id) === focus);
+    const home = owned.filter(r => !capital || hops(capital, r.id) < 99);
+    const boxes = (home.length ? home : owned).map(r => r.bbox);
     if (boxes.length) {
       let x0 = Math.min(...boxes.map(b => b[0]));
       let y0 = Math.min(...boxes.map(b => b[1]));

@@ -1,23 +1,32 @@
 # Crowns of Europe
 
-> Grand strategy in your pocket. Europe, 1444–1750.
+> Grand strategy in your pocket. Europe and the New World, 1444–1750.
 
 A pay-once, offline grand strategy game for phones, played in portrait with one thumb. Pick a nation in 1444,
 move armies region to region, crush smaller stacks, paint the map in your colour, and watch Europe band together
-against you when you grow too fast. History happens to you through events and missions, but it can go another way:
-Burgundy survives, Byzantium holds, Granada beats Castile.
+against you when you grow too fast. Send ships west to find a New World, then race the other crowns to settle it.
+History happens to you through events and missions, but it can go another way: Burgundy survives, Byzantium holds,
+Granada beats Castile, the Aztecs outlast everyone.
 
 Expo SDK 57 + React Native + TypeScript (Expo Router). No backend, no accounts, no ads, no purchases: everything is
 bundled and works in airplane mode.
 
 ## What's in the game
 
-- **The map:** 133 regions and 16 sea zones traced from Natural Earth (public domain) coastlines, with terrain,
-  development (1–10), forts (0–3), faith, rivers and straits. Six map modes: political, terrain, development,
-  faith, diplomatic and threat.
-- **62 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
+- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 133 regions in Europe, North Africa and Anatolia, 46 coarse
+  New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
+  off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, development (1–10),
+  forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, development, faith, diplomatic,
+  threat and trade goods.
+- **66 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. 40 AI minors fill in the Empire, Italy, the Balkans and
-  the steppe.
+  the steppe, and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
+- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonists (from
+  Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters policy and
+  era 3) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
+  troops keep it safe. Every New World region trades in a good (silver, gold, sugar, tobacco, cocoa, dyes, furs,
+  fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic
+  takes weeks to cross.
 - **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy, and automatic pauses (all configurable)
   for wars declared on you, events and offers.
 - **Armies:** regiments of 1,000 men (infantry, cavalry, artillery from 1500), merge and split, generals with
@@ -64,7 +73,7 @@ Everything the game uses is in Expo Go, so no development build is needed to try
 | `npm run check` | Typecheck, lint, validate `src/content/`, run the Jest simulation tests. Run before every commit. |
 | `npm run validate` | Content validator: references between files and the event/mission language. |
 | `npm run map:build` | Regenerate `src/content/map.json` from region seeds (after editing `regions.json` or `seas.json`). |
-| `npm run screens` | Build the web app and play it in a headless phone-size browser, saving screenshots to `screens/`. |
+| `npm run screens` | Build the web app and play it in a headless phone-size browser, saving screenshots to `screens/` (also `node scripts/screens-war.mjs` and `node scripts/screens-newworld.mjs`). |
 | `npm run soak -- 50 7` | Let the AI play everyone for 50 years (seed 7) and print who rose and fell. |
 | `npm run icons` | Re-render the app icon, adaptive icon, splash mark and favicon. |
 
@@ -78,7 +87,7 @@ Everything the game uses is in Expo Go, so no development build is needed to try
 | `src/ui/` | Map view, sheets, menus, cards and components. |
 | `src/state/` | The running game store (game loop, selection, toasts) and saves. |
 | `scripts/` | Map builder, content validator, icon renderer, Playwright walkthroughs, AI soak and trace tools. |
-| `tests/` | Jest: battles, movement, sieges, war and peace, the event language, determinism and a 25-year soak. |
+| `tests/` | Jest: battles, movement, sieges, war and peace, colonies and the New World, the event language, determinism and a 25-year soak. |
 | `docs/` | `content-guide.md` (how to write events and missions) and `design-notes.md` (decisions and status). |
 
 ## How the code fits together
@@ -91,10 +100,10 @@ reproducible (tests check both).
 Content is data. Events, missions and achievements use a small condition/effect language
 (`docs/content-guide.md`) checked by `npm run validate`.
 
-The map is generated, not hand-drawn: `scripts/build-map.ts` projects Natural Earth land, splits each landmass
-between region seed points through a fine Voronoi grid (organic borders, islands never claim the mainland),
-simplifies shared borders once through a topology so neighbours never gap, and writes paths, labels and the
-adjacency graph.
+The map is generated, not hand-drawn: `scripts/build-map.ts` projects Natural Earth land (Mercator), cuts out the
+Great Lakes, splits each landmass between region seed points through a fine jittered grid (organic borders, islands
+never claim the mainland) and hands the rest to wilderness seeds, simplifies shared borders once through a topology
+so neighbours never gap, and writes paths, labels and the adjacency graph.
 
 ## Credits
 

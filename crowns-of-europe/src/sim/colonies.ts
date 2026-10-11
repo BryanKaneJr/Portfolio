@@ -89,6 +89,7 @@ export function discoverNewWorld(s: GameState, by: NationId | null): void {
     const nat = s.nations[by];
     nat.prestige = clamp(nat.prestige + 25, 0, 100);
     nat.modifiers.push({ id: 'first_to_new_world', name: 'First to the New World', mods: { colonists: 1 }, until: s.day + years(30) });
+    nat.flags.found_new_world = s.day;
     invalidateMods();
   }
   const who = by ? `${NATION[by].name}’s expedition has` : 'Pilots and fishermen have';

@@ -6,11 +6,13 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 
 | File | What |
 | --- | --- |
-| `regions.json` | 133 land regions: id, name, 1444 owner, terrain, development (1-10), fort (0-3), faith, HRE, trade |
-| `nations.json` | 62 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir |
+| `regions.json` | 184 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions also have `nw`, `natives` (thousands), `hostility` (0-3) and a trade `good` |
+| `nations.json` | 66 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
+| `seas.json` | Sea zones (`ocean`, `nw`, `closed`, `days` to cross), straits, wildernesses, the Great Lakes, sea links and rivers (all map seeds) |
 | `scenario1444.json` | Starting claims, alliances, subjects, rivals, truces, marriages, HRE emperor and electors |
 | `events-historical.json` | Historical events (fire when conditions match, not on fixed dates) |
 | `events-generic.json` | Generic events (any nation) and era flavour events |
+| `events-newworld.json` | Discovery, colonies, natives and the colonial powers |
 | `missions.json` | Mission trees per major nation, plus a `generic` set for everyone else |
 | `achievements.json` | Local achievements checked for the player |
 | `traits.json`, `policies.json`, `units.json` | National/ruler traits, era policies, unit stats per era |
@@ -102,7 +104,7 @@ owning the mission).
 | `{ "exists": "BYZ" }` | that nation still exists |
 | `{ "atWar": true }` | at war with anyone |
 | `{ "atWarWith": "BYZ" }` | on opposite sides of a war with that nation |
-| `{ "faith": "catholic" }` | this nation's faith (catholic, orthodox, muslim, protestant) |
+| `{ "faith": "catholic" }` | this nation's faith (catholic, orthodox, muslim, protestant, native) |
 | `{ "nationFaith": { "nation": "ENG", "faith": "protestant" } }` | another nation's faith |
 | `{ "stability": [1] }` / `{ "stability": [-3, -1] }` | stability in range |
 | `{ "goldAtLeast": 100 }`, `{ "prestigeAtLeast": 50 }`, `{ "threatAtLeast": 40 }` | resources |
@@ -127,6 +129,11 @@ owning the mission).
 | `{ "fleetsAtLeast": 1 }`, `{ "shipsAtLeast": 20 }`, `{ "coastal": true }` | navy |
 | `{ "inCoalition": true }`, `{ "coalitionAgainst": true }` | member of a coalition / a coalition targets this nation |
 | `{ "papalFavorAtLeast": 50 }` | Catholic Papal Favor (0-100) |
+| `{ "discovered": true }` | the New World has (not) been found |
+| `{ "coloniesAtLeast": 3 }` | owns at least N regions in the New World (founded colonies and conquests) |
+| `{ "colonizingAtLeast": 1 }` | has at least N colonies being settled right now |
+| `{ "ownsGood": "silver" }` | owns a region trading in that good (silver, gold, sugar, tobacco, cocoa, dyes, furs, fish, grain) |
+| `{ "native": true }` | this nation is a New World people |
 | `{ "chance": 0.5 }` | random each time it is checked (use rarely) |
 
 ## Effects
@@ -153,7 +160,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "convertRegion": { "region": "saxony", "faith": "protestant" } }` | change a region's faith |
 | `{ "changeFaith": "protestant" }` | this nation's faith |
 | `{ "setFlag": "x" }`, `{ "clearFlag": "x" }`, `{ "setNationFlag": "x" }` | flags |
-| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost |
+| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost, colonists (flat: +1 = one more colonist), settlerGrowth (fraction) |
 | `{ "removeModifier": "x" }` | remove one |
 | `{ "rebels": { "regiments": 6, "region": "bohemia" } }` | rebel army (region defaults to the capital) |
 | `{ "addRegiments": { "inf": 4, "cav": 2, "region": "castile" } }` | free army at full strength (region defaults to capital) |
@@ -173,6 +180,8 @@ Applied to "this nation" unless the effect names another.
 | `{ "declareWar": { "target": "BYZ", "cb": "claim", "region": "constantinople" } }` | this nation declares war |
 | `{ "loans": 2 }` | take loans (+100 gold each, with interest) |
 | `{ "emperor": true }` | this nation becomes Holy Roman Emperor |
+| `{ "discoverNewWorld": true }` | this nation finds the New World (if no one has yet): prestige, a colonist for 30 years, and the nation flag `found_new_world` |
+| `{ "settlers": 200 }` | settlers added to each of this nation's colonies being settled (negative removes; a colony is founded at 1,000) |
 
 Ruler traits: warrior, administrator, diplomat, pious, spendthrift, cruel, just, craven, scholar, ambitious,
 feeble, shrewd, builder, merchant.
