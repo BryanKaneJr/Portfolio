@@ -630,6 +630,19 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'pork tenderloin': { add: 'protein' }, // also registered by o-pork-seafood; same key and category
   'corned beef': { add: 'protein' }, // cooked and sliced, or a brisket to simmer; also registered by o-beef
 
+  // ── Reviewed by parallel import worker o-breakfast-sides ──
+  'artichoke hearts': { add: 'pantry' }, // canned or jarred, packed in water; not fresh whole artichokes
+  'canned artichoke hearts': '=artichoke hearts',
+  'navy beans': { add: 'protein' }, // small dried white beans for baked beans; cannellini are separate
+  'dried navy beans': '=navy beans',
+  'haricot beans': '=navy beans', // the UK name for navy beans
+  cornmeal: { add: 'grain' }, // dried ground corn; not masarepa, masa harina or cornstarch
+  'yellow cornmeal': '=cornmeal',
+  parsnip: { add: 'produce' },
+  parsnips: '=parsnip',
+  'brussels sprouts': { add: 'produce' },
+  'brussel sprouts': '=brussels sprouts', // common misspelling
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

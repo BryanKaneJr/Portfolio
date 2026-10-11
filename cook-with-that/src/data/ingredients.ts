@@ -481,4 +481,12 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'apple_cider_vinegar', name: 'Apple cider vinegar', category: 'pantry', aliases: ['cider vinegar'] },
   { id: 'sunflower_seeds', name: 'Sunflower seeds', category: 'pantry', aliases: [] },
   { id: 'prepared_horseradish', name: 'Prepared horseradish', category: 'spice', aliases: ['horseradish'] },
+  { id: 'artichoke_hearts', name: 'Artichoke hearts', category: 'pantry', aliases: ['canned artichoke hearts'] },
+  { id: 'navy_beans', name: 'Navy beans', category: 'protein', aliases: ['dried navy beans', 'haricot beans'] },
+  { id: 'cornmeal', name: 'Cornmeal', category: 'grain', aliases: ['yellow cornmeal'] },
+  { id: 'parsnip', name: 'Parsnip', category: 'produce', aliases: ['parsnips'] },
+  { id: 'brussels_sprouts', name: 'Brussels sprouts', category: 'produce', aliases: ['brussel sprouts'] },
+  { id: 'hot_sauce', name: 'Hot sauce', category: 'spice', aliases: [] },
+  { id: 'mustard_powder', name: 'Mustard powder', category: 'spice', aliases: ['dry mustard'] },
+  { id: 'buttermilk', name: 'Buttermilk', category: 'dairy', aliases: [] },
 ];

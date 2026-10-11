@@ -183,7 +183,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
     steps: [
       'Heat the oven to 425°F (220°C).',
       'In a bowl, whisk the flour, sugar, baking powder and salt.',
-      'Add the butter and rub it in with your fingertips or a fork until the mixture looks like coarse cornmeal with a few pea-size bits.',
+      'Add the butter and rub it in with your fingertips or a fork until the mixture looks like coarse crumbs with a few pea-size bits.',
       'Pour in the milk and stir just until a shaggy dough forms.',
       'On a floured surface, pat or roll the dough about 3/4 inch thick. Cut out rounds with a 2 1/2-inch cutter or a glass, pressing straight down without twisting. Re-roll the scraps once.',
       'Arrange the rounds touching in a cast-iron skillet or on a baking sheet.',
@@ -1341,7 +1341,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       'Stir in the garlic powder and tomato paste and cook, stirring, for 3–5 minutes, until the paste darkens.',
       'Stir in the paprika for about 30 seconds, just until fragrant (it scorches easily), then pour in the broth and bring to a simmer, scraping up the browned bits.',
       'Return the chicken, skin side up, with any juices from the plate. Cover, lower the heat to medium-low and simmer gently until the chicken is tender and cooked through (at least 165°F / 74°C inside), 45–60 minutes.',
-      "Move the chicken to a platter. Take the pan off the heat, whisk a ladle of the hot sauce into the sour cream to warm it, then stir the mixture back into the pan. Don't let it boil again, or it may curdle. Taste and add the remaining 1/2 tsp salt if needed.",
+      "Move the chicken to a platter. Take the pan off the heat, whisk a ladle of the hot pan sauce into the sour cream to warm it, then stir the mixture back into the pan. Don't let it boil again, or it may curdle. Taste and add the remaining 1/2 tsp salt if needed.",
       'Spoon the sauce over the chicken, dust with a little cayenne if you like and serve with crusty bread.',
     ],
     source: from('chicken-paprikash', 'Chicken Paprikash', 'hcm444'),
