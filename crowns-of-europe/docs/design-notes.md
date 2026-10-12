@@ -129,7 +129,11 @@ here.
     greys and the texture of its fields and hills; then crisp hill shading and sea depth (public-domain elevation
     data; all baked into images by `npm run relief:build`) and a fine painted grain. Close up, baked pictures would
     blur and smear, so the land's pictures are cut to the real coastline (crisp at any zoom), its colour switches to
-    a smooth version, and the grain is drawn the same size on screen at every zoom; a dark slate sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
+    a smooth version, the grain and each region's terrain (crags, rolling hills, tree crowns, a patchwork of
+    fields, reeds) are drawn as fine tiles the same size on screen at every zoom, borders and coasts are drawn as
+    rounded curves (the game itself still reads the unrounded shapes), every baked picture stays under the size
+    iPhones quietly halve, and the closest zoom stops where the map runs out of detail (5 points per map unit);
+    a dark slate sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
     (Cinzel), a short name on a long thin country spaced out to run its length; seas and wastes are in an old
     italic (IM Fell English; both bundled, SIL Open Font License). Nothing in the unknown can be tapped, entered or
     owned. The Red Sea is the one closed sea still drawn as water (`charted` in `seas.json`). Pulling past the edge of the known world, or past the zoom limits, meets growing resistance and slides

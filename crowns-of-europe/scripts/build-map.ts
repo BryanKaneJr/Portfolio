@@ -420,7 +420,71 @@ topo = topojsonSimplify.presimplify(topo, topojsonSimplify.planarTriangleArea);
   });
 }
 topo = topojsonSimplify.simplify(topo, 0.35);
+// The drawn outlines are rounded off, so borders and coasts are curves rather than a staircase of short straight runs
+// when zoomed in: corner-cutting (Chaikin) twice on each arc with its ends fixed (so arcs still meet, and both
+// neighbours share exactly the same curve), then a light thinning to drop the points that add nothing. Only what is
+// drawn uses the rounded arcs (`drawn`); everything the game reads (neighbours, coasts on each sea, areas, labels)
+// comes from the unrounded ones, so rounding never changes the game.
+const SMOOTH_PASSES = 2;
+const THIN = 0.15; // map units (about a point on screen at the closest zoom)
+function chaikin(pts: Pt[], closed: boolean): Pt[] {
+  let cur = pts;
+  for (let p = 0; p < SMOOTH_PASSES; p++) {
+    const out: Pt[] = closed ? [] : [cur[0]];
+    for (let i = 0; i + 1 < cur.length; i++) {
+      const [ax, ay] = cur[i];
+      const [bx, by] = cur[i + 1];
+      out.push([0.75 * ax + 0.25 * bx, 0.75 * ay + 0.25 * by], [0.25 * ax + 0.75 * bx, 0.25 * ay + 0.75 * by]);
+    }
+    if (closed) out.push(out[0]);
+    else out.push(cur[cur.length - 1]);
+    cur = out;
+  }
+  return cur;
+}
+function thin(pts: Pt[], tol: number): Pt[] {
+  if (pts.length < 3) return pts;
+  // A closed loop: thin its two halves (split at the point farthest from the start), or it would collapse.
+  if (pts[0][0] === pts[pts.length - 1][0] && pts[0][1] === pts[pts.length - 1][1]) {
+    let far = 1;
+    for (let i = 1; i < pts.length - 1; i++) if (Math.hypot(pts[i][0] - pts[0][0], pts[i][1] - pts[0][1]) > Math.hypot(pts[far][0] - pts[0][0], pts[far][1] - pts[0][1])) far = i;
+    if (pts.length < 5) return pts;
+    return [...thin(pts.slice(0, far + 1), tol).slice(0, -1), ...thin(pts.slice(far), tol)];
+  }
+  const keep = new Uint8Array(pts.length);
+  keep[0] = keep[pts.length - 1] = 1;
+  const stack: [number, number][] = [[0, pts.length - 1]];
+  while (stack.length) {
+    const [a, b] = stack.pop()!;
+    const [ax, ay] = pts[a];
+    const [bx, by] = pts[b];
+    const len = Math.hypot(bx - ax, by - ay) || 1e-9;
+    let worst = -1;
+    let at = -1;
+    for (let i = a + 1; i < b; i++) {
+      const d = Math.abs((bx - ax) * (ay - pts[i][1]) - (ax - pts[i][0]) * (by - ay)) / len;
+      if (d > worst) {
+        worst = d;
+        at = i;
+      }
+    }
+    if (worst > tol) {
+      keep[at] = 1;
+      stack.push([a, at], [at, b]);
+    }
+  }
+  return pts.filter((_, i) => keep[i]);
+}
+const drawnTopo = {
+  ...topo,
+  arcs: topo.arcs.map((arc: Pt[]) => {
+    if (arc.length < 3) return arc;
+    const closed = arc[0][0] === arc[arc.length - 1][0] && arc[0][1] === arc[arc.length - 1][1];
+    return thin(chaikin(arc, closed), THIN);
+  }),
+};
 const simplified = topojsonClient.feature(topo, topo.objects.land) as any;
+const drawn = topojsonClient.feature(drawnTopo as any, drawnTopo.objects.land) as any;
 const neigh = topojsonClient.neighbors(topo.objects.land.geometries);
 
 // Which geometries use each arc → border lines between each pair.
@@ -438,7 +502,7 @@ topo.objects.land.geometries.forEach((g: any, gi: number) => {
 const decoded = topojsonClient.mesh(topo, topo.objects.land, () => true); // forces arc decode below
 void decoded;
 const arcCoords = (k: number): Pt[] => {
-  const line = topojsonClient.mesh(topo, { type: 'GeometryCollection', geometries: [{ type: 'LineString', arcs: [k] }] } as any);
+  const line = topojsonClient.mesh(drawnTopo as any, { type: 'GeometryCollection', geometries: [{ type: 'LineString', arcs: [k] }] } as any);
   return (line.coordinates[0] ?? []) as Pt[];
 };
 const borderMap = new Map<string, Pt[][]>();
@@ -469,6 +533,8 @@ const regionIds = new Set(regions.map(r => r.id));
 simplified.features.forEach((f: any, gi: number) => {
   const id = ids[gi];
   const mp: number[][][][] = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+  const dg = drawn.features[gi].geometry;
+  const drawnMp: number[][][][] = dg.type === 'Polygon' ? [dg.coordinates] : dg.coordinates; // the rounded outline
   const byArea = [...mp].sort((a, b) => polyArea(b as Polygon) - polyArea(a as Polygon));
   const firstSeed = seeds.find(sd => sd.owner === id)?.pt;
   const home = (firstSeed && mp.find(poly => pointInPoly(firstSeed, poly as Polygon))) || byArea[0];
@@ -479,7 +545,7 @@ simplified.features.forEach((f: any, gi: number) => {
   const ys = allPts.map(q => q[1]);
   const bbox = [round(Math.min(...xs)), round(Math.min(...ys)), round(Math.max(...xs)), round(Math.max(...ys))];
   if (id.startsWith('waste:')) {
-    wasteOut.push({ id: id.slice(6), path: pathOf(mp), label: [round(label[0]), round(label[1])], area: Math.round(area) });
+    wasteOut.push({ id: id.slice(6), path: pathOf(drawnMp), label: [round(label[0]), round(label[1])], area: Math.round(area) });
     return;
   }
   // Coastal seas: boundary points with water just outside them, sorted by how much coast they share.
@@ -514,7 +580,7 @@ simplified.features.forEach((f: any, gi: number) => {
   const neighbors = neigh[gi].map((ni: number) => ids[ni]).filter((n: string) => regionIds.has(n)).sort();
   regionOut.push({
     id,
-    path: pathOf(mp),
+    path: pathOf(drawnMp),
     label: [round(label[0]), round(label[1])],
     labelRadius: round(label.distance),
     lonlat: toLonLat(label as unknown as Pt),
@@ -740,7 +806,7 @@ function wobble(mp: MultiPolygon, amp: number, scale: number): MultiPolygon {
   );
 }
 const drawnShapes = new Map<string, Polygon[]>();
-simplified.features.forEach((f: any, gi: number) => {
+drawn.features.forEach((f: any, gi: number) => {
   drawnShapes.set(ids[gi], (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates) as Polygon[]);
 });
 const drawnLand = unionAll([...drawnShapes.values()].flat());

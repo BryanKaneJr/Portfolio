@@ -17,7 +17,7 @@ import { C, kmen, sans } from '../theme';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
-import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
+import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, TERRAIN_DETAIL, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 
@@ -341,6 +341,16 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const res = k < 0.35 ? 'soft' : 'sharp';
   const colourRes = k < 0.35 || k >= 2.2 ? 'soft' : 'sharp';
   const grainSize = 2 ** Math.round(Math.log2(GRAIN_SCREEN / k));
+  // Close up, where even the sharp pictures would blur, each region's terrain fades in as a fine texture drawn the
+  // same size on screen at any zoom (crags, hills, tree crowns, fields, reeds).
+  const detailAlpha = st.terrainDetail * Math.max(0, Math.min(1, (k - 1.1) / 1.2));
+  const byTerrain = new Map<keyof typeof TERRAIN_DETAIL, string>();
+  if (detailAlpha > 0)
+    for (const r of MAP.regions) {
+      if (!visible(r.bbox) || hidden(r.id)) continue;
+      const t = REGION[r.id].terrain as keyof typeof TERRAIN_DETAIL;
+      if (TERRAIN_DETAIL[t]) byTerrain.set(t, (byTerrain.get(t) ?? '') + r.path);
+    }
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -367,6 +377,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             <SvgImage x={0} y={0} width={grainSize} height={grainSize} href={GRAIN.src} preserveAspectRatio="none" />
           </Pattern>
         ) : null}
+        {[...byTerrain.keys()].map(t => (
+          <Pattern key={t} id={`tx_${t}`} patternUnits="userSpaceOnUse" width={grainSize} height={grainSize}>
+            <SvgImage x={0} y={0} width={grainSize} height={grainSize} href={TERRAIN_DETAIL[t]} preserveAspectRatio="none" />
+          </Pattern>
+        ))}
         {names.map(n => (
           <G key={n.nation}>
             <Path id={`nm_${n.nation}`} d={n.d} />
@@ -412,6 +427,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           {st.grain > 0 ? <Rect x={vx} y={vy} width={vw} height={vh} fill="url(#grain)" opacity={st.grain} /> : null}
         </G>
       ) : null}
+      {[...byTerrain].map(([t, d]) => (
+        <Path key={`tx${t}`} d={d} fill={`url(#tx_${t})`} opacity={detailAlpha} />
+      ))}
       {mode === 'political' || mode === 'diplomatic'
         ? MAP.regions.map(r => {
             const reg = s.regions[r.id];

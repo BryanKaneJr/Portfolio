@@ -96,11 +96,15 @@ black or white with alpha), baked water lines (Parchment), sea zones, regions (o
 regions' own outline (a clip path, so coasts stay crisp at any zoom; the baked pictures reach a few pixels past the
 coast): the land-colour image (Atlas: NASA's Blue Marble evened out, so each country takes on its land's greens,
 tans and texture; soft again close up), hill shading, and a grain tile drawn the same size on screen at any zoom;
-then occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
+close up, each region's terrain as a fine tile drawn the same way (crags, hills, trees, fields, reeds); then
+occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
 (fading out as you zoom out), rivers, nation borders, a fade into parchment along the window's edges, every
 coastline (known or not, one ink, culled by cell), selection, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
 redraw cheap: whole-map lines are single paths, and anything that would mean stroking every coastline several
-times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`.
+times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`. Keep every baked picture under
+5.2 megapixels: iPhone and iPad web views decode anything bigger at half size. The drawn outlines (region paths,
+borders, coasts) are rounded off by `build-map` from the same arcs, while everything the game reads (neighbours,
+coasts on each sea, areas, labels) comes from the unrounded ones. The closest zoom is `K_MAX` (5) in `camera.ts`.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

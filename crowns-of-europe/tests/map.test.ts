@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { MAP } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
@@ -148,6 +150,30 @@ describe('the known world and the unknown', () => {
     for (const id of ['ile_de_france', 'castile', 'moscow']) {
       expect(inside(MAP.uncharted, ...label(id))).toBe(false);
       expect(inside(MAP.unknownWater, ...label(id))).toBe(false);
+    }
+  });
+});
+
+describe('baked map pictures', () => {
+  /** Width and height from a PNG's or JPEG's header. */
+  const size = (file: string): [number, number] => {
+    const b = fs.readFileSync(file);
+    if (b.readUInt32BE(0) === 0x89504e47) return [b.readUInt32BE(16), b.readUInt32BE(20)];
+    for (let i = 2; i < b.length; ) {
+      const marker = b.readUInt16BE(i);
+      if (marker >= 0xffc0 && marker <= 0xffc3) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+    throw new Error(`no size in ${file}`);
+  };
+
+  test('every picture is small enough that iPhones decode it at full size', () => {
+    const dir = path.join(__dirname, '../assets/map');
+    const files = fs.readdirSync(dir).filter(f => /\.(png|jpg)$/.test(f));
+    expect(files.length).toBeGreaterThan(10);
+    for (const f of files) {
+      const [w, h] = size(`${dir}/${f}`);
+      expect({ f, mp: (w * h) / 1e6 < 5.2 }).toEqual({ f, mp: true });
     }
   });
 });

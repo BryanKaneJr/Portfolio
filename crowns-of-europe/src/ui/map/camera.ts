@@ -5,7 +5,7 @@
  */
 import { MAP_H, MAP_W } from './geometry';
 
-export const K_MAX = 7; // closest zoom (screen points per map unit)
+export const K_MAX = 5; // closest zoom (screen points per map unit); closer, the map has no more detail to show
 
 /** The nearest centre that keeps a w x h screen at zoom k over the known world (centred if the map is smaller). */
 export function clampCentre(cx: number, cy: number, k: number, w: number, h: number): [number, number] {

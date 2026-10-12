@@ -458,22 +458,26 @@ function splitRelief(net: Float32Array, land: Uint8Array, cols: number, rows: nu
 const GRAIN_TILE = 256; // pixels; drawn at a fixed size on screen (MapView), so it is sharp at any zoom
 const GRAIN = 0.075; // strength of the grain (as shading)
 
+/** A fixed hash of a lattice point that repeats every `period` cells (so tiles are seamless): 0..1. */
+function latticeHash(i: number, j: number, period: number, seed: number): number {
+  let h = (((i % period) + period) % period) * 374761393 + (((j % period) + period) % period) * 668265263 + seed * 2246822519;
+  h = Math.imul(h ^ (h >>> 13), 1274126177);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+}
+/** Smooth value noise repeating every `period` cells: -1..1. */
+function periodic(x: number, y: number, period: number, seed: number): number {
+  const i = Math.floor(x);
+  const j = Math.floor(y);
+  const u = (x - i) * (x - i) * (3 - 2 * (x - i));
+  const v = (y - j) * (y - j) * (3 - 2 * (y - j));
+  const h = (a: number, b: number) => latticeHash(a, b, period, seed);
+  const a = h(i, j) + (h(i + 1, j) - h(i, j)) * u;
+  const b = h(i, j + 1) + (h(i + 1, j + 1) - h(i, j + 1)) * u;
+  return (a + (b - a) * v) * 2 - 1;
+}
+
 /** A seamless tile of fine grain, a few sizes over each other, so flat colours read as brushed paper. */
 function grainTile(): Buffer {
-  const periodic = (x: number, y: number, period: number, seed: number) => {
-    const hash = (i: number, j: number) => {
-      let h = (((i % period) + period) % period) * 374761393 + (((j % period) + period) % period) * 668265263 + seed * 2246822519;
-      h = Math.imul(h ^ (h >>> 13), 1274126177);
-      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
-    };
-    const i = Math.floor(x);
-    const j = Math.floor(y);
-    const u = (x - i) * (x - i) * (3 - 2 * (x - i));
-    const v = (y - j) * (y - j) * (3 - 2 * (y - j));
-    const a = hash(i, j) + (hash(i + 1, j) - hash(i, j)) * u;
-    const b = hash(i, j + 1) + (hash(i + 1, j + 1) - hash(i, j + 1)) * u;
-    return (a + (b - a) * v) * 2 - 1;
-  };
   const net = new Float32Array(GRAIN_TILE * GRAIN_TILE);
   const octaves: [number, number][] = [
     [8, 0.35], // cells across the tile, weight
@@ -487,6 +491,125 @@ function grainTile(): Buffer {
       net[y * GRAIN_TILE + x] = n * GRAIN;
     }
   return toGA(net, new Uint8Array(net.length).fill(1));
+}
+
+// ---------------------------------------------------------------- terrain detail (close zoom)
+/**
+ * Close up, each region's terrain is drawn as a fine texture that repeats seamlessly and is always drawn the same
+ * size on screen, so it stays sharp at any zoom where the baked pictures would blur: crags for mountains, bumps for
+ * hills, tree crowns for forest, a patchwork of fields for plains, reeds for marsh. Each is a height field lit from
+ * the north-west, as black or white with alpha like the relief.
+ */
+const T = GRAIN_TILE;
+const wrap = (v: number) => ((v % T) + T) % T;
+
+/** Light a height field from the north-west (seamless: it wraps at the edges). */
+function emboss(h: Float32Array, gain: number): Float32Array {
+  const net = new Float32Array(T * T);
+  for (let y = 0; y < T; y++)
+    for (let x = 0; x < T; x++) net[y * T + x] = (h[wrap(y - 1) * T + wrap(x - 1)] - h[wrap(y + 1) * T + wrap(x + 1)]) * gain;
+  return net;
+}
+const field = (fn: (x: number, y: number) => number) => {
+  const h = new Float32Array(T * T);
+  for (let y = 0; y < T; y++) for (let x = 0; x < T; x++) h[y * T + x] = fn(x, y);
+  return h;
+};
+/** Jittered points, one per cell of a `cells` x `cells` grid over the tile. */
+const scatter = (cells: number, seed: number) => {
+  const pts: [number, number][] = [];
+  for (let j = 0; j < cells; j++) for (let i = 0; i < cells; i++) pts.push([((i + latticeHash(i, j, cells, seed)) * T) / cells, ((j + latticeHash(i, j, cells, seed + 1)) * T) / cells]);
+  return pts;
+};
+/** Distance on the tile's wrapped surface. */
+const wrapDist = (ax: number, ay: number, bx: number, by: number) => {
+  const dx = Math.min(Math.abs(ax - bx), T - Math.abs(ax - bx));
+  const dy = Math.min(Math.abs(ay - by), T - Math.abs(ay - by));
+  return Math.hypot(dx, dy);
+};
+
+function terrainTiles(): Record<string, Buffer> {
+  const all = new Uint8Array(T * T).fill(1);
+  const octaves = (x: number, y: number, list: [number, number][], seed: number, ridged = false) =>
+    list.reduce((t, [cells, w], k) => {
+      const n = periodic((x * cells) / T, (y * cells) / T, cells, seed + k);
+      return t + w * (ridged ? (1 - Math.abs(n)) ** 2 : n);
+    }, 0);
+  // Mountains: ridgelines (ridged noise on warped coordinates, so the ridges wander instead of following a grid),
+  // strongly lit, with fine rock noise.
+  const warpX = (x: number, y: number) => periodic((x * 3) / T, (y * 3) / T, 3, 14) * 18;
+  const warpY = (x: number, y: number) => periodic((x * 3) / T + 0.5, (y * 3) / T + 0.5, 3, 15) * 18;
+  const mountains = emboss(
+    field((x, y) => {
+      const wx = x + warpX(x, y);
+      const wy = y + warpY(x, y);
+      return octaves(wx, wy, [[4, 0.55], [8, 0.3], [16, 0.15]], 11, true) * 30 + octaves(x, y, [[48, 1]], 13) * 1.4;
+    }),
+    0.065,
+  );
+  // Hills: rolling ground, domes blended together.
+  const domes = scatter(6, 21).map(([x, y], k) => ({ x, y, r: 26 + 18 * latticeHash(k, 1, 1 << 30, 22), a: 0.6 + 0.4 * latticeHash(k, 2, 1 << 30, 23) }));
+  const hills = emboss(
+    field((x, y) => {
+      let h = 0;
+      for (const p of domes) {
+        const d = wrapDist(x, y, p.x, p.y);
+        if (d < p.r) h += p.a * (1 - (d * d) / (p.r * p.r)) ** 2;
+      }
+      return h * 16 + periodic((x * 20) / T, (y * 20) / T, 20, 24) * 0.8;
+    }),
+    0.07,
+  );
+  // Forest: clumps of tree crowns of different sizes, with shadowed ground between them.
+  const clump = (k: number, x: number, y: number) => periodic((x * 5) / T, (y * 5) / T, 5, 33) > -0.25 || latticeHash(k, 4, 1 << 30, 34) > 0.85;
+  const crowns = scatter(34, 31).map(([x, y], k) => ({ x, y, r: 2.4 + 2.2 * latticeHash(k, 1, 1 << 30, 35), k })).filter(p => clump(p.k, p.x, p.y));
+  const forestH = field((x, y) => {
+    let best = 0;
+    for (const p of crowns) {
+      const d = wrapDist(x, y, p.x, p.y);
+      if (d < p.r) best = Math.max(best, Math.sqrt(1 - (d * d) / (p.r * p.r)) * (0.7 + 0.3 * (p.r / 6)));
+    }
+    return best * 8;
+  });
+  const forest = emboss(forestH, 0.05);
+  for (let i = 0; i < T * T; i++) forest[i] += forestH[i] > 0 ? 0.03 : 0.09;
+  // Plains: a patchwork of fields, each a slightly different tone with its own furrows, darker hedges between.
+  const farms = scatter(8, 41);
+  const plains = field((x, y) => {
+    let d1 = Infinity;
+    let d2 = Infinity;
+    let owner = 0;
+    farms.forEach(([px, py], k) => {
+      const d = wrapDist(x, y, px, py);
+      if (d < d1) {
+        d2 = d1;
+        d1 = d;
+        owner = k;
+      } else if (d < d2) d2 = d;
+    });
+    const tone = (latticeHash(owner, 7, 1 << 30, 43) - 0.5) * 0.075;
+    const angle = latticeHash(owner, 8, 1 << 30, 45) * Math.PI;
+    const furrow = Math.cos(((x * Math.cos(angle) + y * Math.sin(angle)) / 2.4) * Math.PI) * 0.018;
+    const hedge = d2 - d1 < 2.2 ? 0.06 * (1 - (d2 - d1) / 2.2) : 0;
+    return tone + furrow + hedge + periodic((x * 32) / T, (y * 32) / T, 32, 44) * 0.015;
+  });
+  // Marsh: short dark reeds and pale glints of water.
+  const marsh = field((x, y) => periodic((x * 16) / T, (y * 16) / T, 16, 51) * 0.03);
+  const reeds = scatter(20, 52);
+  reeds.forEach(([px, py], k) => {
+    const wet = latticeHash(k, 3, 1 << 30, 53) > 0.7;
+    for (let dx = -4; dx <= 4; dx++) {
+      const i = wrap(Math.round(py)) * T + wrap(Math.round(px) + dx);
+      marsh[i] = wet ? -0.12 : 0.16;
+    }
+  });
+  return {
+    mountains: toGA(mountains, all),
+    hills: toGA(hills, all),
+    forest: toGA(forest, all),
+    plains: toGA(plains, all),
+    marsh: toGA(marsh, all),
+  };
 }
 
 function writeGA(file: string, cols: number, rows: number, ga: Buffer): number {
@@ -563,15 +686,17 @@ const EDGE_FADE = 48; // water lines fade out towards the edges of the play wind
  * resolution and averaged down, so the lines are smooth. Two versions: light lines (and the glow) for dark seas,
  * dark lines for pale ones.
  */
-function waterLines(): { light: Buffer; dark: Buffer; cols: number; rows: number } {
+function waterLines(f: number): { light: Buffer; dark: Buffer; cols: number; rows: number } {
   const SS = 2;
   const M = 16; // margin, so land just outside the window still counts
-  const cols2 = (W + 2 * M) * SS;
-  const rows2 = (H + 2 * M) * SS;
-  const land = landMask(-M, -M, cols2, rows2, SS);
+  const fs = f * SS; // supersampled pixels per map unit
+  const m = Math.round(M * f); // the margin in output pixels
+  const cols = Math.round(W * f);
+  const rows = Math.round(H * f);
+  const cols2 = (cols + 2 * m) * SS;
+  const rows2 = (rows + 2 * m) * SS;
+  const land = landMask(-m / f, -m / f, cols2, rows2, fs);
   const dist = distanceToLand(land, cols2, rows2);
-  const cols = W;
-  const rows = H;
   const light = Buffer.alloc(cols * rows * 2);
   const dark = Buffer.alloc(cols * rows * 2);
   const hw = 0.6; // half a line's width (map units)
@@ -581,16 +706,18 @@ function waterLines(): { light: Buffer; dark: Buffer; cols: number; rows: number
       let glow = 0;
       for (let sy = 0; sy < SS; sy++) {
         for (let sx = 0; sx < SS; sx++) {
-          const i = ((r + M) * SS + sy) * cols2 + (c + M) * SS + sx;
+          const i = ((r + m) * SS + sy) * cols2 + (c + m) * SS + sx;
           if (land[i]) continue;
-          const dd = dist[i] / SS - 0.5 / SS; // to the shore, not to the middle of the nearest land pixel
+          const dd = dist[i] / fs - 0.5 / fs; // to the shore, not to the middle of the nearest land pixel
           let a = 0;
           for (const [at, w] of RINGS) a = Math.max(a, w * Math.max(0, 1 - Math.abs(dd - at) / hw));
           ring += a;
           glow += 0.7 * (1 - smooth(0, GLOW, dd));
         }
       }
-      const edge = smooth(0, EDGE_FADE, Math.min(c + 0.5, r + 0.5, W - c - 0.5, H - r - 0.5));
+      const x = (c + 0.5) / f;
+      const y = (r + 0.5) / f;
+      const edge = smooth(0, EDGE_FADE, Math.min(x, y, W - x, H - y));
       ring = (ring / (SS * SS)) * edge;
       glow = (glow / (SS * SS)) * edge;
       const i = r * cols + c;
@@ -635,7 +762,9 @@ function shadow(unknown: number[][]): { ga: Buffer; cols: number; rows: number }
 }
 
 // ---------------------------------------------------------------- build
-const HI = 1; // pixels per map unit in the play window
+// Pixels per map unit for the sharp pictures of the play window: just under 5.2 megapixels each, because iPhone and
+// iPad web views quietly decode anything bigger at half size (which would look blocky zoomed in).
+const HI = 0.9;
 const LO = 0.25; // pixels per map unit for the whole drawn world
 const PAD = 32; // the sharp image is shaded with this margin (map units) so its blur near the edges sees real data
 
@@ -668,16 +797,20 @@ async function main() {
   const parts = splitRelief(net, landPx, sc, sr, 4);
   bytes += writeGA(path.join(OUT, 'relief-land.png'), sc, sr, parts.land);
   bytes += writeGA(path.join(OUT, 'relief-sea.png'), sc, sr, parts.sea);
-  // A tile of fine grain.
+  // A tile of fine grain, and the terrain detail tiles.
   bytes += writeGA(path.join(OUT, 'grain.png'), GRAIN_TILE, GRAIN_TILE, grainTile());
+  const detail = terrainTiles();
+  for (const [name, ga] of Object.entries(detail)) bytes += writeGA(path.join(OUT, `detail-${name}.png`), T, T, ga);
   // Water lines along the coasts of the play window.
-  const wl = waterLines();
+  const wl = waterLines(HI);
   bytes += writeGA(path.join(OUT, 'water-lines-light.png'), wl.cols, wl.rows, wl.light);
   bytes += writeGA(path.join(OUT, 'water-lines-dark.png'), wl.cols, wl.rows, wl.dark);
   // The land's natural colour, sharp and soft.
-  const tint = landColour(W, H, 1);
-  bytes += writeJPEG(path.join(OUT, 'land-colour.jpg'), W, H, tint);
-  const soft = shrink(tint, W, H, 4);
+  const tc = Math.round(W * HI);
+  const tr = Math.round(H * HI);
+  const tint = landColour(tc, tr, HI);
+  bytes += writeJPEG(path.join(OUT, 'land-colour.jpg'), tc, tr, tint);
+  const soft = shrink(tint, tc, tr, 4);
   bytes += writeJPEG(path.join(OUT, 'land-colour-soft.jpg'), soft.cols, soft.rows, soft.rgba);
   // The known world's shadow on the parchment, before and after the New World is found.
   for (const [name, rings] of [
@@ -715,6 +848,15 @@ export const RELIEF: Record<'land' | 'sea', Record<'sharp' | 'soft', ReliefTile>
 
 /** A seamless tile of fine grain (${GRAIN_TILE} px), to be drawn at a fixed size on screen. */
 export const GRAIN = { src: require('../../../assets/map/grain.png') as ImageSourcePropType, px: ${GRAIN_TILE} };
+
+/** Close-zoom terrain detail, one seamless tile (${GRAIN_TILE} px) per terrain, to be drawn at a fixed size on screen. */
+export const TERRAIN_DETAIL: Record<'mountains' | 'hills' | 'forest' | 'plains' | 'marsh', ImageSourcePropType> = {
+  mountains: require('../../../assets/map/detail-mountains.png'),
+  hills: require('../../../assets/map/detail-hills.png'),
+  forest: require('../../../assets/map/detail-forest.png'),
+  plains: require('../../../assets/map/detail-plains.png'),
+  marsh: require('../../../assets/map/detail-marsh.png'),
+};
 
 /** Lines in the water along the play window's coasts (light ones with a glow off the shore, or dark ones). */
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
