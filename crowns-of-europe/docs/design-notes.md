@@ -203,6 +203,17 @@ here.
     margins seen past its edges) under the country colours; templates in the map's exact projection were made for
     it, and the coasts and borders will be refitted to the painting where they disagree.
 
+24. **A painted world (on request).** The owner painted the whole map over a template in the map's exact projection,
+    and it is now the default look ("Painted"): the realms' colours washed over it at about 40%, so the painting's
+    seas, forests, deserts and snow show through every country; borders and names on top; past the map's edges, the
+    painting goes on under a light veil instead of blank parchment. Its coasts were close but not exact (Corsica and
+    Sardinia off, Italy and Greece wide), so `scripts/build-painting.ts` bends it to fit: land and sea are read from
+    its colours, and the picture is moved smoothly (45 map units at most) until its coastlines lie on the game's, then
+    what still disagrees within 20 units of a coast is refilled from the nearest painting of the right kind (painted
+    lakes inland stay). The game's borders never move: they carry the neighbours, straits and rivers the game runs on.
+    The painting is 2.25 px per map unit: sharp zoomed out, soft close up; a sharper painting of the game's frame
+    would fix that and needs only a rebuild. The drawn mountains and trees stay in the other styles.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |

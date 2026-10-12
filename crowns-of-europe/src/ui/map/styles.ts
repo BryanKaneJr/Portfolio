@@ -3,7 +3,8 @@
  * like best: the known world lies on blank parchment (everything past the edges, the deep wastes and the waters no
  * fleet sails), casting a soft shadow onto it; muted colours with the hills and a painted grain showing through;
  * a dark slate sea; quiet borders; and big pale names that curve along each country, spaced out to fill a long
- * thin one. Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw.
+ * thin one. Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw. Painted, the
+ * default, lays the realms' colours over the owner's painting of the world.
  */
 import { Platform } from 'react-native';
 import { mix } from './colors';
@@ -35,6 +36,9 @@ export interface MapStyle {
   nationLabel: Ink & { curved: boolean; spacing: number; em: number; spread: boolean }; // em: a capital's width; spread: space a short name out along a long country
   regionLabel: Ink;
   vignette: string | null; // darkened screen edges
+  /** The owner's painting as the ground (ui/map/paintingTiles.ts): country colours laid over it at `land` opacity;
+   * the unknown veiled at `veil` (the uncharted New World at `uncharted`) rather than covered. */
+  painting: { land: number; veil: number; uncharted: number } | null;
 }
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. (The mountain
@@ -65,6 +69,37 @@ function grey(hex: string): string {
 const muted = (hex: string, t: number) => mix(hex, grey(hex), t);
 
 export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
+  painted: {
+    id: 'painted',
+    label: 'Painted',
+    help: "A painted map of the world with the realms' colours washed over it.",
+    sea: '#2b5a6b',
+    seaZone: { color: 'rgba(220,236,240,0.16)', dash: null },
+    seaLabel: 'rgba(226,238,240,0.78)',
+    waterLines: null,
+    relief: 0,
+    landColour: 0,
+    grain: 0.55,
+    drawn: null,
+    land: hex => mix(hex, '#ffffff', 0.06),
+    wild: 'rgba(0,0,0,0)', // land nobody holds shows the painting as it is
+    unknown: { fill: '#e6d3ad', shadow: 0, label: { fill: '#f3ead6', halo: 'rgba(40,28,14,0.6)', shadow: 'rgba(20,14,7,0.5)' }, wasteLabel: '#f1e4c8' },
+    provinceBorder: { color: 'rgba(24,18,10,0.28)', width: 0.55, dash: null },
+    nationBorder: { color: 'rgba(22,16,9,0.75)', width: 1.05, halo: 'rgba(255,248,230,0.22)', haloWidth: 3 },
+    coast: { color: 'rgba(30,26,20,0.35)', width: 0.6 },
+    river: { color: 'rgba(70,120,140,0)', width: 0 }, // the painting has its rivers
+    font: {
+      nation: font('Cinzel_700Bold', SERIF),
+      nationWeight: '400',
+      region: font('Cinzel_600SemiBold', SERIF),
+      regionWeight: '400',
+      italic: font('IMFellEnglish_400Regular_Italic', SERIF),
+    },
+    nationLabel: { fill: '#f4efe2', halo: 'rgba(22,17,10,0.6)', shadow: 'rgba(16,12,7,0.65)', curved: true, spacing: 0.08, em: 0.76, spread: true },
+    regionLabel: { fill: '#f6f2e6', halo: 'rgba(24,18,11,0.78)', shadow: null },
+    vignette: null,
+    painting: { land: 0.42, veil: 0.28, uncharted: 0.62 },
+  },
   atlas: {
     id: 'atlas',
     label: 'Atlas',
@@ -94,6 +129,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     nationLabel: { fill: '#e8ede0', halo: 'rgba(22,17,10,0.55)', shadow: 'rgba(16,12,7,0.6)', curved: true, spacing: 0.08, em: 0.76, spread: true },
     regionLabel: { fill: '#f0eee4', halo: 'rgba(24,18,11,0.72)', shadow: null },
     vignette: null,
+    painting: null,
   },
   parchment: {
     id: 'parchment',
@@ -124,6 +160,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     nationLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.6)', shadow: null, curved: true, spacing: 0.32, em: 0.66, spread: false },
     regionLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.75)', shadow: null },
     vignette: 'rgba(84,58,26,0.42)',
+    painting: null,
   },
   flat: {
     id: 'flat',
@@ -148,7 +185,8 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     nationLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.72)', shadow: null, curved: false, spacing: 0.12, em: 0.7, spread: false },
     regionLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.8)', shadow: null },
     vignette: null,
+    painting: null,
   },
 };
 
-export const MAP_STYLE_LIST: MapStyle[] = [MAP_STYLES.atlas, MAP_STYLES.parchment, MAP_STYLES.flat];
+export const MAP_STYLE_LIST: MapStyle[] = [MAP_STYLES.painted, MAP_STYLES.atlas, MAP_STYLES.parchment, MAP_STYLES.flat];

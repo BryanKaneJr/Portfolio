@@ -6,6 +6,7 @@ import { store } from '../../state/store';
 import { nationColor } from './colors';
 import { RELIEF, SHADOWS } from './reliefTiles';
 import { MAP_STYLES } from './styles';
+import { PAINTING } from './paintingTiles';
 
 /** The unknown in 1444 (the screens before a game starts): the wastes, the closed seas and the New World. */
 const UNKNOWN = MAP.wastelands.map(w => w.path).join('') + MAP.unknownWater + MAP.uncharted;
@@ -74,10 +75,11 @@ export const MiniMap = memo(function MiniMap({
     <Svg width={width} height={height} viewBox={vb} preserveAspectRatio="xMidYMid slice">
       <Rect x={R.x} y={R.y} width={R.w} height={R.h} fill={st.sea} />
       {st.relief > 0 ? <SvgImage x={R.x} y={R.y} width={R.w} height={R.h} href={RELIEF.sea.soft.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
+      {st.painting ? PAINTING[PAINTING.length - 1].tiles.map(t => <SvgImage key={`${t.x}-${t.y}`} x={t.x} y={t.y} width={t.w} height={t.h} href={t.src} preserveAspectRatio="none" />) : null}
       {MAP.regions.map(r => {
         const o = own(r.id);
         const faded = focus && o !== focus;
-        return <Path key={r.id} d={r.path} fill={o ? st.land(nationColor(o)) : st.wild} opacity={faded ? 0.55 : 1} stroke={focus && o === focus ? st.nationBorder.color : st.provinceBorder.color} strokeWidth={focus && o === focus ? 1.2 : 0.5} />;
+        return <Path key={r.id} d={r.path} fill={o ? st.land(nationColor(o)) : st.wild} opacity={(faded ? 0.55 : 1) * (st.painting ? st.painting.land : 1)} stroke={focus && o === focus ? st.nationBorder.color : st.provinceBorder.color} strokeWidth={focus && o === focus ? 1.2 : 0.5} />;
       })}
       {st.relief > 0 ? <SvgImage x={R.x} y={R.y} width={R.w} height={R.h} href={R.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       <Path d={PAST} fill={st.unknown.fill} fillRule="evenodd" />

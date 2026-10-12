@@ -38,7 +38,7 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts` or `ui/map/terrainSymbols.ts`. The builder warns about seeds in the water;
+  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts` or `ui/map/paintingTiles.ts`. The builder warns about seeds in the water;
   fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
@@ -68,7 +68,8 @@ src/state/     store (game loop, selection, overlays, toasts, play-test hook on 
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
-art/           source art the builders read: mountains/ (the owner's ink drawings of ranges)
+art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), painting/ (the
+               owner's painting of the world; the 157 MB original is not in git)
 assets/        map/ (generated pictures, incl. mountains/), units/ (the rendered troops, ships, forts), fonts, icons
 ```
 
@@ -91,6 +92,8 @@ npm run relief:build        # then: relief, land colour, water lines and the kno
                             # scripts/data/terrain-cache, git-ignored)
 npm run terrain:build       # then: the drawn terrain (ui/map/terrainSymbols.ts, assets/map/mountains) from the
                             # same cache and art/mountains
+npm run painting:build      # the Painted style's ground: art/painting/fullmap.png (not in git) fitted to the coasts
+                            # and tiled into assets/map/painting (see art/painting/README.md)
 npm run models:build        # the troops, ships and forts (assets/units/) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
 ```
@@ -113,8 +116,12 @@ hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, t
 are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
 
-How it is painted comes from a style (`ui/map/styles.ts`: Atlas, the default; Parchment; Flat), chosen in
-Settings or the map-mode menu and saved as a preference. The known world lies on blank parchment: everything past
+How it is painted comes from a style (`ui/map/styles.ts`: Painted, the default; Atlas; Parchment; Flat), chosen in
+Settings or the map-mode menu and saved as a preference. Painted lays the realms' colours (translucent) over the
+owner's painting of the world (`art/painting`, fitted to the coasts and tiled by `npm run painting:build` into
+`assets/map/painting` + `ui/map/paintingTiles.ts`: three levels, the coarsest always under the finest the zoom
+needs); past the edges, the wastes and the uncharted New World are veiled, not covered, and the sea zones are cut to
+the water. The rest of this paragraph is the other styles. The known world lies on blank parchment: everything past
 the play window, the wastes, the waters no fleet sails plus a ragged band of open sea along the window's edges
 (`MAP.unknownWater`), and before discovery the New World (`MAP.uncharted`). Bottom to top: sea, sea depth (baked,
 black or white with alpha), baked water lines (Parchment), sea zones, regions (one path per colour), then cut to the

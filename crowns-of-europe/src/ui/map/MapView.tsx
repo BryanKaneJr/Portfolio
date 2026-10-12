@@ -22,6 +22,7 @@ import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nat
 import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
+import { PAINTING } from './paintingTiles';
 import { mountainsIn, terrainPaths } from './terrain';
 
 export interface Camera {
@@ -350,8 +351,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
     byFill.set(c, (byFill.get(c) ?? '') + r.path);
   }
   // The unknown: everything past the window, the wastes, the waters no fleet sails, and the New World until found.
-  let unknown = MAP.unknownWater + (charted ? '' : MAP.uncharted);
-  for (const wl of MAP.wastelands) if (!WASTE_BBOX[wl.id] || visible(WASTE_BBOX[wl.id])) unknown += wl.path;
+  let wastes = '';
+  for (const wl of MAP.wastelands) if (!WASTE_BBOX[wl.id] || visible(WASTE_BBOX[wl.id])) wastes += wl.path;
+  const unknown = MAP.unknownWater + (charted ? '' : MAP.uncharted) + wastes;
   // (The hole is two screen points smaller than the window so the two parchments overlap: no hairline where they
   // meet. The known world has already faded into parchment there.)
   const lap = Math.max(1, px(2));
@@ -387,6 +389,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
   const linesAlpha = st.waterLines ? st.waterLines.opacity * Math.max(0, Math.min(1, (k - 0.35) / 0.25)) : 0;
+  // The painting: the coarsest tiles under everything (they reach furthest past the edges), the finest that the zoom
+  // needs over them.
+  const pt = st.painting;
+  const fine = k >= 0.55 ? 0 : k >= 0.28 ? 1 : 2;
+  const tiles = pt ? [...(fine < 2 ? [2, fine] : [2])].flatMap(l => PAINTING[l].tiles.filter(t => visible([t.x, t.y, t.x + t.w, t.y + t.h])).map(t => ({ ...t, key: `${l}-${t.x}-${t.y}` }))) : [];
   const names = showRegionNames ? [] : st.nationLabel.curved ? placeNames(arcs, k, st, charted, visible) : [];
   const dash = (d: number[] | null) => (d ? d.map(px).join(' ') : undefined);
   const nl = st.nationLabel;
@@ -402,6 +409,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         {landD ? (
           <ClipPath id="land">
             <Path d={landD} />
+          </ClipPath>
+        ) : null}
+        {pt && landD ? (
+          <ClipPath id="water">
+            <Path d={`M${vx} ${vy}h${vw}v${vh}h${-vw}Z${landD}${wastes}`} clipRule="evenodd" />
           </ClipPath>
         ) : null}
         {st.grain > 0 ? (
@@ -426,24 +438,30 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             ).map(([id, x1, y1, x2, y2]) => (
               <LinearGradient key={id} id={id} gradientUnits="userSpaceOnUse" x1={x1} y1={y1} x2={x2} y2={y2}>
                 {EDGE_STOPS.map(([o, a]) => (
-                  <Stop key={o} offset={o} stopColor={st.unknown.fill} stopOpacity={a} />
+                  <Stop key={o} offset={o} stopColor={st.unknown.fill} stopOpacity={a * (st.painting ? st.painting.veil : 1)} />
                 ))}
               </LinearGradient>
             ))
           : null}
       </Defs>
-      {/* Water */}
+      {/* Water (or the painting of the whole world) */}
       <Rect x={vx} y={vy} width={vw} height={vh} fill={st.sea} />
+      {tiles.map(t => (
+        <SvgImage key={t.key} x={t.x} y={t.y} width={t.w} height={t.h} href={t.src} preserveAspectRatio="none" />
+      ))}
       {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.sea[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {linesAlpha > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={WATER_LINES[st.waterLines!.image].src} preserveAspectRatio="none" opacity={linesAlpha} /> : null}
-      {MAP.seas.map(sea =>
-        !visible(sea.bbox) || sea.closed || hidden(sea.id) ? null : (
-          <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke={st.seaZone.color} strokeWidth={px(0.8)} strokeDasharray={dash(st.seaZone.dash)} />
-        ),
-      )}
+      {/* Sea zones (with the painting showing through the land, cut to the water: they run on under the coast) */}
+      <G clipPath={pt && landD ? 'url(#water)' : undefined}>
+        {MAP.seas.map(sea =>
+          !visible(sea.bbox) || sea.closed || hidden(sea.id) ? null : (
+            <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke={st.seaZone.color} strokeWidth={px(0.8)} strokeDasharray={dash(st.seaZone.dash)} />
+          ),
+        )}
+      </G>
       {/* Known land */}
       {[...byFill].map(([fill, d]) => (
-        <Path key={fill} d={d} fill={fill} />
+        <Path key={fill} d={d} fill={fill} opacity={pt ? pt.land : 1} />
       ))}
       {/* Over the land, cut to the coastline: its own colours (fields, forest, rock, sand) showing through the
           country colours, the hills, and a fine grain (scripts/build-relief.ts) */}
@@ -487,12 +505,22 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           })
         : null}
       {/* The unknown, as blank parchment, with the known world's shadow falling on it */}
-      <Path d={beyond} fill={st.unknown.fill} fillRule="evenodd" />
-      <Path d={unknown} fill={st.unknown.fill} />
+      {pt ? (
+        <G>
+          <Path d={beyond} fill={st.unknown.fill} fillRule="evenodd" opacity={pt.veil} />
+          <Path d={MAP.unknownWater + wastes} fill={st.unknown.fill} opacity={pt.veil} />
+          {charted ? null : <Path d={MAP.uncharted} fill={st.unknown.fill} opacity={pt.uncharted} />}
+        </G>
+      ) : (
+        <G>
+          <Path d={beyond} fill={st.unknown.fill} fillRule="evenodd" />
+          <Path d={unknown} fill={st.unknown.fill} />
+        </G>
+      )}
       {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={SHADOWS[charted ? 'charted' : 'uncharted'].src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
       {/* Borders */}
       {provinceAlpha > 0 && lines.province ? <Path d={lines.province} fill="none" stroke={st.provinceBorder.color} strokeWidth={px(st.provinceBorder.width)} strokeDasharray={dash(st.provinceBorder.dash)} strokeLinecap="round" strokeLinejoin="round" opacity={provinceAlpha} /> : null}
-      {lines.river ? <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null}
+      {lines.river && st.river.width > 0 ? <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null}
       {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {/* The known world fading into the parchment at the window's edges */}
