@@ -562,7 +562,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
     meals: ['side', 'dinner'],
     dishTypes: ['one_pot'],
     prepMinutes: 5,
-    cookMinutes: 30,
+    cookMinutes: 35,
     servings: 4,
     ingredients: [
       r('rice', 'long-grain white rice', '1 1/2 cups'),
@@ -576,7 +576,7 @@ export const BREAKFAST_SIDES_RECIPES: Recipe[] = [
     steps: [
       'Rinse the rice in a fine-mesh sieve under cold running water, shaking it, until the water runs mostly clear. Drain well.',
       'Heat the oil in a medium saucepan with a tight-fitting lid over medium heat. Add the rice and garlic and stir for 2 minutes, until the rice is coated and the garlic smells fragrant.',
-      'Add the water and salt and bring to a boil. Cover, turn the heat to low and cook for 15 minutes without lifting the lid, until the water is absorbed.',
+      'Add the water and salt and bring to a boil. Cover, turn the heat to low and cook for 18 minutes without lifting the lid, until the water is absorbed.',
       'Take the pan off the heat and let it stand, covered, for 10 minutes.',
       'Fluff the rice with a fork, then fold in the lime zest, lime juice and cilantro. Taste, add a pinch more salt if needed and serve warm.',
     ],
