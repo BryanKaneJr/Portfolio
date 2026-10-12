@@ -68,7 +68,7 @@ src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, re
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
-               dev/ (soak, trace, ottomans, powers, opening), terrain/ (the Illustrated style's offline tile pipeline, Python)
+               dev/ (soak, trace, ottomans, powers, opening, pan-layers), terrain/ (the Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, soak (Jest, node)
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), painting/ (the
                owner's painting of the world; the 157 MB original is not in git)
