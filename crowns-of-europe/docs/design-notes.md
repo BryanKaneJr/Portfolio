@@ -75,6 +75,26 @@ here.
     tabs (rankings live in Diplomacy, settings behind the gear, Colonies only for crowns that can settle), the
     everyday diplomatic actions up front and the rest behind "More options", three numbers per region sheet, and
     Science in the top bar instead of Renown.
+14. **The Ottoman threat, and Europe's science answer (on request).** The Ottomans are the great military power
+    of the 15th and 16th centuries: Ghazi Spirit gives +15% morale, infantry and cavalry and +50% army limit
+    and levies. Hungary opens the game in mourning (*The Dead of Varna*: −40% levies for four years, −15% morale
+    unless it pays to rebuild), the truces after Varna hold Hungary and Poland off until 1448, and Poland and
+    Hungary start unallied (their shared king died there). Two historical events then hold the Ottomans back in
+    science, which is what lets Europe catch up: *Scribes Before Presses* (1483-1500, printing forbidden: −25%
+    science for 240 years) and *The Janissaries Grow Proud* (1566-1600: advances cost +50% and infantry −15% for
+    150 years, and the Janissaries bonus is lost). The AI always takes the historical choice; a player can
+    refuse, at a price. Their learning is 0.85. General fixes that came out of this: a fleeing army whose next
+    step took longer than the AI's re-think never arrived (the Ottoman and Byzantine armies sat together in
+    Bulgaria for years); an army standing in a region now catches enemies marching out of it; an AI army facing
+    a bigger enemy joins up with its other armies nearby before it thinks of running; the AI's strength
+    estimate counts unit strength and morale, not just heads; past three to one, better odds no longer decide
+    which war a crown picks (its aims do); allies answer offensive calls only when they are within three
+    regions of the enemy (defensive calls are unchanged); and a crown can no longer inherit a realm more than
+    twice its size. In eight AI games the Ottomans won the opening war every time
+    (Constantinople by 1446), held 11-26 regions in 1520 (median 16) and peaked at 16-37 between 1550 and 1650;
+    no single war cost them more than three regions. After about 1600 they stopped growing and most lost ground,
+    and by 1680 the leading European crowns had reached the last troop age while the Ottomans were an age behind
+    in seven of the eight (`scripts/dev/ottomans.ts`).
 
 ## Key numbers (all in `src/sim/`)
 
@@ -84,7 +104,7 @@ here.
 | Tax | 0.3 gold per development per month × (1 + 5%/stability + ruler skill − 3 × 5% + modifiers); half for non-cores |
 | Trade centres | 1.2 + 0.12 × development per month |
 | Manpower | 3,000 + 400 per development (half for non-cores); recovers 1/60 of the maximum per month |
-| Force limit | 6 + development / 2.5 regiments; upkeep rises above it |
+| Force limit | (6 + development / 2.5) × (1 + modifiers) regiments; upkeep rises above it |
 | Upkeep | infantry 0.18, cavalry 0.36, artillery 0.42 gold/month (half in peacetime pay) |
 | Battle | daily d10 + general pip difference; attacker −1 in rough terrain (−2 mountains, −1 river); damage = roll × front-line power; casualties = damage × 6; morale loss = damage × 0.069 / regiments |
 | Front width | plains 20, forest and hills 14, marsh 12, mountains 10 |

@@ -178,7 +178,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "convertRegion": { "region": "saxony", "faith": "protestant" } }` | change a region's faith |
 | `{ "changeFaith": "protestant" }` | this nation's faith |
 | `{ "setFlag": "x" }`, `{ "clearFlag": "x" }`, `{ "setNationFlag": "x" }` | flags |
-| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost, colonists (flat: +1 = one more colonist), settlerGrowth (fraction) |
+| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost, colonists (flat: +1 = one more colonist), settlerGrowth, science, forceLimit (army limit) (fractions) |
 | `{ "removeModifier": "x" }` | remove one |
 | `{ "rebels": { "regiments": 6, "region": "bohemia" } }` | rebel army (region defaults to the capital) |
 | `{ "addRegiments": { "inf": 4, "cav": 2, "region": "castile" } }` | free army at full strength (region defaults to capital) |

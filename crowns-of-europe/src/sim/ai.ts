@@ -453,7 +453,8 @@ function aiWar(s: GameState, nat: Nation): void {
     if (desire) need *= 0.85;
     if (t === s.player && s.settings.difficulty === 'easy') need *= 1.3;
     if (ratio < need) continue;
-    const score = ratio + (cb.goal ? s.regions[cb.goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
+    // Past three to one, better odds add nothing: the land a crown wants decides which war it picks.
+    const score = Math.min(3, ratio) + (cb.goal ? s.regions[cb.goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
     if (!best || score > best.score) best = { target: t, cb, score };
   }
   if (!best) return;
@@ -555,18 +556,20 @@ function armyAI(s: GameState, a: Army): void {
   const myStrength = armyStrength(s, a) + friendlyStrengthAt(s, a);
   const hostileArmies = Object.values(s.armies).filter(o => o.id !== a.id && !o.retreating && armiesHostile(s, a, o) && !isSea(o.node));
 
-  // 1) Danger: a much bigger enemy stack nearby → fall back toward friends or a fort.
+  // 1) Danger: a much bigger enemy stack nearby → join up with our other armies if together we can face it,
+  // otherwise fall back toward friends or a fort.
   const danger = hostileArmies.filter(o => (tree.dist.get(o.node) ?? 999) <= 20 && armyStrength(s, o) > myStrength * 1.4);
   if (danger.length && !a.battle) {
+    const biggest = Math.max(...danger.map(o => armyStrength(s, o)));
+    const friends = Object.values(s.armies).filter(o => o.owner === n && o.id !== a.id && !o.battle && !o.retreating && (tree.dist.get(o.node) ?? 999) <= 15);
+    if (friends.length && myStrength + friends.reduce((t, o) => t + armyStrength(s, o), 0) >= biggest * 1.1) {
+      mergeWithNearby(s, a, tree);
+      return;
+    }
     const safe = safeSpot(s, a, tree, danger);
-    if (safe && safe !== a.node) {
-      const res = pathFromTree(tree, a.node, safe);
-      if (res) {
-        a.path = res.path;
-        a.progress = 0;
-        a.edgeDays = 0;
-        return;
-      }
+    if (safe && safe !== a.node && pathFromTree(tree, a.node, safe)) {
+      move(s, a, safe, tree); // keeps the march going if the first step is the same
+      return;
     }
   }
   // 2) Attack a stack we can beat (rebels count).

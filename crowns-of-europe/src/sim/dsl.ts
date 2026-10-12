@@ -35,7 +35,7 @@ const MODIFIER_KEYS = [
   'taxIncome', 'tradeIncome', 'manpower', 'morale', 'infantryPower', 'cavalryPower', 'artilleryPower', 'fortDefense',
   'siegeSpeed', 'attrition', 'upkeep', 'mercCost', 'devCost', 'coreCost', 'fortCost', 'shipCost', 'navalPower',
   'threatDecay', 'threatGain', 'opinion', 'diplomacy', 'holyWarMorale', 'unrest', 'techCost', 'movement',
-  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth', 'science',
+  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth', 'science', 'forceLimit',
 ];
 export const EVENT_IMAGES = [
   'crown', 'swords', 'siege', 'ship', 'church', 'plague', 'harvest', 'scroll', 'coins', 'castle', 'cannon', 'treaty',

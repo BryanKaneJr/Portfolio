@@ -19,6 +19,7 @@ import {
   fleetsOf,
   forceLimit,
   militaryPower,
+  nationMods,
   neighborsOf,
   ownedRegions,
   rulerAge,
@@ -110,6 +111,7 @@ function Military() {
   const era = ERA(me.era);
   const regs = totalRegiments(s, s.player);
   const fl = forceLimit(s, s.player);
+  const flMod = nationMods(s, s.player).forceLimit;
   return (
     <View>
       <Row gap={6}>
@@ -118,7 +120,7 @@ function Military() {
         <Stat label="Training" value={`${me.recruiting.length}`} icon="castle" />
       </Row>
       <T v="tiny" style={{ marginTop: 4 }}>
-        Above your army limit ({fl}, from your prosperity) every regiment costs more upkeep. In wartime your troops get full pay and refill faster; in peace, half pay.
+        Above your army limit ({fl}, from your prosperity{flMod ? `, ${signed(Math.round(flMod * 100))}% from traits and modifiers` : ''}) every regiment costs more upkeep. In wartime your troops get full pay and refill faster; in peace, half pay.
       </T>
       <Section title={`Armies (${armies.length})`}>
         {armies.length ? (

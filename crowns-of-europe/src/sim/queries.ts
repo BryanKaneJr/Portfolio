@@ -164,20 +164,21 @@ export function militaryPower(s: GameState, n: NationId): number {
 function computePower(s: GameState, n: NationId): number {
   const nat = s.nations[n];
   if (!nat) return 0;
-  const era = ERA(nat.era);
+  // Unit strength and morale count, traits and modifiers included (a crown judges an army by more than its size).
+  const inf = unitPower(s, n, 'inf');
+  const cav = unitPower(s, n, 'cav');
+  const art = unitPower(s, n, 'art');
   let p = 0;
-  for (const a of armiesOf(s, n)) {
-    p += (a.regs.inf.men * era.inf.power + a.regs.cav.men * era.cav.power + a.regs.art.men * (era.art?.power ?? 1)) / 1000;
-  }
+  for (const a of armiesOf(s, n)) p += (a.regs.inf.men * inf + a.regs.cav.men * cav + a.regs.art.men * art) / 1000;
   // Manpower in reserve counts for a little: it becomes regiments over a war.
-  return (p + nat.manpower / 4000) * (isNativeNation(n) ? NATIVE_POWER : 1);
+  return (p + (nat.manpower / 4000) * (isNativeNation(n) ? NATIVE_POWER : 1)) * (1 + nationMods(s, n).morale);
 }
 
 /** Force limit: how many regiments a nation can field without extra upkeep. New World land counts half. */
 export function forceLimit(s: GameState, n: NationId): number {
   let dev = 0;
   for (const r of ownedRegions(s, n)) dev += REGION[r.id].nw ? r.dev / 2 : r.dev;
-  return Math.round(6 + dev / 2.5);
+  return Math.round((6 + dev / 2.5) * (1 + nationMods(s, n).forceLimit));
 }
 
 // ---------------------------------------------------------------- modifiers
@@ -193,6 +194,7 @@ const ZERO: Required<Modifiers> = {
   fortDefense: 0, siegeSpeed: 0, attrition: 0, upkeep: 0, mercCost: 0, devCost: 0, coreCost: 0, fortCost: 0,
   shipCost: 0, navalPower: 0, threatDecay: 0, threatGain: 0, opinion: 0, diplomacy: 0, holyWarMorale: 0, unrest: 0,
   techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0, colonists: 0, settlerGrowth: 0, science: 0,
+  forceLimit: 0,
 };
 
 export interface ModSource {

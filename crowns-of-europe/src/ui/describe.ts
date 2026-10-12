@@ -40,6 +40,7 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   prestigeGain: ['renown gained', 'pct', true],
   stabilityCost: ['cost to raise order', 'pct', false],
   science: ['science', 'pct', true],
+  forceLimit: ['army limit', 'pct', true],
 };
 
 export interface ModLine {

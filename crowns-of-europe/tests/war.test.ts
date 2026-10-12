@@ -1,5 +1,5 @@
 import { emptyGame, army, forceWar } from './helpers';
-import { casusBelli, declareWar, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
+import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
 import { advanceDays } from '../src/sim/tick';
 import { pairKey } from '../src/sim/util';
 
@@ -42,6 +42,21 @@ describe('war and peace', () => {
     const polIn = w.defenders.includes('POL');
     if (!polIn) expect(s.alliances[pairKey('POL', 'HUN')]).toBeUndefined();
     else expect(w.defenders).toContain('POL');
+  });
+
+  test('distant allies defend you but stay out of your wars of conquest', () => {
+    const s = emptyGame('FRA');
+    // Denmark is far from the Ottomans: it would defend Hungary, but not march to the Danube for Hungary's attack.
+    expect(aiAnswersCall(s, 'DAN', 'HUN', 'TUR', true)).toBe(true);
+    expect(aiAnswersCall(s, 'DAN', 'HUN', 'TUR', false)).toBe(false);
+    // Scotland is next door to England: it joins France's attack, Denmark doesn't.
+    expect(aiAnswersCall(s, 'SCO', 'FRA', 'ENG', false)).toBe(true);
+    expect(aiAnswersCall(s, 'DAN', 'FRA', 'ENG', false)).toBe(false);
+    // A crown planning a war counts only the allies who would come.
+    s.alliances[pairKey('DAN', 'FRA')] = s.day;
+    const sides = likelySides(s, 'FRA', 'ENG');
+    expect(sides.attackers).toContain('SCO');
+    expect(sides.attackers).not.toContain('DAN');
   });
 
   test('a white peace ends the war with nothing changing hands', () => {

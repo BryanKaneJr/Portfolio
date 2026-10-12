@@ -335,6 +335,77 @@
     ]
   },
   {
+    "id": "hun_dead_of_varna",
+    "pool": "historical",
+    "title": "The Dead of Varna",
+    "text": "The crusade is over. King Wladyslaw fell at Varna with the flower of the Hungarian and Polish nobility, and his head was carried to the Sultan's camp on a lance. A boy king sits in Vienna and John Hunyadi governs as regent over a kingdom of widows. The Turks will come again.",
+    "image": "death",
+    "nations": ["HUN"],
+    "window": [1444, 1446],
+    "mtth": 1,
+    "news": "Hungary mourns the army lost at Varna.",
+    "trigger": {"exists": "TUR"},
+    "choices": [
+      {
+        "text": "Mourn the dead and rebuild slowly",
+        "effects": [{"modifier": {"id": "dead_of_varna", "name": "The Dead of Varna", "months": 48, "mods": {"manpower": -0.4, "morale": -0.15}}}],
+        "ai": 3
+      },
+      {
+        "text": "Pay to raise a new army at once",
+        "effects": [{"goldPerDev": -2}, {"stability": -1}, {"modifier": {"id": "dead_of_varna", "name": "The Dead of Varna", "months": 48, "mods": {"manpower": -0.4}}}],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tur_printing_ban",
+    "pool": "historical",
+    "title": "Scribes Before Presses",
+    "text": "Printers from the West have set up presses in your cities and turn out books in Hebrew and Greek by the hundred. The ulema and the guild of calligraphers come to you together: the words of the Quran must be written by a believer's hand, never stamped by a machine. Forbid printing in our script, they say, and the realm will stay pious and calm.",
+    "image": "book",
+    "nations": ["TUR"],
+    "window": [1483, 1500],
+    "mtth": 12,
+    "news": "The Sultan has forbidden printing in the Arabic script.",
+    "trigger": {"regionsAtLeast": 8},
+    "choices": [
+      {
+        "text": "Forbid printing in our script",
+        "effects": [
+          {"stability": 1},
+          {"modifier": {"id": "scribes_before_presses", "name": "Scribes Before Presses", "months": 2880, "mods": {"science": -0.25}}}
+        ],
+        "ai": 3
+      },
+      {"text": "Let the presses run", "effects": [{"stability": -1}, {"unrestAll": 2}], "ai": 0}
+    ]
+  },
+  {
+    "id": "tur_proud_janissaries",
+    "pool": "historical",
+    "title": "The Janissaries Grow Proud",
+    "text": "The janissary corps has doubled in size since the great conquests. Sons of janissaries and city shopkeepers buy their way into the ranks, the old drill is forgotten, and the corps riots whenever a vizier speaks of new weapons or new ways of fighting. Last week they overturned their soup cauldrons outside the palace: the sign of mutiny.",
+    "image": "rebels",
+    "nations": ["TUR"],
+    "window": [1566, 1600],
+    "mtth": 12,
+    "news": "The Ottoman janissaries have forced the Sultan to give way.",
+    "trigger": {"regionsAtLeast": 10},
+    "choices": [
+      {
+        "text": "Pay them and leave them be",
+        "effects": [
+          {"stability": 1},
+          {"removeModifier": "tur_janissaries"},
+          {"modifier": {"id": "proud_corps", "name": "A Proud Corps", "months": 1800, "mods": {"techCost": 0.5, "infantryPower": -0.15}}}
+        ],
+        "ai": 3
+      },
+      {"text": "Break the corps and drill a new army", "effects": [{"stability": -3}, {"prestige": -10}, {"rebels": {"regiments": 8}}], "ai": 0}
+    ]
+  },
+  {
     "id": "hab_great_turkish_war",
     "pool": "historical",
     "title": "The Holy League",

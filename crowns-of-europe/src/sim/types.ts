@@ -56,6 +56,7 @@ export type Modifiers = Partial<{
   colonists: number;
   settlerGrowth: number;
   science: number;
+  forceLimit: number;
 }>;
 
 // ---------------------------------------------------------------- content

@@ -39,9 +39,9 @@ bundled and works in airplane mode.
   **zone of control**: enemy forts stop your march.
 - **Navy, light:** galleys, transports and ships of the line; fleets carry armies, close straits, blockade
   coasts, and fight in one roll.
-- **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms, war
-  score from battles, occupation, blockades and the war goal, and peace deals that spend it on regions, gold,
-  vassals or freeing nations. Ten-year truces.
+- **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms (distant
+  allies only answer defensive ones), war score from battles, occupation, blockades and the war goal, and peace
+  deals that spend it on regions, gold, vassals or freeing nations. Ten-year truces.
 - **Threat and coalitions:** taking land alarms your neighbours; three or more frightened nations form a
   defensive coalition.
 - **Diplomacy:** opinion from −200 to +200 with a breakdown, alliances, royal marriages (inheritance and personal

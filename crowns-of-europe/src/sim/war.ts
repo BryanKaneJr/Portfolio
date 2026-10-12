@@ -23,7 +23,7 @@ import {
 } from './queries';
 import { addOpinion, isHreMember, opinion } from './diplomacy';
 import { wantedRegions } from './aims';
-import { addThreat, coalitionAgainst } from './threat';
+import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
 import { clamp, isIn, months, pairKey, yearOf, years } from './util';
@@ -95,7 +95,7 @@ export function likelySides(s: GameState, a: NationId, b: NationId): { attackers
   for (const al of alliesOf(s, b)) if (!attackers.includes(al) && !allied(s, al, a)) defenders.push(al);
   const c = coalitionAgainst(s, a);
   if (c?.members.includes(b)) for (const m of c.members) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
-  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && opinion(s, al, a) >= 25) attackers.push(al);
+  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && aiAnswersCall(s, al, a, b, false)) attackers.push(al);
   return { attackers, defenders };
 }
 
@@ -190,6 +190,8 @@ function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): vo
 export function aiAnswersCall(s: GameState, ally: NationId, leader: NationId, enemy: NationId, defensive: boolean): boolean {
   if (allied(s, ally, enemy) || topOverlord(s, ally) === topOverlord(s, enemy)) return false;
   if (warsOf(s, ally).length >= 2) return false;
+  // Nobody marches across Europe for someone else's war of conquest (defending an ally is another matter).
+  if (!defensive && proximity(s, ally, enemy) < 0.75) return false;
   const op = opinion(s, ally, leader);
   const opEnemy = opinion(s, ally, enemy);
   const strength = (militaryPower(s, leader) + militaryPower(s, ally)) / Math.max(1, militaryPower(s, enemy));

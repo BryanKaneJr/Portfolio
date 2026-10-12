@@ -38,6 +38,20 @@ describe('movement', () => {
     expect(findPath(s, a, 'austria')).not.toBeNull();
   });
 
+  test('an army standing in a region catches enemies marching out of it', () => {
+    const s = emptyGame('TUR');
+    forceWar(s, 'TUR', 'BYZ');
+    declareWar(s, 'TUR', 'BYZ', 'none');
+    const byz = army(s, 'BYZ', 'bulgaria', 5);
+    orderMove(s, byz, 'constantinople');
+    advanceDays(s, 1);
+    expect(byz.node).toBe('bulgaria'); // still on the way out
+    const tur = army(s, 'TUR', 'bulgaria', 10);
+    advanceDays(s, 1);
+    expect(byz.battle).toBeTruthy();
+    expect(tur.battle).toBe(byz.battle);
+  });
+
   test('islands need transports; enemy fleets close straits', () => {
     const s = emptyGame('ENG');
     const a = army(s, 'ENG', 'wales', 4);

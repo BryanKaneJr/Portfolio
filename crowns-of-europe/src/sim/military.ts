@@ -308,11 +308,14 @@ function battleHasEnemyOf(s: GameState, battleId: string, a: Army): boolean {
   return b.sides.some(side => side.armies.some(id => s.armies[id] && armiesHostile(s, s.armies[id], a)));
 }
 
-/** Hostile armies standing in the same region (e.g. right after a war is declared) start fighting. */
+/**
+ * Hostile armies in the same region (e.g. right after a war is declared) start fighting. An army standing in a
+ * region also catches enemies still marching out of it.
+ */
 export function dailyEngagements(s: GameState): void {
   const byNode = new Map<NodeId, Army[]>();
   for (const a of Object.values(s.armies)) {
-    if (a.path.length || a.retreating || a.battle || isSea(a.node)) continue;
+    if (a.retreating || a.battle || isSea(a.node)) continue;
     const list = byNode.get(a.node);
     if (list) list.push(a);
     else byNode.set(a.node, [a]);
@@ -320,8 +323,14 @@ export function dailyEngagements(s: GameState): void {
   for (const [node, list] of byNode) {
     if (list.length < 2 && !Object.values(s.battles).some(b => b.node === node)) continue;
     for (const a of list) {
-      if (a.battle) continue;
-      if (list.some(o => o !== a && armiesHostile(s, a, o)) || Object.values(s.battles).some(b => b.node === node && battleHasEnemyOf(s, b.id, a))) {
+      if (a.battle || a.path.length) continue; // the standing army starts it; marching ones are caught
+      const caught = list.filter(o => o !== a && !o.battle && armiesHostile(s, a, o));
+      if (caught.length || Object.values(s.battles).some(b => b.node === node && battleHasEnemyOf(s, b.id, a))) {
+        for (const o of caught) {
+          o.path = [];
+          o.progress = 0;
+          o.edgeDays = 0;
+        }
         joinOrStartBattle(s, node, a);
       }
     }

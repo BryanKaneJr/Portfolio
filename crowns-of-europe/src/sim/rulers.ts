@@ -1,7 +1,7 @@
 /** Rulers age and die, heirs take over, republics elect, theocracies choose. Generals are hired and retire. */
 import { NATION, TRAITS, namePool } from './content';
 import { log, involvesPlayer } from './log';
-import { invalidateMods, married, REBELS } from './queries';
+import { invalidateMods, married, REBELS, totalDev } from './queries';
 import type { GameState, General, NationId, Ruler } from './types';
 import { chance, pick, rand, randInt, yearOf, years, nextId } from './util';
 import { makeSubject } from './territory';
@@ -110,9 +110,17 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
     invalidateMods();
     return;
   }
-  // No heir: a succession crisis. A married dynasty may inherit through a personal union.
+  // No heir: a succession crisis. A married dynasty may inherit through a personal union, if it is not too small
+  // to hold the realm (the great lords of an empire won't bow to a minor king).
   const claimants = Object.values(s.nations).filter(
-    o => o.alive && o.id !== n && married(s, n, o.id) && NATION[o.id].gov === 'monarchy' && !o.overlord && o.faith === nat.faith,
+    o =>
+      o.alive &&
+      o.id !== n &&
+      married(s, n, o.id) &&
+      NATION[o.id].gov === 'monarchy' &&
+      !o.overlord &&
+      o.faith === nat.faith &&
+      totalDev(s, o.id) * 2 >= totalDev(s, n),
   );
   const claimant = claimants.sort((a, b) => b.prestige - a.prestige)[0];
   if (claimant && chance(s, 0.15) && !nat.overlord && n !== s.player) {
