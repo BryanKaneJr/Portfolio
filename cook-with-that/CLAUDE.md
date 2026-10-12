@@ -189,7 +189,11 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   published versions each (1,208 sources cited). All work: 393 as written, 11 had one number outside the published
   range and were fixed, none scored below 4 of 5, so none was cut. 16 matched one published recipe across the board
   (Toll House cookies, Pioneer Woman tres leches, Eagle Brand fudge…) and were reworked from ratios, then checked the
-  same way. Scores, sources and notes for every recipe: `docs/recipe-review/verification/`.
+  same way. The owner then had the 96 recipes that scored 4 moved onto the published amounts ("the 96 we take the
+  amounts used in comparisons"): per quantity, the median of 4–9 published versions, never one source's whole formula
+  and never back toward a reworked recipe's source. 87 had numbers moved, 9 only clearer cues; 400 now score 5 and 4
+  stay at 4 (their last edge value would mean copying the source they were reworked away from). Scores, sources and
+  notes for every recipe: `docs/recipe-review/verification/`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -208,8 +212,8 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
    as published ones were rewritten from ratios). New batches get the same: reviewers reading each recipe as a cook,
    plus `npm run audit:recipes`. The "cook-test first" lists are now lists of the riskiest recipes to re-read.
    All 404 written recipes were then checked against published versions (`docs/recipe-review/verification/`); new
-   written batches get that check too. The 96 recipes scored 4 of 5 are the candidates if the owner wants a stricter
-   cut.
+   written batches get that check too. The 96 that scored 4 of 5 were then moved onto the typical published amounts
+   (owner's choice over cutting them); 400 now score 5.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web

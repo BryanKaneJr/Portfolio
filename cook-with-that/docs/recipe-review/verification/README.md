@@ -20,9 +20,9 @@ same dish.
 - **Every recipe works.** 393 matched published versions as written; 11 had one number outside the published range
   and were fixed. No checker scored anything below 4, so **nothing was cut**: the cut bar was "doesn't work and can't
   be fixed with a small change, or can't be checked", and no recipe met it.
-- **Scores:** 308 at 5, 96 at 4. A 4 means it works and sits inside the range, but near an edge of it or in a dish
-  that depends more on the cook's pan or oven (each 4's reason is in `verdicts.json`). These are the candidates if
-  the owner wants a stricter cut.
+- **Scores:** 308 at 5, 96 at 4. A 4 meant it works and sits inside the range, but near an edge of it or in a dish
+  that depends more on the cook's pan or oven. The owner chose to move those 96 onto the published amounts rather
+  than cut them (next section).
 
 ### The 11 fixes
 | Recipe | Was | Now | Why |
@@ -69,6 +69,26 @@ way (scores 4–5). Details: `rework-a.md`, `rework-b.md`, and each recipe's `re
 Lower-concern overlaps were left as they are, because they share only the dish's standard numbers: lava cakes
 (Jean-Georges' chocolate, butter and eggs), brown butter blondies, mango sticky rice, oyakodon (the textbook 4:1:1
 sauce), chipotle black bean dip, chicken Marsala's two liquids, egg salad.
+
+## The 96 fours moved onto the published amounts
+Owner, 2026-10-12: "the 96 we take the amounts used in comparisons." Eight agents took about 12 each and, quantity by
+quantity, moved whatever kept a recipe at a 4 onto the **typical (median) value of 4–9 published versions**, scaled to
+our batch: liquid to rice, thickener to liquid, butter and sugar in baking, seasoning per pound, oven temperature and
+time, frying temperature, portion size. The median is taken per quantity, so no recipe takes on one source's whole
+formula; where the medians would have added up to one published recipe, one number of ours inside the range was kept,
+and the 16 reworked recipes were never moved back toward the recipe they had matched. House rules still win (steak
+and lamb at 130°F with the USDA line, no egg warnings, salt where fitting). Each agent's notes are `align-1.md` …
+`align-8.md`; every recipe's `aligned` entry in `verdicts.json` lists old → new and the published values used.
+
+- **87 recipes had numbers moved.** Examples: gnocchi for 4 is 1 lb, not 2; the biryani uses 2 lb of chicken, not
+  2 1/2; tuna pasta bake and cauliflower cheese sauces have the usual 2 tbsp flour per cup of milk; mulligatawny has
+  1 cup of lentils; easy tomato soup simmers 30 minutes; several bakes moved from 375–400°F to the usual 350°F with
+  longer times; the pad kra pao and gyudon sauces and the jollof and Jamaican rice-and-peas liquids sit at the median.
+- **9 already sat at the typical values;** their 4 came from the dish (pan or oven), so only the doneness cue or pan
+  size got clearer.
+- **Now 400 recipes score 5 and 4 score 4:** chocolate fudge, blueberry crumb bars, coconut macaroons and caramel
+  corn. Each works and sits inside the published range, but its last edge value's median is the exact number of the
+  published recipe it was reworked away from, so it stays.
 
 ## For new batches
 New written recipes get this check too: compare each with published versions before merging, and rework any that
