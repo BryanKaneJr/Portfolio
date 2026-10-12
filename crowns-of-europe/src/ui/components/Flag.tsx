@@ -234,7 +234,7 @@ export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { 
 });
 
 /** Heraldic shield outline in a 30 x 36 box. */
-const SHIELD = 'M1.6 1.6H28.4V15.2C28.4 25.6 21.4 31.6 15 34.6C8.6 31.6 1.6 25.6 1.6 15.2Z';
+export const SHIELD = 'M1.6 1.6H28.4V15.2C28.4 25.6 21.4 31.6 15 34.6C8.6 31.6 1.6 25.6 1.6 15.2Z'; // on a 30 × 36 box
 
 /**
  * The nation's arms on a shield with a gilded rim and a little light and shade, for headers and the top bar

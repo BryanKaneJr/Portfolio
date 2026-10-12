@@ -144,4 +144,8 @@ the zooms used; public domain). Land colours: NASA's
 (public domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
-code.
+code. Icons (coins, helmet, scales, laurels, crowns, the pikeman and galleon on the map tokens, the fire behind an
+enemy's arms and the rest of the emblems) by [Lorc](https://lorcblog.blogspot.com/) and
+[Delapouite](https://delapouite.com/) from [game-icons.net](https://game-icons.net/), under
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/); `npm run icons:build` copies them in
+(`scripts/build-icons.ts` lists each one).

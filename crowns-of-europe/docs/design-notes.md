@@ -169,6 +169,14 @@ here.
     circle (on a sheet or page header, a section title or a line) that opens a short note in place, and numbers
     open their breakdowns when tapped. Long-form teaching is in How to play and the one-time hints (which now also
     show while a sheet is open, at the top, so the first army you select gets its tip).
+20. **Emblems from game-icons.net (on request).** The hand-drawn line icons for resources and events read as
+    generic app icons, and the hand-drawn fire behind an enemy's arms did not convince. The game's emblems now come
+    from game-icons.net (CC BY 3.0, by Lorc and Delapouite; credited in the README and Settings > About): a stack of
+    coins for gold, a helmet for levies, scales for order, a laurel crown for renown, a mailed fist for Threat, a
+    pikeman and a galleon on the map's tokens, and a real fire, red at the base to yellow at the tips, that an
+    enemy's shield stands in (your own side's shield stands in a gold glow). The plain controls stay simple line
+    icons, as on a phone. `scripts/build-icons.ts` copies the chosen glyphs into the code as path data, so the game
+    stays offline.
 
 ## Key numbers (all in `src/sim/`)
 

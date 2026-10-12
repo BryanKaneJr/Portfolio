@@ -20,7 +20,10 @@ a Mercator map, light tutorial, no audio yet).
 - **Content is data.** Events, missions and achievements are JSON in `src/content/`, written in the
   condition/effect language. A new condition or effect goes in `src/sim/dsl.ts` (schema), `src/sim/events.ts`
   (implementation), `docs/content-guide.md` and `tests/events.test.ts` (sample). `npm run validate` must pass.
-- **Original text only.** No other game's wording, art or mechanic names. Player-facing text says prosperity,
+- **Original text only.** No other game's wording, art or mechanic names. Free art under an open licence is fine
+  with credit: the emblems are game-icons.net glyphs (CC BY 3.0, Lorc and Delapouite), listed in
+  `scripts/build-icons.ts` and credited in the README and Settings > About; add any new one there and run
+  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). Player-facing text says prosperity,
   levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
   colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
   `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
@@ -56,10 +59,10 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
-               Glass, Flag, BurningShield, Icon), layout, describe
+               Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, build-relief, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
+scripts/       build-map, build-relief, build-icons, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
 ```
@@ -76,6 +79,8 @@ npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Eur
 npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npm run map:build           # after editing regions.json / seas.json
+npm run icons:build         # after adding an emblem to scripts/build-icons.ts (fetches game-icons.net once into
+                            # scripts/data/game-icons, git-ignored)
 npm run relief:build        # then: relief, land colour, water lines and the known world's shadows
                             # (assets/map/; fetches elevation and Blue Marble tiles once into
                             # scripts/data/terrain-cache, git-ignored)
@@ -117,6 +122,8 @@ and red only mean good and bad. `display` (Cinzel, bundled) is for titles and se
 `fontWeight` to it (the file is already the bold cut; the web would fake a heavier one); body text is the system
 face; event stories use `book` (IM Fell). Anything floating over the map is `Glass` (blur + dark tint + hairline,
 `gilt` for a gilded rim); nations show as `Shield` (their arms on a heraldic shield) in headers and the top bar.
+`Icon` draws the game's emblems (resources, war, the realm, event pictures) from game-icons.net and the plain
+controls (play, close, menu...) as simple line icons.
 The game screen: the map fills the screen; the top bar (arms, resources, messages), the side rail (outliner, map
 lens; their panels open beside it), the war rail on the left (each enemy's arms on fire, `BurningShield`; tap for
 the war screen, `game/WarScreen.tsx`), the dock (time, and the realm's pages as a tab bar) float over it; sheets

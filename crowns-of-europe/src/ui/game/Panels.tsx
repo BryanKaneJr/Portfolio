@@ -27,7 +27,7 @@ export function Panel({ title, children, onClose, footer, right, help }: { title
   const [helpOpen, setHelpOpen] = useState(false);
   return (
     <View style={[styles.panel, { paddingTop: insets.top }]}>
-      <Svg style={StyleSheet.absoluteFill} pointerEvents="none">
+      <Svg width="100%" height="100%" style={StyleSheet.absoluteFill} pointerEvents="none">
         <Defs>
           <SvgGradient id="pageGlow" x1="0" y1="0" x2="0" y2="1">
             <Stop offset="0" stopColor="#1d222b" />

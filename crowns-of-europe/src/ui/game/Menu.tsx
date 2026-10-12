@@ -38,6 +38,7 @@ import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab } from './ColonySheets';
 import { GeneralRow } from './UnitSheets';
+import { GLYPH_CREDIT } from '../components/gameIcons';
 import { STAR_BONUS } from '../../sim/rulers';
 import { ScienceTab } from './Science';
 import { colonistsOf, coloniesOf, freeColonists, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
@@ -541,7 +542,7 @@ function Settings() {
       </Section>
       <Section
         title="About"
-        help="Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain."
+        help={`Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). ${GLYPH_CREDIT} History, nations and rulers are public domain.`}
       >
         <T v="small">
           Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}

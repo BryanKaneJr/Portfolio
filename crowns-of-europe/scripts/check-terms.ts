@@ -37,7 +37,7 @@ function walk(dir: string): string[] {
 }
 for (const file of [...walk(path.join(ROOT, 'src/sim')), ...walk(path.join(ROOT, 'src/ui')), ...walk(path.join(ROOT, 'src/app')), ...walk(path.join(ROOT, 'src/state'))]) {
   const rel = path.relative(ROOT, file);
-  if (rel.endsWith('Icon.tsx')) continue; // SVG path data
+  if (rel.endsWith('Icon.tsx') || rel.endsWith('gameIcons.ts')) continue; // SVG path data
   fs.readFileSync(file, 'utf8')
     .split('\n')
     .forEach((line, i) => {

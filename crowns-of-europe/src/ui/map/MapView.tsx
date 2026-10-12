@@ -22,6 +22,7 @@ import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nat
 import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, TERRAIN_DETAIL, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
+import { GLYPHS } from '../components/gameIcons';
 
 export interface Camera {
   cx: number;
@@ -854,13 +855,10 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
   );
 });
 
-/** A pikeman and a carrack, drawn for this game on a 24-unit square (with the offsets that centre each on its token). */
-const GLYPH = {
-  troop: { d: 'M17.6 4.4h1.3v18.1h-1.3zM18.25 0.6l1.6 4h-3.2zM5.4 7.4c1.7-1 9.5-1 11.2 0l-.8.9c-2.2-.6-7.4-.6-9.6 0zM7.8 7c.3-2.8 1.7-4.2 3.2-4.2s2.9 1.4 3.2 4.2zM10.5 2.9l.5-1.5.5 1.5zM11 8.3a2 2 0 1 1 0 4a2 2 0 1 1 0-4zM6.7 13c.4-.7 1.6-1 4.3-1s3.9.3 4.3 1l.6 4.6H6.1zM14.8 13.1l3.2 1.3v1.5l-3.4-1zM7.1 17.6h3.2l-.3 5H7.5zM11.7 17.6h3.2l-.4 5h-2.5z', cx: 12.6, cy: 11.6 },
-  ship: { d: 'M2.4 15.2h19.2l-2.3 4.4c-.4.7-1 1-1.8 1H6.5c-.8 0-1.4-.3-1.8-1zM2.4 15.2l-.5-2.9h4.6v2.9zM17.6 15.2v-1.9h3.9l.1 1.9zM12.6 2.2h1.1v13h-1.1zM8.6 4.9c2.7.8 6.4.8 9.1 0l-.5 6.8c-2.4.8-5.7.8-8.1 0zM13.7 2.2l3.3.8l-3.3.8zM5.3 6.4h.95v8.8H5.3zM3.2 7.8c1.6.5 3.7.5 5.3 0l-.3 4.4c-1.4.5-3.3.5-4.7 0z', cx: 11.7, cy: 11.4 },
-};
+/** What stands on each token: a pikeman for an army, a galleon for a fleet (game-icons.net, see gameIcons.ts). */
+const GLYPH = { troop: GLYPHS.pikeman.d, ship: GLYPHS.ship.d };
 const TOKEN = 28; // the token's side, in points
-const G_SCALE = 0.9; // the glyph on it
+const GLYPH_SIZE = 22; // the emblem on it, in points
 
 /** One army or fleet on the map: (x, y) is the token's centre; the count hangs from its lower edge. Your own units
  * have a light rim, the selected one a gold one and a halo; a gold dot means it is on the move. */
@@ -875,7 +873,7 @@ function Token({ x, y, glyph, n, color, mine, sel, moving, faded }: { x: number;
       <Rect x={-half} y={-half + 1.5} width={TOKEN} height={TOKEN} rx={7} fill="rgba(0,0,0,0.35)" />
       <Rect x={-half} y={-half} width={TOKEN} height={TOKEN} rx={7} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2.2 : 1.5} />
       <Rect x={-half + 1.6} y={-half + 1.6} width={TOKEN - 3.2} height={TOKEN - 3.2} rx={5.6} fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth={1} />
-      <Path d={g.d} fill={textOn(color)} transform={`translate(${-g.cx * G_SCALE} ${-g.cy * G_SCALE}) scale(${G_SCALE})`} />
+      <Path d={g} fill={textOn(color)} transform={`translate(${-GLYPH_SIZE / 2} ${-GLYPH_SIZE / 2}) scale(${GLYPH_SIZE / 512})`} />
       {moving ? <Rect x={half - 6} y={-half - 2} width={8} height={8} rx={4} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
       <Rect x={-pw / 2} y={half - 4} width={pw} height={15} rx={7.5} fill="rgba(13,16,21,0.92)" stroke="rgba(214,178,110,0.75)" strokeWidth={1} />
       <SvgText x={0} y={half + 7.2} textAnchor="middle" fontSize={11} fontWeight="800" fill="#fffaf0" fontFamily={sans}>
