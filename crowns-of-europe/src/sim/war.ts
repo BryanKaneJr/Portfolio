@@ -22,7 +22,7 @@ import {
   warsOf,
 } from './queries';
 import { addOpinion, isHreMember, opinion } from './diplomacy';
-import { wantedRegions } from './aims';
+import { wantedRegions, wantsFrom } from './aims';
 import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
@@ -89,13 +89,28 @@ export function canDeclareWar(s: GameState, a: NationId, b: NationId): string | 
 }
 
 /** Who would fight on each side, before anyone answers a call to arms. */
+/**
+ * The Empire's defence against an outsider: the Emperor rides to defend a member, and the electors march to
+ * defend the Emperor.
+ */
+export function imperialDefenders(s: GameState, a: NationId, b: NationId): NationId[] {
+  const emp = s.hre.emperor;
+  if (!emp || isHreMember(s, a) || emp === a) return [];
+  if (emp !== b) return isHreMember(s, b) && !allied(s, emp, a) && emp !== s.player && opinion(s, emp, b) > -20 ? [emp] : [];
+  return s.hre.electors.filter(
+    e => e !== a && e !== b && e !== s.player && s.nations[e]?.alive && !s.nations[e].overlord && !allied(s, e, a) && warsOf(s, e).length < 2 && opinion(s, e, emp) > -20,
+  );
+}
+
 export function likelySides(s: GameState, a: NationId, b: NationId): { attackers: NationId[]; defenders: NationId[] } {
   const attackers = [a, ...subjectsOf(s, a)];
   const defenders = [b, ...subjectsOf(s, b)];
-  for (const al of alliesOf(s, b)) if (!attackers.includes(al) && !allied(s, al, a)) defenders.push(al);
+  // A truce binds: allies under truce with the other side stay out.
+  for (const al of alliesOf(s, b)) if (!attackers.includes(al) && !allied(s, al, a) && !hasTruce(s, al, a)) defenders.push(al);
   const c = coalitionAgainst(s, a);
   if (c?.members.includes(b)) for (const m of c.members) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
-  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && aiAnswersCall(s, al, a, b, false)) attackers.push(al);
+  for (const m of imperialDefenders(s, a, b)) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
+  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && !hasTruce(s, al, b) && aiAnswersCall(s, al, a, b, false)) attackers.push(al);
   return { attackers, defenders };
 }
 
@@ -154,11 +169,13 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
   // Coalition members defend each other.
   const c = coalitionAgainst(s, a);
   if (c?.members.includes(b)) for (const m of c.members) if (m !== s.player) join('defenders', m);
-  // The Emperor protects members of the Empire from outsiders.
+  // The Emperor protects members of the Empire from outsiders, and the electors protect the Emperor.
   const emp = s.hre.emperor;
-  if (emp && emp !== a && emp !== b && isHreMember(s, b) && !isHreMember(s, a) && !allied(s, emp, a) && emp !== s.player && opinion(s, emp, b) > -20) {
-    join('defenders', emp);
-    log(s, 'war', `The Emperor (${nationName(emp)}) rides to defend ${nationName(b)}.`, { important: involvesPlayer(s, a, b, emp) });
+  const imperial = imperialDefenders(s, a, b).filter(m => !war.attackers.includes(m) && !war.defenders.includes(m));
+  for (const m of imperial) join('defenders', m);
+  if (imperial.length && emp) {
+    const text = emp === b ? `The electors of the Empire march to defend the Emperor: ${imperial.map(nationName).join(', ')}.` : `The Emperor (${nationName(emp)}) rides to defend ${nationName(b)}.`;
+    log(s, 'war', text, { important: involvesPlayer(s, a, b, ...imperial) });
   }
   callAllies(s, war, 'defenders');
   callAllies(s, war, 'attackers');
@@ -171,6 +188,7 @@ function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): vo
   for (const al of alliesOf(s, leader)) {
     if (war.attackers.includes(al) || war.defenders.includes(al)) continue;
     if (s.nations[al].overlord) continue;
+    if (hasTruce(s, al, enemy)) continue; // a truce binds: it stays out, and nobody holds it against it
     if (al === s.player) {
       s.offers.push({ id: `o${++s.seq}`, kind: 'callToArms', from: leader, war: war.id, day: s.day });
       requestPause(s, 'offer');
@@ -190,8 +208,10 @@ function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): vo
 export function aiAnswersCall(s: GameState, ally: NationId, leader: NationId, enemy: NationId, defensive: boolean): boolean {
   if (allied(s, ally, enemy) || topOverlord(s, ally) === topOverlord(s, enemy)) return false;
   if (warsOf(s, ally).length >= 2) return false;
-  // Nobody marches across Europe for someone else's war of conquest (defending an ally is another matter).
-  if (!defensive && proximity(s, ally, enemy) < 0.75) return false;
+  // A war of conquest is joined only by allies nearby with a stake in it: land they want from the enemy, or the
+  // enemy is their rival. Nobody marches across Europe for someone else's conquest; defending an ally is another
+  // matter.
+  if (!defensive && (proximity(s, ally, enemy) < 0.75 || !(s.nations[ally].rivals.includes(enemy) || wantsFrom(s, ally, enemy).length))) return false;
   const op = opinion(s, ally, leader);
   const opEnemy = opinion(s, ally, enemy);
   const strength = (militaryPower(s, leader) + militaryPower(s, ally)) / Math.max(1, militaryPower(s, enemy));
@@ -284,11 +304,18 @@ export function monthlyWars(s: GameState): void {
 
 // ---------------------------------------------------------------- peace
 
+/** The capital of a realm of three or more regions: it gives it up only when utterly beaten, at twice the cost.
+ * (A city state's capital is most of what it has, and costs the usual.) */
+export const isCapitalAtStake = (s: GameState, r: RegionId) => {
+  const owner = s.regions[r]?.owner;
+  return !!owner && s.nations[owner]?.capital === r && ownedRegions(s, owner).length >= 3;
+};
+
 /** War score each part of a deal costs. */
 export function regionPeaceCost(s: GameState, winner: NationId, r: RegionId): number {
   const reg = s.regions[r];
   const claimed = r in s.nations[winner].claims || reg.cores.includes(winner);
-  return Math.max(3, Math.round(reg.dev * 3 * (claimed ? 0.7 : 1)));
+  return Math.max(3, Math.round(reg.dev * 3 * (claimed ? 0.7 : 1) * (isCapitalAtStake(s, r) ? 2 : 1)));
 }
 
 export function peaceCost(s: GameState, terms: PeaceTerms): number {

@@ -79,22 +79,42 @@ here.
     of the 15th and 16th centuries: Ghazi Spirit gives +15% morale, infantry and cavalry and +50% army limit
     and levies. Hungary opens the game in mourning (*The Dead of Varna*: −40% levies for four years, −15% morale
     unless it pays to rebuild), the truces after Varna hold Hungary and Poland off until 1448, and Poland and
-    Hungary start unallied (their shared king died there). Two historical events then hold the Ottomans back in
-    science, which is what lets Europe catch up: *Scribes Before Presses* (1483-1500, printing forbidden: −25%
-    science for 240 years) and *The Janissaries Grow Proud* (1566-1600: advances cost +50% and infantry −15% for
-    150 years, and the Janissaries bonus is lost). The AI always takes the historical choice; a player can
-    refuse, at a price. Their learning is 0.85. General fixes that came out of this: a fleeing army whose next
+    Hungary start unallied (their shared king died there). Two historical events then hold the Ottomans back,
+    which is what lets Europe catch up: *Scribes Before Presses* (1483-1500, printing forbidden: −25% science for
+    240 years) and *The Janissaries Grow Proud* (1566-1600: for 150 years war advances cost double, infantry −15%,
+    army limit and levies −25%, and the Janissaries bonus is lost). The AI always takes the historical choice; a
+    player can refuse, at a price. Their learning is 0.85. Europe then strikes back: *The Holy League* (from 1670,
+    while the Ottomans hold Hungarian, Balkan or Austrian land) has Austria declare a holy war joined by Poland,
+    Venice, the Papacy, Muscovy and the Empire's princes (Poland leads if Austria is gone), and *Prince Eugene
+    Marches South* (1695-1740) does it again. General fixes that came out of this: a fleeing army whose next
     step took longer than the AI's re-think never arrived (the Ottoman and Byzantine armies sat together in
     Bulgaria for years); an army standing in a region now catches enemies marching out of it; an AI army facing
     a bigger enemy joins up with its other armies nearby before it thinks of running; the AI's strength
     estimate counts unit strength and morale, not just heads; past three to one, better odds no longer decide
-    which war a crown picks (its aims do); allies answer offensive calls only when they are within three
-    regions of the enemy (defensive calls are unchanged); and a crown can no longer inherit a realm more than
-    twice its size. In eight AI games the Ottomans won the opening war every time
-    (Constantinople by 1446), held 11-26 regions in 1520 (median 16) and peaked at 16-37 between 1550 and 1650;
-    no single war cost them more than three regions. After about 1600 they stopped growing and most lost ground,
-    and by 1680 the leading European crowns had reached the last troop age while the Ottomans were an age behind
-    in seven of the eight (`scripts/dev/ottomans.ts`).
+    which war a crown picks (its aims do); the AI looks again at what its scholars study once a year,
+    switching when another advance has become much better value; an army besieging its war goal no longer
+    runs off to chase enemies (only a relief army close by), and none chases more than 40 days away; a battle
+    at the walls pauses a siege instead of undoing it (relief attacks used to wipe out months of progress);
+    a truce binds allies too (Hungary, under truce after Varna, can't join Byzantium's defence); and crowns
+    that know Bombards in 1444 (France, Burgundy, the Ottomans) start with a siege train. Measured in AI games: the Ottomans took Constantinople in
+    their opening war in 47 of 48 games (by 1450); in eight games to 1700 they held 9-22 regions in 1520 and
+    peaked at 16-50; in 1600 they were still in the second troop age while Europe had the third, and in 1700 in
+    the third while Europe had the fourth (all eight); Europe won land back from them after 1600 in five of the
+    eight (Austria retook Hungary in three). The biggest empires still reach into central Europe now and then
+    (Vienna or Bohemia in two of the three checked; none held Italian land) (`scripts/dev/opening.ts`,
+    `scripts/dev/ottomans.ts`, `scripts/dev/powers.ts`).
+15. **Europe's great powers hold together (on request).** France and Austria used to die in most AI games:
+    France was carved up by England and Burgundy with half of Europe piling in, and Austria (three regions) was
+    made a vassal and absorbed. Now France has the first standing army in Europe (Gendarmes: +30% army limit and
+    levies, +20% artillery, +15% cavalry) and England no longer claims Anjou, Poitou and Paris (it only wants to
+    hold Normandy and Gascony until about 1460 and Calais until about 1560). The Emperor cannot be made a
+    vassal, the electors march to defend the Emperor against an outsider, the title gives +25% army limit and
+    +20% levies, and electors keep the sitting Emperor's house far more often. Across all crowns: allies join
+    an attack only from within three regions of the enemy and with a stake in it (land they want from it, or it
+    is their rival); the capital of a realm of three or more regions costs double at the peace table (and a winning AI fights on for its war goal rather than settle for less); a great crown (not a minor) accepts no
+    master by treaty, and a great crown in a personal union keeps its own laws and is never integrated; and only
+    a claimant at least as large as the realm can inherit it in a succession crisis. In eight AI games to 1700 France survived in seven (England
+    took it in the eighth) and Austria in all eight, and no crown grew past about 50 regions.
 
 ## Key numbers (all in `src/sim/`)
 
@@ -109,10 +129,10 @@ here.
 | Battle | daily d10 + general pip difference; attacker −1 in rough terrain (−2 mountains, −1 river); damage = roll × front-line power; casualties = damage × 6; morale loss = damage × 0.069 / regiments |
 | Front width | plains 20, forest and hills 14, marsh 12, mountains 10 |
 | Stack wipe | winner's men ≥ 5 × loser's remaining men |
-| Sieges | 15 days without a fort; 75 days per fort level, +10% speed per artillery regiment (max +150%) |
+| Sieges | 15 days without a fort; 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
 | Supply | 10/7/7/5/5 by terrain + 0.8 × development (+3 in friendly land), × 0.6 in northern/eastern winters |
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
-| Peace cost | 3% per development per region (× 0.7 if claimed), 2% per development to vassalize, 1% per 10 gold |
+| Peace cost | 3% per development per region (× 0.7 if claimed, × 2 for the capital of a realm of 3+ regions), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Science a month | (1 + 0.6 × average prosperity of your 5 richest regions (all of them if fewer) + 0.15 × √total prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |
 | Advance cost | base (600 … 7,500) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 + 1% per region beyond 10, +50% max) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |

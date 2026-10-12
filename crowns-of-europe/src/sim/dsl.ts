@@ -35,7 +35,7 @@ const MODIFIER_KEYS = [
   'taxIncome', 'tradeIncome', 'manpower', 'morale', 'infantryPower', 'cavalryPower', 'artilleryPower', 'fortDefense',
   'siegeSpeed', 'attrition', 'upkeep', 'mercCost', 'devCost', 'coreCost', 'fortCost', 'shipCost', 'navalPower',
   'threatDecay', 'threatGain', 'opinion', 'diplomacy', 'holyWarMorale', 'unrest', 'techCost', 'movement',
-  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth', 'science', 'forceLimit',
+  'prestigeGain', 'stabilityCost', 'colonists', 'settlerGrowth', 'science', 'forceLimit', 'warTechCost',
 ];
 export const EVENT_IMAGES = [
   'crown', 'swords', 'siege', 'ship', 'church', 'plague', 'harvest', 'scroll', 'coins', 'castle', 'cannon', 'treaty',
@@ -57,6 +57,7 @@ export const CONDITION_SCHEMA: Record<string, Arg> = {
   exists: 'nation',
   atWar: 'bool',
   atWarWith: 'nation',
+  truceWith: 'nation',
   faith: 'faith',
   nationFaith: { nation: 'nation', faith: 'faith' },
   stability: 'range',
@@ -150,7 +151,7 @@ export const EFFECT_SCHEMA: Record<string, Arg> = {
   newHeir: { name: 'string', skill: 'number', traits: 'string?', age: 'number?' },
   triggerEvent: { id: 'string', months: 'number?', nation: 'nation?' },
   reformation: 'number',
-  declareWar: { target: 'nation', cb: 'string?', region: 'region?' },
+  declareWar: { target: 'nation', cb: 'string?', region: 'region?', with: 'nationOrList?' },
   loans: 'number',
   emperor: 'true',
   discoverNewWorld: 'true',

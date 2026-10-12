@@ -225,6 +225,8 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
     }
     case 'vassalize': {
       if (hostile(s, from, to)) return fail('You are at war.');
+      if (s.hre.emperor === to) return fail('The Emperor bows to no one.');
+      if (NATION[to].tier !== 'minor') return fail('A great crown accepts no master by treaty (only by defeat in war).');
       if (B.overlord) return fail('They already have an overlord.');
       if (A.overlord) return fail('Subjects cannot take subjects.');
       const ratio = totalDev(s, from) / Math.max(1, totalDev(s, to));
@@ -240,6 +242,7 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
     case 'annex': {
       if (B.overlord !== from) return fail('Only your own subjects.');
       if (B.subjectType === 'union') {
+        if (NATION[to].tier !== 'minor') return fail('A great crown keeps its own laws under a shared king: it cannot be integrated.');
         if (s.day - (B.subjectSince ?? s.day) < years(50)) return fail('A junior partner can be integrated after 50 years.');
       } else if (s.day - (B.subjectSince ?? s.day) < years(15)) return fail('A vassal can be annexed after 15 years.');
       if (op < 50) return fail('They must like you (opinion 50+).');

@@ -6,7 +6,7 @@ import { NATION, REGION, nationName, regionName } from '../../sim/content';
 import { boostStability, playerDeclareWar, proposePeace, separatePeace } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
 import { modifierSources, sideOf, subjectsOf, ownedRegions } from '../../sim/queries';
-import { casusBelli, demandableRegions, likelySides, peaceAcceptance, peaceCost, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
+import { casusBelli, demandableRegions, isCapitalAtStake, likelySides, peaceAcceptance, peaceCost, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
 import type { PeaceTerms } from '../../sim/types';
 import { formatShortDate } from '../../sim/util';
@@ -282,6 +282,7 @@ export function PeacePanel({ warId }: { warId: string }) {
                         Prosperity {s.regions[r].dev}
                         {r in s.nations[winner].claims || s.regions[r].cores.includes(winner) ? ' · claimed' : ''}
                         {s.regions[r].controller === winner ? ' · occupied' : ''}
+                        {isCapitalAtStake(s, r) ? ' · capital (costs double)' : ''}
                       </Text>
                     </View>
                     <Text style={styles.cost}>{regionPeaceCost(s, winner, r)}%</Text>

@@ -97,7 +97,8 @@ export function holdImperialElection(s: GameState): void {
     let best = members[0];
     let bestScore = -Infinity;
     for (const c of members) {
-      const score = (c === e ? 40 : 0) + opinion(s, e, c) + totalDev(s, c) / 3 + s.nations[c].prestige / 4 + (c === s.hre.emperor ? 10 : 0);
+      // Electors favour themselves a little and the sitting Emperor's house a lot: the crown rarely changes hands.
+      const score = (c === e ? 20 : 0) + opinion(s, e, c) + totalDev(s, c) / 3 + s.nations[c].prestige / 4 + (c === s.hre.emperor ? 40 : 0);
       if (score > bestScore) {
         bestScore = score;
         best = c;

@@ -177,8 +177,10 @@ export function newGame(opts: NewGameOptions): GameState {
     const regs = Math.max(2, Math.round(fl * share));
     const cavShare = def.trait === 'steppe_horde' ? 0.6 : def.trait === 'szlachta' || def.trait === 'gendarmes' ? 0.35 : 0.25;
     const cav = Math.max(1, Math.round(regs * cavShare));
-    const inf = regs - cav;
-    const army: Army = makeArmy(s, nat.id, nat.capital, inf, cav, 0);
+    // Crowns that already cast great guns in 1444 (Bombards) bring a siege train.
+    const art = nat.advances.includes('bombards') ? Math.max(2, Math.round(regs * 0.15)) : 0;
+    const inf = regs - cav - art;
+    const army: Army = makeArmy(s, nat.id, nat.capital, inf, cav, art);
     if (def.tier !== 'minor') army.general = newGeneral(s, nat.id);
     s.armies[army.id] = army;
     // Big nations split their army between capital and a second, border region.

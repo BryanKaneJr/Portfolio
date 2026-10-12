@@ -194,7 +194,7 @@ const ZERO: Required<Modifiers> = {
   fortDefense: 0, siegeSpeed: 0, attrition: 0, upkeep: 0, mercCost: 0, devCost: 0, coreCost: 0, fortCost: 0,
   shipCost: 0, navalPower: 0, threatDecay: 0, threatGain: 0, opinion: 0, diplomacy: 0, holyWarMorale: 0, unrest: 0,
   techCost: 0, movement: 0, prestigeGain: 0, stabilityCost: 0, colonists: 0, settlerGrowth: 0, science: 0,
-  forceLimit: 0,
+  forceLimit: 0, warTechCost: 0,
 };
 
 export interface ModSource {
@@ -217,7 +217,7 @@ export function modifierSources(s: GameState, n: NationId): ModSource[] {
   for (const p of nat.policies) if (POLICY[p]) out.push({ name: POLICY[p].name, mods: POLICY[p].mods });
   for (const a of nat.advances) if (ADVANCE[a]?.mods) out.push({ name: ADVANCE[a].name, mods: ADVANCE[a].mods! });
   for (const m of nat.modifiers) if (m.until < 0 || m.until > s.day) out.push({ name: m.name, mods: m.mods });
-  if (s.hre.emperor === n) out.push({ name: 'Holy Roman Emperor', mods: { manpower: 0.1, diplomacy: 1, opinion: 10 } });
+  if (s.hre.emperor === n) out.push({ name: 'Holy Roman Emperor', mods: { manpower: 0.2, forceLimit: 0.25, diplomacy: 1, opinion: 10 } });
   // Difficulty: the AI gets a small bonus or malus.
   if (n !== s.player && s.settings.difficulty !== 'normal') {
     const k = s.settings.difficulty === 'hard' ? 1 : -1;

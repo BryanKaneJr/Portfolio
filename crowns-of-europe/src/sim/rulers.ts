@@ -110,8 +110,8 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
     invalidateMods();
     return;
   }
-  // No heir: a succession crisis. A married dynasty may inherit through a personal union, if it is not too small
-  // to hold the realm (the great lords of an empire won't bow to a minor king).
+  // No heir: a succession crisis. A married dynasty may inherit through a personal union, if it is at least as
+  // great as the realm (its lords won't bow to a lesser king).
   const claimants = Object.values(s.nations).filter(
     o =>
       o.alive &&
@@ -120,7 +120,7 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
       NATION[o.id].gov === 'monarchy' &&
       !o.overlord &&
       o.faith === nat.faith &&
-      totalDev(s, o.id) * 2 >= totalDev(s, n),
+      totalDev(s, o.id) >= totalDev(s, n),
   );
   const claimant = claimants.sort((a, b) => b.prestige - a.prestige)[0];
   if (claimant && chance(s, 0.15) && !nat.overlord && n !== s.player) {

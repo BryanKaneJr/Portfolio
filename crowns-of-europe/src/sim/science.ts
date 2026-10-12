@@ -11,7 +11,7 @@ import { log } from './log';
 import { invalidateMods, isCoastal, nationMods, neighborsOf, ownedRegions, totalDev } from './queries';
 import { markMapDirty } from './territory';
 import type { AdvanceDef, AdvanceUnlock, GameState, Nation, NationId, Region, RegionId } from './types';
-import { yearOf } from './util';
+import { dateOf, yearOf } from './util';
 
 /** Funding your scholars: a tenth of your income buys a quarter more science. */
 export const FUNDING_SHARE = 0.1;
@@ -97,8 +97,9 @@ export function advanceCost(s: GameState, n: NationId, id: string): CostBreakdow
   if (regions > BIG_REALM) factors.push({ label: `Large realm (${regions} regions)`, value: 1 + Math.min(BIG_REALM_MAX, BIG_REALM_COST * (regions - BIG_REALM)) });
   const near = Math.min(MAX_NEIGHBOURS, neighborsOf(s, n).filter(o => knows(s.nations[o], id)).length);
   if (near) factors.push({ label: `${near} neighbour${near > 1 ? 's' : ''} already know${near > 1 ? '' : 's'} it`, value: 1 - NEIGHBOUR_DISCOUNT * near });
-  const m = nationMods(s, n).techCost;
-  if (m) factors.push({ label: 'Traits and modifiers', value: 1 + m });
+  const mods = nationMods(s, n);
+  if (mods.techCost) factors.push({ label: 'Traits and modifiers', value: 1 + mods.techCost });
+  if (def.field === 'war' && mods.warTechCost) factors.push({ label: 'War advances: traits and modifiers', value: 1 + mods.warTechCost });
   const total = Math.max(1, Math.round(def.cost * factors.reduce((t, x) => t * x.value, 1)));
   return { base: def.cost, factors, total };
 }
@@ -163,10 +164,8 @@ export function learnAdvance(s: GameState, n: NationId, id: string): void {
   } else if (first) log(s, 'news', `${NATION[n].name} is the first to master ${def.name}.`, { nation: n });
 }
 
-/** The AI's (and a spectated player's) choice of what to study: cheap advances it cares about first. */
-export function chooseResearch(s: GameState, n: NationId): string | null {
-  const options = availableAdvances(s, n);
-  if (!options.length) return null;
+/** How much the AI wants to study an advance now: what it cares about, per point of science it costs. */
+function researchScore(s: GameState, n: NationId, a: AdvanceDef): number {
   const pers = NATION[n].personality;
   const coastal = isCoastal(s, n);
   const colonial = ['POR', 'CAS', 'ENG', 'FRA', 'BUR', 'DAN', 'SCO', 'ARA'].includes(n);
@@ -179,7 +178,25 @@ export function chooseResearch(s: GameState, n: NationId): string | null {
     if (a.unlock === 'artillery') w *= 1.3;
     return w;
   };
-  return options.map(a => ({ id: a.id, score: weight(a) / advanceCost(s, n, a.id).total })).sort((a, b) => b.score - a.score)[0].id;
+  return weight(a) / advanceCost(s, n, a.id).total;
+}
+
+/** The AI's (and a spectated player's) choice of what to study: cheap advances it cares about first. */
+export function chooseResearch(s: GameState, n: NationId): string | null {
+  const options = availableAdvances(s, n);
+  if (!options.length) return null;
+  return options.map(a => ({ id: a.id, score: researchScore(s, n, a) })).sort((a, b) => b.score - a.score)[0].id;
+}
+
+/** Once a year the AI looks again: if another advance has become much better value (costs change with the years,
+ * neighbours and modifiers), it switches. Banked science is kept. */
+const RETHINK = 1.5;
+function rethinkResearch(s: GameState, n: NationId): void {
+  const nat = s.nations[n];
+  const current = nat.researching ? ADVANCE[nat.researching] : undefined;
+  const best = chooseResearch(s, n);
+  if (!current || !best || best === current.id) return;
+  if (researchScore(s, n, ADVANCE[best]) > researchScore(s, n, current) * RETHINK) nat.researching = best;
 }
 
 export function monthlyScience(s: GameState): void {
@@ -189,6 +206,7 @@ export function monthlyScience(s: GameState): void {
     nat.science += scienceRate(s, n).total;
     const ai = n !== s.player || '__spectate' in s.flags;
     if (ai && (!nat.researching || knows(nat, nat.researching))) nat.researching = chooseResearch(s, n);
+    else if (ai && dateOf(s.day).month === 0) rethinkResearch(s, n);
     if (!nat.researching) continue;
     const cost = advanceCost(s, n, nat.researching).total;
     if (nat.science >= cost) {

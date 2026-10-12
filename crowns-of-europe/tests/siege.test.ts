@@ -30,4 +30,20 @@ describe('sieges', () => {
     advanceDays(s, 200);
     expect(s.regions.burgundy.controller).toBe('FRA');
   });
+
+  test('a relief army that attacks the besiegers pauses the siege, it does not undo it', () => {
+    const s = emptyGame('ENG');
+    forceWar(s, 'FRA', 'BUR');
+    declareWar(s, 'FRA', 'BUR', 'none');
+    s.regions.burgundy.fort = 3;
+    army(s, 'FRA', 'burgundy', 20, 0, 4);
+    advanceDays(s, 60);
+    const before = s.regions.burgundy.siege!.progress;
+    expect(before).toBeGreaterThan(0.1);
+    const relief = army(s, 'BUR', 'burgundy', 3); // a small relief army: a battle at the walls
+    advanceDays(s, 1);
+    expect(relief.battle || !s.armies[relief.id]).toBeTruthy();
+    advanceDays(s, 10); // the relief army is beaten and the siege goes on from where it was
+    expect(s.regions.burgundy.siege!.progress).toBeGreaterThan(before);
+  });
 });

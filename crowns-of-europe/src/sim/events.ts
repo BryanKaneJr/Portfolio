@@ -6,6 +6,7 @@ import {
   atWar,
   borders,
   fleetsOf,
+  hasTruce,
   invalidateMods,
   isCoastal,
   ownedRegions,
@@ -22,7 +23,7 @@ import { annexNation, makeSubject, releaseSubject, transferRegion } from './terr
 import { addRegiments } from './military';
 import { newGeneral, rulerDies } from './rulers';
 import { spawnRebels } from './rebels';
-import { declareWar } from './war';
+import { canDeclareWar, declareWar, joinWar } from './war';
 import { SETTLERS_NEEDED, coloniesOf, discoverNewWorld, newWorldRegions } from './colonies';
 import type { Condition, Effect, EventDef, Faith, GameState, NationId } from './types';
 import { chance, clamp, months, pickWeighted, randInt, yearOf } from './util';
@@ -64,6 +65,8 @@ export function evalCondition(s: GameState, n: NationId, c: Condition): boolean 
       return atWar(s, n) === v;
     case 'atWarWith':
       return !!warBetween(s, n, v);
+    case 'truceWith':
+      return hasTruce(s, n, v);
     case 'faith':
       return nat.faith === v;
     case 'nationFaith':
@@ -335,9 +338,20 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       }
       break;
     }
-    case 'declareWar':
-      if (s.nations[v.target]?.alive) declareWar(s, n, v.target, v.cb ?? 'claim', v.region);
+    case 'declareWar': {
+      if (!s.nations[v.target]?.alive) break;
+      const war = declareWar(s, n, v.target, v.cb ?? 'claim', v.region);
+      // A league: the named crowns join the attack if they are free to (independent, no truce, not allied to the
+      // enemy). The player is asked like any ally would be.
+      for (const m of war && v.with ? ([] as NationId[]).concat(v.with) : []) {
+        if (!s.nations[m]?.alive || m === n || s.nations[m].overlord || canDeclareWar(s, m, v.target) || hasTruce(s, m, v.target)) continue;
+        if (m === s.player) {
+          s.offers.push({ id: `o${++s.seq}`, kind: 'callToArms', from: n, war: war!.id, day: s.day });
+          requestPause(s, 'offer');
+        } else if (joinWar(s, m, war!.id, 0)) s.nations[m].armyMode = 'war';
+      }
       break;
+    }
     case 'loans':
       nat.loans += v;
       nat.gold += v * 100;

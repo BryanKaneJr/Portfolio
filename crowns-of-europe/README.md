@@ -35,13 +35,15 @@ bundled and works in airplane mode.
 - **Battles** that run for days so reinforcements can join: each day 1d10 plus general and terrain, damage
   scaled by the front line (20 wide on plains, 10 in mountains), morale, retreat, cavalry pursuit, and the
   **stack wipe** when the winner has five times the loser's remaining men. River crossings cost the attacker.
-- **Sieges** (15 days for open land; forts need 3 regiments per level and months, faster with artillery) and
+- **Sieges** (15 days for open land; forts need 3 regiments per level and months, faster with artillery; a relief
+  battle pauses a siege rather than undoing it) and
   **zone of control**: enemy forts stop your march.
 - **Navy, light:** galleys, transports and ships of the line; fleets carry armies, close straits, blockade
   coasts, and fight in one roll.
-- **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms (distant
-  allies only answer defensive ones), war score from battles, occupation, blockades and the war goal, and peace
-  deals that spend it on regions, gold, vassals or freeing nations. Ten-year truces.
+- **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms (allies join
+  an attack only from nearby and with a stake in it), war score from battles, occupation, blockades and the war
+  goal, and peace deals that spend it on regions (a capital costs double), gold, vassals or freeing nations.
+  Ten-year truces that bind allies too.
 - **Threat and coalitions:** taking land alarms your neighbours; three or more frightened nations form a
   defensive coalition.
 - **Diplomacy:** opinion from −200 to +200 with a breakdown, alliances, royal marriages (inheritance and personal

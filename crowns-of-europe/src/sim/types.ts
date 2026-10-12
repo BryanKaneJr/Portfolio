@@ -57,6 +57,7 @@ export type Modifiers = Partial<{
   settlerGrowth: number;
   science: number;
   forceLimit: number;
+  warTechCost: number;
 }>;
 
 // ---------------------------------------------------------------- content
@@ -202,6 +203,7 @@ export type Condition =
   | { exists: NationId }
   | { atWar: boolean }
   | { atWarWith: NationId }
+  | { truceWith: NationId }
   | { faith: Faith }
   | { nationFaith: { nation: NationId; faith: Faith } }
   | { stability: [number, number] }
@@ -301,7 +303,7 @@ export type Effect =
   | { newHeir: { name: string; skill: number; traits?: string[]; age?: number } }
   | { triggerEvent: { id: string; months?: number; nation?: NationId } }
   | { reformation: number }
-  | { declareWar: { target: NationId; cb?: CasusBelli; region?: RegionId } }
+  | { declareWar: { target: NationId; cb?: CasusBelli; region?: RegionId; with?: NationId | NationId[] } }
   | { loans: number }
   | { emperor: true }
   | { discoverNewWorld: true }

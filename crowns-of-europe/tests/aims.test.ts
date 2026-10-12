@@ -19,8 +19,10 @@ describe('historical aims', () => {
 
   test('aims end with their years, or once the land is won; the player has none', () => {
     const s = emptyGame('POR');
-    expect(activeAims(s, 'ENG').map(a => a.id)).toContain('eng_french_lands');
+    // England holds Normandy and Gascony in 1444: the aim to keep them wakes only once France takes one back.
+    expect(activeAims(s, 'ENG').map(a => a.id)).not.toContain('eng_french_lands');
     for (const r of ['normandy', 'gascony', 'calais']) s.regions[r].owner = 'FRA';
+    expect(activeAims(s, 'ENG').map(a => a.id)).toContain('eng_french_lands');
     expect(activeAims(s, 'FRA').map(a => a.id)).not.toContain('fra_english_out');
     expect(activeAims(s, 'FRA').map(a => a.id)).not.toContain('fra_italy'); // not before 1490
     s.day = dayOf(1600, 1, 1);

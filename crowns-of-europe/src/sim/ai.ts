@@ -54,7 +54,7 @@ import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree,
 import { minSiegeRegs } from './siege';
 import { fleetPower, findSeaPath, seaDistances } from './navy';
 import type { Army, GameState, Nation, NationId, NodeId, PeaceTerms, Region, War } from './types';
-import { chance, months, pick, yearOf, years } from './util';
+import { chance, isIn, months, pick, yearOf, years } from './util';
 
 /** The player's nation is run by the AI only in spectator mode (dev tools, title-screen demo). */
 export const isHuman = (s: GameState, n: NationId) => n === s.player && !('__spectate' in s.flags);
@@ -497,6 +497,9 @@ function aiPeace(s: GameState, nat: Nation): void {
     // AI vs AI.
     if (sc >= 25 || (sc >= 10 && years_ > 3)) {
       const terms = buildDemands(s, w, n, sc);
+      // Winning a young war of conquest but the war goal is not yet affordable: fight on for it.
+      const goalHeld = side === 0 && !!w.goal && isIn(w.defenders, s.regions[w.goal]?.owner) && !terms.regions.includes(w.goal);
+      if (goalHeld && years_ < 3 && sc < 60) continue;
       if ((terms.regions.length || terms.gold) && peaceAcceptance(s, w, terms, enemyLeader).accept) makePeace(s, w, terms);
       else if (sc >= 60 && terms.regions.length) makePeace(s, w, terms); // forced
     } else if (Math.abs(sc) < 15 && years_ > 4) {
@@ -572,11 +575,14 @@ function armyAI(s: GameState, a: Army): void {
       return;
     }
   }
-  // 2) Attack a stack we can beat (rebels count).
+  // 2) Attack a stack we can beat (rebels count), but not far off, and an army besieging its war goal only
+  // turns on enemies who come close (a relief army), never chases off after others.
+  const goals = new Set(Object.values(s.wars).filter(w => sideOf(w, n) !== null).map(w => w.goal));
+  const onGoal = goals.has(a.node) && !!s.regions[a.node]?.siege && s.regions[a.node].siege!.by === n;
   let bestTarget: { node: NodeId; score: number } | null = null;
   for (const o of hostileArmies) {
     const d = tree.dist.get(o.node);
-    if (d === undefined || d > 60) continue;
+    if (d === undefined || d > (onGoal ? 10 : 40)) continue;
     const theirs = armyStrength(s, o) + Object.values(s.armies).filter(x => x.node === o.node && x.id !== o.id && x.owner === o.owner).reduce((t, x) => t + armyStrength(s, x), 0);
     if (myStrength < theirs * 1.25) continue;
     const score = theirs / (d + 5);
@@ -588,7 +594,6 @@ function armyAI(s: GameState, a: Army): void {
   }
   // 3) Besiege: enemy-held regions we can reach, preferring the war goal, low forts and our own lost land.
   const regs = armyRegs(a);
-  const goals = new Set(Object.values(s.wars).filter(w => sideOf(w, n) !== null).map(w => w.goal));
   let bestSiege: { node: NodeId; score: number } | null = null;
   const takenBy = new Set(Object.values(s.armies).filter(x => x.owner === n && x.id !== a.id).map(x => (x.path.length ? x.path[x.path.length - 1] : x.node)));
   for (const r of Object.values(s.regions)) {

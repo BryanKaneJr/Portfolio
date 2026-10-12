@@ -7,7 +7,7 @@ import { execSync } from 'node:child_process';
 const sample: Record<string, unknown> = {
   all: [{ year: [1444] }], any: [{ year: [1444] }], not: { year: [1900] }, year: [1444], isNation: 'FRA', isPlayer: true,
   owns: 'ile_de_france', ownsAny: ['ile_de_france'], controls: 'ile_de_france', nationOwns: { nation: 'ENG', region: 'london' },
-  exists: 'BYZ', atWar: false, atWarWith: 'ENG', faith: 'catholic', nationFaith: { nation: 'ENG', faith: 'catholic' },
+  exists: 'BYZ', atWar: false, atWarWith: 'ENG', truceWith: 'ENG', faith: 'catholic', nationFaith: { nation: 'ENG', faith: 'catholic' },
   stability: [0], goldAtLeast: 1, prestigeAtLeast: 1, threatAtLeast: 0, regionsAtLeast: 1, regimentsAtLeast: 0, devAtLeast: 1,
   capitalDevAtLeast: 1, allied: 'SCO', alliesAtLeast: 1, borders: 'BUR', rulerSkill: [1], rulerAgeAtLeast: 1, hasHeir: true,
   eraAtLeast: 1, flag: 'x', nationFlag: 'x', loansAtLeast: 0, isEmperor: false, isElector: false, subjectOf: true, overlordOf: true,
@@ -52,6 +52,12 @@ describe('event language', () => {
     expect(s.nations.FRA.modifiers.find(m => m.id === 't')).toBeDefined();
     applyEffect(s, 'FRA', { addRegiments: { inf: 3 } });
     expect(Object.values(s.armies).some(a => a.owner === 'FRA' && a.regs.inf.n === 3)).toBe(true);
+    // A league: the leader declares and the free crowns on the list join it.
+    applyEffect(s, 'HAB', { declareWar: { target: 'TUR', cb: 'holy', with: ['VEN', 'PAP', 'POL', 'TUR'] } });
+    const league = Object.values(s.wars).find(w => w.attackers[0] === 'HAB' && w.defenders[0] === 'TUR')!;
+    expect(league.attackers).toEqual(expect.arrayContaining(['VEN', 'PAP']));
+    expect(league.attackers).not.toContain('POL'); // still bound by the truce after Varna
+    expect(evalCondition(s, 'FRA', { truceWith: 'ENG' })).toBe(true); // the 1444 truce
     // All effect keys at least run without throwing.
     expect(Object.keys(EFFECT_SCHEMA).length).toBeGreaterThan(30);
   });

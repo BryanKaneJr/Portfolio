@@ -385,7 +385,7 @@
     "id": "tur_proud_janissaries",
     "pool": "historical",
     "title": "The Janissaries Grow Proud",
-    "text": "The janissary corps has doubled in size since the great conquests. Sons of janissaries and city shopkeepers buy their way into the ranks, the old drill is forgotten, and the corps riots whenever a vizier speaks of new weapons or new ways of fighting. Last week they overturned their soup cauldrons outside the palace: the sign of mutiny.",
+    "text": "The janissary corps has doubled in size since the great conquests. Sons of janissaries and city shopkeepers buy their way into the ranks, the old drill is forgotten, and the corps riots whenever a vizier speaks of new weapons or new ways of fighting. In the provinces the land-holders' sons no longer ride to war. Last week the corps overturned its soup cauldrons: the sign of mutiny.",
     "image": "rebels",
     "nations": ["TUR"],
     "window": [1566, 1600],
@@ -398,7 +398,7 @@
         "effects": [
           {"stability": 1},
           {"removeModifier": "tur_janissaries"},
-          {"modifier": {"id": "proud_corps", "name": "A Proud Corps", "months": 1800, "mods": {"techCost": 0.5, "infantryPower": -0.15}}}
+          {"modifier": {"id": "proud_corps", "name": "A Proud Corps", "months": 1800, "mods": {"warTechCost": 1, "infantryPower": -0.15, "forceLimit": -0.25, "manpower": -0.25}}}
         ],
         "ai": 3
       },
@@ -409,22 +409,31 @@
     "id": "hab_great_turkish_war",
     "pool": "historical",
     "title": "The Holy League",
-    "text": "The Ottomans still hold the plains of Hungary, but their armies look weaker than at any time in living memory. The Pope, Venice and Poland talk of a Holy League to drive the Turk out of Hungary for good. All they need is a prince to lead it.",
+    "text": "The Ottomans still hold Christian lands, but their armies have fallen behind ours: old guns, old drill, a corps that riots at every reform. The Pope, Venice and Poland talk of a Holy League to drive the Turk out for good. All they need is a prince to lead it.",
     "image": "swords",
     "nations": ["HAB"],
-    "window": [1680, 1730],
+    "window": [1670, 1730],
     "mtth": 24,
-    "news": "The Habsburgs are gathering a Holy League against the Ottomans.",
+    "news": "The Habsburgs lead a Holy League against the Ottomans.",
     "trigger": {
       "all": [
         {"exists": "TUR"},
         {"not": {"flag": "great_turkish_war"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "TUR"}},
+        {"not": {"truceWith": "TUR"}},
         {
           "any": [
             {"nationOwns": {"nation": "TUR", "region": "hungary"}},
             {"nationOwns": {"nation": "TUR", "region": "upper_hungary"}},
             {"nationOwns": {"nation": "TUR", "region": "transylvania"}},
-            {"nationOwns": {"nation": "TUR", "region": "croatia"}}
+            {"nationOwns": {"nation": "TUR", "region": "croatia"}},
+            {"nationOwns": {"nation": "TUR", "region": "bosnia"}},
+            {"nationOwns": {"nation": "TUR", "region": "serbia"}},
+            {"nationOwns": {"nation": "TUR", "region": "wallachia"}},
+            {"nationOwns": {"nation": "TUR", "region": "styria"}},
+            {"nationOwns": {"nation": "TUR", "region": "austria"}},
+            {"nationOwns": {"nation": "TUR", "region": "tyrol"}}
           ]
         }
       ]
@@ -434,13 +443,105 @@
         "text": "Lead a Holy League into Hungary",
         "effects": [
           {"setFlag": "great_turkish_war"},
-          {"addClaim": ["hungary", "upper_hungary", "transylvania", "croatia"]},
+          {"addClaim": ["hungary", "upper_hungary", "transylvania", "croatia", "bosnia", "serbia"]},
           {"papalFavor": 10},
-          {"threat": 5}
+          {"declareWar": {"target": "TUR", "cb": "holy", "with": ["POL", "VEN", "PAP", "MOS", "BAV", "SAX", "BRA", "BOH", "HUN"]}}
         ],
         "ai": 4
       },
       {"text": "Secure your western borders first", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
+    ]
+  },
+  {
+    "id": "hab_prince_eugene",
+    "pool": "historical",
+    "title": "Prince Eugene Marches South",
+    "text": "Your best general, a small, sharp-tongued prince the King of France once refused a commission, asks for one more war against the Turk: Belgrade and the Danube forts. The Venetians are fighting for the Morea again and beg for help, and the Sultan's armies have not caught up with ours.",
+    "image": "swords",
+    "nations": ["HAB"],
+    "window": [1695, 1740],
+    "mtth": 24,
+    "news": "Austria goes to war with the Ottomans again.",
+    "trigger": {
+      "all": [
+        {"exists": "TUR"},
+        {"flag": "great_turkish_war"},
+        {"not": {"flag": "second_turkish_war"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "TUR"}},
+        {"not": {"truceWith": "TUR"}},
+        {
+          "any": [
+            {"nationOwns": {"nation": "TUR", "region": "serbia"}},
+            {"nationOwns": {"nation": "TUR", "region": "bosnia"}},
+            {"nationOwns": {"nation": "TUR", "region": "wallachia"}},
+            {"nationOwns": {"nation": "TUR", "region": "hungary"}},
+            {"nationOwns": {"nation": "TUR", "region": "transylvania"}},
+            {"nationOwns": {"nation": "TUR", "region": "croatia"}}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send Prince Eugene south",
+        "effects": [
+          {"setFlag": "second_turkish_war"},
+          {"addClaim": ["serbia", "bosnia", "wallachia", "hungary", "transylvania", "croatia"]},
+          {"declareWar": {"target": "TUR", "cb": "holy", "with": ["VEN", "POL", "MOS", "BAV", "SAX"]}}
+        ],
+        "ai": 4
+      },
+      {"text": "Keep the peace and the treasury", "effects": [{"stability": 1}, {"gold": 50}], "ai": 1}
+    ]
+  },
+  {
+    "id": "pol_holy_league",
+    "pool": "historical",
+    "title": "A League without the Emperor",
+    "text": "The Habsburgs are gone, yet the Turk still holds Christian lands, and his armies have fallen behind ours. The Pope's envoy says only the King of Poland can lead a Holy League now. Your hussars are ready.",
+    "image": "horse",
+    "nations": ["POL"],
+    "window": [1670, 1730],
+    "mtth": 24,
+    "news": "Poland leads a Holy League against the Ottomans.",
+    "trigger": {
+      "all": [
+        {"exists": "TUR"},
+        {"not": {"flag": "great_turkish_war"}},
+        {"not": {"exists": "HAB"}},
+        {"not": {"subjectOf": true}},
+        {"not": {"atWarWith": "TUR"}},
+        {"not": {"truceWith": "TUR"}},
+        {
+          "any": [
+            {"nationOwns": {"nation": "TUR", "region": "hungary"}},
+            {"nationOwns": {"nation": "TUR", "region": "upper_hungary"}},
+            {"nationOwns": {"nation": "TUR", "region": "transylvania"}},
+            {"nationOwns": {"nation": "TUR", "region": "croatia"}},
+            {"nationOwns": {"nation": "TUR", "region": "bosnia"}},
+            {"nationOwns": {"nation": "TUR", "region": "serbia"}},
+            {"nationOwns": {"nation": "TUR", "region": "wallachia"}},
+            {"nationOwns": {"nation": "TUR", "region": "styria"}},
+            {"nationOwns": {"nation": "TUR", "region": "austria"}},
+            {"nationOwns": {"nation": "TUR", "region": "tyrol"}},
+            {"nationOwns": {"nation": "TUR", "region": "moldavia"}}
+          ]
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ride at the head of the League",
+        "effects": [
+          {"setFlag": "great_turkish_war"},
+          {"addClaim": ["moldavia", "wallachia", "hungary"]},
+          {"papalFavor": 10},
+          {"declareWar": {"target": "TUR", "cb": "holy", "with": ["VEN", "PAP", "MOS", "BAV", "SAX", "BRA", "BOH", "HUN"]}}
+        ],
+        "ai": 4
+      },
+      {"text": "Guard our own borders", "effects": [{"stability": 1}], "ai": 1}
     ]
   },
   {

@@ -121,6 +121,7 @@ owning the mission).
 | `{ "exists": "BYZ" }` | that nation still exists |
 | `{ "atWar": true }` | at war with anyone |
 | `{ "atWarWith": "BYZ" }` | on opposite sides of a war with that nation |
+| `{ "truceWith": "TUR" }` | has a truce with that nation |
 | `{ "faith": "catholic" }` | this nation's faith (catholic, orthodox, muslim, protestant, native) |
 | `{ "nationFaith": { "nation": "ENG", "faith": "protestant" } }` | another nation's faith |
 | `{ "stability": [1] }` / `{ "stability": [-3, -1] }` | stability in range |
@@ -178,7 +179,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "convertRegion": { "region": "saxony", "faith": "protestant" } }` | change a region's faith |
 | `{ "changeFaith": "protestant" }` | this nation's faith |
 | `{ "setFlag": "x" }`, `{ "clearFlag": "x" }`, `{ "setNationFlag": "x" }` | flags |
-| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost, colonists (flat: +1 = one more colonist), settlerGrowth, science, forceLimit (army limit) (fractions) |
+| `{ "modifier": { "id": "x", "name": "Shown name", "months": 60, "mods": { "taxIncome": 0.1 } } }` | timed modifier (months ≤ 0 = permanent). Keys: taxIncome, tradeIncome, manpower, morale, infantryPower, cavalryPower, artilleryPower, fortDefense, siegeSpeed, attrition, upkeep, mercCost, devCost, coreCost, fortCost, shipCost, navalPower, threatDecay, threatGain, opinion, diplomacy, holyWarMorale, unrest, techCost, movement, prestigeGain, stabilityCost, colonists (flat: +1 = one more colonist), settlerGrowth, science, forceLimit (army limit), warTechCost (cost of war advances) (fractions) |
 | `{ "removeModifier": "x" }` | remove one |
 | `{ "rebels": { "regiments": 6, "region": "bohemia" } }` | rebel army (region defaults to the capital) |
 | `{ "addRegiments": { "inf": 4, "cav": 2, "region": "castile" } }` | free army at full strength (region defaults to capital) |
@@ -196,6 +197,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "triggerEvent": { "id": "next_step", "months": 6 } }` | schedule an event for this nation (or `"nation": "TAG"`) |
 | `{ "reformation": 4 }` | up to N Catholic regions in the Empire, Scandinavia, Britain, Bohemia and the Baltic turn Protestant |
 | `{ "declareWar": { "target": "BYZ", "cb": "claim", "region": "constantinople" } }` | this nation declares war |
+| `{ "declareWar": { "target": "TUR", "cb": "holy", "with": ["POL", "VEN"] } }` | ...and leads a league: the listed crowns join if they are independent, at peace with the target's side, not allied to it and have no truce with it |
 | `{ "loans": 2 }` | take loans (+100 gold each, with interest) |
 | `{ "emperor": true }` | this nation becomes Holy Roman Emperor |
 | `{ "discoverNewWorld": true }` | this nation finds the New World (if no one has yet): prestige, a colonist for 30 years, and the nation flag `found_new_world` |

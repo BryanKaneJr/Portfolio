@@ -41,6 +41,7 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   stabilityCost: ['cost to raise order', 'pct', false],
   science: ['science', 'pct', true],
   forceLimit: ['army limit', 'pct', true],
+  warTechCost: ['cost of war advances', 'pct', false],
 };
 
 export interface ModLine {
@@ -144,7 +145,7 @@ export function effectLines(e: Effect): ModLine[] {
     case 'reformation':
       return L('The Reformation spreads', false);
     case 'declareWar':
-      return L(`War with ${nat(v.target)}`, false);
+      return L(`War with ${nat(v.target)}${v.with ? `, joined by ${([] as string[]).concat(v.with).map(nat).join(', ')} if they are free to` : ''}`, false);
     case 'loans':
       return L(`${v} loan${v > 1 ? 's' : ''} (+${v * 100} gold, with interest)`, false);
     case 'emperor':
@@ -191,6 +192,8 @@ export function conditionText(c: Condition): string {
       return v ? 'Be at war' : 'Be at peace';
     case 'atWarWith':
       return `Be at war with ${nat(v)}`;
+    case 'truceWith':
+      return `Have a truce with ${nat(v)}`;
     case 'faith':
       return `Be ${v}`;
     case 'stability':

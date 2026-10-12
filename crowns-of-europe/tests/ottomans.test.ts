@@ -36,8 +36,11 @@ describe('the Ottoman threat', () => {
     expect(scienceRate(s, 'TUR').total).toBeLessThan(rate * 0.8);
     applyEffect(s, 'TUR', { modifier: { id: 'tur_janissaries', name: 'Janissaries', months: -1, mods: { infantryPower: 0.1 } } });
     const cost = advanceCost(s, 'TUR', 'pike_and_shot').total;
+    const statecraft = advanceCost(s, 'TUR', 'banking').total;
     for (const e of aiChoice('tur_proud_janissaries').effects) applyEffect(s, 'TUR', e);
-    expect(advanceCost(s, 'TUR', 'pike_and_shot').total).toBeGreaterThan(cost * 1.4);
+    // The corps fights new weapons and drill: war advances cost double, the rest as before.
+    expect(advanceCost(s, 'TUR', 'pike_and_shot').total).toBeGreaterThan(cost * 1.9);
+    expect(advanceCost(s, 'TUR', 'banking').total).toBe(statecraft);
     expect(s.nations.TUR.modifiers.some(m => m.id === 'tur_janissaries')).toBe(false);
   });
 

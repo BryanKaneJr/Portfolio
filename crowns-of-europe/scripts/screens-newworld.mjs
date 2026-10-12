@@ -105,8 +105,12 @@ await coe(() => {
 });
 await focus('azores', 2200);
 await shot('ocean-crossing');
-for (let i = 0; i < 3; i++) await coe(() => window.__coe.advance(20));
-await answerCards();
+// advance() stops at every event card, so answer as we go until the army is ashore.
+for (let i = 0; i < 6; i++) {
+  await coe(() => window.__coe.advance(20));
+  await answerCards();
+  if (await coe(() => { const s = window.__coe.store.state; return Object.values(s.armies).some(x => x.owner === s.player && x.node === 'pernambuco'); })) break;
+}
 await focus('pernambuco', 700);
 await shot('landed');
 const landed = await coe(() => { const s = window.__coe.store.state; return Object.values(s.armies).find(x => x.owner === s.player && x.node === 'pernambuco') ? 'landed' : 'not landed'; });

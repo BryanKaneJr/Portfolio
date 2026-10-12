@@ -55,8 +55,8 @@ src/ui/        map/ (MapView, colors, geometry, tap, MiniMap), game/ (Bars, Shee
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
-               dev/ (soak, trace, ottomans)
-tests/         battle, movement, siege, war, colonies, aims, science, ottomans, events, soak (Jest, node)
+               dev/ (soak, trace, ottomans, powers, opening)
+tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, events, soak (Jest, node)
 ```
 
 ## Commands
@@ -68,6 +68,8 @@ npm run screens             # web export + Playwright walkthroughs → screens/ 
 npm run soak -- 40 3        # AI-only game for 40 years, seed 3
 npx tsx scripts/dev/trace.ts TUR 10 1   # follow one nation through an AI game
 npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Europe's, per seed
+npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
+npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npm run map:build           # after editing regions.json / seas.json
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for

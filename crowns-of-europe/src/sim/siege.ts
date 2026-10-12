@@ -60,6 +60,8 @@ export function dailySieges(s: GameState): void {
     if (!here && !reg.siege) continue;
     const info = here ? siegeInfo(s, reg.id, here) : null;
     if (!info || !info.enough) {
+      // A battle at the walls (a relief army) pauses the siege; it does not undo it.
+      if (reg.siege && here?.some(a => a.battle && a.owner === reg.siege!.by)) continue;
       if (reg.siege) reg.siege = undefined;
       continue;
     }
