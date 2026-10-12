@@ -23,7 +23,9 @@ a Mercator map, light tutorial, no audio yet).
 - **Original text only.** No other game's wording, art or mechanic names. Free art under an open licence is fine
   with credit: the emblems are game-icons.net glyphs (CC BY 3.0, Lorc and Delapouite), listed in
   `scripts/build-icons.ts` and credited in the README and Settings > About; add any new one there and run
-  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). Player-facing text says prosperity,
+  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The troops, ships and forts are rendered
+  from CC0 3D models (KayKit, Kenney) by `npm run models:build` (credits in `assets/units/CREDITS.md`); the mountain
+  drawings in `art/mountains` were made for the game by its owner. Player-facing text says prosperity,
   levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
   colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
   `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
@@ -36,7 +38,7 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/`, `ui/map/reliefTiles.ts` or `ui/map/terrainSymbols.ts`. The builder warns about seeds in the water;
+  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts` or `ui/map/terrainSymbols.ts`. The builder warns about seeds in the water;
   fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
@@ -63,9 +65,11 @@ src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, re
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
+scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
+art/           source art the builders read: mountains/ (the owner's ink drawings of ranges)
+assets/        map/ (generated pictures, incl. mountains/), units/ (the rendered troops, ships, forts), fonts, icons
 ```
 
 ## Commands
@@ -85,7 +89,10 @@ npm run icons:build         # after adding an emblem to scripts/build-icons.ts (
 npm run relief:build        # then: relief, land colour, water lines and the known world's shadows
                             # (assets/map/; fetches elevation and Blue Marble tiles once into
                             # scripts/data/terrain-cache, git-ignored)
-npm run terrain:build       # then: the drawn terrain (ui/map/terrainSymbols.ts) from the same cache
+npm run terrain:build       # then: the drawn terrain (ui/map/terrainSymbols.ts, assets/map/mountains) from the
+                            # same cache and art/mountains
+npm run models:build        # the troops, ships and forts (assets/units/) from CC0 3D models (fetched once into
+                            # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -94,7 +101,10 @@ native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compil
 The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Europe is the top-right corner).
 `MapView` keeps a camera `{cx, cy, k}` in React state. During a gesture the last rendered SVG is moved with a
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
-rendered 1.6× the screen size so short pans never show an edge. Units are tokens (a pikeman or a ship on the owner's colour, the count beneath) drawn in one SVG on top.
+rendered 1.6× the screen size so short pans never show an edge. Units are little figures (a pike block or a ship,
+rendered from 3D models) standing on a base in the owner's colour, the count on a badge beside it, and forts are a
+tower (level 1) or a castle just before the region's name; all drawn in one SVG on top. Taps on a unit are measured
+from the middle of its figure (`TOKEN_MIDDLE`), above its point.
 Zoomed out (k below `UNITS_K`, where the nation names show) the map is for the realms: no units except a selected
 one; from `REGION_NAMES_K` on, region names replace the nation names and each army stands just under its region's
 name (`armyAnchor`), its token a little smaller until `PLAY_K` (1.7), the zoom the game opens at and "show on map"
@@ -111,9 +121,11 @@ black or white with alpha), baked water lines (Parchment), sea zones, regions (o
 regions' own outline (a clip path, so coasts stay crisp at any zoom; the baked pictures reach a few pixels past the
 coast): the land-colour image (Atlas: NASA's Blue Marble evened out, so each country takes on its land's greens,
 tans and texture; soft again close up), hill shading, and a grain tile drawn the same size on screen at any zoom;
-then the drawn terrain (`ui/map/terrain.ts`: peaks, hills, trees, dunes and reeds as vector marks, placed from real
-elevation and land colour by `scripts/build-terrain.ts`), fading in as you zoom in while the hill shading gives way to
-it; then
+then the drawn terrain (`ui/map/terrain.ts`, placed from real elevation and land colour by
+`scripts/build-terrain.ts`): the mountain ranges as the owner's ink drawings (`art/mountains`, baked so the ink
+darkens the land and the country's colour shows through), laid along each range by the way it runs and how wide it
+is, then trees, dunes and reeds as vector marks; fading in as you zoom in while the hill shading gives way to it;
+then
 occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
 (fading out as you zoom out), rivers, nation borders, a fade into parchment along the window's edges, every
 coastline (known or not, one ink, culled by cell), selection, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each

@@ -185,14 +185,23 @@ here.
     name with an army under it fits in a region.
 22. **Drawn terrain instead of a stretched photograph (on request).** Close up, the baked hill shading (one picture
     for the whole map) was enlarged two or three times and looked smeared and muddy. Now the terrain is drawn, as on
-    a hand-made map, by `scripts/build-terrain.ts`, with real data deciding where, loosely: peaks along the real
-    ranges (rugged ground, measured at known places: over ~1,150 m between high and low within 8 map units, or very
-    high), rounded hills on the uplands (the Massif Central, the Black Forest, the Ardennes) and lightly on high
-    plateaus (the Meseta, Anatolia), clumps of trees where the land is forest from space (dark green in NASA's
-    Blue Marble; conifers in the north and up high), dunes in the southern deserts and reeds in marsh regions;
-    snow on the highest peaks. About 11,600 marks, kept as four numbers each and drawn as vector paths per layer
-    for the part of the map in view (sharp at any zoom); they fade in as you zoom in and the hill shading fades to
-    a third of its strength under them. The fine terrain tiles that came before are gone.
+    a hand-made map, by `scripts/build-terrain.ts`, with real data deciding where: clumps of trees where the land is
+    forest from space (dark green in NASA's Blue Marble; conifers in the north and up high), dunes in the southern
+    deserts and reeds in marsh regions, drawn as vector paths for the part of the map in view (sharp at any zoom);
+    they fade in as you zoom in and the hill shading fades to a third of its strength under them.
+23. **Mountains drawn by hand, troops as figures (on request).** The owner wanted ranges that look drawn (ridgelines,
+    spurs, hatching and a wash, after a reference), far fewer marks, and no square icons for troops. Drawing ridges
+    from the data (crests, spurs, faceted shading, then real watershed lines) never looked hand-made, so the ranges
+    are now the owner's own ink drawings (`art/mountains`): the mountainous land (rugged ground, grown a little way
+    over the rugged land joined to it, not across a plateau) is gathered into ranges, and drawings are laid over
+    them widest stretch first, each picked to run the way the range runs there (mirrored for a range running the
+    other way, until drawings that way are made), sized to its width and spaced so each group reads on its own
+    (about 390 in all). They are baked so the ink darkens the land and the paper is a faint light: the country's
+    colour shows through, so who holds the Alps stays plain. Armies and fleets are a pike block or a ship rendered
+    from CC0 3D models (KayKit, Kenney) on a base in the owner's colour, the count on a badge beside it; forts are a
+    tower or a castle by the region's name. Next, at the owner's choice: a painted map of the whole frame (and the
+    margins seen past its edges) under the country colours; templates in the map's exact projection were made for
+    it, and the coasts and borders will be refitted to the painting where they disagree.
 
 ## Key numbers (all in `src/sim/`)
 

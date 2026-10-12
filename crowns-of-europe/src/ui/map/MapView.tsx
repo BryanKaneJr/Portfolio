@@ -9,21 +9,20 @@ import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import Svg, { ClipPath, Defs, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans } from '../theme';
 import { freeBand } from '../layout';
-import { WILD, nationColor, regionFills } from './colors';
+import { WILD, mix, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
 import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 import { mountainsIn, terrainPaths } from './terrain';
-import { GLYPHS } from '../components/gameIcons';
 
 export interface Camera {
   cx: number;
@@ -801,7 +800,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
       // Side by side under the name, the first in the middle.
       const n = stacks.get(a.node) ?? 0;
       stacks.set(a.node, n + 1);
-      x += (n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * step * 1.2;
+      x += (n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * step * 1.6; // room for each one's count badge
     }
     out.push({ kind: 'army', id: a.id, x, y });
   }
@@ -818,7 +817,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
     } else {
       const n = fleetStacks.get(f.sea) ?? 0;
       fleetStacks.set(f.sea, n + 1);
-      x += n * step * 1.4;
+      x += n * step * 1.9;
     }
     out.push({ kind: 'fleet', id: f.id, x, y });
   }
@@ -858,7 +857,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
         if (!r.siege || k < UNITS_K || (k < ALL_UNITS_K && !matters(s, r.siege.by, r.id))) return null;
         const [x, y] = armyAnchor(r.id, k);
         const X = toX(x);
-        const Y = toY(y) + 23 * ts;
+        const Y = toY(y) + 18 * ts;
         if (!inView(X, Y)) return null;
         return (
           <View key={`sg${r.id}`} style={[styles.siege, { left: X - 22, top: Y }]}>
@@ -872,8 +871,21 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path, selArmy ? armyAnchor : fleetAnchor).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
       ) : null}
-      {/* Armies and fleets: a token in the owner's colour with a pikeman or a ship on it, the count beneath. */}
+      {/* Forts: a tower or a castle just before the region's name; then armies and fleets, a pike block or a ship on
+          a base in the owner's colour with the count beside it. */}
       <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
+        {k >= UNITS_K
+          ? MAP.regions.map(r => {
+              const level = s.regions[r.id]?.fort ?? 0;
+              if (!level || r.labelRadius * k < MIN_NAME_RADIUS || (!s.discovery && isNewWorld(r.id))) return null;
+              const fs = nameSize(r.labelRadius, k);
+              const pic = level >= 2 ? FORT.castle : FORT.tower;
+              const X = toX(r.label[0]) - REGION[r.id].name.length * fs * NAME_EM * 0.5 - pic.size * pic.wide * 0.5 - 2;
+              const Y = toY(r.label[1]) + fs * 0.35; // the name's baseline
+              if (!inView(X, Y)) return null;
+              return <SvgImage key={`f${r.id}`} x={X - pic.size / 2} y={Y - pic.size * pic.feet} width={pic.size} height={pic.size} href={pic.src} />;
+            })
+          : null}
         {chips.map(c => {
           if (c.kind === 'battle') return null;
           const X = toX(c.x);
@@ -882,11 +894,11 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           if (c.kind === 'fleet') {
             const f = s.fleets[c.id];
             if (!f) return null;
-            return <Token key={c.id} x={X} y={Y} glyph="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
+            return <Token key={c.id} x={X} y={Y} figure="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
           }
           const a = s.armies[c.id] as Army | undefined;
           if (!a) return null;
-          return <Token key={c.id} x={X} y={Y} glyph="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
+          return <Token key={c.id} x={X} y={Y} figure="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
         })}
       </Svg>
       {chips.map(c => {
@@ -907,39 +919,57 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
   );
 });
 
-/** What stands on each token: a pikeman for an army, a galleon for a fleet (game-icons.net, see gameIcons.ts). */
-const GLYPH = { troop: GLYPHS.pikeman.d, ship: GLYPHS.ship.d };
-const TOKEN = 28; // the token's side, in points
-const TOKEN_TOP = 5 + TOKEN / 2; // from the anchor up to the token's top edge (the plate sits 5 above the anchor)
-const GLYPH_SIZE = 22; // the emblem on it, in points
+/**
+ * What stands on each token: a pike block for an army, a ship for a fleet, rendered from free 3D models
+ * (scripts/build-models.mjs, credits in assets/units/CREDITS.md). `feet`: where the figure stands in its picture
+ * (a fraction of its height); `size`: how big it is drawn, in points.
+ */
+const FIGURE = {
+  troop: { src: require('../../../assets/units/troop.png'), feet: 182 / 192, size: 36 },
+  ship: { src: require('../../../assets/units/ship.png'), feet: 178 / 192, size: 40 },
+};
+/** A region's fort, beside its name: a lone tower at level 1, a castle from level 2. `wide`: how much of its picture's
+ * width the building takes. */
+const FORT = {
+  tower: { src: require('../../../assets/units/castle-small.png'), feet: 186 / 192, wide: 100 / 192, size: 24 },
+  castle: { src: require('../../../assets/units/castle.png'), feet: 181 / 192, wide: 104 / 192, size: 28 },
+};
+/** A region name's letters' width, as a share of its size (Cinzel capitals, slightly spaced). */
+const NAME_EM = 0.68;
+const BASE_Y = 6; // the base's centre, below the token's point (points)
+const BASE_RX = 14;
+const BASE_RY = 5;
+/** From the token's point up to the top of the figure (points). */
+const TOKEN_TOP = 27;
+/** Where a token looks to be, above its point: taps are measured from here (points). */
+export const TOKEN_MIDDLE = 8;
 
-/** One army or fleet on the map: (x, y) is the token's centre; the count hangs from its lower edge. Your own units
- * have a light rim, the selected one a gold one and a halo; a gold dot means it is on the move. */
-function Token({ x, y, glyph, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; glyph: keyof typeof GLYPH; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
-  const half = TOKEN / 2;
-  const g = GLYPH[glyph];
+/**
+ * One army or fleet on the map: the figure standing on a base in its owner's colour, the count on a badge at the
+ * base's right (beside it rather than under it, so a token takes no more room than a name). (x, y) is the token's
+ * point (screen points). Your own units' bases have a light rim, the selected one a gold one and a glow; a
+ * gold dot means it is on the move.
+ */
+function Token({ x, y, figure, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; figure: keyof typeof FIGURE; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
+  const f = FIGURE[figure];
   const label = `${n}`;
   const pw = 10 + 6.4 * label.length;
+  const top = BASE_Y + 1 - f.size * f.feet;
   return (
-    <G transform={`translate(${x} ${y}) scale(${scale}) translate(0 -5)${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
-      {sel ? <Rect x={-half - 4} y={-half - 4} width={TOKEN + 8} height={TOKEN + 8} rx={10} fill="rgba(236,208,143,0.28)" stroke="#ecd08f" strokeWidth={1} /> : null}
-      <Rect x={-half} y={-half + 1.5} width={TOKEN} height={TOKEN} rx={7} fill="rgba(0,0,0,0.35)" />
-      <Rect x={-half} y={-half} width={TOKEN} height={TOKEN} rx={7} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2.2 : 1.5} />
-      <Rect x={-half + 1.6} y={-half + 1.6} width={TOKEN - 3.2} height={TOKEN - 3.2} rx={5.6} fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth={1} />
-      <Path d={g} fill={textOn(color)} transform={`translate(${-GLYPH_SIZE / 2} ${-GLYPH_SIZE / 2}) scale(${GLYPH_SIZE / 512})`} />
-      {moving ? <Rect x={half - 6} y={-half - 2} width={8} height={8} rx={4} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
-      <Rect x={-pw / 2} y={half - 4} width={pw} height={15} rx={7.5} fill="rgba(13,16,21,0.92)" stroke="rgba(214,178,110,0.75)" strokeWidth={1} />
-      <SvgText x={0} y={half + 7.2} textAnchor="middle" fontSize={11} fontWeight="800" fill="#fffaf0" fontFamily={sans}>
+    <G transform={`translate(${x} ${y}) scale(${scale})${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
+      {sel ? <Ellipse cx={0} cy={BASE_Y + 1} rx={BASE_RX + 7} ry={BASE_RY + 4} fill="rgba(236,208,143,0.35)" stroke="#ecd08f" strokeWidth={1} /> : null}
+      {/* The base: a shadow, its side in a darker shade, its top in the owner's colour. */}
+      <Ellipse cx={0} cy={BASE_Y + 3.2} rx={BASE_RX + 1} ry={BASE_RY + 1} fill="rgba(0,0,0,0.38)" />
+      <Ellipse cx={0} cy={BASE_Y + 2} rx={BASE_RX} ry={BASE_RY} fill={mix(color, '#000000', 0.38)} stroke="rgba(13,16,21,0.85)" strokeWidth={1} />
+      <Ellipse cx={0} cy={BASE_Y} rx={BASE_RX} ry={BASE_RY} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2 : 1.3} />
+      <SvgImage x={-f.size / 2} y={top} width={f.size} height={f.size} href={f.src} />
+      {moving ? <Circle cx={BASE_RX - 2} cy={-TOKEN_TOP + 8} r={4} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
+      <Rect x={BASE_RX - 6} y={BASE_Y - 4} width={pw} height={15} rx={7.5} fill="rgba(13,16,21,0.92)" stroke="rgba(214,178,110,0.75)" strokeWidth={1} />
+      <SvgText x={BASE_RX - 6 + pw / 2} y={BASE_Y + 7.2} textAnchor="middle" fontSize={11} fontWeight="800" fill="#fffaf0" fontFamily={sans}>
         {label}
       </SvgText>
     </G>
   );
-}
-
-function textOn(hex: string): string {
-  const v = parseInt(hex.slice(1), 16);
-  const l = ((v >> 16) & 255) * 0.299 + ((v >> 8) & 255) * 0.587 + (v & 255) * 0.114;
-  return l > 150 ? '#1d150d' : '#fffaf0';
 }
 
 const styles = StyleSheet.create({

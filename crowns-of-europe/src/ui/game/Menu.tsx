@@ -542,7 +542,7 @@ function Settings() {
       </Section>
       <Section
         title="About"
-        help={`Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). ${GLYPH_CREDIT} History, nations and rulers are public domain.`}
+        help={`Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). ${GLYPH_CREDIT} Troops, ships and forts rendered from 3D models by Kay Lousberg (KayKit) and Kenney (CC0). Mountain drawings made for the game. History, nations and rulers are public domain.`}
       >
         <T v="small">
           Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}

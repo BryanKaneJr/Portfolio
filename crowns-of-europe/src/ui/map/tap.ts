@@ -5,7 +5,7 @@ import { MAP_REGION } from '../../sim/content';
 import { moveArmy, moveFleet } from '../../sim/commands';
 import { store } from '../../state/store';
 import { regionAt, seaAt, wasteAt } from './geometry';
-import { unitPositions } from './MapView';
+import { TOKEN_MIDDLE, tokenScale, unitPositions } from './MapView';
 
 const HIT = 22; // points
 const HIT_SWITCH = 14; // with one of your units selected, another of yours takes the tap only if it lands on its token
@@ -21,7 +21,8 @@ export function onMapTap(mx: number, my: number, k: number): void {
   const ordering = (sel?.kind === 'army' && s.armies[sel.id]?.owner === s.player) || (sel?.kind === 'fleet' && s.fleets[sel.id]?.owner === s.player);
   let best: { kind: string; id: string; d: number; mine: boolean } | null = null;
   for (const c of unitPositions(s, k, sel?.kind === 'army' || sel?.kind === 'fleet' ? sel.id : undefined)) {
-    const d = Math.hypot(c.x - mx, c.y - my) * k;
+    // A unit's figure stands above its point: measure from the middle of the figure.
+    const d = Math.hypot(c.x - mx, c.y - (TOKEN_MIDDLE * tokenScale(k)) / k - my) * k;
     if (d > HIT) continue;
     const mine = c.kind === 'army' ? s.armies[c.id]?.owner === s.player : c.kind === 'fleet' ? s.fleets[c.id]?.owner === s.player : false;
     // While giving orders, a near miss on one of your other units is a march order, not a change of selection.
