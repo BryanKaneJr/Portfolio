@@ -1,7 +1,8 @@
 /**
  * The bottom sheet, the way a phone does it: a glass panel inset from the screen's edges with a grab handle. It
- * opens at half height; drag it up (or tap the handle) for nearly full, drag it down to shrink it or let it go.
- * It rests just above the dock, so time can be started and stopped while it is open.
+ * opens at half height (armies and fleets lower still, so the map around them stays free to tap); drag it up (or
+ * tap the handle) for nearly full, drag it down to shrink it or let it go. It rests just above the dock, so time
+ * can be started and stopped while it is open.
  */
 import { useEffect, useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
@@ -11,11 +12,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Glass } from '../components/Glass';
 import { Icon } from '../components/Icon';
 import { G, R, display, sans } from '../theme';
-import { DOCK_H } from './Bars';
+import { dockTop, sheetHeight } from '../layout';
 
 const SPRING = { damping: 22, stiffness: 240, mass: 0.8 };
 
-export function Sheet({ title, subtitle, left, onClose, children, footer }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode }) {
+export function Sheet({ title, subtitle, left, onClose, children, footer, compact }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode; compact?: boolean }) {
   const { height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [full, setFull] = useState(false);
@@ -25,8 +26,8 @@ export function Sheet({ title, subtitle, left, onClose, children, footer }: { ti
     enter.set(1);
     enter.set(withTiming(0, { duration: 220 }));
   }, [title, enter]);
-  const above = insets.bottom + 8 + DOCK_H + 8; // the dock's top
-  const maxH = full ? height - insets.top - 16 - above : Math.max(260, height * 0.42);
+  const above = dockTop(insets.bottom);
+  const maxH = full ? height - insets.top - 16 - above : sheetHeight(height, compact);
 
   const pan = Gesture.Pan()
     .activeOffsetY([-8, 8])

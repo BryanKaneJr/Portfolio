@@ -52,8 +52,8 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Outliner, Sheet, RegionSheet,
-               ColonySheets, UnitSheets, NationSheet, Cards, Panels, Menu, Science, Help), components/ (kit, Glass, Flag,
-               Icon), describe
+               ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
+               Glass, Flag, BurningShield, Icon), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, build-relief, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
@@ -84,7 +84,7 @@ native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compil
 The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Europe is the top-right corner).
 `MapView` keeps a camera `{cx, cy, k}` in React state. During a gesture the last rendered SVG is moved with a
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
-rendered 1.6× the screen size so short pans never show an edge. Units are plain RN views on top. Taps are
+rendered 1.6× the screen size so short pans never show an edge. Units are tokens (a pikeman or a ship on the owner's colour, the count beneath) drawn in one SVG on top. Taps are
 hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, then seas. Strokes and text sizes
 are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
@@ -115,9 +115,11 @@ and red only mean good and bad. `display` (Cinzel, bundled) is for titles and se
 face; event stories use `book` (IM Fell). Anything floating over the map is `Glass` (blur + dark tint + hairline,
 `gilt` for a gilded rim); nations show as `Shield` (their arms on a heraldic shield) in headers and the top bar.
 The game screen: the map fills the screen; the top bar (arms, resources, messages), the side rail (outliner, map
-lens; their panels open beside it), the dock (time, and the realm's pages as a tab bar) float over it; sheets
+lens; their panels open beside it), the war rail on the left (each enemy's arms on fire, `BurningShield`; tap for
+the war screen, `game/WarScreen.tsx`), the dock (time, and the realm's pages as a tab bar) float over it; sheets
 (`game/Sheet.tsx`: inset glass, grab handle, drag to resize or dismiss) rest just above the dock so time stays in
-reach; full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
+reach (armies and fleets open compact, and the map glides whatever you select into the clear space above its
+sheet: `ui/layout.ts` holds the shared sizes; keep the land around a selected army tappable); full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
 controls; cards (events, offers, battles) sit on glass over the dimmed map. Keep the walkthroughs' test IDs.
 
 ## Current status

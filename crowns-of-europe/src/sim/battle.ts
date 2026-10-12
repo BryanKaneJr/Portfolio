@@ -1,24 +1,27 @@
 /**
- * Battles run day by day so reinforcements can join. Each day both sides roll 1d10 (+ general, terrain);
- * damage = roll × front-line strength, which costs the enemy men and morale. A side at 0 morale retreats;
+ * Battles run day by day so reinforcements can join. Each day both sides roll 1d10 (− terrain for the attacker);
+ * damage = roll × front-line strength × (1 + 10% per star of the general), which costs the enemy men and morale (a
+ * general's stars also soften the morale their own side loses). A side at 0 morale retreats;
  * if the winner has five times the loser's remaining men, the loser is annihilated.
  */
 import { NATION, REGION, regionName, nationName, riverBetween } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armiesHostile, armyMen, armyRegs, maxMorale, nationMods, sideOf, unitPower } from './queries';
 import { FRONT_WIDTH, retreat } from './military';
-import { rulerDies } from './rulers';
+import { rulerDies, starBonus } from './rulers';
 import type { Army, Battle, BattleReport, BattleSide, GameState, NationId, NodeId, UnitType } from './types';
 import { chance, clamp, randInt } from './util';
 
 export const WIPE_RATIO = 5;
 const CASUALTY_K = 6;
 const MORALE_K = 0.069;
-const PHASE_FACTOR = {
-  fire: { inf: 1.0, cav: 0.5, art: 1.6 },
-  shock: { inf: 1.0, cav: 1.6, art: 0.3 },
+/** Three days of volleys (the guns tell), then three of charges (the horse tells), and so on. */
+export type BattlePhase = 'volley' | 'charge';
+const PHASE_FACTOR: Record<BattlePhase, Record<UnitType, number>> = {
+  volley: { inf: 1.0, cav: 0.5, art: 1.6 },
+  charge: { inf: 1.0, cav: 1.6, art: 0.3 },
 };
-export const battlePhase = (b: Battle): 'fire' | 'shock' => ((b.days - 1) % 6 < 3 ? 'fire' : 'shock');
+export const battlePhase = (b: Battle): BattlePhase => ((b.days - 1) % 6 < 3 ? 'volley' : 'charge');
 
 const sideArmies = (s: GameState, side: BattleSide): Army[] => side.armies.map(id => s.armies[id]).filter(Boolean);
 
@@ -81,7 +84,7 @@ interface SideStats {
   totalMen: number;
   morale: number; // men-weighted average
   maxMorale: number;
-  general: { fire: number; shock: number; maneuver: number; name: string | null };
+  general: { stars: number; name: string | null }; // the best general on the side leads it
   owner: NationId;
 }
 
@@ -91,7 +94,7 @@ function stats(s: GameState, side: BattleSide): SideStats {
   const men = { inf: 0, cav: 0, art: 0 };
   let moraleW = 0;
   let maxW = 0;
-  let general = { fire: 0, shock: 0, maneuver: 0, name: null as string | null };
+  let general = { stars: 0, name: null as string | null };
   for (const a of armies) {
     for (const t of ['inf', 'cav', 'art'] as UnitType[]) {
       regs[t] += a.regs[t].n;
@@ -101,7 +104,7 @@ function stats(s: GameState, side: BattleSide): SideStats {
     moraleW += a.morale * m;
     maxW += maxMorale(s, a.owner) * m;
     const g = a.general;
-    if (g && g.fire + g.shock + g.maneuver > general.fire + general.shock + general.maneuver) general = { ...g, name: g.name };
+    if (g && g.stars > general.stars) general = { stars: g.stars, name: g.name };
   }
   const totalMen = men.inf + men.cav + men.art;
   return {
@@ -118,7 +121,7 @@ function stats(s: GameState, side: BattleSide): SideStats {
 }
 
 /** Damage one side deals today. Exported for the battle sheet's "expected damage" readout and tests. */
-export function sidePower(s: GameState, st: SideStats, width: number, phase: 'fire' | 'shock'): number {
+export function sidePower(s: GameState, st: SideStats, width: number, phase: BattlePhase): number {
   const f = PHASE_FACTOR[phase];
   const strength = (t: UnitType) => (st.regs[t] ? Math.min(1, st.men[t] / (st.regs[t] * 1000)) : 0);
   // Front row: cavalry takes the flanks (up to half the width), infantry fills the rest.
@@ -128,9 +131,10 @@ export function sidePower(s: GameState, st: SideStats, width: number, phase: 'fi
   const artBack = Math.min(st.regs.art, width);
   const owner = st.owner;
   return (
-    infFront * unitPower(s, owner, 'inf') * f.inf * strength('inf') +
-    (cavFront + Math.max(0, cavExtra)) * unitPower(s, owner, 'cav') * f.cav * strength('cav') +
-    artBack * unitPower(s, owner, 'art') * f.art * strength('art')
+    (infFront * unitPower(s, owner, 'inf') * f.inf * strength('inf') +
+      (cavFront + Math.max(0, cavExtra)) * unitPower(s, owner, 'cav') * f.cav * strength('cav') +
+      artBack * unitPower(s, owner, 'art') * f.art * strength('art')) *
+    (1 + starBonus(st.general))
   );
 }
 
@@ -157,13 +161,7 @@ export function dailyBattles(s: GameState): void {
     const rolls: [number, number] = [0, 0];
     for (const i of [0, 1] as const) {
       const me = st[i];
-      const them = st[1 - i];
-      const stat = phase === 'fire' ? 'fire' : 'shock';
-      let mod = Math.max(0, me.general[stat] - them.general[stat]);
-      if (i === 0) {
-        const outmaneuver = Math.max(0, me.general.maneuver - them.general.maneuver);
-        mod -= Math.max(0, terrainPenalty + (b.river ? 1 : 0) - outmaneuver);
-      }
+      const mod = i === 0 ? -(terrainPenalty + (b.river ? 1 : 0)) : 0;
       const roll = randInt(s, 1, 10);
       rolls[i] = roll;
       const eff = Math.max(1, roll + mod);
@@ -177,7 +175,7 @@ export function dailyBattles(s: GameState): void {
       const casualties = Math.min(target.totalMen, Math.round(dmg[i] * CASUALTY_K));
       // Holy war zeal softens morale damage against another faith.
       const holy = target.owner !== REBELS && faithOf(s, target.owner) !== faithOf(s, st[i].owner) ? nationMods(s, target.owner).holyWarMorale : 0;
-      const moraleLoss = (dmg[i] * MORALE_K) / Math.max(1, target.totalRegs) / (1 + holy);
+      const moraleLoss = (dmg[i] * MORALE_K) / Math.max(1, target.totalRegs) / (1 + holy) / (1 + starBonus(target.general));
       applyCasualties(target, casualties);
       for (const a of target.armies) a.morale = Math.max(0, a.morale - moraleLoss);
       targetSide.losses += casualties;

@@ -2,12 +2,31 @@
 import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
 import { startingAdvances } from './science';
 import { forceLimit, maxMorale, totalDev } from './queries';
-import type { Army, Fleet, GameSettings, GameState, Nation, NationId, PauseReason, Region } from './types';
+import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 4;
+export const SAVE_VERSION = 5;
+
+/** Brings a save from an earlier version up to date, or returns null if it is too old to read. */
+export function migrateSave(s: GameState): GameState | null {
+  if (s.version === SAVE_VERSION) return s;
+  if (s.version !== 4) return null;
+  // Version 5: a general has 1-5 stars instead of three separate numbers (their average, rounded).
+  const fix = (g: General | undefined) => {
+    if (!g) return;
+    const old = g as General & { fire?: number; shock?: number; maneuver?: number };
+    if (typeof old.stars !== 'number') old.stars = Math.max(1, Math.min(5, Math.round(((old.fire ?? 1) + (old.shock ?? 1) + (old.maneuver ?? 1)) / 3)));
+    delete old.fire;
+    delete old.shock;
+    delete old.maneuver;
+  };
+  for (const a of Object.values(s.armies)) fix(a.general);
+  for (const n of Object.values(s.nations)) n.generals.forEach(fix);
+  s.version = 5;
+  return s;
+}
 
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,

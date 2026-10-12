@@ -37,6 +37,8 @@ import type { PauseReason } from '../../sim/types';
 import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab } from './ColonySheets';
+import { GeneralRow } from './UnitSheets';
+import { STAR_BONUS } from '../../sim/rulers';
 import { ScienceTab } from './Science';
 import { colonistsOf, coloniesOf, freeColonists, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
@@ -161,7 +163,8 @@ function Military() {
         )}
       </Section>
       <Section title="Generals" right={<Btn small tone="secondary" label={`Hire (${GENERAL_COST}g)`} onPress={() => st.run(hireGeneral)} />}>
-        {me.generals.length ? me.generals.map(g => <Line key={g.id} label={g.name} value={`F${g.fire} S${g.shock} M${g.maneuver}`} />) : <Empty text="No generals waiting for a command." />}
+        {me.generals.length ? me.generals.map(g => <GeneralRow key={g.id} name={g.name} stars={g.stars} />) : <Empty text="No generals waiting for a command." />}
+        <T v="tiny" style={{ marginTop: 4 }}>A general has one to five stars; each adds {Math.round(STAR_BONUS * 100)}% to everything the army they lead does. Assign one from the army’s sheet.</T>
       </Section>
       <Section title={`Troops of the ${era.name}`}>
         <Line label={`Infantry: ${era.inf.name}`} value={`strength ${era.inf.power}`} />

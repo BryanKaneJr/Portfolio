@@ -135,7 +135,7 @@ export const EFFECT_SCHEMA: Record<string, Arg> = {
   removeModifier: 'string',
   rebels: { region: 'region?', regiments: 'number' },
   addRegiments: { inf: 'number?', cav: 'number?', art: 'number?', region: 'region?' },
-  hireGeneral: { fire: 'number', shock: 'number', maneuver: 'number', name: 'string?' },
+  hireGeneral: { stars: 'number', name: 'string?' },
   opinion: { nation: 'nation', amount: 'number' },
   ally: 'nation',
   breakAlliance: 'nation',

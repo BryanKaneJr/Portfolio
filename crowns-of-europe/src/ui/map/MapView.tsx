@@ -7,6 +7,7 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { ClipPath, Defs, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
@@ -14,6 +15,7 @@ import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans } from '../theme';
+import { freeBand } from '../layout';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
@@ -93,6 +95,36 @@ export function MapView() {
     },
     [cam, size],
   );
+
+  // Keep what you select in sight: if its sheet would cover it (or it sits under the top bar), glide the map until
+  // it is in the middle of the clear space, so the land around an army stays free to tap.
+  const insets = useSafeAreaInsets();
+  const selection = st.selection;
+  const selKey = selection ? `${selection.kind}:${selection.id}` : '';
+  const shownSel = useRef('');
+  useEffect(() => {
+    if (selKey === shownSel.current) return;
+    shownSel.current = selKey;
+    if (!cam || !selection || selection.kind === 'nation' || live.get().pan || live.get().pinch) return;
+    const pt = selectionPoint(s, selection, cam.k);
+    if (!pt) return;
+    const band = freeBand(size.h, insets, selection.kind === 'army' || selection.kind === 'fleet' ? 'compact' : 'half');
+    const sx = size.w / 2 + (pt[0] - cam.cx) * cam.k;
+    const sy = size.h / 2 + (pt[1] - cam.cy) * cam.k;
+    // Fine anywhere but the band's lower quarter, where the land beyond it (the next march) is under the sheet.
+    const xOk = sx > 40 && sx < size.w - 92; // clear of the side rail
+    if (xOk && sy > band.top + 50 && sy < band.bottom - Math.max(80, (band.bottom - band.top) / 4)) return;
+    const want = clampCam({ k: cam.k, cx: xOk ? cam.cx : pt[0], cy: pt[1] - ((band.top + band.bottom) / 2 - size.h / 2) / cam.k });
+    const dx = (cam.cx - want.cx) * cam.k;
+    const dy = (cam.cy - want.cy) * cam.k;
+    if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
+    ty.set(withTiming(dy, SETTLE));
+    tx.set(
+      withTiming(dx, SETTLE, done => {
+        if (done) runOnJS(commit)(dx, dy, 1);
+      }),
+    );
+  }, [selKey, selection, cam, s, size, insets, clampCam, commit, live, tx, ty]);
 
   const half = { w: size.w / 2, h: size.h / 2 };
   const c0 = cam ?? { cx: 0, cy: 0, k: 1 };
@@ -746,6 +778,17 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
   return out;
 }
 
+/** Where a selection sits on the map (map units): a unit's marker, a battle, a region or sea's label. */
+function selectionPoint(s: GameState, sel: NonNullable<Selection>, k: number): [number, number] | null {
+  if (sel.kind === 'army' || sel.kind === 'fleet') {
+    const c = unitPositions(s, k, sel.id).find(u => u.id === sel.id);
+    return c ? [c.x, c.y] : null;
+  }
+  if (sel.kind === 'battle') return s.battles[sel.id] ? regionPoint(s.battles[sel.id].node) : null;
+  if (sel.kind === 'region' || sel.kind === 'sea') return regionPoint(sel.id);
+  return null;
+}
+
 const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Camera; w: number; h: number; s: GameState; selection: Selection; version: number }) {
   const { k } = cam;
   const toX = (x: number) => (x - cam.cx) * k + w / 2;
@@ -776,47 +819,71 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
       ) : null}
+      {/* Armies and fleets: a token in the owner's colour with a pikeman or a ship on it, the count beneath. */}
+      <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
+        {chips.map(c => {
+          if (c.kind === 'battle') return null;
+          const X = toX(c.x);
+          const Y = toY(c.y);
+          if (!inView(X, Y)) return null;
+          if (c.kind === 'fleet') {
+            const f = s.fleets[c.id];
+            if (!f) return null;
+            return <Token key={c.id} x={X} y={Y} glyph="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} />;
+          }
+          const a = s.armies[c.id] as Army | undefined;
+          if (!a) return null;
+          return <Token key={c.id} x={X} y={Y} glyph="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} />;
+        })}
+      </Svg>
       {chips.map(c => {
+        if (c.kind !== 'battle') return null;
         const X = toX(c.x);
         const Y = toY(c.y);
         if (!inView(X, Y)) return null;
-        if (c.kind === 'battle') {
-          const b = s.battles[c.id];
-          if (!b) return null;
-          const men = b.sides.map(side => side.armies.reduce((t, id) => t + (s.armies[id] ? armyMen(s.armies[id]) : 0), 0));
-          return (
-            <View key={c.id} style={[styles.battle, { left: X - 44, top: Y - 13 }]}>
-              <Text style={styles.battleText}>⚔ {kmen(men[0])} : {kmen(men[1])}</Text>
-            </View>
-          );
-        }
-        if (c.kind === 'fleet') {
-          const f = s.fleets[c.id];
-          if (!f) return null;
-          const n = f.ships.galley + f.ships.warship + f.ships.transport;
-          const sel = selFleet?.id === f.id;
-          return (
-            <View key={c.id} style={[styles.chip, styles.fleet, { left: X - 20, top: Y - 11, borderColor: sel ? C.gold : '#1d2a33', backgroundColor: nationColor(f.owner) }, sel && styles.chipSel]}>
-              <Text style={styles.chipText}>⛵{n}</Text>
-            </View>
-          );
-        }
-        const a = s.armies[c.id] as Army | undefined;
-        if (!a) return null;
-        const sel = selArmy?.id === a.id;
-        const mine = a.owner === s.player;
-        const regs = armyRegs(a);
-        const color = a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner);
+        const b = s.battles[c.id];
+        if (!b) return null;
+        const men = b.sides.map(side => side.armies.reduce((t, id) => t + (s.armies[id] ? armyMen(s.armies[id]) : 0), 0));
         return (
-          <View key={c.id} style={[styles.chip, { left: X - 16, top: Y - 11, backgroundColor: color, borderColor: sel ? C.gold : mine ? 'rgba(255,248,230,0.95)' : 'rgba(13,16,21,0.85)' }, sel && styles.chipSel, a.retreating && { opacity: 0.6 }]}>
-            <Text style={[styles.chipText, { color: textOn(color) }]}>{regs}</Text>
-            {a.path.length ? <View style={[styles.moveDot, { backgroundColor: textOn(color) }]} /> : null}
+          <View key={c.id} style={[styles.battle, { left: X - 44, top: Y - 13 }]}>
+            <Text style={styles.battleText}>⚔ {kmen(men[0])} : {kmen(men[1])}</Text>
           </View>
         );
       })}
     </View>
   );
 });
+
+/** A pikeman and a carrack, drawn for this game on a 24-unit square (with the offsets that centre each on its token). */
+const GLYPH = {
+  troop: { d: 'M17.6 4.4h1.3v18.1h-1.3zM18.25 0.6l1.6 4h-3.2zM5.4 7.4c1.7-1 9.5-1 11.2 0l-.8.9c-2.2-.6-7.4-.6-9.6 0zM7.8 7c.3-2.8 1.7-4.2 3.2-4.2s2.9 1.4 3.2 4.2zM10.5 2.9l.5-1.5.5 1.5zM11 8.3a2 2 0 1 1 0 4a2 2 0 1 1 0-4zM6.7 13c.4-.7 1.6-1 4.3-1s3.9.3 4.3 1l.6 4.6H6.1zM14.8 13.1l3.2 1.3v1.5l-3.4-1zM7.1 17.6h3.2l-.3 5H7.5zM11.7 17.6h3.2l-.4 5h-2.5z', cx: 12.6, cy: 11.6 },
+  ship: { d: 'M2.4 15.2h19.2l-2.3 4.4c-.4.7-1 1-1.8 1H6.5c-.8 0-1.4-.3-1.8-1zM2.4 15.2l-.5-2.9h4.6v2.9zM17.6 15.2v-1.9h3.9l.1 1.9zM12.6 2.2h1.1v13h-1.1zM8.6 4.9c2.7.8 6.4.8 9.1 0l-.5 6.8c-2.4.8-5.7.8-8.1 0zM13.7 2.2l3.3.8l-3.3.8zM5.3 6.4h.95v8.8H5.3zM3.2 7.8c1.6.5 3.7.5 5.3 0l-.3 4.4c-1.4.5-3.3.5-4.7 0z', cx: 11.7, cy: 11.4 },
+};
+const TOKEN = 28; // the token's side, in points
+const G_SCALE = 0.9; // the glyph on it
+
+/** One army or fleet on the map: (x, y) is the token's centre; the count hangs from its lower edge. Your own units
+ * have a light rim, the selected one a gold one and a halo; a gold dot means it is on the move. */
+function Token({ x, y, glyph, n, color, mine, sel, moving, faded }: { x: number; y: number; glyph: keyof typeof GLYPH; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean }) {
+  const half = TOKEN / 2;
+  const g = GLYPH[glyph];
+  const label = `${n}`;
+  const pw = 10 + 6.4 * label.length;
+  return (
+    <G transform={`translate(${x} ${y - 5})${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
+      {sel ? <Rect x={-half - 4} y={-half - 4} width={TOKEN + 8} height={TOKEN + 8} rx={10} fill="rgba(236,208,143,0.28)" stroke="#ecd08f" strokeWidth={1} /> : null}
+      <Rect x={-half} y={-half + 1.5} width={TOKEN} height={TOKEN} rx={7} fill="rgba(0,0,0,0.35)" />
+      <Rect x={-half} y={-half} width={TOKEN} height={TOKEN} rx={7} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2.2 : 1.5} />
+      <Rect x={-half + 1.6} y={-half + 1.6} width={TOKEN - 3.2} height={TOKEN - 3.2} rx={5.6} fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth={1} />
+      <Path d={g.d} fill={textOn(color)} transform={`translate(${-g.cx * G_SCALE} ${-g.cy * G_SCALE}) scale(${G_SCALE})`} />
+      {moving ? <Rect x={half - 6} y={-half - 2} width={8} height={8} rx={4} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
+      <Rect x={-pw / 2} y={half - 4} width={pw} height={15} rx={7.5} fill="rgba(13,16,21,0.92)" stroke="rgba(214,178,110,0.75)" strokeWidth={1} />
+      <SvgText x={0} y={half + 7.2} textAnchor="middle" fontSize={11} fontWeight="800" fill="#fffaf0" fontFamily={sans}>
+        {label}
+      </SvgText>
+    </G>
+  );
+}
 
 function textOn(hex: string): string {
   const v = parseInt(hex.slice(1), 16);
@@ -826,25 +893,6 @@ function textOn(hex: string): string {
 
 const styles = StyleSheet.create({
   wrap: { flex: 1, backgroundColor: C.sea, overflow: 'hidden' },
-  chip: {
-    position: 'absolute',
-    minWidth: 32,
-    height: 22,
-    borderRadius: 11,
-    borderWidth: 1.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 4,
-    shadowColor: '#000',
-    shadowOpacity: 0.35,
-    shadowRadius: 2,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 3,
-  },
-  chipSel: { borderWidth: 2.5, transform: [{ scale: 1.14 }] },
-  chipText: { fontFamily: sans, fontSize: 12, fontWeight: '800', color: '#fff' },
-  moveDot: { position: 'absolute', right: 2, top: 2, width: 5, height: 5, borderRadius: 3 },
-  fleet: { minWidth: 40, height: 22, borderRadius: 11 },
   battle: { position: 'absolute', width: 88, height: 26, borderRadius: 13, backgroundColor: 'rgba(120,28,20,0.92)', borderWidth: 1.5, borderColor: '#d6b26e', alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 4, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
   battleText: { color: '#fff4dc', fontFamily: sans, fontSize: 12, fontWeight: '800' },
   siege: { position: 'absolute', width: 44, height: 6, borderRadius: 3, backgroundColor: 'rgba(13,16,21,0.7)', overflow: 'hidden', borderWidth: 1, borderColor: 'rgba(214,178,110,0.8)' },

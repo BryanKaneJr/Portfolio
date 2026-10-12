@@ -8,6 +8,7 @@ import { regionAt, seaAt, wasteAt } from './geometry';
 import { unitPositions } from './MapView';
 
 const HIT = 22; // points
+const HIT_SWITCH = 14; // with one of your units selected, another of yours takes the tap only if it lands on its token
 
 export function buzz() {
   if (Platform.OS !== 'web') Haptics.selectionAsync().catch(() => {});
@@ -17,11 +18,14 @@ export function onMapTap(mx: number, my: number, k: number): void {
   const s = store.state;
   if (!s) return;
   const sel = store.selection;
+  const ordering = (sel?.kind === 'army' && s.armies[sel.id]?.owner === s.player) || (sel?.kind === 'fleet' && s.fleets[sel.id]?.owner === s.player);
   let best: { kind: string; id: string; d: number; mine: boolean } | null = null;
   for (const c of unitPositions(s, k, sel?.kind === 'army' || sel?.kind === 'fleet' ? sel.id : undefined)) {
     const d = Math.hypot(c.x - mx, c.y - my) * k;
     if (d > HIT) continue;
     const mine = c.kind === 'army' ? s.armies[c.id]?.owner === s.player : c.kind === 'fleet' ? s.fleets[c.id]?.owner === s.player : false;
+    // While giving orders, a near miss on one of your other units is a march order, not a change of selection.
+    if (ordering && mine && c.id !== sel?.id && d > HIT_SWITCH) continue;
     // Prefer your own units, then the closest.
     if (!best || (mine && !best.mine) || (mine === best.mine && d < best.d)) best = { kind: c.kind, id: c.id, d, mine };
   }

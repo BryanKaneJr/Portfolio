@@ -1,14 +1,13 @@
-/** Full-height panels: resource breakdowns, declaring war, peace deals and the message log. */
+/** Full-height panels: the page frame, resource breakdowns, declaring war and the message log (the war itself is in WarScreen). */
 import { useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NATION, REGION, nationName, regionName } from '../../sim/content';
-import { boostStability, playerDeclareWar, proposePeace, separatePeace } from '../../sim/commands';
+import { boostStability, playerDeclareWar } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
-import { modifierSources, sideOf, subjectsOf, ownedRegions } from '../../sim/queries';
-import { casusBelli, demandableRegions, isCapitalAtStake, likelySides, peaceAcceptance, peaceCost, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
+import { modifierSources } from '../../sim/queries';
+import { casusBelli, likelySides } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
-import type { PeaceTerms } from '../../sim/types';
 import { formatShortDate } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
@@ -234,151 +233,6 @@ export function DeclareWarPanel({ target }: { target: string }) {
 
 // ---------------------------------------------------------------- peace
 
-export function PeacePanel({ warId }: { warId: string }) {
-  const st = useStore();
-  const s = st.state!;
-  const w = s.wars[warId];
-  const [regions, setRegions] = useState<string[]>([]);
-  const [gold, setGold] = useState(0);
-  const [vassalize, setVassalize] = useState(false);
-  const [release, setRelease] = useState<string[]>([]);
-  const [mode, setMode] = useState<'demand' | 'offer'>('demand');
-  if (!w || sideOf(w, s.player) === null) {
-    return (
-      <Panel title="Peace" onClose={() => st.close()}>
-        <T>This war is over.</T>
-      </Panel>
-    );
-  }
-  const side = sideOf(w, s.player)!;
-  const leader = side === 0 ? w.attackers[0] : w.defenders[0];
-  const enemy = side === 0 ? w.defenders[0] : w.attackers[0];
-  const sc = scoreFor(s, w, s.player);
-  const ws = warScore(s, w);
-  const flip = side === 1 ? -1 : 1;
-  const isLeader = leader === s.player;
-  const winner = mode === 'demand' ? s.player : enemy;
-  const loser = mode === 'demand' ? enemy : s.player;
-  const candidates = demandableRegions(s, w, winner);
-  const terms: PeaceTerms = { regions, gold, vassalize, release: mode === 'demand' ? release : [], winner, loser };
-  const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: s.player, loser: enemy };
-  const cost = peaceCost(s, terms);
-  const answer = peaceAcceptance(s, w, terms, enemy);
-  const whiteAnswer = peaceAcceptance(s, w, white, enemy);
-  const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
-  const canVassalize = mode === 'demand' && !s.nations[enemy].overlord && subjectsOf(s, enemy).length === 0;
-  // Nations the enemy could be made to free: its subjects, and peoples with cores on its land.
-  const releasable = mode === 'demand'
-    ? [
-        ...subjectsOf(s, enemy),
-        ...Object.keys(NATION).filter(n => n !== enemy && n !== s.player && !s.nations[n]?.alive && ownedRegions(s, enemy).some(r => r.cores.includes(n))),
-      ]
-    : [];
-  return (
-    <Panel title={w.name} onClose={() => st.close()}>
-      <View style={styles.score}>
-        <Text style={styles.scoreLabel}>Leverage</Text>
-        <Text style={[styles.scoreValue, { color: sc >= 0 ? C.green : C.red }]}>{signed(sc)}%</Text>
-        <Text style={styles.scoreHelp}>{sc > 5 ? 'Your side is ahead.' : sc < -5 ? 'Your side is behind.' : 'Neither side is ahead.'} Spend leverage on the terms below; ask for more than you hold and they will refuse.</Text>
-        <View style={{ width: '100%', marginTop: 6 }}>
-          <Line label="Battles" value={signed(ws.battles * flip)} />
-          <Line label="Occupation" value={signed(ws.occupation * flip)} />
-          <Line label="War goal" value={`${signed(ws.goal * flip)}${w.goal ? ` (${regionName(w.goal)})` : ''}`} />
-          <Line label="Blockades" value={signed(ws.blockade * flip)} />
-        </View>
-      </View>
-      <Row style={{ marginTop: 8, flexWrap: 'wrap' }} gap={6}>
-        <T v="small">Your side: {(side === 0 ? w.attackers : w.defenders).map(nationName).join(', ')}</T>
-      </Row>
-      <T v="small">Their side: {(side === 0 ? w.defenders : w.attackers).map(nationName).join(', ')}</T>
-      {!isLeader ? (
-        <Section title="You are not leading this war">
-          <T v="small">{nationName(leader)} negotiates the peace. You can leave the war with a separate white peace.</T>
-          <Btn style={{ marginTop: 8 }} tone="secondary" label="Make a separate peace" onPress={() => (st.run(x => separatePeace(x, w.id)), st.close())} />
-        </Section>
-      ) : (
-        <>
-          <Row style={{ marginTop: 12 }} gap={6}>
-            <Btn small style={{ flex: 1 }} tone={mode === 'demand' ? 'primary' : 'secondary'} label="Demand" onPress={() => (setMode('demand'), setRegions([]), setGold(0), setVassalize(false), setRelease([]))} />
-            <Btn small style={{ flex: 1 }} tone={mode === 'offer' ? 'primary' : 'secondary'} label="Offer concessions" onPress={() => (setMode('offer'), setRegions([]), setGold(0), setVassalize(false), setRelease([]))} />
-          </Row>
-          <Section title={mode === 'demand' ? 'Regions to take' : 'Regions to give up'}>
-            {candidates.length ? (
-              candidates.map(r => {
-                const on = regions.includes(r);
-                return (
-                  <Pressable key={r} testID={`peace-${r}`} onPress={() => toggle(r)} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
-                    <Flag nation={s.regions[r].owner ?? ''} size={22} />
-                    <View style={{ flex: 1 }}>
-                      <Text style={styles.optionText}>{regionName(r)}</Text>
-                      <Text style={styles.optionSub}>
-                        Prosperity {s.regions[r].dev}
-                        {r in s.nations[winner].claims || s.regions[r].cores.includes(winner) ? ' · claimed' : ''}
-                        {s.regions[r].controller === winner ? ' · occupied' : ''}
-                        {isCapitalAtStake(s, r) ? ' · capital (costs double)' : ''}
-                      </Text>
-                    </View>
-                    <Text style={styles.cost}>{regionPeaceCost(s, winner, r)}%</Text>
-                  </Pressable>
-                );
-              })
-            ) : (
-              <Empty text={mode === 'demand' ? 'Occupy enemy regions (or have claims) to demand them.' : 'You have no regions they could take.'} />
-            )}
-          </Section>
-          <Section title={mode === 'demand' ? 'Gold reparations' : 'Pay gold'}>
-            <Row gap={6}>
-              {[0, 50, 100, 200, 400].map(g => (
-                <Btn key={g} small style={{ flex: 1 }} tone={gold === g ? 'primary' : 'secondary'} label={g ? `${g}` : 'None'} onPress={() => setGold(g)} />
-              ))}
-            </Row>
-            <T v="tiny" style={{ marginTop: 4 }}>Every 10 gold costs 1% leverage.</T>
-          </Section>
-          {releasable.length ? (
-            <Section title="Free a nation">
-              {releasable.map(n => {
-                const on = release.includes(n);
-                return (
-                  <Pressable key={n} onPress={() => setRelease(rs => (on ? rs.filter(x => x !== n) : [...rs, n]))} style={[styles.option, on && styles.optionOn, { flexDirection: 'row', alignItems: 'center', gap: 8 }]}>
-                    <Flag nation={n} size={22} />
-                    <View style={{ flex: 1 }}>
-                      <Text style={styles.optionText}>{nationName(n)}</Text>
-                      <Text style={styles.optionSub}>{s.nations[n]?.alive ? 'Becomes independent' : 'Restored on its old lands'}</Text>
-                    </View>
-                  </Pressable>
-                );
-              })}
-            </Section>
-          ) : null}
-          {canVassalize ? (
-            <Pressable onPress={() => setVassalize(v => !v)} style={[styles.option, vassalize && styles.optionOn, { marginTop: 10 }]}>
-              <Text style={styles.optionText}>Make {nationName(enemy)} your vassal</Text>
-              <Text style={styles.optionSub}>They pay tribute and fight your wars. Can be annexed after 15 years.</Text>
-            </Pressable>
-          ) : null}
-          <View style={styles.summary}>
-            <Line label="Value of these terms" value={`${cost}%`} bold />
-            <Line label={mode === 'demand' ? 'Your leverage' : 'Their leverage'} value={`${signed(mode === 'demand' ? sc : -sc)}%`} />
-            <T v="small" style={{ marginTop: 6, color: answer.accept ? C.green : C.red, fontWeight: '700' }}>{answer.accept ? `${nationName(enemy)} would accept.` : `${nationName(enemy)} would refuse.`}</T>
-            <T v="tiny" style={{ marginTop: 2 }}>Why (they accept if the total is 0 or more):</T>
-            {answer.reasons.filter(r => r.value).map(r => (
-              <Line key={r.label} label={r.label} value={signed(r.value)} tone={r.value >= 0 ? 'good' : 'bad'} />
-            ))}
-          </View>
-          <Btn style={{ marginTop: 10 }} label="Send peace offer" disabled={!regions.length && !gold && !vassalize && !release.length} onPress={() => {
-            const r = st.run(x => proposePeace(x, w.id, terms));
-            if (r.ok) st.close();
-          }} testID="send-peace" />
-          <Btn style={{ marginTop: 8 }} tone="secondary" label={`White peace${whiteAnswer.accept ? ' (they would accept)' : ' (they would refuse)'}`} onPress={() => {
-            const r = st.run(x => proposePeace(x, w.id, white));
-            if (r.ok) st.close();
-          }} />
-        </>
-      )}
-    </Panel>
-  );
-}
-
 // ---------------------------------------------------------------- message log
 
 export function LogPanel() {
@@ -441,12 +295,6 @@ const styles = StyleSheet.create({
   optionOn: { borderColor: C.gold, backgroundColor: 'rgba(214,178,110,0.14)' },
   optionText: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: C.ink },
   optionSub: { fontFamily: sans, fontSize: 12, color: C.inkSoft, marginTop: 2 },
-  cost: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink },
-  score: { alignItems: 'center', backgroundColor: G.group, borderRadius: R.lg, padding: 14, borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
-  scoreLabel: { fontFamily: sans, fontSize: 12, color: C.muted, textTransform: 'uppercase', letterSpacing: 1, fontWeight: '700' },
-  scoreHelp: { fontFamily: sans, fontSize: 12, color: C.inkSoft, textAlign: 'center', marginTop: 4, lineHeight: 16 },
-  scoreValue: { fontFamily: serif, fontSize: 36 },
-  summary: { marginTop: 12, backgroundColor: G.group, padding: 12, borderRadius: R.md },
   logRow: { paddingVertical: 10, paddingHorizontal: 12, borderLeftWidth: 3, borderLeftColor: 'transparent', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: G.line },
   logDate: { fontFamily: sans, fontSize: 11, color: C.muted },
   logText: { fontFamily: sans, fontSize: 14, color: C.ink, marginTop: 1 },

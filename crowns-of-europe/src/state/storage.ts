@@ -1,7 +1,7 @@
 /** Saves (autosave + 3 manual slots), settings and lifetime achievements in AsyncStorage. */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NATION } from '../sim/content';
-import { SAVE_VERSION } from '../sim/state';
+import { migrateSave } from '../sim/state';
 import type { GameState } from '../sim/types';
 import { formatShortDate } from '../sim/util';
 
@@ -43,9 +43,7 @@ export async function loadGame(slot: SlotId): Promise<GameState | null> {
   try {
     const raw = await AsyncStorage.getItem(key(slot));
     if (!raw) return null;
-    const s = JSON.parse(raw) as GameState;
-    if (s.version !== SAVE_VERSION) return null;
-    return s;
+    return migrateSave(JSON.parse(raw) as GameState);
   } catch {
     return null;
   }

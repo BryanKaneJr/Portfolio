@@ -1,6 +1,6 @@
 /** Army, fleet, sea and battle sheets. */
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ERA, REGION, SEA, UNITS, nationName, regionName } from '../../sim/content';
 import { assignGeneral, disband, GENERAL_COST, hireGeneral, mergeAt, split, splitHalf, stopArmy } from '../../sim/commands';
 import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
@@ -12,11 +12,12 @@ import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
 import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
-import { Bar, Btn, Line, Row, Section, Stat, T } from '../components/kit';
-import { C, fmt, kmen } from '../theme';
+import { Bar, Btn, Line, Row, Section, Stars, Stat, T } from '../components/kit';
+import { C, G, fmt, kmen, sans } from '../theme';
 import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
 import { charted } from '../../sim/colonies';
+import { STAR_BONUS, rulerAsGeneral, starBonus } from '../../sim/rulers';
 import { UnchartedSheet } from './ColonySheets';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
@@ -44,13 +45,52 @@ export function ArmySheet({ id }: { id: string }) {
   const dest = a.path.length ? a.path[a.path.length - 1] : null;
   const status = a.battle ? 'In battle' : a.retreating ? `Retreating to ${regionName(dest ?? a.node)}` : dest ? `Marching to ${regionName(dest)} · ${etaDays(s, a)} days` : `At ${regionName(a.node)}`;
 
+  const orders = mine ? (
+    splitting ? (
+      <Section title="Split off a new army">
+        {(['inf', 'cav', 'art'] as UnitType[]).map(t =>
+          a.regs[t].n ? (
+            <Row key={t} style={{ justifyContent: 'space-between', marginBottom: 6 }}>
+              <T v="small">{TYPE_NAME[t]}</T>
+              <Row gap={10}>
+                <Pressable onPress={() => setSplitting({ ...splitting, [t]: Math.max(0, splitting[t] - 1) })} style={stepBtn}>
+                  <Icon name="minus" size={16} color={G.text} />
+                </Pressable>
+                <T v="num">
+                  {splitting[t]} / {a.regs[t].n}
+                </T>
+                <Pressable onPress={() => setSplitting({ ...splitting, [t]: Math.min(a.regs[t].n, splitting[t] + 1) })} style={stepBtn}>
+                  <Icon name="plus" size={16} color={G.text} />
+                </Pressable>
+              </Row>
+            </Row>
+          ) : null,
+        )}
+        <Row gap={6}>
+          <Btn small style={{ flex: 1 }} label="Split" onPress={() => (st.run(x => split(x, a.id, splitting)), setSplitting(null))} />
+          <Btn small tone="ghost" style={{ flex: 1 }} label="Cancel" onPress={() => setSplitting(null)} />
+        </Row>
+      </Section>
+    ) : (
+      <View style={{ marginTop: 12 }}>
+        <View style={styles.marchHint}>
+          <Icon name="target" size={15} color={G.gold} />
+          <Text style={styles.marchText}>{a.battle || a.retreating ? 'Orders wait until the army is free.' : 'Tap any region on the map to march there.'}</Text>
+        </View>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>
+          {a.path.length && !a.retreating ? <Btn small tone="secondary" label="Stop" onPress={() => st.run(x => stopArmy(x, a.id))} /> : null}
+          {others.length ? <Btn small tone="secondary" label={`Merge (${others.length + 1})`} onPress={() => st.run(x => mergeAt(x, a.id))} /> : null}
+          <Btn small tone="secondary" label="Split in half" onPress={() => st.run(x => splitHalf(x, a.id))} />
+          <Btn small tone="secondary" label="Split…" onPress={() => setSplitting({ inf: 0, cav: 0, art: 0 })} />
+          <Btn small tone="ghost" label="Disband" onPress={() => st.run(x => disband(x, a.id))} />
+        </View>
+      </View>
+    )
+  ) : null;
+  const ruler = mine ? rulerAsGeneral(s, s.player) : null;
+
   return (
-    <Sheet
-      title={a.name}
-      subtitle={`${owner} · ${status}`}
-      left={<Shield nation={a.owner} size={30} />}
-      onClose={() => st.select(null)}
-    >
+    <Sheet title={a.name} subtitle={`${owner} · ${status}`} left={<Shield nation={a.owner} size={30} />} onClose={() => st.select(null)} compact={mine}>
       <Row gap={6}>
         <Stat label="Regiments" value={`${regs}`} icon="flag" />
         <Stat label="Men" value={kmen(men)} tone={men < regs * 700 ? 'bad' : undefined} icon="manpower" />
@@ -59,6 +99,31 @@ export function ArmySheet({ id }: { id: string }) {
       <View style={{ marginTop: 6 }}>
         <Bar value={a.morale / max} color={C.green} />
       </View>
+      {orders}
+      <Section title="General">
+        {a.general ? (
+          <GeneralRow name={a.general.isRuler ? `${a.general.name} (your ruler)` : a.general.name} stars={a.general.stars} note={`In command · +${Math.round(starBonus(a.general) * 100)}% to all the army does`} />
+        ) : (
+          <T v="small">No general. Each star a general has adds {Math.round(STAR_BONUS * 100)}% to everything the army does: its damage in battle, its steadiness, its march and its sieges.</T>
+        )}
+        {mine ? (
+          picking ? (
+            <View style={{ gap: 2, marginTop: 6 }}>
+              {me.generals.map(g => (
+                <GeneralRow key={g.id} name={g.name} stars={g.stars} onPress={() => (st.run(x => assignGeneral(x, a.id, g.id)), setPicking(false))} />
+              ))}
+              {ruler ? <GeneralRow name={`Lead in person: ${me.ruler.name}`} stars={ruler.stars} note="Risky: if they fall, the heir takes over" onPress={() => (st.run(x => assignGeneral(x, a.id, 'ruler')), setPicking(false))} /> : null}
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 6 }}>
+                <Btn small tone="secondary" label={`Hire a general (${GENERAL_COST} gold)`} onPress={() => st.run(hireGeneral)} />
+                {a.general ? <Btn small tone="ghost" label="Remove general" onPress={() => (st.run(x => assignGeneral(x, a.id, null)), setPicking(false))} /> : null}
+                <Btn small tone="ghost" label="Done" onPress={() => setPicking(false)} />
+              </View>
+            </View>
+          ) : (
+            <Btn small tone="secondary" style={{ marginTop: 6, alignSelf: 'flex-start' }} label={a.general ? 'Change general' : 'Assign a general'} onPress={() => setPicking(true)} />
+          )
+        ) : null}
+      </Section>
       <Section title="Regiments">
         {(['inf', 'cav', 'art'] as UnitType[]).map(t =>
           a.regs[t].n ? (
@@ -70,28 +135,6 @@ export function ArmySheet({ id }: { id: string }) {
           ) : null,
         )}
         {a.mercs ? <Line label="Mercenary regiments" value={`${a.mercs}`} tone="muted" /> : null}
-      </Section>
-      <Section title="General">
-        {a.general ? (
-          <Line label={a.general.isRuler ? `${a.general.name} (your ruler)` : a.general.name} value={`Fire ${a.general.fire} · Shock ${a.general.shock} · Maneuver ${a.general.maneuver}`} />
-        ) : (
-          <T v="small">No general. Generals add to every battle roll in their phase, and maneuver speeds marches and offsets terrain.</T>
-        )}
-        {mine ? (
-          picking ? (
-            <View style={{ gap: 6, marginTop: 6 }}>
-              {me.generals.map(g => (
-                <Btn key={g.id} small tone="secondary" label={`${g.name}`} sub={`Fire ${g.fire} · Shock ${g.shock} · Maneuver ${g.maneuver}`} onPress={() => (st.run(x => assignGeneral(x, a.id, g.id)), setPicking(false))} />
-              ))}
-              <Btn small tone="secondary" label={`Lead in person: ${me.ruler.name}`} sub="Risky: if they fall, the heir takes over" onPress={() => (st.run(x => assignGeneral(x, a.id, 'ruler')), setPicking(false))} />
-              <Btn small tone="secondary" label={`Hire a general (${GENERAL_COST} gold)`} onPress={() => st.run(hireGeneral)} />
-              {a.general ? <Btn small tone="ghost" label="Remove general" onPress={() => (st.run(x => assignGeneral(x, a.id, null)), setPicking(false))} /> : null}
-              <Btn small tone="ghost" label="Done" onPress={() => setPicking(false)} />
-            </View>
-          ) : (
-            <Btn small tone="secondary" style={{ marginTop: 6 }} label={a.general ? 'Change general' : 'Assign a general'} onPress={() => setPicking(true)} />
-          )
-        ) : null}
       </Section>
       {atRegion && a.owner !== REBELS ? (
         <Section title="Supply">
@@ -105,7 +148,7 @@ export function ArmySheet({ id }: { id: string }) {
             <>
               <Line label={reg.fort ? `Besieging the fort (level ${reg.fort})` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}%`} />
               <Bar value={reg.siege?.progress ?? 0} color={C.red} />
-              <T v="tiny" style={{ marginTop: 4 }}>About {Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days left. {reg.fort ? 'Artillery speeds it up.' : ''}</T>
+              <T v="tiny" style={{ marginTop: 4 }}>About {Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days left. {reg.fort ? 'Artillery and a general speed it up.' : ''}</T>
             </>
           ) : siege ? (
             <T v="small">Needs {minSiegeRegs(reg.fort)} regiments to besiege this fort.</T>
@@ -114,49 +157,37 @@ export function ArmySheet({ id }: { id: string }) {
           )}
         </Section>
       ) : null}
-      {mine ? (
-        splitting ? (
-          <Section title="Split off a new army">
-            {(['inf', 'cav', 'art'] as UnitType[]).map(t =>
-              a.regs[t].n ? (
-                <Row key={t} style={{ justifyContent: 'space-between', marginBottom: 6 }}>
-                  <T v="small">{TYPE_NAME[t]}</T>
-                  <Row gap={10}>
-                    <Pressable onPress={() => setSplitting({ ...splitting, [t]: Math.max(0, splitting[t] - 1) })} style={stepBtn}>
-                      <Icon name="minus" size={16} />
-                    </Pressable>
-                    <T v="num">
-                      {splitting[t]} / {a.regs[t].n}
-                    </T>
-                    <Pressable onPress={() => setSplitting({ ...splitting, [t]: Math.min(a.regs[t].n, splitting[t] + 1) })} style={stepBtn}>
-                      <Icon name="plus" size={16} />
-                    </Pressable>
-                  </Row>
-                </Row>
-              ) : null,
-            )}
-            <Row gap={6}>
-              <Btn small style={{ flex: 1 }} label="Split" onPress={() => (st.run(x => split(x, a.id, splitting)), setSplitting(null))} />
-              <Btn small tone="ghost" style={{ flex: 1 }} label="Cancel" onPress={() => setSplitting(null)} />
-            </Row>
-          </Section>
-        ) : (
-          <Section title="Orders">
-            <T v="tiny" style={{ marginBottom: 6 }}>Tap a region on the map to march there.</T>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
-              {a.path.length && !a.retreating ? <Btn small tone="secondary" label="Stop" onPress={() => st.run(x => stopArmy(x, a.id))} /> : null}
-              {others.length ? <Btn small tone="secondary" label={`Merge (${others.length + 1})`} onPress={() => st.run(x => mergeAt(x, a.id))} /> : null}
-              <Btn small tone="secondary" label="Split in half" onPress={() => st.run(x => splitHalf(x, a.id))} />
-              <Btn small tone="secondary" label="Split…" onPress={() => setSplitting({ inf: 0, cav: 0, art: 0 })} />
-              <Btn small tone="ghost" label="Disband" onPress={() => st.run(x => disband(x, a.id))} />
-            </View>
-          </Section>
-        )
-      ) : null}
     </Sheet>
   );
 }
-const stepBtn = { width: 32, height: 32, borderRadius: 16, backgroundColor: C.parchment2, alignItems: 'center' as const, justifyContent: 'center' as const };
+
+/** A general: name, what their stars add, and the stars themselves. */
+export function GeneralRow({ name, stars, note, onPress }: { name: string; stars: number; note?: string; onPress?: () => void }) {
+  const body = (
+    <View style={styles.general}>
+      <View style={styles.medal}>
+        <Icon name="horse" size={16} color={G.gold} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.genName} numberOfLines={1}>
+          {name}
+        </Text>
+        <Text style={styles.genNote} numberOfLines={1}>
+          {note ?? `+${Math.round(starBonus({ stars }) * 100)}% to all the army does`}
+        </Text>
+      </View>
+      <Stars n={stars} />
+    </View>
+  );
+  return onPress ? (
+    <Pressable onPress={onPress} style={({ pressed }) => [pressed && { opacity: 0.6 }]} accessibilityLabel={`${name}, ${stars} stars`}>
+      {body}
+    </Pressable>
+  ) : (
+    body
+  );
+}
+const stepBtn = { width: 32, height: 32, borderRadius: 16, backgroundColor: G.raised, alignItems: 'center' as const, justifyContent: 'center' as const };
 
 export function FleetSheet({ id }: { id: string }) {
   const st = useStore();
@@ -166,7 +197,7 @@ export function FleetSheet({ id }: { id: string }) {
   const mine = f.owner === s.player;
   const dest = f.path.length ? f.path[f.path.length - 1] : null;
   return (
-    <Sheet title={f.name} subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`} left={<Shield nation={f.owner} size={30} />} onClose={() => st.select(null)}>
+    <Sheet title={f.name} subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`} left={<Shield nation={f.owner} size={30} />} onClose={() => st.select(null)} compact={mine}>
       <Row gap={6}>
         <Stat label="Ships" value={`${shipCount(f)}`} icon="ship" />
         <Stat label="Strength" value={fmt(fleetPower(s, f), 1)} icon="swords" />
@@ -176,8 +207,14 @@ export function FleetSheet({ id }: { id: string }) {
         {(['galley', 'transport', 'warship'] as const).map(t => (f.ships[t] ? <Line key={t} label={UNITS.ships[t].name} value={`${f.ships[t]}`} /> : null))}
         <Line label="Can carry" value={`${transportCapacity([f])} regiments`} />
       </Section>
+      {mine ? (
+        <View style={[styles.marchHint, { marginTop: 12 }]}>
+          <Icon name="target" size={15} color={G.gold} />
+          <Text style={styles.marchText}>Tap any sea on the map to sail there.</Text>
+        </View>
+      ) : null}
       <T v="tiny" style={{ marginTop: 8 }}>
-        {mine ? 'Tap a sea zone to sail there. ' : ''}Fleets carry armies across seas they sit in, blockade enemy coasts (−income, +war score) and fight in one roll when enemies meet. Galleys are strong in inland seas, weak in the ocean. Hulls repair next to your own coast.
+        Fleets carry armies across seas they sit in, blockade enemy coasts (−income, +leverage) and fight in one roll when enemies meet. Galleys are strong in inland seas, weak in the ocean. Hulls repair next to your own coast.
       </T>
     </Sheet>
   );
@@ -213,7 +250,7 @@ export function BattleSheet({ id }: { id: string }) {
   const sides = battleSides(s, b);
   const terrain = REGION[b.node].terrain;
   return (
-    <Sheet title={`Battle of ${regionName(b.node)}`} subtitle={`Day ${b.days} · ${battlePhase(b) === 'fire' ? 'Fire phase (artillery strong)' : 'Shock phase (cavalry strong)'} · ${terrain}, ${FRONT_WIDTH[terrain]} wide${b.river ? ' · attacker crossed a river' : ''}`} onClose={() => st.select(null)}>
+    <Sheet title={`Battle of ${regionName(b.node)}`} subtitle={`Day ${b.days} · ${battlePhase(b) === 'volley' ? 'Volleys (the guns tell)' : 'Charges (the horse tells)'} · ${terrain}, ${FRONT_WIDTH[terrain]} wide${b.river ? ' · attacker crossed a river' : ''}`} onClose={() => st.select(null)}>
       {[0, 1].map(i => {
         const side = sides[i];
         const nat = b.sides[i].nations[0];
@@ -227,14 +264,23 @@ export function BattleSheet({ id }: { id: string }) {
             </Row>
             <Line label="Men" value={`${kmen(side.totalMen)} (lost ${kmen(b.sides[i].losses)})`} />
             <Line label="Regiments (inf / cav / art)" value={`${side.regs.inf} / ${side.regs.cav} / ${side.regs.art}`} />
-            <Line label={`General${side.general.name ? `: ${side.general.name}` : ''}`} value={side.general.name ? `F${side.general.fire} S${side.general.shock} M${side.general.maneuver}` : 'none'} />
+            {side.general.name ? <GeneralRow name={side.general.name} stars={side.general.stars} /> : <Line label="General" value="none" tone="muted" />}
             <Line label="Today's roll (with modifiers)" value={`${b.sides[i].roll || '–'}`} />
             <Bar value={side.morale / side.maxMorale} color={i === 0 ? C.blue : C.red} />
           </View>
         );
       })}
-      <T v="tiny">Each day both sides roll a die, plus their general’s skill in this phase; the attacker loses 1 (2 in mountains) in rough terrain. Damage = roll × front-line strength. A side at zero morale retreats; with 5× the enemy’s remaining men, the winner annihilates them.</T>
+      <T v="tiny">Each day both sides roll a die; the attacker loses 1 in rough terrain (2 in mountains, 1 more across a river). Damage = roll × front-line strength, plus {Math.round(STAR_BONUS * 100)}% for each star of the side’s best general (whose stars also steady their own side’s morale). Three days of volleys favour guns, then three of charges favour horse. A side at zero morale retreats; with 5× the enemy’s remaining men, the winner annihilates them.</T>
       <Btn small tone="secondary" style={{ marginTop: 8 }} label="Show on map" onPress={() => store.focusOn(...regionPoint(b.node))} />
     </Sheet>
   );
 }
+
+const styles = StyleSheet.create({
+  marchHint: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, paddingVertical: 9, borderRadius: 12, backgroundColor: 'rgba(214,178,110,0.1)', borderWidth: StyleSheet.hairlineWidth, borderColor: G.gilt },
+  marchText: { flex: 1, color: G.text, fontFamily: sans, fontSize: 13.5, fontWeight: '600' },
+  general: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 7 },
+  medal: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(214,178,110,0.12)', borderWidth: 1, borderColor: G.gilt },
+  genName: { color: G.text, fontFamily: sans, fontSize: 15, fontWeight: '600' },
+  genNote: { color: G.text3, fontFamily: sans, fontSize: 12, marginTop: 1 },
+});

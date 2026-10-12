@@ -1,9 +1,9 @@
 /**
  * The controls that float over the map, in glass: the top bar (your arms and resources: tap any for why; messages),
  * the dock in the thumb zone (time on the left, the realm's panels as a tab bar on the right), the map lens button,
- * banners, and your wars.
+ * banners, and your wars (each enemy's arms on fire, down the left edge).
  */
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { readyMissionCount } from '../../sim/missions';
 import { availableAdvances, scienceRate } from '../../sim/science';
@@ -12,6 +12,7 @@ import { ledger } from '../../sim/economy';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
 import { SPEEDS, store, useStore, type MapMode, type MenuTab } from '../../state/store';
+import { BurningShield } from '../components/BurningShield';
 import { Shield } from '../components/Flag';
 import { Glass } from '../components/Glass';
 import { Icon, type IconName } from '../components/Icon';
@@ -20,9 +21,8 @@ import { G, R, display, fmt, kmen, sans, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
 import { MAP_STYLE_LIST } from '../map/styles';
 
-/** Heights the floating controls take (for placing things clear of them). */
-export const TOP_BAR_H = 54;
-export const DOCK_H = 60;
+import { DOCK_H, TOP_BAR_H } from '../layout';
+export { DOCK_H, TOP_BAR_H };
 
 /** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
 function Res({ icon, value, sub, onPress, tone, subTone, label }: { icon: IconName; value: string; sub?: string; onPress: () => void; tone?: 'bad'; subTone?: 'good' | 'bad'; label: string }) {
@@ -182,7 +182,7 @@ export function Toasts() {
   const s = st.state;
   const atWar = !!s && Object.values(s.wars).some(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   return (
-    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8 + (atWar ? 42 : 0) }]} pointerEvents="none">
+    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8, left: atWar ? 68 : 12 }]} pointerEvents="none">
       {st.toasts.map(t => (
         <Glass key={t.id} strong radius={R.pill} style={styles.toast}>
           <Icon name={t.tone === 'bad' ? 'info' : t.tone === 'good' ? 'check' : 'scroll'} size={15} color={t.tone === 'bad' ? G.bad : t.tone === 'good' ? G.good : G.gold} />
@@ -193,32 +193,30 @@ export function Toasts() {
   );
 }
 
-/** Your wars under the top bar: who is ahead, by how much leverage. Tap one to make peace. */
-export function WarStrip() {
+/** Your wars, down the left edge under the top bar: each enemy's arms on fire, your leverage beneath. Tap one for the
+ * war: how it stands, and peace. */
+export function WarRail() {
   const st = useStore();
   const s = st.state!;
   const insets = useSafeAreaInsets();
   const wars = Object.values(s.wars).filter(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   if (!wars.length) return null;
   return (
-    <ScrollView horizontal style={[styles.strip, { top: insets.top + 6 + TOP_BAR_H + 8 }]} contentContainerStyle={{ gap: 6, paddingHorizontal: 8 }} showsHorizontalScrollIndicator={false}>
-      {wars.map(w => {
-        const sc = warScore(s, w).total * (w.defenders.includes(s.player) ? -1 : 1);
+    <View style={[styles.warRail, { top: insets.top + 6 + TOP_BAR_H + 2 }]} pointerEvents="box-none">
+      {wars.map((w, i) => {
+        const ours = w.defenders.includes(s.player);
+        const sc = warScore(s, w).total * (ours ? -1 : 1);
+        const enemy = ours ? w.attackers[0] : w.defenders[0];
         return (
-          <Pressable key={w.id} onPress={() => store.open({ kind: 'peace', war: w.id })} accessibilityLabel={`${w.name}: leverage ${signed(sc)}%. Tap to make peace.`}>
-            <Glass radius={R.pill} style={styles.warChip} shadow={false}>
-              <View style={styles.warDot} />
-              <Text style={styles.warText} numberOfLines={1}>
-                {w.name}
-              </Text>
-              <Text numberOfLines={1} style={[styles.warScore, { color: sc > 5 ? G.good : sc < -5 ? G.bad : G.text2 }]}>
-                {sc > 5 ? 'ahead' : sc < -5 ? 'behind' : 'even'} {signed(sc)}%
-              </Text>
-            </Glass>
+          <Pressable key={w.id} testID={`war-${w.id}`} onPress={() => store.open({ kind: 'peace', war: w.id })} style={({ pressed }) => [styles.war, pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] }]} accessibilityLabel={`${w.name}: leverage ${signed(sc)}%. Tap for the war.`}>
+            <BurningShield nation={enemy} size={28} seed={i + 1} />
+            <View style={styles.warPill}>
+              <Text style={[styles.warScore, { color: sc > 5 ? G.good : sc < -5 ? G.bad : G.text }]}>{signed(sc)}%</Text>
+            </View>
           </Pressable>
         );
       })}
-    </ScrollView>
+    </View>
   );
 }
 
@@ -253,12 +251,11 @@ const styles = StyleSheet.create({
   lookItem: { flex: 1, paddingVertical: 7, borderRadius: R.pill, alignItems: 'center' },
   lookItemOn: { backgroundColor: G.raised },
   lookText: { color: G.text2, fontFamily: sans, fontSize: 13, fontWeight: '600' },
-  toasts: { position: 'absolute', left: 12, right: 12, alignItems: 'center', gap: 6, zIndex: 30 },
+  toasts: { position: 'absolute', right: 58, alignItems: 'center', gap: 6, zIndex: 30 }, // clear of the side rail
   toast: { flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 16, paddingVertical: 11, maxWidth: 440 },
   toastText: { color: G.text, fontFamily: sans, fontSize: 14, fontWeight: '500', flexShrink: 1 },
-  strip: { position: 'absolute', left: 0, right: 0, maxHeight: 34, zIndex: 9 }, // the side rail sits below it
-  warChip: { flexDirection: 'row', alignItems: 'center', gap: 7, height: 32, paddingHorizontal: 12, maxWidth: 280 },
-  warDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: G.bad },
-  warText: { color: G.text, fontFamily: sans, fontSize: 13, fontWeight: '700', flexShrink: 1 },
-  warScore: { fontFamily: sans, fontSize: 12.5, fontWeight: '700', flexShrink: 0 },
+  warRail: { position: 'absolute', left: 4, gap: 2, zIndex: 25 },
+  war: { alignItems: 'center' },
+  warPill: { marginTop: -10, minWidth: 40, height: 18, paddingHorizontal: 6, borderRadius: 9, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(13,16,21,0.92)', borderWidth: 1, borderColor: 'rgba(214,178,110,0.75)' },
+  warScore: { fontFamily: sans, fontSize: 11.5, fontWeight: '800', fontVariant: ['tabular-nums'] },
 });

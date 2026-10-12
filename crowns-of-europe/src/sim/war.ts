@@ -36,7 +36,7 @@ export interface CbOption {
   label: string;
 }
 
-const CB_LABEL: Record<CasusBelli, string> = {
+export const CB_LABEL: Record<CasusBelli, string> = {
   claim: 'Press a claim',
   reconquest: 'Reconquest of lost lands',
   holy: 'Holy war',

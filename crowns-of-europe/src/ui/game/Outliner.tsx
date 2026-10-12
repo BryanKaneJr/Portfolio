@@ -13,6 +13,7 @@ import { Glass } from '../components/Glass';
 import { Icon, type IconName } from '../components/Icon';
 import { regionPoint } from '../map/geometry';
 import { G, R, displaySemi, sans } from '../theme';
+import { dockTop, sheetHeight } from '../layout';
 import { LensPanel, MODE_ICONS, TOP_BAR_H } from './Bars';
 
 function Item({ icon, title, sub, right, tone, onPress }: { icon: IconName; title: string; sub: string; right?: string; tone?: 'bad' | 'good'; onPress: () => void }) {
@@ -39,8 +40,7 @@ export function SideRail() {
   const { height } = useWindowDimensions();
   const [open, setOpen] = useState<'outliner' | 'lens' | null>(null);
   const p = s.player;
-  const atWar = Object.values(s.wars).some(w => w.attackers.includes(p) || w.defenders.includes(p));
-  const top = insets.top + 6 + TOP_BAR_H + 8 + (atWar ? 42 : 0);
+  const top = insets.top + 6 + TOP_BAR_H + 8;
   const go = (node: string, sel: Parameters<typeof st.select>[0]) => {
     const [x, y] = regionPoint(node);
     st.focusOn(x, y);
@@ -74,7 +74,7 @@ export function SideRail() {
         </View>
       ) : null}
       {open === 'outliner' ? (
-        <Glass strong gilt radius={R.lg} style={[styles.panel, styles.beside, { maxHeight: height * 0.5 }]}>
+        <Glass strong gilt radius={R.lg} style={[styles.panel, styles.beside, { maxHeight: Math.max(220, height - dockTop(insets.bottom) - sheetHeight(height) - top - 8) }]}>
           <ScrollView contentContainerStyle={{ paddingVertical: 6 }}>
             <Text style={styles.head}>Armies</Text>
             {armies.length ? (

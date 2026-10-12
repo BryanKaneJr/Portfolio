@@ -56,21 +56,29 @@ await tapRegion('granada');
 await shot('tap-granada');
 // Select our army by tapping its chip, then tap a destination region.
 const army = await coe(() => { const s = window.__coe.store.state; const a = Object.values(s.armies).find(x => x.owner === s.player); return a.node; });
+const armyId = await coe(() => { const s = window.__coe.store.state; return Object.values(s.armies).find(x => x.owner === s.player).id; });
+await coe(() => window.__coe.store.select(null)); // close Granada's sheet first, as a player would
+await page.waitForTimeout(300);
 await tapRegion(army);
+if ((await coe(() => window.__coe.store.selection?.id)) !== armyId) throw new Error('Tapping our army did not select it');
 await shot('tap-army');
 if (await has('hint-ok')) await tapId('hint-ok');
 await coe(() => { const { store, commands } = window.__coe; store.run(s => commands.playerDeclareWar(s, 'GRA', 0)); });
 await cards();
 // Re-select the army (cards may have cleared it), then tap Granada to march.
-await tapRegion(army);
+if ((await coe(() => window.__coe.store.selection?.id)) !== armyId) {
+  await coe(() => window.__coe.store.select(null));
+  await tapRegion(army);
+}
 await tapRegion('granada');
+if (!(await coe(id => window.__coe.store.state.armies[id].path.length, armyId))) throw new Error('Tapping Granada with the army selected gave no march order');
 await shot('marching');
 for (let i = 0; i < 16; i++) { await coe(() => window.__coe.advance(20)); await cards(); }
 await shot('after-war');
-// The peace screen from the war chip.
-const wars = await coe(() => Object.keys(window.__coe.store.state.wars));
+// The war screen, from the enemy's burning arms down the left of the map.
+const wars = await coe(() => { const s = window.__coe.store.state; return Object.values(s.wars).filter(w => w.attackers.includes(s.player) || w.defenders.includes(s.player)).map(w => w.id); });
 if (wars.length) {
-  await coe(w => window.__coe.store.open({ kind: 'peace', war: w }), wars[0]);
+  await tapId(`war-${wars[0]}`);
   await shot('peace');
   if (await has('peace-granada')) { await tapId('peace-granada'); await shot('peace-picked'); }
   if (await has('send-peace')) { await tapId('send-peace'); await shot('peace-sent'); }

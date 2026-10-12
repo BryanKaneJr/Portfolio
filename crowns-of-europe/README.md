@@ -37,9 +37,12 @@ bundled and works in airplane mode.
   takes weeks to cross.
 - **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy, and automatic pauses (all configurable)
   for wars declared on you, events and offers.
-- **Armies:** regiments of 1,000 men (infantry, cavalry, artillery once you know Bombards), merge and split, generals with
-  Fire/Shock/Maneuver, the ruler leading in person, mercenaries, supply limits and winter attrition.
-- **Battles** that run for days so reinforcements can join: each day 1d10 plus general and terrain, damage
+- **Armies:** regiments of 1,000 men (infantry, cavalry, artillery once you know Bombards), merge and split, generals of
+  one to five stars (each star +10% to everything the army does: damage, steadiness, march and siege speed), the
+  ruler leading in person, mercenaries, supply limits and winter attrition. On the map an army is a token with a
+  pikeman on it, a fleet one with a ship, the count beneath; tap one, then tap where it should go.
+- **Battles** that run for days so reinforcements can join: each day 1d10 less terrain for the attacker, days of
+  volleys (the guns tell) and of charges (the horse tells), the general's stars, damage
   scaled by the front line (20 wide on plains, 10 in mountains), morale, retreat, cavalry pursuit, and the
   **stack wipe** when the winner has five times the loser's remaining men. River crossings cost the attacker.
 - **Sieges** (15 days for open land; forts need 3 regiments per level and months, faster with artillery; a relief

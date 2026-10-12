@@ -113,7 +113,7 @@ export function effectLines(e: Effect): ModLine[] {
     case 'addRegiments':
       return L(`Free army: ${[v.inf && `${v.inf} infantry`, v.cav && `${v.cav} cavalry`, v.art && `${v.art} artillery`].filter(Boolean).join(', ')}`);
     case 'hireGeneral':
-      return L(`A general joins you${v.name ? `: ${v.name}` : ''} (${v.fire}/${v.shock}/${v.maneuver})`);
+      return L(`A ${v.stars}-star general joins you${v.name ? `: ${v.name}` : ''}`);
     case 'opinion':
       return L(`${nat(v.nation)}'s opinion of you ${sgn(v.amount)}`, v.amount > 0);
     case 'ally':

@@ -5,6 +5,7 @@
 import { REGION, nationName, regionName } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armyRegs, controllerHostile, friendlyTo, nationMods } from './queries';
+import { starBonus } from './rulers';
 import { setController } from './territory';
 import type { Army, GameState, NationId, RegionId } from './types';
 import { chance } from './util';
@@ -42,7 +43,8 @@ export function siegeInfo(s: GameState, r: RegionId, here?: Army[]): SiegeInfo |
   else {
     const siegeMod = lead.owner === REBELS ? 0 : nationMods(s, lead.owner).siegeSpeed;
     const defMod = !reg.controller || reg.controller === REBELS || !s.nations[reg.controller] ? 0 : nationMods(s, reg.controller).fortDefense;
-    const speed = (1 + Math.min(1.5, art * 0.1)) * (1 + siegeMod) * (1 + Math.min(0.5, 0.02 * Math.max(0, regs - need))) / (1 + defMod);
+    const stars = Math.max(0, ...group.map(a => a.general?.stars ?? 0)); // the best general there runs the siege
+    const speed = ((1 + Math.min(1.5, art * 0.1)) * (1 + siegeMod) * (1 + Math.min(0.5, 0.02 * Math.max(0, regs - need))) * (1 + starBonus({ stars }))) / (1 + defMod);
     daily = speed / (FORT_DAYS * reg.fort);
   }
   return { besiegers: group, regs, artillery: art, enough: regs >= need, daily, by: lead.owner };

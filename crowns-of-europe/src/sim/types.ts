@@ -294,7 +294,7 @@ export type Effect =
   | { removeModifier: string }
   | { rebels: { region?: RegionId; regiments: number } }
   | { addRegiments: { inf?: number; cav?: number; art?: number; region?: RegionId } }
-  | { hireGeneral: { fire: number; shock: number; maneuver: number; name?: string } }
+  | { hireGeneral: { stars: number; name?: string } }
   | { opinion: { nation: NationId; amount: number } }
   | { ally: NationId }
   | { breakAlliance: NationId }
@@ -389,9 +389,7 @@ export interface Ruler {
 export interface General {
   id: string;
   name: string;
-  fire: number;
-  shock: number;
-  maneuver: number;
+  stars: number; // 1-5: each star is +10% to everything the army does (STAR_BONUS in rulers.ts)
   hired: number; // day
   lifespan: number; // days of service before retiring
   isRuler?: boolean;

@@ -36,7 +36,7 @@ import {
   sideOf,
 } from './queries';
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
-import { newGeneral, rulerAsGeneral } from './rulers';
+import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
 import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
@@ -145,7 +145,7 @@ export function hireGeneral(s: GameState): Result {
   if (!pay(s, GENERAL_COST)) return no(`Hiring a general costs ${GENERAL_COST} gold.`);
   const g = newGeneral(s, s.player);
   me(s).generals.push(g);
-  return ok(`${g.name} joins your service (Fire ${g.fire}, Shock ${g.shock}, Maneuver ${g.maneuver}).`);
+  return ok(`${g.name} joins your service: a ${g.stars}-star general (+${Math.round(starBonus(g) * 100)}% to all the army does).`);
 }
 
 export function assignGeneral(s: GameState, armyId: string, generalId: string | 'ruler' | null): Result {

@@ -53,6 +53,44 @@ await coe(() => { const { store } = window.__coe; const a = Object.values(store.
 await shot('army-sheet');
 if (await has('hint-ok')) await tapId('hint-ok');
 
+// Give a march order the way a player does: tap the army's token, then tap a region of your own (one with no unit
+// on it). The map glides so the army sits clear of its sheet; the order must take.
+const onScreen = (what, id) => coe(([what, id]) => {
+  const { store, point } = window.__coe;
+  const cam = store.camera;
+  const s = store.state;
+  const [x, y] = what === 'army' ? point(s.armies[id].node) : point(id);
+  return [innerWidth / 2 + (x - cam.cx) * cam.k, innerHeight / 2 + (y - cam.cy) * cam.k];
+}, [what, id]);
+await coe(() => window.__coe.store.select(null));
+await page.waitForTimeout(300);
+const marcher = await coe(() => { const s = window.__coe.store.state; return Object.values(s.armies).find(x => x.owner === s.player).id; });
+const [ax, ay] = await onScreen('army', marcher);
+await page.touchscreen.tap(ax, ay + 2);
+await page.waitForTimeout(700);
+if ((await coe(() => window.__coe.store.selection?.id)) !== marcher) throw new Error('Tapping the army token did not select it');
+const dest = await coe(id => {
+  const { store, point } = window.__coe;
+  const s = store.state;
+  const cam = store.camera;
+  const sc = ([x, y]) => [innerWidth / 2 + (x - cam.cx) * cam.k, innerHeight / 2 + (y - cam.cy) * cam.k];
+  const units = Object.values(s.armies).map(a => sc(point(a.node)));
+  const [ax, ay] = sc(point(s.armies[id].node));
+  const sheetTop = innerHeight * 0.55;
+  return Object.values(s.regions)
+    .filter(r => r.owner === s.player && r.id !== s.armies[id].node)
+    .map(r => ({ id: r.id, p: sc(point(r.id)) }))
+    .filter(c => c.p[1] > 90 && c.p[1] < sheetTop && c.p[0] > 30 && c.p[0] < innerWidth - 70 && units.every(u => Math.hypot(u[0] - c.p[0], u[1] - c.p[1]) > 30))
+    .sort((a, b) => Math.hypot(a.p[0] - ax, a.p[1] - ay) - Math.hypot(b.p[0] - ax, b.p[1] - ay))[0];
+}, marcher);
+if (!dest) throw new Error('No free region of your own in view to march to');
+await page.touchscreen.tap(dest.p[0], dest.p[1]);
+await page.waitForTimeout(400);
+const marched = await coe(id => window.__coe.store.state.armies[id].path, marcher);
+if (!marched.length) throw new Error(`Tapping ${dest.id} with the army selected gave no march order`);
+await shot('army-marching');
+await coe(id => { const { store, commands } = window.__coe; store.run(st => commands.stopArmy(st, id), { quiet: true }); }, marcher);
+
 // Menu tabs.
 await coe(() => window.__coe.store.select(null));
 await tapId('menu');

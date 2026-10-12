@@ -6,13 +6,14 @@ import { useEffect } from 'react';
 import { AppState, StyleSheet, View } from 'react-native';
 import { Redirect } from 'expo-router';
 import { MapView } from '../ui/map/MapView';
-import { BottomBar, Toasts, TopBar, WarStrip } from '../ui/game/Bars';
+import { BottomBar, Toasts, TopBar, WarRail } from '../ui/game/Bars';
 import { SideRail } from '../ui/game/Outliner';
 import { RegionSheet } from '../ui/game/RegionSheet';
 import { ArmySheet, BattleSheet, FleetSheet, SeaSheet } from '../ui/game/UnitSheets';
 import { NationSheet } from '../ui/game/NationSheet';
 import { EventCard, GameOverCard, OfferCard, ReportCard } from '../ui/game/Cards';
-import { BreakdownPanel, DeclareWarPanel, LogPanel, PeacePanel } from '../ui/game/Panels';
+import { BreakdownPanel, DeclareWarPanel, LogPanel } from '../ui/game/Panels';
+import { WarPanel } from '../ui/game/WarScreen';
 import { MenuPanel } from '../ui/game/Menu';
 import { HelpPanel, Hints } from '../ui/game/Help';
 import { store, useStore } from '../state/store';
@@ -50,12 +51,13 @@ export default function GameScreen() {
       {!ov ? (
         <>
           <TopBar />
-          <WarStrip />
+          <WarRail />
           <SideRail />
           <BottomBar />
         </>
       ) : null}
-      <View style={[StyleSheet.absoluteFill, { zIndex: 20 }]} pointerEvents="box-none">
+      {/* Sheets sit above the rails, so one pulled to full height is not overlapped by their buttons. */}
+      <View style={[StyleSheet.absoluteFill, { zIndex: 26 }]} pointerEvents="box-none">
         {sel?.kind === 'region' ? <RegionSheet id={sel.id} /> : null}
         {sel?.kind === 'army' ? <ArmySheet id={sel.id} /> : null}
         {sel?.kind === 'fleet' ? <FleetSheet id={sel.id} /> : null}
@@ -69,7 +71,7 @@ export default function GameScreen() {
       <View style={[StyleSheet.absoluteFill, { zIndex: 40 }]} pointerEvents="box-none">
       {ov?.kind === 'menu' ? <MenuPanel tab={ov.tab} /> : null}
       {ov?.kind === 'log' ? <LogPanel /> : null}
-      {ov?.kind === 'peace' ? <PeacePanel warId={ov.war} /> : null}
+      {ov?.kind === 'peace' ? <WarPanel warId={ov.war} /> : null}
       {ov?.kind === 'declareWar' ? <DeclareWarPanel target={ov.target} /> : null}
       {ov?.kind === 'breakdown' ? <BreakdownPanel what={ov.what} /> : null}
       {ov?.kind === 'help' ? <HelpPanel /> : null}

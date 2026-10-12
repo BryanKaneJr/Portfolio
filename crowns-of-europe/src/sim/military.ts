@@ -17,6 +17,7 @@ import {
   fleetsOf,
 } from './queries';
 import { joinOrStartBattle } from './battle';
+import { starBonus } from './rulers';
 import { fleetPower, transportCapacity } from './navy';
 import { makeArmy } from './state';
 import type { Army, Fleet, GameState, NationId, NodeId, RegionId, Terrain, UnitType } from './types';
@@ -101,9 +102,8 @@ export function edgeDays(s: GameState, a: Pick<Army, 'owner' | 'general' | 'rebe
     const reg = s.regions[e.to];
     if (reg && controllerHostile(s, a.owner, reg)) d *= 1.25;
   }
-  const maneuver = a.general?.maneuver ?? 0;
   const mov = a.owner === REBELS ? 0 : nationMods(s, a.owner).movement;
-  d *= Math.max(0.5, 1 - maneuver * 0.04 - mov);
+  d *= Math.max(0.5, 1 - mov) / (1 + starBonus(a.general)); // a general's stars quicken the march
   if (retreating) d *= 0.7;
   return Math.max(2, Math.round(d));
 }

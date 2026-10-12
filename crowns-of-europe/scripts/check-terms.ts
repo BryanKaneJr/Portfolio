@@ -23,6 +23,7 @@ export const BANNED: [RegExp, string][] = [
   [/\bcasus belli\b/i, 'reason for war'],
   [/\baggressive expansion\b/i, 'Threat'],
   [/\bmonarch points?\b|\bmana\b/i, '(we have no point currencies)'],
+  [/\bmaneuvers?\b|\b(fire|shock)( phase| skill|\s+\d)|\bpips?\b/i, 'a general\'s stars; volleys / charges'],
 ];
 
 const problems: string[] = [];

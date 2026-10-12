@@ -149,6 +149,17 @@ export function Line({ label, value, tone, bold }: { label: string; value: strin
   );
 }
 
+/** A general's rank: one to five gold stars, the rest dim. */
+export function Stars({ n, size = 13 }: { n: number; size?: number }) {
+  return (
+    <View style={{ flexDirection: 'row', gap: 1 }} accessibilityLabel={`${n}-star general`}>
+      {[1, 2, 3, 4, 5].map(i => (
+        <Icon key={i} name="star" size={size} color={i <= n ? G.goldBright : 'rgba(255,255,255,0.14)'} />
+      ))}
+    </View>
+  );
+}
+
 export function Bar({ value, color = G.gold, back = G.raised, height = 6 }: { value: number; color?: string; back?: string; height?: number }) {
   return (
     <View style={{ height, backgroundColor: back, borderRadius: height / 2, overflow: 'hidden' }}>

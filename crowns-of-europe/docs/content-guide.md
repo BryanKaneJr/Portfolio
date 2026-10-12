@@ -37,6 +37,8 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
   | core, `addCore`, `coreCost` | **integrated** / **integrate** |
   | trade good, `good` | **export** |
   | stack wipe | annihilated |
+  | a general's fire, shock and maneuver | none: a general has **1-5 stars** (`stars`), each +10% to all the army does |
+  | fire and shock phases of a battle | **volleys** (the guns tell) and **charges** (the horse tells) |
   | Threat, Claim, Era, Papal Favor, coalition, colonists, war exhaustion, policy, mission | unchanged |
 
 - **Plain English, short.** Event text is 2-4 sentences (max 420 characters). Titles max 42 characters. Choice
@@ -183,7 +185,7 @@ Applied to "this nation" unless the effect names another.
 | `{ "removeModifier": "x" }` | remove one |
 | `{ "rebels": { "regiments": 6, "region": "bohemia" } }` | rebel army (region defaults to the capital) |
 | `{ "addRegiments": { "inf": 4, "cav": 2, "region": "castile" } }` | free army at full strength (region defaults to capital) |
-| `{ "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 2, "name": "Gonzalo de Córdoba" } }` | free general (stats 1-5) |
+| `{ "hireGeneral": { "stars": 4, "name": "Gonzalo de Córdoba" } }` | free general with 1-5 stars (each +10% to everything the army they lead does); the famous few get 5 |
 | `{ "opinion": { "nation": "HUN", "amount": 25 } }` | how that nation feels about this one (decays over time) |
 | `{ "ally": "HUN" }`, `{ "breakAlliance": "HUN" }` | alliances |
 | `{ "personalUnion": "LIT" }` | that nation becomes this nation's junior partner |

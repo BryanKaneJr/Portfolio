@@ -148,26 +148,40 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
 
 const SURNAMES = ['de Foix', 'von Stein', 'Sforza', 'Colonna', 'de la Cerda', 'Talbot', 'Percy', 'Báthory', 'Zamoyski', 'Shuisky', 'Pasha', 'Bey', 'Douglas', 'Oxenstierna', 'Wallenstein', 'Tilly', 'Montecuccoli', 'Turenne', 'Condé', 'Vauban', 'Marlborough', 'Eugene', 'Gonzaga', 'Orsini', 'Doria', 'Ruyter', 'Tromp', 'Coligny', 'Guise', 'Alba'];
 
-export function newGeneral(s: GameState, n: NationId, stats?: { fire: number; shock: number; maneuver: number; name?: string }): General {
-  const roll = () => Math.max(1, Math.min(5, Math.round(1 + rand(s) * 3.3)));
+/** What each of a general's stars adds to everything their army does: damage in battle, steadiness (morale lost),
+ * march speed and siege speed. */
+export const STAR_BONUS = 0.1;
+export const MAX_STARS = 5;
+export const starBonus = (g: Pick<General, 'stars'> | undefined | null): number => (g ? g.stars * STAR_BONUS : 0);
+
+/** How often a hired general has 1, 2, 3, 4 or 5 stars: most are journeymen, a great captain is rare. */
+const STAR_ODDS = [0.25, 0.35, 0.25, 0.12, 0.03];
+function rollStars(s: GameState): number {
+  let r = rand(s);
+  for (let i = 0; i < STAR_ODDS.length; i++) {
+    r -= STAR_ODDS[i];
+    if (r < 0) return i + 1;
+  }
+  return 1;
+}
+
+export function newGeneral(s: GameState, n: NationId, known?: { stars: number; name?: string }): General {
   const first = n === REBELS ? 'Captain' : pick(s, namePool(n)).split(' ')[0];
   return {
     id: nextId(s, 'g'),
-    name: stats?.name ?? `${first} ${pick(s, SURNAMES)}`,
-    fire: stats?.fire ?? roll(),
-    shock: stats?.shock ?? roll(),
-    maneuver: stats?.maneuver ?? roll(),
+    name: known?.name ?? `${first} ${pick(s, SURNAMES)}`,
+    stars: known ? Math.max(1, Math.min(MAX_STARS, Math.round(known.stars))) : rollStars(s),
     hired: s.day,
     lifespan: years(randInt(s, 8, 25)),
   };
 }
 
-/** The ruler as an army commander. */
+/** The ruler as an army commander: stars from their skill, one more for a warrior. */
 export function rulerAsGeneral(s: GameState, n: NationId): General {
   const r = s.nations[n].ruler;
   const bonus = r.traits.includes('warrior') ? 1 : 0;
-  const base = Math.max(1, Math.min(5, Math.round(r.skill * 0.7) + bonus));
-  return { id: `ruler_${n}`, name: r.name, fire: base, shock: Math.min(5, base + bonus), maneuver: Math.max(1, base - 1 + bonus), hired: s.day, lifespan: 1e9, isRuler: true };
+  const stars = Math.max(1, Math.min(MAX_STARS, Math.round(r.skill * 0.7) + bonus));
+  return { id: `ruler_${n}`, name: r.name, stars, hired: s.day, lifespan: 1e9, isRuler: true };
 }
 
 export function monthlyGenerals(s: GameState): void {

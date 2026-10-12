@@ -151,6 +151,18 @@ here.
     and the realm's pages as a tab bar; inset sheets with a grab handle that you drag to resize or dismiss; grouped
     lists; segmented controls; banners that drop in like notifications; one tint (gold) for what you can act on.
     Sheets rest above the dock rather than covering it, so time can be started and stopped with a sheet open.
+18. **War, in our own terms (on request).** A general is no longer three numbers borrowed from the genre (fire,
+    shock, maneuver): a general has one to five stars, and each adds 10% to everything the army does (damage in
+    battle, steadiness, march and siege speed), which a player can weigh at a glance. Battle days alternate
+    volleys and charges. Old saves convert each general to the average of their three numbers (`migrateSave`).
+    Your wars show down the left of the map as the enemy's arms on fire (original flame art) with your leverage
+    beneath; tapping one opens the war: both sides under their arms, the leverage as a tug of war with its four
+    parts, how the fighting has gone (battles, men lost, land held, war exhaustion) and the peace table, with the
+    deal and their answer always in reach at the bottom. Armies and fleets are tokens in their owner's colour with
+    a pikeman or a ship drawn on them and the count beneath. Moving an army: its sheet opens low and the map glides
+    so the army sits in the clear space above it, so the land around it can be tapped (a tall sheet used to cover
+    it, which is why armies seemed impossible to move); while you give orders, a near miss on another of your
+    units is a march order, and switching units takes a tap on its token.
 
 ## Key numbers (all in `src/sim/`)
 
@@ -162,7 +174,8 @@ here.
 | Manpower | 3,000 + 400 per development (half for non-cores); recovers 1/60 of the maximum per month |
 | Force limit | (6 + development / 2.5) × (1 + modifiers) regiments; upkeep rises above it |
 | Upkeep | infantry 0.18, cavalry 0.36, artillery 0.42 gold/month (half in peacetime pay) |
-| Battle | daily d10 + general pip difference; attacker −1 in rough terrain (−2 mountains, −1 river); damage = roll × front-line power; casualties = damage × 6; morale loss = damage × 0.069 / regiments |
+| Battle | daily d10; attacker −1 in rough terrain (−2 mountains, −1 river); damage = roll × front-line power × (1 + 0.1 × the best general's stars); casualties = damage × 6; morale loss = damage × 0.069 / regiments / (1 + 0.1 × the losing side's general's stars) |
+| Generals | 1-5 stars (hired: 25/35/25/12/3%; a ruler: skill × 0.7, +1 for a warrior); each star +10% to battle damage, steadiness, march speed (days ÷ 1.1 per star) and siege speed |
 | Front width | plains 20, forest and hills 14, marsh 12, mountains 10 |
 | Stack wipe | winner's men ≥ 5 × loser's remaining men |
 | Sieges | 15 days without a fort; 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
