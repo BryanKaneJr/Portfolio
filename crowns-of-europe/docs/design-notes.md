@@ -224,6 +224,12 @@ here.
     zooming in shows more real detail, not a magnified picture. It is the default style ("Illustrated"); outside the
     region it is Atlas. Pipeline: `scripts/terrain/` (Python + GDAL). Audit, verification, screenshots and the plan
     for the whole map: `docs/terrain/`. Painted stays as an option.
+    After the owner's first look:
+    - Close up it was too busy, so the two finest levels draw about 30% fewer small features (more on high ground),
+      and short minor rivers are left out.
+    - Borders carry a faint light casing, so they hold against forest and mountain ink.
+    - The water is a deeper blue-grey, with a soft darker band along every shore, so coasts stand apart from pale
+      coastal realms without going back to navy.
 
 ## Key numbers (all in `src/sim/`)
 

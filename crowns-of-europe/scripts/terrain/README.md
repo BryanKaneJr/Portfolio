@@ -67,6 +67,14 @@ every level is shown at about 0.6–1.2 device pixels per tile pixel. `SYM` in `
 and search window so that a tree is about 3–6 points tall and a mountain about 10–30 points wide there. Symbols are
 drawn on their own layer and cut to the game's land before they go on the ground, so nothing spills over the coast.
 
+The two finest levels, seen close up, are thinned so single shapes stay apart:
+- **`SPREAD`** widens the spacing of trees, hachures, grass and marsh (about 30% fewer).
+- **`PEAK_WIN`** widens the summit search, so fewer, more distinct peaks.
+- **`HIGH_THIN`** drops a further share of trees and hachures on high ground, where mountain country gets busiest.
+
+`vectors.py` leaves out minor rivers (Natural Earth scalerank 10 and up) shorter than 30 map units (about 130 km), so
+the close-up views keep the long rivers without the short stubs.
+
 ### Source resolution against need
 
 ETOPO 2022 15″ has about 10–14 samples per map unit at 45–50°N. Level 4's 16 px per unit therefore interpolates

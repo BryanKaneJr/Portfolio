@@ -22,6 +22,8 @@ from config import MAP_JSON, REGION, SRC_DIR, VECTORS_TS
 
 TOLERANCE = 0.06  # map units (about 250 m): simplification, well under a screen pixel at the closest zoom
 PAD = 6  # map units of game land considered around the region
+MINOR_RANK = 10  # Natural Earth scalerank from which a river counts as minor
+MINOR_MIN_LENGTH = 30  # map units (about 130 km): shorter minor rivers are left out
 
 
 def parse_rings(d):
@@ -131,6 +133,10 @@ def main():
             if not d or d in seen:
                 continue
             seen.add(d)
+            # Short minor rivers (the low-ranked ones, Natural Earth scalerank 10+) would only crowd the close-up
+            # views with stubs; the long ones stay, whatever their rank.
+            if float(p.get("scalerank") or 0) >= MINOR_RANK and g.length < MINOR_MIN_LENGTH:
+                continue
             w = float(p.get("strokeweig") or 0.4)
             rivers.append({"d": d, "w": round(min(2.2, 0.45 + w * 1.1), 2), "z": float(p.get("min_zoom") or 6), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})
     rivers.sort(key=lambda r: (r["z"], -r["w"]))

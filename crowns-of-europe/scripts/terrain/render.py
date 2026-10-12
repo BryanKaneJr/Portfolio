@@ -51,9 +51,10 @@ COVER_COLOURS = {
 DEFAULT_LAND = np.array([226, 216, 178], np.float32)
 UPLAND = np.array([212, 196, 160], np.float32)
 ROCK = np.array([198, 188, 170], np.float32)
-SEA_SHALLOW = np.array([192, 208, 200], np.float32)
-SEA_DEEP = np.array([150, 172, 176], np.float32)
-LAKE = np.array([176, 200, 200], np.float32)
+# Water: a soft blue-grey, deeper than the pale land so coasts read at a glance, never the navy of a modern map.
+SEA_SHALLOW = np.array([170, 194, 198], np.float32)
+SEA_DEEP = np.array([130, 158, 172], np.float32)
+LAKE = np.array([160, 188, 194], np.float32)
 SHADOW = np.array([96, 78, 58], np.float32)
 FOREST_WASH = np.array([150, 160, 106], np.float32)
 CANOPY = np.array([128, 138, 90], np.float32)
@@ -263,7 +264,7 @@ def ripples(canvas_rgb, land, water_inland, ppu, edge):
     if lake.any():
         dl = ndimage.distance_transform_edt(lake)
         lines = np.maximum(lines, 0.22 * np.clip(1 - np.abs(dl - 2.5) / 0.7, 0, 1) * lake)
-    ink = np.array([90, 112, 116], np.float32)
+    ink = np.array([78, 104, 118], np.float32)
     canvas_rgb += (ink - canvas_rgb) * lines[..., None]
     return canvas_rgb
 
@@ -293,6 +294,13 @@ def jitter_grid(gx0, gy0, w, h, spacing, salt):
 SYM = 2.2
 TREE_PX = [0, 0, 5.8 * SYM, 6.2 * SYM, 6.6 * SYM]  # tree height, px, per level (levels 0-1 draw the forest as a canopy)
 PEAK_PX = (14 * SYM, 36 * SYM)  # mountain width range, px
+# Density per level. The finest levels, the ones seen close up, are thinned so single shapes stay apart: wider spacing
+# for trees, hachures, grass and marsh (SPREAD; density goes as 1 / SPREAD^2), a wider search window for summits
+# (PEAK_WIN x SYM px: fewer peaks, so the main ones stand out), and on high ground fewer trees and hachures again
+# (HIGH_THIN: the share dropped by 1600 m, easing in from 700 m), since mountain country is the busiest.
+SPREAD = [1.0, 1.0, 1.0, 1.18, 1.2]
+PEAK_WIN = [17, 17, 17, 21, 21]
+HIGH_THIN = [0.0, 0.0, 0.0, 0.35, 0.4]
 PEAK_RELIEF = [900, 800, 700, 600, 520]  # metres of relief within the glyph's reach for a summit to get a mountain
 
 
@@ -307,7 +315,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     # Mountains: summits that stand highest within a glyph's reach and well above the land around, sized by how much.
     # The search window is in pixels, so a finer level finds more, smaller summits: real detail as you zoom in.
     es = ndimage.gaussian_filter(e, 1.4)
-    win = int(round(17 * SYM)) | 1
+    win = int(round(PEAK_WIN[level] * SYM)) | 1
     top = ndimage.maximum_filter(es, size=win)
     low = ndimage.minimum_filter(es, size=win * 2 + 1)
     relief_m = top - low
@@ -335,10 +343,11 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     if TREE_PX[level] > 0:
         s = TREE_PX[level]
         forest = ndimage.gaussian_filter(F["tree"], 0.8)
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, s * 0.62, 101 + level)  # overlapping, so woods read as woods
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, s * 0.62 * SPREAD[level], 101 + level)  # overlapping, so woods read as woods
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
-        keep = (u < smoothstep(0.4, 0.85, forest[ri, ci])) & (land[ri, ci] > 0.97)
+        high = 1 - HIGH_THIN[level] * smoothstep(700, 1600, e[ri, ci])
+        keep = (u < smoothstep(0.4, 0.85, forest[ri, ci]) * high) & (land[ri, ci] > 0.97)
         for x, y, r, c, i, j in zip(lx[keep], ly[keep], ri[keep], ci[keep], I[keep], J[keep]):
             el = e[r, c]
             lat = lat_of(y)
@@ -349,7 +358,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
             items.append((y, ("tree", kind, x, y, size, variant)))
     # Marsh: on wetland.
     if level >= 2:
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 11 * SYM, 201 + level)
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 11 * SYM * SPREAD[level], 201 + level)
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         keep = (u < smoothstep(0.15, 0.5, F["wetland"][ri, ci])) & (land[ri, ci] > 0.97)
@@ -357,18 +366,18 @@ def symbols(F, slope, land, box, level, gx0, gy0):
             items.append((y, ("marsh", x, y, 7.0 * SYM, int(hash01(i, j, 211) * 2**31))))
     # Grass tufts on open grassland and steppe (fine levels only).
     if level >= 3:
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 9 * SYM, 301 + level)
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 9 * SYM * SPREAD[level], 301 + level)
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         keep = (u < 0.55 * smoothstep(0.45, 0.85, F["grass"][ri, ci])) & (land[ri, ci] > 0.97) & (F["tree"][ri, ci] < 0.2)
         for x, y in zip(lx[keep], ly[keep]):
             items.append((y, ("grass", x, y)))
     # Hachures: short strokes down steep slopes, away from the peaks' own drawing.
-    gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 3.0 * SYM, 401 + level)
+    gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 3.0 * SYM * SPREAD[level], 401 + level)
     ri = np.clip(ly.astype(int), 0, h - 1)
     ci = np.clip(lx.astype(int), 0, w - 1)
     steep = smoothstep([9, 9, 10, 11, 12][level], [20, 20, 22, 24, 26][level], slope[ri, ci])
-    keep = (u < steep) & (land[ri, ci] > 0.97)
+    keep = (u < steep * (1 - HIGH_THIN[level] * smoothstep(700, 1600, e[ri, ci]))) & (land[ri, ci] > 0.97)
     gyy, gxx = np.gradient(ndimage.gaussian_filter(e, 1.0))
     hach = []
     for x, y, r, c, st in zip(lx[keep], ly[keep], ri[keep], ci[keep], steep[keep]):

@@ -28,7 +28,7 @@ export interface MapStyle {
   land: (hex: string) => string; // how a nation's colour is painted
   wild: string; // known land nobody holds
   unknown: { fill: string; shadow: number; label: Ink; wasteLabel: string }; // the blank parchment, the known world's shadow on it, names written there
-  provinceBorder: { color: string; width: number; dash: number[] | null };
+  provinceBorder: { color: string; width: number; dash: number[] | null; halo?: string; haloWidth?: number }; // halo: a light casing under the line
   nationBorder: { color: string; width: number; halo: string | null; haloWidth: number };
   coast: { color: string; width: number }; // every coastline, known or not
   river: { color: string; width: number };
@@ -41,8 +41,9 @@ export interface MapStyle {
   painting: { land: number; veil: number; uncharted: number } | null;
   /** The illustrated terrain tiles (ui/map/terrainTiles.ts, made by scripts/terrain): where they exist, the realms'
    * colours are laid over them at `fill` opacity, with rivers and lake shores on top. Elsewhere the same colours lie
-   * over a plain land of `base`, with the style's hill shading, so the two meet without a seam of colour. */
-  terrain: { fill: number; base: string; river: string; lake: string } | null;
+   * over a plain land of `base`, with the style's hill shading, so the two meet without a seam of colour. `shore`
+   * darkens the water along every coast (strokes of the coastline, widest first, cut to the water). */
+  terrain: { fill: number; base: string; river: string; lake: string; shore: { color: string; width: number }[] } | null;
 }
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. (The mountain
@@ -109,7 +110,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     id: 'illustrated',
     label: 'Illustrated',
     help: 'An illustrated atlas drawn from real elevation, forests and rivers (central Europe so far), the realms\' colours washed over it.',
-    sea: '#a1b5b5', // the tiles' sea, so the region's edge doesn't show on the water
+    sea: '#8ea9b3', // the tiles' sea (EDGE_MATCH in scripts/terrain/config.py), so the region's edge doesn't show on the water
     seaZone: { color: 'rgba(52,78,88,0.16)', dash: null },
     seaLabel: 'rgba(52,78,88,0.72)',
     waterLines: null,
@@ -120,9 +121,10 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
     wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
     unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
-    provinceBorder: { color: 'rgba(24,18,10,0.2)', width: 0.55, dash: null },
-    nationBorder: { color: 'rgba(22,16,9,0.62)', width: 0.95, halo: 'rgba(20,14,8,0.14)', haloWidth: 3 },
-    coast: { color: 'rgba(48,36,22,0.62)', width: 0.75 },
+    // Over textured terrain the lines carry a faint light casing, so they hold against forest and mountain ink.
+    provinceBorder: { color: 'rgba(30,22,12,0.42)', width: 0.6, dash: null, halo: 'rgba(250,244,228,0.3)', haloWidth: 1.8 },
+    nationBorder: { color: 'rgba(24,17,9,0.82)', width: 1.1, halo: 'rgba(250,244,228,0.38)', haloWidth: 3.2 },
+    coast: { color: 'rgba(40,32,22,0.7)', width: 0.8 },
     river: { color: '#4f7189', width: 1.5 },
     font: {
       nation: font('Cinzel_700Bold', SERIF),
@@ -135,7 +137,16 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     regionLabel: { fill: '#f0eee4', halo: 'rgba(24,18,11,0.72)', shadow: null },
     vignette: null,
     painting: null,
-    terrain: { fill: 0.5, base: '#d9d0aa', river: 'rgba(58,98,118,0.9)', lake: 'rgba(58,82,92,0.75)' },
+    terrain: {
+      fill: 0.5,
+      base: '#d9d0aa',
+      river: 'rgba(58,98,118,0.9)',
+      lake: 'rgba(58,82,92,0.75)',
+      shore: [
+        { color: 'rgba(38,66,84,0.1)', width: 9 },
+        { color: 'rgba(38,66,84,0.12)', width: 4 },
+      ],
+    },
   },
   atlas: {
     id: 'atlas',

@@ -415,7 +415,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const lakePaths: string[] = [];
   if (terrainOn) {
     const z = webZoom(k, MAP_W / (MAP.projection.east - MAP.projection.west));
-    const widen = 0.75 + 0.14 * Math.max(0, Math.min(3, z - 4));
+    // Rivers thicken a little as you zoom in, up to about play zoom; closer in they stay put so they don't crowd.
+    const widen = 0.75 + 0.14 * Math.max(0, Math.min(2, z - 4));
     for (const r of TERRAIN_RIVERS) if (r.z <= z + 0.7 && visible(r.b)) riverPaths.set(r.w * widen, (riverPaths.get(r.w * widen) ?? '') + r.d);
     for (const l of TERRAIN_LAKES) if (l.z <= z + 1.2 && visible(l.b)) lakePaths.push(l.d);
   }
@@ -497,6 +498,14 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {terrainTiles.map(t => (
         <SvgImage key={t.key} x={t.x} y={t.y} width={t.w + seam} height={t.h + seam} href={t.src} preserveAspectRatio="none" opacity={t.opacity < 1 ? t.opacity : undefined} />
       ))}
+      {/* Illustrated: the water darkens a little along every coast, so the shore stands out from pale land */}
+      {tr && coast && landD ? (
+        <G clipPath="url(#water)">
+          {tr.shore.map(sh => (
+            <Path key={sh.width} d={coast} fill="none" stroke={sh.color} strokeWidth={px(sh.width)} strokeLinecap="round" strokeLinejoin="round" />
+          ))}
+        </G>
+      ) : null}
       {/* Sea zones (where the land is see-through, Painted and Illustrated, cut to the water: they run on under the coast) */}
       <G clipPath={(pt || tr) && landD ? 'url(#water)' : undefined}>
         {MAP.seas.map(sea =>
@@ -578,6 +587,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       )}
       {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={SHADOWS[charted ? 'charted' : 'uncharted'].src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
       {/* Borders */}
+      {provinceAlpha > 0 && lines.province && st.provinceBorder.halo ? <Path d={lines.province} fill="none" stroke={st.provinceBorder.halo} strokeWidth={px(st.provinceBorder.haloWidth ?? 0)} strokeLinecap="round" strokeLinejoin="round" opacity={provinceAlpha} /> : null}
       {provinceAlpha > 0 && lines.province ? <Path d={lines.province} fill="none" stroke={st.provinceBorder.color} strokeWidth={px(st.provinceBorder.width)} strokeDasharray={dash(st.provinceBorder.dash)} strokeLinecap="round" strokeLinejoin="round" opacity={provinceAlpha} /> : null}
       {/* The rivers armies cross (along borders); where the illustrated terrain draws the real rivers, those stand in for them */}
       {lines.river && st.river.width > 0 && !allTerrain ? (
