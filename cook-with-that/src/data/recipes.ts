@@ -229,7 +229,7 @@ const SEED_RECIPES: Recipe[] = [
     meals: ['lunch', 'snack'],
     dishTypes: ['sandwich'],
     prepMinutes: 3,
-    cookMinutes: 8,
+    cookMinutes: 11,
     servings: 1,
     ingredients: [
       r('bread', 'sandwich bread', '2 slices'),
@@ -239,8 +239,8 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'Spread the butter on one side of each slice of bread.',
       'Place one slice butter-side down in a cold skillet. Top with the cheese, then the second slice, butter-side up.',
-      'Turn the heat to medium-low. Cook 3–4 minutes until the bottom is deep golden.',
-      'Flip and cook another 3–4 minutes until the second side is golden and the cheese has melted. Cut and serve.',
+      'Turn the heat to medium-low. Cook 5–7 minutes until the bottom is deep golden.',
+      'Flip and cook another 4–5 minutes until the second side is golden and the cheese has melted. Cut and serve.',
     ],
     source: DRAFT,
   },

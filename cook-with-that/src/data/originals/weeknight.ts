@@ -802,7 +802,7 @@ export const WEEKNIGHT_RECIPES: Recipe[] = [
       r('mushroom', 'cremini mushrooms', '8 oz', 'sliced'),
       r('garlic', 'garlic cloves', '3', 'minced'),
       r('thyme', 'dried thyme', '1 tsp'),
-      r('flour', 'all-purpose flour', '1/3 cup'),
+      r('flour', 'all-purpose flour', '1/2 cup'),
       r('chicken_broth', 'chicken broth', '6 cups'),
       r('chicken', 'boneless, skinless chicken thighs or breasts', '1 1/4 lb'),
       r('bay_leaf', 'bay leaf', '1'),

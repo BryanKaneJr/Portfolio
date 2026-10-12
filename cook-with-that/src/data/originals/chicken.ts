@@ -227,7 +227,7 @@ export const CHICKEN_RECIPES: Recipe[] = [
       r('black_pepper', 'black pepper', '1/2 tsp'),
       r('onion', 'onion', '1 medium', 'finely diced'),
       r('rice', 'long-grain white rice', '1 1/2 cups', 'rinsed and drained'),
-      r('chicken_broth', 'chicken broth', '2 1/4 cups'),
+      r('chicken_broth', 'chicken broth', '3 cups'),
       r('spinach', 'baby spinach', '4 packed cups'),
       opt('feta', 'crumbled feta', '1/2 cup'),
       opt('dill', 'fresh dill', '2 tbsp', 'chopped'),
