@@ -275,7 +275,7 @@ export const VEGETARIAN_RECIPES: Recipe[] = [
       opt('cucumber', 'cucumber', '1', 'diced'),
     ],
     steps: [
-      'Put the chickpeas in a large bowl, cover with cold water by at least 3 inches and soak at room temperature for 12 to 24 hours; they will double in size. Drain well and pat dry. Canned or cooked chickpeas will not work here: the falafel fall apart.',
+      'Put the chickpeas in a large bowl, cover with cold water by at least 3 inches and soak at room temperature for 12 to 24 hours, until swollen to about twice their size. Drain well and pat dry. Canned or cooked chickpeas will not work here: the falafel fall apart.',
       'Pulse the soaked chickpeas, onion, 3 of the garlic cloves, parsley, cilantro, cumin, ground coriander, cayenne and 1 tsp of the salt in a food processor (or a sturdy blender in two batches), scraping down the sides often, until finely chopped and the mixture holds together when squeezed, like damp sand. Do not purée it smooth.',
       'Stir in the flour and baking powder. Cover and refrigerate for 30 minutes, or up to overnight, so the mixture firms up.',
       'Meanwhile, make the sauce. Finely grate or mince the remaining garlic clove and whisk it with the tahini, lemon juice and the remaining 1/4 tsp salt. Whisk in the 1/4 cup cold water; the sauce will seize and thicken at first, then turn smooth. Add more water a tablespoon at a time until it is pourable but still creamy.',
@@ -437,7 +437,7 @@ export const VEGETARIAN_RECIPES: Recipe[] = [
       r('cauliflower', 'cauliflower', '1 large head (about 2 lb / 900 g)', 'cut into large florets'),
       r('salt', 'salt', '3/4 tsp, plus more for the cooking water'),
       r('butter', 'butter', '4 tbsp'),
-      r('flour', 'all-purpose flour', '1/4 cup'),
+      r('flour', 'all-purpose flour', '1/3 cup'),
       r('milk', 'whole milk', '2 1/2 cups', 'warmed'),
       r('dijon_mustard', 'Dijon mustard', '2 tsp'),
       r('cheddar', 'sharp (mature) cheddar', '2 cups (8 oz / 225 g)', 'grated, divided'),
