@@ -117,41 +117,60 @@ for (const throttle of [1, 4]) {
       rows.push({ view: name, k, style: s, rerender_ms: Math.round(ms), tiles: t?.tiles ?? 0, tile_level: t?.level ?? null, decoded_mb: t ? +(t.decodedBytes / 1048576).toFixed(1) : 0, js_heap_mb: await heapMb() });
     }
   }
-  // Panning: a one-second drag across the map at play zoom, frame times sampled with requestAnimationFrame.
+  // Panning at play zoom: a drag of about two seconds, twice per style. During the drag the drawn map only moves (a
+  // transform); when the finger lifts the map is drawn again at the new place, which shows as one long task. Frame
+  // times come from requestAnimationFrame, long tasks (over 50 ms) from a PerformanceObserver; the camera's move
+  // proves the drag panned.
   const pans = {};
   for (const s of ['atlas', 'illustrated']) {
-    await style(s);
-    await look(2070, 900, 1.7);
-    await page.evaluate(() => {
-      // Long tasks (over 50 ms) cover the re-render when the finger lifts, which a frame loop can miss.
-      window.__long = [];
-      window.__obs?.disconnect();
-      window.__obs = new PerformanceObserver(l => {
-        for (const e of l.getEntries()) window.__long.push(e.duration);
+    pans[s] = [];
+    for (let run = 0; run < 2; run++) {
+      await style(s);
+      await look(2070, 900, 1.7);
+      await settle(800);
+      const cam0 = await page.evaluate(() => ({ ...window.__coe.store.camera }));
+      await page.evaluate(() => {
+        window.__long = [];
+        window.__obs?.disconnect();
+        window.__obs = new PerformanceObserver(l => {
+          for (const e of l.getEntries()) window.__long.push(e.duration);
+        });
+        window.__obs.observe({ type: 'longtask' });
+        window.__frames = [];
+        window.__dragging = true;
+        let last = performance.now();
+        const tick = now => {
+          if (window.__dragging) window.__frames.push(now - last);
+          last = now;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
       });
-      window.__obs.observe({ type: 'longtask' });
-      window.__frames = [];
-      let last = performance.now();
-      const tick = now => {
-        window.__frames.push(now - last);
-        last = now;
-        if (window.__frames.length < 400) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    });
-    await page.mouse.move(W / 2, H / 2);
-    await page.mouse.down();
-    for (let i = 0; i < 60; i++) {
-      await page.mouse.move(W / 2 - i * 3, H / 2 - i * 2);
-      await page.waitForTimeout(16);
+      await page.mouse.move(W / 2, H / 2);
+      await page.mouse.down();
+      for (let i = 0; i < 60; i++) {
+        await page.mouse.move(W / 2 - i * 3, H / 2 - i * 2);
+        await page.waitForTimeout(16);
+      }
+      await page.evaluate(() => (window.__dragging = false));
+      const longDuringDrag = await page.evaluate(() => window.__long.length);
+      await page.mouse.up();
+      await settle(1500);
+      const frames = await page.evaluate(() => window.__frames.slice(2));
+      const long = await page.evaluate(() => window.__long);
+      const cam1 = await page.evaluate(() => ({ ...window.__coe.store.camera }));
+      const sorted = [...frames].sort((a, b) => a - b);
+      const p = q => +sorted[Math.min(sorted.length - 1, Math.floor(q * sorted.length))].toFixed(1);
+      pans[s].push({
+        moved_map_units: [Math.round(cam1.cx - cam0.cx), Math.round(cam1.cy - cam0.cy)],
+        drag_frames: frames.length,
+        drag_median_ms: p(0.5),
+        drag_p95_ms: p(0.95),
+        drag_max_ms: +Math.max(...frames).toFixed(1),
+        long_tasks_during_drag: longDuringDrag,
+        redraw_on_release_ms: long.length > longDuringDrag ? Math.round(Math.max(...long.slice(longDuringDrag))) : 0,
+      });
     }
-    await page.mouse.up();
-    await settle(1200);
-    const frames = await page.evaluate(() => window.__frames.slice(2));
-    const long = await page.evaluate(() => window.__long);
-    const sorted = [...frames].sort((a, b) => a - b);
-    const p = q => +sorted[Math.min(sorted.length - 1, Math.floor(q * sorted.length))].toFixed(1);
-    pans[s] = { frames: frames.length, median_ms: p(0.5), p95_ms: p(0.95), max_ms: +Math.max(...frames).toFixed(1), over_33ms: frames.filter(f => f > 33.4).length, long_tasks: long.length, longest_task_ms: long.length ? Math.round(Math.max(...long)) : 0 };
   }
   perf[`cpu_x${throttle}`] = { views: rows, pan_at_play_zoom: pans };
 }

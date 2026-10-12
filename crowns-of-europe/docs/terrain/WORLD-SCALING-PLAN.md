@@ -21,19 +21,19 @@ prototype:
 
 | Level | px per unit | Tile span (units) | Whole map: tiles touching land | Prototype tiles | Prototype size |
 | --- | --- | --- | --- | --- | --- |
-| L0 | 1 | 512 | 29 (of 30) | 4 | 0.06 MB (16 KB/tile) |
-| L1 | 2 | 256 | 87 (of 99) | 9 | 0.25 MB (27 KB/tile) |
-| L2 | 4 | 128 | 275 (of 378) | 25 | 1.29 MB (52 KB/tile) |
-| L3 | 8 | 64 | 936 (of 1,476) | 72 | 5.07 MB (70 KB/tile) |
-| L4 | 16 | 32 | 3,250 (of 5,751) | 288 | 19.86 MB (69 KB/tile) |
-| Total | | | 4,577 | 398 | 26.5 MB |
+| L0 | 1 | 512 | 29 (of 30) | 4 | 0.07 MB (17 KB/tile) |
+| L1 | 2 | 256 | 87 (of 99) | 9 | 0.26 MB (29 KB/tile) |
+| L2 | 4 | 128 | 275 (of 378) | 25 | 1.45 MB (58 KB/tile) |
+| L3 | 8 | 64 | 936 (of 1,476) | 72 | 5.69 MB (79 KB/tile) |
+| L4 | 16 | 32 | 3,250 (of 5,751) | 288 | 22.24 MB (77 KB/tile) |
+| Total | | | 4,577 | 398 | 29.7 MB |
 
-At the prototype's average size per tile, level by level (JPEG quality 84), the whole pyramid would be about 307 MB.
-L4 alone would be about 224 MB. That is too much to bundle in a phone app:
+At the prototype's average size per tile, level by level (JPEG quality 84), the whole pyramid would be about 344 MB.
+L4 alone would be about 251 MB. That is too much to bundle in a phone app:
 - App Store cellular downloads cap at 200 MB.
 - Google Play's base module caps at 150 MB.
 
-The levels below L4 fit, though not cheaply: L0–L3 come to about 83 MB.
+The levels below L4 fit, though not cheaply: L0–L3 come to about 93 MB.
 
 ### Options for the finest level (L4)
 
@@ -77,7 +77,7 @@ L4 serves zooms from about k = 3.1 to K_MAX = 5 on 3× screens.
 4. **Canonical grid per box.** `prepare.py` writes one 16 px/unit grid per box plus a 32-unit margin. A box of
    576 × 512 units is about 9,700 × 8,700 px, roughly 1 GB across all its arrays. Boxes can be prepared and rendered
    in parallel processes.
-5. **Render time.** The prototype's L4 took about 400 s for 288 tiles on one core. 3,250 L4 tiles is about 75 minutes
+5. **Render time.** The prototype's L4 took about 390 s for 288 tiles on one core. 3,250 L4 tiles is about 75 minutes
    on one core, or about 10 minutes on 8. Lower levels cost about a third of that again. The work is embarrassingly
    parallel by band and box. Determinism holds across processes, because every random choice is a hash of the global
    pixel position.
