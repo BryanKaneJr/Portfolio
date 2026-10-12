@@ -9,11 +9,23 @@ export interface ReliefTile {
   h: number;
 }
 
-/** The play window, soft: for zoomed-out views. */
-export const RELIEF_SOFT: ReliefTile = { src: require('../../../assets/map/relief-soft.png'), x: 0, y: 0, w: 2575, h: 2242 };
+/**
+ * Relief for the play window: land (hill shading, carried a few pixels past the coast: cut it to the coastline) and
+ * sea (depth, carried under the land: draw it under the land), sharp and soft (zoomed out).
+ */
+export const RELIEF: Record<'land' | 'sea', Record<'sharp' | 'soft', ReliefTile>> = {
+  land: {
+    sharp: { src: require('../../../assets/map/relief-land.png'), x: 0, y: 0, w: 2575, h: 2242 },
+    soft: { src: require('../../../assets/map/relief-land-soft.png'), x: 0, y: 0, w: 2575, h: 2242 },
+  },
+  sea: {
+    sharp: { src: require('../../../assets/map/relief-sea.png'), x: 0, y: 0, w: 2575, h: 2242 },
+    soft: { src: require('../../../assets/map/relief-sea-soft.png'), x: 0, y: 0, w: 2575, h: 2242 },
+  },
+};
 
-/** The play window, sharp. */
-export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/relief-window.png'), x: 0, y: 0, w: 2575, h: 2242 };
+/** A seamless tile of fine grain (256 px), to be drawn at a fixed size on screen. */
+export const GRAIN = { src: require('../../../assets/map/grain.png') as ImageSourcePropType, px: 256 };
 
 /** Lines in the water along the play window's coasts (light ones with a glow off the shore, or dark ones). */
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
@@ -21,7 +33,7 @@ export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: 2575, h: 2242 },
 };
 
-/** The land's natural colour (Blue Marble, evened out; the Atlas sea in the water), sharp and soft. */
+/** The land's natural colour (Blue Marble, evened out; carried a few pixels past the coast: cut it to the coastline). */
 export const LAND_COLOUR: Record<'sharp' | 'soft', ReliefTile> = {
   sharp: { src: require('../../../assets/map/land-colour.jpg'), x: 0, y: 0, w: 2575, h: 2242 },
   soft: { src: require('../../../assets/map/land-colour-soft.jpg'), x: 0, y: 0, w: 2575, h: 2242 },

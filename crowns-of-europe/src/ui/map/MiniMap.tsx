@@ -4,7 +4,7 @@ import Svg, { Image as SvgImage, Path, Rect } from 'react-native-svg';
 import { MAP, NATION, REGION, hops } from '../../sim/content';
 import { store } from '../../state/store';
 import { nationColor } from './colors';
-import { RELIEF_SOFT, SHADOWS } from './reliefTiles';
+import { RELIEF, SHADOWS } from './reliefTiles';
 import { MAP_STYLES } from './styles';
 
 /** The unknown in 1444 (the screens before a game starts): the wastes, the closed seas and the New World. */
@@ -36,7 +36,7 @@ export const MiniMap = memo(function MiniMap({
 }) {
   const own = (id: string) => owners?.[id] ?? REGION[id].owner;
   const st = MAP_STYLES[store.mapStyle];
-  const R = RELIEF_SOFT;
+  const R = RELIEF.land.soft;
   let vb = OLD_WORLD;
   if (focus) {
     // Frame the land around the capital (not far-flung islands like the Azores).
@@ -73,6 +73,7 @@ export const MiniMap = memo(function MiniMap({
   return (
     <Svg width={width} height={height} viewBox={vb} preserveAspectRatio="xMidYMid slice">
       <Rect x={R.x} y={R.y} width={R.w} height={R.h} fill={st.sea} />
+      {st.relief > 0 ? <SvgImage x={R.x} y={R.y} width={R.w} height={R.h} href={RELIEF.sea.soft.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {MAP.regions.map(r => {
         const o = own(r.id);
         const faded = focus && o !== focus;

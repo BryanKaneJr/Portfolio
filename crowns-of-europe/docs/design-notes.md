@@ -126,8 +126,10 @@ here.
     finding it lifts the parchment. On the known world the country colours are laid over the land's own colours,
     the way strategy maps blend the political colour with the terrain: NASA's Blue Marble (public domain), evened
     out to a middle brightness, shows through at about a third, so a country takes on its land's greens, tans and
-    greys and the texture of its fields and hills; then crisp hill shading, sea depth and a painted grain
-    (public-domain elevation data; all baked into images by `npm run relief:build`); a dark slate sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
+    greys and the texture of its fields and hills; then crisp hill shading and sea depth (public-domain elevation
+    data; all baked into images by `npm run relief:build`) and a fine painted grain. Close up, baked pictures would
+    blur and smear, so the land's pictures are cut to the real coastline (crisp at any zoom), its colour switches to
+    a smooth version, and the grain is drawn the same size on screen at every zoom; a dark slate sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
     (Cinzel), a short name on a long thin country spaced out to run its length; seas and wastes are in an old
     italic (IM Fell English; both bundled, SIL Open Font License). Nothing in the unknown can be tapped, entered or
     owned. The Red Sea is the one closed sea still drawn as water (`charted` in `seas.json`). Pulling past the edge of the known world, or past the zoom limits, meets growing resistance and slides

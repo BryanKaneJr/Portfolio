@@ -8,7 +8,7 @@ import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useStat
 import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import Svg, { Defs, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
+import Svg, { ClipPath, Defs, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
@@ -17,7 +17,7 @@ import { C, kmen, sans } from '../theme';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
-import { LAND_COLOUR, RELIEF_SHARP, RELIEF_SOFT, SHADOWS, WATER_LINES } from './reliefTiles';
+import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 
@@ -257,6 +257,9 @@ function borderLines(s: GameState) {
   return { nation, province, river };
 }
 
+/** The grain tile's size on screen (points; stepped by powers of two in map units). */
+const GRAIN_SCREEN = 150;
+
 /** Near the window's edges the known world fades into the parchment instead of stopping at a ruled line. */
 const EDGE = 80; // map units
 const EDGE_STOPS: [number, number][] = [
@@ -330,8 +333,14 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       .map(c => c.d)
       .join('');
 
-  // Relief: the soft image when far out, the sharp one closer in.
-  const relief = st.relief > 0 ? (k < 0.35 ? RELIEF_SOFT : RELIEF_SHARP) : null;
+  // Pictures of the land are cut to its real coastline (they reach a few pixels past it), so coasts stay crisp at
+  // any zoom. Soft pictures when far out; sharp ones closer in, except the land's colour, which goes soft again
+  // close up (enlarged, its fine detail would only smear). The grain is drawn the same size on screen at any zoom
+  // (its tile size steps in powers of two so it rarely changes).
+  const landD = [...byFill.values()].join('');
+  const res = k < 0.35 ? 'soft' : 'sharp';
+  const colourRes = k < 0.35 || k >= 2.2 ? 'soft' : 'sharp';
+  const grainSize = 2 ** Math.round(Math.log2(GRAIN_SCREEN / k));
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -348,6 +357,16 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             <Path d={`M0 ${stripe} L${stripe} 0 M${-stripe / 2} ${stripe / 2} L${stripe / 2} ${-stripe / 2} M${stripe / 2} ${stripe * 1.5} L${stripe * 1.5} ${stripe / 2}`} stroke={o === REBELS ? '#222' : nationColor(o)} strokeWidth={stripe * 0.32} />
           </Pattern>
         ))}
+        {landD ? (
+          <ClipPath id="land">
+            <Path d={landD} />
+          </ClipPath>
+        ) : null}
+        {st.grain > 0 ? (
+          <Pattern id="grain" patternUnits="userSpaceOnUse" width={grainSize} height={grainSize}>
+            <SvgImage x={0} y={0} width={grainSize} height={grainSize} href={GRAIN.src} preserveAspectRatio="none" />
+          </Pattern>
+        ) : null}
         {names.map(n => (
           <G key={n.nation}>
             <Path id={`nm_${n.nation}`} d={n.d} />
@@ -373,6 +392,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       </Defs>
       {/* Water */}
       <Rect x={vx} y={vy} width={vw} height={vh} fill={st.sea} />
+      {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.sea[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {linesAlpha > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={WATER_LINES[st.waterLines!.image].src} preserveAspectRatio="none" opacity={linesAlpha} /> : null}
       {MAP.seas.map(sea =>
         !visible(sea.bbox) || sea.closed || hidden(sea.id) ? null : (
@@ -383,8 +403,15 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {[...byFill].map(([fill, d]) => (
         <Path key={fill} d={d} fill={fill} />
       ))}
-      {/* The land's own colours and texture (fields, forest, rock, sand) showing through the country colours */}
-      {st.landColour > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={LAND_COLOUR[k < 0.35 ? 'soft' : 'sharp'].src} preserveAspectRatio="none" opacity={st.landColour} /> : null}
+      {/* Over the land, cut to the coastline: its own colours (fields, forest, rock, sand) showing through the
+          country colours, the hills, and a fine grain (scripts/build-relief.ts) */}
+      {landD ? (
+        <G clipPath="url(#land)">
+          {st.landColour > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={LAND_COLOUR[colourRes].src} preserveAspectRatio="none" opacity={st.landColour} /> : null}
+          {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.land[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
+          {st.grain > 0 ? <Rect x={vx} y={vy} width={vw} height={vh} fill="url(#grain)" opacity={st.grain} /> : null}
+        </G>
+      ) : null}
       {mode === 'political' || mode === 'diplomatic'
         ? MAP.regions.map(r => {
             const reg = s.regions[r.id];
@@ -394,8 +421,6 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             return null;
           })
         : null}
-      {/* Hills, sea depths and a painted grain over everything painted so far (scripts/build-relief.ts) */}
-      {relief ? <SvgImage x={relief.x} y={relief.y} width={relief.w} height={relief.h} href={relief.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {/* The unknown, as blank parchment, with the known world's shadow falling on it */}
       <Path d={beyond} fill={st.unknown.fill} fillRule="evenodd" />
       <Path d={unknown} fill={st.unknown.fill} />

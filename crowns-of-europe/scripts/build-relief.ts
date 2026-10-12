@@ -7,8 +7,10 @@
  * Land and sea are told apart with the map's own coastline (src/content/map.json), so the shading never spills
  * over a coast. Run after `npm run map:build`:  npm run relief:build
  *
- * Two layers of relief for the play window: one pixel per map unit, in one piece (tiles shaded or drawn
- * separately leave faint lines where they meet), and a soft one at a quarter of that for zoomed-out views. Past
+ * Relief for the play window in two parts, land (hill shading) and sea (depth), each carried a few pixels past the
+ * coast so the renderer can cut the land part to the real coastline (crisp at any zoom); each at one pixel per
+ * map unit, in one piece (tiles shaded or drawn separately leave faint lines where they meet), and soft at a
+ * quarter of that for zoomed-out views. A fine grain tile is drawn at a fixed size on screen, so it stays sharp. Past
  * the window, and over the wastes and the waters no fleet sails, the map is blank parchment, so nothing is shaded
  * there; instead the known world casts a soft shadow onto the parchment (two versions: before and after the New
  * World is found). Also the water lines along the coasts, for the styles that draw them, and a land-colour image
@@ -21,7 +23,6 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
-import { ATLAS_SEA } from '../src/ui/map/palette';
 
 const run = promisify(execFile);
 const ROOT = path.resolve(__dirname, '..');
@@ -189,7 +190,8 @@ const TINT_SAT = 1.5; // and how much more colourful than the photograph
 
 /**
  * The land-colour image: Blue Marble evened out (the photograph is dark, so it is lifted to a middle brightness with
- * its light and dark patches kept, and made a little more colourful), with the Atlas sea in the water.
+ * its light and dark patches kept, and made a little more colourful), carried a few pixels past the coast (the
+ * renderer cuts it to the coastline); the rest of the water is a plain average, which costs nothing to store.
  */
 function landColour(cols: number, rows: number, f: number): Uint8Array {
   const land = landMask(0, 0, cols, rows, f);
@@ -209,16 +211,10 @@ function landColour(cols: number, rows: number, f: number): Uint8Array {
   }
   lum.sort((a, b) => a - b);
   const median = lum[Math.floor(lum.length / 2)] ?? 0.2;
-  const sea = [1, 3, 5].map(k => parseInt(ATLAS_SEA.slice(k, k + 2), 16));
   const out = new Uint8Array(cols * rows * 4);
   for (let i = 0; i < cols * rows; i++) {
     out[i * 4 + 3] = 255;
-    if (!land[i]) {
-      out[i * 4] = sea[0];
-      out[i * 4 + 1] = sea[1];
-      out[i * 4 + 2] = sea[2];
-      continue;
-    }
+    if (!land[i]) continue;
     const R = raw[i * 3];
     const G = raw[i * 3 + 1];
     const B = raw[i * 3 + 2];
@@ -226,6 +222,18 @@ function landColour(cols: number, rows: number, f: number): Uint8Array {
     const L2 = Math.max(0.22, Math.min(0.9, TINT_MID + (L - median) * TINT_CONTRAST));
     for (const [k, v] of [R, G, B].entries()) out[i * 4 + k] = Math.round(Math.max(0, Math.min(1, L2 + (v - L) * TINT_SAT)) * 255);
   }
+  const has = spread(out, land, cols, rows, 6, 4);
+  const avg = [0, 1, 2].map(k => {
+    let t = 0;
+    let n = 0;
+    for (let i = 0; i < cols * rows; i += 13)
+      if (land[i]) {
+        t += out[i * 4 + k];
+        n++;
+      }
+    return n ? Math.round(t / n) : 128;
+  });
+  for (let i = 0; i < cols * rows; i++) if (!has[i]) for (let k = 0; k < 3; k++) out[i * 4 + k] = avg[k];
   return out;
 }
 
@@ -308,26 +316,6 @@ const smooth = (a: number, b: number, x: number) => {
 };
 const ZENITH = 45 * RAD;
 
-/** Smooth value noise in map units (a fixed hash, so every build and every layer agrees): -1..1. */
-function valueNoise(x: number, y: number): number {
-  const hash = (i: number, j: number) => {
-    let h = (i * 374761393 + j * 668265263) | 0;
-    h = Math.imul(h ^ (h >>> 13), 1274126177);
-    return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
-  };
-  const i = Math.floor(x);
-  const j = Math.floor(y);
-  const fx = x - i;
-  const fy = y - j;
-  const u = fx * fx * (3 - 2 * fx);
-  const v = fy * fy * (3 - 2 * fy);
-  const a = hash(i, j) + (hash(i + 1, j) - hash(i, j)) * u;
-  const b = hash(i, j + 1) + (hash(i + 1, j + 1) - hash(i, j + 1)) * u;
-  return (a + (b - a) * v) * 2 - 1;
-}
-/** A painted grain on the land, a few sizes over each other, so flat colours read as brushed paper. */
-const grain = (x: number, y: number) => 0.5 * valueNoise(x / 5, y / 5) + 0.3 * valueNoise(x / 13 + 17, y / 13) + 0.2 * valueNoise(x / 37, y / 37 + 31);
-const GRAIN = 0.05; // strength of the grain (as shading)
 const SEA_DEPTH = 0.3; // how dark the deepest water gets
 const LIGHTS: [number, number][] = [
   [315, 0.55], // the classic north-west light...
@@ -360,8 +348,8 @@ function blur(a: Float32Array, cols: number, rows: number, r: number, passes = 3
   return a;
 }
 
-/** Shade a grid (origin ox, oy in map units, f pixels per unit) into grey+alpha bytes. */
-function shade(ox: number, oy: number, cols: number, rows: number, f: number, z: number, exaggeration: number, soften: number, seaBlur: number): Buffer {
+/** Shade a grid (origin ox, oy in map units, f pixels per unit): darkening (+) or lightening (-), and the land mask. */
+function shade(ox: number, oy: number, cols: number, rows: number, f: number, z: number, exaggeration: number, soften: number, seaBlur: number): { net: Float32Array; land: Uint8Array } {
   const raw = new Float32Array(cols * rows);
   for (let row = 0; row < rows; row++) {
     const lat = latOf(oy + (row + 0.5) / f);
@@ -372,7 +360,7 @@ function shade(ox: number, oy: number, cols: number, rows: number, f: number, z:
   const elev = blur(Float32Array.from(raw), cols, rows, soften);
   const depthField = blur(Float32Array.from(raw, v => Math.max(0, -v)), cols, rows, seaBlur);
   const land = landMask(ox, oy, cols, rows, f);
-  const out = Buffer.alloc(cols * rows * 2);
+  const out = new Float32Array(cols * rows);
   const flat = Math.cos(ZENITH);
   const at = (c: number, r: number) => {
     const cc = Math.max(0, Math.min(cols - 1, c));
@@ -401,21 +389,104 @@ function shade(ox: number, oy: number, cols: number, rows: number, f: number, z:
         light = Math.max(0, delta) * 1.1;
         dark = Math.min(0.62, dark);
         light = Math.min(0.32, light);
-        const gr = grain(ox + (col + 0.5) / f, oy + (row + 0.5) / f) * GRAIN;
-        if (gr > 0) dark += gr;
-        else light -= gr;
       } else {
         const depth = depthField[i];
         const t = Math.log10(1 + depth / 50) / Math.log10(1 + 5000 / 50);
         dark = SEA_DEPTH * Math.pow(Math.min(1, t), 1.25);
         light = 0.17 * (1 - smooth(0, 140, depth)); // shallows glow
       }
-      const net = dark - light;
-      out[i * 2] = net > 0 ? 0 : 255;
-      out[i * 2 + 1] = Math.round(Math.min(1, Math.abs(net)) * 255);
+      out[i] = dark - light;
     }
   }
+  return { net: out, land };
+}
+
+/** Grey+alpha bytes for shading values: black to darken, white to lighten; transparent where `keep` is 0. */
+function toGA(net: Float32Array, keep: Uint8Array): Buffer {
+  const out = Buffer.alloc(net.length * 2);
+  for (let i = 0; i < net.length; i++) {
+    if (!keep[i]) continue;
+    out[i * 2] = net[i] > 0 ? 0 : 255;
+    out[i * 2 + 1] = Math.round(Math.min(1, Math.abs(net[i])) * 255);
+  }
   return out;
+}
+
+/**
+ * Carry values a few pixels past the edge of the area that has them (each pass: a pixel without a value takes the
+ * average of its neighbours that have one). Returns which pixels now have values. `values` holds `channels` per pixel.
+ */
+function spread(values: Float32Array | Uint8Array, has: Uint8Array, cols: number, rows: number, passes: number, channels = 1): Uint8Array {
+  let cur = Uint8Array.from(has);
+  for (let p = 0; p < passes; p++) {
+    const next = Uint8Array.from(cur);
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++) {
+        const i = r * cols + c;
+        if (cur[i]) continue;
+        const sum = new Array(channels).fill(0);
+        let n = 0;
+        for (let dy = -1; dy <= 1; dy++)
+          for (let dx = -1; dx <= 1; dx++) {
+            const rr = r + dy;
+            const cc = c + dx;
+            if (rr < 0 || cc < 0 || rr >= rows || cc >= cols) continue;
+            const j = rr * cols + cc;
+            if (!cur[j]) continue;
+            for (let k = 0; k < channels; k++) sum[k] += values[j * channels + k];
+            n++;
+          }
+        if (!n) continue;
+        for (let k = 0; k < channels; k++) values[i * channels + k] = sum[k] / n;
+        next[i] = 1;
+      }
+    cur = next;
+  }
+  return cur;
+}
+
+/** Land shading carried past the coast, and sea shading carried under the land: the two relief layers. */
+function splitRelief(net: Float32Array, land: Uint8Array, cols: number, rows: number, passes: number): { land: Buffer; sea: Buffer } {
+  const landNet = Float32Array.from(net);
+  const landHas = spread(landNet, land, cols, rows, passes);
+  const seaNet = Float32Array.from(net);
+  const sea = Uint8Array.from(land, v => (v ? 0 : 1));
+  const seaHas = spread(seaNet, sea, cols, rows, passes);
+  return { land: toGA(landNet, landHas), sea: toGA(seaNet, seaHas) };
+}
+
+const GRAIN_TILE = 256; // pixels; drawn at a fixed size on screen (MapView), so it is sharp at any zoom
+const GRAIN = 0.075; // strength of the grain (as shading)
+
+/** A seamless tile of fine grain, a few sizes over each other, so flat colours read as brushed paper. */
+function grainTile(): Buffer {
+  const periodic = (x: number, y: number, period: number, seed: number) => {
+    const hash = (i: number, j: number) => {
+      let h = (((i % period) + period) % period) * 374761393 + (((j % period) + period) % period) * 668265263 + seed * 2246822519;
+      h = Math.imul(h ^ (h >>> 13), 1274126177);
+      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+    };
+    const i = Math.floor(x);
+    const j = Math.floor(y);
+    const u = (x - i) * (x - i) * (3 - 2 * (x - i));
+    const v = (y - j) * (y - j) * (3 - 2 * (y - j));
+    const a = hash(i, j) + (hash(i + 1, j) - hash(i, j)) * u;
+    const b = hash(i, j + 1) + (hash(i + 1, j + 1) - hash(i, j + 1)) * u;
+    return (a + (b - a) * v) * 2 - 1;
+  };
+  const net = new Float32Array(GRAIN_TILE * GRAIN_TILE);
+  const octaves: [number, number][] = [
+    [8, 0.35], // cells across the tile, weight
+    [24, 0.3],
+    [64, 0.35],
+  ];
+  for (let y = 0; y < GRAIN_TILE; y++)
+    for (let x = 0; x < GRAIN_TILE; x++) {
+      let n = 0;
+      for (const [cells, w] of octaves) n += w * periodic((x * cells) / GRAIN_TILE, (y * cells) / GRAIN_TILE, cells, cells);
+      net[y * GRAIN_TILE + x] = n * GRAIN;
+    }
+  return toGA(net, new Uint8Array(net.length).fill(1));
 }
 
 function writeGA(file: string, cols: number, rows: number, ga: Buffer): number {
@@ -574,20 +645,31 @@ async function main() {
   await fetchArea(4, 0, 0, W, H);
   await fetchBlueMarbleArea(BM_Z, 0, 0, W, H);
   let bytes = 0;
-  // The play window, soft (zoomed out).
+  // The play window, soft (zoomed out): land and sea.
   const lcols = Math.round(W * LO);
   const lrows = Math.round(H * LO);
-  bytes += writeGA(path.join(OUT, 'relief-soft.png'), lcols, lrows, shade(0, 0, lcols, lrows, LO, 4, 22, 0, 3));
-  // The play window, sharp, in one piece.
+  const softShade = shade(0, 0, lcols, lrows, LO, 4, 22, 0, 3);
+  const softParts = splitRelief(softShade.net, softShade.land, lcols, lrows, 2);
+  bytes += writeGA(path.join(OUT, 'relief-land-soft.png'), lcols, lrows, softParts.land);
+  bytes += writeGA(path.join(OUT, 'relief-sea-soft.png'), lcols, lrows, softParts.sea);
+  // The play window, sharp, in one piece (shaded with a margin, then cropped).
   const pc = Math.round((W + 2 * PAD) * HI);
   const pr = Math.round((H + 2 * PAD) * HI);
   const padded = shade(-PAD, -PAD, pc, pr, HI, 5, 13, 0, 8);
   const sc = Math.round(W * HI);
   const sr = Math.round(H * HI);
-  const sharp = Buffer.alloc(sc * sr * 2);
   const p0 = Math.round(PAD * HI);
-  for (let r = 0; r < sr; r++) padded.copy(sharp, r * sc * 2, ((p0 + r) * pc + p0) * 2, ((p0 + r) * pc + p0 + sc) * 2);
-  bytes += writeGA(path.join(OUT, 'relief-window.png'), sc, sr, sharp);
+  const net = new Float32Array(sc * sr);
+  const landPx = new Uint8Array(sc * sr);
+  for (let r = 0; r < sr; r++) {
+    net.set(padded.net.subarray((p0 + r) * pc + p0, (p0 + r) * pc + p0 + sc), r * sc);
+    landPx.set(padded.land.subarray((p0 + r) * pc + p0, (p0 + r) * pc + p0 + sc), r * sc);
+  }
+  const parts = splitRelief(net, landPx, sc, sr, 4);
+  bytes += writeGA(path.join(OUT, 'relief-land.png'), sc, sr, parts.land);
+  bytes += writeGA(path.join(OUT, 'relief-sea.png'), sc, sr, parts.sea);
+  // A tile of fine grain.
+  bytes += writeGA(path.join(OUT, 'grain.png'), GRAIN_TILE, GRAIN_TILE, grainTile());
   // Water lines along the coasts of the play window.
   const wl = waterLines();
   bytes += writeGA(path.join(OUT, 'water-lines-light.png'), wl.cols, wl.rows, wl.light);
@@ -616,11 +698,23 @@ export interface ReliefTile {
   h: number;
 }
 
-/** The play window, soft: for zoomed-out views. */
-export const RELIEF_SOFT: ReliefTile = { src: require('../../../assets/map/relief-soft.png'), x: 0, y: 0, w: ${W}, h: ${H} };
+/**
+ * Relief for the play window: land (hill shading, carried a few pixels past the coast: cut it to the coastline) and
+ * sea (depth, carried under the land: draw it under the land), sharp and soft (zoomed out).
+ */
+export const RELIEF: Record<'land' | 'sea', Record<'sharp' | 'soft', ReliefTile>> = {
+  land: {
+    sharp: { src: require('../../../assets/map/relief-land.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+    soft: { src: require('../../../assets/map/relief-land-soft.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+  },
+  sea: {
+    sharp: { src: require('../../../assets/map/relief-sea.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+    soft: { src: require('../../../assets/map/relief-sea-soft.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+  },
+};
 
-/** The play window, sharp. */
-export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/relief-window.png'), x: 0, y: 0, w: ${W}, h: ${H} };
+/** A seamless tile of fine grain (${GRAIN_TILE} px), to be drawn at a fixed size on screen. */
+export const GRAIN = { src: require('../../../assets/map/grain.png') as ImageSourcePropType, px: ${GRAIN_TILE} };
 
 /** Lines in the water along the play window's coasts (light ones with a glow off the shore, or dark ones). */
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
@@ -628,7 +722,7 @@ export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: ${W}, h: ${H} },
 };
 
-/** The land's natural colour (Blue Marble, evened out; the Atlas sea in the water), sharp and soft. */
+/** The land's natural colour (Blue Marble, evened out; carried a few pixels past the coast: cut it to the coastline). */
 export const LAND_COLOUR: Record<'sharp' | 'soft', ReliefTile> = {
   sharp: { src: require('../../../assets/map/land-colour.jpg'), x: 0, y: 0, w: ${W}, h: ${H} },
   soft: { src: require('../../../assets/map/land-colour-soft.jpg'), x: 0, y: 0, w: ${W}, h: ${H} },
@@ -641,7 +735,7 @@ export const SHADOWS: Record<'charted' | 'uncharted', ReliefTile> = {
 };
 `;
   fs.writeFileSync(path.join(ROOT, 'src/ui/map/reliefTiles.ts'), ts);
-  console.log(`relief: sharp + soft + water lines + shadows, ${(bytes / 1024 / 1024).toFixed(1)} MB`);
+  console.log(`relief: land + sea (sharp, soft), land colour, grain, water lines, shadows: ${(bytes / 1024 / 1024).toFixed(1)} MB`);
 }
 
 main().catch(e => {

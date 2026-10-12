@@ -7,7 +7,6 @@
  */
 import { Platform } from 'react-native';
 import { mix } from './colors';
-import { ATLAS_SEA } from './palette';
 
 import type { MapStyleId } from '../../state/store';
 
@@ -23,6 +22,7 @@ export interface MapStyle {
   waterLines: { image: 'light' | 'dark'; opacity: number } | null; // lines in the water along the coasts
   relief: number; // opacity of the hill and depth shading
   landColour: number; // how strongly the land's natural colour (Blue Marble) shows through the country colours
+  grain: number; // a fine painted grain over the land, the same size on screen at any zoom
   land: (hex: string) => string; // how a nation's colour is painted
   wild: string; // known land nobody holds
   unknown: { fill: string; shadow: number; label: Ink; wasteLabel: string }; // the blank parchment, the known world's shadow on it, names written there
@@ -60,12 +60,13 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     id: 'atlas',
     label: 'Atlas',
     help: 'The known world on parchment: muted colours over the hills, a slate sea, big curved names.',
-    sea: ATLAS_SEA,
+    sea: '#3e5a6a',
     seaZone: { color: 'rgba(210,226,232,0.12)', dash: null },
     seaLabel: 'rgba(214,228,233,0.62)',
     waterLines: null,
     relief: 1,
     landColour: 0.34,
+    grain: 1,
     land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
     wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
     unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
@@ -94,6 +95,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     waterLines: { image: 'dark', opacity: 0.42 },
     relief: 0.55,
     landColour: 0,
+    grain: 0.7,
     land: hex => mix(hex, '#ead8ac', 0.48),
     wild: '#ecdfbb',
     unknown: { fill: '#e9dab4', shadow: 0.3, label: { fill: '#6e5636', halo: 'rgba(240,228,196,0.6)', shadow: null }, wasteLabel: '#6b5534' },
@@ -122,6 +124,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     waterLines: null,
     relief: 0,
     landColour: 0,
+    grain: 0,
     land: hex => hex,
     wild: '#ece6d2',
     unknown: { fill: '#e4e1d8', shadow: 0.18, label: { fill: '#8a8679', halo: 'rgba(255,255,255,0.6)', shadow: null }, wasteLabel: '#8a8679' },

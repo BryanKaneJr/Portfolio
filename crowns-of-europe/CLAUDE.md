@@ -91,14 +91,14 @@ zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `s
 How it is painted comes from a style (`ui/map/styles.ts`: Atlas, the default; Parchment; Flat), chosen in
 Settings or the map-mode menu and saved as a preference. The known world lies on blank parchment: everything past
 the play window, the wastes, the waters no fleet sails plus a ragged band of open sea along the window's edges
-(`MAP.unknownWater`), and before discovery the New World (`MAP.uncharted`). Bottom to top: sea, baked water lines
-(Parchment), sea zones, regions (one path per colour), the land-colour image laid over them (Atlas: NASA's Blue
-Marble evened out, so each country takes on its land's greens, tans and texture), occupation stripes, the relief
-image (hill shading, sea depth and a painted grain as black or white with alpha: soft when zoomed out, sharp closer
-in), the parchment over the
-unknown, the known world's baked shadow on it, province lines (fading out as you zoom out), rivers, nation borders,
-a fade into parchment along the window's edges, every coastline (known or not, one ink, culled by cell), selection,
-then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
+(`MAP.unknownWater`), and before discovery the New World (`MAP.uncharted`). Bottom to top: sea, sea depth (baked,
+black or white with alpha), baked water lines (Parchment), sea zones, regions (one path per colour), then cut to the
+regions' own outline (a clip path, so coasts stay crisp at any zoom; the baked pictures reach a few pixels past the
+coast): the land-colour image (Atlas: NASA's Blue Marble evened out, so each country takes on its land's greens,
+tans and texture; soft again close up), hill shading, and a grain tile drawn the same size on screen at any zoom;
+then occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
+(fading out as you zoom out), rivers, nation borders, a fade into parchment along the window's edges, every
+coastline (known or not, one ink, culled by cell), selection, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
 redraw cheap: whole-map lines are single paths, and anything that would mean stroking every coastline several
 times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`.
 
