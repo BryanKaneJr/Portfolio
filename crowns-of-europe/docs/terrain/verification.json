@@ -1,0 +1,162 @@
+{
+ "determinism_and_band_seams": {
+  "box_map_units": [
+   1950.0,
+   816.0,
+   1982.0,
+   848.0
+  ],
+  "band_boundary_y": 832.0,
+  "mean_abs_diff": 4.738,
+  "p99_abs_diff": 18.0,
+  "note": "fresh render vs stitched JPEG tiles across a band boundary and tile edges; differences are JPEG compression only if small"
+ },
+ "tile_joins": {
+  "L0": {
+   "edges": 4,
+   "mean_step_across_edges": 10.038,
+   "mean_step_inside_tiles": 7.954,
+   "ratio": 1.262
+  },
+  "L1": {
+   "edges": 12,
+   "mean_step_across_edges": 8.956,
+   "mean_step_inside_tiles": 7.594,
+   "ratio": 1.179
+  },
+  "L2": {
+   "edges": 40,
+   "mean_step_across_edges": 11.796,
+   "mean_step_inside_tiles": 11.11,
+   "ratio": 1.062
+  },
+  "L3": {
+   "edges": 127,
+   "mean_step_across_edges": 11.629,
+   "mean_step_inside_tiles": 11.289,
+   "ratio": 1.03
+  },
+  "L4": {
+   "edges": 542,
+   "mean_step_across_edges": 11.151,
+   "mean_step_inside_tiles": 10.801,
+   "ratio": 1.032
+  }
+ },
+ "coastline_vs_game": {
+  "level": 4,
+  "pixels_within_3_units_of_coast": 7508074,
+  "disagreeing": 229743,
+  "disagreeing_share": 0.0306,
+  "disagreement_distance_units": {
+   "median": 0.125,
+   "p95": 2.431,
+   "max": 3.0
+  },
+  "note": "sea/land as painted in the L4 tiles vs the game's coastline; distances in map units (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit)"
+ },
+ "detail_gain_per_level": {
+  "alps": {
+   "box_map_units": [
+    1888,
+    832,
+    1920,
+    864
+   ],
+   "levels": [
+    {
+     "level": 1,
+     "laplacian_energy": 965.6,
+     "coarser_level_enlarged": 14.93,
+     "ratio": 64.68
+    },
+    {
+     "level": 2,
+     "laplacian_energy": 3166.67,
+     "coarser_level_enlarged": 75.55,
+     "ratio": 41.92
+    },
+    {
+     "level": 3,
+     "laplacian_energy": 3760.92,
+     "coarser_level_enlarged": 256.44,
+     "ratio": 14.67
+    },
+    {
+     "level": 4,
+     "laplacian_energy": 3904.83,
+     "coarser_level_enlarged": 306.67,
+     "ratio": 12.73
+    }
+   ]
+  },
+  "carpathians": {
+   "box_map_units": [
+    2160,
+    832,
+    2192,
+    864
+   ],
+   "levels": [
+    {
+     "level": 1,
+     "laplacian_energy": 2225.38,
+     "coarser_level_enlarged": 114.59,
+     "ratio": 19.42
+    },
+    {
+     "level": 2,
+     "laplacian_energy": 4862.01,
+     "coarser_level_enlarged": 163.32,
+     "ratio": 29.77
+    },
+    {
+     "level": 3,
+     "laplacian_energy": 4750.15,
+     "coarser_level_enlarged": 392.24,
+     "ratio": 12.11
+    },
+    {
+     "level": 4,
+     "laplacian_energy": 4603.64,
+     "coarser_level_enlarged": 386.09,
+     "ratio": 11.92
+    }
+   ]
+  },
+  "danube_plain": {
+   "box_map_units": [
+    2048,
+    864,
+    2080,
+    896
+   ],
+   "levels": [
+    {
+     "level": 1,
+     "laplacian_energy": 645.2,
+     "coarser_level_enlarged": 54.67,
+     "ratio": 11.8
+    },
+    {
+     "level": 2,
+     "laplacian_energy": 2751.97,
+     "coarser_level_enlarged": 53.99,
+     "ratio": 50.97
+    },
+    {
+     "level": 3,
+     "laplacian_energy": 2629.13,
+     "coarser_level_enlarged": 226.8,
+     "ratio": 11.59
+    },
+    {
+     "level": 4,
+     "laplacian_energy": 2869.15,
+     "coarser_level_enlarged": 216.46,
+     "ratio": 13.25
+    }
+   ]
+  }
+ }
+}

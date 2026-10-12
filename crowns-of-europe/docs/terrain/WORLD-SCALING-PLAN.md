@@ -21,19 +21,19 @@ prototype:
 
 | Level | px per unit | Tile span (units) | Whole map: tiles touching land | Prototype tiles | Prototype size |
 | --- | --- | --- | --- | --- | --- |
-| L0 | 1 | 512 | 29 (of 30) | 4 | PROTO_L0 |
-| L1 | 2 | 256 | 87 (of 99) | 9 | PROTO_L1 |
-| L2 | 4 | 128 | 275 (of 378) | 25 | PROTO_L2 |
-| L3 | 8 | 64 | 936 (of 1,476) | 72 | PROTO_L3 |
-| L4 | 16 | 32 | 3,250 (of 5,751) | 288 | PROTO_L4 |
-| Total | | | 4,577 | 398 | PROTO_TOTAL |
+| L0 | 1 | 512 | 29 (of 30) | 4 | 0.06 MB (16 KB/tile) |
+| L1 | 2 | 256 | 87 (of 99) | 9 | 0.25 MB (27 KB/tile) |
+| L2 | 4 | 128 | 275 (of 378) | 25 | 1.29 MB (52 KB/tile) |
+| L3 | 8 | 64 | 936 (of 1,476) | 72 | 5.07 MB (70 KB/tile) |
+| L4 | 16 | 32 | 3,250 (of 5,751) | 288 | 19.86 MB (69 KB/tile) |
+| Total | | | 4,577 | 398 | 26.5 MB |
 
-At the prototype's average of AVG_KB KB per JPEG tile (quality 84), the whole pyramid would be about WORLD_MB MB.
-L4 alone would be about WORLD_L4_MB MB. That is too much to bundle in a phone app:
+At the prototype's average size per tile, level by level (JPEG quality 84), the whole pyramid would be about 307 MB.
+L4 alone would be about 224 MB. That is too much to bundle in a phone app:
 - App Store cellular downloads cap at 200 MB.
 - Google Play's base module caps at 150 MB.
 
-The levels below L4 are affordable: L0–L3 come to about WORLD_L0_3_MB MB.
+The levels below L4 fit, though not cheaply: L0–L3 come to about 83 MB.
 
 ### Options for the finest level (L4)
 
