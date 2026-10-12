@@ -652,4 +652,5 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'mirin', name: 'Mirin', category: 'pantry', aliases: [] },
   { id: 'poblano_pepper', name: 'Poblano pepper', category: 'produce', aliases: ['poblano peppers', 'poblano chiles', 'poblano'] },
   { id: 'cumin_seeds', name: 'Cumin seeds', category: 'spice', aliases: [] },
+  { id: 'tiger_sauce', name: 'Tiger sauce', category: 'spice', aliases: [] },
 ];
