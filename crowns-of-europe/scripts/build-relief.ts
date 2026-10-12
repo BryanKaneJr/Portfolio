@@ -11,13 +11,17 @@
  * separately leave faint lines where they meet), and a soft one at a quarter of that for zoomed-out views. Past
  * the window, and over the wastes and the waters no fleet sails, the map is blank parchment, so nothing is shaded
  * there; instead the known world casts a soft shadow onto the parchment (two versions: before and after the New
- * World is found). Also the water lines along the coasts, for the styles that draw them.
+ * World is found). Also the water lines along the coasts, for the styles that draw them, and a land-colour image
+ * from NASA's Blue Marble (public domain: natural colour, cloud-free) that the Atlas style lays over the country
+ * colours, so each country takes on the greens, tans and greys of its land and the texture of its fields and hills.
  */
 import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
+import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
+import { ATLAS_SEA } from '../src/ui/map/palette';
 
 const run = promisify(execFile);
 const ROOT = path.resolve(__dirname, '..');
@@ -116,6 +120,134 @@ async function fetchArea(z: number, x0: number, y0: number, x1: number, y1: numb
   };
   await Promise.all(Array.from({ length: 12 }, worker));
   console.log(`zoom ${z}: ${done} tiles`);
+}
+
+// ---------------------------------------------------------------- natural colour (NASA Blue Marble, public domain)
+const BM_Z = 6;
+const bmTiles = new Map<string, Uint8Array | null>();
+
+async function fetchBlueMarble(z: number, x: number, y: number): Promise<void> {
+  const key = tileKey(z, x, y);
+  if (bmTiles.has(key)) return;
+  const file = path.join(CACHE, 'bluemarble', `${z}`, `${x}`, `${y}.jpg`);
+  if (!fs.existsSync(file)) {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const url = `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/${z}/${y}/${x}.jpeg`;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        await run('curl', ['-sf', '--max-time', '60', '-o', file, url]);
+        break;
+      } catch {
+        await new Promise(r => setTimeout(r, 1000 * 2 ** attempt));
+      }
+    }
+  }
+  if (!fs.existsSync(file)) {
+    bmTiles.set(key, null);
+    return;
+  }
+  bmTiles.set(key, jpeg.decode(fs.readFileSync(file), { useTArray: true, formatAsRGBA: true }).data);
+}
+
+async function fetchBlueMarbleArea(z: number, x0: number, y0: number, x1: number, y1: number): Promise<void> {
+  const [ax, ay] = tilePixel(z, lonOf(x0), latOf(y0));
+  const [bx, by] = tilePixel(z, lonOf(x1), latOf(y1));
+  const jobs: [number, number][] = [];
+  for (let ty = Math.floor(ay / TILE); ty <= Math.floor(by / TILE); ty++) for (let tx = Math.floor(ax / TILE); tx <= Math.floor(bx / TILE); tx++) jobs.push([tx, ty]);
+  const total = jobs.length;
+  await Promise.all(
+    Array.from({ length: 12 }, async () => {
+      for (let j = jobs.pop(); j; j = jobs.pop()) await fetchBlueMarble(z, j[0], j[1]);
+    }),
+  );
+  console.log(`blue marble zoom ${z}: ${total} tiles`);
+}
+
+/** Bilinear natural colour (0..1 each) at a lon/lat. */
+function natural(z: number, lon: number, lat: number): [number, number, number] {
+  const [px, py] = tilePixel(z, lon, lat);
+  const at = (x: number, y: number): [number, number, number] => {
+    const t = bmTiles.get(tileKey(z, Math.floor(x / TILE), Math.floor(y / TILE)));
+    if (!t) return [0.2, 0.22, 0.15];
+    const i = ((Math.floor(y) % TILE) * TILE + (Math.floor(x) % TILE)) * 4;
+    return [t[i] / 255, t[i + 1] / 255, t[i + 2] / 255];
+  };
+  const x0 = Math.floor(px - 0.5);
+  const y0 = Math.floor(py - 0.5);
+  const fx = px - 0.5 - x0;
+  const fy = py - 0.5 - y0;
+  const a = at(x0, y0);
+  const b = at(x0 + 1, y0);
+  const c = at(x0, y0 + 1);
+  const d = at(x0 + 1, y0 + 1);
+  return [0, 1, 2].map(k => (a[k] * (1 - fx) + b[k] * fx) * (1 - fy) + (c[k] * (1 - fx) + d[k] * fx) * fy) as [number, number, number];
+}
+
+const TINT_MID = 0.56; // the land colour's average brightness
+const TINT_CONTRAST = 1.9; // how much brighter and darker than average the land gets (fields, forest, rock)
+const TINT_SAT = 1.5; // and how much more colourful than the photograph
+
+/**
+ * The land-colour image: Blue Marble evened out (the photograph is dark, so it is lifted to a middle brightness with
+ * its light and dark patches kept, and made a little more colourful), with the Atlas sea in the water.
+ */
+function landColour(cols: number, rows: number, f: number): Uint8Array {
+  const land = landMask(0, 0, cols, rows, f);
+  const raw = new Float32Array(cols * rows * 3);
+  const lum: number[] = [];
+  for (let r = 0; r < rows; r++) {
+    const lat = latOf((r + 0.5) / f);
+    for (let c = 0; c < cols; c++) {
+      const i = r * cols + c;
+      if (!land[i]) continue;
+      const [R, G, B] = natural(BM_Z, lonOf((c + 0.5) / f), lat);
+      raw[i * 3] = R;
+      raw[i * 3 + 1] = G;
+      raw[i * 3 + 2] = B;
+      if (i % 7 === 0) lum.push(0.3 * R + 0.59 * G + 0.11 * B);
+    }
+  }
+  lum.sort((a, b) => a - b);
+  const median = lum[Math.floor(lum.length / 2)] ?? 0.2;
+  const sea = [1, 3, 5].map(k => parseInt(ATLAS_SEA.slice(k, k + 2), 16));
+  const out = new Uint8Array(cols * rows * 4);
+  for (let i = 0; i < cols * rows; i++) {
+    out[i * 4 + 3] = 255;
+    if (!land[i]) {
+      out[i * 4] = sea[0];
+      out[i * 4 + 1] = sea[1];
+      out[i * 4 + 2] = sea[2];
+      continue;
+    }
+    const R = raw[i * 3];
+    const G = raw[i * 3 + 1];
+    const B = raw[i * 3 + 2];
+    const L = 0.3 * R + 0.59 * G + 0.11 * B;
+    const L2 = Math.max(0.22, Math.min(0.9, TINT_MID + (L - median) * TINT_CONTRAST));
+    for (const [k, v] of [R, G, B].entries()) out[i * 4 + k] = Math.round(Math.max(0, Math.min(1, L2 + (v - L) * TINT_SAT)) * 255);
+  }
+  return out;
+}
+
+function writeJPEG(file: string, cols: number, rows: number, rgba: Uint8Array): number {
+  const buf = jpeg.encode({ data: rgba, width: cols, height: rows }, 84).data;
+  fs.writeFileSync(file, buf);
+  return buf.length;
+}
+
+/** Average an RGBA image down by a whole factor. */
+function shrink(rgba: Uint8Array, cols: number, rows: number, by: number): { rgba: Uint8Array; cols: number; rows: number } {
+  const c2 = Math.floor(cols / by);
+  const r2 = Math.floor(rows / by);
+  const out = new Uint8Array(c2 * r2 * 4);
+  for (let r = 0; r < r2; r++)
+    for (let c = 0; c < c2; c++)
+      for (let k = 0; k < 4; k++) {
+        let t = 0;
+        for (let dy = 0; dy < by; dy++) for (let dx = 0; dx < by; dx++) t += rgba[((r * by + dy) * cols + c * by + dx) * 4 + k];
+        out[(r * c2 + c) * 4 + k] = Math.round(t / (by * by));
+      }
+  return { rgba: out, cols: c2, rows: r2 };
 }
 
 // ---------------------------------------------------------------- land mask from the map's own coastline
@@ -440,6 +572,7 @@ async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   await fetchArea(5, 0, 0, W, H);
   await fetchArea(4, 0, 0, W, H);
+  await fetchBlueMarbleArea(BM_Z, 0, 0, W, H);
   let bytes = 0;
   // The play window, soft (zoomed out).
   const lcols = Math.round(W * LO);
@@ -448,7 +581,7 @@ async function main() {
   // The play window, sharp, in one piece.
   const pc = Math.round((W + 2 * PAD) * HI);
   const pr = Math.round((H + 2 * PAD) * HI);
-  const padded = shade(-PAD, -PAD, pc, pr, HI, 5, 10, 1, 8);
+  const padded = shade(-PAD, -PAD, pc, pr, HI, 5, 13, 0, 8);
   const sc = Math.round(W * HI);
   const sr = Math.round(H * HI);
   const sharp = Buffer.alloc(sc * sr * 2);
@@ -459,6 +592,11 @@ async function main() {
   const wl = waterLines();
   bytes += writeGA(path.join(OUT, 'water-lines-light.png'), wl.cols, wl.rows, wl.light);
   bytes += writeGA(path.join(OUT, 'water-lines-dark.png'), wl.cols, wl.rows, wl.dark);
+  // The land's natural colour, sharp and soft.
+  const tint = landColour(W, H, 1);
+  bytes += writeJPEG(path.join(OUT, 'land-colour.jpg'), W, H, tint);
+  const soft = shrink(tint, W, H, 4);
+  bytes += writeJPEG(path.join(OUT, 'land-colour-soft.jpg'), soft.cols, soft.rows, soft.rgba);
   // The known world's shadow on the parchment, before and after the New World is found.
   for (const [name, rings] of [
     ['charted', [...wasteRings, ...closedRings]],
@@ -488,6 +626,12 @@ export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/reli
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   light: { src: require('../../../assets/map/water-lines-light.png'), x: 0, y: 0, w: ${W}, h: ${H} },
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+};
+
+/** The land's natural colour (Blue Marble, evened out; the Atlas sea in the water), sharp and soft. */
+export const LAND_COLOUR: Record<'sharp' | 'soft', ReliefTile> = {
+  sharp: { src: require('../../../assets/map/land-colour.jpg'), x: 0, y: 0, w: ${W}, h: ${H} },
+  soft: { src: require('../../../assets/map/land-colour-soft.jpg'), x: 0, y: 0, w: ${W}, h: ${H} },
 };
 
 /** The known world's soft shadow on the parchment around it, before and after the New World is found. */

@@ -123,12 +123,14 @@ here.
     edges, so the known world ends in a hand-drawn shore rather than a ruled line (the edges of the unknown waters
     wobble instead of following the sea zones' straight lines, and the last stretch fades into the parchment).
     Before the New World is found it is parchment too, its coasts drawn in outline like the rest of the unknown;
-    finding it lifts the parchment. On the known world: muted colours with hill shading, sea depth and a painted
-    grain showing through (public-domain elevation data, baked into images by `npm run relief:build`), a dark slate
-    sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
+    finding it lifts the parchment. On the known world the country colours are laid over the land's own colours,
+    the way strategy maps blend the political colour with the terrain: NASA's Blue Marble (public domain), evened
+    out to a middle brightness, shows through at about a third, so a country takes on its land's greens, tans and
+    greys and the texture of its fields and hills; then crisp hill shading, sea depth and a painted grain
+    (public-domain elevation data; all baked into images by `npm run relief:build`); a dark slate sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
     (Cinzel), a short name on a long thin country spaced out to run its length; seas and wastes are in an old
     italic (IM Fell English; both bundled, SIL Open Font License). Nothing in the unknown can be tapped, entered or
-    owned. Pulling past the edge of the known world, or past the zoom limits, meets growing resistance and slides
+    owned. The Red Sea is the one closed sea still drawn as water (`charted` in `seas.json`). Pulling past the edge of the known world, or past the zoom limits, meets growing resistance and slides
     back when let go. Atlas is the default; Parchment (an old hand-coloured map with water lines along the coasts)
     and Flat (clean colours, the lightest to draw) are in Settings and the map-mode menu. Each style redraws in two
     frames in the browser; anything that would mean stroking every coastline several times (water lines, shadows)

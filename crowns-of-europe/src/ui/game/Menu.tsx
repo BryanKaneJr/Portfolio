@@ -542,7 +542,7 @@ function Settings() {
         />
       </Section>
       <T v="tiny" style={{ marginTop: 16 }}>
-        Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}. Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain). Map lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain.
+        Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}. Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Map lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain.
       </T>
     </View>
   );

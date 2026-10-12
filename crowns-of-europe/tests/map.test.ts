@@ -137,6 +137,9 @@ describe('the known world and the unknown', () => {
   test('waters no fleet can sail are parchment, the seas you sail are not', () => {
     for (const id of ['pacific', 'indian_ocean', 'arctic']) expect(inside(MAP.unknownWater, ...label(id))).toBe(true);
     for (const id of ['channel', 'north_sea', 'biscay', 'west_med', 'black_sea', 'baltic']) expect(inside(MAP.unknownWater, ...label(id))).toBe(false);
+    // A closed sea marked charted (the Red Sea) is still drawn as water.
+    expect(MAP.seas.find(s => s.id === 'red_sea')?.charted).toBe(true);
+    expect(inside(MAP.unknownWater, ...label('red_sea'))).toBe(false);
   });
 
   test('before the New World is found, its regions are uncharted; the Old World never is', () => {

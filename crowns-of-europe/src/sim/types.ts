@@ -98,6 +98,7 @@ export interface MapSea {
   bbox: number[];
   neighbors: SeaId[];
   closed?: boolean; // waters outside the game (drawn, never sailed)
+  charted?: boolean; // a closed sea drawn as water rather than as parchment
 }
 
 export interface MapData {

@@ -21,6 +21,12 @@ export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: 2575, h: 2242 },
 };
 
+/** The land's natural colour (Blue Marble, evened out; the Atlas sea in the water), sharp and soft. */
+export const LAND_COLOUR: Record<'sharp' | 'soft', ReliefTile> = {
+  sharp: { src: require('../../../assets/map/land-colour.jpg'), x: 0, y: 0, w: 2575, h: 2242 },
+  soft: { src: require('../../../assets/map/land-colour-soft.jpg'), x: 0, y: 0, w: 2575, h: 2242 },
+};
+
 /** The known world's soft shadow on the parchment around it, before and after the New World is found. */
 export const SHADOWS: Record<'charted' | 'uncharted', ReliefTile> = {
   charted: { src: require('../../../assets/map/shadow-charted.png'), x: 0, y: 0, w: 2575, h: 2242 },

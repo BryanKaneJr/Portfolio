@@ -51,6 +51,7 @@ export interface SeaDef {
   ocean?: boolean; // open ocean: a coast here lets you send colonists overseas
   nw?: boolean; // New World waters: closed until the New World is discovered
   closed?: boolean; // outside the game: drawn on the map, never sailed
+  charted?: boolean; // a closed sea drawn as water rather than as the parchment of the unknown
   days?: number; // days to cross (default 4; the open Atlantic takes much longer)
 }
 export interface StraitDef {
@@ -66,6 +67,8 @@ export const WASTELANDS = (seasJson as any).wastelands as { id: string; name: st
 /** Wildernesses across the Atlantic (hidden with the rest of the New World until it is discovered). */
 export const NW_WASTELANDS = new Set(((seasJson as any).wastelands as { id: string; seeds: [number, number][] }[]).filter(w => w.seeds[0][0] < -30).map(w => w.id));
 /** Sea zones the game never uses (the Pacific, Hudson Bay...): drawn as darker water. */
+/** Every water's name, closed seas included (for map labels). */
+export const SEA_NAMES: Record<string, string> = Object.fromEntries(((seasJson as any).seas as SeaDef[]).map(s => [s.id, s.name]));
 export const CLOSED_SEAS = new Set(((seasJson as any).seas as SeaDef[]).filter(s => s.closed).map(s => s.id));
 /** Borders along a major river ("a|b", sorted): attacking across one costs the attacker 1 on every roll. */
 export const RIVERS: Map<string, string> = new Map(

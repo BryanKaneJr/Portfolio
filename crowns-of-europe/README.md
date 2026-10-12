@@ -19,7 +19,8 @@ bundled and works in airplane mode.
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
   forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, prosperity, faith, diplomatic,
   threat and exports. Painted in three styles: Atlas (the known world on blank parchment, casting a soft shadow;
-  muted colours over hill shading; a slate sea; big pale names that curve along each country), Parchment and
+  country colours over the land's own greens and tans and its hills; a slate sea; big pale names that curve along
+  each country), Parchment and
   Flat. The rest of the world is sketched in outline on the parchment, and the map slides back when you pull past
   its edges.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
@@ -124,14 +125,17 @@ Great Lakes, splits each landmass between region seed points through a fine jitt
 never claim the mainland) and hands the rest to wilderness seeds, simplifies shared borders once through a topology
 so neighbours never gap, and writes paths, labels and the adjacency graph, plus the lands beyond the play window
 (drawn in outline, never playable) and the unknown waters. `scripts/build-relief.ts` then bakes hill shading, sea
-depths, the water lines along the coasts and the known world's shadow into images from public-domain elevation
-tiles, using the map's own coastline so nothing spills over a shore. `src/ui/map/styles.ts` says how each map style paints it all.
+depths, the land's natural colour (NASA's Blue Marble), the water lines along the coasts and the known world's
+shadow into images from public-domain elevation tiles and imagery, using the map's own coastline so nothing spills over a shore. `src/ui/map/styles.ts` says how each map style paints it all.
 
 ## Credits
 
 Coastlines: [Natural Earth](https://www.naturalearthdata.com/) via `world-atlas` (public domain). Relief: the
 [Terrain Tiles on AWS Open Data](https://registry.opendata.aws/terrain-tiles/) (ETOPO1, GMTED2010 and SRTM at
-the zooms used; public domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
+the zooms used; public domain). Land colours: NASA's
+[Blue Marble Next Generation](https://visibleearth.nasa.gov/collection/1484/blue-marble) via
+[GIBS](https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api)
+(public domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
 code.

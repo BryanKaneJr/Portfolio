@@ -72,8 +72,9 @@ npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Eur
 npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npm run map:build           # after editing regions.json / seas.json
-npm run relief:build        # then: relief, water lines and the known world's shadows (assets/map/; fetches
-                            # elevation tiles once into scripts/data/terrain-cache, git-ignored)
+npm run relief:build        # then: relief, land colour, water lines and the known world's shadows
+                            # (assets/map/; fetches elevation and Blue Marble tiles once into
+                            # scripts/data/terrain-cache, git-ignored)
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -91,8 +92,10 @@ How it is painted comes from a style (`ui/map/styles.ts`: Atlas, the default; Pa
 Settings or the map-mode menu and saved as a preference. The known world lies on blank parchment: everything past
 the play window, the wastes, the waters no fleet sails plus a ragged band of open sea along the window's edges
 (`MAP.unknownWater`), and before discovery the New World (`MAP.uncharted`). Bottom to top: sea, baked water lines
-(Parchment), sea zones, regions (one path per colour), occupation stripes, the relief image (hill shading, sea depth
-and a painted grain as black or white with alpha: soft when zoomed out, sharp closer in), the parchment over the
+(Parchment), sea zones, regions (one path per colour), the land-colour image laid over them (Atlas: NASA's Blue
+Marble evened out, so each country takes on its land's greens, tans and texture), occupation stripes, the relief
+image (hill shading, sea depth and a painted grain as black or white with alpha: soft when zoomed out, sharp closer
+in), the parchment over the
 unknown, the known world's baked shadow on it, province lines (fading out as you zoom out), rivers, nation borders,
 a fade into parchment along the window's edges, every coastline (known or not, one ink, culled by cell), selection,
 then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each

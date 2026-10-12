@@ -9,7 +9,7 @@ import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
-import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA, WASTELANDS, isNewWorld } from '../../sim/content';
+import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
@@ -17,7 +17,7 @@ import { C, kmen, sans } from '../theme';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
-import { RELIEF_SHARP, RELIEF_SOFT, SHADOWS, WATER_LINES } from './reliefTiles';
+import { LAND_COLOUR, RELIEF_SHARP, RELIEF_SOFT, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 
@@ -383,6 +383,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {[...byFill].map(([fill, d]) => (
         <Path key={fill} d={d} fill={fill} />
       ))}
+      {/* The land's own colours and texture (fields, forest, rock, sand) showing through the country colours */}
+      {st.landColour > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={LAND_COLOUR[k < 0.35 ? 'soft' : 'sharp'].src} preserveAspectRatio="none" opacity={st.landColour} /> : null}
       {mode === 'political' || mode === 'diplomatic'
         ? MAP.regions.map(r => {
             const reg = s.regions[r.id];
@@ -464,9 +466,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {/* Names in the known world */}
       {k >= 0.9
         ? MAP.seas.map(sea =>
-            visible(sea.bbox) && !hidden(sea.id) && !sea.closed && SEA[sea.id] ? (
+            visible(sea.bbox) && !hidden(sea.id) && (!sea.closed || sea.charted) ? (
               <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16)} fontSize={px(11)} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle" letterSpacing={px(1)}>
-                {SEA[sea.id].name}
+                {SEA_NAMES[sea.id]}
               </SvgText>
             ) : null,
           )

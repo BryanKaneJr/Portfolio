@@ -29,7 +29,7 @@ const regions: { id: string; name: string; seeds: LonLat[]; nw?: boolean }[] = J
   fs.readFileSync(path.join(ROOT, 'src/content/regions.json'), 'utf8'),
 );
 const seaData: {
-  seas: { id: string; name: string; seeds: LonLat[]; closed?: boolean; nw?: boolean }[];
+  seas: { id: string; name: string; seeds: LonLat[]; closed?: boolean; charted?: boolean; nw?: boolean }[];
   wastelands: { id: string; name: string; seeds: LonLat[] }[];
   lakes: { name: string; outline: LonLat[] }[];
 } = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/seas.json'), 'utf8'));
@@ -545,6 +545,7 @@ const seaOut = seaData.seas.map(s => {
     label: [round(label[0]), round(label[1])],
     bbox: bboxOf(largest).map(v => round(v)),
     ...(s.closed ? { closed: true } : {}),
+    ...(s.charted ? { charted: true } : {}),
   };
 });
 const seaNeighbors = new Map<string, Set<string>>();
@@ -698,7 +699,7 @@ const farLabels = ((seaData as any).farLands ?? []).map((f: { name: string; at: 
 console.log(`far lands: ${farLand.length} pieces in ${farOut.length} cells`);
 
 // ---------- the unknown: what the map paints as blank parchment ----------
-// Waters no fleet can sail (the closed seas) are terra incognita, like the wastes and the world past the edges, and
+// Waters no fleet can sail (the closed seas, unless marked charted) are terra incognita, like the wastes and the world past the edges, and
 // so is the open sea in a ragged band along the window's edges (so the known sea never stops at a ruled line).
 // Before the New World is found, its regions, its seas and the Great Lakes are too. The edges of the unknown
 // waters wobble like a hand-drawn chart rather than following the sea zones' straight lines; they are cut from the
@@ -747,7 +748,7 @@ const water = polygonClipping.difference(windowPoly, drawnLand);
 const cellsOf = (pick: (sd: (typeof seaData.seas)[number]) => boolean): MultiPolygon => unionAll(seaData.seas.filter(pick).flatMap(sd => seaShapes.get(sd.id) ?? []));
 const WOBBLE = 16; // map units the edge of the unknown strays from the sea zones' lines
 const WOBBLE_SCALE = 70; // and over what distance it turns
-const closedWater = polygonClipping.intersection(water, wobble(cellsOf(sd => !!sd.closed), WOBBLE, WOBBLE_SCALE));
+const closedWater = polygonClipping.intersection(water, wobble(cellsOf(sd => !!sd.closed && !sd.charted), WOBBLE, WOBBLE_SCALE));
 // The known sea's own ragged shore, 30 to 90 units in from the window's edges.
 const INSET = 60;
 const frame: MultiPolygon = wobble(
