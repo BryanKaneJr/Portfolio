@@ -307,7 +307,7 @@ HIGH_THIN_HACH = [0.0, 0.0, 0.0, 0.2, 0.25]  # hachures (lighter, so high valley
 # about a third (the densest crests, the Savoy ridge, the Swiss and Dinaric Alps, open up). 0: no limit.
 PEAK_GAP = [0.0, 0.0, 0.0, 0.62, 0.62]
 # Trees from this much forest cover up (fewer stray single trees in open farmland close up).
-TREE_FROM = [0.4, 0.4, 0.4, 0.45, 0.48]
+TREE_FROM = [0.4, 0.4, 0.4, 0.42, 0.43]
 # On high ground the fine relief is calmed by this share, so the gaps between peaks read as quiet ground.
 CALM_HIGH = [0.0, 0.0, 0.0, 0.2, 0.25]
 PEAK_RELIEF = [900, 800, 700, 600, 520]  # metres of relief within the glyph's reach for a summit to get a mountain
