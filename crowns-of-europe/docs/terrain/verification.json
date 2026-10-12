@@ -14,7 +14,7 @@
     856.0
    ],
    "max_abs_diff": 51,
-   "pixels_differing": 86,
+   "pixels_differing": 89,
    "pixels": 262144
   },
   "shipped_tiles_across_band_boundary": {
@@ -24,104 +24,104 @@
      "tile": "L4/61_25",
      "band": 1,
      "bytes_identical": false,
-     "decoded_mean_abs_diff": 0.1324,
-     "jpeg_blocks_differing_share": 0.1223,
+     "decoded_mean_abs_diff": 0.1235,
+     "jpeg_blocks_differing_share": 0.1116,
      "decoded_max_abs_diff": 27,
-     "jpeg_error_vs_raw_mean": 5.279,
+     "jpeg_error_vs_raw_mean": 5.233,
      "jpeg_error_vs_raw_p99": 23.0
     },
     {
      "tile": "L4/61_26",
      "band": 2,
      "bytes_identical": false,
-     "decoded_mean_abs_diff": 0.1585,
-     "jpeg_blocks_differing_share": 0.1433,
+     "decoded_mean_abs_diff": 0.1564,
+     "jpeg_blocks_differing_share": 0.1477,
      "decoded_max_abs_diff": 39,
-     "jpeg_error_vs_raw_mean": 5.684,
+     "jpeg_error_vs_raw_mean": 5.628,
      "jpeg_error_vs_raw_p99": 24.0
     }
    ]
   },
   "level2_rebuilt_byte_identical": "25/25 tiles",
-  "note": "raw: the same symbols land in the same places wherever a box starts; the pixels differ only where Skia anti-aliases the combined hachure paths a little differently for a bigger box (a few hundredths of a percent of pixels). Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8."
+  "note": "raw: the same symbols land in the same places wherever a box starts; a few isolated edge pixels (a few hundredths of a percent) differ, where Skia anti-aliases an edge a little differently on a surface of another size. Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8."
  },
  "tile_joins": {
   "L0": {
    "edges": 4,
-   "mean_step_across_tile_edges": 13.124,
-   "mean_step_across_block_edges_inside": 9.046,
-   "ratio": 1.451
+   "mean_step_across_tile_edges": 12.807,
+   "mean_step_across_block_edges_inside": 9.073,
+   "ratio": 1.412
   },
   "L1": {
    "edges": 12,
-   "mean_step_across_tile_edges": 9.668,
-   "mean_step_across_block_edges_inside": 8.768,
-   "ratio": 1.103
+   "mean_step_across_tile_edges": 9.649,
+   "mean_step_across_block_edges_inside": 8.736,
+   "ratio": 1.105
   },
   "L2": {
    "edges": 40,
-   "mean_step_across_tile_edges": 14.251,
-   "mean_step_across_block_edges_inside": 13.035,
+   "mean_step_across_tile_edges": 14.237,
+   "mean_step_across_block_edges_inside": 13.025,
    "ratio": 1.093
   },
   "L3": {
    "edges": 127,
-   "mean_step_across_tile_edges": 13.348,
-   "mean_step_across_block_edges_inside": 13.075,
-   "ratio": 1.021
+   "mean_step_across_tile_edges": 13.251,
+   "mean_step_across_block_edges_inside": 13.04,
+   "ratio": 1.016
   },
   "L4": {
    "edges": 542,
-   "mean_step_across_tile_edges": 12.616,
-   "mean_step_across_block_edges_inside": 12.042,
-   "ratio": 1.048
+   "mean_step_across_tile_edges": 12.501,
+   "mean_step_across_block_edges_inside": 11.955,
+   "ratio": 1.046
   }
  },
  "seams_vs_unsplit_render": {
   "L0": {
    "edges_measured": 4,
-   "mean_step_in_tiles": 13.124,
-   "mean_step_unsplit_render": 10.653,
-   "largest_excess_over_unsplit": 3.534
+   "mean_step_in_tiles": 12.807,
+   "mean_step_unsplit_render": 10.515,
+   "largest_excess_over_unsplit": 3.44
   },
   "L1": {
    "edges_measured": 12,
-   "mean_step_in_tiles": 9.668,
-   "mean_step_unsplit_render": 8.181,
-   "largest_excess_over_unsplit": 3.307
+   "mean_step_in_tiles": 9.649,
+   "mean_step_unsplit_render": 8.152,
+   "largest_excess_over_unsplit": 3.325
   },
   "L2": {
    "edges_measured": 40,
-   "mean_step_in_tiles": 14.251,
-   "mean_step_unsplit_render": 12.204,
-   "largest_excess_over_unsplit": 3.31
+   "mean_step_in_tiles": 14.237,
+   "mean_step_unsplit_render": 12.189,
+   "largest_excess_over_unsplit": 3.262
   },
   "L3": {
    "edges_measured": 12,
-   "mean_step_in_tiles": 13.054,
-   "mean_step_unsplit_render": 11.086,
-   "largest_excess_over_unsplit": 2.704
+   "mean_step_in_tiles": 13.062,
+   "mean_step_unsplit_render": 11.087,
+   "largest_excess_over_unsplit": 2.71
   },
   "L4": {
    "edges_measured": 12,
-   "mean_step_in_tiles": 16.793,
-   "mean_step_unsplit_render": 14.313,
-   "largest_excess_over_unsplit": 3.843
+   "mean_step_in_tiles": 16.66,
+   "mean_step_unsplit_render": 14.226,
+   "largest_excess_over_unsplit": 3.848
   }
  },
  "coastline_vs_game": {
   "level": 4,
   "pixels_within_3_units_of_coast": 7508078,
-  "disagreeing": 73559,
-  "of_which_coast_pixel_itself": 20238,
-  "of_which_inland_water_on_purpose": 53142,
-  "unexplained": 179,
-  "unexplained_share": 2.4e-05,
+  "disagreeing": 73427,
+  "of_which_coast_pixel_itself": 19967,
+  "of_which_inland_water_on_purpose": 53287,
+  "unexplained": 173,
+  "unexplained_share": 2.3e-05,
   "unexplained_game_sea_painted_as_land": 2,
-  "unexplained_game_land_painted_as_sea": 177,
+  "unexplained_game_land_painted_as_sea": 171,
   "unexplained_distance_units": {
-   "median": 1.288,
-   "p95": 2.636,
+   "median": 1.365,
+   "p95": 2.641,
    "max": 2.795
   },
   "note": "sea/land read from the L4 tiles' colours vs the game's coastline, within 3 map units of it (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit). img/coast-unexplained-L4.png marks (black) each 16x16 px block with an unexplained pixel."
@@ -175,30 +175,30 @@
      "symbols": {
       "mountain": 3,
       "hill": 4,
-      "broadleaf": 163,
+      "broadleaf": 159,
       "conifer": 15,
       "grass": 8
      },
      "hachure_strokes": 76,
-     "laplacian_energy": 6235.8,
+     "laplacian_energy": 6135.9,
      "coarser_level_enlarged": 492.3,
-     "ratio": 12.67,
+     "ratio": 12.46,
      "paper_grain_alone": 0.8
     },
     {
      "level": 4,
      "px_per_unit": 16,
      "symbols": {
-      "mountain": 9,
+      "mountain": 10,
       "hill": 16,
-      "broadleaf": 637,
-      "conifer": 89,
+      "broadleaf": 621,
+      "conifer": 84,
       "grass": 38
      },
      "hachure_strokes": 339,
-     "laplacian_energy": 6233.3,
-     "coarser_level_enlarged": 515.7,
-     "ratio": 12.09,
+     "laplacian_energy": 6161.3,
+     "coarser_level_enlarged": 507.0,
+     "ratio": 12.15,
      "paper_grain_alone": 0.8
     }
    ]
@@ -250,30 +250,30 @@
      "symbols": {
       "mountain": 10,
       "hill": 4,
-      "broadleaf": 236,
-      "conifer": 46,
+      "broadleaf": 234,
+      "conifer": 47,
       "grass": 14
      },
      "hachure_strokes": 127,
-     "laplacian_energy": 7813.7,
+     "laplacian_energy": 7832.0,
      "coarser_level_enlarged": 698.1,
-     "ratio": 11.19,
+     "ratio": 11.22,
      "paper_grain_alone": 0.6
     },
     {
      "level": 4,
      "px_per_unit": 16,
      "symbols": {
-      "mountain": 32,
-      "hill": 15,
-      "broadleaf": 811,
-      "conifer": 195,
+      "mountain": 34,
+      "hill": 16,
+      "broadleaf": 782,
+      "conifer": 200,
       "grass": 32
      },
      "hachure_strokes": 676,
-     "laplacian_energy": 7440.5,
-     "coarser_level_enlarged": 639.3,
-     "ratio": 11.64,
+     "laplacian_energy": 7322.9,
+     "coarser_level_enlarged": 640.8,
+     "ratio": 11.43,
      "paper_grain_alone": 0.6
     }
    ]
@@ -322,27 +322,27 @@
      "px_per_unit": 8,
      "symbols": {
       "hill": 4,
-      "broadleaf": 162
+      "broadleaf": 155
      },
      "hachure_strokes": 0,
-     "laplacian_energy": 5349.5,
+     "laplacian_energy": 5150.9,
      "coarser_level_enlarged": 525.9,
-     "ratio": 10.17,
+     "ratio": 9.79,
      "paper_grain_alone": 0.8
     },
     {
      "level": 4,
      "px_per_unit": 16,
      "symbols": {
-      "hill": 9,
-      "broadleaf": 628,
+      "hill": 10,
+      "broadleaf": 606,
       "marsh": 2,
       "grass": 14
      },
      "hachure_strokes": 1,
-     "laplacian_energy": 4778.1,
-     "coarser_level_enlarged": 445.6,
-     "ratio": 10.72,
+     "laplacian_energy": 4631.7,
+     "coarser_level_enlarged": 428.6,
+     "ratio": 10.81,
      "paper_grain_alone": 0.8
     }
    ]
