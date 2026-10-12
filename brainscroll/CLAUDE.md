@@ -1,5 +1,7 @@
 # BrainScroll: notes for AI coding agents
 
+**Picking this project up?** Read [`HANDOFF.md`](HANDOFF.md) first: where things stand, every service and identifier, how the owner works, the history and what's next.
+
 Read `docs/product-rules.md` before changing anything that touches progression, XP, Brainpower, IDs or content. Those rules are contracts. The full product specs live in `docs/specs/*.md` (Markdown is the working source; `docs/source/*.docx` are snapshots). When a product rule changes, update the spec, the digest in `docs/` and the code together.
 
 ## Commands (run from `brainscroll/`)
