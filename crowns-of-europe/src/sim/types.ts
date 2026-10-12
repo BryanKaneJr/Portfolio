@@ -110,6 +110,8 @@ export interface MapData {
   lakes: { name: string; label: [number, number] }[];
   coast: string;
   /** Land beyond the play window: drawn as an outline for looks, never part of the game. */
+  unknownWater: string; // waters no fleet can sail (drawn as parchment)
+  uncharted: string; // the New World's regions, seas and lakes before it is found
   far: { path: string; coast: string; bbox: number[] }[];
   farLabels: { name: string; x: number; y: number; sea?: boolean }[];
   margin: [number, number]; // how far beyond the window the far lands are drawn (map units)

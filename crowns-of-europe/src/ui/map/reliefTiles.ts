@@ -9,16 +9,8 @@ export interface ReliefTile {
   h: number;
 }
 
-/** The whole drawn world (far lands included), soft: for zoomed-out views and the margins. */
-export const RELIEF_WORLD: ReliefTile = { src: require('../../../assets/map/relief-world.png'), x: -800, y: -1400, w: 4175, h: 5042 };
-
-/** The soft image around the play window only, drawn with the sharp one. */
-export const RELIEF_BANDS: ReliefTile[] = [
-  { src: require('../../../assets/map/relief-band-top.png'), x: -800, y: -1400, w: 4175, h: 1400 },
-  { src: require('../../../assets/map/relief-band-bottom.png'), x: -800, y: 2242, w: 4175, h: 1400 },
-  { src: require('../../../assets/map/relief-band-left.png'), x: -800, y: 0, w: 800, h: 2242 },
-  { src: require('../../../assets/map/relief-band-right.png'), x: 2575, y: 0, w: 800, h: 2242 },
-];
+/** The play window, soft: for zoomed-out views. */
+export const RELIEF_SOFT: ReliefTile = { src: require('../../../assets/map/relief-soft.png'), x: 0, y: 0, w: 2575, h: 2242 };
 
 /** The play window, sharp. */
 export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/relief-window.png'), x: 0, y: 0, w: 2575, h: 2242 };
@@ -27,4 +19,10 @@ export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/reli
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   light: { src: require('../../../assets/map/water-lines-light.png'), x: 0, y: 0, w: 2575, h: 2242 },
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: 2575, h: 2242 },
+};
+
+/** The known world's soft shadow on the parchment around it, before and after the New World is found. */
+export const SHADOWS: Record<'charted' | 'uncharted', ReliefTile> = {
+  charted: { src: require('../../../assets/map/shadow-charted.png'), x: 0, y: 0, w: 2575, h: 2242 },
+  uncharted: { src: require('../../../assets/map/shadow-uncharted.png'), x: 0, y: 0, w: 2575, h: 2242 },
 };

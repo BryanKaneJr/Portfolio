@@ -18,9 +18,10 @@ bundled and works in airplane mode.
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
   forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, prosperity, faith, diplomatic,
-  threat and exports. Painted in three styles: Atlas (hill shading and sea depths under the colours, water lines
-  along the coasts, bold borders, names that curve across each country), Parchment and Flat. The rest of the
-  world is drawn faded around the edges, and the map slides back when you pull past them.
+  threat and exports. Painted in three styles: Atlas (the known world on blank parchment, casting a soft shadow;
+  muted colours over hill shading; a slate sea; big pale names that curve along each country), Parchment and
+  Flat. The rest of the world is sketched in outline on the parchment, and the map slides back when you pull past
+  its edges.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
@@ -122,9 +123,9 @@ The map is generated, not hand-drawn: `scripts/build-map.ts` projects Natural Ea
 Great Lakes, splits each landmass between region seed points through a fine jittered grid (organic borders, islands
 never claim the mainland) and hands the rest to wilderness seeds, simplifies shared borders once through a topology
 so neighbours never gap, and writes paths, labels and the adjacency graph, plus the lands beyond the play window
-(drawn, never playable). `scripts/build-relief.ts` then bakes hill shading, sea depths and the water lines along
-the coasts into images from public-domain elevation tiles, using the map's own coastline so nothing spills over a
-shore. `src/ui/map/styles.ts` says how each map style paints it all.
+(drawn in outline, never playable) and the unknown waters. `scripts/build-relief.ts` then bakes hill shading, sea
+depths, the water lines along the coasts and the known world's shadow into images from public-domain elevation
+tiles, using the map's own coastline so nothing spills over a shore. `src/ui/map/styles.ts` says how each map style paints it all.
 
 ## Credits
 

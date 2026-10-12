@@ -25,11 +25,11 @@ type LonLat = [number, number];
 type Pt = [number, number];
 
 const ROOT = path.resolve(__dirname, '..');
-const regions: { id: string; name: string; seeds: LonLat[] }[] = JSON.parse(
+const regions: { id: string; name: string; seeds: LonLat[]; nw?: boolean }[] = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'src/content/regions.json'), 'utf8'),
 );
 const seaData: {
-  seas: { id: string; name: string; seeds: LonLat[]; closed?: boolean }[];
+  seas: { id: string; name: string; seeds: LonLat[]; closed?: boolean; nw?: boolean }[];
   wastelands: { id: string; name: string; seeds: LonLat[] }[];
   lakes: { name: string; outline: LonLat[] }[];
 } = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/seas.json'), 'utf8'));
@@ -697,6 +697,81 @@ const farLabels = ((seaData as any).farLands ?? []).map((f: { name: string; at: 
 });
 console.log(`far lands: ${farLand.length} pieces in ${farOut.length} cells`);
 
+// ---------- the unknown: what the map paints as blank parchment ----------
+// Waters no fleet can sail (the closed seas) are terra incognita, like the wastes and the world past the edges, and
+// so is the open sea in a ragged band along the window's edges (so the known sea never stops at a ruled line).
+// Before the New World is found, its regions, its seas and the Great Lakes are too. The edges of the unknown
+// waters wobble like a hand-drawn chart rather than following the sea zones' straight lines; they are cut from the
+// drawn (simplified) land so the parchment meets every coast exactly.
+/** Smooth value noise (a fixed hash, so every build agrees): -1..1. */
+function valueNoise(x: number, y: number): number {
+  const hash = (i: number, j: number) => {
+    let h = (i * 374761393 + j * 668265263) | 0;
+    h = Math.imul(h ^ (h >>> 13), 1274126177);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+  };
+  const i = Math.floor(x);
+  const j = Math.floor(y);
+  const u = (x - i) * (x - i) * (3 - 2 * (x - i));
+  const v = (y - j) * (y - j) * (3 - 2 * (y - j));
+  const a = hash(i, j) + (hash(i + 1, j) - hash(i, j)) * u;
+  const b = hash(i, j + 1) + (hash(i + 1, j + 1) - hash(i, j + 1)) * u;
+  return (a + (b - a) * v) * 2 - 1;
+}
+/** Push every point of a shape along a smooth noise field (edges cut into 4-unit steps first). */
+function wobble(mp: MultiPolygon, amp: number, scale: number): MultiPolygon {
+  const warp = ([x, y]: Pt): Pt => [
+    x + amp * (0.7 * valueNoise(x / scale, y / scale) + 0.3 * valueNoise((x * 3) / scale + 40, (y * 3) / scale)),
+    y + amp * (0.7 * valueNoise(x / scale + 91, y / scale + 13) + 0.3 * valueNoise((x * 3) / scale + 7, (y * 3) / scale + 55)),
+  ];
+  return mp.map(poly =>
+    poly.map(ring => {
+      const out: Pt[] = [];
+      for (let i = 0; i + 1 < ring.length; i++) {
+        const [ax, ay] = ring[i];
+        const [bx, by] = ring[i + 1];
+        const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4));
+        for (let k = 0; k < n; k++) out.push(warp([ax + ((bx - ax) * k) / n, ay + ((by - ay) * k) / n]));
+      }
+      out.push(out[0]);
+      return out as Ring;
+    }),
+  );
+}
+const drawnShapes = new Map<string, Polygon[]>();
+simplified.features.forEach((f: any, gi: number) => {
+  drawnShapes.set(ids[gi], (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates) as Polygon[]);
+});
+const drawnLand = unionAll([...drawnShapes.values()].flat());
+const water = polygonClipping.difference(windowPoly, drawnLand);
+const cellsOf = (pick: (sd: (typeof seaData.seas)[number]) => boolean): MultiPolygon => unionAll(seaData.seas.filter(pick).flatMap(sd => seaShapes.get(sd.id) ?? []));
+const WOBBLE = 16; // map units the edge of the unknown strays from the sea zones' lines
+const WOBBLE_SCALE = 70; // and over what distance it turns
+const closedWater = polygonClipping.intersection(water, wobble(cellsOf(sd => !!sd.closed), WOBBLE, WOBBLE_SCALE));
+// The known sea's own ragged shore, 30 to 90 units in from the window's edges.
+const INSET = 60;
+const frame: MultiPolygon = wobble(
+  [
+    [
+      [
+        [INSET, INSET],
+        [WIDTH - INSET, INSET],
+        [WIDTH - INSET, HEIGHT - INSET],
+        [INSET, HEIGHT - INSET],
+        [INSET, INSET],
+      ],
+    ],
+  ],
+  30,
+  90,
+);
+const edgeWater = polygonClipping.difference(water, frame);
+const unknownWater = polygonClipping.union(closedWater, edgeWater);
+const nwWater = polygonClipping.intersection(water, wobble(cellsOf(sd => !!sd.nw && !sd.closed), WOBBLE, WOBBLE_SCALE));
+const nwRegions = regions.filter(r => r.nw).flatMap(r => drawnShapes.get(r.id) ?? []);
+const uncharted = unionAll([...nwRegions, ...nwWater, ...lakePolys]);
+console.log(`unknown waters: ${unknownWater.length} pieces; uncharted before discovery: ${uncharted.length} pieces`);
+
 const out = {
   width: WIDTH,
   height: HEIGHT,
@@ -710,6 +785,8 @@ const out = {
     return { name: l.name, label: [round(c[0]), round(c[1])] };
   }),
   coast: coastPath,
+  unknownWater: pathOf(unknownWater as any),
+  uncharted: pathOf(uncharted as any),
   far: farOut,
   farLabels,
   margin: [FAR_X, FAR_Y],

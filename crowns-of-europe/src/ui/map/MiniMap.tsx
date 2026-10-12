@@ -4,10 +4,12 @@ import Svg, { Image as SvgImage, Path, Rect } from 'react-native-svg';
 import { MAP, NATION, REGION, hops } from '../../sim/content';
 import { store } from '../../state/store';
 import { nationColor } from './colors';
-import { RELIEF_WORLD } from './reliefTiles';
+import { RELIEF_SOFT, SHADOWS } from './reliefTiles';
 import { MAP_STYLES } from './styles';
 
-const FAR = MAP.far.map(f => f.path).join('');
+/** The unknown in 1444 (the screens before a game starts): the wastes, the closed seas and the New World. */
+const UNKNOWN = MAP.wastelands.map(w => w.path).join('') + MAP.unknownWater + MAP.uncharted;
+const PAST = `M-2000 -2000h${MAP.width + 4000}v${MAP.height + 4000}h${-MAP.width - 4000}Z M1 1v${MAP.height - 2}h${MAP.width - 2}v${-(MAP.height - 2)}Z`;
 
 /** The Old World's frame: the title screen shows Europe, not the middle of the Atlantic. */
 const OLD_WORLD = (() => {
@@ -34,7 +36,7 @@ export const MiniMap = memo(function MiniMap({
 }) {
   const own = (id: string) => owners?.[id] ?? REGION[id].owner;
   const st = MAP_STYLES[store.mapStyle];
-  const R = RELIEF_WORLD;
+  const R = RELIEF_SOFT;
   let vb = OLD_WORLD;
   if (focus) {
     // Frame the land around the capital (not far-flung islands like the Azores).
@@ -71,17 +73,15 @@ export const MiniMap = memo(function MiniMap({
   return (
     <Svg width={width} height={height} viewBox={vb} preserveAspectRatio="xMidYMid slice">
       <Rect x={R.x} y={R.y} width={R.w} height={R.h} fill={st.sea} />
-      <Path d={FAR} fill={st.far.fill} />
-      {MAP.wastelands.map(w => (
-        <Path key={w.id} d={w.path} fill={st.waste.fill} />
-      ))}
       {MAP.regions.map(r => {
         const o = own(r.id);
         const faded = focus && o !== focus;
         return <Path key={r.id} d={r.path} fill={o ? st.land(nationColor(o)) : st.wild} opacity={faded ? 0.55 : 1} stroke={focus && o === focus ? st.nationBorder.color : st.provinceBorder.color} strokeWidth={focus && o === focus ? 1.2 : 0.5} />;
       })}
       {st.relief > 0 ? <SvgImage x={R.x} y={R.y} width={R.w} height={R.h} href={R.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
-      <Path d={FAR} fill={st.far.fill} opacity={st.far.veil} />
+      <Path d={PAST} fill={st.unknown.fill} fillRule="evenodd" />
+      <Path d={UNKNOWN} fill={st.unknown.fill} />
+      {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP.width} height={MAP.height} href={SHADOWS.uncharted.src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
       <Path d={MAP.coast} fill="none" stroke={st.coast.color} strokeWidth={0.6} />
       {dim > 0 ? <Rect x={-500} y={-500} width={MAP.width + 1000} height={MAP.height + 1000} fill="#120c06" opacity={dim} /> : null}
     </Svg>

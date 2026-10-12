@@ -117,18 +117,22 @@ here.
     took it in the eighth) and Austria in all eight, and no crown grew past about 50 regions.
 
 16. **A painted map, in three styles (on request).** The map takes its look from the map overhauls strategy
-    players rate highest, built from our own data: hill shading and sea depth (public-domain elevation data,
-    baked into images by `npm run relief:build`) lie over the political colours, so the Alps and the Pyrenees read
-    through France and Austria and the open ocean darkens off the shelf; lines in the water follow every coast with
-    a glow off the shore; bold inked borders between crowns sit over fine province lines that fade as you zoom
-    out; and each nation's name curves along its land in classical capitals (Cinzel), with seas and wastes in an
-    old italic (IM Fell English; both bundled, SIL Open Font License). The lands beyond the play window (Persia,
-    Tartary, Siberia, Patagonia...) are drawn as faded, hatched land with old names so the world does not end at a
-    cliff, but they are not regions: nothing there can be tapped, entered or owned. Pulling past the edge of the
-    known world, or past the zoom limits, meets growing resistance and slides back when let go. Atlas is the
-    default; Parchment (an old hand-coloured map) and Flat (clean colours, the lightest to draw) are in Settings
-    and the map-mode menu. Each style redraws in two frames in the browser; the water lines were first drawn as
-    strokes (130 ms a redraw) and are now baked.
+    players rate highest (and a reference screenshot the player picked), built from our own data. The known world
+    lies on blank parchment and casts a soft shadow onto it: past the play window, the deep wastes (the Sahara,
+    Kazan, the Caucasus, Arabia...), the waters no fleet sails, and a ragged band of open sea along the window's
+    edges, so the known world ends in a hand-drawn shore rather than a ruled line (the edges of the unknown waters
+    wobble instead of following the sea zones' straight lines, and the last stretch fades into the parchment).
+    Before the New World is found it is parchment too, its coasts drawn in outline like the rest of the unknown;
+    finding it lifts the parchment. On the known world: muted colours with hill shading, sea depth and a painted
+    grain showing through (public-domain elevation data, baked into images by `npm run relief:build`), a dark slate
+    sea, quiet borders, and big pale names with a drop shadow that curve along each country in classical capitals
+    (Cinzel), a short name on a long thin country spaced out to run its length; seas and wastes are in an old
+    italic (IM Fell English; both bundled, SIL Open Font License). Nothing in the unknown can be tapped, entered or
+    owned. Pulling past the edge of the known world, or past the zoom limits, meets growing resistance and slides
+    back when let go. Atlas is the default; Parchment (an old hand-coloured map with water lines along the coasts)
+    and Flat (clean colours, the lightest to draw) are in Settings and the map-mode menu. Each style redraws in two
+    frames in the browser; anything that would mean stroking every coastline several times (water lines, shadows)
+    is baked.
 
 ## Key numbers (all in `src/sim/`)
 

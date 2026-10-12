@@ -72,8 +72,8 @@ npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Eur
 npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npm run map:build           # after editing regions.json / seas.json
-npm run relief:build        # then: hill shading, sea depths and water lines (assets/map/; fetches elevation
-                            # tiles once into scripts/data/terrain-cache, git-ignored)
+npm run relief:build        # then: relief, water lines and the known world's shadows (assets/map/; fetches
+                            # elevation tiles once into scripts/data/terrain-cache, git-ignored)
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -88,14 +88,16 @@ are divided by `k` so they stay constant on screen. A gesture may pull past the 
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
 
 How it is painted comes from a style (`ui/map/styles.ts`: Atlas, the default; Parchment; Flat), chosen in
-Settings or the map-mode menu and saved as a preference. Bottom to top: sea, baked water lines (Atlas and
-Parchment), the faded lands beyond the map (`MAP.far`, outside the play window: drawn, never playable), wastes,
-regions (one path per colour), occupation stripes, the relief image (hill shading and sea depth as black or white
-with alpha, over every colour: the soft world image when zoomed out, the sharp window image plus soft margins
-closer in), province lines (fading out as you zoom out), rivers, nation borders (halo + ink, one path), coasts,
-selection, then names (nation names curved along `nationArcs`, region names when zoomed in). Keep each redraw
-cheap: whole-map lines are single paths, coasts are culled by cell (`COAST_CELLS`), and anything that would mean
-stroking every coastline several times (the water lines) is baked into an image by `scripts/build-relief.ts`.
+Settings or the map-mode menu and saved as a preference. The known world lies on blank parchment: everything past
+the play window, the wastes, the waters no fleet sails plus a ragged band of open sea along the window's edges
+(`MAP.unknownWater`), and before discovery the New World (`MAP.uncharted`). Bottom to top: sea, baked water lines
+(Parchment), sea zones, regions (one path per colour), occupation stripes, the relief image (hill shading, sea depth
+and a painted grain as black or white with alpha: soft when zoomed out, sharp closer in), the parchment over the
+unknown, the known world's baked shadow on it, province lines (fading out as you zoom out), rivers, nation borders,
+a fade into parchment along the window's edges, every coastline (known or not, one ink, culled by cell), selection,
+then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
+redraw cheap: whole-map lines are single paths, and anything that would mean stroking every coastline several
+times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

@@ -1,8 +1,9 @@
 /**
  * Map styles: how the map is painted. The main one, Atlas, takes its cues from the map overhauls strategy players
- * like best: hill shading under the political colours, deep water that darkens with depth, ripple lines along the
- * coasts, bold inked borders over fine province lines that fade as you zoom out, and big names that curve across
- * each country. Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw.
+ * like best: the known world lies on blank parchment (everything past the edges, the deep wastes and the waters no
+ * fleet sails), casting a soft shadow onto it; muted colours with the hills and a painted grain showing through;
+ * a dark slate sea; quiet borders; and big pale names that curve along each country, spaced out to fill a long
+ * thin one. Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw.
  */
 import { Platform } from 'react-native';
 import { mix } from './colors';
@@ -21,17 +22,23 @@ export interface MapStyle {
   waterLines: { image: 'light' | 'dark'; opacity: number } | null; // lines in the water along the coasts
   relief: number; // opacity of the hill and depth shading
   land: (hex: string) => string; // how a nation's colour is painted
-  wild: string; // land nobody holds
-  waste: { fill: string; line: string; hatch: string | null; label: string };
-  far: { fill: string; hatch: string | null; veil: number; coast: string; label: string; seaLabel: string };
+  wild: string; // known land nobody holds
+  unknown: { fill: string; shadow: number; label: Ink; wasteLabel: string }; // the blank parchment, the known world's shadow on it, names written there
   provinceBorder: { color: string; width: number; dash: number[] | null };
   nationBorder: { color: string; width: number; halo: string | null; haloWidth: number };
-  coast: { color: string; width: number };
+  coast: { color: string; width: number }; // every coastline, known or not
   river: { color: string; width: number };
   font: { nation: string; nationWeight: '400' | '600' | '700'; region: string; regionWeight: '400' | '600' | '700'; italic: string };
-  nationLabel: { fill: string; halo: string; curved: boolean; spacing: number; em: number }; // em: a capital's width
-  regionLabel: { fill: string; halo: string };
+  nationLabel: Ink & { curved: boolean; spacing: number; em: number; spread: boolean }; // em: a capital's width; spread: space a short name out along a long country
+  regionLabel: Ink;
   vignette: string | null; // darkened screen edges
+}
+
+/** How a name is inked: fill, an outline around the letters, and (optionally) a drop shadow. */
+export interface Ink {
+  fill: string;
+  halo: string;
+  shadow: string | null;
 }
 
 /** A bundled font with a system fallback on the web (native falls back by itself). */
@@ -50,20 +57,19 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
   atlas: {
     id: 'atlas',
     label: 'Atlas',
-    help: 'Hills and sea depths under rich colours, rippled coasts, curved names.',
-    sea: '#4f7f99',
-    seaZone: { color: 'rgba(226,238,242,0.16)', dash: [3, 5] },
-    seaLabel: 'rgba(222,236,241,0.78)',
-    waterLines: { image: 'light', opacity: 0.34 }, // with a glow off the shore
-    relief: 0.95,
-    land: hex => mix(muted(hex, 0.12), '#efe3c2', 0.1),
-    wild: '#e3dbbf',
-    waste: { fill: '#cbbd97', line: 'rgba(70,55,30,0.35)', hatch: null, label: '#5f5236' },
-    far: { fill: '#ded1ae', hatch: 'rgba(118,96,60,0.22)', veil: 0.4, coast: '#7a6646', label: '#6f5d3d', seaLabel: 'rgba(222,236,241,0.6)' },
-    provinceBorder: { color: 'rgba(28,20,12,0.30)', width: 0.6, dash: null },
-    nationBorder: { color: '#1b130b', width: 1.35, halo: 'rgba(18,12,6,0.30)', haloWidth: 4.5 },
-    coast: { color: '#2a2017', width: 0.9 },
-    river: { color: '#4b81a6', width: 1.8 },
+    help: 'The known world on parchment: muted colours over the hills, a slate sea, big curved names.',
+    sea: '#3e5a6a',
+    seaZone: { color: 'rgba(210,226,232,0.12)', dash: null },
+    seaLabel: 'rgba(214,228,233,0.62)',
+    waterLines: null,
+    relief: 1,
+    land: hex => mix(muted(hex, 0.3), '#8c8473', 0.1),
+    wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
+    unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
+    provinceBorder: { color: 'rgba(24,18,10,0.2)', width: 0.55, dash: null },
+    nationBorder: { color: 'rgba(22,16,9,0.62)', width: 0.95, halo: 'rgba(20,14,8,0.14)', haloWidth: 3 },
+    coast: { color: 'rgba(48,36,22,0.62)', width: 0.75 },
+    river: { color: '#4f7189', width: 1.5 },
     font: {
       nation: font('Cinzel_700Bold', SERIF),
       nationWeight: '400', // the font file is the bold cut; asking for bold again would fake a heavier one
@@ -71,9 +77,9 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
       regionWeight: '400',
       italic: font('IMFellEnglish_400Regular_Italic', SERIF),
     },
-    nationLabel: { fill: '#22180e', halo: 'rgba(246,238,214,0.62)', curved: true, spacing: 0.26, em: 0.76 },
-    regionLabel: { fill: '#2a2118', halo: 'rgba(243,234,211,0.82)' },
-    vignette: 'rgba(18,12,6,0.28)',
+    nationLabel: { fill: '#e8ede0', halo: 'rgba(22,17,10,0.55)', shadow: 'rgba(16,12,7,0.6)', curved: true, spacing: 0.08, em: 0.76, spread: true },
+    regionLabel: { fill: '#f0eee4', halo: 'rgba(24,18,11,0.72)', shadow: null },
+    vignette: null,
   },
   parchment: {
     id: 'parchment',
@@ -86,8 +92,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 0.55,
     land: hex => mix(hex, '#ead8ac', 0.48),
     wild: '#ecdfbb',
-    waste: { fill: '#e3d3a7', line: 'rgba(110,85,50,0.4)', hatch: 'rgba(120,95,55,0.32)', label: '#6b5534' },
-    far: { fill: '#e6d7b1', hatch: 'rgba(120,98,62,0.3)', veil: 0.45, coast: '#6e5636', label: '#6e5636', seaLabel: '#6a6650' },
+    unknown: { fill: '#e9dab4', shadow: 0.3, label: { fill: '#6e5636', halo: 'rgba(240,228,196,0.6)', shadow: null }, wasteLabel: '#6b5534' },
     provinceBorder: { color: 'rgba(96,70,40,0.42)', width: 0.6, dash: [1.4, 2.2] },
     nationBorder: { color: '#59401f', width: 1.4, halo: 'rgba(150,96,44,0.30)', haloWidth: 5 },
     coast: { color: '#4b3720', width: 1 },
@@ -99,8 +104,8 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
       regionWeight: '400',
       italic: font('IMFellEnglish_400Regular_Italic', SERIF),
     },
-    nationLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.6)', curved: true, spacing: 0.32, em: 0.66 },
-    regionLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.75)' },
+    nationLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.6)', shadow: null, curved: true, spacing: 0.32, em: 0.66, spread: false },
+    regionLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.75)', shadow: null },
     vignette: 'rgba(84,58,26,0.42)',
   },
   flat: {
@@ -114,15 +119,14 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 0,
     land: hex => hex,
     wild: '#ece6d2',
-    waste: { fill: '#d7d2c3', line: 'rgba(0,0,0,0.2)', hatch: null, label: '#6f6a5c' },
-    far: { fill: '#e2dfd4', hatch: null, veil: 0, coast: 'rgba(60,60,60,0.45)', label: '#8a8679', seaLabel: '#5d7d93' },
+    unknown: { fill: '#e4e1d8', shadow: 0.18, label: { fill: '#8a8679', halo: 'rgba(255,255,255,0.6)', shadow: null }, wasteLabel: '#8a8679' },
     provinceBorder: { color: 'rgba(0,0,0,0.22)', width: 0.5, dash: null },
     nationBorder: { color: '#141414', width: 1.5, halo: null, haloWidth: 0 },
-    coast: { color: '#3a3a3a', width: 0.8 },
+    coast: { color: 'rgba(40,40,40,0.7)', width: 0.8 },
     river: { color: '#3d7db3', width: 1.6 },
     font: { nation: SANS!, nationWeight: '700', region: SANS!, regionWeight: '600', italic: SERIF },
-    nationLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.72)', curved: false, spacing: 0.12, em: 0.7 },
-    regionLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.8)' },
+    nationLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.72)', shadow: null, curved: false, spacing: 0.12, em: 0.7, spread: false },
+    regionLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.8)', shadow: null },
     vignette: null,
   },
 };

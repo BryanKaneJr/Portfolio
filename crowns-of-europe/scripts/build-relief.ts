@@ -7,9 +7,11 @@
  * Land and sea are told apart with the map's own coastline (src/content/map.json), so the shading never spills
  * over a coast. Run after `npm run map:build`:  npm run relief:build
  *
- * Two layers: the play window at one pixel per map unit, in one piece (tiles shaded or drawn separately leave
- * faint lines where they meet), and the whole drawn world (far lands included) at a quarter of that, for
- * zoomed-out views and the margins.
+ * Two layers of relief for the play window: one pixel per map unit, in one piece (tiles shaded or drawn
+ * separately leave faint lines where they meet), and a soft one at a quarter of that for zoomed-out views. Past
+ * the window, and over the wastes and the waters no fleet sails, the map is blank parchment, so nothing is shaded
+ * there; instead the known world casts a soft shadow onto the parchment (two versions: before and after the New
+ * World is found). Also the water lines along the coasts, for the styles that draw them.
  */
 import { execFile } from 'node:child_process';
 import fs from 'node:fs';
@@ -24,7 +26,6 @@ const OUT = path.join(ROOT, 'assets/map');
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/map.json'), 'utf8'));
 const W: number = map.width;
 const H: number = map.height;
-const [MX, MY]: [number, number] = map.margin;
 const { west, east, north } = map.projection;
 
 // ---------------------------------------------------------------- projection (same as build-map)
@@ -142,11 +143,11 @@ for (const r of map.regions) landRings.push(...parseRings(r.path));
 for (const w of map.wastelands) landRings.push(...parseRings(w.path));
 for (const f of map.far) landRings.push(...parseRings(f.path));
 
-/** Even-odd scanline fill of every land ring onto a grid: x = ox + (col + 0.5) / f. */
-function landMask(ox: number, oy: number, cols: number, rows: number, f: number): Uint8Array {
+/** Even-odd scanline fill of rings (every land ring by default) onto a grid: x = ox + (col + 0.5) / f. */
+function landMask(ox: number, oy: number, cols: number, rows: number, f: number, rings: number[][] = landRings): Uint8Array {
   const mask = new Uint8Array(cols * rows);
   const xs: number[][] = Array.from({ length: rows }, () => []);
-  for (const r of landRings) {
+  for (const r of rings) {
     for (let i = 0, j = r.length - 2; i < r.length; j = i, i += 2) {
       const xi = r[i], yi = r[i + 1], xj = r[j], yj = r[j + 1];
       const ra = Math.ceil((Math.min(yi, yj) - oy) * f - 0.5);
@@ -174,6 +175,28 @@ const smooth = (a: number, b: number, x: number) => {
   return t * t * (3 - 2 * t);
 };
 const ZENITH = 45 * RAD;
+
+/** Smooth value noise in map units (a fixed hash, so every build and every layer agrees): -1..1. */
+function valueNoise(x: number, y: number): number {
+  const hash = (i: number, j: number) => {
+    let h = (i * 374761393 + j * 668265263) | 0;
+    h = Math.imul(h ^ (h >>> 13), 1274126177);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+  };
+  const i = Math.floor(x);
+  const j = Math.floor(y);
+  const fx = x - i;
+  const fy = y - j;
+  const u = fx * fx * (3 - 2 * fx);
+  const v = fy * fy * (3 - 2 * fy);
+  const a = hash(i, j) + (hash(i + 1, j) - hash(i, j)) * u;
+  const b = hash(i, j + 1) + (hash(i + 1, j + 1) - hash(i, j + 1)) * u;
+  return (a + (b - a) * v) * 2 - 1;
+}
+/** A painted grain on the land, a few sizes over each other, so flat colours read as brushed paper. */
+const grain = (x: number, y: number) => 0.5 * valueNoise(x / 5, y / 5) + 0.3 * valueNoise(x / 13 + 17, y / 13) + 0.2 * valueNoise(x / 37, y / 37 + 31);
+const GRAIN = 0.05; // strength of the grain (as shading)
+const SEA_DEPTH = 0.3; // how dark the deepest water gets
 const LIGHTS: [number, number][] = [
   [315, 0.55], // the classic north-west light...
   [270, 0.25], // ...softened from the west and north so ridges facing any way still read
@@ -246,10 +269,13 @@ function shade(ox: number, oy: number, cols: number, rows: number, f: number, z:
         light = Math.max(0, delta) * 1.1;
         dark = Math.min(0.62, dark);
         light = Math.min(0.32, light);
+        const gr = grain(ox + (col + 0.5) / f, oy + (row + 0.5) / f) * GRAIN;
+        if (gr > 0) dark += gr;
+        else light -= gr;
       } else {
         const depth = depthField[i];
         const t = Math.log10(1 + depth / 50) / Math.log10(1 + 5000 / 50);
-        dark = 0.42 * Math.pow(Math.min(1, t), 1.25);
+        dark = SEA_DEPTH * Math.pow(Math.min(1, t), 1.25);
         light = 0.17 * (1 - smooth(0, 140, depth)); // shallows glow
       }
       const net = dark - light;
@@ -374,6 +400,37 @@ function waterLines(): { light: Buffer; dark: Buffer; cols: number; rows: number
   return { light, dark, cols, rows };
 }
 
+// ---------------------------------------------------------------- the known world's shadow on the parchment
+const SHADOW = 20; // the shadow fades out over this many map units
+const EDGE = 40; // and right at the window's edges, where the renderer fades everything into parchment (MapView)
+const SHADOW_F = 0.5; // pixels per map unit
+const ringsOf = (paths: string[]) => paths.flatMap(parseRings);
+const wasteRings = ringsOf(map.wastelands.map((w: { path: string }) => w.path));
+const closedRings = ringsOf([map.unknownWater]);
+const unchartedRings = ringsOf([map.uncharted]);
+
+/** A soft shadow on the unknown, just outside the known world: dark, with transparency (style sets strength). */
+function shadow(unknown: number[][]): { ga: Buffer; cols: number; rows: number } {
+  const cols = Math.round(W * SHADOW_F);
+  const rows = Math.round(H * SHADOW_F);
+  const mask = landMask(0, 0, cols, rows, SHADOW_F, unknown); // the shapes never overlap, so even-odd is right
+  const known = new Uint8Array(cols * rows);
+  for (let i = 0; i < known.length; i++) known[i] = mask[i] ? 0 : 1;
+  const dist = distanceToLand(known, cols, rows);
+  const ga = Buffer.alloc(cols * rows * 2);
+  for (let r = 0; r < rows; r++)
+    for (let c = 0; c < cols; c++) {
+      const i = r * cols + c;
+      if (!mask[i]) continue;
+      const d = dist[i] / SHADOW_F;
+      const x = (c + 0.5) / SHADOW_F;
+      const y = (r + 0.5) / SHADOW_F;
+      const edge = smooth(0, EDGE, Math.min(x, y, W - x, H - y));
+      ga[i * 2 + 1] = Math.round((1 - smooth(0, SHADOW, d)) * edge * 255);
+    }
+  return { ga, cols, rows };
+}
+
 // ---------------------------------------------------------------- build
 const HI = 1; // pixels per map unit in the play window
 const LO = 0.25; // pixels per map unit for the whole drawn world
@@ -382,33 +439,12 @@ const PAD = 32; // the sharp image is shaded with this margin (map units) so its
 async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   await fetchArea(5, 0, 0, W, H);
-  await fetchArea(4, -MX, -MY, W + MX, H + MY);
+  await fetchArea(4, 0, 0, W, H);
   let bytes = 0;
-  // The whole drawn world, soft.
-  const lx = -MX, ly = -MY;
-  const lcols = Math.round((W + 2 * MX) * LO);
-  const lrows = Math.round((H + 2 * MY) * LO);
-  const world = shade(lx, ly, lcols, lrows, LO, 4, 22, 0, 3);
-  bytes += writeGA(path.join(OUT, 'relief-world.png'), lcols, lrows, world);
-  // The same soft image cut into four bands around the play window, drawn with the sharp image when zoomed in
-  // (so the window is never shaded twice).
-  const bandLines: string[] = [];
-  const bands: [string, number, number, number, number][] = [
-    ['top', -MX, -MY, W + 2 * MX, MY],
-    ['bottom', -MX, H, W + 2 * MX, MY],
-    ['left', -MX, 0, MX, H],
-    ['right', W, 0, MX, H],
-  ];
-  for (const [name, bx, by, bw, bh] of bands) {
-    const c0 = Math.round((bx - lx) * LO);
-    const r0 = Math.round((by - ly) * LO);
-    const cw = Math.round(bw * LO);
-    const ch = Math.round(bh * LO);
-    const part = Buffer.alloc(cw * ch * 2);
-    for (let r = 0; r < ch; r++) world.copy(part, r * cw * 2, ((r0 + r) * lcols + c0) * 2, ((r0 + r) * lcols + c0 + cw) * 2);
-    bytes += writeGA(path.join(OUT, `relief-band-${name}.png`), cw, ch, part);
-    bandLines.push(`  { src: require('../../../assets/map/relief-band-${name}.png'), x: ${bx}, y: ${by}, w: ${bw}, h: ${bh} },`);
-  }
+  // The play window, soft (zoomed out).
+  const lcols = Math.round(W * LO);
+  const lrows = Math.round(H * LO);
+  bytes += writeGA(path.join(OUT, 'relief-soft.png'), lcols, lrows, shade(0, 0, lcols, lrows, LO, 4, 22, 0, 3));
   // The play window, sharp, in one piece.
   const pc = Math.round((W + 2 * PAD) * HI);
   const pr = Math.round((H + 2 * PAD) * HI);
@@ -423,6 +459,14 @@ async function main() {
   const wl = waterLines();
   bytes += writeGA(path.join(OUT, 'water-lines-light.png'), wl.cols, wl.rows, wl.light);
   bytes += writeGA(path.join(OUT, 'water-lines-dark.png'), wl.cols, wl.rows, wl.dark);
+  // The known world's shadow on the parchment, before and after the New World is found.
+  for (const [name, rings] of [
+    ['charted', [...wasteRings, ...closedRings]],
+    ['uncharted', [...wasteRings, ...closedRings, ...unchartedRings]],
+  ] as [string, number[][]][]) {
+    const sh = shadow(rings);
+    bytes += writeGA(path.join(OUT, `shadow-${name}.png`), sh.cols, sh.rows, sh.ga);
+  }
   const ts = `/** Generated by scripts/build-relief.ts: the map's relief layer (do not edit). */
 import type { ImageSourcePropType } from 'react-native';
 
@@ -434,13 +478,8 @@ export interface ReliefTile {
   h: number;
 }
 
-/** The whole drawn world (far lands included), soft: for zoomed-out views and the margins. */
-export const RELIEF_WORLD: ReliefTile = { src: require('../../../assets/map/relief-world.png'), x: ${lx}, y: ${ly}, w: ${W + 2 * MX}, h: ${H + 2 * MY} };
-
-/** The soft image around the play window only, drawn with the sharp one. */
-export const RELIEF_BANDS: ReliefTile[] = [
-${bandLines.join('\n')}
-];
+/** The play window, soft: for zoomed-out views. */
+export const RELIEF_SOFT: ReliefTile = { src: require('../../../assets/map/relief-soft.png'), x: 0, y: 0, w: ${W}, h: ${H} };
 
 /** The play window, sharp. */
 export const RELIEF_SHARP: ReliefTile = { src: require('../../../assets/map/relief-window.png'), x: 0, y: 0, w: ${W}, h: ${H} };
@@ -450,9 +489,15 @@ export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   light: { src: require('../../../assets/map/water-lines-light.png'), x: 0, y: 0, w: ${W}, h: ${H} },
   dark: { src: require('../../../assets/map/water-lines-dark.png'), x: 0, y: 0, w: ${W}, h: ${H} },
 };
+
+/** The known world's soft shadow on the parchment around it, before and after the New World is found. */
+export const SHADOWS: Record<'charted' | 'uncharted', ReliefTile> = {
+  charted: { src: require('../../../assets/map/shadow-charted.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+  uncharted: { src: require('../../../assets/map/shadow-uncharted.png'), x: 0, y: 0, w: ${W}, h: ${H} },
+};
 `;
   fs.writeFileSync(path.join(ROOT, 'src/ui/map/reliefTiles.ts'), ts);
-  console.log(`relief: window + world + bands + water lines, ${(bytes / 1024 / 1024).toFixed(1)} MB`);
+  console.log(`relief: sharp + soft + water lines + shadows, ${(bytes / 1024 / 1024).toFixed(1)} MB`);
 }
 
 main().catch(e => {

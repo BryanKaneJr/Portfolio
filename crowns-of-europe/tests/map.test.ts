@@ -114,3 +114,37 @@ describe('camera limits', () => {
     expect(rubberZoom(kMin / 2, kMin)).toBeGreaterThan(kMin * 0.75);
   });
 });
+
+describe('the known world and the unknown', () => {
+  /** Even-odd point-in-path for the M/L/Z paths the map builder writes. */
+  const inside = (d: string, x: number, y: number) => {
+    let hit = false;
+    for (const ring of d.split('M').filter(Boolean)) {
+      const pts = ring
+        .replace(/Z/g, '')
+        .split('L')
+        .map(p => p.trim().split(/\s+/).map(Number));
+      for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+        const [xi, yi] = pts[i];
+        const [xj, yj] = pts[j];
+        if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) hit = !hit;
+      }
+    }
+    return hit;
+  };
+  const label = (id: string) => (MAP.regions.find(r => r.id === id)?.label ?? MAP.seas.find(s => s.id === id)!.label) as [number, number];
+
+  test('waters no fleet can sail are parchment, the seas you sail are not', () => {
+    for (const id of ['pacific', 'indian_ocean', 'arctic']) expect(inside(MAP.unknownWater, ...label(id))).toBe(true);
+    for (const id of ['channel', 'north_sea', 'biscay', 'west_med', 'black_sea', 'baltic']) expect(inside(MAP.unknownWater, ...label(id))).toBe(false);
+  });
+
+  test('before the New World is found, its regions are uncharted; the Old World never is', () => {
+    expect(inside(MAP.uncharted, ...label('acadia'))).toBe(true);
+    expect(inside(MAP.uncharted, ...label('newfoundland'))).toBe(true);
+    for (const id of ['ile_de_france', 'castile', 'moscow']) {
+      expect(inside(MAP.uncharted, ...label(id))).toBe(false);
+      expect(inside(MAP.unknownWater, ...label(id))).toBe(false);
+    }
+  });
+});
