@@ -18,6 +18,8 @@ export interface TerrainLevel {
 }
 export const TERRAIN_REGION = { x0: 1792, y0: 576, x1: 2368, y1: 1088 };
 export const TERRAIN_TILE_PX = 512;
+/** The depth shading drawn over the Illustrated style's sea everywhere (the tiles paint the same): darkening only. */
+export const TERRAIN_SEA_SHADE = { sharp: require('../../../assets/map/terrain/sea-shade.png'), soft: require('../../../assets/map/terrain/sea-shade-soft.png') };
 export const TERRAIN_LEVELS: TerrainLevel[] = [
   { level: 0, ppu: 1, span: 512.0, tiles: [
     { key: 'L0/3_1', src: require('../../../assets/map/terrain/L0/3_1.jpg'), x: 1792, y: 576, w: 256.0, h: 448.0 },
