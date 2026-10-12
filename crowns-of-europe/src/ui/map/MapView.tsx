@@ -58,7 +58,7 @@ export function MapView() {
     setSize({ w: width, h: height });
     if (!cam) {
       const [x, y] = regionPoint(s.nations[s.player].capital);
-      const k = width / 420;
+      const k = Math.max(width / 420, PLAY_K); // close enough for region names with armies under them
       const halfW = width / 2 / k;
       const halfH = height / 2 / k;
       setCam({ k, cx: Math.max(halfW, Math.min(MAP_W - halfW, x)), cy: Math.max(halfH, Math.min(MAP_H - halfH, y)) });
@@ -70,7 +70,7 @@ export function MapView() {
   const [focusSeen, setFocusSeen] = useState(0);
   if (focus && focus.seq !== focusSeen && cam) {
     setFocusSeen(focus.seq);
-    setCam(clampCam({ cx: focus.x, cy: focus.y, k: focus.zoom ? size.w / focus.zoom : Math.max(cam.k, size.w / 420) }));
+    setCam(clampCam({ cx: focus.x, cy: focus.y, k: focus.zoom ? size.w / focus.zoom : Math.max(cam.k, size.w / 420, PLAY_K) }));
   }
 
   const commit = useCallback(
@@ -320,7 +320,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const lines = useMemo(() => borderLines(s), [mapVersion]);
   const px = (n: number) => n / k; // screen points → map units
-  const showRegionNames = k >= 1.15;
+  const showRegionNames = k >= REGION_NAMES_K;
   const selRegion = selection?.kind === 'region' ? selection.id : null;
   const selSea = selection?.kind === 'sea' ? selection.id : null;
   const selNation = selection?.kind === 'nation' ? selection.id : null;
@@ -562,8 +562,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         ? MAP.regions.map(r => {
             if (!visible(r.bbox) || hidden(r.id)) return null;
             const screen = r.labelRadius * k;
-            if (screen < 13) return null;
-            const fs = Math.max(9, Math.min(14, screen * 0.42));
+            if (screen < MIN_NAME_RADIUS) return null;
+            const fs = nameSize(r.labelRadius, k);
             return (
               <Inked key={`l${r.id}`} ink={st.regionLabel} x={r.label[0]} y={r.label[1] + px(fs * 0.35)} fs={px(fs)} family={st.font.region} weight={st.font.regionWeight} spacing={px(fs * 0.04)} outline={px(2.2)}>
                 {REGION[r.id].name}
@@ -720,8 +720,36 @@ export interface ChipPos {
   y: number;
 }
 
-/** From this zoom on every unit is drawn; further out, only the ones that matter to you (see `matters`). */
+/** Region names replace the nation names from this zoom on; a region's name is written if it is at least this many
+ * points across (its label radius). */
+export const REGION_NAMES_K = 1.15;
+const MIN_NAME_RADIUS = 13;
+/** Units show from the zoom at which region names do. Further out the map is for the realms and their names, and only
+ * a unit you have selected (or a battle) stays on it, so names and tokens never fight. */
+export const UNITS_K = REGION_NAMES_K;
+/** From this zoom on every unit is drawn; between UNITS_K and here, only the ones that matter to you (see `matters`). */
 export const ALL_UNITS_K = 1.4;
+/** The zoom the game opens at and "show on map" goes to: regions are big enough here for a name with an army under it. */
+export const PLAY_K = 1.7;
+/** Tokens are drawn smaller between UNITS_K and PLAY_K, where regions are close together. */
+export const tokenScale = (k: number) => Math.max(0.82, Math.min(1, 0.82 + ((k - UNITS_K) / (PLAY_K - UNITS_K)) * 0.18));
+/** A region name's size on screen (points), as StaticLayer writes it. */
+const nameSize = (labelRadius: number, k: number) => Math.max(9, Math.min(14, labelRadius * k * 0.42));
+
+/** Where a region's armies stand (map units): just under its name when the name is written at this zoom (the name's
+ * descenders, a small gap, then the token's top), else on its centre. (An army at sea is on its fleet's route.) */
+export function armyAnchor(id: string, k: number): [number, number] {
+  const [x, y] = regionPoint(id);
+  const r = MAP_REGION[id];
+  if (!r || k < REGION_NAMES_K || r.labelRadius * k < MIN_NAME_RADIUS) return [x, y];
+  const below = nameSize(r.labelRadius, k) * 0.55 + 3 + TOKEN_TOP * tokenScale(k);
+  return [x, y + below / k];
+}
+/** Where a fleet sits in a sea: just above the sea's name. */
+const fleetAnchor = (id: string, k: number): [number, number] => {
+  const [x, y] = regionPoint(id);
+  return [x, y - (16 * tokenScale(k)) / k];
+};
 
 /** Units the player should always see: their own, friends', enemies', and anyone standing in their land. */
 export function matters(s: GameState, owner: string, where: string, rebelOf?: string): boolean {
@@ -736,36 +764,39 @@ export function matters(s: GameState, owner: string, where: string, rebelOf?: st
 export function unitPositions(s: GameState, k: number, selected?: string): ChipPos[] {
   const out: ChipPos[] = [];
   const stacks = new Map<string, number>();
-  const step = 26 / k;
+  const step = (26 * tokenScale(k)) / k;
   const all = k >= ALL_UNITS_K;
+  const hidden = (id: string) => k < UNITS_K && id !== selected; // zoomed out: names only
   for (const b of Object.values(s.battles)) {
+    if (hidden(b.id)) continue;
     if (!all && !b.sides.some(side => side.armies.some(id => s.armies[id] && matters(s, s.armies[id].owner, b.node, s.armies[id].rebelOf)))) continue;
     const [x, y] = regionPoint(b.node);
     out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
   }
   for (const a of Object.values(s.armies)) {
-    if (a.battle || (!s.discovery && isNewWorld(a.node))) continue;
+    if (a.battle || (!s.discovery && isNewWorld(a.node)) || hidden(a.id)) continue;
     if (!all && a.id !== selected && !matters(s, a.owner, a.node, a.rebelOf)) continue;
-    let [x, y] = regionPoint(a.node);
+    let [x, y] = armyAnchor(a.node, k);
     if (a.path.length && a.edgeDays > 0) {
-      const [nx, ny] = regionPoint(a.path[0]);
+      const [nx, ny] = armyAnchor(a.path[0], k);
       const t = Math.min(1, a.progress / a.edgeDays);
       x += (nx - x) * t;
       y += (ny - y) * t;
     } else {
+      // Side by side under the name, the first in the middle.
       const n = stacks.get(a.node) ?? 0;
       stacks.set(a.node, n + 1);
       x += (n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * step * 1.2;
-      y += step * 0.15;
     }
     out.push({ kind: 'army', id: a.id, x, y });
   }
   const fleetStacks = new Map<string, number>();
   for (const f of Object.values(s.fleets)) {
+    if (hidden(f.id)) continue;
     if (!all && f.id !== selected && !matters(s, f.owner, f.sea)) continue;
-    let [x, y] = regionPoint(f.sea);
+    let [x, y] = fleetAnchor(f.sea, k);
     if (f.path.length && f.edgeDays > 0) {
-      const [nx, ny] = regionPoint(f.path[0]);
+      const [nx, ny] = fleetAnchor(f.path[0], k);
       const t = Math.min(1, f.progress / f.edgeDays);
       x += (nx - x) * t;
       y += (ny - y) * t;
@@ -774,7 +805,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
       fleetStacks.set(f.sea, n + 1);
       x += n * step * 1.4;
     }
-    out.push({ kind: 'fleet', id: f.id, x, y: y - step * 0.6 });
+    out.push({ kind: 'fleet', id: f.id, x, y });
   }
   return out;
 }
@@ -794,19 +825,25 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
   const { k } = cam;
   const toX = (x: number) => (x - cam.cx) * k + w / 2;
   const toY = (y: number) => (y - cam.cy) * k + h / 2;
-  const chips = unitPositions(s, k, selection?.kind === 'army' || selection?.kind === 'fleet' ? selection.id : undefined);
+  const chips = unitPositions(s, k, selection?.kind === 'army' || selection?.kind === 'fleet' || selection?.kind === 'battle' ? selection.id : undefined);
   const selArmy = selection?.kind === 'army' ? s.armies[selection.id] : undefined;
   const selFleet = selection?.kind === 'fleet' ? s.fleets[selection.id] : undefined;
-  const pathPts = (start: string, path: string[]) => [start, ...path].map(regionPoint).map(([x, y]) => `${toX(x)},${toY(y)}`).join(' ');
+  // The route runs between the points the token stands on (under the names), not through the names.
+  const pathPts = (start: string, path: string[], at: (id: string, k: number) => [number, number]) =>
+    [start, ...path]
+      .map(id => at(id, k))
+      .map(([x, y]) => `${toX(x)},${toY(y)}`)
+      .join(' ');
   const inView = (x: number, y: number) => x > -40 && y > -40 && x < w + 40 && y < h + 40;
+  const ts = tokenScale(k);
   return (
     <View style={StyleSheet.absoluteFill} pointerEvents="none">
-      {/* Sieges */}
+      {/* Sieges: a bar under the besiegers' tokens. */}
       {Object.values(s.regions).map(r => {
-        if (!r.siege || (k < ALL_UNITS_K && !matters(s, r.siege.by, r.id))) return null;
-        const [x, y] = regionPoint(r.id);
+        if (!r.siege || k < UNITS_K || (k < ALL_UNITS_K && !matters(s, r.siege.by, r.id))) return null;
+        const [x, y] = armyAnchor(r.id, k);
         const X = toX(x);
-        const Y = toY(y) + 18;
+        const Y = toY(y) + 23 * ts;
         if (!inView(X, Y)) return null;
         return (
           <View key={`sg${r.id}`} style={[styles.siege, { left: X - 22, top: Y }]}>
@@ -816,8 +853,8 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
       })}
       {(selArmy?.path.length || selFleet?.path.length) ? (
         <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
-          <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path).replace(/ /g, ' L')}`} stroke="#fff6d8" strokeWidth={4} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={0.9} />
-          <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path, selArmy ? armyAnchor : fleetAnchor).replace(/ /g, ' L')}`} stroke="#fff6d8" strokeWidth={4} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={0.9} />
+          <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path, selArmy ? armyAnchor : fleetAnchor).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
       ) : null}
       {/* Armies and fleets: a token in the owner's colour with a pikeman or a ship on it, the count beneath. */}
@@ -830,11 +867,11 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           if (c.kind === 'fleet') {
             const f = s.fleets[c.id];
             if (!f) return null;
-            return <Token key={c.id} x={X} y={Y} glyph="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} />;
+            return <Token key={c.id} x={X} y={Y} glyph="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
           }
           const a = s.armies[c.id] as Army | undefined;
           if (!a) return null;
-          return <Token key={c.id} x={X} y={Y} glyph="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} />;
+          return <Token key={c.id} x={X} y={Y} glyph="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
         })}
       </Svg>
       {chips.map(c => {
@@ -858,17 +895,18 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
 /** What stands on each token: a pikeman for an army, a galleon for a fleet (game-icons.net, see gameIcons.ts). */
 const GLYPH = { troop: GLYPHS.pikeman.d, ship: GLYPHS.ship.d };
 const TOKEN = 28; // the token's side, in points
+const TOKEN_TOP = 5 + TOKEN / 2; // from the anchor up to the token's top edge (the plate sits 5 above the anchor)
 const GLYPH_SIZE = 22; // the emblem on it, in points
 
 /** One army or fleet on the map: (x, y) is the token's centre; the count hangs from its lower edge. Your own units
  * have a light rim, the selected one a gold one and a halo; a gold dot means it is on the move. */
-function Token({ x, y, glyph, n, color, mine, sel, moving, faded }: { x: number; y: number; glyph: keyof typeof GLYPH; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean }) {
+function Token({ x, y, glyph, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; glyph: keyof typeof GLYPH; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
   const half = TOKEN / 2;
   const g = GLYPH[glyph];
   const label = `${n}`;
   const pw = 10 + 6.4 * label.length;
   return (
-    <G transform={`translate(${x} ${y - 5})${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
+    <G transform={`translate(${x} ${y}) scale(${scale}) translate(0 -5)${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
       {sel ? <Rect x={-half - 4} y={-half - 4} width={TOKEN + 8} height={TOKEN + 8} rx={10} fill="rgba(236,208,143,0.28)" stroke="#ecd08f" strokeWidth={1} /> : null}
       <Rect x={-half} y={-half + 1.5} width={TOKEN} height={TOKEN} rx={7} fill="rgba(0,0,0,0.35)" />
       <Rect x={-half} y={-half} width={TOKEN} height={TOKEN} rx={7} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2.2 : 1.5} />
@@ -898,3 +936,17 @@ const styles = StyleSheet.create({
 });
 
 export { regionAt, seaAt };
+
+// Play-testing hook for the walkthroughs (scripts/screens*.mjs): where a unit's token stands now, in map units.
+if (typeof window !== 'undefined') {
+  const hook = (window as unknown as { __coe?: Record<string, unknown> }).__coe;
+  if (hook) {
+    hook.unitPoint = (id: string) => {
+      const s = store.state;
+      const cam = store.camera;
+      if (!s || !cam) return null;
+      const c = unitPositions(s, cam.k, store.selection?.id).find(u => u.id === id);
+      return c ? [c.x, c.y] : null;
+    };
+  }
+}

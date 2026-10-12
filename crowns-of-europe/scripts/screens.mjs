@@ -58,8 +58,7 @@ if (await has('hint-ok')) await tapId('hint-ok');
 const onScreen = (what, id) => coe(([what, id]) => {
   const { store, point } = window.__coe;
   const cam = store.camera;
-  const s = store.state;
-  const [x, y] = what === 'army' ? point(s.armies[id].node) : point(id);
+  const [x, y] = what === 'army' ? window.__coe.unitPoint(id) : point(id); // a token stands under its region's name
   return [innerWidth / 2 + (x - cam.cx) * cam.k, innerHeight / 2 + (y - cam.cy) * cam.k];
 }, [what, id]);
 await coe(() => window.__coe.store.select(null));
@@ -75,8 +74,8 @@ const dest = await coe(id => {
   const s = store.state;
   const cam = store.camera;
   const sc = ([x, y]) => [innerWidth / 2 + (x - cam.cx) * cam.k, innerHeight / 2 + (y - cam.cy) * cam.k];
-  const units = Object.values(s.armies).map(a => sc(point(a.node)));
-  const [ax, ay] = sc(point(s.armies[id].node));
+  const units = Object.values(s.armies).map(a => window.__coe.unitPoint(a.id)).filter(Boolean).map(sc);
+  const [ax, ay] = sc(window.__coe.unitPoint(id));
   const sheetTop = innerHeight * 0.55;
   return Object.values(s.regions)
     .filter(r => r.owner === s.player && r.id !== s.armies[id].node)

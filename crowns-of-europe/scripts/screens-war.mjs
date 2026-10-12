@@ -29,6 +29,15 @@ async function cards() {
     if (!(await has('choice-0')) && !(await has('offer-accept')) && !(await has('report-close'))) return;
   }
 }
+/** Centre the map on an army's region and tap its token (it stands under the region's name). */
+async function tapArmy(armyId) {
+  await coe(id => window.__coe.store.focusOn(...window.__coe.point(window.__coe.store.state.armies[id].node)), armyId);
+  await page.waitForTimeout(300);
+  const box = await page.getByTestId('map').boundingBox();
+  const [ux, uy] = await coe(id => window.__coe.unitPoint(id), armyId);
+  const cam = await coe(() => window.__coe.store.camera);
+  await page.mouse.click(box.x + box.width / 2 + (ux - cam.cx) * cam.k, box.y + box.height / 2 + (uy - cam.cy) * cam.k);
+}
 async function tapRegion(id) {
   await coe(r => window.__coe.store.focusOn(...window.__coe.point(r)), id);
   await page.waitForTimeout(300);
@@ -54,12 +63,11 @@ await shot('zoomed');
 // Tap Granada on the map.
 await tapRegion('granada');
 await shot('tap-granada');
-// Select our army by tapping its chip, then tap a destination region.
-const army = await coe(() => { const s = window.__coe.store.state; const a = Object.values(s.armies).find(x => x.owner === s.player); return a.node; });
+// Select our army by tapping its token, then tap a destination region.
 const armyId = await coe(() => { const s = window.__coe.store.state; return Object.values(s.armies).find(x => x.owner === s.player).id; });
 await coe(() => window.__coe.store.select(null)); // close Granada's sheet first, as a player would
 await page.waitForTimeout(300);
-await tapRegion(army);
+await tapArmy(armyId);
 if ((await coe(() => window.__coe.store.selection?.id)) !== armyId) throw new Error('Tapping our army did not select it');
 await shot('tap-army');
 if (await has('hint-ok')) await tapId('hint-ok');
@@ -68,7 +76,7 @@ await cards();
 // Re-select the army (cards may have cleared it), then tap Granada to march.
 if ((await coe(() => window.__coe.store.selection?.id)) !== armyId) {
   await coe(() => window.__coe.store.select(null));
-  await tapRegion(army);
+  await tapArmy(armyId);
 }
 await tapRegion('granada');
 if (!(await coe(id => window.__coe.store.state.armies[id].path.length, armyId))) throw new Error('Tapping Granada with the army selected gave no march order');

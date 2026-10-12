@@ -177,6 +177,12 @@ here.
     enemy's shield stands in (your own side's shield stands in a gold glow). The plain controls stay simple line
     icons, as on a phone. `scripts/build-icons.ts` copies the chosen glyphs into the code as path data, so the game
     stays offline.
+21. **Names and armies don't fight (on request).** Zoomed out, where the nation names curve across each realm, the
+    map shows no armies, fleets, battles or sieges (only a unit you have selected, so you can still pick a far
+    destination). From the zoom where region names replace them, each army stands just under its region's name
+    rather than on it, the route line runs between those points, and siege bars hang under the tokens. Tokens are a
+    little smaller where regions are close together, and the game opens (and "show on map" goes) at a zoom where a
+    name with an army under it fits in a region.
 
 ## Key numbers (all in `src/sim/`)
 

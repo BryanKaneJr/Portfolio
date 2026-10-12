@@ -92,7 +92,11 @@ native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compil
 The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Europe is the top-right corner).
 `MapView` keeps a camera `{cx, cy, k}` in React state. During a gesture the last rendered SVG is moved with a
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
-rendered 1.6× the screen size so short pans never show an edge. Units are tokens (a pikeman or a ship on the owner's colour, the count beneath) drawn in one SVG on top. Taps are
+rendered 1.6× the screen size so short pans never show an edge. Units are tokens (a pikeman or a ship on the owner's colour, the count beneath) drawn in one SVG on top.
+Zoomed out (k below `UNITS_K`, where the nation names show) the map is for the realms: no units except a selected
+one; from `REGION_NAMES_K` on, region names replace the nation names and each army stands just under its region's
+name (`armyAnchor`), its token a little smaller until `PLAY_K` (1.7), the zoom the game opens at and "show on map"
+goes to. Taps are
 hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, then seas. Strokes and text sizes
 are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
