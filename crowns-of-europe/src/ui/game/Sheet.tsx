@@ -1,69 +1,97 @@
-/** Bottom sheet that slides up over the map: half height by default, tap the handle for (almost) full. */
+/**
+ * The bottom sheet, the way a phone does it: a glass panel inset from the screen's edges with a grab handle. It
+ * opens at half height; drag it up (or tap the handle) for nearly full, drag it down to shrink it or let it go.
+ * It rests just above the dock, so time can be started and stopped while it is open.
+ */
 import { useEffect, useState, type ReactNode } from 'react';
-import { Animated, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { C, sans, serif } from '../theme';
+import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Glass } from '../components/Glass';
 import { Icon } from '../components/Icon';
+import { G, R, display, sans } from '../theme';
+import { DOCK_H } from './Bars';
+
+const SPRING = { damping: 22, stiffness: 240, mass: 0.8 };
 
 export function Sheet({ title, subtitle, left, onClose, children, footer }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode }) {
   const { height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
   const [full, setFull] = useState(false);
-  const [slide] = useState(() => new Animated.Value(1));
+  const drag = useSharedValue(0); // how far the finger has pulled the sheet (down is positive)
+  const enter = useSharedValue(1); // 1 below the screen, 0 in place
   useEffect(() => {
-    slide.setValue(1);
-    Animated.timing(slide, { toValue: 0, duration: 180, useNativeDriver: true }).start();
-  }, [title, slide]);
-  const maxH = full ? height * 0.78 : height * 0.42;
+    enter.set(1);
+    enter.set(withTiming(0, { duration: 220 }));
+  }, [title, enter]);
+  const above = insets.bottom + 8 + DOCK_H + 8; // the dock's top
+  const maxH = full ? height - insets.top - 16 - above : Math.max(260, height * 0.42);
+
+  const pan = Gesture.Pan()
+    .activeOffsetY([-8, 8])
+    .onUpdate(e => {
+      // Pulling up past the top meets resistance; pulling down follows the finger.
+      drag.set(e.translationY < 0 ? -Math.sqrt(-e.translationY) * 3 : e.translationY);
+    })
+    .onEnd(e => {
+      const dy = e.translationY;
+      const vy = e.velocityY;
+      if (dy < -30 || vy < -500) runOnJS(setFull)(true);
+      else if (dy > 70 || vy > 700) {
+        if (full) runOnJS(setFull)(false);
+        else {
+          runOnJS(onClose)();
+          return;
+        }
+      }
+      drag.set(withSpring(0, SPRING));
+    });
+
+  const anim = useAnimatedStyle(() => ({ transform: [{ translateY: drag.get() + enter.get() * 360 }] }));
+
   return (
-    <Animated.View style={[styles.sheet, { maxHeight: maxH, transform: [{ translateY: slide.interpolate({ inputRange: [0, 1], outputRange: [0, 300] }) }] }]}>
-      <Pressable onPress={() => setFull(f => !f)} style={styles.handleWrap} accessibilityLabel={full ? 'Collapse' : 'Expand'}>
-        <View style={styles.handle} />
-      </Pressable>
-      <View style={styles.header}>
-        {left}
-        <View style={{ flex: 1 }}>
-          <Text style={styles.title} numberOfLines={1}>
-            {title}
-          </Text>
-          {subtitle ? (
-            <Text style={styles.subtitle} numberOfLines={1}>
-              {subtitle}
-            </Text>
-          ) : null}
-        </View>
-        <Pressable onPress={onClose} hitSlop={10} style={styles.close} accessibilityLabel="Close">
-          <Icon name="close" size={20} color={C.inkSoft} />
-        </Pressable>
-      </View>
-      <ScrollView style={{ flexGrow: 0 }} contentContainerStyle={{ paddingHorizontal: 14, paddingBottom: 14 }} keyboardShouldPersistTaps="handled">
-        {children}
-      </ScrollView>
-      {footer ? <View style={styles.footer}>{footer}</View> : null}
+    <Animated.View style={[styles.wrap, { bottom: above }, anim]}>
+      <Glass strong gilt radius={R.xl} style={{ maxHeight: maxH }}>
+        <GestureDetector gesture={pan}>
+          <View>
+            <Pressable onPress={() => setFull(f => !f)} style={styles.handleWrap} accessibilityLabel={full ? 'Collapse' : 'Expand'}>
+              <View style={styles.handle} />
+            </Pressable>
+            <View style={styles.header}>
+              {left}
+              <View style={{ flex: 1 }}>
+                <Text style={styles.title} numberOfLines={1}>
+                  {title}
+                </Text>
+                {subtitle ? (
+                  <Text style={styles.subtitle} numberOfLines={1}>
+                    {subtitle}
+                  </Text>
+                ) : null}
+              </View>
+              <Pressable onPress={onClose} hitSlop={10} style={({ pressed }) => [styles.close, pressed && { opacity: 0.6 }]} accessibilityLabel="Close">
+                <Icon name="close" size={15} color={G.text2} />
+              </Pressable>
+            </View>
+          </View>
+        </GestureDetector>
+        <ScrollView style={{ flexGrow: 0, flexShrink: 1 }} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }} keyboardShouldPersistTaps="handled">
+          {children}
+        </ScrollView>
+        {footer ? <View style={styles.footer}>{footer}</View> : null}
+      </Glass>
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  sheet: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: C.parchment,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    borderTopWidth: 1,
-    borderColor: C.parchmentLine,
-    shadowColor: '#000',
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: -2 },
-    elevation: 12,
-  },
-  handleWrap: { alignItems: 'center', paddingTop: 7, paddingBottom: 3 },
-  handle: { width: 42, height: 5, borderRadius: 3, backgroundColor: C.parchmentLine },
-  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingBottom: 8 },
-  title: { fontFamily: serif, fontSize: 20, fontWeight: '700', color: C.ink },
-  subtitle: { fontFamily: sans, fontSize: 12, color: C.muted, marginTop: 1 },
-  close: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: C.parchment2 },
-  footer: { paddingHorizontal: 14, paddingVertical: 10, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.parchmentLine },
+  wrap: { position: 'absolute', left: 8, right: 8, zIndex: 20 },
+  handleWrap: { alignItems: 'center', paddingTop: 8, paddingBottom: 4 },
+  handle: { width: 38, height: 5, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.28)' },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 16, paddingTop: 2, paddingBottom: 10 },
+  title: { fontFamily: display, fontSize: 21, color: G.text, letterSpacing: 0.4 },
+  subtitle: { fontFamily: sans, fontSize: 13, color: G.text2, marginTop: 2 },
+  close: { width: 30, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.09)' },
+  footer: { paddingHorizontal: 16, paddingVertical: 12, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: G.line },
 });

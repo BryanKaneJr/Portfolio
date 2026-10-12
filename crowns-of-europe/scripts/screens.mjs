@@ -110,10 +110,10 @@ await shot('after-play');
 // Map modes.
 await page.getByTestId('mapmode').click();
 await shot('mapmode-list');
-await page.getByText('Prosperity', { exact: true }).first().click();
+await page.getByTestId('mode-development').click();
 await shot('map-development');
 await page.getByTestId('mapmode').click();
-await page.getByText('Political', { exact: true }).first().click();
+await page.getByTestId('mode-political').click();
 // Zoomed-out Europe.
 await coe(() => { const { store, point } = window.__coe; const [x, y] = point('bohemia'); store.focusOn(x, y, 1400); });
 await shot('europe');
@@ -128,7 +128,7 @@ for (let i = 0; i < 600 && (await coe(() => window.__coe.store.state.day)) < sta
   await answerCards();
 }
 await page.getByTestId('mapmode').click();
-await page.getByText('Science', { exact: true }).first().click();
+await page.getByTestId('mode-science').click();
 await coe(() => { const { store, point } = window.__coe; const [x, y] = point('bohemia'); store.focusOn(x, y, 1700); });
 await shot('map-science');
 console.log(errors.length ? errors.join('\n') : 'no errors');

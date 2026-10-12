@@ -14,28 +14,61 @@ import { store, useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Btn, Empty, Line, Row, Section, T } from '../components/kit';
-import { C, fmt, sans, serif, signed } from '../theme';
+import Svg, { Defs, LinearGradient as SvgGradient, Rect, Stop } from 'react-native-svg';
+import { C, G, R, fmt, sans, serif, signed } from '../theme';
 import { modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 
+/**
+ * A full-screen page, like a phone's modal screen dressed for court: a dark page with a faint glow at the top, a
+ * round close button, the title in classical capitals, and a gilded rule with a small diamond under the header.
+ */
 export function Panel({ title, children, onClose, footer, right }: { title: string; children: ReactNode; onClose: () => void; footer?: ReactNode; right?: ReactNode }) {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.panel, { paddingTop: insets.top }]}>
+      <Svg style={StyleSheet.absoluteFill} pointerEvents="none">
+        <Defs>
+          <SvgGradient id="pageGlow" x1="0" y1="0" x2="0" y2="1">
+            <Stop offset="0" stopColor="#1d222b" />
+            <Stop offset="0.35" stopColor={G.bg} />
+            <Stop offset="1" stopColor="#090b0e" />
+          </SvgGradient>
+        </Defs>
+        <Rect width="100%" height="100%" fill="url(#pageGlow)" />
+      </Svg>
       <View style={styles.head}>
-        <Pressable onPress={onClose} hitSlop={10} style={styles.back} accessibilityLabel="Close">
-          <Icon name="close" size={20} color={C.chromeText} />
+        <Pressable onPress={onClose} hitSlop={10} style={({ pressed }) => [styles.back, pressed && { opacity: 0.6 }]} accessibilityLabel="Close">
+          <Icon name="close" size={15} color={G.text2} />
         </Pressable>
         <Text style={styles.headTitle} numberOfLines={1}>
           {title}
         </Text>
-        {right ?? <View style={{ width: 36 }} />}
+        {right ?? <View style={{ width: 32 }} />}
       </View>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 14, paddingBottom: 30 }}>
+      <GiltRule />
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 16, paddingBottom: 36 }}>
         {children}
       </ScrollView>
       {footer ? <View style={[styles.footer, { paddingBottom: 10 + insets.bottom }]}>{footer}</View> : null}
     </View>
+  );
+}
+
+/** A gilded rule that fades out at both ends, with a small diamond in the middle. */
+export function GiltRule({ style }: { style?: object }) {
+  return (
+    <Svg height={9} width="100%" style={style} pointerEvents="none">
+      <Defs>
+        <SvgGradient id="giltRule" x1="0" y1="0" x2="1" y2="0">
+          <Stop offset="0" stopColor={G.gold} stopOpacity={0} />
+          <Stop offset="0.5" stopColor={G.gold} stopOpacity={0.7} />
+          <Stop offset="1" stopColor={G.gold} stopOpacity={0} />
+        </SvgGradient>
+      </Defs>
+      <Rect x="4%" y={4} width="92%" height={1} fill="url(#giltRule)" />
+      <Rect x="50%" y={1.5} width={6} height={6} fill={G.panel} stroke={G.gold} strokeWidth={1} transform="translate(-3 0) rotate(45 3 3)" />
+    </Svg>
   );
 }
 
@@ -399,22 +432,22 @@ export function LogPanel() {
 
 
 const styles = StyleSheet.create({
-  panel: { ...StyleSheet.absoluteFill, backgroundColor: C.parchment },
-  head: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.chrome, paddingHorizontal: 10, height: 52 },
-  back: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: C.chrome2 },
-  headTitle: { flex: 1, color: C.chromeText, fontFamily: serif, fontSize: 19, fontWeight: '700', textAlign: 'center' },
-  footer: { paddingHorizontal: 14, paddingTop: 10, borderTopWidth: 1, borderTopColor: C.parchmentLine, backgroundColor: C.parchment },
-  option: { backgroundColor: C.parchment2, borderRadius: 10, padding: 10, borderWidth: 2, borderColor: 'transparent', marginBottom: 6 },
-  optionOn: { borderColor: C.gold, backgroundColor: '#f6e7bf' },
+  panel: { ...StyleSheet.absoluteFill, backgroundColor: G.bg },
+  head: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 14, height: 54 },
+  back: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.09)' },
+  headTitle: { flex: 1, color: G.text, fontFamily: serif, fontSize: 19, letterSpacing: 1, textAlign: 'center' },
+  footer: { paddingHorizontal: 16, paddingTop: 12, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: G.line, backgroundColor: 'rgba(13,16,21,0.94)' },
+  option: { backgroundColor: G.group, borderRadius: R.md, padding: 12, borderWidth: 1.5, borderColor: 'transparent', marginBottom: 6 },
+  optionOn: { borderColor: C.gold, backgroundColor: 'rgba(214,178,110,0.14)' },
   optionText: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: C.ink },
   optionSub: { fontFamily: sans, fontSize: 12, color: C.inkSoft, marginTop: 2 },
   cost: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink },
-  score: { alignItems: 'center', backgroundColor: C.parchment2, borderRadius: 12, padding: 12 },
+  score: { alignItems: 'center', backgroundColor: G.group, borderRadius: R.lg, padding: 14, borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
   scoreLabel: { fontFamily: sans, fontSize: 12, color: C.muted, textTransform: 'uppercase', letterSpacing: 1, fontWeight: '700' },
   scoreHelp: { fontFamily: sans, fontSize: 12, color: C.inkSoft, textAlign: 'center', marginTop: 4, lineHeight: 16 },
-  scoreValue: { fontFamily: serif, fontSize: 36, fontWeight: '700' },
-  summary: { marginTop: 12, backgroundColor: C.parchment2, padding: 10, borderRadius: 10 },
-  logRow: { paddingVertical: 8, paddingHorizontal: 10, borderLeftWidth: 3, borderLeftColor: 'transparent', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.parchmentLine },
+  scoreValue: { fontFamily: serif, fontSize: 36 },
+  summary: { marginTop: 12, backgroundColor: G.group, padding: 12, borderRadius: R.md },
+  logRow: { paddingVertical: 10, paddingHorizontal: 12, borderLeftWidth: 3, borderLeftColor: 'transparent', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: G.line },
   logDate: { fontFamily: sans, fontSize: 11, color: C.muted },
   logText: { fontFamily: sans, fontSize: 14, color: C.ink, marginTop: 1 },
 });

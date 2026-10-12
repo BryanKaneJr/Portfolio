@@ -1,29 +1,42 @@
-/** Thin top bar (resources, tap for why) and the thumb-zone bottom bar (time, menu, messages). */
-import { useState } from 'react';
+/**
+ * The controls that float over the map, in glass: the top bar (your arms and resources: tap any for why; messages),
+ * the dock in the thumb zone (time on the left, the realm's panels as a tab bar on the right), the map lens button,
+ * banners, and your wars.
+ */
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { readyMissionCount } from '../../sim/missions';
+import { availableAdvances, scienceRate } from '../../sim/science';
 import { charted, freeColonists } from '../../sim/colonies';
 import { ledger } from '../../sim/economy';
-import { scienceRate } from '../../sim/science';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
-import { SPEEDS, store, useStore } from '../../state/store';
-import { Flag } from '../components/Flag';
+import { SPEEDS, store, useStore, type MapMode, type MenuTab } from '../../state/store';
+import { Shield } from '../components/Flag';
+import { Glass } from '../components/Glass';
 import { Icon, type IconName } from '../components/Icon';
-import { IconBtn } from '../components/kit';
-import { C, fmt, kmen, sans, serif, signed } from '../theme';
+import { Badge } from '../components/kit';
+import { G, R, display, fmt, kmen, sans, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
 import { MAP_STYLE_LIST } from '../map/styles';
+
+/** Heights the floating controls take (for placing things clear of them). */
+export const TOP_BAR_H = 54;
+export const DOCK_H = 60;
 
 /** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
 function Res({ icon, value, sub, onPress, tone, subTone, label }: { icon: IconName; value: string; sub?: string; onPress: () => void; tone?: 'bad'; subTone?: 'good' | 'bad'; label: string }) {
   return (
-    <Pressable onPress={onPress} style={styles.res} accessibilityLabel={`${label}: ${value}`} hitSlop={4}>
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.res, pressed && { opacity: 0.6 }]} accessibilityLabel={`${label}: ${value}`} hitSlop={4}>
       <View style={styles.resRow}>
-        <Icon name={icon} size={14} color={C.gold} />
-        <Text style={[styles.resValue, tone === 'bad' && { color: '#ff9b86' }]}>{value}</Text>
+        <Icon name={icon} size={13} color={G.gold} />
+        <Text style={[styles.resValue, tone === 'bad' && { color: G.bad }]} numberOfLines={1}>
+          {value}
+        </Text>
       </View>
-      <Text style={[styles.resSub, subTone === 'good' && { color: '#a9d79a' }, subTone === 'bad' && { color: '#ff9b86' }]}>{sub ?? label}</Text>
+      <Text style={[styles.resSub, subTone === 'good' && { color: G.good }, subTone === 'bad' && { color: G.bad }]} numberOfLines={1}>
+        {sub ?? label}
+      </Text>
     </Pressable>
   );
 }
@@ -31,113 +44,150 @@ function Res({ icon, value, sub, onPress, tone, subTone, label }: { icon: IconNa
 export function TopBar() {
   const st = useStore();
   const s = st.state!;
+  const insets = useSafeAreaInsets();
   const n = s.nations[s.player];
   const bal = ledger(s, s.player).balance;
   const open = (what: 'gold' | 'manpower' | 'stability' | 'threat') => st.open({ kind: 'breakdown', what });
+  const important = s.unseenReports.length + s.offers.length;
   return (
-    <View style={styles.top}>
-      <Pressable onPress={() => st.open({ kind: 'menu', tab: 'economy' })} style={{ paddingRight: 6 }} accessibilityLabel="Your nation">
-        <Flag nation={s.player} size={30} />
-      </Pressable>
-      <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)} a month`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
-      <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />
-      <Res icon="stability" label="Order" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
-      <Res icon="book" label="Science" value={fmt(scienceRate(s, s.player).total, 1)} sub={n.researching ? undefined : 'Pick one'} subTone={n.researching ? undefined : 'bad'} onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
-      <Res icon="threat" label="Threat" value={fmt(n.threat)} tone={n.threat >= 40 ? 'bad' : undefined} onPress={() => open('threat')} />
+    <View style={[styles.topWrap, { top: insets.top + 6 }]} pointerEvents="box-none">
+      <Glass gilt radius={R.lg} style={styles.top}>
+        <Pressable onPress={() => st.select({ kind: 'nation', id: s.player })} style={styles.arms} accessibilityLabel="Your nation" hitSlop={4}>
+          <Shield nation={s.player} size={30} />
+        </Pressable>
+        <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)}/mo`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
+        <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />
+        <Res icon="stability" label="Order" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
+        <Res icon="book" label="Science" value={fmt(scienceRate(s, s.player).total, 1)} sub={n.researching ? undefined : 'Pick one'} subTone={n.researching ? undefined : 'bad'} onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
+        <Res icon="threat" label="Threat" value={fmt(n.threat)} tone={n.threat >= 40 ? 'bad' : undefined} onPress={() => open('threat')} />
+        <Pressable onPress={() => st.open({ kind: 'log' })} style={({ pressed }) => [styles.bell, pressed && { opacity: 0.6 }]} accessibilityLabel="Messages" hitSlop={6} testID="messages">
+          <Icon name="bell" size={19} color={G.text} />
+          {important ? <Badge n={important} style={{ position: 'absolute', top: -3, right: -5 }} /> : null}
+        </Pressable>
+      </Glass>
     </View>
+  );
+}
+
+/** The realm's panels, as a phone's tab bar: each opens the realm menu on that page. */
+function TabItem({ icon, label, onPress, badge, testID }: { icon: IconName; label: string; onPress: () => void; badge?: number; testID?: string }) {
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.tabItem, pressed && { opacity: 0.6 }]} accessibilityLabel={label} testID={testID}>
+      <View>
+        <Icon name={icon} size={21} color={G.text} />
+        {badge ? <Badge n={badge} style={{ position: 'absolute', top: -5, right: -10 }} /> : null}
+      </View>
+      <Text style={styles.tabLabel} numberOfLines={1}>
+        {label}
+      </Text>
+    </Pressable>
   );
 }
 
 export function BottomBar() {
   const st = useStore();
   const s = st.state!;
-  const missions = readyMissionCount(s, s.player);
-  // Idle colonists with land left to settle also call you to the Realm menu.
-  const idleColonists = freeColonists(s, s.player) > 0 && Object.values(s.regions).some(r => !r.owner && !r.colony && charted(s, r.id)) ? freeColonists(s, s.player) : 0;
-  const important = s.unseenReports.length + s.offers.length;
+  const insets = useSafeAreaInsets();
+  const p = s.player;
+  const missions = readyMissionCount(s, p);
+  // Idle colonists with land left to settle also call you to the realm.
+  const idleColonists = freeColonists(s, p) > 0 && Object.values(s.regions).some(r => !r.owner && !r.colony && charted(s, r.id)) ? freeColonists(s, p) : 0;
+  const pickAdvance = !s.nations[p].researching && availableAdvances(s, p).length ? 1 : 0;
+  const menu = (tab: MenuTab) => st.open({ kind: 'menu', tab });
   return (
-    <View style={styles.bottom}>
-      <View style={styles.time}>
-        <Pressable onPress={() => st.togglePause()} style={[styles.play, !st.paused && { backgroundColor: C.gold }]} accessibilityLabel={st.paused ? 'Play' : 'Pause'} testID="playpause">
-          <Icon name={st.paused ? 'play' : 'pause'} size={20} color={st.paused ? C.chromeText : C.chrome} />
+    <View style={[styles.dock, { bottom: insets.bottom + 8 }]} pointerEvents="box-none">
+      <Glass gilt radius={R.pill} style={styles.time}>
+        <Pressable onPress={() => st.togglePause()} style={[styles.play, !st.paused && styles.playOn]} accessibilityLabel={st.paused ? 'Play' : 'Pause'} testID="playpause">
+          <Icon name={st.paused ? 'play' : 'pause'} size={18} color={st.paused ? G.gold : '#1a1408'} />
         </Pressable>
-        <View>
-          <Text style={styles.date}>{formatShortDate(s.day)}</Text>
-          <View style={{ flexDirection: 'row', gap: 4, marginTop: 3 }}>
+        <View style={{ gap: 4 }}>
+          <Text style={styles.date} numberOfLines={1}>
+            {formatShortDate(s.day)}
+          </Text>
+          <View style={{ flexDirection: 'row', gap: 3 }}>
             {SPEEDS.map((_, i) => (
               <Pressable key={i} onPress={() => st.setSpeed(i)} hitSlop={6} accessibilityLabel={`Speed ${[1, 2, 4][i]}x`} style={[styles.speed, i <= st.speed && styles.speedOn]}>
-                <Text style={[styles.speedText, i <= st.speed && { color: C.chrome }]}>{['1×', '2×', '4×'][i]}</Text>
+                <Text style={[styles.speedText, i <= st.speed && { color: '#1a1408' }]}>{['1×', '2×', '4×'][i]}</Text>
               </Pressable>
             ))}
           </View>
         </View>
-      </View>
-      <Pressable onPress={() => st.open({ kind: 'menu', tab: missions ? 'missions' : idleColonists ? 'colonies' : 'military' })} style={styles.menuBtn} accessibilityLabel="Menu" testID="menu">
-        <Icon name="crown" size={22} color={C.chrome} />
-        <Text style={styles.menuText}>Realm</Text>
-        {missions + idleColonists ? (
-          <View style={styles.dot}>
-            <Text style={styles.dotText}>{missions + idleColonists}</Text>
-          </View>
-        ) : null}
-      </Pressable>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <IconBtn name="bell" label="Messages" onPress={() => st.open({ kind: 'log' })} badge={important} />
-      </View>
+      </Glass>
+      <Glass gilt radius={R.pill} style={styles.tabs}>
+        <TabItem icon="swords" label="Army" onPress={() => menu('military')} testID="dock-military" />
+        <TabItem icon="treaty" label="Diplomacy" onPress={() => menu('diplomacy')} testID="dock-diplomacy" />
+        <TabItem icon="book" label="Learning" onPress={() => menu('science')} badge={pickAdvance} testID="dock-science" />
+        <TabItem icon="crown" label="Realm" onPress={() => menu(missions ? 'missions' : idleColonists ? 'colonies' : 'economy')} badge={missions + idleColonists} testID="menu" />
+      </Glass>
     </View>
   );
 }
 
-export function MapModeChip() {
+const MODE_ICON: Record<MapMode, IconName> = {
+  political: 'flag',
+  terrain: 'map',
+  development: 'coins',
+  faith: 'church',
+  diplomatic: 'treaty',
+  threat: 'threat',
+  science: 'book',
+  goods: 'ship',
+};
+
+/** The map's lenses: map modes, what the current one shows, and the map's look. */
+export function LensPanel({ onPick }: { onPick: () => void }) {
   const st = useStore();
-  const [open, setOpen] = useState(false);
   const cur = MAP_MODES.find(m => m.key === st.mapMode)!;
   return (
-    <View style={styles.modeWrap} pointerEvents="box-none">
-      <Pressable onPress={() => setOpen(o => !o)} style={styles.modeChip} accessibilityLabel="Map mode" testID="mapmode">
-        <Icon name="layers" size={15} color={C.chromeText} />
-        <Text style={styles.modeText}>{cur.label}</Text>
-      </Pressable>
-      {open ? (
-        <View style={styles.modeList}>
-          <View style={styles.modeGrid}>
-            {MAP_MODES.map(m => (
-              <Pressable
-                key={m.key}
-                onPress={() => {
-                  st.setMapMode(m.key);
-                  setOpen(false);
-                }}
-                style={[styles.modeItem, m.key === st.mapMode && { backgroundColor: C.chromeLine }]}
-              >
-                <Text style={styles.modeItemText}>{m.label}</Text>
-              </Pressable>
-            ))}
-          </View>
-          <Text style={styles.modeHelp}>{cur.help}</Text>
-          <View style={styles.lookRow}>
-            <Text style={styles.lookLabel}>Look</Text>
-            {MAP_STYLE_LIST.map(ms => (
-              <Pressable key={ms.id} onPress={() => st.setMapStyle(ms.id)} style={[styles.lookItem, ms.id === st.mapStyle && { backgroundColor: C.chromeLine }]} testID={`mapstyle-${ms.id}`}>
-                <Text style={styles.lookText}>{ms.label}</Text>
-              </Pressable>
-            ))}
-          </View>
-        </View>
-      ) : null}
-    </View>
+    <Glass strong gilt radius={R.lg} style={styles.lensMenu}>
+      <Text style={styles.lensTitle}>Map lens</Text>
+      <View style={styles.lensGrid}>
+        {MAP_MODES.map(m => {
+          const on = m.key === st.mapMode;
+          return (
+            <Pressable
+              key={m.key}
+              testID={`mode-${m.key}`}
+              onPress={() => {
+                st.setMapMode(m.key);
+                onPick();
+              }}
+              style={({ pressed }) => [styles.lensItem, on && styles.lensItemOn, pressed && { opacity: 0.7 }]}
+            >
+              <Icon name={MODE_ICON[m.key]} size={16} color={on ? G.gold : G.text2} />
+              <Text style={[styles.lensItemText, on && { color: G.text }]}>{m.label}</Text>
+            </Pressable>
+          );
+        })}
+      </View>
+      <Text style={styles.lensHelp}>{cur.help}</Text>
+      <View style={styles.lookRow}>
+        {MAP_STYLE_LIST.map(ms => (
+          <Pressable key={ms.id} onPress={() => st.setMapStyle(ms.id)} style={[styles.lookItem, ms.id === st.mapStyle && styles.lookItemOn]} testID={`mapstyle-${ms.id}`}>
+            <Text style={[styles.lookText, ms.id === st.mapStyle && { color: G.text }]}>{ms.label}</Text>
+          </Pressable>
+        ))}
+      </View>
+    </Glass>
   );
 }
 
+export const MODE_ICONS = MODE_ICON;
+
+/** Banners that drop in under the top bar, like a phone's notifications. */
 export function Toasts() {
   const st = useStore();
+  const insets = useSafeAreaInsets();
   if (!st.toasts.length) return null;
+  const s = st.state;
+  const atWar = !!s && Object.values(s.wars).some(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   return (
-    <View style={styles.toasts} pointerEvents="none">
+    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8 + (atWar ? 42 : 0) }]} pointerEvents="none">
       {st.toasts.map(t => (
-        <View key={t.id} style={[styles.toast, t.tone === 'bad' && { borderColor: '#e07a63' }, t.tone === 'good' && { borderColor: '#9bcf8a' }]}>
+        <Glass key={t.id} strong radius={R.pill} style={styles.toast}>
+          <Icon name={t.tone === 'bad' ? 'info' : t.tone === 'good' ? 'check' : 'scroll'} size={15} color={t.tone === 'bad' ? G.bad : t.tone === 'good' ? G.good : G.gold} />
           <Text style={styles.toastText}>{t.text}</Text>
-        </View>
+        </Glass>
       ))}
     </View>
   );
@@ -147,21 +197,24 @@ export function Toasts() {
 export function WarStrip() {
   const st = useStore();
   const s = st.state!;
+  const insets = useSafeAreaInsets();
   const wars = Object.values(s.wars).filter(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   if (!wars.length) return null;
   return (
-    <ScrollView horizontal style={styles.strip} contentContainerStyle={{ gap: 6, paddingHorizontal: 8 }} showsHorizontalScrollIndicator={false}>
+    <ScrollView horizontal style={[styles.strip, { top: insets.top + 6 + TOP_BAR_H + 8 }]} contentContainerStyle={{ gap: 6, paddingHorizontal: 8 }} showsHorizontalScrollIndicator={false}>
       {wars.map(w => {
         const sc = warScore(s, w).total * (w.defenders.includes(s.player) ? -1 : 1);
         return (
-          <Pressable key={w.id} onPress={() => store.open({ kind: 'peace', war: w.id })} style={styles.warChip} accessibilityLabel={`${w.name}: leverage ${signed(sc)}%. Tap to make peace.`}>
-            <Icon name="swords" size={13} color="#ffd9c9" />
-            <Text style={styles.warText} numberOfLines={1}>
-              {w.name}
-            </Text>
-            <Text numberOfLines={1} style={[styles.warScore, { color: sc > 5 ? '#b6e3a3' : sc < -5 ? '#ffab96' : '#f3e6c8' }]}>
-              {sc > 5 ? 'ahead' : sc < -5 ? 'behind' : 'even'} {signed(sc)}%
-            </Text>
+          <Pressable key={w.id} onPress={() => store.open({ kind: 'peace', war: w.id })} accessibilityLabel={`${w.name}: leverage ${signed(sc)}%. Tap to make peace.`}>
+            <Glass radius={R.pill} style={styles.warChip} shadow={false}>
+              <View style={styles.warDot} />
+              <Text style={styles.warText} numberOfLines={1}>
+                {w.name}
+              </Text>
+              <Text numberOfLines={1} style={[styles.warScore, { color: sc > 5 ? G.good : sc < -5 ? G.bad : G.text2 }]}>
+                {sc > 5 ? 'ahead' : sc < -5 ? 'behind' : 'even'} {signed(sc)}%
+              </Text>
+            </Glass>
           </Pressable>
         );
       })}
@@ -170,39 +223,42 @@ export function WarStrip() {
 }
 
 const styles = StyleSheet.create({
-  top: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: C.chrome, paddingHorizontal: 8, paddingVertical: 6, borderBottomWidth: 1, borderBottomColor: C.chromeLine },
-  res: { alignItems: 'center', paddingVertical: 1, minWidth: 50 },
+  topWrap: { position: 'absolute', left: 8, right: 8, zIndex: 10 },
+  top: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: TOP_BAR_H, paddingLeft: 8, paddingRight: 12 },
+  arms: { paddingRight: 2 },
+  res: { alignItems: 'center', minWidth: 46 },
   resRow: { flexDirection: 'row', alignItems: 'center', gap: 3 },
-  resValue: { color: C.chromeText, fontFamily: sans, fontSize: 14, fontWeight: '800', fontVariant: ['tabular-nums'] },
-  resSub: { color: C.chromeMuted, fontFamily: sans, fontSize: 10, fontWeight: '600', marginTop: 0 },
-  bottom: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: C.chrome, paddingHorizontal: 10, paddingTop: 8, paddingBottom: 6, borderTopWidth: 1, borderTopColor: C.chromeLine },
-  time: { flexDirection: 'row', alignItems: 'center', gap: 10, minWidth: 130 },
-  play: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.chrome2, borderWidth: 1.5, borderColor: C.gold, alignItems: 'center', justifyContent: 'center' },
-  date: { color: C.chromeText, fontFamily: serif, fontSize: 15, fontWeight: '700' },
-  speed: { paddingHorizontal: 6, height: 20, borderRadius: 4, backgroundColor: C.chrome2, justifyContent: 'center', borderWidth: 1, borderColor: C.chromeLine },
-  speedOn: { backgroundColor: C.gold, borderColor: C.gold },
-  speedText: { color: C.chromeMuted, fontSize: 11, fontWeight: '800', fontFamily: sans },
-  menuBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: C.gold, height: 46, paddingHorizontal: 18, borderRadius: 23 },
-  menuText: { color: C.chrome, fontFamily: serif, fontSize: 16, fontWeight: '700' },
-  dot: { position: 'absolute', top: -4, right: -2, minWidth: 18, height: 18, borderRadius: 9, backgroundColor: C.red, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 4 },
-  dotText: { color: '#fff', fontSize: 11, fontWeight: '800' },
-  modeWrap: { position: 'absolute', right: 8, top: 8, alignItems: 'flex-end' },
-  modeChip: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(33,24,16,0.88)', paddingHorizontal: 10, height: 30, borderRadius: 15 },
-  modeText: { color: C.chromeText, fontFamily: sans, fontSize: 12, fontWeight: '700' },
-  modeList: { marginTop: 6, backgroundColor: 'rgba(33,24,16,0.96)', borderRadius: 10, padding: 4, width: 250 },
-  modeGrid: { flexDirection: 'row', flexWrap: 'wrap' },
-  modeItem: { width: '50%', paddingVertical: 9, paddingHorizontal: 8, borderRadius: 7 },
-  modeItemText: { color: C.chromeText, fontFamily: sans, fontSize: 14, fontWeight: '700' },
-  modeHelp: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, padding: 8, paddingTop: 4, lineHeight: 15 },
-  lookRow: { flexDirection: 'row', alignItems: 'center', gap: 2, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.chromeLine, paddingTop: 4 },
-  lookLabel: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, paddingHorizontal: 8 },
-  lookItem: { flex: 1, paddingVertical: 8, borderRadius: 7, alignItems: 'center' },
-  lookText: { color: C.chromeText, fontFamily: sans, fontSize: 12, fontWeight: '700' },
-  toasts: { position: 'absolute', top: 44, left: 12, right: 12, alignItems: 'center', gap: 6 },
-  toast: { backgroundColor: 'rgba(33,24,16,0.94)', borderRadius: 10, paddingHorizontal: 14, paddingVertical: 9, borderWidth: 1, borderColor: C.chromeLine, maxWidth: 420 },
-  toastText: { color: C.chromeText, fontFamily: sans, fontSize: 14, textAlign: 'center' },
-  strip: { position: 'absolute', top: 8, left: 0, right: 110, maxHeight: 30 },
-  warChip: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(110,30,20,0.92)', height: 28, borderRadius: 14, paddingHorizontal: 10, maxWidth: 260 },
-  warText: { color: '#ffe9de', fontFamily: sans, fontSize: 12, fontWeight: '700', flexShrink: 1 },
-  warScore: { fontFamily: sans, fontSize: 12, fontWeight: '800', flexShrink: 0 },
+  resValue: { color: G.text, fontFamily: sans, fontSize: 14.5, fontWeight: '700', fontVariant: ['tabular-nums'] },
+  resSub: { color: G.text3, fontFamily: sans, fontSize: 10, fontWeight: '600', marginTop: 1 },
+  bell: { width: 30, height: 34, alignItems: 'center', justifyContent: 'center' },
+  dock: { position: 'absolute', left: 8, right: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, zIndex: 10 },
+  time: { flexDirection: 'row', alignItems: 'center', gap: 9, height: DOCK_H, paddingLeft: 8, paddingRight: 14 },
+  play: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: G.gilt },
+  playOn: { backgroundColor: G.gold, borderColor: G.goldBright },
+  date: { color: G.text, fontFamily: display, fontSize: 13.5, letterSpacing: 0.3 },
+  speed: { paddingHorizontal: 6, height: 19, borderRadius: R.pill, justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.07)' },
+  speedOn: { backgroundColor: G.gold },
+  speedText: { color: G.text2, fontSize: 10.5, fontWeight: '800', fontFamily: sans },
+  tabs: { flexDirection: 'row', alignItems: 'center', height: DOCK_H, paddingHorizontal: 6, flexShrink: 1 },
+  tabItem: { alignItems: 'center', justifyContent: 'center', width: 52, height: DOCK_H, gap: 3 },
+  tabLabel: { color: G.text2, fontFamily: sans, fontSize: 10, fontWeight: '600' },
+  lensMenu: { width: 268, padding: 10 },
+  lensTitle: { fontFamily: display, fontSize: 13, color: G.gold, letterSpacing: 1.4, textTransform: 'uppercase', paddingHorizontal: 6, paddingBottom: 6 },
+  lensGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
+  lensItem: { width: '48.8%', flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, paddingHorizontal: 10, borderRadius: R.md, backgroundColor: 'rgba(255,255,255,0.04)' },
+  lensItemOn: { backgroundColor: 'rgba(214,178,110,0.16)', borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
+  lensItemText: { color: G.text2, fontFamily: sans, fontSize: 14, fontWeight: '600' },
+  lensHelp: { color: G.text3, fontFamily: sans, fontSize: 12, lineHeight: 16, padding: 6, paddingTop: 8 },
+  lookRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 3, marginTop: 4 },
+  lookItem: { flex: 1, paddingVertical: 7, borderRadius: R.pill, alignItems: 'center' },
+  lookItemOn: { backgroundColor: G.raised },
+  lookText: { color: G.text2, fontFamily: sans, fontSize: 13, fontWeight: '600' },
+  toasts: { position: 'absolute', left: 12, right: 12, alignItems: 'center', gap: 6, zIndex: 30 },
+  toast: { flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 16, paddingVertical: 11, maxWidth: 440 },
+  toastText: { color: G.text, fontFamily: sans, fontSize: 14, fontWeight: '500', flexShrink: 1 },
+  strip: { position: 'absolute', left: 0, right: 0, maxHeight: 34, zIndex: 9 }, // the side rail sits below it
+  warChip: { flexDirection: 'row', alignItems: 'center', gap: 7, height: 32, paddingHorizontal: 12, maxWidth: 280 },
+  warDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: G.bad },
+  warText: { color: G.text, fontFamily: sans, fontSize: 13, fontWeight: '700', flexShrink: 1 },
+  warScore: { fontFamily: sans, fontSize: 12.5, fontWeight: '700', flexShrink: 0 },
 });

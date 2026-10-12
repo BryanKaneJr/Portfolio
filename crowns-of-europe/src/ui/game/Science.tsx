@@ -128,7 +128,7 @@ export function ScienceTab() {
                     <Icon name={FIELD[field].icon} size={16} color={C.goldDark} />
                     <Text style={styles.name}>{next.name}</Text>
                   </Row>
-                  <Pill text={me.researching === next.id ? 'Studying' : eta(monthsFor(advanceCost(s, p, next.id).total))} color={me.researching === next.id ? C.gold : C.parchment2} />
+                  <Pill text={me.researching === next.id ? 'Studying' : eta(monthsFor(advanceCost(s, p, next.id).total))} color={me.researching === next.id ? C.gold : C.parchment2} textColor={me.researching === next.id ? '#1a1408' : undefined} />
                 </Row>
                 <Text style={styles.desc}>{next.desc}</Text>
                 <Gives a={next} />
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   stepNow: { borderWidth: 2, borderColor: C.gold },
   stepText: { fontFamily: sans, fontSize: 10, fontWeight: '700', color: C.inkSoft, textAlign: 'center' },
   card: { padding: 10, borderRadius: 10, borderWidth: 1, borderColor: C.parchmentLine, backgroundColor: C.parchment },
-  cardOn: { borderColor: C.gold, borderWidth: 2, backgroundColor: '#f6ebcd' },
+  cardOn: { borderColor: C.gold, borderWidth: 2, backgroundColor: 'rgba(214,178,110,0.14)' },
   name: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: C.ink, flexShrink: 1 },
   desc: { fontFamily: sans, fontSize: 12, color: C.inkSoft, marginTop: 3, lineHeight: 16 },
   gives: { fontFamily: sans, fontSize: 12, fontWeight: '600', color: C.green },

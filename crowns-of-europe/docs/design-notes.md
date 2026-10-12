@@ -142,6 +142,16 @@ here.
     frames in the browser; anything that would mean stroking every coastline several times (water lines, shadows)
     is baked.
 
+17. **"Gilded glass" interface (on request: a mix of a phone app and the newest historical strategy games).** From
+    the historical grand strategy side: a dark interface with gilt accents, every nation shown by its arms on a heraldic shield, a top bar
+    of resources with icons (each tappable for why), an outliner of your armies, fleets, sieges and colonies, map
+    lenses always at hand, section heads in classical capitals with a gilded rule, and event windows with a picture
+    at the head, the story in a book face and each choice's effects under it. From the phone side: the map fills
+    the screen and the controls float over it as translucent glass; capsule buttons; a dock with the time controls
+    and the realm's pages as a tab bar; inset sheets with a grab handle that you drag to resize or dismiss; grouped
+    lists; segmented controls; banners that drop in like notifications; one tint (gold) for what you can act on.
+    Sheets rest above the dock rather than covering it, so time can be started and stopped with a sheet open.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |

@@ -40,7 +40,7 @@ import { ColoniesTab } from './ColonySheets';
 import { ScienceTab } from './Science';
 import { colonistsOf, coloniesOf, freeColonists, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
-import { Flag } from '../components/Flag';
+import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Bar, Btn, Card, Empty, IconBtn, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
 import { C, fmt, kmen, sans, signed } from '../theme';
@@ -71,11 +71,11 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
       right={
         <Row gap={8}>
           <IconBtn name="gear" label="Settings" onPress={() => st.open({ kind: 'menu', tab: 'settings' })} />
-          <Flag nation={p} size={32} />
+          <Shield nation={p} size={26} />
         </Row>
       }
     >
-      <View style={{ marginHorizontal: -14, marginTop: -14, marginBottom: 10, backgroundColor: C.chrome, paddingVertical: 8 }}>
+      <View style={{ marginHorizontal: -16, marginTop: -8, marginBottom: 6 }}>
         <Tabs tabs={tabs} value={tab} onChange={t => st.open({ kind: 'menu', tab: t })} />
       </View>
       {tab === 'military' ? <Military /> : null}
@@ -394,7 +394,7 @@ function Missions() {
               <T v="h3" style={{ flex: 1 }}>
                 {m.title}
               </T>
-              <Pill text={state === 'done' ? 'Done' : state === 'ready' ? 'Ready!' : state === 'active' ? 'In progress' : 'Locked'} color={state === 'ready' ? C.gold : state === 'done' ? C.greenSoft : C.parchment2} />
+              <Pill text={state === 'done' ? 'Done' : state === 'ready' ? 'Ready!' : state === 'active' ? 'In progress' : 'Locked'} color={state === 'ready' ? C.gold : state === 'done' ? C.greenSoft : C.parchment2} textColor={state === 'ready' ? '#1a1408' : state === 'done' ? C.green : undefined} />
             </Row>
             <T v="small" style={{ marginTop: 4 }}>{m.desc}</T>
             {state !== 'done' ? (
@@ -447,7 +447,7 @@ function Ledger() {
         <Btn small style={{ flex: 1 }} tone={sort === 'income' ? 'primary' : 'secondary'} label="Income" onPress={() => setSort('income')} />
       </Row>
       {rows.map((r, i) => (
-        <Pressable key={r.id} onPress={() => (st.close(), st.select({ kind: 'nation', id: r.id }))} style={[styles.row, r.id === s.player && { backgroundColor: '#f6e7bf' }]}>
+        <Pressable key={r.id} onPress={() => (st.close(), st.select({ kind: 'nation', id: r.id }))} style={[styles.row, r.id === s.player && { backgroundColor: 'rgba(214,178,110,0.14)' }]}>
           <Text style={[styles.rowNum, { width: 22 }]}>{i + 1}</Text>
           <Flag nation={r.id} size={24} />
           <View style={{ flex: 1 }}>

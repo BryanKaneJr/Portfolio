@@ -82,11 +82,11 @@ await shot('colonies-tab');
 await page.getByLabel('Close').first().click();
 // Exports map mode.
 await page.getByTestId('mapmode').click();
-await page.getByText('Exports', { exact: true }).first().click();
+await page.getByTestId('mode-goods').click();
 await focus('cuba', 1400);
 await shot('map-goods');
 await page.getByTestId('mapmode').click();
-await page.getByText('Political', { exact: true }).first().click();
+await page.getByTestId('mode-political').click();
 // A native nation.
 await coe(() => window.__coe.store.select({ kind: 'nation', id: 'AZT' }));
 await shot('aztec-sheet');

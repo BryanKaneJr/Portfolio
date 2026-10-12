@@ -10,7 +10,7 @@ import { battlePhase, battleSides } from '../../sim/battle';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
-import { Flag } from '../components/Flag';
+import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Bar, Btn, Line, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, kmen } from '../theme';
@@ -48,7 +48,7 @@ export function ArmySheet({ id }: { id: string }) {
     <Sheet
       title={a.name}
       subtitle={`${owner} · ${status}`}
-      left={<Flag nation={a.owner} size={34} />}
+      left={<Shield nation={a.owner} size={30} />}
       onClose={() => st.select(null)}
     >
       <Row gap={6}>
@@ -166,7 +166,7 @@ export function FleetSheet({ id }: { id: string }) {
   const mine = f.owner === s.player;
   const dest = f.path.length ? f.path[f.path.length - 1] : null;
   return (
-    <Sheet title={f.name} subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`} left={<Flag nation={f.owner} size={34} />} onClose={() => st.select(null)}>
+    <Sheet title={f.name} subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`} left={<Shield nation={f.owner} size={30} />} onClose={() => st.select(null)}>
       <Row gap={6}>
         <Stat label="Ships" value={`${shipCount(f)}`} icon="ship" />
         <Stat label="Strength" value={fmt(fleetPower(s, f), 1)} icon="swords" />

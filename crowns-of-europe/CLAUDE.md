@@ -51,8 +51,9 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Sheet, RegionSheet, ColonySheets,
-               UnitSheets, NationSheet, Cards, Panels, Menu, Science, Help), components/ (kit, Flag, Icon), describe
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Outliner, Sheet, RegionSheet,
+               ColonySheets, UnitSheets, NationSheet, Cards, Panels, Menu, Science, Help), components/ (kit, Glass, Flag,
+               Icon), describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, build-relief, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
@@ -105,6 +106,19 @@ times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`
 5.2 megapixels: iPhone and iPad web views decode anything bigger at half size. The drawn outlines (region paths,
 borders, coasts) are rounded off by `build-map` from the same arcs, while everything the game reads (neighbours,
 coasts on each sea, areas, labels) comes from the unrounded ones. The closest zoom is `K_MAX` (5) in `camera.ts`.
+
+## Interface
+"Gilded glass" (`ui/theme.ts`): a dark interface with gilt accents and heraldry, built like a phone app. Use the `G`
+tokens (the old `C` names still work and map onto them); gold is the one tint and marks what you can act on, green
+and red only mean good and bad. `display` (Cinzel, bundled) is for titles and section heads: never add a
+`fontWeight` to it (the file is already the bold cut; the web would fake a heavier one); body text is the system
+face; event stories use `book` (IM Fell). Anything floating over the map is `Glass` (blur + dark tint + hairline,
+`gilt` for a gilded rim); nations show as `Shield` (their arms on a heraldic shield) in headers and the top bar.
+The game screen: the map fills the screen; the top bar (arms, resources, messages), the side rail (outliner, map
+lens; their panels open beside it), the dock (time, and the realm's pages as a tab bar) float over it; sheets
+(`game/Sheet.tsx`: inset glass, grab handle, drag to resize or dismiss) rest just above the dock so time stays in
+reach; full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
+controls; cards (events, offers, battles) sit on glass over the dimmed map. Keep the walkthroughs' test IDs.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

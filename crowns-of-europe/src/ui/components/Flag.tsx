@@ -1,6 +1,6 @@
 /** Simple public-domain-style heraldry drawn from each nation's flag spec. */
 import { memo, type ReactElement } from 'react';
-import Svg, { Circle, ClipPath, Defs, G, Path, Polygon, Rect } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, LinearGradient, Path, Polygon, Rect, Stop } from 'react-native-svg';
 import { NATION } from '../../sim/content';
 
 const W = 30;
@@ -38,21 +38,18 @@ function Charge({ kind, color }: { kind?: string; color: string }) {
   }
 }
 
-export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
+/** The flag's field and charges, drawn in a W x H box. */
+function flagBody(nation: string): ReactElement {
   const def = NATION[nation];
-  const w = size;
-  const h = (size * H) / W;
-  if (!def) {
+  if (!def)
     // Rebels: a black banner with a pitchfork-ish mark.
     return (
-      <Svg width={w} height={h} viewBox={`0 0 ${W} ${H}`}>
-        <Rect width={W} height={H} rx={rounded ? 2 : 0} fill="#2b2b2b" />
+      <>
+        <Rect width={W} height={H} fill="#2b2b2b" />
         <Path d="M15 4v12M12 4v4h6V4" stroke="#d8d8d8" strokeWidth={1.4} fill="none" />
-      </Svg>
+      </>
     );
-  }
   const [a, b] = def.flag.colors as [string, string];
-  const id = `clip_${nation}_${size}`;
   let body: ReactElement;
   switch (def.flag.pattern) {
     case 'cross':
@@ -215,6 +212,14 @@ export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { 
     default:
       body = <Rect width={W} height={H} fill={a} />;
   }
+  return body;
+}
+
+export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
+  const w = size;
+  const h = (size * H) / W;
+  const id = `clip_${nation}_${size}`;
+  const body = flagBody(nation);
   return (
     <Svg width={w} height={h} viewBox={`0 0 ${W} ${H}`}>
       <Defs>
@@ -224,6 +229,37 @@ export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { 
       </Defs>
       <G clipPath={`url(#${id})`}>{body}</G>
       <Rect x={0.4} y={0.4} width={W - 0.8} height={H - 0.8} rx={rounded ? 2 : 0} fill="none" stroke="rgba(0,0,0,0.35)" strokeWidth={0.8} />
+    </Svg>
+  );
+});
+
+/** Heraldic shield outline in a 30 x 36 box. */
+const SHIELD = 'M1.6 1.6H28.4V15.2C28.4 25.6 21.4 31.6 15 34.6C8.6 31.6 1.6 25.6 1.6 15.2Z';
+
+/**
+ * The nation's arms on a shield with a gilded rim and a little light and shade, for headers and the top bar
+ * (`size` is the width; the shield is 1.2 times as tall).
+ */
+export const Shield = memo(function Shield({ nation, size = 32, rim = '#d6b26e' }: { nation: string; size?: number; rim?: string }) {
+  const id = `sh_${nation}_${size}`;
+  return (
+    <Svg width={size} height={size * 1.2} viewBox="0 0 30 36">
+      <Defs>
+        <ClipPath id={id}>
+          <Path d={SHIELD} />
+        </ClipPath>
+        <LinearGradient id={`${id}_l`} x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor="#ffffff" stopOpacity={0.28} />
+          <Stop offset="0.45" stopColor="#ffffff" stopOpacity={0} />
+          <Stop offset="1" stopColor="#000000" stopOpacity={0.3} />
+        </LinearGradient>
+      </Defs>
+      <G clipPath={`url(#${id})`}>
+        <G transform="translate(-12 0) scale(1.8)">{flagBody(nation)}</G>
+        <Rect width={30} height={36} fill={`url(#${id}_l)`} />
+      </G>
+      <Path d={SHIELD} fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth={2.6} />
+      <Path d={SHIELD} fill="none" stroke={rim} strokeWidth={1.4} />
     </Svg>
   );
 });

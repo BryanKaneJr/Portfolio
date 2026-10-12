@@ -25,7 +25,7 @@ import { REBELS, armyRegs } from '../../sim/queries';
 import { formatDate } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { regionPoint } from '../map/geometry';
-import { Flag } from '../components/Flag';
+import { Shield } from '../components/Flag';
 import { Bar, Btn, Empty, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
@@ -77,7 +77,7 @@ export function WildSheet({ id }: { id: string }) {
       title={def.name}
       subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${c ? 'Colony being settled' : 'Uncolonized'}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
-      left={c ? <Flag nation={c.by} size={34} /> : undefined}
+      left={c ? <Shield nation={c.by} size={30} /> : undefined}
     >
       <Row gap={6}>
         <Stat label="Natives" value={r.natives > 0 ? `${fmt(r.natives, 1)}k` : 'None'} icon="manpower" />

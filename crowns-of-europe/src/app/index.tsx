@@ -1,4 +1,4 @@
-/** Title screen: continue, new campaign, load, achievements. */
+/** Title screen: the known world under a dark veil, the arms of the game in gilt, and glass buttons. */
 import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
@@ -7,10 +7,12 @@ import { ACHIEVEMENTS, NATION } from '../sim/content';
 import { store } from '../state/store';
 import { deleteSave, latestSave, listSaves, loadAchievements, loadGame, type SaveMeta } from '../state/storage';
 import { MiniMap } from '../ui/map/MiniMap';
-import { Flag } from '../ui/components/Flag';
+import { Shield } from '../ui/components/Flag';
+import { Glass } from '../ui/components/Glass';
 import { Icon } from '../ui/components/Icon';
 import { Btn, T } from '../ui/components/kit';
-import { C, sans, serif } from '../ui/theme';
+import { C, G, R, sans, serif } from '../ui/theme';
+import { GiltRule } from '../ui/game/Panels';
 
 export default function Title() {
   const { width, height } = useWindowDimensions();
@@ -40,33 +42,38 @@ export default function Title() {
   return (
     <View style={styles.root}>
       <View style={StyleSheet.absoluteFill}>
-        <MiniMap width={width} height={height} dim={0.62} />
+        <MiniMap width={width} height={height} dim={0.55} />
       </View>
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={styles.content}>
-          <View style={styles.crest}>
-            <Icon name="crown" size={44} color={C.gold} />
-          </View>
+          <Glass gilt radius={48} style={styles.crest}>
+            <Icon name="crown" size={44} color={G.gold} />
+          </Glass>
           <Text style={styles.title}>Crowns of Europe</Text>
+          <GiltRule style={{ maxWidth: 280, marginTop: 10 }} />
           <Text style={styles.tag}>Grand strategy in your pocket · 1444–1750</Text>
 
           {view === 'main' ? (
             <View style={styles.menu}>
               {latest ? (
-                <Pressable onPress={() => open(latest)} style={styles.continue} testID="continue">
-                  <Flag nation={latest.nation} size={40} />
-                  <View style={{ flex: 1 }}>
-                    <Text style={styles.contTitle}>Continue</Text>
-                    <Text style={styles.contSub}>
-                      {latest.nationName} · {latest.date}
-                    </Text>
-                  </View>
-                  <Icon name="play" size={22} color={C.chrome} />
+                <Pressable onPress={() => open(latest)} testID="continue">
+                  <Glass gilt radius={R.lg} style={styles.continue}>
+                    <Shield nation={latest.nation} size={38} />
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.contTitle}>Continue</Text>
+                      <Text style={styles.contSub}>
+                        {latest.nationName} · {latest.date}
+                      </Text>
+                    </View>
+                    <View style={styles.contPlay}>
+                      <Icon name="play" size={18} color="#1a1408" />
+                    </View>
+                  </Glass>
                 </Pressable>
               ) : null}
               <Btn tone="gold" label="New campaign" icon="flag" onPress={() => router.push('/new-game')} testID="new-campaign" />
-              <Btn label="Load a save" icon="scroll" disabled={!saves.length} onPress={() => setView('load')} />
-              <Btn label={`Achievements (${ach.length}/${ACHIEVEMENTS.length})`} icon="star" onPress={() => setView('achievements')} />
+              <Btn tone="secondary" label="Load a save" icon="scroll" disabled={!saves.length} onPress={() => setView('load')} />
+              <Btn tone="secondary" label={`Achievements (${ach.length}/${ACHIEVEMENTS.length})`} icon="star" onPress={() => setView('achievements')} />
             </View>
           ) : null}
 
@@ -77,7 +84,7 @@ export default function Title() {
                 .map(m => (
                   <View key={m.slot} style={styles.save}>
                     <Pressable onPress={() => open(m)} style={{ flexDirection: 'row', alignItems: 'center', gap: 10, flex: 1 }}>
-                      <Flag nation={m.nation} size={34} />
+                      <Shield nation={m.nation} size={30} />
                       <View style={{ flex: 1 }}>
                         <Text style={styles.saveTitle}>
                           {m.nationName}
@@ -135,17 +142,18 @@ export default function Title() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: C.chrome },
+  root: { flex: 1, backgroundColor: G.bg },
   content: { padding: 20, alignItems: 'center', minHeight: '100%', justifyContent: 'center' },
-  crest: { width: 80, height: 80, borderRadius: 40, borderWidth: 2, borderColor: C.gold, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(33,24,16,0.7)', marginBottom: 12 },
-  title: { fontFamily: serif, fontSize: 38, fontWeight: '700', color: C.chromeText, textAlign: 'center', letterSpacing: 0.5 },
-  tag: { fontFamily: sans, fontSize: 14, color: C.chromeMuted, marginTop: 6, textAlign: 'center' },
-  menu: { width: '100%', maxWidth: 380, gap: 10, marginTop: 30 },
-  continue: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.parchment, borderRadius: 12, padding: 12, borderWidth: 2, borderColor: C.gold },
-  contTitle: { fontFamily: serif, fontSize: 20, fontWeight: '700', color: C.ink },
-  contSub: { fontFamily: sans, fontSize: 13, color: C.inkSoft },
-  save: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: 'rgba(33,24,16,0.85)', borderRadius: 10, padding: 10, borderWidth: 1, borderColor: C.chromeLine },
-  saveTitle: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: C.chromeText },
-  saveSub: { fontFamily: sans, fontSize: 12, color: C.chromeMuted, marginTop: 2 },
-  foot: { fontFamily: sans, fontSize: 12, color: C.chromeMuted, marginTop: 28, textAlign: 'center' },
+  crest: { width: 92, height: 92, alignItems: 'center', justifyContent: 'center', marginBottom: 16 },
+  title: { fontFamily: serif, fontSize: 36, color: G.text, textAlign: 'center', letterSpacing: 1.5 },
+  tag: { fontFamily: sans, fontSize: 14, color: G.text2, marginTop: 8, textAlign: 'center', letterSpacing: 0.3 },
+  menu: { width: '100%', maxWidth: 380, gap: 10, marginTop: 34 },
+  continue: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
+  contTitle: { fontFamily: serif, fontSize: 19, color: G.text, letterSpacing: 0.5 },
+  contSub: { fontFamily: sans, fontSize: 13, color: G.text2, marginTop: 2 },
+  contPlay: { width: 38, height: 38, borderRadius: 19, backgroundColor: G.gold, alignItems: 'center', justifyContent: 'center' },
+  save: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: 'rgba(18,22,29,0.82)', borderRadius: R.md, padding: 12, borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.line },
+  saveTitle: { fontFamily: sans, fontSize: 15, fontWeight: '700', color: G.text },
+  saveSub: { fontFamily: sans, fontSize: 12.5, color: G.text2, marginTop: 2 },
+  foot: { fontFamily: sans, fontSize: 12, color: G.text3, marginTop: 30, textAlign: 'center' },
 });

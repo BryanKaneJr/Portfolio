@@ -23,6 +23,9 @@ bundled and works in airplane mode.
   each country), Parchment and
   Flat. The rest of the world is sketched in outline on the parchment, and the map slides back when you pull past
   its edges.
+- **The interface:** dark and gilded, built like a phone app: the map fills the screen and glass controls float
+  over it (your arms and resources on top, time and the realm's pages in a dock at the bottom, an outliner and the
+  map lenses at the side), sheets you drag up and down, and event windows with each choice's effects spelled out.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.

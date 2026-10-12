@@ -10,7 +10,7 @@ import { EXCOMMUNICATE_COST } from '../../sim/religion';
 import { perceivedThreat } from '../../sim/threat';
 import { canDeclareWar } from '../../sim/war';
 import { store, useStore } from '../../state/store';
-import { Flag } from '../components/Flag';
+import { Shield } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { regionPoint } from '../map/geometry';
@@ -32,7 +32,7 @@ export function NationSheet({ id }: { id: string }) {
   if (!n || !def) return null;
   if (id === s.player) {
     return (
-      <Sheet title={def.name} subtitle="Your nation" left={<Flag nation={id} size={34} />} onClose={() => st.select(null)}>
+      <Sheet title={def.name} subtitle="Your nation" left={<Shield nation={id} size={30} />} onClose={() => st.select(null)}>
         <Btn label="Open the realm" onPress={() => st.open({ kind: 'menu', tab: 'economy' })} />
       </Sheet>
     );
@@ -65,7 +65,7 @@ export function NationSheet({ id }: { id: string }) {
     <Sheet
       title={def.name}
       subtitle={`${GOV[def.gov]} · ${def.faith === 'native' ? 'Native beliefs' : def.faith[0].toUpperCase() + def.faith.slice(1)} · ${PERS[def.personality]}${n.overlord ? ` · Subject of ${nationName(n.overlord)}` : ''}`}
-      left={<Flag nation={id} size={34} />}
+      left={<Shield nation={id} size={30} />}
       onClose={() => st.select(null)}
     >
       <Row gap={6} style={{ marginBottom: 6, flexWrap: 'wrap' }}>
@@ -76,7 +76,7 @@ export function NationSheet({ id }: { id: string }) {
         {hasTruce(s, s.player, id) ? <Pill text="Truce" color={C.parchment2} /> : null}
         {me.rivals.includes(id) ? <Pill text="Your rival" color={C.redSoft} textColor={C.red} /> : null}
         {n.rivals.includes(s.player) ? <Pill text="Rivals you" color={C.redSoft} textColor={C.red} /> : null}
-        {s.hre.emperor === id ? <Pill text="Emperor" color={C.gold} /> : null}
+        {s.hre.emperor === id ? <Pill text="Emperor" color={C.gold} textColor="#1a1408" /> : null}
         {s.hre.electors.includes(id) ? <Pill text="Elector" color={C.parchment2} /> : null}
       </Row>
       <Row gap={6}>

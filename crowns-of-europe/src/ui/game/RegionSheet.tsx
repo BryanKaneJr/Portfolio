@@ -25,7 +25,7 @@ import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { UnchartedSheet, WildSheet } from './ColonySheets';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
-import { Flag } from '../components/Flag';
+import { Shield } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
@@ -60,14 +60,14 @@ export function RegionSheet({ id }: { id: string }) {
       title={def.name}
       subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${FAITH_NAME[r.faith]}${def.hre ? ' · Holy Roman Empire' : ''}${def.trade ? ' · Trade centre' : ''}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
-      left={<Flag nation={owner} size={34} />}
+      left={<Shield nation={owner} size={30} />}
     >
       <Row style={{ marginBottom: 8 }} gap={6}>
         <Btn small tone="secondary" label={nationName(owner)} onPress={() => st.select({ kind: 'nation', id: owner })} />
         {r.controller !== r.owner ? <Pill text={`Occupied by ${nationName(r.controller)}`} color={C.redSoft} textColor={C.red} /> : null}
         {id in me.claims && !mine ? <Pill text="Your claim" color={C.greenSoft} textColor={C.green} /> : null}
         {r.cores.includes(s.player) && !mine ? <Pill text="Integrated by you" color={C.greenSoft} textColor={C.green} /> : null}
-        {me.capital === id ? <Pill text="Capital" color={C.gold} /> : null}
+        {me.capital === id ? <Pill text="Capital" color={C.gold} textColor="#1a1408" /> : null}
         {r.university ? <Pill text="University" color={C.blueSoft} textColor={C.blue} /> : null}
         {r.fort ? <Pill text={`Fort ${r.fort}`} /> : null}
       </Row>

@@ -8,15 +8,17 @@ import { newGame } from '../sim/state';
 import type { GameSettings, NationDef } from '../sim/types';
 import { store } from '../state/store';
 import { saveGame } from '../state/storage';
-import { Flag } from '../ui/components/Flag';
+import { Shield } from '../ui/components/Flag';
+import { Glass } from '../ui/components/Glass';
 import { Icon } from '../ui/components/Icon';
 import { Btn, Pill, Row, T } from '../ui/components/kit';
 import { MiniMap } from '../ui/map/MiniMap';
-import { C, sans, serif } from '../ui/theme';
+import { C, G, R, sans, serif } from '../ui/theme';
+import { GiltRule } from '../ui/game/Panels';
 import { modLines } from '../ui/describe';
 
 const DIFF_LABEL = { easy: 'Easy', normal: 'Normal', hard: 'Hard', very_hard: 'Very hard' } as const;
-const DIFF_COLOR = { easy: '#3d7a37', normal: '#2f5f8a', hard: '#a86b24', very_hard: '#a8382a' } as const;
+const DIFF_COLOR = { easy: G.good, normal: G.info, hard: G.warn, very_hard: G.bad } as const;
 const ORDER = ['easy', 'normal', 'hard', 'very_hard'] as const;
 
 export default function NewGame() {
@@ -41,28 +43,29 @@ export default function NewGame() {
     <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
       <Row style={styles.head}>
         <Pressable onPress={() => router.back()} hitSlop={10} style={styles.back} accessibilityLabel="Back">
-          <Icon name="back" size={20} color={C.chromeText} />
+          <Icon name="back" size={18} color={G.text2} />
         </Pressable>
         <Text style={styles.headTitle}>Choose your nation</Text>
-        <View style={{ width: 36 }} />
+        <View style={{ width: 32 }} />
       </Row>
+      <GiltRule />
       <View style={styles.preview}>
-        <MiniMap width={width} height={170} focus={pick} />
-        <View style={styles.previewBadge}>
-          <Flag nation={pick} size={36} />
+        <MiniMap width={width - 24} height={180} focus={pick} />
+        <Glass gilt radius={R.md} style={styles.previewBadge}>
+          <Shield nation={pick} size={30} />
           <View>
             <Text style={styles.previewName}>{def.name}</Text>
             <Text style={styles.previewSub}>
               {regions.length} regions · development {dev}
             </Text>
           </View>
-        </View>
+        </Glass>
       </View>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 12, paddingBottom: 20 }}>
         <View style={styles.detail}>
           <Row style={{ justifyContent: 'space-between' }}>
             <Text style={styles.detailTitle}>{def.name}</Text>
-            <Pill text={DIFF_LABEL[def.difficulty!]} color={DIFF_COLOR[def.difficulty!]} textColor="#fff" />
+            <Pill text={DIFF_LABEL[def.difficulty!]} color="rgba(255,255,255,0.07)" textColor={DIFF_COLOR[def.difficulty!]} />
           </Row>
           <T v="small" style={{ marginTop: 4 }}>{def.desc}</T>
           <T v="small" style={{ marginTop: 6 }}>
@@ -102,21 +105,21 @@ export default function NewGame() {
               <T v="small">Ironman</T>
               <T v="tiny">One save that keeps itself up to date. No reloading.</T>
             </View>
-            <Switch value={ironman} onValueChange={setIronman} trackColor={{ true: C.gold, false: C.parchmentLine }} />
+            <Switch value={ironman} onValueChange={setIronman} trackColor={{ true: G.gold, false: G.raised }} thumbColor="#f4f1ea" />
           </Row>
         </View>
       </ScrollView>
-      <View style={styles.footer}>
+      <Glass radius={0} shadow={false} style={styles.footer}>
         <Btn tone="gold" label={`Begin as ${def.name}`} sub="11 November 1444" icon="crown" onPress={start} testID="begin" />
-      </View>
+      </Glass>
     </SafeAreaView>
   );
 }
 
 function NationCard({ n, on, onPress }: { n: NationDef; on: boolean; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} style={[styles.card, on && styles.cardOn]} testID={`nation-${n.id}`}>
-      <Flag nation={n.id} size={30} />
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.card, on && styles.cardOn, pressed && { opacity: 0.8 }]} testID={`nation-${n.id}`}>
+      <Shield nation={n.id} size={28} rim={on ? G.goldBright : 'rgba(214,178,110,0.6)'} />
       <Text style={styles.cardName} numberOfLines={1}>
         {n.name}
       </Text>
@@ -125,20 +128,20 @@ function NationCard({ n, on, onPress }: { n: NationDef; on: boolean; onPress: ()
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: C.parchment },
-  head: { backgroundColor: C.chrome, height: 52, paddingHorizontal: 10, justifyContent: 'space-between' },
-  back: { width: 36, height: 36, borderRadius: 18, backgroundColor: C.chrome2, alignItems: 'center', justifyContent: 'center' },
-  headTitle: { color: C.chromeText, fontFamily: serif, fontSize: 19, fontWeight: '700' },
-  preview: { height: 170, backgroundColor: C.sea },
-  previewBadge: { position: 'absolute', left: 10, bottom: 10, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(33,24,16,0.85)', borderRadius: 10, paddingHorizontal: 10, paddingVertical: 6 },
-  previewName: { color: C.chromeText, fontFamily: serif, fontSize: 17, fontWeight: '700' },
-  previewSub: { color: C.chromeMuted, fontFamily: sans, fontSize: 12 },
-  detail: { backgroundColor: C.parchment2, borderRadius: 12, padding: 12, borderWidth: 1, borderColor: C.parchmentLine },
-  detailTitle: { fontFamily: serif, fontSize: 21, fontWeight: '700', color: C.ink },
-  group: { fontFamily: sans, fontSize: 12, fontWeight: '800', color: C.muted, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 },
+  root: { flex: 1, backgroundColor: G.bg },
+  head: { height: 54, paddingHorizontal: 14, justifyContent: 'space-between' },
+  back: { width: 32, height: 32, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.09)', alignItems: 'center', justifyContent: 'center' },
+  headTitle: { color: G.text, fontFamily: serif, fontSize: 19, letterSpacing: 1 },
+  preview: { height: 180, marginHorizontal: 12, marginTop: 6, borderRadius: R.lg, overflow: 'hidden', backgroundColor: C.sea, borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
+  previewBadge: { position: 'absolute', left: 10, bottom: 10, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 12, paddingVertical: 8 },
+  previewName: { color: G.text, fontFamily: serif, fontSize: 17, letterSpacing: 0.4 },
+  previewSub: { color: G.text2, fontFamily: sans, fontSize: 12, marginTop: 1 },
+  detail: { backgroundColor: G.group, borderRadius: R.lg, padding: 14 },
+  detailTitle: { fontFamily: serif, fontSize: 21, color: G.text, letterSpacing: 0.4 },
+  group: { fontFamily: serif, fontSize: 12.5, color: G.gold, textTransform: 'uppercase', letterSpacing: 1.6, marginBottom: 8 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  card: { width: '31.5%', alignItems: 'center', gap: 6, paddingVertical: 10, borderRadius: 10, backgroundColor: C.parchment2, borderWidth: 2, borderColor: 'transparent' },
-  cardOn: { borderColor: C.gold, backgroundColor: '#f6e7bf' },
-  cardName: { fontFamily: sans, fontSize: 13, fontWeight: '700', color: C.ink, paddingHorizontal: 4 },
-  footer: { padding: 12, borderTopWidth: 1, borderTopColor: C.parchmentLine },
+  card: { width: '31.5%', alignItems: 'center', gap: 7, paddingVertical: 12, borderRadius: R.md, backgroundColor: G.group, borderWidth: 1, borderColor: 'transparent' },
+  cardOn: { borderColor: G.gilt, backgroundColor: 'rgba(214,178,110,0.14)' },
+  cardName: { fontFamily: sans, fontSize: 13, fontWeight: '600', color: G.text, paddingHorizontal: 4 },
+  footer: { padding: 12, paddingBottom: 14, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: G.line },
 });

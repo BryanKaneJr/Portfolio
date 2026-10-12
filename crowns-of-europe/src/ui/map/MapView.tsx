@@ -808,7 +808,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
         const regs = armyRegs(a);
         const color = a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner);
         return (
-          <View key={c.id} style={[styles.chip, { left: X - 16, top: Y - 11, backgroundColor: color, borderColor: sel ? C.gold : mine ? '#fff7dc' : '#2a2118' }, sel && styles.chipSel, a.retreating && { opacity: 0.6 }]}>
+          <View key={c.id} style={[styles.chip, { left: X - 16, top: Y - 11, backgroundColor: color, borderColor: sel ? C.gold : mine ? 'rgba(255,248,230,0.95)' : 'rgba(13,16,21,0.85)' }, sel && styles.chipSel, a.retreating && { opacity: 0.6 }]}>
             <Text style={[styles.chipText, { color: textOn(color) }]}>{regs}</Text>
             {a.path.length ? <View style={[styles.moveDot, { backgroundColor: textOn(color) }]} /> : null}
           </View>
@@ -830,8 +830,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     minWidth: 32,
     height: 22,
-    borderRadius: 6,
-    borderWidth: 2,
+    borderRadius: 11,
+    borderWidth: 1.5,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 4,
@@ -841,13 +841,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     elevation: 3,
   },
-  chipSel: { borderWidth: 3, transform: [{ scale: 1.12 }] },
+  chipSel: { borderWidth: 2.5, transform: [{ scale: 1.14 }] },
   chipText: { fontFamily: sans, fontSize: 12, fontWeight: '800', color: '#fff' },
   moveDot: { position: 'absolute', right: 2, top: 2, width: 5, height: 5, borderRadius: 3 },
   fleet: { minWidth: 40, height: 22, borderRadius: 11 },
-  battle: { position: 'absolute', width: 88, height: 26, borderRadius: 13, backgroundColor: '#7a1f15', borderWidth: 2, borderColor: '#f3d9a4', alignItems: 'center', justifyContent: 'center' },
+  battle: { position: 'absolute', width: 88, height: 26, borderRadius: 13, backgroundColor: 'rgba(120,28,20,0.92)', borderWidth: 1.5, borderColor: '#d6b26e', alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 4, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
   battleText: { color: '#fff4dc', fontFamily: sans, fontSize: 12, fontWeight: '800' },
-  siege: { position: 'absolute', width: 44, height: 6, borderRadius: 3, backgroundColor: 'rgba(30,20,10,0.55)', overflow: 'hidden', borderWidth: 1, borderColor: 'rgba(255,245,220,0.8)' },
+  siege: { position: 'absolute', width: 44, height: 6, borderRadius: 3, backgroundColor: 'rgba(13,16,21,0.7)', overflow: 'hidden', borderWidth: 1, borderColor: 'rgba(214,178,110,0.8)' },
   siegeFill: { height: '100%' },
 });
 

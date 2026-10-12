@@ -1,12 +1,15 @@
 /** How to play, and short first-time hints from your chancellor. */
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { loadPrefs, savePrefs } from '../../state/storage';
 import { availableAdvances } from '../../sim/science';
 import { store, useStore } from '../../state/store';
+import { Glass } from '../components/Glass';
 import { Icon } from '../components/Icon';
 import { Section, T } from '../components/kit';
-import { C, sans, serif } from '../theme';
+import { C, G, R, sans, serif } from '../theme';
+import { DOCK_H } from './Bars';
 import { Panel } from './Panels';
 
 const TOPICS: { title: string; body: string }[] = [
@@ -113,6 +116,7 @@ const HINTS: Hint[] = [
 
 export function Hints() {
   const st = useStore();
+  const insets = useSafeAreaInsets();
   const [seen, setSeen] = useState<string[] | null>(null);
   useEffect(() => {
     loadPrefs().then(p => setSeen(p.hintsSeen));
@@ -127,24 +131,30 @@ export function Hints() {
     await savePrefs({ ...p, hintsSeen: next }).catch(() => {});
   };
   return (
-    <View style={styles.hint}>
-      <Icon name="scroll" size={22} color={C.goldDark} />
-      <View style={{ flex: 1 }}>
-        <Text style={styles.hintTitle}>Your chancellor advises</Text>
-        <Text style={styles.hintText}>{hint.text}</Text>
-      </View>
-      <Pressable onPress={dismiss} hitSlop={10} style={styles.hintBtn} accessibilityLabel="Got it" testID="hint-ok">
-        <Text style={styles.hintBtnText}>Got it</Text>
-      </Pressable>
+    <View style={[styles.hintWrap, { bottom: insets.bottom + 8 + DOCK_H + 12 }]} pointerEvents="box-none">
+      <Glass strong gilt radius={R.lg} style={styles.hint}>
+        <View style={styles.hintIcon}>
+          <Icon name="scroll" size={18} color={G.gold} />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.hintTitle}>Your chancellor advises</Text>
+          <Text style={styles.hintText}>{hint.text}</Text>
+        </View>
+        <Pressable onPress={dismiss} hitSlop={10} style={({ pressed }) => [styles.hintBtn, pressed && { opacity: 0.7 }]} accessibilityLabel="Got it" testID="hint-ok">
+          <Text style={styles.hintBtnText}>Got it</Text>
+        </Pressable>
+      </Glass>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  hint: { position: 'absolute', left: 10, right: 10, bottom: 10, flexDirection: 'row', gap: 10, alignItems: 'center', backgroundColor: C.parchment, borderRadius: 12, padding: 12, borderWidth: 1.5, borderColor: C.goldDark, shadowColor: '#000', shadowOpacity: 0.3, shadowRadius: 8, elevation: 8 },
-  hintTitle: { fontFamily: serif, fontSize: 14, fontWeight: '700', color: C.ink },
-  hintText: { fontFamily: sans, fontSize: 13, color: C.inkSoft, marginTop: 2, lineHeight: 18 },
-  hintBtn: { backgroundColor: C.chrome2, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 8 },
-  hintBtnText: { color: C.chromeText, fontFamily: sans, fontWeight: '700', fontSize: 13 },
+  hintWrap: { position: 'absolute', left: 8, right: 8, zIndex: 12 },
+  hint: { flexDirection: 'row', gap: 12, alignItems: 'center', padding: 14 },
+  hintIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(214,178,110,0.14)', borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
+  hintTitle: { fontFamily: serif, fontSize: 13, color: G.gold, letterSpacing: 0.8 },
+  hintText: { fontFamily: sans, fontSize: 13.5, color: G.text, marginTop: 3, lineHeight: 18 },
+  hintBtn: { backgroundColor: G.gold, paddingHorizontal: 14, paddingVertical: 8, borderRadius: R.pill },
+  hintBtnText: { color: '#1a1408', fontFamily: sans, fontWeight: '700', fontSize: 13 },
   word: { fontWeight: '800', color: C.ink },
 });

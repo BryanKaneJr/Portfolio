@@ -1,6 +1,10 @@
-/** Centred cards that need an answer: events, offers from other rulers, battle results, the end. */
+/**
+ * Centred cards that need an answer (events, offers from other rulers, battle results, the end), as event windows:
+ * a picture at the head, the title in classical capitals, the story in a book face, then the choices, each with
+ * what it will do. They sit on glass over the dimmed map.
+ */
 import type { ReactNode } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
@@ -10,20 +14,40 @@ import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Engraving, Icon, type IconName } from '../components/Icon';
-import { Flag } from '../components/Flag';
+import { Shield } from '../components/Flag';
+import { Glass } from '../components/Glass';
 import { Btn, Line, Row, T } from '../components/kit';
-import { C, fmt, kmen, sans, serif } from '../theme';
+import { C, G, R, book, fmt, kmen, sans, serif } from '../theme';
 import { effectsLines } from '../describe';
 
-export function CardShell({ children, wide }: { children: ReactNode; wide?: boolean }) {
+export function CardShell({ children, wide, head }: { children: ReactNode; wide?: boolean; head?: ReactNode }) {
   return (
     <View style={styles.backdrop}>
-      <View style={[styles.card, wide && { maxWidth: 520 }]}>
-        <ScrollView contentContainerStyle={{ padding: 16 }} bounces={false}>
-          {children}
+      <Glass strong gilt radius={R.xl} style={[styles.card, wide && { maxWidth: 520 }]}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 18 }} bounces={false}>
+          {head ? <View style={styles.head}>{head}</View> : null}
+          <View style={{ paddingHorizontal: 18, paddingTop: head ? 14 : 18 }}>{children}</View>
         </ScrollView>
-      </View>
+      </Glass>
     </View>
+  );
+}
+
+/** One answer to an event: the choice, and under it what it will do. */
+function Choice({ text, lines, onPress, testID, first }: { text: string; lines: { good: boolean; text: string }[]; onPress: () => void; testID: string; first?: boolean }) {
+  return (
+    <Pressable onPress={onPress} testID={testID} accessibilityRole="button" accessibilityLabel={text} style={({ pressed }) => [styles.choice, first && styles.choiceFirst, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}>
+      <Text style={styles.choiceText}>{text}</Text>
+      {lines.length ? (
+        <View style={{ marginTop: 6, gap: 2 }}>
+          {lines.map((l, j) => (
+            <Text key={j} style={[styles.effect, { color: l.good ? G.good : G.bad }]}>
+              {l.good ? '▲' : '▼'} {l.text}
+            </Text>
+          ))}
+        </View>
+      ) : null}
+    </Pressable>
   );
 }
 
@@ -34,31 +58,14 @@ export function EventCard() {
   const e = pe ? EVENT[pe.event] : null;
   if (!pe || !e) return null;
   return (
-    <CardShell>
-      <View style={{ alignItems: 'center', marginBottom: 10 }}>
-        <Engraving name={e.image as IconName} width={280} height={110} />
-      </View>
-      <Text style={styles.eventTitle}>{e.title}</Text>
-      <Text style={styles.eventDate}>{formatDate(pe.day)}</Text>
-      <T style={{ marginTop: 8 }}>{e.text}</T>
-      <View style={{ gap: 8, marginTop: 14 }}>
-        {e.choices.map((c, i) => {
-          const lines = effectsLines(c.effects);
-          return (
-            <View key={i} style={styles.choice}>
-              <Btn label={c.text} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
-              {lines.length ? (
-                <View style={{ paddingTop: 6, paddingHorizontal: 4, gap: 2 }}>
-                  {lines.map((l, j) => (
-                    <Text key={j} style={[styles.effect, { color: l.good ? C.green : C.red }]}>
-                      {l.good ? '▲' : '▼'} {l.text}
-                    </Text>
-                  ))}
-                </View>
-              ) : null}
-            </View>
-          );
-        })}
+    <CardShell head={<Engraving name={e.image as IconName} width={460} height={128} />}>
+      <Text style={[styles.eventTitle, { textAlign: 'center' }]}>{e.title}</Text>
+      <Text style={[styles.eventDate, { textAlign: 'center' }]}>{formatDate(pe.day)}</Text>
+      <Text style={styles.story}>{e.text}</Text>
+      <View style={{ gap: 8, marginTop: 16 }}>
+        {e.choices.map((c, i) => (
+          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects)} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
+        ))}
       </View>
     </CardShell>
   );
@@ -118,13 +125,13 @@ export function OfferCard() {
   }
   return (
     <CardShell>
-      <Row style={{ marginBottom: 10 }}>
-        <Flag nation={o.from} size={40} />
+      <Row style={{ marginBottom: 12 }} gap={12}>
+        <Shield nation={o.from} size={40} />
         <View style={{ flex: 1 }}>
           <Text style={styles.eventTitle}>{title}</Text>
           <Text style={styles.eventDate}>From {from}</Text>
         </View>
-        <Icon name={icon} size={28} color={C.inkSoft} />
+        <Icon name={icon} size={26} color={G.gold} />
       </Row>
       {body}
       <Row style={{ marginTop: 16 }}>
@@ -142,9 +149,9 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
   const title = report.wiped ? (won ? 'Annihilation!' : 'Our Army Is Destroyed') : you === null ? 'Battle Report' : won ? 'Victory' : 'Defeat';
   return (
     <CardShell>
-      <View style={[styles.banner, { backgroundColor: you === null ? C.chrome2 : won ? C.green : C.red }]}>
-        <Icon name="swords" size={26} color="#fff" />
-        <Text style={styles.bannerText}>{title}</Text>
+      <View style={[styles.banner, { backgroundColor: you === null ? G.raised : won ? 'rgba(128,200,144,0.18)' : 'rgba(236,122,104,0.18)', borderColor: you === null ? G.gilt : won ? G.good : G.bad }]}>
+        <Icon name="swords" size={24} color={you === null ? G.gold : won ? G.good : G.bad} />
+        <Text style={[styles.bannerText, { color: you === null ? G.text : won ? G.good : G.bad }]}>{title}</Text>
       </View>
       <Text style={[styles.eventTitle, { marginTop: 10 }]}>Battle of {regionName(report.node)}</Text>
       <Text style={styles.eventDate}>
@@ -152,8 +159,8 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
       </Text>
       {[0, 1].map(i => (
         <View key={i} style={[styles.side, report.winner === i && { borderColor: C.gold }]}>
-          <Row>
-            <Flag nation={report.leaders[i]} size={30} />
+          <Row gap={10}>
+            <Shield nation={report.leaders[i]} size={28} />
             <View style={{ flex: 1 }}>
               <Text style={styles.sideName}>
                 {report.nations[i].map(n => (NATION[n] ? nationName(n) : 'Rebels')).join(', ')}
@@ -181,8 +188,8 @@ export function GameOverCard() {
   const regions = ownedRegions(s, s.player).length;
   return (
     <CardShell>
-      <View style={{ alignItems: 'center' }}>
-        <Engraving name={s.gameOver.reason === 'end' ? 'crown' : 'death'} />
+      <View style={{ alignItems: 'center', marginHorizontal: -18, marginTop: -18, marginBottom: 6 }}>
+        <Engraving name={s.gameOver.reason === 'end' ? 'crown' : 'death'} width={460} height={128} />
       </View>
       <Text style={[styles.eventTitle, { textAlign: 'center', marginTop: 10 }]}>{s.gameOver.reason === 'end' ? 'The Age Ends' : `The End of ${NATION[s.player].name}`}</Text>
       <T style={{ textAlign: 'center', marginTop: 6 }}>
@@ -204,13 +211,17 @@ export function GameOverCard() {
 
 const styles = StyleSheet.create({
   backdrop: { ...StyleSheet.absoluteFill, backgroundColor: C.overlay, alignItems: 'center', justifyContent: 'center', padding: 14 },
-  card: { width: '100%', maxWidth: 440, maxHeight: '92%', backgroundColor: C.parchment, borderRadius: 14, borderWidth: 2, borderColor: C.goldDark, overflow: 'hidden' },
-  eventTitle: { fontFamily: serif, fontSize: 22, fontWeight: '700', color: C.ink },
-  eventDate: { fontFamily: sans, fontSize: 12, color: C.muted, marginTop: 2 },
-  choice: { backgroundColor: C.parchment2, borderRadius: 10, padding: 6 },
+  card: { width: '100%', maxWidth: 440, maxHeight: '92%', overflow: 'hidden' },
+  head: { height: 128, overflow: 'hidden', borderBottomWidth: StyleSheet.hairlineWidth * 2, borderBottomColor: G.gilt, alignItems: 'center' },
+  eventTitle: { fontFamily: serif, fontSize: 22, color: G.text, letterSpacing: 0.5 },
+  eventDate: { fontFamily: sans, fontSize: 12, color: G.text3, marginTop: 3, letterSpacing: 0.4 },
+  story: { fontFamily: book, fontSize: 17, lineHeight: 25, color: '#e6dfcf', marginTop: 12 },
+  choice: { backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.lg, paddingVertical: 12, paddingHorizontal: 14, borderWidth: 1, borderColor: G.line },
+  choiceFirst: { borderColor: G.gilt, backgroundColor: 'rgba(214,178,110,0.10)' },
+  choiceText: { fontFamily: sans, fontSize: 16, fontWeight: '700', color: G.text },
   effect: { fontFamily: sans, fontSize: 13, fontWeight: '600' },
-  banner: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 10, paddingVertical: 10 },
-  bannerText: { color: '#fff', fontFamily: serif, fontSize: 24, fontWeight: '700' },
-  side: { marginTop: 10, borderWidth: 2, borderColor: 'transparent', borderRadius: 10, padding: 8, backgroundColor: C.parchment2 },
-  sideName: { fontFamily: serif, fontSize: 16, fontWeight: '700', color: C.ink },
+  banner: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: R.lg, paddingVertical: 12, borderWidth: 1 },
+  bannerText: { fontFamily: serif, fontSize: 22, letterSpacing: 0.6 },
+  side: { marginTop: 10, borderWidth: 1, borderColor: 'transparent', borderRadius: R.md, padding: 12, backgroundColor: G.group },
+  sideName: { fontFamily: serif, fontSize: 15, color: G.text },
 });

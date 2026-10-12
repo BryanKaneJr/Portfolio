@@ -1,10 +1,13 @@
-/** The game screen: top bar, map (75% of the screen), bottom bar in the thumb zone, sheets and cards on top. */
+/**
+ * The game screen: the map fills the screen, edge to edge; glass controls float over it (the top bar, the dock in
+ * the thumb zone, the map lens, the outliner); sheets rise over the dock; cards and panels over everything.
+ */
 import { useEffect } from 'react';
 import { AppState, StyleSheet, View } from 'react-native';
 import { Redirect } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { MapView } from '../ui/map/MapView';
-import { BottomBar, MapModeChip, Toasts, TopBar, WarStrip } from '../ui/game/Bars';
+import { BottomBar, Toasts, TopBar, WarStrip } from '../ui/game/Bars';
+import { SideRail } from '../ui/game/Outliner';
 import { RegionSheet } from '../ui/game/RegionSheet';
 import { ArmySheet, BattleSheet, FleetSheet, SeaSheet } from '../ui/game/UnitSheets';
 import { NationSheet } from '../ui/game/NationSheet';
@@ -40,13 +43,19 @@ export default function GameScreen() {
 
   return (
     <View style={styles.root}>
-      <SafeAreaView edges={['top']} style={{ backgroundColor: C.chrome }}>
-        <TopBar />
-      </SafeAreaView>
-      <View style={{ flex: 1 }}>
+      <View style={StyleSheet.absoluteFill}>
         <MapView />
-        <WarStrip />
-        <MapModeChip />
+      </View>
+      {/* Floating controls (hidden under a full-screen panel; sheets rest between them). */}
+      {!ov ? (
+        <>
+          <TopBar />
+          <WarStrip />
+          <SideRail />
+          <BottomBar />
+        </>
+      ) : null}
+      <View style={[StyleSheet.absoluteFill, { zIndex: 20 }]} pointerEvents="box-none">
         {sel?.kind === 'region' ? <RegionSheet id={sel.id} /> : null}
         {sel?.kind === 'army' ? <ArmySheet id={sel.id} /> : null}
         {sel?.kind === 'fleet' ? <FleetSheet id={sel.id} /> : null}
@@ -54,12 +63,10 @@ export default function GameScreen() {
         {sel?.kind === 'sea' ? <SeaSheet id={sel.id} /> : null}
         {sel?.kind === 'battle' ? <BattleSheet id={sel.id} /> : null}
         {!sel ? <Hints /> : null}
-        <Toasts />
       </View>
-      <SafeAreaView edges={['bottom']} style={{ backgroundColor: C.chrome }}>
-        <BottomBar />
-      </SafeAreaView>
+      <Toasts />
 
+      <View style={[StyleSheet.absoluteFill, { zIndex: 40 }]} pointerEvents="box-none">
       {ov?.kind === 'menu' ? <MenuPanel tab={ov.tab} /> : null}
       {ov?.kind === 'log' ? <LogPanel /> : null}
       {ov?.kind === 'peace' ? <PeacePanel warId={ov.war} /> : null}
@@ -84,6 +91,7 @@ export default function GameScreen() {
         />
       ) : null}
       {s.gameOver ? <GameOverCard /> : null}
+      </View>
     </View>
   );
 }

@@ -1,6 +1,6 @@
 /** Hand-drawn vector glyphs (no icon fonts, no images): resources, actions and event illustrations. */
 import { memo } from 'react';
-import Svg, { Circle, G, Path, Rect } from 'react-native-svg';
+import Svg, { Circle, Defs, G, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
 export type IconName =
   | 'gold'
@@ -109,22 +109,37 @@ export const Icon = memo(function Icon({ name, size = 20, color = '#2a2118', fil
 });
 
 /** A larger "engraving" for event cards: the glyph inside a double-ruled oval on parchment. */
+/**
+ * The picture at the head of an event: the event's emblem in gold on a dark medallion, framed in gilt, over a dark
+ * panel with a faint glow and fine hatching (sized to fill whatever width it is given).
+ */
 export const Engraving = memo(function Engraving({ name, width = 280, height = 120 }: { name: IconName; width?: number; height?: number }) {
-  const lines = Array.from({ length: 14 }, (_, i) => i);
+  const lines = Array.from({ length: 16 }, (_, i) => i);
+  const gold = '#d6b26e';
   return (
-    <Svg width={width} height={height} viewBox="0 0 280 120">
-      <Rect x={0} y={0} width={280} height={120} fill="#e8d9b4" />
-      <G opacity={0.25}>
+    <Svg width={width} height={height} viewBox="0 0 280 120" preserveAspectRatio="xMidYMid slice">
+      <Defs>
+        <LinearGradient id="engBg" x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor="#262d39" />
+          <Stop offset="1" stopColor="#11151b" />
+        </LinearGradient>
+        <RadialGradient id="engGlow" cx="50%" cy="50%" r="55%">
+          <Stop offset="0" stopColor={gold} stopOpacity={0.28} />
+          <Stop offset="1" stopColor={gold} stopOpacity={0} />
+        </RadialGradient>
+      </Defs>
+      <Rect x={-60} y={0} width={400} height={120} fill="url(#engBg)" />
+      <G opacity={0.07}>
         {lines.map(i => (
-          <Path key={i} d={`M${-20 + i * 24} 120 L${40 + i * 24} 0`} stroke="#6b5233" strokeWidth={0.8} />
+          <Path key={i} d={`M${-60 + i * 26} 120 L${0 + i * 26} 0`} stroke={gold} strokeWidth={0.8} />
         ))}
       </G>
-      <Rect x={6} y={6} width={268} height={108} fill="none" stroke="#6b5233" strokeWidth={1.5} />
-      <Rect x={10} y={10} width={260} height={100} fill="none" stroke="#6b5233" strokeWidth={0.6} />
-      <Circle cx={140} cy={60} r={42} fill="#f3e8cc" stroke="#6b5233" strokeWidth={1.5} />
-      <Circle cx={140} cy={60} r={37} fill="none" stroke="#6b5233" strokeWidth={0.6} />
+      <Rect x={-60} y={0} width={400} height={120} fill="url(#engGlow)" />
+      <Circle cx={140} cy={60} r={41} fill="#141920" stroke={gold} strokeWidth={1.5} />
+      <Circle cx={140} cy={60} r={36} fill="none" stroke={gold} strokeWidth={0.6} opacity={0.7} />
+      <Path d="M140 13l4 4-4 4-4-4Z M140 99l4 4-4 4-4-4Z" fill={gold} opacity={0.8} />
       <G transform="translate(110 30) scale(2.5)">
-        <Path d={P[name]} fill={FILLED.has(name) ? '#5a4127' : 'none'} fillRule="evenodd" stroke="#3b2a17" strokeWidth={1.1} strokeLinecap="round" strokeLinejoin="round" />
+        <Path d={P[name]} fill={FILLED.has(name) ? gold : 'none'} fillRule="evenodd" stroke={gold} strokeWidth={1.1} strokeLinecap="round" strokeLinejoin="round" />
       </G>
     </Svg>
   );
