@@ -199,7 +199,8 @@ The project started on 2026-09-23. Work merged to `master` through PRs from #2 o
 
 **Store and site**
 - **App Store Connect:**
-  - Screenshots: the 6.9" slot takes 1320 × 2868, the 6.1"/6.3" slot 1206 × 2622, and the wide slot 2007 × 2853. Rebuild them with `node store/app-store-promo/build.mjs`.
+  - Screenshots: the 6.9" slot takes 1320 × 2868 and the 6.1"/6.3" slot 1206 × 2622. Rebuild them with `node store/app-store-promo/build.mjs`.
+  - The iPhone Duo slot (2007 × 2853 inner screen, 1398 × 2034 outer) is optional until April 2027. The current `duo/` slides show the iPhone layout, so if App Review objects, delete them; no build needed.
   - No iPad shots: the app is iPhone only.
   - The keywords stay editable while a version is "Waiting for Review". Most other fields lock until the next version, but promotional text can change any time.
 - **Site store badges** appear only once that store's link is set (`scripts/site-build.ts`, `STORE_URLS`), so the site never links to a listing that doesn't exist.
@@ -213,7 +214,9 @@ The project started on 2026-09-23. Work merged to `master` through PRs from #2 o
 2. **Right after launch:**
    - Watch App Store Connect's search and conversion data, then tune the keywords with the next version.
    - Keep the promotional text fresh; it changes without review.
-3. **1.1:** home screen widgets (This week's seven dots with Dr. Scroll, Up next, Dr. Scroll's daily fact), planned in `docs/build-order.md` ("After launch"). They're native, so they need a build and App Review.
+3. **1.1**, planned in `docs/build-order.md` ("After launch"). Both parts are native, so they ship together in one build with App Review:
+   - home screen widgets: This week's seven dots with Dr. Scroll, Up next, Dr. Scroll's daily fact;
+   - iPhone Duo support, once Expo SDK 58 is stable: build with Xcode 27.1 so the app fills the foldable's inner screen, check the layouts at its size, and take real Duo screenshots.
 4. **Android:** Play Console, Firebase for push, Google sign-in (not set up; the iPhone app is Apple-only), the Android RevenueCat key in `app/eas.json`, and the SHA-256 fingerprint for invite links (`docs/invite-links.md`). Then set `PLAY_STORE_URL` in `scripts/site-build.ts`, and adjust the listing (`docs/store-listing.md`, Google Play section).
 5. **Ongoing:** content corrections go in as new revisions (published revisions are immutable). Learner reports are worked in the admin's queue (`docs/moderation.md`).
 
