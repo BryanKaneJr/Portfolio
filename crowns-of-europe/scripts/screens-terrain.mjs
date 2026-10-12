@@ -85,6 +85,13 @@ await settle(900);
 const selected = await page.evaluate(() => window.__coe.store.selection);
 await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.jpg'), type: 'jpeg', quality: 90 });
 
+// Close the region sheet the tap opened, so drags land on the map.
+await page.evaluate(() => {
+  window.__coe.store.select(null);
+  window.__coe.store.close();
+});
+await settle(600);
+
 // Measurements. The JS heap is read through the DevTools protocol (performance.memory is coarsened in headless
 // Chromium); decoded tile memory is computed from the tiles drawn (terrainStats), since images live outside the heap.
 const cdp = await page.context().newCDPSession(page);
@@ -140,7 +147,8 @@ for (const throttle of [1, 4]) {
         window.__dragging = true;
         let last = performance.now();
         const tick = now => {
-          if (window.__dragging) window.__frames.push(now - last);
+          if (!window.__dragging) return;
+          window.__frames.push(now - last);
           last = now;
           requestAnimationFrame(tick);
         };
@@ -189,6 +197,8 @@ await sheet.close();
 
 const report = { viewport: `${W}x${H} @3x`, selected_after_tap: selected, perf, errors };
 fs.writeFileSync('docs/terrain/perf.json', JSON.stringify(report, null, 1) + '\n');
-console.log(JSON.stringify({ selected, errors }, null, 1));
+const unmoved = Object.values(perf).flatMap(p => Object.values(p.pan_at_play_zoom).flat()).filter(r => !r.moved_map_units[0] && !r.moved_map_units[1]).length;
+if (unmoved) console.error(`WARNING: ${unmoved} pan run(s) did not move the camera: their frame times measure nothing`);
+console.log(JSON.stringify({ selected, errors, unmoved_pans: unmoved }, null, 1));
 await browser.close();
 server.close();
