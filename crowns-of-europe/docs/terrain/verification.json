@@ -1,59 +1,98 @@
 {
  "determinism_and_band_seams": {
-  "box_map_units": [
-   1950.0,
-   816.0,
-   1982.0,
-   848.0
-  ],
-  "band_boundary_y": 832.0,
-  "mean_abs_diff": 4.738,
-  "p99_abs_diff": 18.0,
-  "note": "fresh render vs stitched JPEG tiles across a band boundary and tile edges; differences are JPEG compression only if small"
+  "raw_render_offsets": {
+   "box_map_units": [
+    1950.0,
+    816.0,
+    1982.0,
+    848.0
+   ],
+   "overlapping_box": [
+    1942.0,
+    808.0,
+    1990.0,
+    856.0
+   ],
+   "max_abs_diff": 17,
+   "pixels_differing": 143,
+   "pixels": 262144
+  },
+  "shipped_tiles_across_band_boundary": {
+   "band_boundary_y": 832.0,
+   "tiles": [
+    {
+     "tile": "L4/61_25",
+     "band": 1,
+     "bytes_identical": false,
+     "decoded_mean_abs_diff": 0.2028,
+     "jpeg_blocks_differing_share": 0.1799,
+     "decoded_max_abs_diff": 49,
+     "jpeg_error_vs_raw_mean": 5.538,
+     "jpeg_error_vs_raw_p99": 23.0
+    },
+    {
+     "tile": "L4/61_26",
+     "band": 2,
+     "bytes_identical": false,
+     "decoded_mean_abs_diff": 0.2323,
+     "jpeg_blocks_differing_share": 0.207,
+     "decoded_max_abs_diff": 31,
+     "jpeg_error_vs_raw_mean": 5.936,
+     "jpeg_error_vs_raw_p99": 24.0
+    }
+   ]
+  },
+  "level2_rebuilt_byte_identical": "25/25 tiles",
+  "note": "raw: the renderer gives the same pixels wherever a box starts (differences of 1 level are anti-aliasing rounding). Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8."
  },
  "tile_joins": {
   "L0": {
    "edges": 4,
-   "mean_step_across_edges": 10.038,
-   "mean_step_inside_tiles": 7.954,
-   "ratio": 1.262
+   "mean_step_across_tile_edges": 12.176,
+   "mean_step_across_block_edges_inside": 8.896,
+   "ratio": 1.369
   },
   "L1": {
    "edges": 12,
-   "mean_step_across_edges": 8.956,
-   "mean_step_inside_tiles": 7.594,
-   "ratio": 1.179
+   "mean_step_across_tile_edges": 9.462,
+   "mean_step_across_block_edges_inside": 8.459,
+   "ratio": 1.119
   },
   "L2": {
    "edges": 40,
-   "mean_step_across_edges": 11.796,
-   "mean_step_inside_tiles": 11.11,
-   "ratio": 1.062
+   "mean_step_across_tile_edges": 14.176,
+   "mean_step_across_block_edges_inside": 12.994,
+   "ratio": 1.091
   },
   "L3": {
    "edges": 127,
-   "mean_step_across_edges": 11.629,
-   "mean_step_inside_tiles": 11.289,
-   "ratio": 1.03
+   "mean_step_across_tile_edges": 14.222,
+   "mean_step_across_block_edges_inside": 13.943,
+   "ratio": 1.02
   },
   "L4": {
    "edges": 542,
-   "mean_step_across_edges": 11.151,
-   "mean_step_inside_tiles": 10.801,
-   "ratio": 1.032
+   "mean_step_across_tile_edges": 13.572,
+   "mean_step_across_block_edges_inside": 12.974,
+   "ratio": 1.046
   }
  },
  "coastline_vs_game": {
   "level": 4,
   "pixels_within_3_units_of_coast": 7508074,
-  "disagreeing": 229743,
-  "disagreeing_share": 0.0306,
-  "disagreement_distance_units": {
-   "median": 0.125,
-   "p95": 2.431,
-   "max": 3.0
+  "disagreeing": 213827,
+  "of_which_coast_pixel_itself": 101409,
+  "of_which_inland_water_on_purpose": 39202,
+  "unexplained": 73216,
+  "unexplained_share": 0.009752,
+  "unexplained_game_sea_painted_as_land": 73198,
+  "unexplained_game_land_painted_as_sea": 18,
+  "unexplained_distance_units": {
+   "median": 0.14,
+   "p95": 0.576,
+   "max": 2.292
   },
-  "note": "sea/land as painted in the L4 tiles vs the game's coastline; distances in map units (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit)"
+  "note": "sea/land read from the L4 tiles' colours vs the game's coastline, within 3 map units of it (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit). img/coast-unexplained-L4.png marks (black) each 16x16 px block with an unexplained pixel."
  },
  "detail_gain_per_level": {
   "alps": {
@@ -65,28 +104,70 @@
    ],
    "levels": [
     {
+     "level": 0,
+     "px_per_unit": 1,
+     "symbols": {},
+     "hachure_strokes": 0
+    },
+    {
      "level": 1,
-     "laplacian_energy": 965.6,
-     "coarser_level_enlarged": 14.93,
-     "ratio": 64.68
+     "px_per_unit": 2,
+     "symbols": {
+      "mountain": 1,
+      "hill": 1
+     },
+     "hachure_strokes": 6,
+     "laplacian_energy": 3678.0,
+     "coarser_level_enlarged": 169.7,
+     "ratio": 21.68,
+     "paper_grain_alone": 0.9
     },
     {
      "level": 2,
-     "laplacian_energy": 3166.67,
-     "coarser_level_enlarged": 75.55,
-     "ratio": 41.92
+     "px_per_unit": 4,
+     "symbols": {
+      "mountain": 1,
+      "hill": 1,
+      "broadleaf": 43,
+      "conifer": 16
+     },
+     "hachure_strokes": 20,
+     "laplacian_energy": 6175.5,
+     "coarser_level_enlarged": 285.2,
+     "ratio": 21.65,
+     "paper_grain_alone": 0.8
     },
     {
      "level": 3,
-     "laplacian_energy": 3760.92,
-     "coarser_level_enlarged": 256.44,
-     "ratio": 14.67
+     "px_per_unit": 8,
+     "symbols": {
+      "mountain": 3,
+      "hill": 8,
+      "broadleaf": 251,
+      "conifer": 47,
+      "grass": 5
+     },
+     "hachure_strokes": 107,
+     "laplacian_energy": 7935.3,
+     "coarser_level_enlarged": 508.5,
+     "ratio": 15.61,
+     "paper_grain_alone": 0.7
     },
     {
      "level": 4,
-     "laplacian_energy": 3904.83,
-     "coarser_level_enlarged": 306.67,
-     "ratio": 12.73
+     "px_per_unit": 16,
+     "symbols": {
+      "mountain": 18,
+      "hill": 25,
+      "broadleaf": 1019,
+      "conifer": 179,
+      "grass": 54
+     },
+     "hachure_strokes": 544,
+     "laplacian_energy": 7649.6,
+     "coarser_level_enlarged": 653.0,
+     "ratio": 11.71,
+     "paper_grain_alone": 0.7
     }
    ]
   },
@@ -99,28 +180,69 @@
    ],
    "levels": [
     {
+     "level": 0,
+     "px_per_unit": 1,
+     "symbols": {},
+     "hachure_strokes": 0
+    },
+    {
      "level": 1,
-     "laplacian_energy": 2225.38,
-     "coarser_level_enlarged": 114.59,
-     "ratio": 19.42
+     "px_per_unit": 2,
+     "symbols": {
+      "mountain": 2
+     },
+     "hachure_strokes": 2,
+     "laplacian_energy": 5027.0,
+     "coarser_level_enlarged": 333.7,
+     "ratio": 15.06,
+     "paper_grain_alone": 0.9
     },
     {
      "level": 2,
-     "laplacian_energy": 4862.01,
-     "coarser_level_enlarged": 163.32,
-     "ratio": 29.77
+     "px_per_unit": 4,
+     "symbols": {
+      "mountain": 3,
+      "hill": 1,
+      "broadleaf": 101,
+      "conifer": 43
+     },
+     "hachure_strokes": 24,
+     "laplacian_energy": 8378.2,
+     "coarser_level_enlarged": 383.0,
+     "ratio": 21.88,
+     "paper_grain_alone": 0.6
     },
     {
      "level": 3,
-     "laplacian_energy": 4750.15,
-     "coarser_level_enlarged": 392.24,
-     "ratio": 12.11
+     "px_per_unit": 8,
+     "symbols": {
+      "mountain": 12,
+      "hill": 6,
+      "broadleaf": 370,
+      "conifer": 149,
+      "grass": 10
+     },
+     "hachure_strokes": 192,
+     "laplacian_energy": 7753.5,
+     "coarser_level_enlarged": 684.2,
+     "ratio": 11.33,
+     "paper_grain_alone": 0.5
     },
     {
      "level": 4,
-     "laplacian_energy": 4603.64,
-     "coarser_level_enlarged": 386.09,
-     "ratio": 11.92
+     "px_per_unit": 16,
+     "symbols": {
+      "mountain": 44,
+      "hill": 24,
+      "broadleaf": 1369,
+      "conifer": 514,
+      "grass": 56
+     },
+     "hachure_strokes": 1056,
+     "laplacian_energy": 7974.1,
+     "coarser_level_enlarged": 640.3,
+     "ratio": 12.45,
+     "paper_grain_alone": 0.5
     }
    ]
   },
@@ -133,28 +255,64 @@
    ],
    "levels": [
     {
+     "level": 0,
+     "px_per_unit": 1,
+     "symbols": {},
+     "hachure_strokes": 0
+    },
+    {
      "level": 1,
-     "laplacian_energy": 645.2,
-     "coarser_level_enlarged": 54.67,
-     "ratio": 11.8
+     "px_per_unit": 2,
+     "symbols": {
+      "hill": 1
+     },
+     "hachure_strokes": 0,
+     "laplacian_energy": 1255.6,
+     "coarser_level_enlarged": 31.9,
+     "ratio": 39.32,
+     "paper_grain_alone": 1.0
     },
     {
      "level": 2,
-     "laplacian_energy": 2751.97,
-     "coarser_level_enlarged": 53.99,
-     "ratio": 50.97
+     "px_per_unit": 4,
+     "symbols": {
+      "hill": 1,
+      "broadleaf": 54
+     },
+     "hachure_strokes": 0,
+     "laplacian_energy": 6330.8,
+     "coarser_level_enlarged": 106.4,
+     "ratio": 59.48,
+     "paper_grain_alone": 0.8
     },
     {
      "level": 3,
-     "laplacian_energy": 2629.13,
-     "coarser_level_enlarged": 226.8,
-     "ratio": 11.59
+     "px_per_unit": 8,
+     "symbols": {
+      "hill": 5,
+      "broadleaf": 234,
+      "grass": 3
+     },
+     "hachure_strokes": 1,
+     "laplacian_energy": 5855.7,
+     "coarser_level_enlarged": 527.4,
+     "ratio": 11.1,
+     "paper_grain_alone": 0.8
     },
     {
      "level": 4,
-     "laplacian_energy": 2869.15,
-     "coarser_level_enlarged": 216.46,
-     "ratio": 13.25
+     "px_per_unit": 16,
+     "symbols": {
+      "hill": 10,
+      "broadleaf": 911,
+      "marsh": 2,
+      "grass": 17
+     },
+     "hachure_strokes": 5,
+     "laplacian_energy": 5589.5,
+     "coarser_level_enlarged": 489.9,
+     "ratio": 11.41,
+     "paper_grain_alone": 0.8
     }
    ]
   }

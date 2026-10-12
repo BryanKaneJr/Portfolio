@@ -136,6 +136,15 @@ describe('tiles to draw', () => {
     expect(edge.relief_image).toBe('assets/map/relief-sea.png');
   });
 
+  test('once the needed level is opaque, the level below it is not drawn over the screen', () => {
+    for (let k = 0.3; k <= 5; k *= 1.05) {
+      const { screen, drawn } = view(2000, 850, k);
+      const p = pickLevel(TERRAIN_LEVELS, k, 3);
+      const levels = new Set(tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).map(t => t.level));
+      if (p.fine >= 2) expect(levels.has(p.fine - 1)).toBe(p.alpha < 1);
+    }
+  });
+
   test('a view outside the region draws nothing from it', () => {
     expect(tilesIn(TERRAIN_LEVELS[3], { x0: 100, y0: 100, x1: 400, y1: 400 })).toEqual([]);
   });

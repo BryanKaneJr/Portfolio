@@ -85,8 +85,15 @@ await settle(900);
 const selected = await page.evaluate(() => window.__coe.store.selection);
 await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.jpg'), type: 'jpeg', quality: 90 });
 
-// Measurements.
+// Measurements. The JS heap is read through the DevTools protocol (performance.memory is coarsened in headless
+// Chromium); decoded tile memory is computed from the tiles drawn (terrainStats), since images live outside the heap.
 const cdp = await page.context().newCDPSession(page);
+await cdp.send('Performance.enable');
+const heapMb = async () => {
+  const { metrics } = await cdp.send('Performance.getMetrics');
+  const m = metrics.find(x => x.name === 'JSHeapUsedSize');
+  return m ? +(m.value / 1048576).toFixed(1) : null;
+};
 const perf = {};
 for (const throttle of [1, 4]) {
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: throttle });
@@ -107,8 +114,7 @@ for (const throttle of [1, 4]) {
       );
       await settle(600);
       const t = s === 'illustrated' ? await page.evaluate(() => window.__coe.terrain()) : null;
-      const heap = await page.evaluate(() => (performance.memory ? performance.memory.usedJSHeapSize : null));
-      rows.push({ view: name, k, style: s, rerender_ms: Math.round(ms), tiles: t?.tiles ?? 0, tile_level: t?.level ?? null, decoded_mb: t ? +(t.decodedBytes / 1048576).toFixed(1) : 0, js_heap_mb: heap ? +(heap / 1048576).toFixed(1) : null });
+      rows.push({ view: name, k, style: s, rerender_ms: Math.round(ms), tiles: t?.tiles ?? 0, tile_level: t?.level ?? null, decoded_mb: t ? +(t.decodedBytes / 1048576).toFixed(1) : 0, js_heap_mb: await heapMb() });
     }
   }
   // Panning: a one-second drag across the map at play zoom, frame times sampled with requestAnimationFrame.
@@ -117,6 +123,13 @@ for (const throttle of [1, 4]) {
     await style(s);
     await look(2070, 900, 1.7);
     await page.evaluate(() => {
+      // Long tasks (over 50 ms) cover the re-render when the finger lifts, which a frame loop can miss.
+      window.__long = [];
+      window.__obs?.disconnect();
+      window.__obs = new PerformanceObserver(l => {
+        for (const e of l.getEntries()) window.__long.push(e.duration);
+      });
+      window.__obs.observe({ type: 'longtask' });
       window.__frames = [];
       let last = performance.now();
       const tick = now => {
@@ -135,9 +148,10 @@ for (const throttle of [1, 4]) {
     await page.mouse.up();
     await settle(1200);
     const frames = await page.evaluate(() => window.__frames.slice(2));
+    const long = await page.evaluate(() => window.__long);
     const sorted = [...frames].sort((a, b) => a - b);
     const p = q => +sorted[Math.min(sorted.length - 1, Math.floor(q * sorted.length))].toFixed(1);
-    pans[s] = { frames: frames.length, median_ms: p(0.5), p95_ms: p(0.95), max_ms: +Math.max(...frames).toFixed(1), over_33ms: frames.filter(f => f > 33.4).length };
+    pans[s] = { frames: frames.length, median_ms: p(0.5), p95_ms: p(0.95), max_ms: +Math.max(...frames).toFixed(1), over_33ms: frames.filter(f => f > 33.4).length, long_tasks: long.length, longest_task_ms: long.length ? Math.round(Math.max(...long)) : 0 };
   }
   perf[`cpu_x${throttle}`] = { views: rows, pan_at_play_zoom: pans };
 }

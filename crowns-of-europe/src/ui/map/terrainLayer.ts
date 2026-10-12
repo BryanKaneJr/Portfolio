@@ -8,8 +8,9 @@
  *
  * Levels: level L has PPU[L] pixels per map unit. A screen showing k points per map unit at `dpr` device pixels per
  * point needs k * dpr pixels per map unit; the layer draws the finest level it needs (allowing a little
- * magnification, SHARPNESS), the next coarser one under it so a tile still loading never shows a hole, and the
- * coarsest under everything (a few tiles cover the whole region, so a pan past the drawn area shows terrain).
+ * magnification, SHARPNESS), the next coarser one under it while the finer one fades in, and the coarsest under
+ * everything (a few tiles cover the whole region, so a pan past the drawn area, or a tile still loading, shows
+ * terrain, never a hole).
  */
 import type { TerrainLevel, TerrainTile } from './terrainTiles';
 
@@ -72,8 +73,9 @@ export interface DrawTile extends TerrainTile {
 
 /**
  * Every tile to draw for a view, bottom to top: the coarsest level over the whole drawn area (`drawn`: the SVG's
- * area, larger than the screen), then the level below the needed one and the needed one over the screen plus BUFFER,
- * the needed one at its fade-in opacity.
+ * area, larger than the screen), then over the screen plus BUFFER the needed level at its fade-in opacity, on the
+ * level below it while it is still fading in (once it is opaque, the level below could not be seen, so it is not
+ * drawn or decoded).
  */
 export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, screen: Rect, drawn: Rect): DrawTile[] {
   const { fine, alpha } = pickLevel(levels, k, dpr);
@@ -83,7 +85,7 @@ export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, scre
     for (const t of tilesIn(levels[l], r)) out.push({ ...t, level: l, opacity });
   };
   add(0, drawn, 1);
-  if (fine >= 2) add(fine - 1, near, 1);
+  if (fine >= 2 && alpha < 1) add(fine - 1, near, 1);
   if (fine >= 1 && alpha > 0) add(fine, near, alpha);
   return out;
 }

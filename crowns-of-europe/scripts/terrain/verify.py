@@ -11,7 +11,7 @@ crops in docs/terrain/img/).
 4. Real detail: each level against the level above it magnified 2x over the same area: the finer level must carry
    more fine detail (Laplacian energy), i.e. it is not the coarser picture enlarged.
 
-Run: python scripts/terrain/verify.py
+Run: python scripts/terrain/verify.py   [--only coastline_vs_game ...]
 """
 import json
 import math
@@ -118,7 +118,7 @@ def check_determinism(data, sprites):
         "raw_render_offsets": {"box_map_units": small, "overlapping_box": big, "max_abs_diff": int(raw.max()), "pixels_differing": int((raw.max(axis=2) > 0).sum()), "pixels": int(raw.shape[0] * raw.shape[1])},
         "shipped_tiles_across_band_boundary": {"band_boundary_y": boundary_y, "tiles": rows},
         "level2_rebuilt_byte_identical": f"{sum(rebuilt)}/{len(rebuilt)} tiles",
-        "note": "raw: the renderer gives the same pixels wherever a box starts (differences of 1 level are anti-aliasing rounding). Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
+        "note": "raw: the same symbols land in the same places wherever a box starts; the pixels differ only where Skia anti-aliases the combined hachure paths a little differently for a bigger box (a few hundredths of a percent of pixels). Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
     }
 
 
@@ -177,7 +177,9 @@ def check_coast():
         tx, ty = (int(v) for v in f_.stem.split("_"))
         t = np.asarray(Image.open(f_).convert("RGB"), np.int16)
         x0, y0 = int(round((max(REGION[0], tx * span) - REGION[0]) * ppu)), int(round((max(REGION[1], ty * span) - REGION[1]) * ppu))
-        sea = (t[..., 2] - t[..., 0] > 6) & (t[..., 2] > 140)  # the painted sea and inland water: bluer than red
+        # The painted sea and inland water are bluer than red (shallows by about 8, deeps by 26, ripple lines by 26);
+        # every land colour is redder than blue (farmland by about 48, forest 46, snow, the closest, 6).
+        sea = t[..., 2] - t[..., 0] > 0
         painted_land[y0 : y0 + t.shape[0], x0 : x0 + t.shape[1]] = ~sea
     coast = game_land ^ ndimage.binary_erosion(game_land)
     dist = ndimage.distance_transform_edt(~coast) / ppu  # map units from the game's coast
@@ -252,16 +254,27 @@ def check_detail(data):
 
 
 def main():
+    import argparse
+
+    checks = {
+        "determinism_and_band_seams": lambda d, sp: check_determinism(d, sp),
+        "tile_joins": lambda d, sp: check_joins(),
+        "coastline_vs_game": lambda d, sp: check_coast(),
+        "detail_gain_per_level": lambda d, sp: check_detail(d),
+    }
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--only", nargs="*", choices=list(checks), help="run only these checks (the others keep their last results)")
+    a = ap.parse_args()
     (OUT / "img").mkdir(parents=True, exist_ok=True)
     data = render.Data()
     sprites = sym.TreeSprites()
-    report = {
-        "determinism_and_band_seams": check_determinism(data, sprites),
-        "tile_joins": check_joins(),
-        "coastline_vs_game": check_coast(),
-        "detail_gain_per_level": check_detail(data),
-    }
-    (OUT / "verification.json").write_text(json.dumps(report, indent=1) + "\n")
+    path = OUT / "verification.json"
+    report = json.loads(path.read_text()) if a.only and path.exists() else {}
+    for name, fn in checks.items():
+        if not a.only or name in a.only:
+            report[name] = fn(data, sprites)
+    report = {name: report[name] for name in checks if name in report}
+    path.write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report, indent=1))
 
 
