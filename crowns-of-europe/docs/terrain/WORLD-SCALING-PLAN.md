@@ -99,14 +99,18 @@ L4 serves zooms from about k = 3.1 to K_MAX = 5 on 3× screens.
     native, using the same camera transform.
   - On the web, keep the SVG `<image>` path (it already performs well) or use CanvasKit.
   - See `ARCHITECTURE-AUDIT.md` for the comparison.
-- **Memory.**
-  - At play zoom on a 3× screen the layer draws one L0 tile, the L2 tiles under the screen and the L3 tiles over the
-    screen plus a 15% buffer: about 30–50 tiles, 1 MB each decoded (512² × 4 bytes).
-  - The LRU cache holds up to 160 tiles (about 160 MB decoded at worst on the web; native image caches may hold less).
+- **Memory.** Measured in the prototype (`perf.json`, 390 × 844 at 3×): the tiles on screen decode to 53–57 MB at
+  play zoom and 47 MB at the closest zoom, with a peak of 100 MB just after the finest level starts to fade in
+  (k ≈ 3.2), when two levels cover the screen.
+  - The level under the needed one is no longer drawn beneath it once the needed one is opaque.
+  - The level under the needed one does reach out over the whole drawn area, so pans stay sharp at the edges.
+  - The LRU cache asks for up to 160 tiles. On native, `Image.prefetch` gives nothing to release, so the platform's
+    image cache sets the real ceiling: measure it on devices.
   - For low-memory devices:
     - lower `CACHE_TILES`
-    - skip the L(fine-1) layer under the screen once the fine level has fully faded in
+    - lower `SHARPNESS` (switch a little later, so the 100 MB peak is shorter)
     - use 256 px tiles at L4, which reduces overdraw at the screen's edge
+    - move the tiles into a Skia canvas whose images can be disposed
 - **Level choice.** It is unchanged: the coarsest level sharp enough for the zoom and screen density, with the next
   finer one faded in. The tests in `tests/terrain.test.ts` already check coverage, monotonicity and the buffer limit
   for any level list.

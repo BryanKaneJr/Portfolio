@@ -5,7 +5,8 @@ crops in docs/terrain/img/).
 1. Determinism and band seams: a box straddling tile edges and the boundary between two render bands is rendered
    afresh and compared with the stitched tiles (only JPEG noise may differ).
 2. Tile joins: across every shared edge, the colour step between the two tiles' facing pixel columns/rows is compared
-   with the step between neighbouring columns/rows inside tiles (a seam would show as a much larger step).
+   with the step across a JPEG block edge inside the tiles; and, definitively, with the step at the same line in a
+   render that has no edge there (a seam would add a step the unsplit render does not have).
 3. Coastline: where a tile paints sea and where the game's own coastline (land.npy) says sea, at the finest level;
    disagreements are counted by distance from the game's coast.
 4. Real detail: each level against the level above it magnified 2x over the same area: the finer level must carry
@@ -150,6 +151,58 @@ def check_joins():
     return out
 
 
+def check_seams_vs_raw(data, sprites):
+    """The definitive seam test: at a tile edge, the colour step between the two tiles' facing pixels against the step
+    at the same line in a render with no edge there (one box drawn across it). Equal steps mean the edge adds
+    nothing but JPEG noise; a seam would add a step the unsplit render does not have. L0-L2 are drawn whole, every
+    edge measured; L3 and L4 at a sample of edges spread over the region, each drawn as a two-tile box."""
+    out = {}
+    for level in range(len(PPU)):
+        ppu = PPU[level]
+        span = TILE / ppu
+        tiles = {(t[0], t[1]): t for t in render.level_tiles(level)}
+        pairs = [((tx, ty), (tx + 1, ty), "v") for (tx, ty) in tiles if (tx + 1, ty) in tiles] + [((tx, ty), (tx, ty + 1), "h") for (tx, ty) in tiles if (tx, ty + 1) in tiles]
+        if level >= 3:
+            pairs = sorted(pairs, key=lambda p: (p[0][1] * 131 + p[0][0] * 31) % 97)[:12]  # a fixed, spread-out sample
+        whole = None
+        if level <= 2:
+            box = (min(t[2] for t in tiles.values()), min(t[3] for t in tiles.values()), max(t[4] for t in tiles.values()), max(t[5] for t in tiles.values()))
+            whole, _ = render.render_box(data, sprites, level, box)
+            whole = whole.astype(np.float32)
+        tile_steps, raw_steps = [], []
+        for a_, b_, kind in pairs:
+            ta, tb = tiles[a_], tiles[b_]
+            A, B = load_tile(level, *a_), load_tile(level, *b_)
+            if kind == "v":
+                if A.shape[0] != B.shape[0]:
+                    continue
+                tile_steps.append(np.abs(A[:, -1] - B[:, 0]).mean())
+                x = tb[2]
+                if whole is not None:
+                    c = int(round((x - box[0]) * ppu)); r0 = int(round((ta[3] - box[1]) * ppu))
+                    raw = whole[r0 : r0 + A.shape[0]]
+                else:
+                    raw, _ = render.render_box(data, sprites, level, (ta[2], ta[3], tb[4], tb[5]))
+                    raw = raw.astype(np.float32); c = A.shape[1]
+                raw_steps.append(np.abs(raw[:, c - 1] - raw[:, c]).mean())
+            else:
+                if A.shape[1] != B.shape[1]:
+                    continue
+                tile_steps.append(np.abs(A[-1] - B[0]).mean())
+                y = tb[3]
+                if whole is not None:
+                    r = int(round((y - box[1]) * ppu)); c0 = int(round((ta[2] - box[0]) * ppu))
+                    raw = whole[:, c0 : c0 + A.shape[1]]
+                else:
+                    raw, _ = render.render_box(data, sprites, level, (ta[2], ta[3], tb[4], tb[5]))
+                    raw = raw.astype(np.float32); r = A.shape[0]
+                raw_steps.append(np.abs(raw[r - 1] - raw[r]).mean())
+        if tile_steps:
+            ts, rs = np.array(tile_steps), np.array(raw_steps)
+            out[f"L{level}"] = {"edges_measured": len(ts), "mean_step_in_tiles": round(float(ts.mean()), 3), "mean_step_unsplit_render": round(float(rs.mean()), 3), "largest_excess_over_unsplit": round(float((ts - rs).max()), 3)}
+    return out
+
+
 def check_coast():
     """Where the L4 tiles paint sea against where the game's own coastline (land.npy) says sea, within 3 map units of
     the game's coast. Each disagreeing pixel is put down to one of: the coast pixel itself (the game's outline crosses
@@ -259,6 +312,7 @@ def main():
     checks = {
         "determinism_and_band_seams": lambda d, sp: check_determinism(d, sp),
         "tile_joins": lambda d, sp: check_joins(),
+        "seams_vs_unsplit_render": lambda d, sp: check_seams_vs_raw(d, sp),
         "coastline_vs_game": lambda d, sp: check_coast(),
         "detail_gain_per_level": lambda d, sp: check_detail(d),
     }
