@@ -86,6 +86,10 @@ Hard rules (from the plan, still in force):
    last check, so every new batch gets one (reviewers reading each recipe as a cook, plus `npm run audit:recipes`,
    whose `ratio` check flags leavening, yeast and salt per cup of flour, liquid per cup of grain, gelatin per cup of
    liquid, pasta and meat per serving, and oven and frying-oil settings).
+   Written recipes are also **checked against published ones** (owner, 2026-10-12: "find recipes on the internet…
+   compare against to see if they work… cut the least confident ones"): each is compared with 2–3 published versions
+   of the dish, numbers outside their shared range are fixed, and a recipe that matches one source across the board is
+   reworked from ratios (`docs/recipe-review/verification/`).
 
 ## Layout
 ```
@@ -181,6 +185,11 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   every batch gets the paper review (decision 18). Notes: `docs/import-notes/2026-10-11-round-5/`; review:
   `docs/recipe-review/round-5/` (36 of 120 fixed; the soft pretzels and layer bars were rewritten from ratios after a
   reviewer recognised published formulas).
+- **Checked against published recipes (2026-10-12):** nine checkers compared all 404 written recipes with 2–5
+  published versions each (1,208 sources cited). All work: 393 as written, 11 had one number outside the published
+  range and were fixed, none scored below 4 of 5, so none was cut. 16 matched one published recipe across the board
+  (Toll House cookies, Pioneer Woman tres leches, Eagle Brand fudge…) and were reworked from ratios, then checked the
+  same way. Scores, sources and notes for every recipe: `docs/recipe-review/verification/`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -198,6 +207,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
    `docs/recipe-review/`, round 5's 120 in `docs/recipe-review/round-5/` (36 fixed; two formulas a reviewer recognised
    as published ones were rewritten from ratios). New batches get the same: reviewers reading each recipe as a cook,
    plus `npm run audit:recipes`. The "cook-test first" lists are now lists of the riskiest recipes to re-read.
+   All 404 written recipes were then checked against published versions (`docs/recipe-review/verification/`); new
+   written batches get that check too. The 96 recipes scored 4 of 5 are the candidates if the owner wants a stricter
+   cut.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web
