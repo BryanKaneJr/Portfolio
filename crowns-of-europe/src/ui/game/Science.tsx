@@ -70,12 +70,15 @@ export function ScienceTab() {
       <View style={styles.funding}>
         <View style={{ flex: 1 }}>
           <Text style={styles.name}>Fund your scholars</Text>
-          <T v="tiny">+{Math.round(FUNDING_BOOST * 100)}% science for a tenth of your income ({fmt(fundingGold, 1)} gold a month)</T>
+          <T v="tiny">+{Math.round(FUNDING_BOOST * 100)}% science · {fmt(fundingGold, 1)} gold a month</T>
         </View>
         <Switch value={!!me.scienceFunding} onValueChange={v => void st.run(z => setScienceFunding(z, v))} trackColor={{ true: C.gold, false: C.parchmentLine }} testID="funding" />
       </View>
 
-      <Section title="Studying">
+      <Section
+        title="Studying"
+        help={`Learning lives in rich towns: raise the prosperity of your best regions, found universities (prosperity ${UNIVERSITY_MIN_DEV}+, +${UNIVERSITY_SCIENCE} a month each) and fund your scholars (a tenth of your income). Tap Science / month for where it comes from. Big realms pay more for each advance; an advance costs more the earlier you take it and less once your neighbours know it. Every three advances open a policy slot.`}
+      >
         {current && cost ? (
           <View>
             <Row style={{ justifyContent: 'space-between' }}>
@@ -84,11 +87,7 @@ export function ScienceTab() {
             </Row>
             <Bar value={me.science / cost.total} color={C.gold} height={8} />
             <Gives a={current} />
-            <Pressable onPress={() => setWhyCost(w => !w)} hitSlop={6}>
-              <T v="tiny" style={{ marginTop: 4, textDecorationLine: 'underline' }}>
-                {fmt(me.science)} of {fmt(cost.total)} science · why this cost?
-              </T>
-            </Pressable>
+            <Line label="Science" value={`${fmt(me.science)} / ${fmt(cost.total)}`} onPress={() => setWhyCost(w => !w)} />
             {whyCost ? (
               <View style={{ marginTop: 4 }}>
                 <Line label="Base cost" value={fmt(cost.base)} tone="muted" />
@@ -101,7 +100,7 @@ export function ScienceTab() {
         ) : (
           <View style={styles.idle}>
             <Icon name="book" size={18} color={C.red} />
-            <T v="small" style={{ flex: 1 }}>{open.size ? 'Nothing. Pick the next advance in one of the tracks below.' : 'Your scholars have learned everything.'}</T>
+            <T v="small" style={{ flex: 1 }}>{open.size ? 'Nothing: pick an advance below.' : 'Everything is learned.'}</T>
           </View>
         )}
       </Section>
@@ -132,7 +131,7 @@ export function ScienceTab() {
                 </Row>
                 <Text style={styles.desc}>{next.desc}</Text>
                 <Gives a={next} />
-                <Text style={styles.meta}>{me.researching === next.id ? 'Tap to stop' : 'Tap to study'} · historically about {next.year}</Text>
+                <Text style={styles.meta}>c. {next.year}</Text>
               </Pressable>
             ) : (
               <T v="tiny">{steps.every(a => knows(me, a.id)) ? 'All learned.' : 'Learn the earlier advances first.'}</T>
@@ -140,9 +139,6 @@ export function ScienceTab() {
           </Section>
         );
       })}
-      <T v="tiny" style={{ marginTop: 10 }}>
-        Learning lives in rich towns: raise the prosperity of your best regions, found universities (prosperity {UNIVERSITY_MIN_DEV}+, +{UNIVERSITY_SCIENCE} each) and fund your scholars. A small, rich realm can keep up with an empire: big realms pay more for each advance. Advances also cost more the earlier you take them and less once your neighbours know them. Every three advances open a policy slot.
-      </T>
     </View>
   );
 }

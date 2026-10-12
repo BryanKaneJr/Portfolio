@@ -26,7 +26,7 @@ import { UnchartedSheet, WildSheet } from './ColonySheets';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
-import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
+import { Btn, Empty, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
 
@@ -53,6 +53,8 @@ export function RegionSheet({ id }: { id: string }) {
   const canArt = unlocked(s, s.player, 'artillery');
   const canWarship = unlocked(s, s.player, 'warships');
   const nearMine = GRAPH[id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === s.player);
+  const integratedBy = NATION[owner] && r.cores.length ? `Integrated by ${r.cores.map(nationName).join(', ')}.` : '';
+  const fortNote = r.fort ? `Besieging a level ${r.fort} fort takes ${minSiegeRegs(r.fort)} regiments, and enemy forts stop armies marching past them.` : '';
   const coreIn = r.conquered !== undefined && !isCored(r) ? Math.max(0, Math.ceil((r.conquered + years(20) - s.day) / 365)) : null;
 
   return (
@@ -61,6 +63,7 @@ export function RegionSheet({ id }: { id: string }) {
       subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${FAITH_NAME[r.faith]}${def.hre ? ' · Holy Roman Empire' : ''}${def.trade ? ' · Trade centre' : ''}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
       left={<Shield nation={owner} size={30} />}
+      help={[integratedBy, 'Tap Income or Unrest for what makes them up; unrest above 7 can raise rebels.', fortNote].filter(Boolean).join(' ')}
     >
       <Row style={{ marginBottom: 8 }} gap={6}>
         <Btn small tone="secondary" label={nationName(owner)} onPress={() => st.select({ kind: 'nation', id: owner })} />
@@ -78,27 +81,26 @@ export function RegionSheet({ id }: { id: string }) {
       </Row>
       {why === 'unrest' ? (
         <View style={{ marginTop: 8 }}>
-          {unrest.length ? unrest.map(u => <Line key={u.label} label={u.label} value={signed(u.value, 1)} tone={u.value > 0 ? 'bad' : 'good'} />) : <T v="small">No unrest. Above 7, rebels may rise.</T>}
+          {unrest.length ? unrest.map(u => <Line key={u.label} label={u.label} value={signed(u.value, 1)} tone={u.value > 0 ? 'bad' : 'good'} />) : <Empty text="No unrest" />}
         </View>
       ) : null}
       {why === 'income' ? (
         <View style={{ marginTop: 8 }}>
-          <Line label={`Taxes (prosperity ${r.dev} × 0.3${isCored(r) ? '' : ', halved: not yet integrated'})`} value={fmt(tax, 2)} />
-          <Line label={def.trade ? 'Trade centre' : 'Trade (not a trade centre)'} value={fmt(trade, 2)} />
-          {def.good ? <Line label={`${GOOD_NAME[def.good]} (export, grows with prosperity)`} value={fmt(goods, 2)} /> : null}
-          {r.blockaded ? <Line label="Blockaded by an enemy fleet" value="−50%" tone="bad" /> : null}
-          {r.controller !== r.owner ? <Line label="Occupied: no income" value="0" tone="bad" /> : null}
+          <Line label="Taxes" value={fmt(tax, 2)} help={`Prosperity ${r.dev} × 0.3, times your order, ruler and modifiers${isCored(r) ? '' : '; halved until the region is integrated'}.`} />
+          <Line label="Trade" value={fmt(trade, 2)} help={def.trade ? 'A trade centre pays 1.2 + 0.12 per point of prosperity.' : 'Only trade centres earn trade.'} />
+          {def.good ? <Line label={GOOD_NAME[def.good]} value={fmt(goods, 2)} help="An export: it grows with prosperity." /> : null}
+          {r.blockaded ? <Line label="Blockaded" value="−50%" tone="bad" /> : null}
+          {r.controller !== r.owner ? <Line label="Occupied" value="0" tone="bad" /> : null}
         </View>
       ) : null}
-      {coreIn !== null && mine ? <T v="small" style={{ marginTop: 8 }}>Recently conquered: half taxes and levies until it is integrated (in {coreIn} years, or pay to integrate it now).</T> : null}
-      {r.converting ? <T v="small" style={{ marginTop: 6 }}>Missionaries are converting it to {FAITH_NAME[r.converting.to]}.</T> : null}
+      {coreIn !== null && mine ? <Line label="Integrated in" value={`${coreIn} years`} help="Until then it pays half its taxes and levies. Integrate now under Invest." /> : null}
+      {r.converting ? <Line label="Converting to" value={FAITH_NAME[r.converting.to]} /> : null}
       {r.siege ? (
-        <View style={{ marginTop: 8 }}>
-          <Line label={`Under siege by ${nationName(r.siege.by)}`} value={`${Math.round(r.siege.progress * 100)}%`} tone="bad" />
-          {siege && siege.daily > 0 ? <T v="tiny">About {Math.ceil((1 - r.siege.progress) / siege.daily)} days left at this pace. {r.fort > 0 ? 'Artillery speeds sieges up.' : ''}</T> : null}
-        </View>
-      ) : r.fort > 0 && r.owner !== s.player ? (
-        <T v="tiny" style={{ marginTop: 6 }}>Besieging this fort takes at least {minSiegeRegs(r.fort)} regiments. Enemy forts stop armies marching past them.</T>
+        <Line
+          label={`Besieged by ${nationName(r.siege.by)}`}
+          value={`${Math.round(r.siege.progress * 100)}%${siege && siege.daily > 0 ? ` · ~${Math.ceil((1 - r.siege.progress) / siege.daily)} days` : ''}`}
+          tone="bad"
+        />
       ) : null}
       {armiesHere.length ? (
         <Section title="Armies here">
@@ -109,14 +111,17 @@ export function RegionSheet({ id }: { id: string }) {
       ) : null}
 
       {mine ? (
-        <Section title="Invest">
+        <Section
+          title="Invest"
+          help={`Prosperity raises taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and here science too' : ''}. A fort slows sieges and stops enemy armies marching past (upkeep 0.35 gold a month). Integrated land pays full taxes and levies. A university adds ${UNIVERSITY_SCIENCE} science a month.`}
+        >
           <View style={{ gap: 6 }}>
-            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold · more taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and science' : ''}`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
-            <Btn tone="secondary" icon="castle" label={r.fort >= 3 ? 'Fort at maximum' : `Build fort level ${r.fort + 1}`} sub={r.fort >= 3 ? undefined : `${fortCost(s, r)} gold · +0.35 gold/mo upkeep`} disabled={r.fort >= 3 || me.gold < fortCost(s, r)} onPress={() => st.run(x => buildFort(x, id))} />
-            {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Integrate now" sub={`${coreCost(s, r)} gold · full taxes and levies`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
+            <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
+            <Btn tone="secondary" icon="castle" label={r.fort >= 3 ? 'Fort at maximum' : `Build fort level ${r.fort + 1}`} sub={r.fort >= 3 ? undefined : `${fortCost(s, r)} gold`} disabled={r.fort >= 3 || me.gold < fortCost(s, r)} onPress={() => st.run(x => buildFort(x, id))} />
+            {!isCored(r) ? <Btn tone="secondary" icon="shield" label="Integrate now" sub={`${coreCost(s, r)} gold`} disabled={me.gold < coreCost(s, r)} onPress={() => st.run(x => makeCore(x, id))} /> : null}
             {r.faith !== me.faith && !r.converting ? <Btn tone="secondary" icon="church" label={`Convert to ${FAITH_NAME[me.faith]}`} sub={`${convertCost(s, r)} gold · 12 months`} disabled={me.gold < convertCost(s, r)} onPress={() => st.run(x => convertRegion(x, id))} /> : null}
             {!r.university ? (
-              <Btn tone="secondary" icon="book" label="Found a university" sub={r.dev >= UNIVERSITY_MIN_DEV ? `${universityCost(s, s.player)} gold · +${UNIVERSITY_SCIENCE} science a month` : `needs prosperity ${UNIVERSITY_MIN_DEV}`} disabled={r.dev < UNIVERSITY_MIN_DEV || me.gold < universityCost(s, s.player)} onPress={() => st.run(x => foundUniversity(x, id))} testID="university" />
+              <Btn tone="secondary" icon="book" label="Found a university" sub={r.dev >= UNIVERSITY_MIN_DEV ? `${universityCost(s, s.player)} gold` : `needs prosperity ${UNIVERSITY_MIN_DEV}`} disabled={r.dev < UNIVERSITY_MIN_DEV || me.gold < universityCost(s, s.player)} onPress={() => st.run(x => foundUniversity(x, id))} testID="university" />
             ) : null}
             {me.capital !== id && isCored(r) ? <Btn small tone="ghost" label="Move capital here (100 gold)" onPress={() => st.run(x => moveCapital(x, id))} /> : null}
           </View>
@@ -144,10 +149,10 @@ export function RegionSheet({ id }: { id: string }) {
         </Section>
       ) : null}
       {!mine ? (
-        <Section title="Options">
+        <Section title="Options" help="A claim gives you a reason for war, and the land costs less leverage in a peace.">
           <View style={{ gap: 6 }}>
             {nearMine && !(id in me.claims) ? (
-              <Btn tone="secondary" icon="scroll" label={me.fabricating ? `Clerks busy (${REGION[me.fabricating.region].name})` : 'Forge a claim'} sub={`${FABRICATE_COST} gold · 1 year · gives a reason for war`} disabled={!!me.fabricating} onPress={() => st.run(x => fabricateClaim(x, id))} />
+              <Btn tone="secondary" icon="scroll" label={me.fabricating ? `Clerks busy (${REGION[me.fabricating.region].name})` : 'Forge a claim'} sub={`${FABRICATE_COST} gold · 1 year`} disabled={!!me.fabricating} onPress={() => st.run(x => fabricateClaim(x, id))} />
             ) : null}
             {me.faith === 'catholic' && sanctionTargets(s, s.player).includes(id) ? (
               <Btn tone="secondary" icon="church" label="Ask the Pope for a claim" sub={`${SANCTION_COST} Papal Favor (you have ${Math.floor(me.papalFavor)})`} disabled={me.papalFavor < SANCTION_COST} onPress={() => st.run(x => requestSanction(x, id))} />
@@ -156,9 +161,6 @@ export function RegionSheet({ id }: { id: string }) {
           </View>
         </Section>
       ) : null}
-      <T v="tiny" style={{ marginTop: 10 }}>
-        {NATION[owner] ? `Integrated by: ${r.cores.map(nationName).join(', ')}.` : ''} Tap a region with your army selected to march there.
-      </T>
     </Sheet>
   );
 }

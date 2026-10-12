@@ -1,6 +1,6 @@
 /** Colonies in the UI: the uncharted New World, uncolonized regions (there and on the African coast), colonies being settled, and the Colonies tab. */
 import { View } from 'react-native';
-import { MAP_REGION, NATION, REGION, nationName } from '../../sim/content';
+import { NATION, REGION, nationName } from '../../sim/content';
 import {
   COLONY_COST,
   COLONY_UPKEEP,
@@ -43,16 +43,17 @@ export function UnchartedSheet() {
   const s = st.state!;
   const why = canSendExpedition(s, s.player);
   return (
-    <Sheet title="Uncharted" subtitle="Beyond the western ocean" onClose={() => st.select(null)}>
-      <T v="small">
-        No European ship has come back from these waters yet. Captains whisper of islands to the west and a short way to the Indies. Fund an expedition and you may be the first to find out
-        what is there; by {DISCOVERY_YEAR} every pilot in Lisbon will know the way anyway.
-      </T>
+    <Sheet
+      title="Uncharted"
+      subtitle="Beyond the western ocean"
+      onClose={() => st.select(null)}
+      help={`Fund an expedition and you may be the first to find what lies west; by ${DISCOVERY_YEAR} the way becomes common knowledge anyway. Armies and fleets can’t enter uncharted lands and waters.`}
+    >
+      <T v="small">No ship has come back from these waters yet.</T>
       <View style={{ marginTop: 10, gap: 6 }}>
         <Btn icon="ship" label={s.nations[s.player].expedition ? 'Your expedition is at sea' : 'Fund an expedition west'} sub={s.nations[s.player].expedition ? `Back around ${formatDate(s.nations[s.player].expedition!.done)}` : `${EXPEDITION_COST} gold · back in about ${EXPEDITION_MONTHS} months`} disabled={!!why} onPress={() => st.run(fundExpedition)} testID="expedition" />
         {why && !s.nations[s.player].expedition ? <T v="tiny">{why}</T> : null}
       </View>
-      <T v="tiny" style={{ marginTop: 10 }}>Armies and fleets can’t enter uncharted lands and waters.</T>
     </Sheet>
   );
 }
@@ -71,13 +72,13 @@ export function WildSheet({ id }: { id: string }) {
   const risk = c ? attackChance(s, r) : 0;
   const armiesHere = Object.values(s.armies).filter(a => a.node === id);
   const hostility = def.hostility ?? 0;
-  const coastal = MAP_REGION[id].seas.length > 0;
   return (
     <Sheet
       title={def.name}
       subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${c ? 'Colony being settled' : 'Uncolonized'}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
       left={c ? <Shield nation={c.by} size={30} /> : undefined}
+      help="Uncolonized land belongs to no crown: any army may enter it, but no one can besiege it or win it in a peace."
     >
       <Row gap={6}>
         <Stat label="Natives" value={r.natives > 0 ? `${fmt(r.natives, 1)}k` : 'None'} icon="manpower" />
@@ -85,7 +86,11 @@ export function WildSheet({ id }: { id: string }) {
         <Stat label="Export" value={def.good ? GOOD_NAME[def.good] : 'None'} icon="coins" />
       </Row>
       {c ? (
-        <Section title={mine ? 'Your colony' : `${nationName(c.by)}’s colony`} right={<T v="tiny">{fmt(c.settlers)} / {fmt(SETTLERS_NEEDED)} settlers</T>}>
+        <Section
+          title={mine ? 'Your colony' : `${nationName(c.by)}’s colony`}
+          right={<T v="tiny">{fmt(c.settlers)} / {fmt(SETTLERS_NEEDED)} settlers</T>}
+          help={`At ${fmt(SETTLERS_NEEDED)} settlers the colony becomes a region of its founder's; until then it costs ${COLONY_UPKEEP} gold a month. A native attack kills settlers, and if they all die the colony is lost; any regiment of the founder's standing here keeps them safe.`}
+        >
           <Bar value={c.settlers / SETTLERS_NEEDED} color={NATION[c.by]?.color ?? C.gold} height={8} />
           <View style={{ marginTop: 8 }}>
             {growth.map(g => (
@@ -93,30 +98,22 @@ export function WildSheet({ id }: { id: string }) {
             ))}
             <Line label="Settlers per month" value={fmt(perMonth, 1)} bold />
             <Line label="Founded in about" value={`${Math.max(1, Math.ceil((SETTLERS_NEEDED - c.settlers) / perMonth / 12))} years`} />
-            {r.natives > 0 ? <Line label="Chance of a native attack each month" value={`${Math.round(risk * 100)}%`} tone={risk > 0 ? 'bad' : 'good'} /> : null}
+            {r.natives > 0 ? <Line label="Native attacks" value={`${Math.round(risk * 100)}% a month`} tone={risk > 0 ? 'bad' : 'good'} /> : null}
           </View>
           {mine ? (
             <View style={{ gap: 6, marginTop: 8 }}>
-              <T v="tiny">
-                {risk > 0 ? 'An attack kills settlers; if they all die the colony is lost. Any regiment of yours standing here keeps them safe. ' : r.natives > 0 ? 'Your troops here keep the settlers safe. ' : ''}
-                At {fmt(SETTLERS_NEEDED)} settlers the colony becomes a region of yours. It costs {COLONY_UPKEEP} gold a month until then.
-              </T>
               <Btn small tone="ghost" label="Abandon the colony" onPress={() => st.run(x => abandonPlayerColony(x, id))} />
             </View>
           ) : null}
         </Section>
       ) : (
-        <Section title="Settle it">
-          <T v="small">
-            {r.natives > 0
-              ? `About ${fmt(r.natives * 1000)} natives live here${hostility >= 2 ? ' and will fight settlers' : ''}. They slow a colony down; when it is founded they join it and make it more prosperous.`
-              : 'No one lives here: settlers will have the land to themselves.'}
-            {def.good ? ` Once founded, its ${GOOD_NAME[def.good].toLowerCase()} pays you on top of taxes.` : ''}
-          </T>
-          <View style={{ gap: 6, marginTop: 8 }}>
+        <Section
+          title="Settle it"
+          help={`Natives slow a colony down${hostility >= 2 ? ' and these will fight settlers' : ''}; once it is founded they join it and make it more prosperous.${def.good ? ` Its ${GOOD_NAME[def.good].toLowerCase()} then pays you on top of taxes.` : ''} Inland land can only be settled from a region of yours next door.`}
+        >
+          <View style={{ gap: 6 }}>
             <Btn icon="ship" label="Start a colony" sub={`${COLONY_COST} gold, then ${COLONY_UPKEEP} gold/mo · uses a colonist`} disabled={!!blocked} onPress={() => st.run(x => colonize(x, id))} testID="colonize" />
             {blocked ? <T v="tiny">{blocked}</T> : null}
-            {!coastal ? <T v="tiny">Inland: you can only settle here from a region of yours next door.</T> : null}
           </View>
         </Section>
       )}
@@ -127,7 +124,6 @@ export function WildSheet({ id }: { id: string }) {
           ))}
         </Section>
       ) : null}
-      <T v="tiny" style={{ marginTop: 10 }}>Uncolonized land belongs to no crown: any army may enter it, but no one can besiege it or win it in a peace deal.</T>
     </Sheet>
   );
 }
@@ -146,28 +142,26 @@ export function ColoniesTab() {
   return (
     <View>
       {!s.discovery ? (
-        <Section title="The western ocean">
-          <T v="small">
-            Nobody in Europe knows what lies across the Atlantic. Fund an expedition and you may find a New World first: renown, and an extra colonist for 30 years. If nobody does, the way west
-            becomes common knowledge in {DISCOVERY_YEAR}.
-          </T>
-          <View style={{ marginTop: 8, gap: 6 }}>
+        <Section
+          title="The western ocean"
+          help={`Find a New World first for renown and an extra colonist for 30 years; if nobody does, the way west becomes common knowledge in ${DISCOVERY_YEAR}. Closer to home, the African coast from Arguin to the Gold Coast can be settled once you know Caravels: tap a pale region there.`}
+        >
+          <View style={{ gap: 6 }}>
             <Btn icon="ship" label={me.expedition ? 'Your expedition is at sea' : 'Fund an expedition west'} sub={me.expedition ? `Back around ${formatDate(me.expedition.done)}` : `${EXPEDITION_COST} gold · back in about ${EXPEDITION_MONTHS} months`} disabled={!!why} onPress={() => st.run(fundExpedition)} testID="menu-expedition" />
             {why && !me.expedition ? <T v="tiny">{why}</T> : null}
           </View>
-          <T v="small" style={{ marginTop: 8 }}>Closer to home, the African coast from Arguin to the Gold Coast can be settled once you know Caravels: tap a pale region there.</T>
         </Section>
       ) : (
         <T v="small" style={{ marginBottom: 6 }}>
-          The New World was found on {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}. Tap a pale, uncolonized region on the map to settle it.
+          New World found {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}.
         </T>
       )}
-      <Section title="Colonists" right={<Pill text={`${settling.length} / ${total} busy`} color={total ? C.greenSoft : C.parchment2} />}>
-        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="You have no colonists yet." />}
-        <T v="tiny" style={{ marginTop: 4 }}>
-          Each colonist settles one colony at a time. Get them from the Overseas Charters policy (era 3), from being first to the New World, from events and missions, and from era 3 if
-          your realm is large (30+ prosperity) and has an ocean coast.
-        </T>
+      <Section
+        title="Colonists"
+        right={<Pill text={`${settling.length} / ${total} busy`} color={total ? C.greenSoft : C.parchment2} />}
+        help="Each colonist settles one colony at a time; tap a pale, uncolonized region to start one. Colonists come from the Overseas Charters policy, from being first to the New World, from events and missions, and in the third era to a large realm (30+ prosperity) with an ocean coast."
+      >
+        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="None yet" />}
       </Section>
       <Section title="Being settled">
         {settling.length ? (
@@ -179,11 +173,11 @@ export function ColoniesTab() {
             </View>
           ))
         ) : (
-          <Empty text={total ? 'No colonies under way. Tap uncolonized land to start one.' : 'No colonies under way.'} />
+          <Empty text="None under way" />
         )}
       </Section>
       <Section title="Your lands across the ocean" right={goods ? <T v="tiny">+{fmt(goods, 1)} gold/mo from exports</T> : undefined}>
-        {owned.length ? owned.map(r => <Line key={r.id} label={REGION[r.id].name} value={REGION[r.id].good ? `${GOOD_NAME[REGION[r.id].good!]} +${fmt(goodsIncome(s, r), 1)}` : '–'} />) : <Empty text="None yet." />}
+        {owned.length ? owned.map(r => <Line key={r.id} label={REGION[r.id].name} value={REGION[r.id].good ? `${GOOD_NAME[REGION[r.id].good!]} +${fmt(goodsIncome(s, r), 1)}` : '–'} />) : <Empty text="None yet" />}
       </Section>
     </View>
   );

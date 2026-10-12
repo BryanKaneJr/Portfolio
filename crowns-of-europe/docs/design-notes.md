@@ -163,6 +163,12 @@ here.
     so the army sits in the clear space above it, so the land around it can be tapped (a tall sheet used to cover
     it, which is why armies seemed impossible to move); while you give orders, a near miss on another of your
     units is a march order, and switching units takes a tap on its token.
+19. **Say less; explain on request (on request).** Screens had grown sentences everywhere: under each general
+    what their stars add, under the leverage what you could ask for, a rule under most sections. Now a screen
+    says what things are and what you can do, in a few words; how a rule works sits behind a small gold "?" in a
+    circle (on a sheet or page header, a section title or a line) that opens a short note in place, and numbers
+    open their breakdowns when tapped. Long-form teaching is in How to play and the one-time hints (which now also
+    show while a sheet is open, at the top, so the first army you select gets its tip).
 
 ## Key numbers (all in `src/sim/`)
 

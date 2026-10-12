@@ -11,12 +11,14 @@ import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withSpring, withTi
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Glass } from '../components/Glass';
 import { Icon } from '../components/Icon';
+import { HelpButton, HelpNote } from '../components/kit';
 import { G, R, display, sans } from '../theme';
 import { dockTop, sheetHeight } from '../layout';
 
 const SPRING = { damping: 22, stiffness: 240, mass: 0.8 };
 
-export function Sheet({ title, subtitle, left, onClose, children, footer, compact }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode; compact?: boolean }) {
+export function Sheet({ title, subtitle, left, onClose, children, footer, compact, help }: { title: string; subtitle?: string; left?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode; compact?: boolean; help?: ReactNode }) {
+  const [helpOpen, setHelpOpen] = useState(false);
   const { height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [full, setFull] = useState(false);
@@ -71,6 +73,7 @@ export function Sheet({ title, subtitle, left, onClose, children, footer, compac
                   </Text>
                 ) : null}
               </View>
+              {help ? <HelpButton open={helpOpen} onPress={() => setHelpOpen(o => !o)} label={`About ${title}`} /> : null}
               <Pressable onPress={onClose} hitSlop={10} style={({ pressed }) => [styles.close, pressed && { opacity: 0.6 }]} accessibilityLabel="Close">
                 <Icon name="close" size={15} color={G.text2} />
               </Pressable>
@@ -78,6 +81,7 @@ export function Sheet({ title, subtitle, left, onClose, children, footer, compac
           </View>
         </GestureDetector>
         <ScrollView style={{ flexGrow: 0, flexShrink: 1 }} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }} keyboardShouldPersistTaps="handled">
+          {helpOpen ? <HelpNote style={{ marginBottom: 6 }}>{help}</HelpNote> : null}
           {children}
         </ScrollView>
         {footer ? <View style={styles.footer}>{footer}</View> : null}

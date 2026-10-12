@@ -2,7 +2,7 @@
  * Small building blocks shared by every screen, in the "gilded glass" look (see theme.ts): capsule buttons, grouped
  * lists with hairlines, gilded section headers, stat tiles and a segmented control.
  */
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type TextStyle, type ViewStyle } from 'react-native';
 import { C, G, R, S, display, displaySemi, sans } from '../theme';
 import { Icon, type IconName } from './Icon';
@@ -137,14 +137,51 @@ export function Stat({ label, value, tone, onPress, icon }: { label: string; val
   );
 }
 
-/** A row in a grouped list: what on the left, how much on the right, a hairline between rows. */
-export function Line({ label, value, tone, bold }: { label: string; value: string; tone?: 'good' | 'bad' | 'muted'; bold?: boolean }) {
+/**
+ * The game's one way to explain: a small "?" in a circle. Screens say what things are and what you can do; how a
+ * rule works sits behind one of these (on a sheet or page header, a section title or a line) and opens in place.
+ */
+export function HelpButton({ open, onPress, label = 'Explain' }: { open: boolean; onPress: () => void; label?: string }) {
   return (
-    <View style={styles.line}>
-      <Text style={[styles.lineLabel, bold && { color: G.text, fontWeight: '700' }]} numberOfLines={2}>
-        {label}
-      </Text>
+    <Pressable onPress={onPress} hitSlop={10} accessibilityRole="button" accessibilityLabel={open ? 'Hide the explanation' : label} style={({ pressed }) => [styles.help, open && styles.helpOn, pressed && { opacity: 0.6 }]}>
+      <Text style={[styles.helpQ, open && { color: '#1a1408' }]}>?</Text>
+    </Pressable>
+  );
+}
+
+/** What a "?" opens: a short note with a gilt edge. */
+export function HelpNote({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
+  return <View style={[styles.helpNote, style]}>{typeof children === 'string' ? <Text style={styles.helpText}>{children}</Text> : children}</View>;
+}
+
+/** A row in a grouped list: what on the left, how much on the right, a hairline between rows (`help`: a "?";
+ * `onPress`: a chevron, for a breakdown). */
+export function Line({ label, value, tone, bold, help, onPress }: { label: string; value: string; tone?: 'good' | 'bad' | 'muted'; bold?: boolean; help?: ReactNode; onPress?: () => void }) {
+  const [open, setOpen] = useState(false);
+  const inner = (
+    <View style={[styles.line, open && { borderBottomWidth: 0 }]}>
+      <View style={styles.lineLeft}>
+        <Text style={[styles.lineLabel, bold && { color: G.text, fontWeight: '700' }]} numberOfLines={2}>
+          {label}
+        </Text>
+        {help ? <HelpButton open={open} onPress={() => setOpen(o => !o)} label={`About ${label}`} /> : null}
+      </View>
       <Text style={[styles.lineValue, bold && { fontWeight: '800' }, tone === 'good' && { color: G.good }, tone === 'bad' && { color: G.bad }, tone === 'muted' && { color: G.text3 }]}>{value}</Text>
+      {onPress ? <Icon name="chevron" size={11} color={G.text3} /> : null}
+    </View>
+  );
+  const row = onPress ? (
+    <Pressable onPress={onPress} style={({ pressed }) => [pressed && { opacity: 0.6 }]} accessibilityRole="button" accessibilityLabel={`${label}: ${value}`}>
+      {inner}
+    </Pressable>
+  ) : (
+    inner
+  );
+  if (!help) return row;
+  return (
+    <View>
+      {row}
+      {open ? <HelpNote style={{ marginBottom: 8 }}>{help}</HelpNote> : null}
     </View>
   );
 }
@@ -168,17 +205,20 @@ export function Bar({ value, color = G.gold, back = G.raised, height = 6 }: { va
   );
 }
 
-/** A section: its name in gilded capitals with a fine rule running off to the right (and an optional action). */
-export function Section({ title, children, right }: { title: string; children: ReactNode; right?: ReactNode }) {
+/** A section: its name in gilded capitals with a fine rule running off to the right (an optional action; `help`: a "?"). */
+export function Section({ title, children, right, help }: { title: string; children: ReactNode; right?: ReactNode; help?: ReactNode }) {
+  const [open, setOpen] = useState(false);
   return (
     <View style={{ marginTop: S.lg }}>
       <Row style={{ marginBottom: 8 }}>
         <Text style={styles.sectionTitle} numberOfLines={1}>
           {title}
         </Text>
+        {help ? <HelpButton open={open} onPress={() => setOpen(o => !o)} label={`About ${title}`} /> : null}
         <View style={styles.sectionRule} />
         {right}
       </Row>
+      {open ? <HelpNote style={{ marginBottom: 10 }}>{help}</HelpNote> : null}
       {children}
     </View>
   );
@@ -234,10 +274,16 @@ export const styles = StyleSheet.create({
   badgeText: { color: '#fff', fontSize: 11, fontWeight: '800', fontFamily: sans },
   card: { backgroundColor: G.group, borderRadius: R.md, padding: S.md },
   stat: { backgroundColor: G.group, borderRadius: R.md, paddingVertical: 9, paddingHorizontal: 11 },
-  statLabel: { fontFamily: sans, fontSize: 10.5, color: G.text3, textTransform: 'uppercase', letterSpacing: 0.7, fontWeight: '600', flexShrink: 1 },
+  statLabel: { fontFamily: sans, fontSize: 10.5, color: G.text3, textTransform: 'uppercase', letterSpacing: 0.3, fontWeight: '600', flexShrink: 1 },
   statValue: { fontFamily: sans, fontSize: 19, color: G.text, fontWeight: '700', fontVariant: ['tabular-nums'] },
   line: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 9, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.parchmentLine, gap: 12 },
-  lineLabel: { fontFamily: sans, fontSize: 15, color: G.text2, flex: 1 },
+  lineLeft: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7 },
+  lineLabel: { fontFamily: sans, fontSize: 15, color: G.text2, flexShrink: 1 },
+  help: { width: 20, height: 20, borderRadius: 10, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: G.gilt, backgroundColor: 'rgba(214,178,110,0.08)' },
+  helpOn: { backgroundColor: G.gold, borderColor: G.gold },
+  helpQ: { fontFamily: sans, fontSize: 12, fontWeight: '800', color: G.gold, marginTop: -1 },
+  helpNote: { backgroundColor: 'rgba(214,178,110,0.07)', borderLeftWidth: 2, borderLeftColor: G.gold, borderRadius: 8, paddingVertical: 9, paddingHorizontal: 12 },
+  helpText: { fontFamily: sans, fontSize: 13, color: G.text2, lineHeight: 18.5 },
   lineValue: { fontFamily: sans, fontSize: 15, color: G.text, fontWeight: '600', fontVariant: ['tabular-nums'] },
   sectionTitle: { fontFamily: displaySemi, fontSize: 12.5, color: G.gold, letterSpacing: 1.6, textTransform: 'uppercase', flexShrink: 1 },
   sectionRule: { flex: 1, height: StyleSheet.hairlineWidth * 2, backgroundColor: G.gilt, opacity: 0.6, minWidth: 12 },

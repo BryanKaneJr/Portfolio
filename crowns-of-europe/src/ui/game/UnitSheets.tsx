@@ -12,12 +12,12 @@ import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
 import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
-import { Bar, Btn, Line, Row, Section, Stars, Stat, T } from '../components/kit';
+import { Bar, Btn, Empty, Line, Row, Section, Stars, Stat, T } from '../components/kit';
 import { C, G, fmt, kmen, sans } from '../theme';
 import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
 import { charted } from '../../sim/colonies';
-import { STAR_BONUS, rulerAsGeneral, starBonus } from '../../sim/rulers';
+import { STAR_BONUS, rulerAsGeneral } from '../../sim/rulers';
 import { UnchartedSheet } from './ColonySheets';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
@@ -73,11 +73,7 @@ export function ArmySheet({ id }: { id: string }) {
       </Section>
     ) : (
       <View style={{ marginTop: 12 }}>
-        <View style={styles.marchHint}>
-          <Icon name="target" size={15} color={G.gold} />
-          <Text style={styles.marchText}>{a.battle || a.retreating ? 'Orders wait until the army is free.' : 'Tap any region on the map to march there.'}</Text>
-        </View>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
           {a.path.length && !a.retreating ? <Btn small tone="secondary" label="Stop" onPress={() => st.run(x => stopArmy(x, a.id))} /> : null}
           {others.length ? <Btn small tone="secondary" label={`Merge (${others.length + 1})`} onPress={() => st.run(x => mergeAt(x, a.id))} /> : null}
           <Btn small tone="secondary" label="Split in half" onPress={() => st.run(x => splitHalf(x, a.id))} />
@@ -90,7 +86,14 @@ export function ArmySheet({ id }: { id: string }) {
   const ruler = mine ? rulerAsGeneral(s, s.player) : null;
 
   return (
-    <Sheet title={a.name} subtitle={`${owner} · ${status}`} left={<Shield nation={a.owner} size={30} />} onClose={() => st.select(null)} compact={mine}>
+    <Sheet
+      title={a.name}
+      subtitle={`${owner} · ${status}`}
+      left={<Shield nation={a.owner} size={30} />}
+      onClose={() => st.select(null)}
+      compact={mine}
+      help={mine ? 'Tap any region on the map to march there; the dashed line is the route. Tap another of your tokens to switch to it.' : undefined}
+    >
       <Row gap={6}>
         <Stat label="Regiments" value={`${regs}`} icon="flag" />
         <Stat label="Men" value={kmen(men)} tone={men < regs * 700 ? 'bad' : undefined} icon="manpower" />
@@ -100,19 +103,15 @@ export function ArmySheet({ id }: { id: string }) {
         <Bar value={a.morale / max} color={C.green} />
       </View>
       {orders}
-      <Section title="General">
-        {a.general ? (
-          <GeneralRow name={a.general.isRuler ? `${a.general.name} (your ruler)` : a.general.name} stars={a.general.stars} note={`In command · +${Math.round(starBonus(a.general) * 100)}% to all the army does`} />
-        ) : (
-          <T v="small">No general. Each star a general has adds {Math.round(STAR_BONUS * 100)}% to everything the army does: its damage in battle, its steadiness, its march and its sieges.</T>
-        )}
+      <Section title="General" help={`Each star adds ${Math.round(STAR_BONUS * 100)}% to everything the army does: damage in battle, steadiness, march and siege speed. Your ruler can lead in person; if they fall, the heir takes the throne.`}>
+        {picking ? null : a.general ? <GeneralRow name={a.general.isRuler ? `${a.general.name} (ruler)` : a.general.name} stars={a.general.stars} /> : <Empty text="No general" />}
         {mine ? (
           picking ? (
             <View style={{ gap: 2, marginTop: 6 }}>
               {me.generals.map(g => (
                 <GeneralRow key={g.id} name={g.name} stars={g.stars} onPress={() => (st.run(x => assignGeneral(x, a.id, g.id)), setPicking(false))} />
               ))}
-              {ruler ? <GeneralRow name={`Lead in person: ${me.ruler.name}`} stars={ruler.stars} note="Risky: if they fall, the heir takes over" onPress={() => (st.run(x => assignGeneral(x, a.id, 'ruler')), setPicking(false))} /> : null}
+              {ruler ? <GeneralRow name={`${me.ruler.name} (ruler, in person)`} stars={ruler.stars} onPress={() => (st.run(x => assignGeneral(x, a.id, 'ruler')), setPicking(false))} /> : null}
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 6 }}>
                 <Btn small tone="secondary" label={`Hire a general (${GENERAL_COST} gold)`} onPress={() => st.run(hireGeneral)} />
                 {a.general ? <Btn small tone="ghost" label="Remove general" onPress={() => (st.run(x => assignGeneral(x, a.id, null)), setPicking(false))} /> : null}
@@ -137,23 +136,21 @@ export function ArmySheet({ id }: { id: string }) {
         {a.mercs ? <Line label="Mercenary regiments" value={`${a.mercs}`} tone="muted" /> : null}
       </Section>
       {atRegion && a.owner !== REBELS ? (
-        <Section title="Supply">
-          <Line label={`Supply limit in ${regionName(a.node)}`} value={`${friendlyRegs} / ${supply} regiments`} tone={friendlyRegs > supply ? 'bad' : 'good'} />
-          {friendlyRegs > supply ? <T v="tiny">Too many regiments here: you lose men to attrition every month. Split the army or move on.</T> : null}
+        <Section title="Supply" help="Each region feeds only so many regiments. Above that, every army there loses men each month, worse in northern and eastern winters: split up or move on.">
+          <Line label={friendlyRegs > supply ? 'Over the limit: losing men' : `Supply in ${regionName(a.node)}`} value={`${friendlyRegs} / ${supply}`} tone={friendlyRegs > supply ? 'bad' : 'good'} />
         </Section>
       ) : null}
       {reg && reg.owner !== a.owner && reg.controller !== a.owner ? (
-        <Section title="Siege">
+        <Section title="Siege" help="A fort needs 3 regiments per level to besiege; land without one falls in 15 days. Artillery (+10% each) and a general’s stars speed a siege up.">
           {siege?.enough ? (
             <>
-              <Line label={reg.fort ? `Besieging the fort (level ${reg.fort})` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}%`} />
+              <Line label={reg.fort ? `Fort level ${reg.fort}` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}% · ~${Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days`} />
               <Bar value={reg.siege?.progress ?? 0} color={C.red} />
-              <T v="tiny" style={{ marginTop: 4 }}>About {Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days left. {reg.fort ? 'Artillery and a general speed it up.' : ''}</T>
             </>
           ) : siege ? (
-            <T v="small">Needs {minSiegeRegs(reg.fort)} regiments to besiege this fort.</T>
+            <T v="small">Needs {minSiegeRegs(reg.fort)} regiments.</T>
           ) : (
-            <T v="small">Not at war with the region’s holder, or enemies are here.</T>
+            <T v="small">Not at war with them, or enemies are here.</T>
           )}
         </Section>
       ) : null}
@@ -161,7 +158,7 @@ export function ArmySheet({ id }: { id: string }) {
   );
 }
 
-/** A general: name, what their stars add, and the stars themselves. */
+/** A general: their name and their stars. */
 export function GeneralRow({ name, stars, note, onPress }: { name: string; stars: number; note?: string; onPress?: () => void }) {
   const body = (
     <View style={styles.general}>
@@ -172,9 +169,11 @@ export function GeneralRow({ name, stars, note, onPress }: { name: string; stars
         <Text style={styles.genName} numberOfLines={1}>
           {name}
         </Text>
-        <Text style={styles.genNote} numberOfLines={1}>
-          {note ?? `+${Math.round(starBonus({ stars }) * 100)}% to all the army does`}
-        </Text>
+        {note ? (
+          <Text style={styles.genNote} numberOfLines={1}>
+            {note}
+          </Text>
+        ) : null}
       </View>
       <Stars n={stars} />
     </View>
@@ -197,7 +196,14 @@ export function FleetSheet({ id }: { id: string }) {
   const mine = f.owner === s.player;
   const dest = f.path.length ? f.path[f.path.length - 1] : null;
   return (
-    <Sheet title={f.name} subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`} left={<Shield nation={f.owner} size={30} />} onClose={() => st.select(null)} compact={mine}>
+    <Sheet
+      title={f.name}
+      subtitle={`${nationName(f.owner)} · ${dest ? `Sailing to the ${SEA[dest].name}` : `In the ${SEA[f.sea].name}`}`}
+      left={<Shield nation={f.owner} size={30} />}
+      onClose={() => st.select(null)}
+      compact={mine}
+      help={`${mine ? 'Tap any sea to sail there. ' : ''}Fleets carry armies across the seas they sit in, blockade enemy coasts (less income for them, leverage for you) and fight when enemies meet. Galleys are strong in inland seas, weak in the ocean. Hulls repair next to your own coast.`}
+    >
       <Row gap={6}>
         <Stat label="Ships" value={`${shipCount(f)}`} icon="ship" />
         <Stat label="Strength" value={fmt(fleetPower(s, f), 1)} icon="swords" />
@@ -207,15 +213,6 @@ export function FleetSheet({ id }: { id: string }) {
         {(['galley', 'transport', 'warship'] as const).map(t => (f.ships[t] ? <Line key={t} label={UNITS.ships[t].name} value={`${f.ships[t]}`} /> : null))}
         <Line label="Can carry" value={`${transportCapacity([f])} regiments`} />
       </Section>
-      {mine ? (
-        <View style={[styles.marchHint, { marginTop: 12 }]}>
-          <Icon name="target" size={15} color={G.gold} />
-          <Text style={styles.marchText}>Tap any sea on the map to sail there.</Text>
-        </View>
-      ) : null}
-      <T v="tiny" style={{ marginTop: 8 }}>
-        Fleets carry armies across seas they sit in, blockade enemy coasts (−income, +leverage) and fight in one roll when enemies meet. Galleys are strong in inland seas, weak in the ocean. Hulls repair next to your own coast.
-      </T>
     </Sheet>
   );
 }
@@ -227,11 +224,13 @@ export function SeaSheet({ id }: { id: string }) {
   if (!charted(s, id)) return <UnchartedSheet />;
   const def = SEA[id];
   return (
-    <Sheet title={def.name} subtitle={`${def.ocean ? 'Open ocean' : 'Sea zone'} · ${def.days ?? 4} days to cross`} onClose={() => st.select(null)}>
-      {fleets.length ? fleets.map(f => <Line key={f.id} label={`${nationName(f.owner)}: ${f.name}`} value={`${shipCount(f)} ships`} />) : <T v="small">No fleets here.</T>}
-      <T v="tiny" style={{ marginTop: 8 }}>
-        With your own transports in a sea next to your army, it can board and sail on: the fleet carries it as far as it needs, across the ocean if need be. A stronger enemy fleet bars the way and closes nearby straits.
-      </T>
+    <Sheet
+      title={def.name}
+      subtitle={`${def.ocean ? 'Open ocean' : 'Sea zone'} · ${def.days ?? 4} days to cross`}
+      onClose={() => st.select(null)}
+      help="With your transports in a sea next to your army, it can board and sail on, across the ocean if need be. A stronger enemy fleet bars the way and closes nearby straits."
+    >
+      {fleets.length ? fleets.map(f => <Line key={f.id} label={`${nationName(f.owner)}: ${f.name}`} value={`${shipCount(f)} ships`} />) : <Empty text="No fleets here" />}
     </Sheet>
   );
 }
@@ -243,14 +242,19 @@ export function BattleSheet({ id }: { id: string }) {
   if (!b) {
     return (
       <Sheet title="Battle over" onClose={() => st.select(null)}>
-        <T v="small">This battle has ended. Check your messages for the result.</T>
+        <T v="small">See your messages for the result.</T>
       </Sheet>
     );
   }
   const sides = battleSides(s, b);
   const terrain = REGION[b.node].terrain;
   return (
-    <Sheet title={`Battle of ${regionName(b.node)}`} subtitle={`Day ${b.days} · ${battlePhase(b) === 'volley' ? 'Volleys (the guns tell)' : 'Charges (the horse tells)'} · ${terrain}, ${FRONT_WIDTH[terrain]} wide${b.river ? ' · attacker crossed a river' : ''}`} onClose={() => st.select(null)}>
+    <Sheet
+      title={`Battle of ${regionName(b.node)}`}
+      subtitle={`Day ${b.days} · ${battlePhase(b) === 'volley' ? 'volleys' : 'charges'} · ${terrain}${b.river ? ' · across a river' : ''}`}
+      onClose={() => st.select(null)}
+      help={`Each day both sides roll a die; the attacker loses 1 in rough terrain (2 in mountains, 1 more across a river). Damage is the roll times the front line (${FRONT_WIDTH[terrain]} regiments wide here), plus ${Math.round(STAR_BONUS * 100)}% for each star of the side’s best general, whose stars also steady its morale. Three days of volleys favour guns, then three of charges favour horse. At zero morale a side retreats; with five times the enemy’s remaining men, the winner annihilates them.`}
+    >
       {[0, 1].map(i => {
         const side = sides[i];
         const nat = b.sides[i].nations[0];
@@ -263,22 +267,19 @@ export function BattleSheet({ id }: { id: string }) {
               </Row>
             </Row>
             <Line label="Men" value={`${kmen(side.totalMen)} (lost ${kmen(b.sides[i].losses)})`} />
-            <Line label="Regiments (inf / cav / art)" value={`${side.regs.inf} / ${side.regs.cav} / ${side.regs.art}`} />
+            <Line label="Infantry · cavalry · guns" value={`${side.regs.inf} / ${side.regs.cav} / ${side.regs.art}`} />
             {side.general.name ? <GeneralRow name={side.general.name} stars={side.general.stars} /> : <Line label="General" value="none" tone="muted" />}
-            <Line label="Today's roll (with modifiers)" value={`${b.sides[i].roll || '–'}`} />
+            <Line label="Today's roll" value={`${b.sides[i].roll || '–'}`} />
             <Bar value={side.morale / side.maxMorale} color={i === 0 ? C.blue : C.red} />
           </View>
         );
       })}
-      <T v="tiny">Each day both sides roll a die; the attacker loses 1 in rough terrain (2 in mountains, 1 more across a river). Damage = roll × front-line strength, plus {Math.round(STAR_BONUS * 100)}% for each star of the side’s best general (whose stars also steady their own side’s morale). Three days of volleys favour guns, then three of charges favour horse. A side at zero morale retreats; with 5× the enemy’s remaining men, the winner annihilates them.</T>
       <Btn small tone="secondary" style={{ marginTop: 8 }} label="Show on map" onPress={() => store.focusOn(...regionPoint(b.node))} />
     </Sheet>
   );
 }
 
 const styles = StyleSheet.create({
-  marchHint: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, paddingVertical: 9, borderRadius: 12, backgroundColor: 'rgba(214,178,110,0.1)', borderWidth: StyleSheet.hairlineWidth, borderColor: G.gilt },
-  marchText: { flex: 1, color: G.text, fontFamily: sans, fontSize: 13.5, fontWeight: '600' },
   general: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 7 },
   medal: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(214,178,110,0.12)', borderWidth: 1, borderColor: G.gilt },
   genName: { color: G.text, fontFamily: sans, fontSize: 15, fontWeight: '600' },

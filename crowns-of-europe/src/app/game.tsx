@@ -64,7 +64,7 @@ export default function GameScreen() {
         {sel?.kind === 'nation' ? <NationSheet id={sel.id} /> : null}
         {sel?.kind === 'sea' ? <SeaSheet id={sel.id} /> : null}
         {sel?.kind === 'battle' ? <BattleSheet id={sel.id} /> : null}
-        {!sel ? <Hints /> : null}
+        <Hints sheet={!sel ? undefined : (sel.kind === 'army' && s.armies[sel.id]?.owner === s.player) || (sel.kind === 'fleet' && s.fleets[sel.id]?.owner === s.player) ? 'compact' : 'half'} />
       </View>
       <Toasts />
 

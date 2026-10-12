@@ -1,6 +1,6 @@
 /** How to play, and short first-time hints from your chancellor. */
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { loadPrefs, savePrefs } from '../../state/storage';
 import { availableAdvances } from '../../sim/science';
@@ -10,11 +10,12 @@ import { Icon } from '../components/Icon';
 import { Section, T } from '../components/kit';
 import { C, G, R, sans, serif } from '../theme';
 import { DOCK_H } from './Bars';
+import { dockTop, sheetHeight } from '../layout';
 import { Panel } from './Panels';
 
 const TOPICS: { title: string; body: string }[] = [
   { title: 'Time', body: 'The game runs in real time. Tap the round button to play or pause and pick 1×, 2× or 4× speed. It pauses itself for events, wars declared on you and offers (change this in Settings).' },
-  { title: 'Armies', body: 'Tap your army (the numbered chip in your colour), then tap a region to march there. The number is regiments of 1,000 men. Recruit in any region you own: infantry is cheap and sturdy, cavalry hits hard on open ground, artillery (once you know Bombards) wins long battles and sieges. Zoomed out, the map shows only the armies that concern you (yours, your allies’, your enemies’ and any in your land); zoom in to see every army.' },
+  { title: 'Armies', body: 'Tap your army (the token with a soldier on it, in your colour), then tap a region to march there. The number beneath is regiments of 1,000 men. Recruit in any region you own: infantry is cheap and sturdy, cavalry hits hard on open ground, artillery (once you know Bombards) wins long battles and sieges. Zoomed out, the map shows only the armies that concern you (yours, your allies’, your enemies’ and any in your land); zoom in to see every army.' },
   { title: 'Battles', body: 'Battles start when enemies share a region and last several days, so you can send reinforcements. Each day both sides roll a die; damage is the roll times your front line. A general has one to five stars, each adding 10% to everything their army does (damage, steadiness, march and siege speed). Rough terrain and rivers hurt the attacker. A side at zero morale retreats. Beat an army with five times its numbers and it is annihilated.' },
   { title: 'Supply', body: 'Each region feeds only so many regiments (see the army sheet). Above that, you lose men every month, worse in winter in the north and east. One great army of 40 regiments or two of 20? That’s the choice.' },
   { title: 'Sieges', body: 'Stand in an enemy region to take it: open regions fall in 15 days, forts take months and need 3 regiments per fort level. Enemy forts block your march past them.' },
@@ -28,7 +29,7 @@ const TOPICS: { title: string; body: string }[] = [
   { title: 'Missions', body: 'Your nation’s missions (in the Realm menu) are concrete goals with rewards: claims for the next war, gold, renown and lasting bonuses.' },
   { title: 'Colonies and the New World', body: 'The African coast from Arguin to the Gold Coast is uncolonized: ivory, gold and fish for whoever settles it (you need Caravels). Across the Atlantic lie uncharted lands. A crown with an ocean coast that knows Ocean Navigation can fund an expedition west (Colonies tab); by 1500 everyone has heard of the New World, but settling it still needs Ocean Navigation. Then send colonists to the pale, uncolonized regions: each colonist settles one colony at a time, and a colony grows until it has 1,000 settlers and becomes a region of yours. Natives slow it down and may attack it; any of your regiments standing there keeps the settlers safe. Inland colonies grow slower, and the more land you hold across the ocean, the thinner your settlers spread. Every overseas region has an export (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
   { title: 'Ships and the ocean', body: 'An army boards from a coast when your transports are in that sea, and the fleet then carries it as far as it needs to go, across the ocean if you like. Crossing the open Atlantic takes weeks. A stronger enemy fleet bars the way.' },
-  { title: 'Map modes', body: 'The chip at the top right switches the map: political, terrain, prosperity, faith, diplomatic (how others see you), threat, science and exports.' },
+  { title: 'Map modes', body: 'The lens button on the right switches the map: political, terrain, prosperity, faith, diplomatic (how others see you), threat, science and exports.' },
 ];
 
 /** The game's own words for its numbers, so nothing on screen needs a wiki. */
@@ -84,37 +85,39 @@ interface Hint {
 const HINTS: Hint[] = [
   {
     id: 'start',
-    text: 'Welcome, Your Majesty. Tap the play button to start time. Tap your army (the chip in your colour) and then a region to march. The Realm menu holds missions, diplomacy and the treasury.',
+    text: 'Welcome, Your Majesty. Tap play to start time. To march, tap your army (the soldier in your colour), then a region. The ? buttons explain anything you wonder about.',
     when: () => true,
   },
   {
     id: 'army',
-    text: 'Army selected. Tap any region to march there; the dashed line shows the route. Watch the supply limit: too many regiments in one region starve.',
+    text: 'Tap any region to march there.',
     when: () => store.selection?.kind === 'army' && store.state?.armies[store.selection.id]?.owner === store.state?.player,
   },
   {
     id: 'science',
-    text: 'Your scholars have nothing to study. Open the Realm menu, go to Science and pick an advance: artillery, colonies and stronger troops all come from science.',
+    text: 'Your scholars are idle: pick an advance under Learning.',
     when: () => !!store.state && !store.state.nations[store.state.player].researching && availableAdvances(store.state, store.state.player).length > 0,
   },
   {
     id: 'war',
-    text: 'You are at war. Occupy enemy regions and win battles to gain leverage (the red chip at the top). Tap it to make peace when you’re ahead.',
+    text: 'At war: win battles and take their land for leverage. Tap their burning arms on the left to make peace.',
     when: () => !!store.state && Object.values(store.state.wars).some(w => w.attackers.includes(store.state!.player) || w.defenders.includes(store.state!.player)),
   },
   {
     id: 'newworld',
-    text: 'A New World has been found! Open the Colonies tab in the Realm menu to see your colonists, then tap a pale, uncolonized region across the Atlantic and choose Start a colony.',
+    text: 'A New World has been found! Tap a pale region across the Atlantic to start a colony.',
     when: () => !!store.state?.discovery,
   },
   {
     id: 'mission',
-    text: 'A mission is ready. Open the Realm menu (the gold button) and tap Complete to collect the reward.',
+    text: 'A mission is ready: collect it under Realm, Missions.',
     when: () => !!store.state && Object.keys(store.state.nations[store.state.player].flags).some(f => f.startsWith('_mready_')),
   },
 ];
 
-export function Hints() {
+/** First-time tips, one at a time: above the dock, or just above an open sheet (clear of every control). */
+export function Hints({ sheet }: { sheet?: 'compact' | 'half' }) {
+  const { height } = useWindowDimensions();
   const st = useStore();
   const insets = useSafeAreaInsets();
   const [seen, setSeen] = useState<string[] | null>(null);
@@ -131,12 +134,13 @@ export function Hints() {
     await savePrefs({ ...p, hintsSeen: next }).catch(() => {});
   };
   return (
-    <View style={[styles.hintWrap, { bottom: insets.bottom + 8 + DOCK_H + 12 }]} pointerEvents="box-none">
-      <Glass strong gilt radius={R.lg} style={styles.hint}>
-        <View style={styles.hintIcon}>
+    <View style={[styles.hintWrap, { bottom: sheet ? dockTop(insets.bottom) + sheetHeight(height, sheet === 'compact') + 8 : insets.bottom + 8 + DOCK_H + 12 }]} pointerEvents="box-none">
+      {/* Only "Got it" takes a tap: the rest lets taps through to the map beneath (the tip may cover where it says to tap). */}
+      <Glass strong gilt radius={R.lg} style={styles.hint} pointerEvents="box-none">
+        <View style={styles.hintIcon} pointerEvents="none">
           <Icon name="scroll" size={18} color={G.gold} />
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1 }} pointerEvents="none">
           <Text style={styles.hintTitle}>Your chancellor advises</Text>
           <Text style={styles.hintText}>{hint.text}</Text>
         </View>

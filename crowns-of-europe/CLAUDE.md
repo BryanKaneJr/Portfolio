@@ -25,8 +25,11 @@ a Mercator map, light tutorial, no audio yet).
   colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
   `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
   `docs/content-guide.md` and the in-game one in `ui/game/Help.tsx`.
-- **Every number is explainable.** If you add a number to the UI, make it tappable or give it a line that says
-  why (see the opinion, unrest, income and war score breakdowns).
+- **Every number is explainable, but quietly.** If you add a number to the UI, make it tappable for its breakdown
+  (`Stat`/`Line` `onPress`: opinion, unrest, income, renown...) or put the why behind a "?" (`help` on `Sheet`,
+  `Panel`, `Section` or `Line`; `HelpButton`/`HelpNote` in `components/kit.tsx`). Screens say what things are and
+  what you can do, in a few words; never explain a rule inline, and don't restate what a number or button
+  already shows. Long-form teaching lives in How to play and the one-time hints.
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,

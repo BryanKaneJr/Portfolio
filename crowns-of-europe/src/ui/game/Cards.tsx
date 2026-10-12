@@ -92,7 +92,7 @@ export function OfferCard() {
           {w ? ` against ${(defensive ? w.attackers : w.defenders).map(nationName).join(', ')}` : ''}.
         </T>
         <T v="small" style={{ marginTop: 8 }}>
-          {defensive ? 'They were attacked. Refusing breaks your alliance and costs renown.' : 'They started this war. Refusing only disappoints them.'}
+          {defensive ? 'Refusing breaks the alliance and costs renown.' : 'Refusing only disappoints them.'}
         </T>
       </>
     );
@@ -121,7 +121,7 @@ export function OfferCard() {
   } else {
     title = o.kind === 'alliance' ? 'An Offer of Alliance' : o.kind === 'marriage' ? 'A Royal Match' : 'A Request for Passage';
     icon = o.kind === 'marriage' ? 'marriage' : 'treaty';
-    body = <T>{from} proposes {o.kind === 'alliance' ? 'an alliance: each of you would answer the other’s call to arms.' : o.kind === 'marriage' ? 'a royal marriage between your houses.' : 'that you let their armies march through your lands.'}</T>;
+    body = <T>{from} proposes {o.kind === 'alliance' ? 'an alliance.' : o.kind === 'marriage' ? 'a royal marriage between your houses.' : 'that you let their armies march through your lands.'}</T>;
   }
   return (
     <CardShell>
@@ -143,7 +143,6 @@ export function OfferCard() {
 }
 
 export function ReportCard({ report, onClose }: { report: BattleReport; onClose: () => void }) {
-  const s = store.state!;
   const you = report.playerSide;
   const won = you !== null && report.winner === you;
   const title = report.wiped ? (won ? 'Annihilation!' : 'Our Army Is Destroyed') : you === null ? 'Battle Report' : won ? 'Victory' : 'Defeat';
@@ -173,10 +172,9 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
           <Line label="Casualties" value={kmen(report.losses[i])} tone={report.winner === i ? undefined : 'bad'} />
         </View>
       ))}
-      {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The winner had more than five times the loser’s remaining strength: the beaten army was wiped out to the last man.</T> : null}
-      {report.warScore ? <T v="small" style={{ marginTop: 6 }}>Leverage: +{report.warScore}% for the winner.</T> : null}
+      {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The beaten army was annihilated.</T> : null}
+      {report.warScore ? <T v="small" style={{ marginTop: 6 }}>Leverage +{report.warScore}% to the winner.</T> : null}
       <Btn style={{ marginTop: 14 }} label="Continue" onPress={onClose} testID="report-close" />
-      <T v="tiny" style={{ marginTop: 6, textAlign: 'center' }}>{s.reports.length} recent battles in the message log.</T>
     </CardShell>
   );
 }

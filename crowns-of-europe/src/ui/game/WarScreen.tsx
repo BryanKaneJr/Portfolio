@@ -16,7 +16,7 @@ import { useStore } from '../../state/store';
 import { BurningShield, ShieldMedallion } from '../components/BurningShield';
 import { Shield } from '../components/Flag';
 import { Icon, type IconName } from '../components/Icon';
-import { Btn, Empty, Line, Section, T } from '../components/kit';
+import { Btn, Empty, HelpButton, HelpNote, Line, Section, T } from '../components/kit';
 import { G, R, display, displaySemi, fmt, kmen, sans, signed } from '../theme';
 import { Panel } from './Panels';
 
@@ -48,6 +48,7 @@ export function WarPanel({ warId }: { warId: string }) {
   const [vassalize, setVassalize] = useState(false);
   const [release, setRelease] = useState<string[]>([]);
   const [mode, setMode] = useState<'demand' | 'offer'>('demand');
+  const [levHelp, setLevHelp] = useState(false);
   if (!w || sideOf(w, s.player) === null) {
     return (
       <Panel title="War" onClose={() => st.close()}>
@@ -103,10 +104,8 @@ export function WarPanel({ warId }: { warId: string }) {
     <View>
       <View style={styles.deal}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.dealLabel}>{anyTerms ? `These terms: ${cost}%` : 'Choose terms above'}</Text>
-          <Text style={styles.dealSub}>
-            {mode === 'demand' ? 'Your' : 'Their'} leverage: {signed(budget)}%
-          </Text>
+          <Text style={styles.dealLabel}>{anyTerms ? `Terms ${cost}%` : `Leverage ${signed(budget)}%`}</Text>
+          {anyTerms ? <Text style={styles.dealSub}>Leverage {signed(budget)}%</Text> : null}
         </View>
         {anyTerms ? (
           <View style={[styles.verdict, { borderColor: answer.accept ? G.good : G.bad }]}>
@@ -120,7 +119,7 @@ export function WarPanel({ warId }: { warId: string }) {
           style={{ flex: 1 }}
           tone="secondary"
           label="White peace"
-          sub={whiteAnswer.accept ? 'they would accept' : 'they would refuse'}
+          sub={whiteAnswer.accept ? 'they’d accept' : 'they’d refuse'}
           onPress={() => {
             const r = st.run(x => proposePeace(x, w.id, white));
             if (r.ok) st.close();
@@ -139,7 +138,7 @@ export function WarPanel({ warId }: { warId: string }) {
       </View>
     </View>
   ) : (
-    <Btn tone="secondary" label="Make a separate peace" sub={`${nationName(leader)} leads your side`} onPress={() => (st.run(x => separatePeace(x, w.id)), st.close())} />
+    <Btn tone="secondary" label="Make a separate peace" onPress={() => (st.run(x => separatePeace(x, w.id)), st.close())} />
   );
 
   return (
@@ -189,37 +188,37 @@ export function WarPanel({ warId }: { warId: string }) {
       {/* Leverage: a tug of war, and what it is made of. */}
       <View style={styles.card}>
         <View style={styles.levHead}>
-          <Text style={styles.cardTitle}>Leverage</Text>
+          <View style={styles.levTitle}>
+            <Text style={styles.cardTitle}>Leverage</Text>
+            <HelpButton open={levHelp} onPress={() => setLevHelp(o => !o)} label="About leverage" />
+          </View>
           <Text style={[styles.levValue, { color: tone(sc) }]}>{signed(sc)}%</Text>
         </View>
+        {levHelp ? (
+          <HelpNote style={{ marginTop: 8 }}>
+            What you can ask for in a peace: the sum of the four parts below. Battles count by their size, occupation by the prosperity of the land you hold, the war goal while you hold it, blockades by their coasts your fleets close.
+          </HelpNote>
+        ) : null}
         <TugOfWar value={sc} />
-        <View style={styles.tugLabels}>
-          <Text style={styles.tugLabel}>They dictate</Text>
-          <Text style={styles.tugLabel}>Even</Text>
-          <Text style={styles.tugLabel}>You dictate</Text>
-        </View>
-        <Text style={styles.levHelp}>
-          {sc > 5 ? `You are ahead: ask for terms worth up to ${sc}%.` : sc < -5 ? `You are behind: they could ask terms worth ${-sc}% of you.` : 'Neither side is ahead yet.'} Leverage is the sum of these:
-        </Text>
         <View style={styles.parts}>
-          <Part icon="swords" label="Battles" value={ws.battles * flip} note="won and lost, by size" />
-          <Part icon="flag" label="Occupation" value={ws.occupation * flip} note="their land you hold" />
-          <Part icon="target" label="War goal" value={ws.goal * flip} note={w.goal ? `holding ${regionName(w.goal)}` : 'none in this war'} />
-          <Part icon="ship" label="Blockades" value={ws.blockade * flip} note="coasts your fleets close" />
+          <Part icon="swords" label="Battles" value={ws.battles * flip} />
+          <Part icon="flag" label="Occupation" value={ws.occupation * flip} />
+          <Part icon="target" label="War goal" value={ws.goal * flip} />
+          <Part icon="ship" label="Blockades" value={ws.blockade * flip} />
         </View>
       </View>
 
       {/* How the fighting has gone. */}
-      <Section title="The war so far">
+      <Section
+        title="The war so far"
+        help={`Each pair is your side, then theirs. Land held: regions of the other side's that each side occupies. War exhaustion grows with every month at war and every man lost; it slows your levies (now −${Math.round(Math.min(0.7, myWe / 30) * 100)}%), stirs unrest, and fades in peace. Under each battle: your losses, then theirs.`}
+      >
         <View style={styles.tiles}>
           <Tile label="Battles" value={battles.length ? `${won} won · ${battles.length - won} lost` : 'None yet'} />
-          <Tile label="Men lost" value={battles.length ? `${kmen(battles.reduce((t, b) => t + b.lostUs, 0))} : ${kmen(battles.reduce((t, b) => t + b.lostThem, 0))}` : '–'} note="yours : theirs" />
-          <Tile label="Land held" value={`${heldOfTheirs} : ${heldOfOurs}`} note="theirs you hold : yours they hold" />
-          <Tile label="War exhaustion" value={`${fmt(myWe, 1)} : ${fmt(theirWe, 1)}`} note="yours : theirs" tone={myWe > theirWe + 2 ? 'bad' : undefined} />
+          <Versus label="Men lost" us={battles.length ? kmen(battles.reduce((t, b) => t + b.lostUs, 0)) : '0'} them={battles.length ? kmen(battles.reduce((t, b) => t + b.lostThem, 0)) : '0'} a={leader} b={enemy} />
+          <Versus label="Land held" us={`${heldOfTheirs}`} them={`${heldOfOurs}`} a={leader} b={enemy} />
+          <Versus label="War exhaustion" us={fmt(myWe, 1)} them={fmt(theirWe, 1)} a={leader} b={enemy} bad={myWe > theirWe + 2} />
         </View>
-        <T v="tiny" style={{ marginTop: 6 }}>
-          War exhaustion grows with every month at war and every man lost; it slows your levies (now −{Math.round(Math.min(0.7, myWe / 30) * 100)}%) and stirs unrest, and fades in peace.
-        </T>
         {battles.length ? (
           <View style={{ marginTop: 10 }}>
             {battles.slice(0, 5).map(b => (
@@ -230,8 +229,8 @@ export function WarPanel({ warId }: { warId: string }) {
                 <View style={{ flex: 1 }}>
                   <Text style={styles.battleTitle}>Battle of {regionName(b.r.node)}</Text>
                   <Text style={styles.battleSub}>
-                    {formatShortDate(b.r.day)} · {b.won ? 'won' : 'lost'}
-                    {b.r.wiped ? (b.won ? ', the enemy annihilated' : ', your army annihilated') : ''}
+                    {formatShortDate(b.r.day)}
+                    {b.r.wiped ? ' · annihilated' : ''}
                   </Text>
                 </View>
                 <Text style={styles.battleLoss}>
@@ -246,11 +245,14 @@ export function WarPanel({ warId }: { warId: string }) {
       {/* The peace table. */}
       {!isLeader ? (
         <Section title="Peace">
-          <T v="small">{nationName(leader)} leads your side and makes the peace. You can leave on your own with a separate white peace.</T>
+          <T v="small">{nationName(leader)} leads the peace talks.</T>
         </Section>
       ) : (
         <>
-          <Section title="Peace">
+          <Section
+            title="Peace"
+            help="Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years."
+          >
             <View style={styles.seg}>
               {(['demand', 'offer'] as const).map(m => (
                 <Pressable key={m} testID={`peace-mode-${m}`} onPress={() => reset(m)} style={[styles.segItem, mode === m && styles.segOn]}>
@@ -272,7 +274,7 @@ export function WarPanel({ warId }: { warId: string }) {
                         Prosperity {reg.dev}
                         {r in s.nations[winner].claims || reg.cores.includes(winner) ? ' · claimed' : ''}
                         {reg.controller === winner ? ' · occupied' : ''}
-                        {isCapitalAtStake(s, r) ? ' · capital (costs double)' : ''}
+                        {isCapitalAtStake(s, r) ? ' · capital' : ''}
                       </Text>
                     </View>
                     <View style={[styles.cost, on && styles.costOn]}>
@@ -282,7 +284,7 @@ export function WarPanel({ warId }: { warId: string }) {
                 );
               })
             ) : (
-              <Empty text={mode === 'demand' ? 'Occupy their regions (or hold claims on them) to demand them.' : 'You have no regions they could take.'} />
+              <Empty text={mode === 'demand' ? 'Occupy or claim their regions to demand them.' : 'None they could take.'} />
             )}
             <Text style={styles.sub}>{mode === 'demand' ? 'Gold reparations' : 'Pay gold'}</Text>
             <View style={styles.seg}>
@@ -292,9 +294,6 @@ export function WarPanel({ warId }: { warId: string }) {
                 </Pressable>
               ))}
             </View>
-            <T v="tiny" style={{ marginTop: 4 }}>
-              Every 10 gold costs 1% leverage.
-            </T>
             {releasable.length ? (
               <>
                 <Text style={styles.sub}>Free a nation</Text>
@@ -303,10 +302,7 @@ export function WarPanel({ warId }: { warId: string }) {
                   return (
                     <Pressable key={n} onPress={() => setRelease(rs => (on ? rs.filter(x => x !== n) : [...rs, n]))} style={[styles.option, on && styles.optionOn]}>
                       <Shield nation={n} size={22} />
-                      <View style={{ flex: 1 }}>
-                        <Text style={styles.optionText}>{nationName(n)}</Text>
-                        <Text style={styles.optionSub}>{s.nations[n]?.alive ? 'Becomes independent' : 'Restored on its old lands'}</Text>
-                      </View>
+                      <Text style={[styles.optionText, { flex: 1 }]}>{nationName(n)}</Text>
                       {on ? <Icon name="check" size={16} color={G.gold} /> : null}
                     </Pressable>
                   );
@@ -316,19 +312,13 @@ export function WarPanel({ warId }: { warId: string }) {
             {canVassalize ? (
               <Pressable onPress={() => setVassalize(v => !v)} style={[styles.option, vassalize && styles.optionOn, { marginTop: 10 }]}>
                 <Icon name="crown" size={18} color={G.gold} />
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.optionText}>Make {nationName(enemy)} your vassal</Text>
-                  <Text style={styles.optionSub}>They pay tribute and fight your wars. Can be annexed after 15 years.</Text>
-                </View>
+                <Text style={[styles.optionText, { flex: 1 }]}>Make {nationName(enemy)} your vassal</Text>
                 {vassalize ? <Icon name="check" size={16} color={G.gold} /> : null}
               </Pressable>
             ) : null}
           </Section>
           {anyTerms ? (
-            <Section title="Their answer">
-              <T v="tiny" style={{ marginBottom: 4 }}>
-                {nationName(enemy)} accepts if these add up to 0 or more:
-              </T>
+            <Section title="Their answer" help={`${nationName(enemy)} accepts if these add up to 0 or more.`}>
               {answer.reasons
                 .filter(r => r.value)
                 .map(r => (
@@ -378,7 +368,7 @@ function TugOfWar({ value }: { value: number }) {
   );
 }
 
-function Part({ icon, label, value, note }: { icon: IconName; label: string; value: number; note: string }) {
+function Part({ icon, label, value }: { icon: IconName; label: string; value: number }) {
   return (
     <View style={styles.part}>
       <View style={styles.partHead}>
@@ -386,21 +376,33 @@ function Part({ icon, label, value, note }: { icon: IconName; label: string; val
         <Text style={styles.partLabel}>{label}</Text>
       </View>
       <Text style={[styles.partValue, { color: value > 0 ? G.good : value < 0 ? G.bad : G.text2 }]}>{signed(value)}</Text>
-      <Text style={styles.partNote} numberOfLines={2}>
-        {note}
+    </View>
+  );
+}
+
+function Tile({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.tile}>
+      <Text style={styles.tileLabel}>{label}</Text>
+      <Text style={styles.tileValue} numberOfLines={1} adjustsFontSizeToFit>
+        {value}
       </Text>
     </View>
   );
 }
 
-function Tile({ label, value, note, tone: t }: { label: string; value: string; note?: string; tone?: 'bad' }) {
+/** A number for each side, each beside its arms: no caption needed to say whose is whose. */
+function Versus({ label, us, them, a, b, bad }: { label: string; us: string; them: string; a: NationId; b: NationId; bad?: boolean }) {
   return (
     <View style={styles.tile}>
       <Text style={styles.tileLabel}>{label}</Text>
-      <Text style={[styles.tileValue, t === 'bad' && { color: G.bad }]} numberOfLines={1} adjustsFontSizeToFit>
-        {value}
-      </Text>
-      {note ? <Text style={styles.tileNote}>{note}</Text> : null}
+      <View style={styles.versus}>
+        <Shield nation={a} size={14} />
+        <Text style={[styles.tileValue, { marginTop: 0 }, bad && { color: G.bad }]}>{us}</Text>
+        <Text style={styles.vsDot}>·</Text>
+        <Shield nation={b} size={14} />
+        <Text style={[styles.tileValue, { marginTop: 0 }]}>{them}</Text>
+      </View>
     </View>
   );
 }
@@ -420,26 +422,24 @@ const styles = StyleSheet.create({
   since: { color: G.text3, fontFamily: sans, fontSize: 12, textAlign: 'center', marginTop: 3 },
   card: { marginTop: 12, backgroundColor: G.group, borderRadius: R.lg, padding: 14, borderWidth: StyleSheet.hairlineWidth, borderColor: G.line },
   cardTitle: { fontFamily: displaySemi, fontSize: 12, color: G.gold, letterSpacing: 1.6, textTransform: 'uppercase' },
-  levHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' },
+  levHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  levTitle: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   levValue: { fontFamily: display, fontSize: 30 },
   tug: { height: 12, borderRadius: 6, backgroundColor: G.raised, marginTop: 10, justifyContent: 'center' },
   tugFill: { position: 'absolute', top: 0, bottom: 0, borderRadius: 6 },
   tugMid: { position: 'absolute', left: '50%', width: 2, marginLeft: -1, top: -3, bottom: -3, backgroundColor: G.text2, borderRadius: 1 },
   knob: { position: 'absolute', width: 14, height: 14, marginLeft: -7, borderRadius: 3, backgroundColor: G.goldBright, borderWidth: 2, borderColor: '#1a1408', transform: [{ rotate: '45deg' }] },
-  tugLabels: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 6 },
-  tugLabel: { color: G.text3, fontFamily: sans, fontSize: 11 },
-  levHelp: { color: G.text2, fontFamily: sans, fontSize: 12.5, lineHeight: 17, marginTop: 10 },
-  parts: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 },
+  parts: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 14 },
   part: { flexBasis: '48%', flexGrow: 1, backgroundColor: G.raised, borderRadius: R.md, padding: 10 },
   partHead: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   partLabel: { color: G.text2, fontFamily: sans, fontSize: 12, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.6 },
   partValue: { fontFamily: sans, fontSize: 20, fontWeight: '700', marginTop: 4, fontVariant: ['tabular-nums'] },
-  partNote: { color: G.text3, fontFamily: sans, fontSize: 11.5, marginTop: 1 },
   tiles: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   tile: { flexBasis: '48%', flexGrow: 1, backgroundColor: G.group, borderRadius: R.md, padding: 10 },
   tileLabel: { color: G.text3, fontFamily: sans, fontSize: 11.5, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.6 },
   tileValue: { color: G.text, fontFamily: sans, fontSize: 17, fontWeight: '700', marginTop: 3, fontVariant: ['tabular-nums'] },
-  tileNote: { color: G.text3, fontFamily: sans, fontSize: 11, marginTop: 1 },
+  versus: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 5 },
+  vsDot: { color: G.text3, fontFamily: sans, fontSize: 15, marginHorizontal: 2 },
   battle: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: G.line },
   battleMark: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
   battleTitle: { color: G.text, fontFamily: sans, fontSize: 14.5, fontWeight: '600' },

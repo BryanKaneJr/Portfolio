@@ -69,6 +69,7 @@ const [ax, ay] = await onScreen('army', marcher);
 await page.touchscreen.tap(ax, ay + 2);
 await page.waitForTimeout(700);
 if ((await coe(() => window.__coe.store.selection?.id)) !== marcher) throw new Error('Tapping the army token did not select it');
+if (await has('hint-ok')) { await tapId('hint-ok'); await page.waitForTimeout(200); } // the first-time tip about marching
 const dest = await coe(id => {
   const { store, point } = window.__coe;
   const s = store.state;
@@ -114,7 +115,7 @@ await coe(t => window.__coe.store.select({ kind: 'nation', id: t }), target);
 await shot('nation-sheet');
 // A crown with historical aims: what it wants and its old friends and enemies.
 await coe(() => window.__coe.store.select({ kind: 'nation', id: 'FRA' }));
-await page.getByText('Crowns follow their history', { exact: false }).first().scrollIntoViewIfNeeded();
+await page.getByText('What they want', { exact: false }).first().scrollIntoViewIfNeeded();
 await shot('nation-aims');
 await coe(t => window.__coe.store.select({ kind: 'nation', id: t }), target);
 await page.getByText('Declare war…').first().click();
@@ -142,8 +143,8 @@ for (let i = 0; i < 12; i++) {
 await shot('after-a-year');
 await tapId('playpause');
 await page.waitForTimeout(3000);
-await tapId('playpause');
-await answerCards();
+await answerCards(); // an event may have come up (and paused the game) while time ran
+if (!(await coe(() => window.__coe.store.paused))) await tapId('playpause');
 await shot('after-play');
 // Map modes.
 await page.getByTestId('mapmode').click();

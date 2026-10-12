@@ -122,10 +122,10 @@ function Military() {
         <Stat label="Levies" value={kmen(me.manpower)} icon="manpower" />
         <Stat label="Training" value={`${me.recruiting.length}`} icon="castle" />
       </Row>
-      <T v="tiny" style={{ marginTop: 4 }}>
-        Above your army limit ({fl}, from your prosperity{flMod ? `, ${signed(Math.round(flMod * 100))}% from traits and modifiers` : ''}) every regiment costs more upkeep. In wartime your troops get full pay and refill faster; in peace, half pay.
-      </T>
-      <Section title={`Armies (${armies.length})`}>
+      <Section
+        title={`Armies (${armies.length})`}
+        help={`Your army limit (${fl}) comes from your prosperity${flMod ? `, ${signed(Math.round(flMod * 100))}% from traits and modifiers` : ''}; above it every regiment costs more upkeep. In wartime troops get full pay and refill faster; in peace, half pay.`}
+      >
         {armies.length ? (
           armies.map(a => (
             <Pressable key={a.id} onPress={() => goTo(a.node, { kind: 'army', id: a.id })} style={styles.row}>
@@ -162,9 +162,12 @@ function Military() {
           <Empty text="No fleets. Build ships in a coastal region." />
         )}
       </Section>
-      <Section title="Generals" right={<Btn small tone="secondary" label={`Hire (${GENERAL_COST}g)`} onPress={() => st.run(hireGeneral)} />}>
-        {me.generals.length ? me.generals.map(g => <GeneralRow key={g.id} name={g.name} stars={g.stars} />) : <Empty text="No generals waiting for a command." />}
-        <T v="tiny" style={{ marginTop: 4 }}>A general has one to five stars; each adds {Math.round(STAR_BONUS * 100)}% to everything the army they lead does. Assign one from the army’s sheet.</T>
+      <Section
+        title="Generals"
+        help={`Each star adds ${Math.round(STAR_BONUS * 100)}% to everything the army a general leads does. Assign one from the army’s sheet.`}
+        right={<Btn small tone="secondary" label={`Hire (${GENERAL_COST}g)`} onPress={() => st.run(hireGeneral)} />}
+      >
+        {me.generals.length ? me.generals.map(g => <GeneralRow key={g.id} name={g.name} stars={g.stars} />) : <Empty text="None waiting for a command" />}
       </Section>
       <Section title={`Troops of the ${era.name}`}>
         <Line label={`Infantry: ${era.inf.name}`} value={`strength ${era.inf.power}`} />
@@ -217,7 +220,7 @@ function Diplomacy() {
       {coalition ? (
         <Card style={{ marginTop: 10, borderColor: C.red }}>
           <T v="h3">A coalition stands against you</T>
-          <T v="small">{coalition.members.map(nationName).join(', ')} will defend each other if you attack any of them, and may strike first. Let your Threat fade.</T>
+          <T v="small">{coalition.members.map(nationName).join(', ')}</T>
         </Card>
       ) : null}
       {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the coalition against {nationName(myCoalition.target)}.</T> : null}
@@ -229,11 +232,10 @@ function Diplomacy() {
         {Object.keys(me.claims).length ? <Line label="Claims" value={Object.keys(me.claims).map(regionName).join(', ')} /> : null}
       </Section>
       {isHreMember(s, p) || s.hre.emperor === p ? (
-        <Section title="Holy Roman Empire">
+        <Section title="Holy Roman Empire" help="The Emperor gains levies and renown, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.">
           <Line label="Emperor" value={s.hre.emperor ? nationName(s.hre.emperor) : 'vacant'} />
           <Line label="Electors" value={s.hre.electors.map(nationName).join(', ')} />
           <Line label="Members" value={`${hreMembers(s).length}`} />
-          <T v="tiny">The Emperor gains levies and reputation, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.</T>
         </Section>
       ) : null}
       <Section
@@ -288,7 +290,7 @@ function Realm() {
           <View style={{ flex: 1 }}>
             <T v="h2">{me.ruler.name}</T>
             <T v="small">
-              {def.gov === 'monarchy' ? 'Ruler' : def.gov === 'republic' ? 'Head of the republic' : 'Spiritual ruler'} · age {rulerAge(s, p)} · skill {me.ruler.skill}/5
+              {def.gov === 'monarchy' ? 'Ruler' : def.gov === 'republic' ? 'Head of the republic' : 'Spiritual ruler'} · age {rulerAge(s, p)}
               {me.ruler.regency ? ' · under a regency' : ''}
             </T>
           </View>
@@ -298,8 +300,8 @@ function Realm() {
             <Pill key={t} text={TRAITS.ruler[t]?.name ?? t} />
           ))}
         </Row>
-        <T v="tiny" style={{ marginTop: 6 }}>Skill above 3 raises taxes 5% per point; below 3 lowers them. Rulers age and die; the heir takes over.</T>
-        {me.heir ? <Line label="Heir" value={`${me.heir.name} · skill ${me.heir.skill} · age ${Math.max(0, yearOf(s.day) - me.heir.born)}`} /> : def.gov === 'monarchy' ? <Line label="Heir" value="none: a death now means a succession crisis" tone="bad" /> : null}
+        <Line label="Skill" value={`${me.ruler.skill} / 5`} help="Above 3, each point raises taxes 5%; below 3, each lowers them. Rulers age and die, and the heir takes over; with no heir, a death means a succession crisis." />
+        {me.heir ? <Line label="Heir" value={`${me.heir.name} · skill ${me.heir.skill} · age ${Math.max(0, yearOf(s.day) - me.heir.born)}`} /> : def.gov === 'monarchy' ? <Line label="Heir" value="none" tone="bad" /> : null}
       </Card>
       <Section title={`National trait: ${traits[0]?.name}`}>
         <T v="small">{traits[0]?.desc}</T>
@@ -319,20 +321,17 @@ function Realm() {
         </Row>
       </Section>
       <Section title="Order and renown">
-        <Line label="Order (−3 to +3)" value={signed(me.stability)} tone={me.stability < 0 ? 'bad' : undefined} />
-        <Pressable onPress={() => st.open({ kind: 'breakdown', what: 'prestige' })}>
-          <Line label="Renown (tap for why)" value={`${fmt(me.prestige)} / 100`} />
-        </Pressable>
+        <Line label="Order" value={`${signed(me.stability)} / 3`} tone={me.stability < 0 ? 'bad' : undefined} onPress={() => st.open({ kind: 'breakdown', what: 'stability' })} />
+        <Line label="Renown" value={`${fmt(me.prestige)} / 100`} onPress={() => st.open({ kind: 'breakdown', what: 'prestige' })} />
         <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
       </Section>
-      <Section title={`Policies (${me.policies.length}/${slots})`}>
+      <Section title={`Policies (${me.policies.length}/${slots})`} help="One slot, and one more for every three advances. Swapping one out costs 1 order (once per slot).">
         {me.policies.map(id => (
           <View key={id} style={styles.policy}>
             <Text style={styles.rowTitle}>{POLICY[id].name}</Text>
             <Text style={styles.rowSub}>{modLines(POLICY[id].mods).map(m => m.text).join(', ')}</Text>
           </View>
         ))}
-        <T v="tiny" style={{ marginBottom: 6 }}>One slot, and one more for every three advances. You may swap one per slot for −1 order.</T>
         {POLICIES.filter(pol => !me.policies.includes(pol.id) && (!pol.requires || me.advances.includes(pol.requires))).map(pol => {
           const slotFree = me.policies.length < slots;
           return (
@@ -364,13 +363,12 @@ function Realm() {
           </T>
         ) : null}
       </Section>
-      <Section title="Faith">
+      <Section title="Faith" help={me.faith === 'catholic' ? 'Spend Papal Favor from a nation’s sheet (excommunicate its ruler) or a region’s sheet (a claim on heretics’ land).' : undefined}>
         <Line label="State faith" value={me.faith[0].toUpperCase() + me.faith.slice(1)} />
         {me.faith === 'catholic' ? <Line label="Papal Favor" value={`${Math.floor(me.papalFavor)}/100`} /> : null}
-        {me.faith === 'catholic' ? <T v="tiny">Spend Papal Favor from a nation’s sheet (excommunication) or a region’s sheet (a claim on heretics’ land).</T> : null}
       </Section>
       <Section title="All modifiers" right={<Btn small tone="ghost" label={showMods ? 'Hide' : 'Show'} onPress={() => setShowMods(v => !v)} />}>
-        {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, policies and events that change your numbers.</T>}
+        {showMods ? <ModifiersList nation={p} /> : null}
       </Section>
     </View>
   );
@@ -387,7 +385,6 @@ function Missions() {
   const sorted = [...list].sort((a, b) => order[missionState(s, s.player, a)] - order[missionState(s, s.player, b)]);
   return (
     <View style={{ gap: 8 }}>
-      <T v="small">What your nation wants. Reach the goal, then tap Complete for the reward; each one opens the next in its line.</T>
       {sorted.map(m => {
         const state = missionState(s, s.player, m);
         const parts = goalParts(m.goal);
@@ -493,9 +490,9 @@ function Settings() {
   };
   return (
     <View>
-      <Section title="Save">
+      <Section title="Save" help={s.settings.ironman ? 'Ironman: the game saves itself every year and when you leave, and there is no reloading.' : 'The game also saves itself every 1 January and when you leave.'}>
         {s.settings.ironman ? (
-          <T v="small">Ironman: the game saves itself every year and when you leave. No reloading.</T>
+          <T v="small">Ironman: saved for you.</T>
         ) : (
           <Row gap={6}>
             {(['1', '2', '3'] as SlotId[]).map(slot => (
@@ -503,15 +500,13 @@ function Settings() {
             ))}
           </Row>
         )}
-        <T v="tiny" style={{ marginTop: 4 }}>The game also autosaves every 1 January.</T>
       </Section>
-      <Section title="Map look">
+      <Section title="Map look" help={MAP_STYLE_LIST.map(ms => `${ms.label}: ${MAP_STYLES[ms.id].help}`).join('\n')}>
         <Row gap={6}>
           {MAP_STYLE_LIST.map(ms => (
             <Btn key={ms.id} small style={{ flex: 1 }} tone={ms.id === st.mapStyle ? 'primary' : 'secondary'} label={ms.label} onPress={() => st.setMapStyle(ms.id)} />
           ))}
         </Row>
-        <T v="tiny" style={{ marginTop: 4 }}>{MAP_STYLES[st.mapStyle].help}</T>
       </Section>
       <Section title="Pause automatically when…">
         {(Object.keys(PAUSE_LABEL) as PauseReason[])
@@ -544,9 +539,14 @@ function Settings() {
           }}
         />
       </Section>
-      <T v="tiny" style={{ marginTop: 16 }}>
-        Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}. Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Map lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain.
-      </T>
+      <Section
+        title="About"
+        help="Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain."
+      >
+        <T v="small">
+          Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}
+        </T>
+      </Section>
     </View>
   );
 }

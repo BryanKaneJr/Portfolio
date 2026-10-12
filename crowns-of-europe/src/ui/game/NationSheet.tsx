@@ -48,15 +48,15 @@ export function NationSheet({ id }: { id: string }) {
   const theirPower = militaryPower(s, id);
 
   const actions: { key: DiploAction; label: string; sub: string; show: boolean }[] = [
-    { key: 'improve', label: 'Improve relations', sub: '+30 opinion, fading over time', show: true },
-    { key: 'alliance', label: 'Propose alliance', sub: 'Mutual defense and calls to arms', show: !allied(s, s.player, id) && !war && !def.native },
-    { key: 'marriage', label: 'Royal marriage', sub: '+20 opinion; a chance to inherit or unite crowns', show: !married(s, s.player, id) && def.gov === 'monarchy' && NATION[s.player].gov === 'monarchy' && !war && !def.native },
-    { key: 'access', label: 'Ask for military access', sub: 'March your armies through their land', show: !(`${id}>${s.player}` in s.access) && !war && !def.native },
-    { key: 'gift', label: `Send a gift (${GIFT_AMOUNT(s, s.player)} gold)`, sub: 'Opinion up', show: !war },
-    { key: 'rival', label: 'Declare rival', sub: 'Extra renown for beating them, and a reason for war', show: !me.rivals.includes(id) },
+    { key: 'improve', label: 'Improve relations', sub: '+30 opinion', show: true },
+    { key: 'alliance', label: 'Propose alliance', sub: '', show: !allied(s, s.player, id) && !war && !def.native },
+    { key: 'marriage', label: 'Royal marriage', sub: '', show: !married(s, s.player, id) && def.gov === 'monarchy' && NATION[s.player].gov === 'monarchy' && !war && !def.native },
+    { key: 'access', label: 'Ask for military access', sub: '', show: !(`${id}>${s.player}` in s.access) && !war && !def.native },
+    { key: 'gift', label: `Send a gift (${GIFT_AMOUNT(s, s.player)} gold)`, sub: '', show: !war },
+    { key: 'rival', label: 'Declare rival', sub: '', show: !me.rivals.includes(id) },
     { key: 'unrival', label: 'Drop rivalry', sub: '', show: me.rivals.includes(id) },
-    { key: 'vassalize', label: 'Demand vassalage', sub: 'Peaceful subjugation of a much weaker friend', show: !n.overlord && !war && !def.native },
-    { key: 'annex', label: `Annex (${annexCost(s, id)} gold)`, sub: 'Absorb a loyal subject', show: n.overlord === s.player },
+    { key: 'vassalize', label: 'Demand vassalage', sub: '', show: !n.overlord && !war && !def.native },
+    { key: 'annex', label: `Annex (${annexCost(s, id)} gold)`, sub: '', show: n.overlord === s.player },
     { key: 'insult', label: 'Insult', sub: '−50 opinion, +3 renown', show: true },
     { key: 'breakAlliance', label: 'Break alliance', sub: '', show: allied(s, s.player, id) },
   ];
@@ -67,9 +67,10 @@ export function NationSheet({ id }: { id: string }) {
       subtitle={`${GOV[def.gov]} · ${def.faith === 'native' ? 'Native beliefs' : def.faith[0].toUpperCase() + def.faith.slice(1)} · ${PERS[def.personality]}${n.overlord ? ` · Subject of ${nationName(n.overlord)}` : ''}`}
       left={<Shield nation={id} size={30} />}
       onClose={() => st.select(null)}
+      help={`Tap Opinion for what makes it up.${def.native ? ' A New World people makes no treaties and fields weaker armies.' : ''} Army vs yours compares the strength of their regiments with yours.`}
     >
       <Row gap={6} style={{ marginBottom: 6, flexWrap: 'wrap' }}>
-        {def.native ? <Pill text="New World people: no treaties, weaker armies" color={C.parchment2} /> : null}
+        {def.native ? <Pill text="New World people" color={C.parchment2} /> : null}
         {war ? <Pill text="At war with you" color={C.redSoft} textColor={C.red} /> : null}
         {allied(s, s.player, id) ? <Pill text="Ally" color={C.blueSoft} textColor={C.blue} /> : null}
         {married(s, s.player, id) ? <Pill text="Royal marriage" color={C.parchment2} /> : null}
@@ -99,7 +100,7 @@ export function NationSheet({ id }: { id: string }) {
         {subjectsOf(s, id).length ? <Line label="Subjects" value={subjectsOf(s, id).map(nationName).join(', ')} /> : null}
       </Section>
       {aims.length || bonds.length ? (
-        <Section title="What they want">
+        <Section title="What they want" help="Crowns follow their history: they forge claims on the land they want, go to war for it and dislike whoever holds it.">
           {aims.map(a => {
             const lacking = a.regions.filter(r => !holds(s, id, r));
             const yours = lacking.filter(r => holds(s, s.player, r));
@@ -117,10 +118,12 @@ export function NationSheet({ id }: { id: string }) {
             const other = b.a === id ? b.b : b.a;
             return <Line key={`${b.a}${b.b}`} label={`${b.kind === 'friends' ? 'Old friends' : 'Old enemies'}: ${nationName(other)}`} value={b.label} tone={other === s.player ? (b.kind === 'friends' ? 'good' : 'bad') : undefined} />;
           })}
-          <T v="tiny" style={{ marginTop: 4 }}>Crowns follow their history: they forge claims on the land they want, go to war for it and dislike whoever holds it.</T>
         </Section>
       ) : null}
-      <Section title="Diplomacy">
+      <Section
+        title="Diplomacy"
+        help="Allies defend each other and answer calls to arms. A royal marriage can bring an inheritance or a union of crowns. Military access lets your armies through their land. A rival is a reason for war, with extra renown for beating them. Vassalage makes a much weaker friend your subject. Tap an offer they would refuse to see why; tap again to ask anyway (the wait before asking again still starts)."
+      >
         <View style={{ gap: 6 }}>
           {actions
             .filter(a => a.show && (more || MAIN_ACTIONS.includes(a.key)))
@@ -150,7 +153,6 @@ export function NationSheet({ id }: { id: string }) {
                       {acc.reasons.map(r => (
                         <Line key={r.label} label={r.label} value={signed(r.value)} tone={r.value >= 0 ? 'good' : 'bad'} />
                       ))}
-                      <T v="tiny">Tap again to ask anyway (the cooldown still starts).</T>
                     </View>
                   ) : null}
                 </View>

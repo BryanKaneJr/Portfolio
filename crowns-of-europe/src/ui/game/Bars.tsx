@@ -3,6 +3,7 @@
  * the dock in the thumb zone (time on the left, the realm's panels as a tab bar on the right), the map lens button,
  * banners, and your wars (each enemy's arms on fire, down the left edge).
  */
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { readyMissionCount } from '../../sim/missions';
@@ -16,7 +17,7 @@ import { BurningShield } from '../components/BurningShield';
 import { Shield } from '../components/Flag';
 import { Glass } from '../components/Glass';
 import { Icon, type IconName } from '../components/Icon';
-import { Badge } from '../components/kit';
+import { Badge, HelpButton, HelpNote } from '../components/kit';
 import { G, R, display, fmt, kmen, sans, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
 import { MAP_STYLE_LIST } from '../map/styles';
@@ -138,9 +139,13 @@ const MODE_ICON: Record<MapMode, IconName> = {
 export function LensPanel({ onPick }: { onPick: () => void }) {
   const st = useStore();
   const cur = MAP_MODES.find(m => m.key === st.mapMode)!;
+  const [help, setHelp] = useState(false);
   return (
     <Glass strong gilt radius={R.lg} style={styles.lensMenu}>
-      <Text style={styles.lensTitle}>Map lens</Text>
+      <View style={styles.lensHead}>
+        <Text style={styles.lensTitle}>Map lens</Text>
+        <HelpButton open={help} onPress={() => setHelp(h => !h)} label={`About the ${cur.label} lens`} />
+      </View>
       <View style={styles.lensGrid}>
         {MAP_MODES.map(m => {
           const on = m.key === st.mapMode;
@@ -160,7 +165,7 @@ export function LensPanel({ onPick }: { onPick: () => void }) {
           );
         })}
       </View>
-      <Text style={styles.lensHelp}>{cur.help}</Text>
+      {help ? <HelpNote style={{ marginTop: 8 }}>{`${cur.label}: ${cur.help}`}</HelpNote> : null}
       <View style={styles.lookRow}>
         {MAP_STYLE_LIST.map(ms => (
           <Pressable key={ms.id} onPress={() => st.setMapStyle(ms.id)} style={[styles.lookItem, ms.id === st.mapStyle && styles.lookItemOn]} testID={`mapstyle-${ms.id}`}>
@@ -241,13 +246,13 @@ const styles = StyleSheet.create({
   tabItem: { alignItems: 'center', justifyContent: 'center', width: 52, height: DOCK_H, gap: 3 },
   tabLabel: { color: G.text2, fontFamily: sans, fontSize: 10, fontWeight: '600' },
   lensMenu: { width: 268, padding: 10 },
-  lensTitle: { fontFamily: display, fontSize: 13, color: G.gold, letterSpacing: 1.4, textTransform: 'uppercase', paddingHorizontal: 6, paddingBottom: 6 },
+  lensHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 6, paddingBottom: 6 },
+  lensTitle: { fontFamily: display, fontSize: 13, color: G.gold, letterSpacing: 1.4, textTransform: 'uppercase' },
   lensGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
   lensItem: { width: '48.8%', flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, paddingHorizontal: 10, borderRadius: R.md, backgroundColor: 'rgba(255,255,255,0.04)' },
   lensItemOn: { backgroundColor: 'rgba(214,178,110,0.16)', borderWidth: StyleSheet.hairlineWidth * 2, borderColor: G.gilt },
   lensItemText: { color: G.text2, fontFamily: sans, fontSize: 14, fontWeight: '600' },
-  lensHelp: { color: G.text3, fontFamily: sans, fontSize: 12, lineHeight: 16, padding: 6, paddingTop: 8 },
-  lookRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 3, marginTop: 4 },
+  lookRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 3, marginTop: 8 },
   lookItem: { flex: 1, paddingVertical: 7, borderRadius: R.pill, alignItems: 'center' },
   lookItemOn: { backgroundColor: G.raised },
   lookText: { color: G.text2, fontFamily: sans, fontSize: 13, fontWeight: '600' },
