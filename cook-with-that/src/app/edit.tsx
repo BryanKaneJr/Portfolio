@@ -1,8 +1,10 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Chip } from '../components/Chip';
+import { Icon } from '../components/Icon';
+import { Button, LinkButton } from '../components/ui';
 import { ingredientIndex, ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEAL_DISH_TYPES, MEALS, type DishType, type Meal, type Recipe } from '../data/types';
@@ -23,6 +25,10 @@ type IngredientDraft = {
 };
 type StepDraft = { key: number; text: string };
 
+// Stable React keys for the editable rows.
+let nextKey = 1;
+const key = () => nextKey++;
+
 const toNumber = (s: string) => {
   const n = Number(s.replace(/[^\d.]/g, ''));
   return Number.isFinite(n) ? n : 0;
@@ -39,8 +45,6 @@ export default function EditRecipeScreen() {
   const base = id ? app.recipeById(id) : undefined;
   const isNew = !base;
   const bundled = !!(base && app.originalRecipe(base.id));
-  const nextKey = useRef(1);
-  const key = () => nextKey.current++;
 
   const [title, setTitle] = useState(base?.title ?? '');
   const [description, setDescription] = useState(base?.description ?? '');
@@ -52,7 +56,7 @@ export default function EditRecipeScreen() {
   const [prep, setPrep] = useState(String(base?.prepMinutes ?? ''));
   const [cook, setCook] = useState(String(base?.cookMinutes ?? ''));
   const [servings, setServings] = useState(String(base?.servings ?? 4));
-  const [ingredients, setIngredients] = useState<IngredientDraft[]>(
+  const [ingredients, setIngredients] = useState<IngredientDraft[]>(() =>
     (base?.ingredients ?? []).map(i => ({
       key: key(),
       ingredientId: i.ingredientId,
@@ -62,7 +66,7 @@ export default function EditRecipeScreen() {
       optional: i.optional,
     })),
   );
-  const [steps, setSteps] = useState<StepDraft[]>(
+  const [steps, setSteps] = useState<StepDraft[]>(() =>
     (base?.steps.length ? base.steps : ['']).map(s => ({ key: key(), text: s })),
   );
   const [query, setQuery] = useState('');
@@ -70,6 +74,8 @@ export default function EditRecipeScreen() {
   const [confirm, setConfirm] = useState<'reset' | 'delete' | null>(null);
 
   const implied = useMemo(() => new Set(meals.flatMap(m => MEAL_DISH_TYPES[m] ?? [])), [meals]);
+  // Desserts, Sides and Appetizers come from the meal, so the dish-type list leaves them out.
+  const pickable = DISH_TYPES.filter(d => !Object.values(MEAL_DISH_TYPES).includes(d));
   const hits = useMemo(() => (query.trim() ? searchIngredients(ingredientIndex, query, 6) : []), [query]);
 
   const draft = (): Recipe => ({
@@ -101,8 +107,9 @@ export default function EditRecipeScreen() {
     const taken = new Set(app.library.map(r => r.id));
     const recipe = draft();
     const savedId = app.saveRecipe({ ...recipe, id: isNew ? newRecipeId(recipe.title, taken) : recipe.id });
-    if (isNew) router.replace({ pathname: '/recipe/[id]', params: { id: savedId } });
-    else router.back();
+    // The editor is a sheet: close it, then open a brand-new recipe's page.
+    router.back();
+    if (isNew) router.push({ pathname: '/recipe/[id]', params: { id: savedId } });
   };
 
   const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter(x => x !== v) : [...list, v]);
@@ -123,16 +130,21 @@ export default function EditRecipeScreen() {
       return next;
     });
 
-  const input = [styles.input, { color: c.text, backgroundColor: c.card, borderColor: c.chipBorder }];
+  const input = [styles.input, { color: c.text, backgroundColor: c.card, borderColor: c.cardBorder }];
 
   return (
     <>
       <Stack.Screen
         options={{
           title: isNew ? 'New recipe' : bundled ? 'Your version' : 'Edit recipe',
+          headerLeft: () => (
+            <View style={styles.cancel}>
+              <LinkButton label="Cancel" onPress={() => router.back()} />
+            </View>
+          ),
           headerRight: () => (
             <Pressable onPress={save} accessibilityRole="button" hitSlop={10} style={styles.headerBtn}>
-              <Text style={[t.bodyStrong, { color: c.primary }]}>Save</Text>
+              <Text style={[t.bodyStrong, { color: c.accent }]}>Save</Text>
             </Pressable>
           ),
         }}
@@ -164,8 +176,9 @@ export default function EditRecipeScreen() {
           onChangeText={setDescription}
           placeholder="One line about the dish (optional)"
           placeholderTextColor={c.textMuted}
-          style={[input, styles.multi]}
+          style={[input, styles.about]}
           multiline
+          numberOfLines={3}
           accessibilityLabel="About this recipe"
         />
 
@@ -184,8 +197,8 @@ export default function EditRecipeScreen() {
         </View>
         <Label text="Dish type" />
         <View style={styles.wrap}>
-          {DISH_TYPES.map(d => {
-            const on = dishTypes.includes(d) || implied.has(d);
+          {pickable.map(d => {
+            const on = dishTypes.includes(d);
             return (
               <Chip
                 key={d}
@@ -193,8 +206,7 @@ export default function EditRecipeScreen() {
                 label={DISH_TYPE_LABELS[d]}
                 variant={on ? 'filterOn' : 'neutral'}
                 selected={on}
-                // A dessert is always a Desserts dish: the meal decides it, so tapping it does nothing.
-                onPress={implied.has(d) ? undefined : () => setDishTypes(list => toggle(list, d))}
+                onPress={() => setDishTypes(list => toggle(list, d))}
               />
             );
           })}
@@ -250,7 +262,7 @@ export default function EditRecipeScreen() {
                 hitSlop={6}
                 style={styles.iconBtn}
               >
-                <Text style={{ color: c.textMuted, fontSize: 20 }}>×</Text>
+                <Icon name="close" size={16} color={c.textMuted} weight="semibold" />
               </Pressable>
             </View>
             <View style={styles.ingTop}>
@@ -307,7 +319,7 @@ export default function EditRecipeScreen() {
               accessibilityRole="button"
               style={styles.hit}
             >
-              <Text style={[t.body, { color: c.primary }]}>Add “{query.trim()}” as your own ingredient</Text>
+              <Text style={[t.body, { color: c.accent }]}>Add “{query.trim()}” as your own ingredient</Text>
             </Pressable>
           </View>
         ) : null}
@@ -317,8 +329,8 @@ export default function EditRecipeScreen() {
         </Text>
         {steps.map((s, n) => (
           <View key={s.key} style={styles.stepRow}>
-            <View style={[styles.stepNum, { backgroundColor: c.primary }]}>
-              <Text style={styles.stepNumText}>{n + 1}</Text>
+            <View style={[styles.stepNum, { backgroundColor: c.accentSoft }]}>
+              <Text style={[styles.stepNumText, { color: c.accent }]}>{n + 1}</Text>
             </View>
             <TextInput
               value={s.text}
@@ -337,7 +349,7 @@ export default function EditRecipeScreen() {
                 accessibilityLabel={`Move step ${n + 1} up`}
                 style={styles.iconBtn}
               >
-                <Text style={{ color: n === 0 ? c.divider : c.textMuted, fontSize: 18 }}>↑</Text>
+                <Icon name="arrowUp" size={16} color={n === 0 ? c.divider : c.textMuted} weight="semibold" />
               </Pressable>
               <Pressable
                 onPress={() => setSteps(list => list.filter(x => x.key !== s.key))}
@@ -345,18 +357,19 @@ export default function EditRecipeScreen() {
                 accessibilityLabel={`Remove step ${n + 1}`}
                 style={styles.iconBtn}
               >
-                <Text style={{ color: c.textMuted, fontSize: 20 }}>×</Text>
+                <Icon name="close" size={16} color={c.textMuted} weight="semibold" />
               </Pressable>
             </View>
           </View>
         ))}
-        <Pressable
+        <Button
+          label="Add a step"
+          icon="plus"
+          variant="secondary"
+          compact
           onPress={() => setSteps(list => [...list, { key: key(), text: '' }])}
-          accessibilityRole="button"
-          style={[styles.addBtn, { borderColor: c.chipBorder }]}
-        >
-          <Text style={[t.bodyStrong, { color: c.primary }]}>+ Add a step</Text>
-        </Pressable>
+          style={styles.addBtn}
+        />
 
         {showProblems && problems.length ? (
           <View style={[styles.problems, { backgroundColor: c.warnSoft }]} accessibilityLiveRegion="polite">
@@ -368,43 +381,33 @@ export default function EditRecipeScreen() {
           </View>
         ) : null}
 
-        <Pressable
-          onPress={save}
-          accessibilityRole="button"
-          style={({ pressed }) => [styles.saveBtn, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
-        >
-          <Text style={[t.bodyStrong, { color: c.primaryText }]}>Save</Text>
-        </Pressable>
+        <Button label="Save" onPress={save} style={styles.saveBtn} />
 
         {bundled && app.isEdited(base.id) ? (
-          <Pressable
+          <Button
+            variant="danger"
+            icon="undo"
+            label={confirm === 'reset' ? 'Tap again to drop your changes' : 'Go back to the original'}
             onPress={() => {
               if (confirm !== 'reset') return setConfirm('reset');
               app.resetRecipe(base.id);
               router.back();
             }}
-            accessibilityRole="button"
             style={styles.dangerBtn}
-          >
-            <Text style={[t.bodyStrong, { color: c.avoidText }]}>
-              {confirm === 'reset' ? 'Tap again to drop your changes' : 'Go back to the original'}
-            </Text>
-          </Pressable>
+          />
         ) : null}
         {!isNew && app.isOwn(base.id) ? (
-          <Pressable
+          <Button
+            variant="danger"
+            icon="trash"
+            label={confirm === 'delete' ? 'Tap again to delete it for good' : 'Delete this recipe'}
             onPress={() => {
               if (confirm !== 'delete') return setConfirm('delete');
               app.deleteRecipe(base.id);
-              router.dismissTo('/favorites');
+              router.dismissTo('/saved');
             }}
-            accessibilityRole="button"
             style={styles.dangerBtn}
-          >
-            <Text style={[t.bodyStrong, { color: c.avoidText }]}>
-              {confirm === 'delete' ? 'Tap again to delete it for good' : 'Delete this recipe'}
-            </Text>
-          </Pressable>
+          />
         ) : null}
       </ScrollView>
     </>
@@ -421,10 +424,11 @@ const styles = StyleSheet.create({
   // minWidth 0 lets a text box shrink inside a row (web inputs otherwise keep their default width).
   grow: { flex: 1, minWidth: 0 },
   scroll: { padding: space.lg, paddingBottom: space.xxl * 3 },
+  cancel: { paddingRight: space.md },
   headerBtn: { minWidth: MIN_TOUCH, minHeight: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
   label: { marginTop: space.lg, marginBottom: space.xs },
   input: {
-    borderWidth: 1.5,
+    borderWidth: StyleSheet.hairlineWidth,
     borderRadius: radius.md,
     paddingHorizontal: space.md,
     paddingVertical: space.sm + 2,
@@ -432,40 +436,39 @@ const styles = StyleSheet.create({
     minHeight: MIN_TOUCH,
   },
   multi: { minHeight: 64, textAlignVertical: 'top' },
+  about: { minHeight: 88, textAlignVertical: 'top' },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   row3: { flexDirection: 'row', gap: space.md },
   h2: { marginTop: space.xl, marginBottom: space.sm },
-  ingCard: { borderWidth: 1, borderRadius: radius.md, padding: space.md, gap: space.sm, marginBottom: space.sm },
+  ingCard: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: radius.lg,
+    padding: space.md,
+    gap: space.sm,
+    marginBottom: space.sm,
+  },
   ingTop: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   qty: { width: 96, flexShrink: 0 },
   iconBtn: { minWidth: 36, minHeight: 36, alignItems: 'center', justifyContent: 'center' },
-  hits: { borderWidth: 1, borderRadius: radius.md, marginTop: space.xs, paddingHorizontal: space.md },
+  hits: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: radius.md,
+    marginTop: space.xs,
+    paddingHorizontal: space.md,
+  },
   hit: { minHeight: MIN_TOUCH, justifyContent: 'center', borderBottomWidth: StyleSheet.hairlineWidth },
   stepRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm, marginBottom: space.sm },
   stepNum: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: space.sm,
   },
-  stepNumText: { color: '#fff', fontWeight: '800', fontSize: 15 },
-  addBtn: {
-    borderWidth: 1.5,
-    borderStyle: 'dashed',
-    borderRadius: radius.md,
-    minHeight: MIN_TOUCH,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  stepNumText: { fontWeight: '700', fontSize: 14 },
+  addBtn: { alignSelf: 'flex-start', marginTop: space.xs },
   problems: { borderRadius: radius.md, padding: space.md, marginTop: space.lg, gap: space.xs },
-  saveBtn: {
-    marginTop: space.xl,
-    minHeight: 52,
-    borderRadius: radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dangerBtn: { marginTop: space.md, minHeight: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
+  saveBtn: { marginTop: space.xl },
+  dangerBtn: { marginTop: space.sm },
 });

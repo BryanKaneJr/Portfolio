@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { INGREDIENTS, ingredientIndex } from '../data/catalog';
 import { CATEGORY_LABELS } from '../data/labels';
@@ -12,6 +12,8 @@ import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 import { Chip } from './Chip';
+import { Icon } from './Icon';
+import { LinkButton } from './ui';
 
 const BY_CATEGORY = INGREDIENT_CATEGORIES.map(cat => ({
   cat,
@@ -80,9 +82,7 @@ export function IngredientBrowser({ target, layout, query: controlledQuery, onQu
           ) : (
             <View style={styles.noIng}>
               <Text style={[t.body, { color: c.text }]}>No ingredient found for “{query.trim()}”.</Text>
-              <Pressable onPress={() => setQuery('')} accessibilityRole="button" style={styles.textBtn}>
-                <Text style={[t.bodyStrong, { color: c.primary }]}>Clear search</Text>
-              </Pressable>
+              <LinkButton label="Clear search" onPress={() => setQuery('')} />
             </View>
           )}
         </View>
@@ -92,19 +92,14 @@ export function IngredientBrowser({ target, layout, query: controlledQuery, onQu
             <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>Most common</Text>
             <View style={styles.wrap}>{visible.map(i => chip(i))}</View>
             {layout === 'compact' ? (
-              <Pressable
-                onPress={() => router.push({ pathname: '/ingredients', params: { for: target } })}
-                accessibilityRole="button"
-                accessibilityLabel="More options"
-                accessibilityHint="Opens every ingredient to scroll through"
-                style={({ pressed }) => [
-                  styles.moreBtn,
-                  { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
-                ]}
-              >
-                <Text style={[t.bodyStrong, { color: c.primary }]}>More options</Text>
-                <Text style={[t.small, { color: c.textMuted }]}> {INGREDIENTS.length} ingredients ›</Text>
-              </Pressable>
+              <View style={styles.more}>
+                <LinkButton
+                  label={`Browse all ${INGREDIENTS.length} ingredients`}
+                  chevron
+                  accessibilityHint="Opens every ingredient to scroll through"
+                  onPress={() => router.push({ pathname: '/ingredients', params: { for: target } })}
+                />
+              </View>
             ) : null}
           </View>
 
@@ -137,8 +132,8 @@ export function SearchBox({
 }) {
   const c = useColors();
   return (
-    <View style={[styles.searchBox, { backgroundColor: c.card, borderColor: c.chipBorder }]}>
-      <Text style={{ color: c.textMuted, fontSize: 16 }}>⌕</Text>
+    <View style={[styles.searchBox, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+      <Icon name="search" size={18} color={c.textMuted} />
       <TextInput
         value={value}
         onChangeText={onChange}
@@ -165,23 +160,13 @@ const styles = StyleSheet.create({
     marginTop: space.md,
     paddingHorizontal: space.md,
     borderRadius: radius.md,
-    borderWidth: 1.5,
-    minHeight: 48,
+    borderWidth: StyleSheet.hairlineWidth,
+    minHeight: MIN_TOUCH,
   },
   input: { flex: 1, fontSize: 16, paddingVertical: space.sm },
-  section: { marginTop: space.lg, paddingHorizontal: space.lg },
+  section: { marginTop: space.lg + 2, paddingHorizontal: space.lg },
   sectionLabel: { marginBottom: space.sm },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
-  noIng: { gap: space.xs },
-  moreBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: MIN_TOUCH + 4,
-    borderWidth: 1.5,
-    borderRadius: radius.md,
-    paddingHorizontal: space.lg,
-    marginTop: space.md,
-  },
-  textBtn: { minHeight: MIN_TOUCH, justifyContent: 'center', alignSelf: 'flex-start' },
+  noIng: { gap: space.xs, alignItems: 'flex-start' },
+  more: { marginTop: space.md, alignItems: 'flex-start' },
 });

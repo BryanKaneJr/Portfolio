@@ -7,6 +7,7 @@ import type { RecipeResult } from '../logic/matchRecipes';
 import { useColors } from '../theme/colors';
 import { radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
+import { DishIcon, Icon } from './Icon';
 
 type Props = {
   result: RecipeResult;
@@ -17,7 +18,7 @@ type Props = {
   close?: boolean;
   /** Meal to show in the meta line (the selected one, else the recipe's first). */
   meal?: Meal | null;
-  /** Custom status line (used by pantry mode). */
+  /** Custom status line (pantry results, your versions). */
   note?: { text: string; tone: 'good' | 'warn' };
 };
 
@@ -28,33 +29,62 @@ export function formatMinutes(min: number): string {
   return m ? `${h} hr ${m} min` : `${h} hr`;
 }
 
+/**
+ * Short recipe card: a dish-type picture, the title, time · meal · type, the tagline, and one status line
+ * ("Uses all 3 · 12 more ingredients"). The full ingredient list is on the recipe page.
+ */
 export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, close, meal, note }: Props) {
   const c = useColors();
-  const { recipe, usesIds, missingIds, alsoNeed, totalMinutes } = result;
+  const { recipe, usesIds, missingIds, alsoNeed, staplesUsed, totalMinutes } = result;
   const requested = usesIds.length + missingIds.length;
   const metaMeal = meal && recipe.meals.includes(meal) ? meal : recipe.meals[0];
-  const meta = [
-    formatMinutes(totalMinutes),
-    MEAL_LABELS[metaMeal],
-    shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d])[0],
-  ]
-    .filter(Boolean)
-    .join(' · ');
+  const type = shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d])[0];
+  const meta = [formatMinutes(totalMinutes), MEAL_LABELS[metaMeal], type].filter(Boolean).join(' · ');
+  const requiredCount = recipe.ingredients.filter(i => !i.optional).length;
+  const more = alsoNeed.length + staplesUsed.length;
+
+  let status: { text: string; detail?: string; tone: 'good' | 'warn' | 'muted' };
+  if (note) status = { text: note.text, tone: note.tone };
+  else if (close)
+    status = {
+      text: `Uses ${usesIds.length} of ${requested}`,
+      detail: `Doesn't use ${missingIds.map(ingredientName).join(', ')}`,
+      tone: 'warn',
+    };
+  else if (usesIds.length > 0)
+    status = {
+      text: usesIds.length === 1 ? `Uses ${ingredientName(usesIds[0])}` : `Uses all ${usesIds.length}`,
+      detail: more ? `${more} more ${more === 1 ? 'ingredient' : 'ingredients'}` : 'nothing else',
+      tone: 'good',
+    };
+  else status = { text: `${requiredCount} ingredients`, tone: 'muted' };
+
+  const toneColor = { good: c.herbText, warn: c.warnText, muted: c.textMuted }[status.tone];
 
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${recipe.title}. ${meta}.${note ? ` ${note.text}.` : ''}${close ? ` Uses ${usesIds.length} of ${requested}. Doesn't use ${missingIds.map(ingredientName).join(', ')}.` : ''}`}
+      accessibilityLabel={`${recipe.title}. ${meta}. ${status.text}${status.detail ? `, ${status.detail}` : ''}.`}
       style={({ pressed }) => [
         styles.card,
-        { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 },
+        { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.8 : 1 },
       ]}
     >
       <View style={styles.top}>
-        <View style={{ flex: 1 }}>
-          <Text style={[t.heading, { color: c.text }]}>{recipe.title}</Text>
-          <Text style={[t.small, { color: c.textMuted, marginTop: 2 }]}>{meta}</Text>
+        <View style={[styles.tile, { backgroundColor: c.accentSoft }]}>
+          <DishIcon recipe={recipe} size={26} color={c.accent} />
+        </View>
+        <View style={styles.flex}>
+          <Text style={[t.heading, { color: c.text }]} numberOfLines={2}>
+            {recipe.title}
+          </Text>
+          <View style={styles.meta}>
+            <Icon name="clock" size={13} color={c.textMuted} />
+            <Text style={[styles.metaText, { color: c.textMuted }]} numberOfLines={1}>
+              {meta}
+            </Text>
+          </View>
         </View>
         <Pressable
           onPress={onToggleFavorite}
@@ -65,63 +95,37 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
           }
           style={styles.heart}
         >
-          <Text style={[styles.heartText, { color: isFavorite ? c.primary : c.textMuted }]}>
-            {isFavorite ? '♥' : '♡'}
-          </Text>
+          <Icon name={isFavorite ? 'heartFill' : 'heart'} size={21} color={isFavorite ? c.accent : c.textFaint} />
         </Pressable>
       </View>
 
-      <Text style={[t.small, { color: c.text, marginTop: space.sm }]} numberOfLines={2}>
+      <Text style={[t.small, styles.tagline, { color: c.textMuted }]} numberOfLines={2}>
         {recipe.description}
       </Text>
 
-      {close ? (
-        <View style={[styles.closeBox, { backgroundColor: c.warnSoft }]}>
-          <Text style={[t.small, { color: c.warnText, fontWeight: '700' }]}>
-            Uses {usesIds.length} of {requested}
-            <Text style={{ fontWeight: '400' }}> · Doesn't use: </Text>
-            {missingIds.map(ingredientName).join(', ')}
-          </Text>
-        </View>
-      ) : null}
-
-      {note ? (
-        <View style={[styles.closeBox, { backgroundColor: note.tone === 'good' ? c.herbSoft : c.warnSoft }]}>
-          <Text style={[t.small, { color: note.tone === 'good' ? c.herbText : c.warnText, fontWeight: '700' }]}>
-            {note.text}
-          </Text>
-        </View>
-      ) : null}
-
-      {usesIds.length > 0 ? (
-        <Text style={[t.small, styles.line, { color: c.herbText }]}>
-          <Text style={styles.bold}>✓ Uses: </Text>
-          {usesIds.map(ingredientName).join(', ')}
+      <View style={styles.status}>
+        {status.tone === 'good' ? <Icon name="check" size={14} color={toneColor} weight="bold" /> : null}
+        <Text style={[styles.statusText, { color: toneColor }]} numberOfLines={2}>
+          <Text style={styles.bold}>{status.text}</Text>
+          {status.detail ? (
+            <Text style={{ color: status.tone === 'warn' ? toneColor : c.textMuted }}> · {status.detail}</Text>
+          ) : null}
         </Text>
-      ) : null}
-      {alsoNeed.length > 0 || result.staplesUsed.length > 0 ? (
-        <Text style={[t.small, styles.line, { color: c.textMuted }]} numberOfLines={3}>
-          <Text style={[styles.bold, { color: c.text }]}>You'll also need: </Text>
-          {alsoNeed.length > 0 ? alsoNeed.map(i => ingredientName(i.ingredientId)).join(', ') : 'nothing else'}
-          {result.staplesUsed.length > 0 ? <Text style={{ fontStyle: 'italic' }}> + staples</Text> : null}
-        </Text>
-      ) : null}
+      </View>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  card: { borderRadius: radius.lg, borderWidth: 1, padding: space.lg },
-  top: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm },
-  heart: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center', marginTop: -8, marginRight: -8 },
-  heartText: { fontSize: 24 },
-  line: { marginTop: space.xs + 2 },
-  bold: { fontWeight: '700' },
-  closeBox: {
-    marginTop: space.sm,
-    paddingHorizontal: space.sm + 2,
-    paddingVertical: space.xs + 2,
-    borderRadius: radius.sm,
-    alignSelf: 'flex-start',
-  },
+  flex: { flex: 1 },
+  card: { borderRadius: radius.lg, borderWidth: StyleSheet.hairlineWidth, padding: space.md + 2 },
+  top: { flexDirection: 'row', alignItems: 'flex-start', gap: space.md },
+  tile: { width: 48, height: 48, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  meta: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 3 },
+  metaText: { fontSize: 13, flexShrink: 1 },
+  heart: { width: 36, height: 36, alignItems: 'center', justifyContent: 'center', marginTop: -6, marginRight: -6 },
+  tagline: { marginTop: space.sm + 2 },
+  status: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: space.sm },
+  statusText: { fontSize: 14, lineHeight: 19, flexShrink: 1 },
+  bold: { fontWeight: '600' },
 });

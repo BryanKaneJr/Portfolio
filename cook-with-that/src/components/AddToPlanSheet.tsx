@@ -5,9 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import type { Recipe } from '../data/types';
 import { addDays, dateKey, parseDateKey, PLAN_SLOTS, suggestSlot, type PlanSlot } from '../logic/mealPlan';
 import { useColors } from '../theme/colors';
-import { MIN_TOUCH, radius, space } from '../theme/spacing';
+import { radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 import { Chip } from './Chip';
+import { Button } from './ui';
 
 export const SLOT_LABELS: Record<PlanSlot, string> = { breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner' };
 
@@ -38,7 +39,7 @@ export function AddToPlanSheet({ recipe, visible, onClose, onAdd }: Props) {
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose} accessibilityLabel="Close" accessibilityRole="button" />
       <SafeAreaView edges={['bottom']} style={[styles.sheet, { backgroundColor: c.card }]}>
-        <View style={[styles.grabber, { backgroundColor: c.chipBorder }]} />
+        <View style={[styles.grabber, { backgroundColor: c.textFaint }]} />
         <Text style={[t.title, styles.head, { color: c.text }]} accessibilityRole="header">
           Add to meal plan
         </Text>
@@ -68,15 +69,12 @@ export function AddToPlanSheet({ recipe, visible, onClose, onAdd }: Props) {
             />
           ))}
         </View>
-        <Pressable
+        <Button
+          label={`Add to ${dayLabel(day, today)} · ${SLOT_LABELS[slot]}`}
+          icon="calendar"
           onPress={() => onAdd(day, slot)}
-          accessibilityRole="button"
-          style={({ pressed }) => [styles.add, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
-        >
-          <Text style={[t.bodyStrong, { color: c.primaryText }]}>
-            Add to {dayLabel(day, today)} · {SLOT_LABELS[slot]}
-          </Text>
-        </Pressable>
+          style={styles.add}
+        />
       </SafeAreaView>
     </Modal>
   );
@@ -94,11 +92,5 @@ const styles = StyleSheet.create({
   head: { marginTop: space.md },
   label: { marginTop: space.lg, marginBottom: space.sm },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
-  add: {
-    marginTop: space.xl,
-    minHeight: MIN_TOUCH + 8,
-    borderRadius: radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  add: { marginTop: space.xl },
 });
