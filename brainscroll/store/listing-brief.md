@@ -8,7 +8,7 @@ Write the App Store Connect listing, in American English:
 
 | Field | Limit | Notes |
 | --- | --- | --- |
-| App name | 30 characters | Now "BrainScroll: Level Your Brain" (29). Plain "BrainScroll" is taken on the App Store, so keep "BrainScroll:" and change only what follows, if anything. |
+| App name | 30 characters | Now "BrainScroll: Daily Learning" (27). Plain "BrainScroll" is taken on the App Store, so keep "BrainScroll:" and change only what follows, if anything. |
 | Subtitle | 30 characters | Shown under the name in search results. Searchable. |
 | Promotional text | 170 characters | Above the description; can be changed any time without review. |
 | Description | 4,000 characters | Only the first two or three lines show before "more", so they carry the pitch. Not searchable. |
@@ -167,15 +167,15 @@ From the real app, on iPhone, dark theme:
 
 ## 10. The current draft (a starting point; improve it)
 
-Fine to keep what works. Known gaps: it doesn't mention leagues, friends, the world leaderboard or Weekly Quests, and its opening lines could hit the anti-doomscrolling angle harder. (Its sign-in line now says Apple only; Google isn't available yet.)
+Name, subtitle and keywords are what's live in App Store Connect for 1.0 (owner, 2026-10-11). Fine to keep what works. Known gaps: it doesn't mention leagues, friends, the world leaderboard or Weekly Quests, and its opening lines could hit the anti-doomscrolling angle harder. (Its sign-in line now says Apple only; Google isn't available yet.)
 
-**Name:** BrainScroll: Level Your Brain
+**Name:** BrainScroll: Daily Learning
 
-**Subtitle:** Short lessons on everything
+**Subtitle:** History, Science & More
 
 **Promotional text:** 26 skill trees, 2,600 short levels, from black holes to ancient Rome. Free, forever: your Brainpower refills every day. Then put the phone down and go tell someone.
 
-**Keywords:** learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,smart,knowledge,quiz
+**Keywords:** trivia,facts,learn,quiz,knowledge,fun,space,ancient,art,geography,philosophy,lesson,psychology,rome
 
 **What's New:** Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, trophies you can share, and Brainpower that refills free every day.
 
