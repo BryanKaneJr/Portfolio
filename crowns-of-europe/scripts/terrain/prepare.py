@@ -8,19 +8,23 @@ finest level's resolution (WORK_PPU pixels per map unit). Output to scripts/data
                   averaged from the 1/16 overview (about 160 m).
 - land.npy        uint8 0-255: how much of each pixel is land, from the GAME's own region, waste and far-land
                   outlines (src/content/map.json), rasterised 4x4-supersampled. This is the authority on land and
-                  sea: terrain is painted to it, never the other way round.
+                  sea: terrain is painted to it, never the other way round. Each outline's own rings are filled
+                  even-odd (its holes), and the outlines are then joined, as the game draws them, so two outlines
+                  that overlap by a sliver never cancel into sea.
 - lake.npy        uint8 0-255: Natural Earth 1:10m lakes (inside the game's land only; the game's own geometry has
                   no European lakes, so they are scenery).
 - grid.json       the grid: origin (map units), pixels per unit, size, and its EPSG:3857 geotransform.
 
-Run: python scripts/terrain/prepare.py
+Run: python scripts/terrain/prepare.py            (--masks: only land.npy and lake.npy, from the cached grid)
 """
+import argparse
+import functools
 import json
 import re
 
 import numpy as np
 import rasterio
-from rasterio.enums import MergeAlg, Resampling
+from rasterio.enums import Resampling
 from rasterio.features import rasterize
 from rasterio.warp import reproject
 from shapely.geometry import Polygon, shape
@@ -94,36 +98,35 @@ def parse_rings(d):
     return rings
 
 
-def game_land_rings():
+def game_land_geoms():
+    """The game's land as shapes in map units: one per region, wasteland and far land, each its own rings filled
+    even-odd (so its holes are holes)."""
     m = json.loads(MAP_JSON.read_text())
-    rings = []
+    out = []
     for group in ("regions", "wastelands", "far"):
         for item in m[group]:
-            rings.extend(parse_rings(item["path"]))
-    return rings
+            polys = [shapely.make_valid(Polygon(r)) for r in parse_rings(item["path"]) if len(r) >= 3]
+            if polys:
+                out.append(functools.reduce(lambda a, b: a.symmetric_difference(b), polys))
+    return out
 
 
-def coverage(rings_xy, g, ss=4, band=256):
-    """Even-odd fill of rings (map units) as 0-255 coverage, supersampled ss x ss, in bands of rows."""
+def coverage(geoms, g, ss=4, band=256):
+    """How much of each pixel the union of shapes (map units) covers, 0-255, supersampled ss x ss, in bands of rows."""
     x0, y0, x1, y1 = g.x0, g.y0, g.x0 + g.width / g.ppu, g.y0 + g.height / g.ppu
-    polys = []
-    for r in rings_xy:
-        if len(r) < 3:
-            continue
-        xs = [p[0] for p in r]
-        ys = [p[1] for p in r]
-        if max(xs) < x0 or min(xs) > x1 or max(ys) < y0 or min(ys) > y1:
-            continue
-        polys.append(Polygon(r))
+    area = shapely.box(x0, y0, x1, y1)
+    union = shapely.union_all([gm for gm in geoms if gm.intersects(area)]).intersection(area)
     out = np.zeros((g.height, g.width), dtype=np.uint8)
     for r0 in range(0, g.height, band):
         h = min(band, g.height - r0)
         sub = mp.Grid(g.x0, g.y0 + r0 / g.ppu, g.ppu * ss, g.width * ss, h * ss)
-        # Rasterise in the sub-grid's own pixel space: map units → pixels.
-        geoms = [(shapely.transform(p, lambda c, s=sub: (c - (s.x0, s.y0)) * s.ppu), 1) for p in polys]
-        hits = rasterize(geoms, out_shape=(sub.height, sub.width), transform=rasterio.Affine.identity(), fill=0, merge_alg=MergeAlg.add, dtype=np.uint8, all_touched=False)
-        inside = (hits % 2).astype(np.float32)  # even-odd
-        cov = inside.reshape(h, ss, g.width, ss).mean(axis=(1, 3))
+        part = union.intersection(shapely.box(x0, sub.y0, x1, sub.y0 + h / g.ppu))
+        cov = np.zeros((h, g.width), np.float32)
+        if not part.is_empty:
+            # Rasterise in the sub-grid's own pixel space: map units → pixels.
+            px = shapely.transform(part, lambda c, s=sub: (c - (s.x0, s.y0)) * s.ppu)
+            inside = rasterize([(px, 1)], out_shape=(sub.height, sub.width), transform=rasterio.Affine.identity(), fill=0, dtype=np.uint8, all_touched=False)
+            cov = inside.astype(np.float32).reshape(h, ss, g.width, ss).mean(axis=(1, 3))
         out[r0 : r0 + h] = np.round(cov * 255).astype(np.uint8)
     return out
 
@@ -135,23 +138,23 @@ def lakes(g, land):
         for f in data["features"]:
             geom = shape(f["geometry"])
             polys.append(shapely.transform(geom, lambda c: np.column_stack(mp.to_map(c[:, 0], c[:, 1]))))
-    rings = []
-    for p in polys:
-        for poly in getattr(p, "geoms", [p]):
-            rings.append(list(poly.exterior.coords))
-            rings.extend(list(i.coords) for i in poly.interiors)
-    lake = coverage(rings, g)
+    # Each lake keeps its own islands; lakes in both files, or touching, are joined (never cancelled).
+    lake = coverage([shapely.make_valid(p) for p in polys], g)
     return np.minimum(lake, land)
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--masks", action="store_true", help="only rebuild land.npy and lake.npy")
+    a = ap.parse_args()
     WORK_DIR.mkdir(parents=True, exist_ok=True)
     g = grid()
     print(f"grid: origin ({g.x0}, {g.y0}) map units, {g.ppu} px/unit, {g.width} x {g.height} px")
-    np.save(WORK_DIR / "elevation.npy", elevation(g))
-    np.save(WORK_DIR / "cover.npy", cover(g))
+    if not a.masks:
+        np.save(WORK_DIR / "elevation.npy", elevation(g))
+        np.save(WORK_DIR / "cover.npy", cover(g))
     print("land: rasterising the game's own coastline (4x4 supersampled)")
-    land = coverage(game_land_rings(), g)
+    land = coverage(game_land_geoms(), g)
     np.save(WORK_DIR / "land.npy", land)
     print("lakes: Natural Earth 1:10m")
     np.save(WORK_DIR / "lake.npy", lakes(g, land))

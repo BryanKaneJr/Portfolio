@@ -117,13 +117,14 @@ describe('tiles to draw', () => {
     }
   });
 
-  test('fine tiles are limited to the screen and its buffer', () => {
+  test('the needed level is limited to the screen and its buffer, the one below it to the drawn area', () => {
     const { screen, drawn } = view(2000, 850, 3);
     const tiles = tilesToDraw(TERRAIN_LEVELS, 3, 3, screen, drawn);
     const near = grow(screen, BUFFER);
-    for (const t of tiles.filter(t => t.level > 0)) {
-      expect(t.x < near.x1 && t.x + t.w > near.x0 && t.y < near.y1 && t.y + t.h > near.y0).toBe(true);
-    }
+    const { fine } = pickLevel(TERRAIN_LEVELS, 3, 3);
+    const touches = (t: { x: number; y: number; w: number; h: number }, r: { x0: number; y0: number; x1: number; y1: number }) => t.x < r.x1 && t.x + t.w > r.x0 && t.y < r.y1 && t.y + t.h > r.y0;
+    for (const t of tiles.filter(t => t.level === fine)) expect(touches(t, near)).toBe(true);
+    for (const t of tiles.filter(t => t.level > 0 && t.level < fine)) expect(touches(t, drawn)).toBe(true);
     // And their decoded memory is what their pixels say.
     const bytes = decodedBytes(TERRAIN_LEVELS, tiles);
     expect(bytes).toBe(tiles.reduce((s, t) => s + Math.round(t.w * TERRAIN_LEVELS[t.level].ppu) * Math.round(t.h * TERRAIN_LEVELS[t.level].ppu) * 4, 0));
@@ -136,12 +137,24 @@ describe('tiles to draw', () => {
     expect(edge.relief_image).toBe('assets/map/relief-sea.png');
   });
 
-  test('once the needed level is opaque, the level below it is not drawn over the screen', () => {
+  test('the level below the needed one covers the drawn area for pans, but not under the needed one once that is opaque', () => {
     for (let k = 0.3; k <= 5; k *= 1.05) {
       const { screen, drawn } = view(2000, 850, k);
       const p = pickLevel(TERRAIN_LEVELS, k, 3);
-      const levels = new Set(tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).map(t => t.level));
-      if (p.fine >= 2) expect(levels.has(p.fine - 1)).toBe(p.alpha < 1);
+      if (p.fine < 2) continue;
+      const near = grow(screen, BUFFER);
+      const below = tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).filter(t => t.level === p.fine - 1);
+      const inside = (t: { x: number; y: number; w: number; h: number }) => t.x >= near.x0 && t.y >= near.y0 && t.x + t.w <= near.x1 && t.y + t.h <= near.y1;
+      if (p.alpha >= 1) expect(below.some(inside)).toBe(false);
+      // Every point of the drawn area inside the region is under a tile of the level below or the needed one.
+      const fineTiles = tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).filter(t => t.level === p.fine);
+      for (let x = drawn.x0; x < drawn.x1; x += (drawn.x1 - drawn.x0) / 17) {
+        for (let y = drawn.y0; y < drawn.y1; y += (drawn.y1 - drawn.y0) / 31) {
+          if (x < R.x0 || y < R.y0 || x >= R.x1 || y >= R.y1) continue;
+          const on = (t: { x: number; y: number; w: number; h: number }) => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h;
+          expect(below.some(on) || fineTiles.some(on)).toBe(true);
+        }
+      }
     }
   });
 

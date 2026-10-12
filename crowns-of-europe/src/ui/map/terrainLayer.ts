@@ -8,9 +8,9 @@
  *
  * Levels: level L has PPU[L] pixels per map unit. A screen showing k points per map unit at `dpr` device pixels per
  * point needs k * dpr pixels per map unit; the layer draws the finest level it needs (allowing a little
- * magnification, SHARPNESS), the next coarser one under it while the finer one fades in, and the coarsest under
- * everything (a few tiles cover the whole region, so a pan past the drawn area, or a tile still loading, shows
- * terrain, never a hole).
+ * magnification, SHARPNESS), the next coarser one under it while it fades in and around it out to the drawn area's
+ * edge, and the coarsest under everything (a few tiles cover the whole region, so a pan past the drawn area, or a
+ * tile still loading, shows terrain, never a hole).
  */
 import type { TerrainLevel, TerrainTile } from './terrainTiles';
 
@@ -72,10 +72,12 @@ export interface DrawTile extends TerrainTile {
 }
 
 /**
- * Every tile to draw for a view, bottom to top: the coarsest level over the whole drawn area (`drawn`: the SVG's
- * area, larger than the screen), then over the screen plus BUFFER the needed level at its fade-in opacity, on the
- * level below it while it is still fading in (once it is opaque, the level below could not be seen, so it is not
- * drawn or decoded).
+ * Every tile to draw for a view, bottom to top:
+ * - the coarsest level over the whole drawn area (`drawn`: the SVG's area, larger than the screen, which a pan
+ *   reveals before the map is redrawn);
+ * - the level below the needed one over the drawn area too, so a long pan shows half-resolution terrain at the edges
+ *   rather than the coarsest; once the needed level is opaque, not under it (it could not be seen there);
+ * - the needed level over the screen plus BUFFER, at its fade-in opacity.
  */
 export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, screen: Rect, drawn: Rect): DrawTile[] {
   const { fine, alpha } = pickLevel(levels, k, dpr);
@@ -85,7 +87,12 @@ export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, scre
     for (const t of tilesIn(levels[l], r)) out.push({ ...t, level: l, opacity });
   };
   add(0, drawn, 1);
-  if (fine >= 2 && alpha < 1) add(fine - 1, near, 1);
+  if (fine >= 2) {
+    for (const t of tilesIn(levels[fine - 1], drawn)) {
+      const hidden = alpha >= 1 && t.x >= near.x0 && t.y >= near.y0 && t.x + t.w <= near.x1 && t.y + t.h <= near.y1;
+      if (!hidden) out.push({ ...t, level: fine - 1, opacity: 1 });
+    }
+  }
   if (fine >= 1 && alpha > 0) add(fine, near, alpha);
   return out;
 }

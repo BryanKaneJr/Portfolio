@@ -453,7 +453,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             <Path d={`M${vx} ${vy}h${vw}v${vh}h${-vw}Z M${TR.x0} ${TR.y0}h${TR.x1 - TR.x0}v${TR.y1 - TR.y0}h${TR.x0 - TR.x1}Z`} clipRule="evenodd" />
           </ClipPath>
         ) : null}
-        {pt && landD ? (
+        {(pt || tr) && landD ? (
           <ClipPath id="water">
             <Path d={`M${vx} ${vy}h${vw}v${vh}h${-vw}Z${landD}${wastes}`} clipRule="evenodd" />
           </ClipPath>
@@ -497,8 +497,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {terrainTiles.map(t => (
         <SvgImage key={t.key} x={t.x} y={t.y} width={t.w + seam} height={t.h + seam} href={t.src} preserveAspectRatio="none" opacity={t.opacity < 1 ? t.opacity : undefined} />
       ))}
-      {/* Sea zones (with the painting showing through the land, cut to the water: they run on under the coast) */}
-      <G clipPath={pt && landD ? 'url(#water)' : undefined}>
+      {/* Sea zones (where the land is see-through, Painted and Illustrated, cut to the water: they run on under the coast) */}
+      <G clipPath={(pt || tr) && landD ? 'url(#water)' : undefined}>
         {MAP.seas.map(sea =>
           !visible(sea.bbox) || sea.closed || hidden(sea.id) ? null : (
             <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke={st.seaZone.color} strokeWidth={px(0.8)} strokeDasharray={dash(st.seaZone.dash)} />
@@ -579,7 +579,10 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={SHADOWS[charted ? 'charted' : 'uncharted'].src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
       {/* Borders */}
       {provinceAlpha > 0 && lines.province ? <Path d={lines.province} fill="none" stroke={st.provinceBorder.color} strokeWidth={px(st.provinceBorder.width)} strokeDasharray={dash(st.provinceBorder.dash)} strokeLinecap="round" strokeLinejoin="round" opacity={provinceAlpha} /> : null}
-      {lines.river && st.river.width > 0 ? <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null}
+      {/* The rivers armies cross (along borders); where the illustrated terrain draws the real rivers, those stand in for them */}
+      {lines.river && st.river.width > 0 && !allTerrain ? (
+        <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} clipPath={terrainOn ? 'url(#tOut)' : undefined} />
+      ) : null}
       {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {/* The known world fading into the parchment at the window's edges */}
