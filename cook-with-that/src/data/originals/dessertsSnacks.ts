@@ -672,7 +672,7 @@ export const DESSERTS_SNACKS_RECIPES: Recipe[] = [
     cookMinutes: 75,
     servings: 12,
     ingredients: [
-      r('popcorn_kernels', 'popcorn kernels', '1/2 cup'),
+      r('popcorn_kernels', 'popcorn kernels', '1/3 cup'),
       r('vegetable_oil', 'vegetable oil', '2 tbsp'),
       r('butter', 'unsalted butter', '1/2 cup (1 stick)'),
       r('brown_sugar', 'packed brown sugar', '1 cup'),
@@ -684,7 +684,7 @@ export const DESSERTS_SNACKS_RECIPES: Recipe[] = [
     steps: [
       'Heat the oven to 250°F (120°C). Line two rimmed baking sheets with parchment paper.',
       'Heat the vegetable oil and 3 popcorn kernels in a large pot with a lid over medium-high heat. When those pop, add the rest of the popcorn kernels, cover and shake the pot every few seconds.',
-      'When the popping slows to 2–3 seconds between pops, take the pot off the heat. Tip the popcorn into a very large bowl, leaving any unpopped kernels behind. You should have about 15 cups of popped popcorn.',
+      'When the popping slows to 2–3 seconds between pops, take the pot off the heat. Tip the popcorn into a very large bowl, leaving any unpopped kernels behind. You should have about 10 cups of popped popcorn.',
       'In a medium saucepan over medium heat, melt the butter with the brown sugar, corn syrup and salt, stirring until it comes to a boil.',
       'Boil without stirring for 4 minutes. It will bubble up and darken slightly.',
       'Take the pan off the heat and stir in the baking soda and vanilla; the caramel will foam and lighten. Pour it over the popcorn right away and fold with a large spatula until evenly coated.',
