@@ -65,7 +65,7 @@ for (const [name, x, y, k] of VIEWS) {
   for (const s of ['atlas', 'illustrated']) {
     await style(s);
     await look(x, y, k);
-    await page.screenshot({ path: path.join(OUT, `${name}-${s === 'atlas' ? 'before' : 'after'}.jpg`), type: 'jpeg', quality: 90 });
+    await page.screenshot({ path: path.join(OUT, `${name}-${s === 'atlas' ? 'before' : 'after'}.jpg`), type: 'jpeg', quality: 82 });
   }
 }
 
@@ -83,7 +83,7 @@ const sy = H / 2 + (target.y - target.cam.cy) * target.cam.k - 22;
 await page.mouse.click(sx, sy);
 await settle(900);
 const selected = await page.evaluate(() => window.__coe.store.selection);
-await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.jpg'), type: 'jpeg', quality: 90 });
+await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.jpg'), type: 'jpeg', quality: 82 });
 
 // Close the region sheet the tap opened, so drags land on the map.
 await page.evaluate(() => {
@@ -191,7 +191,7 @@ for (const [name, , , k] of VIEWS) {
   await sheet.setContent(`<body style="margin:0;background:#1b1712;font:600 15px system-ui;color:#e8dcc0;display:flex;gap:24px">
     ${['before', 'after'].map(s => `<figure style="margin:0"><figcaption style="height:40px;line-height:40px;padding-left:8px">${s === 'before' ? 'Before: Atlas' : 'After: Illustrated'} · ${name}, k = ${k}</figcaption><img src="${img(s)}" style="width:${W}px;height:${H}px;display:block"></figure>`).join('')}
   </body>`);
-  await sheet.screenshot({ path: path.join(OUT, `compare-${name}.jpg`), type: 'jpeg', quality: 88 });
+  await sheet.screenshot({ path: path.join(OUT, `compare-${name}.jpg`), type: 'jpeg', quality: 82 });
 }
 await sheet.close();
 
