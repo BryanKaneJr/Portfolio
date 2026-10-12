@@ -256,7 +256,7 @@ export function MapView() {
       {ready ? (
         <GestureDetector gesture={gesture}>
           <View style={StyleSheet.absoluteFill} collapsable={false}>
-            <Animated.View style={[{ position: 'absolute', left: (size.w - W) / 2, top: (size.h - H) / 2, width: W, height: H }, animStyle]}>
+            <Animated.View style={[{ position: 'absolute', left: (size.w - W) / 2, top: (size.h - H) / 2, width: W, height: H }, WEB_LAYER, animStyle]}>
               <StaticLayer cam={cam!} w={W} h={H} mapVersion={st.mapVersion} mode={st.mapMode} selection={st.selection} styleId={st.mapStyle} />
               <UnitLayer cam={cam!} w={W} h={H} s={s} selection={st.selection} version={st.version} />
             </Animated.View>
@@ -277,6 +277,10 @@ export function MapView() {
     </View>
   );
 }
+
+/** On the web, the moving map gets its own compositor layer, so a pan or pinch only moves the picture already drawn
+ * instead of repainting the whole SVG every frame (on a phone the native view transform already works that way). */
+const WEB_LAYER = Platform.OS === 'web' ? ({ willChange: 'transform' } as object) : null;
 
 // ---------------------------------------------------------------- static layer (land, borders, labels)
 
@@ -1094,5 +1098,7 @@ if (typeof window !== 'undefined') {
       return c ? [c.x, c.y] : null;
     };
     hook.terrain = () => ({ ...terrainStats });
+    // The styles themselves, so a measurement script can switch one layer off and compare (screens-terrain.mjs).
+    hook.styles = MAP_STYLES;
   }
 }
