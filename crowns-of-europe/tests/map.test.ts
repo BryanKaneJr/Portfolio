@@ -180,16 +180,17 @@ describe('baked map pictures', () => {
 
 describe('drawn terrain', () => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { terrainPaths } = require('../src/ui/map/terrain') as typeof import('../src/ui/map/terrain');
-  const around = (id: string, r = 40) => {
+  const { mountainsIn, terrainPaths } = require('../src/ui/map/terrain') as typeof import('../src/ui/map/terrain');
+  const box = (id: string, r: number): [number, number, number, number] => {
     const reg = MAP.regions.find(x => x.id === id)!;
-    return terrainPaths(reg.label[0] - r, reg.label[1] - r, reg.label[0] + r, reg.label[1] + r, 3);
+    return [reg.label[0] - r, reg.label[1] - r, reg.label[0] + r, reg.label[1] + r];
   };
-  test('ridges in the mountains, dunes in the desert, and nothing out at sea', () => {
-    expect(around('switzerland').ridge.length).toBeGreaterThan(0);
-    expect(around('upper_egypt', 80).dune.length).toBeGreaterThan(0);
-    expect(around('masovia', 30).ridge).toBe('');
-    const sea = terrainPaths(1000, 700, 1200, 1000, 3); // the open Atlantic
-    expect(Object.values(sea).join('')).toBe('');
+  test('mountains in the mountains, dunes in the desert, and nothing out at sea', () => {
+    expect(mountainsIn(...box('switzerland', 40)).length).toBeGreaterThan(2);
+    expect(mountainsIn(...box('masovia', 30))).toEqual([]);
+    expect(terrainPaths(...box('upper_egypt', 80)).dune.length).toBeGreaterThan(0);
+    const sea: [number, number, number, number] = [1000, 700, 1200, 1000]; // the open Atlantic
+    expect(Object.values(terrainPaths(...sea)).join('')).toBe('');
+    expect(mountainsIn(...sea)).toEqual([]);
   });
 });

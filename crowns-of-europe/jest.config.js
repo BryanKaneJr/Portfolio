@@ -2,6 +2,7 @@
 module.exports = {
   testEnvironment: 'node',
   roots: ['<rootDir>/tests'],
+  moduleNameMapper: { '\\.(png|jpg)$': '<rootDir>/tests/support/asset.js' },
   transform: {
     '^.+\\.tsx?$': [
       'ts-jest',

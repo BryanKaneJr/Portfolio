@@ -1,27 +1,23 @@
 /**
- * Builds the map's drawn terrain from real data, as on a hand-drawn map: the mountain ranges washed, their slopes lit
- * and shaded, their ridgelines inked; the uplands lightly lit and shaded; trees where the real forests are
- * (broadleaf, or conifers in the north and up high), dunes in the deserts and reeds in the marshes. Elevation and how
- * rugged the land around is come from the Terrain Tiles on AWS Open Data, the colour of the land from space from
- * NASA's Blue Marble, the marshes from the regions' own terrain. Everything random is hashed from a fixed seed, so a
- * rebuild gives the same map.
+ * Builds the map's drawn terrain from real data: the mountain ranges, drawn with the owner's ink drawings
+ * (art/mountains); trees where the real forests are (broadleaf, or conifers in the north and up high), dunes in the
+ * deserts and reeds in the marshes. Elevation and how rugged the land around is come from the Terrain Tiles on AWS
+ * Open Data, the colour of the land from space from NASA's Blue Marble, the marshes from the regions' own terrain.
+ * Everything random is hashed from a fixed seed, so a rebuild gives the same map.
  *
- * Mountains: the mountainous land, grown a little way over the rugged land joined to it, is gathered into ranges and
- * traced round (the wash); within them, the ground the sun lights and the ground in shadow (lit from the upper left,
- * the relief steepened so it shows) and the snow are traced too. The ridgelines are where river basins meet: rain is
- * run downhill over all the land to the sea, and where the basins of two valleys meet inside a range, and the ground
- * stands up above what is round it, there is a ridge (the great ones between great valleys, drawn from further out).
+ * Mountains: the mountainous land, grown a little way over the rugged land joined to it, is gathered into ranges;
+ * the drawings are laid over them, widest stretch first, each picked to run the way the range runs there (mirrored if
+ * need be) and sized to how wide it is. The drawings are made ready for the map in assets/map/mountains: cut to what
+ * is drawn, made smaller, the ink made to darken the land under it so the country's colour shows through.
  *
- * Output: src/ui/map/terrainSymbols.ts, base64 both:
- *  - TERRAIN_SYMBOLS, the small marks: four 16-bit numbers each (x and y in tenths of a map unit, kind, size in
- *    tenths), from the top of the map down;
- *  - TERRAIN_SHAPES, the traced shapes and lines: per shape its layer, flags and point count, then the points.
- * The renderer (ui/map/terrain.ts) draws them as paths, so they stay sharp at any zoom. Run after
- * `npm run relief:build` (it shares its cache):  npm run terrain:build
+ * Output: src/ui/map/terrainSymbols.ts (the drawings and where they go; the small marks, base64) and
+ * assets/map/mountains. The renderer is ui/map/terrain.ts. Run after `npm run relief:build` (it shares its cache):
+ * npm run terrain:build
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { BM_Z, H, RAD, ROOT, W, elevation, fetchArea, fetchBlueMarbleArea, landMask, latOf, lonOf, map, natural, parseRings, unitsPerDegree } from './lib/geo';
+import { PNG } from 'pngjs';
+import { BM_Z, H, ROOT, W, elevation, fetchArea, fetchBlueMarbleArea, landMask, latOf, lonOf, map, natural, parseRings } from './lib/geo';
 
 const OUT = path.join(ROOT, 'src/ui/map/terrainSymbols.ts');
 const REGIONS: { id: string; terrain: string }[] = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/regions.json'), 'utf8'));
@@ -187,431 +183,208 @@ function rangeField(region: Int16Array, elev: Float32Array, rugged: Float32Array
   return field;
 }
 
-// ---------------------------------------------------------------- the light on the land
-const EXAGGERATE = 8; // the relief is drawn steeper than it is, or at this scale it would hardly show
-const SUN = 45 * RAD; // above the horizon, from the upper left (north-west), as maps are lit
+// ---------------------------------------------------------------- the mountains: the owner's ink drawings
+/**
+ * The drawings (art/mountains), each a stretch of range in ink, drawn from above and to the south, lit from the upper
+ * left; every one runs from upper left to lower right (`slope`, degrees below level), so a range running the other
+ * way gets one mirrored. `size`: how wide it is drawn, in half-widths of the range where it stands; `along`/`across`:
+ * how much of the range it stands for, as fractions of its width.
+ */
+const ART = [
+  { name: 'ridge', slope: 30, size: 2.6, along: 0.65, across: 0.5 },
+  { name: 'range', slope: 22, size: 2.6, along: 0.65, across: 0.52 },
+  { name: 'steep', slope: 55, size: 2.2, along: 0.7, across: 0.5 },
+  { name: 'great', slope: 50, size: 2.6, along: 0.6, across: 0.58 },
+  { name: 'massif', slope: 35, size: 2.4, along: 0.6, across: 0.58 },
+  { name: 'scattered', slope: 30, size: 3.5, along: 0.65, across: 0.52 },
+] as const;
+type ArtName = (typeof ART)[number]['name'];
+const ART_DIR = path.join(ROOT, 'art/mountains');
+const ART_OUT = path.join(ROOT, 'assets/map/mountains');
+const ART_MAX = 768; // pixels, the longer side
+const MIN_ART = 10; // map units, the narrowest a drawing is drawn
+const MAX_ART = 40; // ... the widest: a great range is drawn as many drawings, not a few huge ones
+const INK: [number, number, number] = [28, 20, 12];
+const PAPER_LIGHT: [number, number, number] = [255, 250, 236];
+const LIGHT = 0.18; // how strongly the drawing's lit faces lighten the land
 
-/** How much sunlight each cell's ground catches (0..1; flat ground ~0.71). */
-function sunlight(e: Float32Array): Float32Array {
-  const out = new Float32Array(N).fill(Math.sin(SUN));
-  const lx = -Math.cos(SUN) / Math.SQRT2;
-  const ly = -Math.cos(SUN) / Math.SQRT2;
-  const lz = Math.sin(SUN);
-  for (let r = 1; r < rows - 1; r++) {
-    const metres = (111320 * Math.cos(latOf((r + 0.5) / F) * RAD)) / unitsPerDegree / F; // one cell, east to west
+/**
+ * A drawing made ready for the map: cut to what is drawn, made smaller, and turned from ink on paper into ink that
+ * darkens the land under it and a faint light where the paper showed, so the country's colour shows through.
+ */
+function bake(name: string): { w: number; h: number } {
+  const src = PNG.sync.read(fs.readFileSync(path.join(ART_DIR, `${name}.png`)));
+  // What is drawn: the bounds of everything not transparent.
+  let x0 = src.width, y0 = src.height, x1 = 0, y1 = 0;
+  for (let y = 0; y < src.height; y++)
+    for (let x = 0; x < src.width; x++)
+      if (src.data[(y * src.width + x) * 4 + 3] > 8) {
+        x0 = Math.min(x0, x);
+        y0 = Math.min(y0, y);
+        x1 = Math.max(x1, x + 1);
+        y1 = Math.max(y1, y + 1);
+      }
+  const cw = x1 - x0;
+  const ch = y1 - y0;
+  // The paper's own brightness: the bright end of what is drawn solid.
+  const lum: number[] = [];
+  for (let i = 0; i < src.width * src.height; i++)
+    if (src.data[i * 4 + 3] > 200) lum.push(0.3 * src.data[i * 4] + 0.59 * src.data[i * 4 + 1] + 0.11 * src.data[i * 4 + 2]);
+  lum.sort((a, b) => a - b);
+  const paper = lum[Math.floor(lum.length * 0.85)];
+  // Area-average down to size, in premultiplied colour.
+  const scale = Math.min(1, ART_MAX / Math.max(cw, ch));
+  const ow = Math.round(cw * scale);
+  const oh = Math.round(ch * scale);
+  const acc = new Float64Array(ow * oh * 5); // r, g, b (premultiplied), alpha, weight
+  for (let y = 0; y < ch; y++) {
+    const oy0 = (y * oh) / ch;
+    const oy1 = ((y + 1) * oh) / ch;
+    for (let x = 0; x < cw; x++) {
+      const ox0 = (x * ow) / cw;
+      const ox1 = ((x + 1) * ow) / cw;
+      const i = ((y0 + y) * src.width + x0 + x) * 4;
+      const a = src.data[i + 3] / 255;
+      for (let oy = Math.floor(oy0); oy < Math.min(oh, Math.ceil(oy1)); oy++) {
+        const wy = Math.min(oy1, oy + 1) - Math.max(oy0, oy);
+        for (let ox = Math.floor(ox0); ox < Math.min(ow, Math.ceil(ox1)); ox++) {
+          const wgt = wy * (Math.min(ox1, ox + 1) - Math.max(ox0, ox));
+          if (wgt <= 0) continue;
+          const o = (oy * ow + ox) * 5;
+          acc[o] += src.data[i] * a * wgt;
+          acc[o + 1] += src.data[i + 1] * a * wgt;
+          acc[o + 2] += src.data[i + 2] * a * wgt;
+          acc[o + 3] += a * wgt;
+          acc[o + 4] += wgt;
+        }
+      }
+    }
+  }
+  const out = new PNG({ width: ow, height: oh });
+  for (let p = 0; p < ow * oh; p++) {
+    const o = p * 5;
+    const a = acc[o + 3] / acc[o + 4];
+    if (a <= 0) continue;
+    const l = (0.3 * acc[o] + 0.59 * acc[o + 1] + 0.11 * acc[o + 2]) / acc[o + 3];
+    const dark = clamp01(1 - l / paper);
+    const ad = a * Math.min(1, dark * 1.15);
+    const al = a * LIGHT * clamp01(1 - dark / 0.12);
+    const at = Math.min(1, ad + al);
+    if (at <= 0) continue;
+    for (let k = 0; k < 3; k++) out.data[p * 4 + k] = Math.round((INK[k] * ad + PAPER_LIGHT[k] * al) / (ad + al));
+    out.data[p * 4 + 3] = Math.round(at * 255);
+  }
+  fs.mkdirSync(ART_OUT, { recursive: true });
+  fs.writeFileSync(path.join(ART_OUT, `${name}.png`), PNG.sync.write(out, { colorType: 6 }));
+  return { w: ow, h: oh };
+}
+
+/** How far each cell inside the mask is from its edge (map units; chamfer distance). */
+function insideDistance(mask: Uint8Array): Float32Array {
+  const d = new Float32Array(N);
+  for (let i = 0; i < N; i++) d[i] = mask[i] ? 1e6 : 0;
+  const D = Math.SQRT2;
+  for (let r = 1; r < rows; r++)
     for (let c = 1; c < cols - 1; c++) {
       const i = r * cols + c;
-      const gx = ((e[i + 1] - e[i - 1]) / (2 * metres)) * EXAGGERATE;
-      const gy = ((e[i + cols] - e[i - cols]) / (2 * metres)) * EXAGGERATE;
-      out[i] = Math.max(0, (-gx * lx - gy * ly + lz) / Math.hypot(gx, gy, 1));
+      if (d[i]) d[i] = Math.min(d[i], d[i - 1] + 1, d[i - cols] + 1, d[i - cols - 1] + D, d[i - cols + 1] + D);
     }
-  }
-  return out;
-}
-
-// ---------------------------------------------------------------- tracing shapes
-type Pt = [number, number];
-
-/**
- * The outlines of where `field` is positive (marching squares, the crossings placed between cell centres by the
- * values), as closed rings in map units, all wound the same way round what they enclose, so a hole winds the other
- * way. Rings enclosing less than `minArea` square map units are dropped, and every ring is simplified to `tol`.
- */
-function contours(field: Float32Array, minArea: number, tol: number): Pt[][] {
-  const v = (r: number, c: number) => (r < 0 || c < 0 || r >= rows || c >= cols ? -1 : field[r * cols + c]);
-  const points = new Map<number, Pt>();
-  const next = new Map<number, number>();
-  // Edge ids: the edge from cell (r, c) to its right neighbour is 2·id, to the one below 2·id + 1 (id = r·(cols+2) + c, shifted by one to allow −1).
-  const H = (r: number, c: number) => ((r + 1) * (cols + 2) + (c + 1)) * 2;
-  const V = (r: number, c: number) => ((r + 1) * (cols + 2) + (c + 1)) * 2 + 1;
-  const cross = (id: number, ra: number, ca: number, rb: number, cb: number) => {
-    if (!points.has(id)) {
-      const a = v(ra, ca);
-      const b = v(rb, cb);
-      const t = a / (a - b);
-      points.set(id, [(ca + 0.5 + (cb - ca) * t) / F, (ra + 0.5 + (rb - ra) * t) / F]);
-    }
-    return id;
-  };
-  for (let r = -1; r < rows; r++)
-    for (let c = -1; c < cols; c++) {
-      const tl = v(r, c) > 0 ? 1 : 0;
-      const tr = v(r, c + 1) > 0 ? 1 : 0;
-      const br = v(r + 1, c + 1) > 0 ? 1 : 0;
-      const bl = v(r + 1, c) > 0 ? 1 : 0;
-      const code = tl * 8 + tr * 4 + br * 2 + bl;
-      if (code === 0 || code === 15) continue;
-      const T = () => cross(H(r, c), r, c, r, c + 1);
-      const B = () => cross(H(r + 1, c), r + 1, c, r + 1, c + 1);
-      const L = () => cross(V(r, c), r, c, r + 1, c);
-      const R = () => cross(V(r, c + 1), r, c + 1, r + 1, c + 1);
-      // Each piece of outline runs with the inside on its left (as seen on the map, y down).
-      const seg = (a: number, b: number) => next.set(a, b);
-      const centre = (v(r, c) + v(r, c + 1) + v(r + 1, c + 1) + v(r + 1, c)) / 4 > 0;
-      switch (code) {
-        case 1: seg(B(), L()); break;
-        case 2: seg(R(), B()); break;
-        case 3: seg(R(), L()); break;
-        case 4: seg(T(), R()); break;
-        case 5: if (centre) { seg(T(), L()); seg(B(), R()); } else { seg(T(), R()); seg(B(), L()); } break;
-        case 6: seg(T(), B()); break;
-        case 7: seg(T(), L()); break;
-        case 8: seg(L(), T()); break;
-        case 9: seg(B(), T()); break;
-        case 10: if (centre) { seg(L(), B()); seg(R(), T()); } else { seg(L(), T()); seg(R(), B()); } break;
-        case 11: seg(R(), T()); break;
-        case 12: seg(L(), R()); break;
-        case 13: seg(B(), R()); break;
-        case 14: seg(L(), B()); break;
-      }
-    }
-  const rings: Pt[][] = [];
-  const done = new Set<number>();
-  for (const start of next.keys()) {
-    if (done.has(start)) continue;
-    const ring: Pt[] = [];
-    for (let id = start; !done.has(id); id = next.get(id)!) {
-      done.add(id);
-      ring.push(points.get(id)!);
-      if (!next.has(id)) break;
-    }
-    if (Math.abs(area(ring)) < minArea) continue;
-    const simple = simplify(ring, tol);
-    if (simple.length >= 3) rings.push(simple);
-  }
-  return rings;
-}
-
-const area = (ring: Pt[]) => {
-  let a = 0;
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) a += ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1];
-  return a / 2;
-};
-
-/** Douglas–Peucker: drop the points that stray less than `tol` from the line through their neighbours kept. */
-function simplify(pts: Pt[], tol: number, closed = true): Pt[] {
-  if (pts.length < 4) return pts;
-  const keep = new Uint8Array(pts.length);
-  const run = (a: number, b: number) => {
-    let far = -1;
-    let best = tol;
-    const [ax, ay] = pts[a];
-    const dx = pts[b][0] - ax;
-    const dy = pts[b][1] - ay;
-    const len = Math.hypot(dx, dy) || 1e-9;
-    for (let i = a + 1; i < b; i++) {
-      const d = Math.abs((pts[i][0] - ax) * dy - (pts[i][1] - ay) * dx) / len;
-      if (d > best) {
-        best = d;
-        far = i;
-      }
-    }
-    if (far < 0) return;
-    keep[far] = 1;
-    run(a, far);
-    run(far, b);
-  };
-  keep[0] = 1;
-  keep[pts.length - 1] = 1;
-  if (closed) {
-    // Split the ring at the point farthest from its first.
-    let far = 1;
-    for (let i = 1; i < pts.length; i++) if (Math.hypot(pts[i][0] - pts[0][0], pts[i][1] - pts[0][1]) > Math.hypot(pts[far][0] - pts[0][0], pts[far][1] - pts[0][1])) far = i;
-    keep[far] = 1;
-    run(0, far);
-    run(far, pts.length - 1);
-  } else run(0, pts.length - 1);
-  return pts.filter((_, i) => keep[i]);
-}
-
-// ---------------------------------------------------------------- ridges
-const STREAM_MAJOR = 900; // cells draining into a stream for its valley to count among a range's great ones
-const STREAM_MINOR = 90; // ... among the lesser ones (whose ridges are drawn close up)
-const COAST_STRETCH = 30; // cells of coast whose little streams count as one basin (six times as many, for the great ridges)
-const CREST = 30; // metres a ridge must stand above the ground round it (the mean within a few map units)
-
-/** A min-heap of cells keyed by height. */
-class Heap {
-  private ids: number[] = [];
-  private keys: number[] = [];
-  get size() {
-    return this.ids.length;
-  }
-  push(id: number, key: number) {
-    let i = this.ids.length;
-    this.ids.push(id);
-    this.keys.push(key);
-    while (i > 0) {
-      const p = (i - 1) >> 1;
-      if (this.keys[p] <= key) break;
-      this.ids[i] = this.ids[p];
-      this.keys[i] = this.keys[p];
-      i = p;
-    }
-    this.ids[i] = id;
-    this.keys[i] = key;
-  }
-  pop(): number {
-    const top = this.ids[0];
-    const id = this.ids.pop()!;
-    const key = this.keys.pop()!;
-    if (this.ids.length) {
-      let i = 0;
-      for (;;) {
-        let c = 2 * i + 1;
-        if (c >= this.ids.length) break;
-        if (c + 1 < this.ids.length && this.keys[c + 1] < this.keys[c]) c++;
-        if (this.keys[c] >= key) break;
-        this.ids[i] = this.ids[c];
-        this.keys[i] = this.keys[c];
-        i = c;
-      }
-      this.ids[i] = id;
-      this.keys[i] = key;
-    }
-    return top;
-  }
-}
-
-const STEPS = [-cols - 1, -cols, -cols + 1, -1, 1, cols - 1, cols, cols + 1];
-
-/**
- * The ridges, from the real ground, as the lines between river basins: rain is run downhill over the ranges (hollows
- * filled, so it always finds a way out), the valleys it gathers into are found, and each valley joining a greater
- * one is given its own basin. Where two basins meet runs a ridge: the main crest between the great valleys, the
- * spurs between their side valleys, which come down to where the valleys join.
- */
-function ridgeLines(e: Float32Array, range: Float32Array): { pts: Pt[]; major: boolean }[] {
-  // All the land, so each range's waters run to their real seas: the Pyrenees' crest is where the Garonne's basin
-  // meets the Ebro's. (The map's edge counts as sea.)
-  const land = landMask(0, 0, cols, rows, F);
-  for (let c = 0; c < cols; c++) land[c] = land[(rows - 1) * cols + c] = 0;
-  for (let r = 0; r < rows; r++) land[r * cols] = land[r * cols + cols - 1] = 0;
-  // Fill and route: from the coasts inward, lowest first; each cell drains to the one it was reached from.
-  const heap = new Heap();
-  const down = new Int32Array(N).fill(-1);
-  const state = new Uint8Array(N);
-  const fill = new Float32Array(N);
-  const coast: number[] = [];
-  for (let i = cols; i < N - cols; i++) {
-    if (!land[i] || !STEPS.some(d => !land[i + d])) continue;
-    state[i] = 2; // a mouth
-    fill[i] = e[i];
-    heap.push(i, e[i]);
-    coast.push(i);
-  }
-  const order: number[] = [];
-  while (heap.size) {
-    const c = heap.pop();
-    order.push(c);
-    for (const d of STEPS) {
-      const j = c + d;
-      if (state[j] || !land[j]) continue;
-      state[j] = 1;
-      fill[j] = Math.max(e[j], fill[c] + 0.01);
-      down[j] = c;
-      heap.push(j, fill[j]);
-    }
-  }
-  // Off the flats, rain takes the steepest way down (the fill only routes it across hollows and level ground).
-  for (const c of order) {
-    if (state[c] === 2) continue;
-    let best = 0;
-    for (let k = 0; k < 8; k++) {
-      const j = c + STEPS[k];
-      if (!state[j]) continue;
-      const drop = (fill[c] - fill[j]) / (k === 0 || k === 2 || k === 5 || k === 7 ? Math.SQRT2 : 1);
-      if (drop > best) {
-        best = drop;
-        down[c] = j;
-      }
-    }
-  }
-  // The coast in stretches: the little streams reaching the sea along one stretch count as one basin.
-  const stretch = new Int32Array(N);
-  let stretches = 0;
-  for (const s of coast) {
-    if (stretch[s]) continue;
-    let id = ++stretches;
-    let n = 0;
-    const queue = [s];
-    stretch[s] = id;
-    for (let q = 0; q < queue.length; q++) {
-      const c = queue[q];
-      if (++n % COAST_STRETCH === 0) id = ++stretches;
-      stretch[c] = id;
-      for (const d of STEPS)
-        if (state[c + d] === 2 && !stretch[c + d]) {
-          stretch[c + d] = id;
-          queue.push(c + d);
-        }
-    }
-  }
-  const acc = new Float32Array(N);
-  for (let k = order.length - 1; k >= 0; k--) {
-    const c = order[k];
-    acc[c] += 1;
-    if (down[c] >= 0) acc[down[c]] += acc[c];
-  }
-  // Each cell's greatest inflow: a stream carries on up it; any other stream joining there has a basin of its own.
-  const main = new Int32Array(N).fill(-1);
-  for (const c of order) {
-    const d = down[c];
-    if (d >= 0 && (main[d] < 0 || acc[c] > acc[main[d]])) main[d] = c;
-  }
-  const basins = (stream: number, coastal: number) => {
-    const basin = new Int32Array(N).fill(-1);
-    let next = stretches + 1;
-    for (const c of order) {
-      const d = down[c];
-      if (d < 0) basin[c] = acc[c] >= stream ? next++ : 1 + Math.floor(stretch[c] / coastal);
-      else if (acc[c] >= stream && main[d] !== c) basin[c] = next++;
-      else basin[c] = basin[d];
-    }
-    return basin;
-  };
-  const great = basins(STREAM_MAJOR, 6);
-  const lesser = basins(STREAM_MINOR, 1);
-  // Only where the ground stands up above what is round it: where it is level the line is no ridge, only where the
-  // rain happens to part.
-  const around = blur(blur(e, 3), 3);
-  const crest = (i: number) => e[i] - around[i] > CREST;
-  return [
-    ...boundaryLines(great, range, null, crest).map(pts => ({ pts, major: true })),
-    ...boundaryLines(lesser, range, great, crest).map(pts => ({ pts, major: false })),
-  ];
-}
-
-/**
- * The lines between basins inside the ranges, along the cells' edges, joined up and smoothed. With `apart`, not where
- * those basins differ too (there a greater ridge runs).
- */
-function boundaryLines(basin: Int32Array, range: Float32Array, apart: Int32Array | null, crest: (i: number) => boolean): Pt[][] {
-  const V = cols + 1; // corners across
-  const adj = new Map<number, number[]>();
-  const link = (a: number, b: number) => {
-    for (const [p, q] of [
-      [a, b],
-      [b, a],
-    ]) {
-      const l = adj.get(p);
-      if (l) l.push(q);
-      else adj.set(p, [q]);
-    }
-  };
-  for (let r = 0; r < rows - 1; r++)
-    for (let c = 0; c < cols - 1; c++) {
+  for (let r = rows - 2; r >= 0; r--)
+    for (let c = cols - 2; c > 0; c--) {
       const i = r * cols + c;
-      if (range[i] <= 0) continue;
-      const pairs: [number, number, number][] = [
-        [i + 1, r * V + c + 1, (r + 1) * V + c + 1],
-        [i + cols, (r + 1) * V + c, (r + 1) * V + c + 1],
-      ];
-      for (const [j, va, vb] of pairs) {
-        if (range[j] <= 0 || basin[i] === basin[j] || basin[i] <= 0 || basin[j] <= 0) continue;
-        if ((apart && apart[i] !== apart[j]) || !(crest(i) || crest(j))) continue;
-        link(va, vb);
+      if (d[i]) d[i] = Math.min(d[i], d[i + 1] + 1, d[i + cols] + 1, d[i + cols + 1] + D, d[i + cols - 1] + D);
+    }
+  for (let i = 0; i < N; i++) d[i] /= F;
+  return d;
+}
+
+interface Stamp {
+  x: number; // its middle, map units
+  y: number;
+  w: number; // drawn this wide (map units)
+  h: number;
+  art: number; // index into ART
+  flip: boolean; // mirrored, for a range running from lower left to upper right
+}
+
+/**
+ * Lay the drawings over the ranges: start where a range is widest; see which way the range runs there and how drawn
+ * out it is; pick a drawing that runs that way (mirrored if need be), as big as the range is wide; count the stretch
+ * of range it stands for as done; then the widest stretch left, and so on, down to the narrowest. Returns the
+ * drawings from the top of the map down (so lower, nearer ones are drawn over), and the land they cover.
+ */
+function placeMountains(range: Float32Array, sizes: { w: number; h: number }[]): { stamps: Stamp[]; covered: Uint8Array } {
+  const mask = new Uint8Array(N);
+  for (let i = 0; i < N; i++) if (range[i] > 0) mask[i] = 1;
+  const inside = insideDistance(mask);
+  const seeds: number[] = [];
+  for (let i = 0; i < N; i++) if (mask[i] && inside[i] >= 2) seeds.push(i);
+  seeds.sort((a, b) => inside[b] - inside[a] || a - b);
+  const covered = new Uint8Array(N);
+  const stamps: Stamp[] = [];
+  const pick = (name: ArtName) => ART.findIndex(a => a.name === name);
+  for (const s of seeds) {
+    if (covered[s]) continue;
+    const x = ((s % cols) + 0.5) / F;
+    const y = (Math.floor(s / cols) + 0.5) / F;
+    const d = inside[s];
+    // Which way the range runs here, and how drawn out it is: the spread of the range round about.
+    const R = Math.min(40, Math.max(8, 3 * d));
+    let n = 0, mx = 0, my = 0, sxx = 0, syy = 0, sxy = 0;
+    for (let dy = -R; dy <= R; dy++)
+      for (let dx = -R; dx <= R; dx++) {
+        if (dx * dx + dy * dy > R * R || !mask[cellOf(x + dx, y + dy)]) continue;
+        n++;
+        mx += dx;
+        my += dy;
+        sxx += dx * dx;
+        syy += dy * dy;
+        sxy += dx * dy;
       }
+    mx /= n;
+    my /= n;
+    const cxx = sxx / n - mx * mx;
+    const cyy = syy / n - my * my;
+    const cxy = sxy / n - mx * my;
+    const half = Math.sqrt(((cxx - cyy) / 2) ** 2 + cxy * cxy);
+    const l1 = (cxx + cyy) / 2 + half;
+    const l2 = Math.max(1e-6, (cxx + cyy) / 2 - half);
+    let ux = Math.cos(0.5 * Math.atan2(2 * cxy, cxx - cyy));
+    let uy = Math.sin(0.5 * Math.atan2(2 * cxy, cxx - cyy));
+    if (ux < 0) {
+      ux = -ux;
+      uy = -uy;
     }
-  const used = new Set<number>();
-  const key = (a: number, b: number) => Math.min(a, b) * V * (rows + 1) + Math.max(a, b);
-  const chains: number[][] = [];
-  const walk = (from: number, to: number) => {
-    const chain = [from, to];
-    used.add(key(from, to));
-    let prev = from;
-    let cur = to;
-    while (adj.get(cur)!.length === 2) {
-      const nx = adj.get(cur)!.find(q => q !== prev)!;
-      if (used.has(key(cur, nx))) break;
-      used.add(key(cur, nx));
-      chain.push(nx);
-      prev = cur;
-      cur = nx;
-    }
-    chains.push(chain);
-  };
-  for (const [v, ns] of adj) if (ns.length !== 2) for (const w of ns) if (!used.has(key(v, w))) walk(v, w);
-  for (const [v, ns] of adj) if (!used.has(key(v, ns[0]))) walk(v, ns[0]); // loops
-  return chains
-    .filter(ch => ch.length >= 4 || (adj.get(ch[0])!.length >= 3 && adj.get(ch[ch.length - 1])!.length >= 3))
-    .map(ch => {
-      const raw: Pt[] = ch.map(v => [(v % V) / F, Math.floor(v / V) / F]);
-      const sm = raw.map((p, k): Pt => {
-        const w = Math.min(3, k, raw.length - 1 - k);
-        let sx = 0;
-        let sy = 0;
-        for (let d = -w; d <= w; d++) {
-          sx += raw[k + d][0];
-          sy += raw[k + d][1];
-        }
-        return [sx / (2 * w + 1), sy / (2 * w + 1)];
-      });
-      return simplify(sm, 0.12, false);
-    });
-}
-
-// ---------------------------------------------------------------- packing shapes
-/** Shape layers, as the renderer (ui/map/terrain.ts SHAPE_LAYERS) knows them. */
-const SHAPE_LAYERS = ['wash', 'snow', 'light', 'shade', 'ridge', 'ridgeMinor', 'upLight', 'upShade'] as const;
-const DETAIL = 1; // a shape only drawn close up
-const CLOSED = 2;
-
-class Shapes {
-  bytes: number[] = [];
-  count: Record<string, number> = {};
-  add(layer: (typeof SHAPE_LAYERS)[number], pts: Pt[], flags: number) {
-    // Long lines go in pieces of up to 200 points (each piece is kept or skipped whole by where it lies).
-    if (!(flags & CLOSED) && pts.length > 200) {
-      for (let a = 0; a < pts.length - 1; a += 199) this.add(layer, pts.slice(a, a + 200), flags);
-      return;
-    }
-    const i16 = (v: number) => {
-      const u = Math.round(v) & 0xffff;
-      this.bytes.push(u & 255, u >> 8);
-    };
-    this.bytes.push(SHAPE_LAYERS.indexOf(layer), flags);
-    i16(pts.length);
-    for (const [x, y] of pts) {
-      i16(x * 10);
-      i16(y * 10);
-    }
-    this.count[layer] = (this.count[layer] ?? 0) + 1;
+    const drawnOut = Math.sqrt(l1 / l2);
+    const slope = (Math.atan2(uy, ux) * 180) / Math.PI; // below level, down to the right
+    const coin = hash(s, 1, 31);
+    let art: number;
+    let flip = slope < 0;
+    if (d < 3) art = pick('scattered');
+    else if (drawnOut < 1.5) art = pick(d > 9 ? 'great' : 'massif');
+    else if (Math.abs(slope) < 15) {
+      art = pick(coin < 0.5 ? 'range' : 'massif');
+      flip = hash(s, 2, 31) < 0.5;
+    } else if (Math.abs(slope) < 42) art = pick(coin < 0.5 ? 'ridge' : 'range');
+    else art = pick(d > 9 && coin < 0.5 ? 'great' : 'steep');
+    const a = ART[art];
+    const w = Math.max(MIN_ART, Math.min(MAX_ART, a.size * d));
+    const h = (w * sizes[art].h) / sizes[art].w;
+    stamps.push({ x, y, w, h, art, flip });
+    // The stretch it stands for.
+    const al = a.along * Math.max(w, h);
+    const ac = Math.max(3, a.across * w, drawnOut < 1.5 ? al * 0.8 : 0);
+    const reach = Math.ceil(Math.max(al, ac));
+    for (let dy = -reach; dy <= reach; dy++)
+      for (let dx = -reach; dx <= reach; dx++) {
+        const along = dx * ux + dy * uy;
+        const across = -dx * uy + dy * ux;
+        if ((along / al) ** 2 + (across / ac) ** 2 <= 1) covered[cellOf(x + dx, y + dy)] = 1;
+      }
   }
+  stamps.sort((p, q) => p.y + p.h / 2 - (q.y + q.h / 2));
+  return { stamps, covered };
 }
-
-/** The mountains: each range's outline, its snow, the lit and shaded ground in it, its ridges. */
-function mountains(region: Int16Array, elev: Float32Array, rugged: Float32Array): { shapes: Shapes; range: Float32Array } {
-  const range = rangeField(region, elev, rugged);
-  const smooth = blur(blur(elev, 1), 1);
-  const sun = blur(sunlight(smooth), 1);
-  const out = new Shapes();
-  for (const ring of contours(range, 4, 0.25)) out.add('wash', ring, CLOSED);
-  const within = (f: (i: number) => number) => {
-    const g = new Float32Array(N);
-    for (let i = 0; i < N; i++) g[i] = Math.min(range[i] * 2, f(i));
-    return g;
-  };
-  for (const ring of contours(within(i => (smooth[i] - SNOW_LINE) / 400), 2, 0.2)) out.add('snow', ring, CLOSED);
-  for (const ring of contours(within(i => (sun[i] - LIT) * 4), 1.5, 0.2)) out.add('light', ring, CLOSED);
-  for (const ring of contours(within(i => (SHADE - sun[i]) * 4), 1.5, 0.2)) out.add('shade', ring, CLOSED);
-  for (const l of ridgeLines(smooth, range)) out.add(l.major ? 'ridge' : 'ridgeMinor', l.pts, l.major ? 0 : DETAIL);
-  // The uplands, rugged but no mountains (the Massif Central, the hills round Bohemia): their light and shade only.
-  let up: Float32Array = new Float32Array(N);
-  for (let i = 0; i < N; i++) if (region[i] >= 0 && range[i] <= 0 && isHill(elev[i], rugged[i])) up[i] = 1;
-  up = blur(blur(up, 2), 2);
-  const upland = (f: (i: number) => number) => {
-    const g = new Float32Array(N);
-    for (let i = 0; i < N; i++) g[i] = Math.min((up[i] - 0.35) * 2, -range[i] * 2, f(i));
-    return g;
-  };
-  for (const ring of contours(upland(i => (sun[i] - LIT) * 4), 2, 0.25)) out.add('upLight', ring, CLOSED);
-  for (const ring of contours(upland(i => (SHADE - sun[i]) * 4), 2, 0.25)) out.add('upShade', ring, CLOSED);
-  return { shapes: out, range };
-}
-const SNOW_LINE = 2300; // metres (the ground smoothed a little)
-const LIT = 0.84; // sunlight above which ground is drawn lit
-const SHADE = 0.52; // ... below which, shaded
 
 // ---------------------------------------------------------------- the build
 async function main() {
@@ -627,7 +400,9 @@ async function main() {
   })();
 
   console.log('mountains...');
-  const { shapes, range } = mountains(region, elev, rugged);
+  const range = rangeField(region, elev, rugged);
+  const sizes = ART.map(a => bake(a.name));
+  const { stamps, covered } = placeMountains(range, sizes);
 
   console.log('marks...');
   const out: number[] = [];
@@ -652,7 +427,7 @@ async function main() {
         if (x >= W || y >= H) continue;
         const cell = cellOf(x, y);
         const ri = region[cell];
-        if (ri < 0 || range[cell] > -0.45 || range[cellOf(x, y + 3)] > -0.45 || nearName(x, y, ri)) continue;
+        if (ri < 0 || range[cell] > -0.45 || covered[cell] || covered[cellOf(x, y + 3)] || nearName(x, y, ri)) continue;
         place(x, y, ri, elev[cell], rugged[cell], hash(i, j, seed + 13));
       }
   };
@@ -692,27 +467,29 @@ async function main() {
   const packed = new Int16Array(n * 4);
   order.forEach((src, i) => packed.set(out.slice(src * 4, src * 4 + 4), i * 4));
   const marks = Buffer.from(packed.buffer).toString('base64');
-  const shapeB64 = Buffer.from(Uint8Array.from(shapes.bytes)).toString('base64');
-  const shapeCounts = Object.entries(shapes.count)
-    .map(([k, v]) => `${v} ${k}`)
-    .join(', ');
+  const r1 = (v: number) => Math.round(v * 10) / 10;
   fs.writeFileSync(
     OUT,
     `/**
  * The map's drawn terrain. Generated by scripts/build-terrain.ts (npm run terrain:build): do not edit by hand.
  *
+ * MOUNTAIN_ART: the mountain drawings (art/mountains, made ready in assets/map/mountains) and their size in pixels.
+ * MOUNTAINS: ${stamps.length} of them laid over the ranges, five numbers each: the middle's x and y, the width (map units), which
+ * drawing, and 1 if mirrored; from the top of the map down, so nearer ones are drawn over.
  * TERRAIN_SYMBOLS: ${n} marks (${Object.entries(counts)
       .map(([k, v]) => `${v} ${k}`)
       .join(', ')}), each four 16-bit numbers: x and y in tenths of a map unit, kind
  * (2 broadleaf tree, 3 conifer, 4 dune, 5 reeds) and size in tenths, from the top of the map down.
- * TERRAIN_SHAPES: the mountains (${shapeCounts}). Per shape: its layer (${SHAPE_LAYERS.map((l, i) => `${i} ${l}`).join(', ')}),
- * flags (1 drawn only close up, 2 closed), the number of points (16-bit), then each point's x and y (16-bit, tenths).
  */
+export const MOUNTAIN_ART = [
+${ART.map((a, i) => `  { src: require('../../../assets/map/mountains/${a.name}.png'), w: ${sizes[i].w}, h: ${sizes[i].h} },`).join('\n')}
+];
+export const MOUNTAINS = [${stamps.map(t => `${r1(t.x)},${r1(t.y)},${r1(t.w)},${t.art},${t.flip ? 1 : 0}`).join(',')}];
 export const TERRAIN_SYMBOLS = '${marks}';
-export const TERRAIN_SHAPES = '${shapeB64}';
 `,
   );
-  console.log(`${n} marks, ${JSON.stringify(counts)}; shapes ${shapeCounts} → ${path.relative(ROOT, OUT)} (${Math.round((marks.length + shapeB64.length) / 1024)} KB)`);
+  const kinds = ART.map((a, i) => `${stamps.filter(t => t.art === i).length} ${a.name}`).join(', ');
+  console.log(`${stamps.length} mountain drawings (${kinds}); ${n} marks, ${JSON.stringify(counts)} → ${path.relative(ROOT, OUT)} (${Math.round(marks.length / 1024)} KB)`);
 }
 
 main();

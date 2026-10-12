@@ -1,40 +1,21 @@
 /**
- * The map's drawn terrain (scripts/build-terrain.ts): mountain ranges as shapes traced from the real ground (each
- * range's wash, its snow, its lit and shaded slopes, its ridges), and hills, trees, dunes and reeds as small marks.
- * Decoded once; each shape's path is made the first time it is in view, and the marks' a cell at a time (cached),
- * so a redraw only joins the strings of what is in view. All in map units: the drawing grows as you zoom in, and
- * stays sharp.
+ * The map's drawn terrain (scripts/build-terrain.ts): the mountain ranges, as the owner's ink drawings laid along
+ * them, and trees, dunes and reeds as small marks. The marks are decoded once and made into paths a cell at a time,
+ * the first time a cell is in view (cached), so a redraw only joins the strings of the cells in view. All in map
+ * units: the drawing grows as you zoom in.
  */
-import { TERRAIN_SHAPES, TERRAIN_SYMBOLS } from './terrainSymbols';
+import { MOUNTAINS, MOUNTAIN_ART, TERRAIN_SYMBOLS } from './terrainSymbols';
 
 /** Drawing order: under the lines go the fills. */
-export const LAYERS = ['upLight', 'upShade', 'wash', 'snow', 'light', 'shade', 'tree', 'ridgeMinor', 'ridge', 'treeLine', 'dune', 'reed'] as const;
+export const LAYERS = ['tree', 'treeLine', 'dune', 'reed'] as const;
 export type Layer = (typeof LAYERS)[number];
 type Paths = Record<Layer, string>;
-
-/** The shapes' layers, in the order build-terrain numbers them. */
-const SHAPE_LAYERS: Layer[] = ['wash', 'snow', 'light', 'shade', 'ridge', 'ridgeMinor', 'upLight', 'upShade'];
-
-/** From this zoom (screen points per map unit) in, the lesser ridges are drawn too. */
-export const DETAIL_K = 2.6;
 
 const CELL = 128; // map units
 const COLS = 64; // cells across (the map is 2575 units wide, with room to spare)
 const REACH = 8; // how far a mark's drawing can reach from where it stands (map units)
 
-interface Shape {
-  layer: Layer;
-  detail: boolean; // only drawn close up
-  closed: boolean;
-  at: number; // byte offset of its first point
-  count: number;
-  box: [number, number, number, number];
-  d?: string;
-}
-
 let marks: Int16Array | null = null;
-let bytes: Uint8Array | null = null;
-let shapes: Shape[] | null = null;
 let buckets: Map<number, number[]> | null = null;
 const built = new Map<number, Paths>();
 
@@ -67,30 +48,6 @@ function load() {
     if (list) list.push(i);
     else buckets.set(key, [i]);
   }
-  bytes = decode(TERRAIN_SHAPES);
-  shapes = [];
-  for (let o = 0; o < bytes.length; ) {
-    const count = bytes[o + 2] | (bytes[o + 3] << 8);
-    const box: [number, number, number, number] = [Infinity, Infinity, -Infinity, -Infinity];
-    for (let k = 0, q = o + 4; k < count; k++, q += 4) {
-      const x = i16(bytes, q) / 10;
-      const y = i16(bytes, q + 2) / 10;
-      box[0] = Math.min(box[0], x);
-      box[1] = Math.min(box[1], y);
-      box[2] = Math.max(box[2], x);
-      box[3] = Math.max(box[3], y);
-    }
-    shapes.push({ layer: SHAPE_LAYERS[bytes[o]], detail: (bytes[o + 1] & 1) !== 0, closed: (bytes[o + 1] & 2) !== 0, at: o + 4, count, box });
-    o += 4 + count * 4;
-  }
-}
-
-function shapePath(sh: Shape): string {
-  if (sh.d !== undefined) return sh.d;
-  const b = bytes!;
-  let d = '';
-  for (let k = 0, q = sh.at; k < sh.count; k++, q += 4) d += `${k ? 'L' : 'M'}${i16(b, q) / 10} ${i16(b, q + 2) / 10}`;
-  return (sh.d = sh.closed ? `${d}Z` : d);
 }
 
 const n = (v: number) => Math.round(v * 10) / 10;
@@ -162,14 +119,10 @@ function cellPaths(key: number): Paths {
   return p;
 }
 
-/** Every layer's path for the drawing in a rectangle of the map (a little more), at zoom k. */
-export function terrainPaths(x0: number, y0: number, x1: number, y1: number, k: number): Paths {
+/** Every layer's path for the drawing in a rectangle of the map (a little more). */
+export function terrainPaths(x0: number, y0: number, x1: number, y1: number): Paths {
   load();
   const out = Object.fromEntries(LAYERS.map(l => [l, ''])) as Paths;
-  for (const sh of shapes!) {
-    if (sh.box[0] > x1 || sh.box[2] < x0 || sh.box[1] > y1 || sh.box[3] < y0 || (sh.detail && k < DETAIL_K)) continue;
-    out[sh.layer] += shapePath(sh);
-  }
   const c0 = Math.max(0, Math.floor((x0 - REACH) / CELL));
   const c1 = Math.min(COLS - 1, Math.floor((x1 + REACH) / CELL));
   const r0 = Math.max(0, Math.floor((y0 - REACH) / CELL));
@@ -181,4 +134,31 @@ export function terrainPaths(x0: number, y0: number, x1: number, y1: number, k: 
       for (const l of LAYERS) if (p[l]) out[l] += p[l];
     }
   return out;
+}
+
+/** A mountain drawing laid on the map: its picture, where (its top left corner, map units), its size, mirrored or not. */
+export interface Mountain {
+  key: number;
+  src: number;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  flip: boolean;
+}
+
+let mountains: Mountain[] | null = null;
+
+/** The mountain drawings in a rectangle of the map, from the top of the map down (draw them in this order). */
+export function mountainsIn(x0: number, y0: number, x1: number, y1: number): Mountain[] {
+  if (!mountains) {
+    mountains = [];
+    for (let i = 0; i < MOUNTAINS.length; i += 5) {
+      const art = MOUNTAIN_ART[MOUNTAINS[i + 3]];
+      const w = MOUNTAINS[i + 2];
+      const h = (w * art.h) / art.w;
+      mountains.push({ key: i / 5, src: art.src, x: MOUNTAINS[i] - w / 2, y: MOUNTAINS[i + 1] - h / 2, w, h, flip: MOUNTAINS[i + 4] === 1 });
+    }
+  }
+  return mountains.filter(m => m.x < x1 && m.x + m.w > x0 && m.y < y1 && m.y + m.h > y0);
 }
