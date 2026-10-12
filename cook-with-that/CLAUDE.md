@@ -107,7 +107,7 @@ Hard rules (from the plan, still in force):
    font on every platform (SF Symbols has few foods), the title, time · meal · type, the tagline and one status line
    ("Uses all 3 · 12 more ingredients"); the full ingredient list is on the recipe page. **Plan** is one short row per
    day with the planned meals named and a + that picks the meal in the recipe chooser. No text glyphs as icons.
-20. **The owner's own recipes are kept exactly as given** (owner, 2026-10-12, his Greatest Spicy Mayo: "it's my
+20. **The owner's own recipes are kept exactly as given** (owner, 2026-10-12, on the Greatest Spicy Mayo: "it's my
    personal and it's literally the best ever"). They live in `src/data/originals/ownerRecipes.ts`; reviews, audits
    and the published-recipe check (decision 18) may comment on them but never change their amounts. Only wording,
    tags and catalog IDs get tidied. Kewpie counts as Mayonnaise (search "kewpie" finds it; Avoid mayonnaise hides it).
