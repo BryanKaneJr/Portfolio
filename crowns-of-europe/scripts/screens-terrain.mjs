@@ -65,7 +65,7 @@ for (const [name, x, y, k] of VIEWS) {
   for (const s of ['atlas', 'illustrated']) {
     await style(s);
     await look(x, y, k);
-    await page.screenshot({ path: path.join(OUT, `${name}-${s === 'atlas' ? 'before' : 'after'}.png`) });
+    await page.screenshot({ path: path.join(OUT, `${name}-${s === 'atlas' ? 'before' : 'after'}.jpg`), type: 'jpeg', quality: 90 });
   }
 }
 
@@ -83,7 +83,7 @@ const sy = H / 2 + (target.y - target.cam.cy) * target.cam.k - 22;
 await page.mouse.click(sx, sy);
 await settle(900);
 const selected = await page.evaluate(() => window.__coe.store.selection);
-await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.png') });
+await page.screenshot({ path: path.join(OUT, 'tap-bavaria-selected.jpg'), type: 'jpeg', quality: 90 });
 
 // Measurements.
 const cdp = await page.context().newCDPSession(page);
@@ -142,6 +142,17 @@ for (const throttle of [1, 4]) {
   perf[`cpu_x${throttle}`] = { views: rows, pan_at_play_zoom: pans };
 }
 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
+
+// Side-by-side sheets of each view, before and after, at the phone's own size (composed in the browser).
+const sheet = await browser.newPage({ viewport: { width: W * 2 + 24, height: H + 40 }, deviceScaleFactor: 2 });
+for (const [name, , , k] of VIEWS) {
+  const img = s => 'data:image/jpeg;base64,' + fs.readFileSync(path.join(OUT, `${name}-${s}.jpg`)).toString('base64');
+  await sheet.setContent(`<body style="margin:0;background:#1b1712;font:600 15px system-ui;color:#e8dcc0;display:flex;gap:24px">
+    ${['before', 'after'].map(s => `<figure style="margin:0"><figcaption style="height:40px;line-height:40px;padding-left:8px">${s === 'before' ? 'Before: Atlas' : 'After: Illustrated'} · ${name}, k = ${k}</figcaption><img src="${img(s)}" style="width:${W}px;height:${H}px;display:block"></figure>`).join('')}
+  </body>`);
+  await sheet.screenshot({ path: path.join(OUT, `compare-${name}.jpg`), type: 'jpeg', quality: 88 });
+}
+await sheet.close();
 
 const report = { viewport: `${W}x${H} @3x`, selected_after_tap: selected, perf, errors };
 fs.writeFileSync('docs/terrain/perf.json', JSON.stringify(report, null, 1) + '\n');

@@ -286,8 +286,13 @@ def jitter_grid(gx0, gy0, w, h, spacing, salt):
     return gx[keep], gy[keep], lx[keep], ly[keep], u[keep], I[keep], J[keep]
 
 
-TREE_PX = [0, 0, 5.8, 6.2, 6.6]  # tree height, px, per level (levels 0-1 draw the forest as a canopy)
-PEAK_PX = (14, 36)  # mountain width range, px
+# Symbols are sized for a phone. The app picks the level by zoom x screen density (terrainLayer.ts), so on a 3x screen
+# each level is shown at about 0.6-1.2 device pixels per tile pixel: a tile pixel is 0.2-0.4 points. Every symbol size,
+# spacing and search window below is in tile pixels and scaled by SYM so the drawings read at that size (a tree about
+# 3-6 points tall, a mountain about 10-30 points wide).
+SYM = 2.2
+TREE_PX = [0, 0, 5.8 * SYM, 6.2 * SYM, 6.6 * SYM]  # tree height, px, per level (levels 0-1 draw the forest as a canopy)
+PEAK_PX = (14 * SYM, 36 * SYM)  # mountain width range, px
 PEAK_RELIEF = [900, 800, 700, 600, 520]  # metres of relief within the glyph's reach for a summit to get a mountain
 
 
@@ -302,7 +307,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     # Mountains: summits that stand highest within a glyph's reach and well above the land around, sized by how much.
     # The search window is in pixels, so a finer level finds more, smaller summits: real detail as you zoom in.
     es = ndimage.gaussian_filter(e, 1.4)
-    win = 23
+    win = int(round(17 * SYM)) | 1
     top = ndimage.maximum_filter(es, size=win)
     low = ndimage.minimum_filter(es, size=win * 2 + 1)
     relief_m = top - low
@@ -310,7 +315,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     rs, cs = np.nonzero(summit)
     for r, c in zip(rs, cs):
         rel = relief_m[r, c]
-        wpx = float(np.clip(PEAK_PX[0] + (rel - PEAK_RELIEF[level]) / 70, *PEAK_PX))
+        wpx = float(np.clip(PEAK_PX[0] + (rel - PEAK_RELIEF[level]) / 70 * SYM, *PEAK_PX))
         g = (int(gx0 + c), int(gy0 + r))
         seed = int(hash01(g[0], g[1], 7 + level) * 2**31)
         snow = float(smoothstep(2400, 3300, es[r, c]))
@@ -323,14 +328,14 @@ def symbols(F, slope, land, box, level, gx0, gy0):
         g = (int(gx0 + c), int(gy0 + r))
         if hash01(g[0], g[1], 21 + level) > 0.7:
             continue
-        wpx = float(np.clip(10 + relief_m[r, c] / 40, 11, 18))
+        wpx = float(np.clip(10 + relief_m[r, c] / 40, 11, 18)) * SYM * 0.85
         seed = int(hash01(g[0], g[1], 23 + level) * 2**31)
         items.append((r + 2, ("hill", c, r + 2, wpx, seed)))
     # Trees: on a jittered lattice, kept where the land is forest (more forest, more trees).
     if TREE_PX[level] > 0:
         s = TREE_PX[level]
         forest = ndimage.gaussian_filter(F["tree"], 0.8)
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, s * 0.85, 101 + level)
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, s * 0.62, 101 + level)  # overlapping, so woods read as woods
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         keep = (u < smoothstep(0.4, 0.85, forest[ri, ci])) & (land[ri, ci] > 0.97)
@@ -344,22 +349,22 @@ def symbols(F, slope, land, box, level, gx0, gy0):
             items.append((y, ("tree", kind, x, y, size, variant)))
     # Marsh: on wetland.
     if level >= 2:
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 11, 201 + level)
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 11 * SYM, 201 + level)
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         keep = (u < smoothstep(0.15, 0.5, F["wetland"][ri, ci])) & (land[ri, ci] > 0.97)
         for x, y, i, j in zip(lx[keep], ly[keep], I[keep], J[keep]):
-            items.append((y, ("marsh", x, y, 7.0, int(hash01(i, j, 211) * 2**31))))
+            items.append((y, ("marsh", x, y, 7.0 * SYM, int(hash01(i, j, 211) * 2**31))))
     # Grass tufts on open grassland and steppe (fine levels only).
     if level >= 3:
-        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 9, 301 + level)
+        gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 9 * SYM, 301 + level)
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         keep = (u < 0.55 * smoothstep(0.45, 0.85, F["grass"][ri, ci])) & (land[ri, ci] > 0.97) & (F["tree"][ri, ci] < 0.2)
         for x, y in zip(lx[keep], ly[keep]):
             items.append((y, ("grass", x, y)))
     # Hachures: short strokes down steep slopes, away from the peaks' own drawing.
-    gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 4.0, 401 + level)
+    gx, gy, lx, ly, u, I, J = jitter_grid(gx0, gy0, w, h, 3.0 * SYM, 401 + level)
     ri = np.clip(ly.astype(int), 0, h - 1)
     ci = np.clip(lx.astype(int), 0, w - 1)
     steep = smoothstep([9, 9, 10, 11, 12][level], [20, 20, 22, 24, 26][level], slope[ri, ci])
@@ -371,7 +376,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
         n = math.hypot(dx, dy)
         if n < 1e-6:
             continue
-        L = 1.6 + 2.2 * st
+        L = (1.6 + 2.2 * st) * SYM
         hach.append((x, y, x + dx / n * L, y + dy / n * L, st))
     return items, hach
 
@@ -385,7 +390,7 @@ def draw_symbols(canvas, items, hach, sprites, ox, oy):
                 if abs(0.18 + 0.24 * st - a) <= 0.061:
                     p.moveTo(x0 + ox, y0 + oy)
                     p.lineTo(x1 + ox, y1 + oy)
-            canvas.drawPath(p, sym.paint(sym.INK, a, stroke=0.6))
+            canvas.drawPath(p, sym.paint(sym.INK, a, stroke=0.6 * SYM**0.6))
     for _, it in sorted(items, key=lambda t: t[0]):
         kind = it[0]
         if kind == "mountain":
@@ -402,7 +407,7 @@ def draw_symbols(canvas, items, hach, sprites, ox, oy):
             sym.marsh(canvas, x + ox, y + oy, s, seed)
         elif kind == "grass":
             _, x, y = it
-            sym.grass(canvas, x + ox, y + oy, 4.0, 0.4)
+            sym.grass(canvas, x + ox, y + oy, 4.0 * SYM, 0.4)
 
 
 def render_box(data, sprites, level, box):
@@ -415,15 +420,19 @@ def render_box(data, sprites, level, box):
     rgb, slope, water, land, edge = paint_base(F, hb, level, gx0, gy0)
     rgb = ripples(rgb, land, water, ppu, edge)
     h, w = slope.shape
-    rgba = np.concatenate([rgb.astype(np.uint8), np.full((h, w, 1), 255, np.uint8)], axis=2)
+    # Symbols are drawn on their own layer and cut to the game's land before they go on the ground, so no tree or
+    # peak ever spills over the game's coastline.
     surface = skia.Surface(w, h)
     canvas = surface.getCanvas()
-    canvas.drawImage(skia.Image.fromarray(np.ascontiguousarray(rgba), colorType=skia.kRGBA_8888_ColorType), 0, 0)
+    canvas.clear(skia.ColorTRANSPARENT)
     items, hach = symbols(F, slope, land, hb, level, gx0, gy0)
     draw_symbols(canvas, items, hach, sprites, 0, 0)
-    img = surface.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)
+    layer = surface.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType).astype(np.float32) / 255.0
+    a = layer[..., 3:4] * np.clip(land, 0, 1)[..., None]  # premultiplied colour, alpha, both cut to the land
+    img = rgb * (1 - a) + layer[..., :3] * 255.0 * np.clip(land, 0, 1)[..., None]
+    img = np.clip(np.round(img), 0, 255).astype(np.uint8)
     p = HALO * ppu
-    return img[p : h - p, p : w - p, :3], len(items)
+    return img[p : h - p, p : w - p], len(items)
 
 
 # ---------------------------------------------------------------- the pyramid

@@ -241,19 +241,22 @@ def mountain(canvas, x, y, w, seed, snow=0.0, ink=1.0):
 
 
 def hill(canvas, x, y, w, seed, ink=1.0):
-    """A low rounded hill: a single arc with a little shading on its right."""
+    """A low rounded hill: a mound lit on its upper left and shaded on its right, outlined on top."""
     r = rng(seed)
-    h = w * r.uniform(0.28, 0.38)
-    p = skia.Path()
-    p.moveTo(x - w / 2, y)
-    p.cubicTo(x - w * 0.3, y - h, x + w * 0.15, y - h * 1.05, x + w / 2, y)
+    h = w * r.uniform(0.3, 0.4)
+    top = skia.Path()
+    top.moveTo(x - w / 2, y)
+    top.cubicTo(x - w * 0.3, y - h, x + w * 0.15, y - h * 1.05, x + w / 2, y)
+    mound = skia.Path(top)
+    mound.close()
+    canvas.drawPath(mound, paint(ROCK_LIGHT, 0.75))
     shade = skia.Path()
     shade.moveTo(x + w * 0.05, y - h * 0.72)
     shade.cubicTo(x + w * 0.28, y - h * 0.62, x + w * 0.42, y - h * 0.3, x + w / 2, y)
     shade.lineTo(x + w * 0.12, y)
     shade.close()
-    canvas.drawPath(shade, paint(ROCK_SHADE, 0.45))
-    canvas.drawPath(p, paint(INK, 0.8, stroke=max(0.55, w * 0.05) * ink))
+    canvas.drawPath(shade, paint(ROCK_SHADE, 0.55))
+    canvas.drawPath(top, paint(INK, 0.8, stroke=max(0.55, w * 0.045) * ink))
 
 
 # ---------------------------------------------------------------- marsh, grass, sand
@@ -314,3 +317,10 @@ def _draw_tree(c, kind):
         c.drawPath(cone, paint(NEEDLE))
         c.drawPath(cone, paint(INK, 0.9, stroke=4))
     c.restore()
+
+
+if __name__ == "__main__":
+    # python scripts/terrain/symbols.py: write the library to art/terrain-symbols for review
+    from config import ROOT
+
+    export_svg(ROOT / "art/terrain-symbols")

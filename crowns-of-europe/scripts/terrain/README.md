@@ -28,6 +28,7 @@ sudo apt-get install libegl1                          # skia-python needs the sy
 | 5 | `verify.py` | Measures determinism, tile joins, coastline agreement and real detail per level. | `docs/terrain/verification.json`, `docs/terrain/img/` |
 
 `render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning.
+`symbols.py` on its own writes the symbol library as SVG to `art/terrain-symbols/` for review.
 
 ## Coordinates: one canonical system, the game's
 
@@ -60,6 +61,11 @@ Each level is drawn from the data at its own resolution:
 
 So a finer level carries more and smaller real features; it is not a coarser level enlarged. `verify.py` measures
 this.
+
+Symbol sizes are in tile pixels, chosen for phones. The app picks the level by zoom × screen density, so on a 3× screen
+every level is shown at about 0.6–1.2 device pixels per tile pixel. `SYM` in `render.py` scales every symbol, spacing
+and search window so that a tree is about 3–6 points tall and a mountain about 10–30 points wide there. Symbols are
+drawn on their own layer and cut to the game's land before they go on the ground, so nothing spills over the coast.
 
 ### Source resolution against need
 
