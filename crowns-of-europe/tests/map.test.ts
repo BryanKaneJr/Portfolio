@@ -183,13 +183,13 @@ describe('drawn terrain', () => {
   const { terrainPaths } = require('../src/ui/map/terrain') as typeof import('../src/ui/map/terrain');
   const around = (id: string, r = 40) => {
     const reg = MAP.regions.find(x => x.id === id)!;
-    return terrainPaths(reg.label[0] - r, reg.label[1] - r, reg.label[0] + r, reg.label[1] + r);
+    return terrainPaths(reg.label[0] - r, reg.label[1] - r, reg.label[0] + r, reg.label[1] + r, 3);
   };
-  test('peaks stand in the mountains, dunes in the desert, and nothing out at sea', () => {
-    expect(around('switzerland').peakLine.length).toBeGreaterThan(0);
+  test('ridges in the mountains, dunes in the desert, and nothing out at sea', () => {
+    expect(around('switzerland').ridge.length).toBeGreaterThan(0);
     expect(around('upper_egypt', 80).dune.length).toBeGreaterThan(0);
-    expect(around('masovia', 30).peakLine).toBe('');
-    const sea = terrainPaths(900, 700, 1200, 1000); // the open Atlantic
+    expect(around('masovia', 30).ridge).toBe('');
+    const sea = terrainPaths(1000, 700, 1200, 1000, 3); // the open Atlantic
     expect(Object.values(sea).join('')).toBe('');
   });
 });

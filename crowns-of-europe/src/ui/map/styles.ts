@@ -39,7 +39,8 @@ export interface MapStyle {
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. */
 export interface DrawnTerrain {
-  light: string; // a mountain's lit face
+  wash: string; // the colour washed over a mountain range
+  light: string; // a mountain's lit faces
   shade: string; // the shaded flanks of mountains and hills
   ink: string; // the lines: ridges, hills, tree outlines, dunes, reeds
   tree: string; // tree crowns
@@ -78,7 +79,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 1,
     landColour: 0.34,
     grain: 1,
-    drawn: { light: 'rgba(255,247,228,0.4)', shade: 'rgba(52,36,22,0.36)', ink: 'rgba(46,32,19,0.8)', tree: 'rgba(38,62,28,0.5)', snow: 'rgba(255,255,255,0.92)', reliefClose: 0.3 },
+    drawn: { wash: 'rgba(170,132,80,0.4)', light: 'rgba(255,242,212,0.36)', shade: 'rgba(58,38,20,0.3)', ink: 'rgba(46,32,19,0.8)', tree: 'rgba(38,62,28,0.5)', snow: 'rgba(255,255,255,0.55)', reliefClose: 0.3 },
     land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
     wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
     unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
@@ -108,7 +109,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 0.55,
     landColour: 0,
     grain: 0.7,
-    drawn: { light: 'rgba(255,248,232,0.4)', shade: 'rgba(96,64,32,0.28)', ink: 'rgba(84,54,28,0.78)', tree: 'rgba(80,86,42,0.32)', snow: 'rgba(255,255,255,0.9)', reliefClose: 0.35 },
+    drawn: { wash: 'rgba(190,150,90,0.3)', light: 'rgba(255,248,232,0.34)', shade: 'rgba(96,64,32,0.28)', ink: 'rgba(84,54,28,0.78)', tree: 'rgba(80,86,42,0.32)', snow: 'rgba(255,255,255,0.55)', reliefClose: 0.35 },
     land: hex => mix(hex, '#ead8ac', 0.48),
     wild: '#ecdfbb',
     unknown: { fill: '#e9dab4', shadow: 0.3, label: { fill: '#6e5636', halo: 'rgba(240,228,196,0.6)', shadow: null }, wasteLabel: '#6b5534' },

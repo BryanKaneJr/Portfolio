@@ -380,7 +380,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const dt = st.drawn;
   const drawnAlpha = dt ? Math.max(0, Math.min(1, (k - 0.75) / 0.45)) : 0;
   const reliefLand = st.relief * (dt ? 1 - Math.max(0, Math.min(1, (k - 1) / 0.7)) * (1 - dt.reliefClose) : 1);
-  const drawn = drawnAlpha > 0 ? terrainPaths(vx, vy - 12, vx + vw, vy + vh + 12) : null; // marks reach up past where they stand
+  const drawn = drawnAlpha > 0 ? terrainPaths(vx, vy, vx + vw, vy + vh, k) : null;
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -455,14 +455,15 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {/* The drawn terrain (ui/map/terrain.ts), cut to the coastline: fills, then lines. */}
       {landD && drawn && dt ? (
         <G clipPath="url(#land)" opacity={drawnAlpha}>
-          {drawn.peak ? <Path d={drawn.peak} fill={dt.light} /> : null}
-          {drawn.peakShade ? <Path d={drawn.peakShade} fill={dt.shade} /> : null}
+          {drawn.upLight ? <Path d={drawn.upLight} fill={dt.light} opacity={0.7} /> : null}
+          {drawn.upShade ? <Path d={drawn.upShade} fill={dt.shade} opacity={0.6} /> : null}
+          {drawn.wash ? <Path d={drawn.wash} fill={dt.wash} /> : null}
           {drawn.snow ? <Path d={drawn.snow} fill={dt.snow} /> : null}
-          {drawn.hillShade ? <Path d={drawn.hillShade} fill={dt.shade} /> : null}
+          {drawn.light ? <Path d={drawn.light} fill={dt.light} /> : null}
+          {drawn.shade ? <Path d={drawn.shade} fill={dt.shade} /> : null}
           {drawn.tree ? <Path d={drawn.tree} fill={dt.tree} /> : null}
-          {drawn.peakLine ? <Path d={drawn.peakLine} fill="none" stroke={dt.ink} strokeWidth={px(0.9)} strokeLinejoin="round" strokeLinecap="round" /> : null}
-          {drawn.hatch ? <Path d={drawn.hatch} fill="none" stroke={dt.ink} strokeWidth={px(0.55)} strokeLinecap="round" opacity={0.75} /> : null}
-          {drawn.hillLine ? <Path d={drawn.hillLine} fill="none" stroke={dt.ink} strokeWidth={px(0.85)} strokeLinecap="round" /> : null}
+          {drawn.ridgeMinor ? <Path d={drawn.ridgeMinor} fill="none" stroke={dt.ink} strokeWidth={px(0.6)} strokeLinejoin="round" strokeLinecap="round" opacity={0.75} /> : null}
+          {drawn.ridge ? <Path d={drawn.ridge} fill="none" stroke={dt.ink} strokeWidth={px(1.2)} strokeLinejoin="round" strokeLinecap="round" /> : null}
           {drawn.treeLine ? <Path d={drawn.treeLine} fill="none" stroke={dt.ink} strokeWidth={px(0.55)} strokeLinejoin="round" strokeLinecap="round" /> : null}
           {drawn.dune ? <Path d={drawn.dune} fill="none" stroke={dt.ink} strokeWidth={px(0.8)} strokeLinecap="round" /> : null}
           {drawn.reed ? <Path d={drawn.reed} fill="none" stroke={dt.ink} strokeWidth={px(0.7)} strokeLinecap="round" /> : null}

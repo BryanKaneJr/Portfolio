@@ -1,44 +1,65 @@
 /**
- * The map's drawn terrain (scripts/build-terrain.ts): mountains, hills, trees, dunes and reeds, placed from real
- * elevation and land colour. The marks are decoded once and bucketed by cell; each cell's marks become one path per
- * layer the first time they are in view (cached), so a redraw only joins the strings of the cells in view. All in
- * map units: the marks grow as you zoom in, and stay sharp.
+ * The map's drawn terrain (scripts/build-terrain.ts): mountain ranges as shapes traced from the real ground (each
+ * range's wash, its snow, its lit and shaded slopes, its ridges), and hills, trees, dunes and reeds as small marks.
+ * Decoded once; each shape's path is made the first time it is in view, and the marks' a cell at a time (cached),
+ * so a redraw only joins the strings of what is in view. All in map units: the drawing grows as you zoom in, and
+ * stays sharp.
  */
-import { TERRAIN_SYMBOLS } from './terrainSymbols';
+import { TERRAIN_SHAPES, TERRAIN_SYMBOLS } from './terrainSymbols';
 
 /** Drawing order: under the lines go the fills. */
-export const LAYERS = ['peak', 'peakShade', 'snow', 'hillShade', 'tree', 'peakLine', 'hatch', 'hillLine', 'treeLine', 'dune', 'reed'] as const;
+export const LAYERS = ['upLight', 'upShade', 'wash', 'snow', 'light', 'shade', 'tree', 'ridgeMinor', 'ridge', 'treeLine', 'dune', 'reed'] as const;
 export type Layer = (typeof LAYERS)[number];
 type Paths = Record<Layer, string>;
 
+/** The shapes' layers, in the order build-terrain numbers them. */
+const SHAPE_LAYERS: Layer[] = ['wash', 'snow', 'light', 'shade', 'ridge', 'ridgeMinor', 'upLight', 'upShade'];
+
+/** From this zoom (screen points per map unit) in, the lesser ridges are drawn too. */
+export const DETAIL_K = 2.6;
+
 const CELL = 128; // map units
 const COLS = 64; // cells across (the map is 2575 units wide, with room to spare)
+const REACH = 8; // how far a mark's drawing can reach from where it stands (map units)
+
+interface Shape {
+  layer: Layer;
+  detail: boolean; // only drawn close up
+  closed: boolean;
+  at: number; // byte offset of its first point
+  count: number;
+  box: [number, number, number, number];
+  d?: string;
+}
 
 let marks: Int16Array | null = null;
+let bytes: Uint8Array | null = null;
+let shapes: Shape[] | null = null;
 let buckets: Map<number, number[]> | null = null;
 const built = new Map<number, Paths>();
 
 const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-function decode(s: string): Int16Array {
+function decode(s: string): Uint8Array {
   const lut = new Uint8Array(128);
   for (let i = 0; i < 64; i++) lut[B64.charCodeAt(i)] = i;
   const pad = s.endsWith('==') ? 2 : s.endsWith('=') ? 1 : 0;
-  const bytes = new Uint8Array((s.length / 4) * 3 - pad);
+  const out = new Uint8Array((s.length / 4) * 3 - pad);
   for (let i = 0, o = 0; i < s.length; i += 4) {
-    const n = (lut[s.charCodeAt(i)] << 18) | (lut[s.charCodeAt(i + 1)] << 12) | (lut[s.charCodeAt(i + 2)] << 6) | lut[s.charCodeAt(i + 3)];
-    if (o < bytes.length) bytes[o++] = n >> 16;
-    if (o < bytes.length) bytes[o++] = (n >> 8) & 255;
-    if (o < bytes.length) bytes[o++] = n & 255;
+    const v = (lut[s.charCodeAt(i)] << 18) | (lut[s.charCodeAt(i + 1)] << 12) | (lut[s.charCodeAt(i + 2)] << 6) | lut[s.charCodeAt(i + 3)];
+    if (o < out.length) out[o++] = v >> 16;
+    if (o < out.length) out[o++] = (v >> 8) & 255;
+    if (o < out.length) out[o++] = v & 255;
   }
-  const view = new DataView(bytes.buffer);
-  const out = new Int16Array(bytes.length / 2);
-  for (let i = 0; i < out.length; i++) out[i] = view.getInt16(i * 2, true); // written little-endian
   return out;
 }
+/** A 16-bit number written little-endian. */
+const i16 = (b: Uint8Array, o: number) => ((b[o] | (b[o + 1] << 8)) << 16) >> 16;
 
 function load() {
-  if (marks) return;
-  marks = decode(TERRAIN_SYMBOLS);
+  if (buckets) return;
+  const mb = decode(TERRAIN_SYMBOLS);
+  marks = new Int16Array(mb.length / 2);
+  for (let i = 0; i < marks.length; i++) marks[i] = i16(mb, i * 2);
   buckets = new Map();
   for (let i = 0; i < marks.length; i += 4) {
     const key = Math.floor(marks[i + 1] / 10 / CELL) * COLS + Math.floor(marks[i] / 10 / CELL);
@@ -46,50 +67,43 @@ function load() {
     if (list) list.push(i);
     else buckets.set(key, [i]);
   }
+  bytes = decode(TERRAIN_SHAPES);
+  shapes = [];
+  for (let o = 0; o < bytes.length; ) {
+    const count = bytes[o + 2] | (bytes[o + 3] << 8);
+    const box: [number, number, number, number] = [Infinity, Infinity, -Infinity, -Infinity];
+    for (let k = 0, q = o + 4; k < count; k++, q += 4) {
+      const x = i16(bytes, q) / 10;
+      const y = i16(bytes, q + 2) / 10;
+      box[0] = Math.min(box[0], x);
+      box[1] = Math.min(box[1], y);
+      box[2] = Math.max(box[2], x);
+      box[3] = Math.max(box[3], y);
+    }
+    shapes.push({ layer: SHAPE_LAYERS[bytes[o]], detail: (bytes[o + 1] & 1) !== 0, closed: (bytes[o + 1] & 2) !== 0, at: o + 4, count, box });
+    o += 4 + count * 4;
+  }
+}
+
+function shapePath(sh: Shape): string {
+  if (sh.d !== undefined) return sh.d;
+  const b = bytes!;
+  let d = '';
+  for (let k = 0, q = sh.at; k < sh.count; k++, q += 4) d += `${k ? 'L' : 'M'}${i16(b, q) / 10} ${i16(b, q + 2) / 10}`;
+  return (sh.d = sh.closed ? `${d}Z` : d);
 }
 
 const n = (v: number) => Math.round(v * 10) / 10;
-/** A repeatable 0..1 for a mark, so peaks and woods vary without storing it. */
+const pt = (x: number, y: number) => `${n(x)} ${n(y)}`;
+/** A repeatable 0..1 for a mark, so woods vary without storing it. */
 const vary = (x: number, y: number, salt: number) => {
   const v = Math.sin(x * 12.9898 + y * 78.233 + salt * 37.719) * 43758.5453;
   return v - Math.floor(v);
 };
 
 /** One mark, added to the layers' path strings. (x, y) is where it stands; s its size (map units). */
-function draw(p: Paths, kind: number, x: number, y: number, s: number) {
+function drawMark(p: Paths, kind: number, x: number, y: number, s: number) {
   switch (kind) {
-    case 0: // a mountain: light face, shaded and hatched right flank, ridge line; snow on the highest
-    case 6: {
-      const h = s * (0.88 + vary(x, y, 1) * 0.24);
-      const w = s * (0.54 + vary(x, y, 2) * 0.14);
-      const ax = n(x + s * (vary(x, y, 3) - 0.5) * 0.16);
-      const ay = n(y - h);
-      const l = `${n(x - w)} ${n(y)}`;
-      const lp = `${n(x - s * 0.08)} ${n(y - h * 0.92)}`;
-      const rp = `${n(x + s * 0.13)} ${n(y - h * 0.9)}`;
-      const r = `${n(x + w * 1.05)} ${n(y)}`;
-      const m1 = `${n(x + s * 0.02)} ${n(y - h * 0.72)}`;
-      const m2 = `${n(x + s * 0.12)} ${n(y - h * 0.42)}`;
-      p.peak += `M${l}L${lp}L${ax} ${ay}L${rp}L${r}Z`;
-      p.peakShade += `M${ax} ${ay}L${rp}L${r}L${n(x + s * 0.2)} ${n(y)}L${m2}L${m1}Z`;
-      p.peakLine += `M${l}L${lp}L${ax} ${ay}L${rp}L${r}M${ax} ${ay}L${m1}L${m2}`;
-      // Hatching down the shaded flank.
-      for (const f of [0.3, 0.52, 0.74]) {
-        const sx = x + s * (0.03 + 0.09 * f);
-        const sy = y - h * (1 - f * 0.9);
-        p.hatch += `M${n(sx)} ${n(sy)}l${n(w * 0.42 * (1 - f * 0.4))} ${n(h * 0.24)}`;
-      }
-      if (kind === 6) p.snow += `M${n(x - s * 0.17)} ${n(y - h * 0.7)}L${lp}L${ax} ${ay}L${rp}L${n(x + s * 0.2)} ${n(y - h * 0.76)}L${n(x + s * 0.06)} ${n(y - h * 0.68)}L${n(x - s * 0.04)} ${n(y - h * 0.78)}Z`;
-      break;
-    }
-    case 1: {
-      // a hill: a rounded hump, shaded on the right
-      const w = s * 0.55;
-      const h = s * 0.32;
-      p.hillShade += `M${n(x)} ${n(y - h)}Q${n(x + w * 0.55)} ${n(y - h)} ${n(x + w)} ${n(y)}L${n(x + w * 0.3)} ${n(y)}Q${n(x + w * 0.25)} ${n(y - h * 0.55)} ${n(x)} ${n(y - h)}Z`;
-      p.hillLine += `M${n(x - w)} ${n(y)}Q${n(x)} ${n(y - h * 2)} ${n(x + w)} ${n(y)}`;
-      break;
-    }
     case 2: {
       // broadleaf trees: a little clump of round crowns on short trunks, the front one lower
       const r = s * 0.2;
@@ -102,9 +116,9 @@ function draw(p: Paths, kind: number, x: number, y: number, s: number) {
         const tx = x + dx * s;
         const ty = y + dy * s;
         const cy = ty - s * 0.36;
-        const crown = `M${n(tx - r)} ${n(cy)}a${n(r)} ${n(r)} 0 1 0 ${n(2 * r)} 0a${n(r)} ${n(r)} 0 1 0 ${n(-2 * r)} 0`;
+        const crown = `M${pt(tx - r, cy)}a${n(r)} ${n(r)} 0 1 0 ${n(2 * r)} 0a${n(r)} ${n(r)} 0 1 0 ${n(-2 * r)} 0`;
         p.tree += crown;
-        p.treeLine += `${crown}M${n(tx)} ${n(cy + r)}V${n(ty)}`;
+        p.treeLine += `${crown}M${pt(tx, cy + r)}V${n(ty)}`;
       }
       break;
     }
@@ -119,21 +133,21 @@ function draw(p: Paths, kind: number, x: number, y: number, s: number) {
         const tx = x + dx * s;
         const ty = y + dy * s;
         const hh = s * 0.72 * k;
-        const cone = `M${n(tx)} ${n(ty - hh)}L${n(tx + s * 0.15)} ${n(ty - s * 0.12)}L${n(tx - s * 0.15)} ${n(ty - s * 0.12)}Z`;
+        const cone = `M${pt(tx, ty - hh)}L${pt(tx + s * 0.15, ty - s * 0.12)}L${pt(tx - s * 0.15, ty - s * 0.12)}Z`;
         p.tree += cone;
-        p.treeLine += `${cone}M${n(tx)} ${n(ty - s * 0.12)}V${n(ty)}`;
+        p.treeLine += `${cone}M${pt(tx, ty - s * 0.12)}V${n(ty)}`;
       }
       break;
     }
     case 4: {
       // dunes: two swept ridges
       const w = s * 0.6;
-      p.dune += `M${n(x - w)} ${n(y)}Q${n(x - w * 0.15)} ${n(y - w * 0.36)} ${n(x + w * 0.35)} ${n(y - w * 0.1)}M${n(x - w * 0.15)} ${n(y + w * 0.38)}Q${n(x + w * 0.4)} ${n(y + w * 0.1)} ${n(x + w)} ${n(y + w * 0.32)}`;
+      p.dune += `M${pt(x - w, y)}Q${pt(x - w * 0.15, y - w * 0.36)} ${pt(x + w * 0.35, y - w * 0.1)}M${pt(x - w * 0.15, y + w * 0.38)}Q${pt(x + w * 0.4, y + w * 0.1)} ${pt(x + w, y + w * 0.32)}`;
       break;
     }
     case 5: {
       // reeds over still water
-      p.reed += `M${n(x - s * 0.45)} ${n(y)}h${n(s * 0.32)}M${n(x + s * 0.05)} ${n(y)}h${n(s * 0.4)}M${n(x - s * 0.25)} ${n(y + s * 0.22)}h${n(s * 0.5)}M${n(x - s * 0.1)} ${n(y - s * 0.04)}l${n(-s * 0.07)} ${n(-s * 0.34)}M${n(x)} ${n(y - s * 0.04)}v${n(-s * 0.42)}M${n(x + s * 0.1)} ${n(y - s * 0.04)}l${n(s * 0.07)} ${n(-s * 0.34)}`;
+      p.reed += `M${pt(x - s * 0.45, y)}h${n(s * 0.32)}M${pt(x + s * 0.05, y)}h${n(s * 0.4)}M${pt(x - s * 0.25, y + s * 0.22)}h${n(s * 0.5)}M${pt(x - s * 0.1, y - s * 0.04)}l${pt(-s * 0.07, -s * 0.34)}M${pt(x, y - s * 0.04)}v${n(-s * 0.42)}M${pt(x + s * 0.1, y - s * 0.04)}l${pt(s * 0.07, -s * 0.34)}`;
       break;
     }
   }
@@ -143,19 +157,23 @@ function cellPaths(key: number): Paths {
   const hit = built.get(key);
   if (hit) return hit;
   const p = Object.fromEntries(LAYERS.map(l => [l, ''])) as Paths;
-  for (const i of buckets!.get(key) ?? []) draw(p, marks![i + 2], marks![i] / 10, marks![i + 1] / 10, marks![i + 3] / 10);
+  for (const i of buckets!.get(key) ?? []) drawMark(p, marks![i + 2], marks![i] / 10, marks![i + 1] / 10, marks![i + 3] / 10);
   built.set(key, p);
   return p;
 }
 
-/** Every layer's path for the marks in a rectangle of the map (whole cells, so a little more). */
-export function terrainPaths(x0: number, y0: number, x1: number, y1: number): Paths {
+/** Every layer's path for the drawing in a rectangle of the map (a little more), at zoom k. */
+export function terrainPaths(x0: number, y0: number, x1: number, y1: number, k: number): Paths {
   load();
   const out = Object.fromEntries(LAYERS.map(l => [l, ''])) as Paths;
-  const c0 = Math.max(0, Math.floor(x0 / CELL));
-  const c1 = Math.min(COLS - 1, Math.floor(x1 / CELL));
-  const r0 = Math.max(0, Math.floor(y0 / CELL));
-  const r1 = Math.floor(y1 / CELL);
+  for (const sh of shapes!) {
+    if (sh.box[0] > x1 || sh.box[2] < x0 || sh.box[1] > y1 || sh.box[3] < y0 || (sh.detail && k < DETAIL_K)) continue;
+    out[sh.layer] += shapePath(sh);
+  }
+  const c0 = Math.max(0, Math.floor((x0 - REACH) / CELL));
+  const c1 = Math.min(COLS - 1, Math.floor((x1 + REACH) / CELL));
+  const r0 = Math.max(0, Math.floor((y0 - REACH) / CELL));
+  const r1 = Math.floor((y1 + REACH) / CELL);
   // Rows in order, so marks lower on the map are drawn after (over) those above.
   for (let r = r0; r <= r1; r++)
     for (let c = c0; c <= c1; c++) {
