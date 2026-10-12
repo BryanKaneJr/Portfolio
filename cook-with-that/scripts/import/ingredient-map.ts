@@ -1000,4 +1000,6 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   // Bottled sweet-hot cayenne sauce (the Louisiana "Try Me" kind); not hot sauce, sweet chili sauce, or Baltimore's
   // horseradish-mayo "tiger sauce", which recipes list as mayonnaise and horseradish.
   'tiger sauce': { add: 'spice' },
+  // Japanese noodle soup base (soy, mirin, dashi), sold concentrated as mentsuyu; not soy sauce or dashi alone.
+  tsuyu: { add: 'pantry', name: 'Tsuyu (noodle soup base)' },
 };

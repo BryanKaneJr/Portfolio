@@ -17,6 +17,7 @@ import { SOUPS_SALADS_DIPS_RECIPES } from './soupsSaladsDips';
 import { WORLD_KITCHEN_RECIPES } from './worldKitchen';
 import { DESSERTS_SNACKS_RECIPES } from './dessertsSnacks';
 import { TIGER_SAUCE_RECIPES } from './tigerSauce';
+import { OWNER_RECIPES } from './ownerRecipes';
 
 /**
  * Original recipes written for the app, one file per theme so parallel writers don't collide.
@@ -41,4 +42,5 @@ export const ORIGINAL_RECIPES: Recipe[] = [
   ...WORLD_KITCHEN_RECIPES,
   ...DESSERTS_SNACKS_RECIPES,
   ...TIGER_SAUCE_RECIPES,
+  ...OWNER_RECIPES,
 ];

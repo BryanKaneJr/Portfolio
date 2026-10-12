@@ -332,7 +332,12 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'clam_juice', name: 'Clam juice', category: 'pantry', aliases: [] },
   { id: 'dried_basil', name: 'Dried basil', category: 'spice', aliases: [] },
   { id: 'hoisin_sauce', name: 'Hoisin sauce', category: 'pantry', aliases: ['hoisin'] },
-  { id: 'mayonnaise', name: 'Mayonnaise', category: 'spice', aliases: ['mayo', 'mayonaise'] },
+  {
+    id: 'mayonnaise',
+    name: 'Mayonnaise',
+    category: 'spice',
+    aliases: ['mayo', 'mayonaise', 'kewpie', 'kewpie mayo', 'kewpie mayonnaise', 'japanese mayonnaise'],
+  },
   { id: 'saltine_crackers', name: 'Saltine crackers', category: 'grain', aliases: ['saltines'] },
   { id: 'pizza_dough', name: 'Pizza dough', category: 'grain', aliases: [] },
   { id: 'beef_broth', name: 'Beef broth', category: 'pantry', aliases: ['beef stock'] },
@@ -653,4 +658,10 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'poblano_pepper', name: 'Poblano pepper', category: 'produce', aliases: ['poblano peppers', 'poblano chiles', 'poblano'] },
   { id: 'cumin_seeds', name: 'Cumin seeds', category: 'spice', aliases: [] },
   { id: 'tiger_sauce', name: 'Tiger sauce', category: 'spice', aliases: [] },
+  {
+    id: 'tsuyu',
+    name: 'Tsuyu (noodle soup base)',
+    category: 'pantry',
+    aliases: ['tsuyu', 'mentsuyu', 'tsuyu soup base'],
+  },
 ];

@@ -107,6 +107,10 @@ Hard rules (from the plan, still in force):
    font on every platform (SF Symbols has few foods), the title, time · meal · type, the tagline and one status line
    ("Uses all 3 · 12 more ingredients"); the full ingredient list is on the recipe page. **Plan** is one short row per
    day with the planned meals named and a + that picks the meal in the recipe chooser. No text glyphs as icons.
+20. **The owner's own recipes are kept exactly as given** (owner, 2026-10-12, his Greatest Spicy Mayo: "it's my
+   personal and it's literally the best ever"). They live in `src/data/originals/ownerRecipes.ts`; reviews, audits
+   and the published-recipe check (decision 18) may comment on them but never change their amounts. Only wording,
+   tags and catalog IDs get tidied. Kewpie counts as Mayonnaise (search "kewpie" finds it; Avoid mayonnaise hides it).
 
 ## Layout
 ```
@@ -118,7 +122,7 @@ src/components/  ui (Button, Card, LargeHeader, Segmented…), Icon (SF Symbols 
                  Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard, AddToPlanSheet
 src/theme/       colors (light/dark tokens), typography, spacing, icons (icon + dish-picture names), iconGlyphs
                  (generated)
-src/data/        types, ingredients (400, with aliases), recipes (27 seed + originals/ + imported/), collections,
+src/data/        types, ingredients (401, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
@@ -145,7 +149,7 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   **never yet run on a physical iPhone**: do that early. The native tab bar and SF Symbols (decision 19) have only been
   seen through the web stand-in, so check them first: the tab bar, the header icons, and that Find's footer button
   sits above the tab bar.
-- All 673 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 382 newer originals written
+- All 674 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 383 newer originals written
   for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
   98% of common 2-ingredient picks find an exact match (73% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
