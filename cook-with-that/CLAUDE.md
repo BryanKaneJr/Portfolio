@@ -16,34 +16,36 @@ Hard rules (from the plan, still in force):
 - Never copy recipe directions/photos from sites without permission. Every recipe needs `source` metadata.
 
 ## Decisions made with the owner (override the plan where they conflict)
-1. **Two home modes** (toggle at top): *Pick ingredients* (Use/Avoid) and *My pantry* (saved list of what you keep on hand →
-   shuffled list of recipes you can fully make, narrowed by Meal/Dish type; separate "One ingredient short" section below).
-   Pantry was out of scope in the plan; owner asked for it.
+1. **Two ways to find recipes**, now the **Find** and **Pantry** tabs (decision 19): *Find* picks ingredients to Use or
+   Avoid; *Pantry* is the saved list of what you keep on hand → a shuffled list of recipes you can fully make, narrowed
+   by Meal/Dish type, with a separate "One ingredient short" section. Pantry was out of scope in the plan; owner asked
+   for it.
 2. **Kitchen staples are a My Pantry concept ONLY.** 20 defaults in `src/data/staples.ts` (salt, pepper, water, veg/olive oil,
    butter, flour, sugar, brown sugar, baking soda/powder, vanilla, garlic powder, cinnamon, paprika, oregano, thyme, cumin,
    chili powder, red pepper flakes). In pantry mode they count as on hand and get a STAPLE badge on recipe pages.
    In Pick mode they have **no effect**: cards and recipe pages list every ingredient. User can edit/disable on the
    Kitchen staples screen.
 3. **Suggestions:** "Most common" ranked from published recipe-frequency data (`src/data/popularity.ts`,
-   `docs/ingredient-popularity.md`). Inline shows **11** (sized so "More options" fits on an iPhone 15 screen without
-   scrolling; owner removed Carrot for this). **More options** opens `src/app/ingredients.tsx`: full scrollable list with
-   pinned search, works for pick/pantry/staples targets (`src/state/pickerTarget.ts`).
+   `docs/ingredient-popularity.md`). Inline shows **11** (owner removed Carrot so the list fits an iPhone 15 screen).
+   **Browse all ingredients** opens `src/app/ingredients.tsx`: full scrollable list with pinned search, works for
+   pick/pantry/staples targets (`src/state/pickerTarget.ts`).
 4. Pick-mode suggestions never show generic basics (oil, flour, butter, spices). Owner: "No one is using olive oil as an
    ingredient to come up with ideas." They're still reachable via search / More options (e.g. to Avoid butter).
-5. Meal and Dish type are **dropdown buttons** (bottom sheet with recipe counts per option), not chip rows.
-6. Home footer has **✓ Use / ⊘ Avoid buttons** that open `src/app/selections.tsx` (move between lists, remove, clear).
+5. Meal and Dish type are **dropdown pills** ("Meal ⌄", solid ink once set) opening a bottom sheet with recipe counts
+   per option, not chip rows.
+6. Find's footer shows **"Using … · Avoiding …"**, which opens `src/app/selections.tsx` (move between lists, remove,
+   clear), above the main button.
 7. **Imported recipes grow the catalog** (owner, 2026-10-09: "add ingredients that are missing from our catalogue when a
    recipe includes one we don't have"). A missing ingredient never blocks an import: review its wording once in
    `scripts/import/ingredient-map.ts` (`{ add: category }`), and `import:draft` adds it to `src/data/ingredients.ts`.
    Never alias a different food to an existing ID to avoid adding one. New items aren't "Most common" suggestions unless
    they're on the published frequency lists (corn and orange were; they sit below the 11 inline chips).
 8. **Units setting** (owner, 2026-10-09: "a toggle in settings that changes to metric or whatever those British guys
-   do"). Settings (gear on home, `src/app/settings.tsx`) → **US / Metric**. Recipes stay authored in US units; metric is
+   do"). Settings (gear on the Find tab, `src/app/settings.tsx`) → **US / Metric**. Recipes stay authored in US units; metric is
    display-only (`src/logic/units.ts`): grams for solids with a known cup weight (`GRAMS_PER_CUP`), ml for liquids,
    tsp/tbsp unchanged, US cans → tin sizes, oven temps as "175°C (155°C fan, gas 4)" (air-fryer, frying-oil and sugar
    temps get plain °C), inches → cm, and the author's own metric ("1 lb (450 g)") wins. First launch defaults from the device region (US and territories, Liberia, Myanmar →
-   US; everyone else metric). `tests/units.test.ts` fails if any recipe leaves a US unit in metric mode. To fit the gear
-   without changing the header height (decision 3's sizing), Favorites became a round ♥ button like it.
+   US; everyone else metric). `tests/units.test.ts` fails if any recipe leaves a US unit in metric mode.
 9. **Taglines** (owner, 2026-10-09: "I like the tagline under the recipe name too. Let's keep that going."). Every recipe's
    `description` is a fresh, concrete one-liner (40–130 chars, no hype, no "!"). Style guide: `docs/recipe-import.md`
    "Taglines"; `tests/taglines.test.ts` enforces it.
@@ -74,9 +76,9 @@ Hard rules (from the plan, still in force):
    everything is editable; ingredients are picked from the catalog so search stays exact, with a "your own
    ingredient" fallback (`custom:` IDs) that search and Avoid can't see; people can write recipes from scratch (`my-`
    IDs); a week plan with breakfast, lunch and dinner slots plus a shopping list that leaves out the pantry and
-   staples. All on the phone (AsyncStorage, `src/state/favoritesStorage.ts`). ♥ on home opens **My Kitchen**
-   (Saved · Meal plan · Shopping list): a third header button doesn't fit beside the title at iPhone widths. Every
-   screen that searches uses `app.library` (bundled + edits + own), never the bundled `RECIPES` directly.
+   staples. All on the phone (AsyncStorage, `src/state/favoritesStorage.ts`). Since decision 19 these live in the
+   **Plan** tab (week + shopping list) and the **Saved** tab (favorites + your recipes). Every screen that searches
+   uses `app.library` (bundled + edits + own), never the bundled `RECIPES` directly.
 17. **Our written recipes stay separate from adapted ones** (owner, 2026-10-11: "for now keep original recipes separate
    from our from scratch ones"). `src/data/recipes.ts` has `WRITTEN_RECIPES` (27 seed + `src/data/originals/`, source
    type 'original'), `SOURCE_RECIPES` (`src/data/imported/`, 'licensed') and one switch, `INCLUDE_WRITTEN_RECIPES`
@@ -90,15 +92,37 @@ Hard rules (from the plan, still in force):
    compare against to see if they work… cut the least confident ones"): each is compared with 2–3 published versions
    of the dish, numbers outside their shared range are fixed, and a recipe that matches one source across the board is
    reworked from ratios (`docs/recipe-review/verification/`).
+19. **The clean iOS look** (owner, 2026-10-12, picked from three mockups: "B · Clean iOS"; tab bar; short cards with a
+   dish icon; compact week). Grey grouped background (`#F2F2F7`), white cards with hairline edges, **ink** main buttons
+   (`primary`, so the main action never reads as the red Avoid), tomato only as the **accent** (links, icons, selected
+   tab: `accent`), green Use and red Avoid; real dark mode (black, ink buttons turn white). Tokens in
+   `src/theme/colors.ts`; shared pieces in `src/components/ui.tsx` (Button, IconButton, LargeHeader, Card,
+   SectionLabel, LinkButton, Segmented, Toggle, EmptyState). Navigation: a **tab bar**, Find · Pantry · Plan · Saved
+   (`src/app/(tabs)/`), native `NativeTabs` on iPhone (Liquid Glass on iOS 26) with a JS stand-in for web
+   (`_layout.web.tsx`); results, a recipe, the editor (a sheet) and settings push over the tabs from the root stack. A
+   recipe opened from Find or Pantry gets `from=find|pantry`, which decides what its ingredient list marks as yours.
+   **Icons:** `Icon` draws SF Symbols on iPhone and Material Symbols elsewhere from two tiny bundled fonts
+   (`assets/fonts/AppIcons*.ttf`, Apache 2.0, built by `scripts/icons/build-icon-fonts.py` from `src/theme/icons.ts`;
+   `tests/icons.test.ts` fails if one is missing). Recipe cards show a **dish picture** per dish type from the same
+   font on every platform (SF Symbols has few foods), the title, time · meal · type, the tagline and one status line
+   ("Uses all 3 · 12 more ingredients"); the full ingredient list is on the recipe page. **Plan** is one short row per
+   day with the planned meals named and a + that picks the meal in the recipe chooser. No text glyphs as icons.
+20. **The owner's own recipes are kept exactly as given** (owner, 2026-10-12, on the Greatest Spicy Mayo: "it's my
+   personal and it's literally the best ever"). They live in `src/data/originals/ownerRecipes.ts`; reviews, audits
+   and the published-recipe check (decision 18) may comment on them but never change their amounts. Only wording,
+   tags and catalog IDs get tidied. Kewpie counts as Mayonnaise (search "kewpie" finds it; Avoid mayonnaise hides it).
 
 ## Layout
 ```
-src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
-                 pantry, pantry-results, recipe/[id] (edit, notes, add to plan), favorites (My Kitchen: saved, meal
-                 plan, shopping list), edit (recipe editor), plan-add, _layout (ReadyGate waits for storage restore)
-src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard,
-                 AddToPlanSheet
-src/data/        types, ingredients (399, with aliases), recipes (27 seed + originals/ + imported/), collections,
+src/app/         (tabs)/ index (Find), pantry (what you can make), plan (week + shopping list), saved, _layout
+                 (native tabs; _layout.web.tsx for web); results, recipe/[id] (edit, notes, add to plan, check off),
+                 edit (recipe editor sheet), plan-add, pantry-edit, ingredients (Browse all), selections, staples,
+                 settings, _layout (root stack; ReadyGate waits for storage restore and the icon fonts)
+src/components/  ui (Button, Card, LargeHeader, Segmented…), Icon (SF Symbols / AppIcons font, DishIcon), Chip,
+                 Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard, AddToPlanSheet
+src/theme/       colors (light/dark tokens), typography, spacing, icons (icon + dish-picture names), iconGlyphs
+                 (generated)
+src/data/        types, ingredients (401, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
@@ -122,8 +146,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
-  **never yet run on a physical iPhone**: do that early.
-- All 668 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 377 newer originals written
+  **never yet run on a physical iPhone**: do that early. The native tab bar and SF Symbols (decision 19) have only been
+  seen through the web stand-in, so check them first: the tab bar, the header icons, and that Find's footer button
+  sits above the tab bar.
+- All 674 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 383 newer originals written
   for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
   98% of common 2-ingredient picks find an exact match (73% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
@@ -223,4 +249,5 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
    append importers' recipes, then `npm run import:catalog` for each new key.
 3. Next source after these: HowToCook (Chinese home cooking, Unlicense, needs translation), see recipe-sources.md.
 4. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (NHLBI asks for its credit line, the VA
-   for proper attribution with no implied endorsement; Based Cooking needs none). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).
+   for proper attribution with no implied endorsement; Based Cooking needs none), plus the Apache 2.0 notice for the
+   Material Symbols icon fonts (`assets/fonts/MaterialSymbols-LICENSE.txt`). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).

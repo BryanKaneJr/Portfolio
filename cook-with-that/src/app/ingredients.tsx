@@ -1,15 +1,16 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { IngredientBrowser, SearchBox } from '../components/IngredientBrowser';
+import { Button } from '../components/ui';
 import { UseAvoidToggle } from '../components/UseAvoidToggle';
 import { ingredientName } from '../data/catalog';
 import { useAppState } from '../state/AppState';
 import { isPickerTarget, usePickerConfig, type PickerTarget } from '../state/pickerTarget';
 import { useColors } from '../theme/colors';
-import { radius, space } from '../theme/spacing';
+import { space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 
 const TITLES: Record<PickerTarget, string> = {
@@ -50,7 +51,7 @@ export default function AllIngredientsScreen() {
       >
         {/* Sticky header: search (+ Use/Avoid switch when picking) */}
         <View style={[styles.sticky, { backgroundColor: c.bg, borderBottomColor: c.divider }]}>
-          {target === 'pick' ? <UseAvoidToggle compactHint /> : null}
+          {target === 'pick' ? <UseAvoidToggle style={styles.toggle} /> : null}
           <SearchBox value={query} onChange={setQuery} placeholder={cfg.placeholder} label={cfg.searchLabel} />
         </View>
 
@@ -61,13 +62,7 @@ export default function AllIngredientsScreen() {
         <Text style={[t.small, { color: c.textMuted, marginBottom: space.sm }]} numberOfLines={2}>
           {summary}
         </Text>
-        <Pressable
-          onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
-          accessibilityRole="button"
-          style={({ pressed }) => [styles.primary, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
-        >
-          <Text style={[t.bodyStrong, { color: c.primaryText, fontSize: 17 }]}>Done</Text>
-        </Pressable>
+        <Button label="Done" onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} />
       </SafeAreaView>
     </View>
   );
@@ -82,12 +77,12 @@ function summarize(ids: string[], label: string): string {
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   scroll: { paddingBottom: space.xxl },
-  sticky: { paddingBottom: space.md, borderBottomWidth: StyleSheet.hairlineWidth },
+  sticky: { paddingBottom: space.md, paddingTop: space.sm, borderBottomWidth: StyleSheet.hairlineWidth },
+  toggle: { marginHorizontal: space.lg },
   footer: {
     borderTopWidth: StyleSheet.hairlineWidth,
     paddingHorizontal: space.lg,
     paddingTop: space.sm,
     paddingBottom: space.sm,
   },
-  primary: { minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
 });
