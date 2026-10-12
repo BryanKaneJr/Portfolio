@@ -17,172 +17,13 @@
  * from NASA's Blue Marble (public domain: natural colour, cloud-free) that the Atlas style lays over the country
  * colours, so each country takes on the greens, tans and greys of its land and the texture of its fields and hills.
  */
-import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { promisify } from 'node:util';
 import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
+import { BM_Z, H, RAD, ROOT, W, elevation, fetchArea, fetchBlueMarbleArea, landMask, latOf, lonOf, map, natural, parseRings, unitsPerDegree } from './lib/geo';
 
-const run = promisify(execFile);
-const ROOT = path.resolve(__dirname, '..');
-const CACHE = path.join(ROOT, 'scripts/data/terrain-cache');
 const OUT = path.join(ROOT, 'assets/map');
-const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/map.json'), 'utf8'));
-const W: number = map.width;
-const H: number = map.height;
-const { west, east, north } = map.projection;
-
-// ---------------------------------------------------------------- projection (same as build-map)
-const RAD = Math.PI / 180;
-const scale = W / ((east - west) * RAD); // map units per radian
-const top = -Math.log(Math.tan(Math.PI / 4 + (north * RAD) / 2));
-const lonOf = (x: number) => west + x / scale / RAD;
-const latOf = (y: number) => (2 * Math.atan(Math.exp(-(y / scale + top))) - Math.PI / 2) / RAD;
-const unitsPerDegree = W / (east - west);
-
-// ---------------------------------------------------------------- elevation tiles
-const TILE = 256;
-const tiles = new Map<string, Float32Array | null>();
-const tileKey = (z: number, x: number, y: number) => `${z}/${x}/${y}`;
-
-async function fetchTile(z: number, x: number, y: number): Promise<void> {
-  const key = tileKey(z, x, y);
-  if (tiles.has(key)) return;
-  const file = path.join(CACHE, `${z}`, `${x}`, `${y}.png`);
-  if (!fs.existsSync(file)) {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    const url = `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/${z}/${x}/${y}.png`;
-    // curl, not fetch: it goes through the environment's proxy settings.
-    for (let attempt = 0; attempt < 4; attempt++) {
-      try {
-        await run('curl', ['-sf', '--max-time', '60', '-o', file, url]);
-        break;
-      } catch {
-        await new Promise(r => setTimeout(r, 1000 * 2 ** attempt));
-      }
-    }
-  }
-  if (!fs.existsSync(file)) {
-    tiles.set(key, null);
-    return;
-  }
-  const png = PNG.sync.read(fs.readFileSync(file));
-  const e = new Float32Array(TILE * TILE);
-  for (let i = 0; i < TILE * TILE; i++) e[i] = png.data[i * 4] * 256 + png.data[i * 4 + 1] + png.data[i * 4 + 2] / 256 - 32768;
-  tiles.set(key, e);
-}
-
-/** Web-Mercator pixel of a lon/lat at zoom z. */
-function tilePixel(z: number, lon: number, lat: number): [number, number] {
-  const n = TILE * 2 ** z;
-  const la = Math.max(-85.05, Math.min(85.05, lat)) * RAD;
-  return [((lon + 180) / 360) * n, ((1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2) * n];
-}
-
-function rawElevation(z: number, px: number, py: number): number {
-  const n = 2 ** z;
-  const tx = ((Math.floor(px / TILE) % n) + n) % n;
-  const ty = Math.max(0, Math.min(n - 1, Math.floor(py / TILE)));
-  const t = tiles.get(tileKey(z, tx, ty));
-  if (!t) return 0;
-  const ix = Math.max(0, Math.min(TILE - 1, Math.floor(px) - Math.floor(px / TILE) * TILE));
-  const iy = Math.max(0, Math.min(TILE - 1, Math.floor(py) - ty * TILE));
-  return t[iy * TILE + ix];
-}
-
-/** Bilinear elevation at a lon/lat (metres; negative at sea). */
-function elevation(z: number, lon: number, lat: number): number {
-  const [px, py] = tilePixel(z, lon, lat);
-  const x0 = Math.floor(px - 0.5);
-  const y0 = Math.floor(py - 0.5);
-  const fx = px - 0.5 - x0;
-  const fy = py - 0.5 - y0;
-  const a = rawElevation(z, x0, y0);
-  const b = rawElevation(z, x0 + 1, y0);
-  const c = rawElevation(z, x0, y0 + 1);
-  const d = rawElevation(z, x0 + 1, y0 + 1);
-  return (a * (1 - fx) + b * fx) * (1 - fy) + (c * (1 - fx) + d * fx) * fy;
-}
-
-async function fetchArea(z: number, x0: number, y0: number, x1: number, y1: number): Promise<void> {
-  const [ax, ay] = tilePixel(z, lonOf(x0), latOf(y0));
-  const [bx, by] = tilePixel(z, lonOf(x1), latOf(y1));
-  const n = 2 ** z;
-  const jobs: [number, number][] = [];
-  for (let ty = Math.max(0, Math.floor(ay / TILE)); ty <= Math.min(n - 1, Math.floor(by / TILE)); ty++)
-    for (let tx = Math.floor(ax / TILE); tx <= Math.floor(bx / TILE); tx++) jobs.push([((tx % n) + n) % n, ty]);
-  let done = 0;
-  const worker = async () => {
-    for (let j = jobs.pop(); j; j = jobs.pop()) {
-      await fetchTile(z, j[0], j[1]);
-      if (++done % 50 === 0) process.stdout.write(`  ${done} tiles\r`);
-    }
-  };
-  await Promise.all(Array.from({ length: 12 }, worker));
-  console.log(`zoom ${z}: ${done} tiles`);
-}
-
-// ---------------------------------------------------------------- natural colour (NASA Blue Marble, public domain)
-const BM_Z = 6;
-const bmTiles = new Map<string, Uint8Array | null>();
-
-async function fetchBlueMarble(z: number, x: number, y: number): Promise<void> {
-  const key = tileKey(z, x, y);
-  if (bmTiles.has(key)) return;
-  const file = path.join(CACHE, 'bluemarble', `${z}`, `${x}`, `${y}.jpg`);
-  if (!fs.existsSync(file)) {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    const url = `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/${z}/${y}/${x}.jpeg`;
-    for (let attempt = 0; attempt < 4; attempt++) {
-      try {
-        await run('curl', ['-sf', '--max-time', '60', '-o', file, url]);
-        break;
-      } catch {
-        await new Promise(r => setTimeout(r, 1000 * 2 ** attempt));
-      }
-    }
-  }
-  if (!fs.existsSync(file)) {
-    bmTiles.set(key, null);
-    return;
-  }
-  bmTiles.set(key, jpeg.decode(fs.readFileSync(file), { useTArray: true, formatAsRGBA: true }).data);
-}
-
-async function fetchBlueMarbleArea(z: number, x0: number, y0: number, x1: number, y1: number): Promise<void> {
-  const [ax, ay] = tilePixel(z, lonOf(x0), latOf(y0));
-  const [bx, by] = tilePixel(z, lonOf(x1), latOf(y1));
-  const jobs: [number, number][] = [];
-  for (let ty = Math.floor(ay / TILE); ty <= Math.floor(by / TILE); ty++) for (let tx = Math.floor(ax / TILE); tx <= Math.floor(bx / TILE); tx++) jobs.push([tx, ty]);
-  const total = jobs.length;
-  await Promise.all(
-    Array.from({ length: 12 }, async () => {
-      for (let j = jobs.pop(); j; j = jobs.pop()) await fetchBlueMarble(z, j[0], j[1]);
-    }),
-  );
-  console.log(`blue marble zoom ${z}: ${total} tiles`);
-}
-
-/** Bilinear natural colour (0..1 each) at a lon/lat. */
-function natural(z: number, lon: number, lat: number): [number, number, number] {
-  const [px, py] = tilePixel(z, lon, lat);
-  const at = (x: number, y: number): [number, number, number] => {
-    const t = bmTiles.get(tileKey(z, Math.floor(x / TILE), Math.floor(y / TILE)));
-    if (!t) return [0.2, 0.22, 0.15];
-    const i = ((Math.floor(y) % TILE) * TILE + (Math.floor(x) % TILE)) * 4;
-    return [t[i] / 255, t[i + 1] / 255, t[i + 2] / 255];
-  };
-  const x0 = Math.floor(px - 0.5);
-  const y0 = Math.floor(py - 0.5);
-  const fx = px - 0.5 - x0;
-  const fy = py - 0.5 - y0;
-  const a = at(x0, y0);
-  const b = at(x0 + 1, y0);
-  const c = at(x0, y0 + 1);
-  const d = at(x0 + 1, y0 + 1);
-  return [0, 1, 2].map(k => (a[k] * (1 - fx) + b[k] * fx) * (1 - fy) + (c[k] * (1 - fx) + d[k] * fx) * fy) as [number, number, number];
-}
 
 const TINT_MID = 0.56; // the land colour's average brightness
 const TINT_CONTRAST = 1.9; // how much brighter and darker than average the land gets (fields, forest, rock)
@@ -256,57 +97,6 @@ function shrink(rgba: Uint8Array, cols: number, rows: number, by: number): { rgb
         out[(r * c2 + c) * 4 + k] = Math.round(t / (by * by));
       }
   return { rgba: out, cols: c2, rows: r2 };
-}
-
-// ---------------------------------------------------------------- land mask from the map's own coastline
-function parseRings(d: string): number[][] {
-  const rings: number[][] = [];
-  let cur: number[] = [];
-  for (const m of d.matchAll(/([MLZ])([^MLZ]*)/g)) {
-    if (m[1] === 'Z') {
-      if (cur.length) rings.push(cur);
-      cur = [];
-      continue;
-    }
-    if (m[1] === 'M' && cur.length) {
-      rings.push(cur);
-      cur = [];
-    }
-    const nums = m[2].trim().split(/[\s,]+/).filter(Boolean).map(Number);
-    cur.push(...nums);
-  }
-  if (cur.length) rings.push(cur);
-  return rings;
-}
-const landRings: number[][] = [];
-for (const r of map.regions) landRings.push(...parseRings(r.path));
-for (const w of map.wastelands) landRings.push(...parseRings(w.path));
-for (const f of map.far) landRings.push(...parseRings(f.path));
-
-/** Even-odd scanline fill of rings (every land ring by default) onto a grid: x = ox + (col + 0.5) / f. */
-function landMask(ox: number, oy: number, cols: number, rows: number, f: number, rings: number[][] = landRings): Uint8Array {
-  const mask = new Uint8Array(cols * rows);
-  const xs: number[][] = Array.from({ length: rows }, () => []);
-  for (const r of rings) {
-    for (let i = 0, j = r.length - 2; i < r.length; j = i, i += 2) {
-      const xi = r[i], yi = r[i + 1], xj = r[j], yj = r[j + 1];
-      const ra = Math.ceil((Math.min(yi, yj) - oy) * f - 0.5);
-      const rb = Math.floor((Math.max(yi, yj) - oy) * f - 0.5);
-      for (let row = Math.max(0, ra); row <= Math.min(rows - 1, rb); row++) {
-        const y = oy + (row + 0.5) / f;
-        if (yi > y !== yj > y) xs[row].push(((xj - xi) * (y - yi)) / (yj - yi) + xi);
-      }
-    }
-  }
-  for (let row = 0; row < rows; row++) {
-    const list = xs[row].sort((a, b) => a - b);
-    for (let k = 0; k + 1 < list.length; k += 2) {
-      const a = Math.max(0, Math.ceil((list[k] - ox) * f - 0.5));
-      const b = Math.min(cols - 1, Math.floor((list[k + 1] - ox) * f - 0.5));
-      for (let col = a; col <= b; col++) mask[row * cols + col] ^= 1;
-    }
-  }
-  return mask;
 }
 
 // ---------------------------------------------------------------- shading
@@ -493,125 +283,7 @@ function grainTile(): Buffer {
   return toGA(net, new Uint8Array(net.length).fill(1));
 }
 
-// ---------------------------------------------------------------- terrain detail (close zoom)
-/**
- * Close up, each region's terrain is drawn as a fine texture that repeats seamlessly and is always drawn the same
- * size on screen, so it stays sharp at any zoom where the baked pictures would blur: crags for mountains, bumps for
- * hills, tree crowns for forest, a patchwork of fields for plains, reeds for marsh. Each is a height field lit from
- * the north-west, as black or white with alpha like the relief.
- */
-const T = GRAIN_TILE;
-const wrap = (v: number) => ((v % T) + T) % T;
-
-/** Light a height field from the north-west (seamless: it wraps at the edges). */
-function emboss(h: Float32Array, gain: number): Float32Array {
-  const net = new Float32Array(T * T);
-  for (let y = 0; y < T; y++)
-    for (let x = 0; x < T; x++) net[y * T + x] = (h[wrap(y - 1) * T + wrap(x - 1)] - h[wrap(y + 1) * T + wrap(x + 1)]) * gain;
-  return net;
-}
-const field = (fn: (x: number, y: number) => number) => {
-  const h = new Float32Array(T * T);
-  for (let y = 0; y < T; y++) for (let x = 0; x < T; x++) h[y * T + x] = fn(x, y);
-  return h;
-};
-/** Jittered points, one per cell of a `cells` x `cells` grid over the tile. */
-const scatter = (cells: number, seed: number) => {
-  const pts: [number, number][] = [];
-  for (let j = 0; j < cells; j++) for (let i = 0; i < cells; i++) pts.push([((i + latticeHash(i, j, cells, seed)) * T) / cells, ((j + latticeHash(i, j, cells, seed + 1)) * T) / cells]);
-  return pts;
-};
-/** Distance on the tile's wrapped surface. */
-const wrapDist = (ax: number, ay: number, bx: number, by: number) => {
-  const dx = Math.min(Math.abs(ax - bx), T - Math.abs(ax - bx));
-  const dy = Math.min(Math.abs(ay - by), T - Math.abs(ay - by));
-  return Math.hypot(dx, dy);
-};
-
-function terrainTiles(): Record<string, Buffer> {
-  const all = new Uint8Array(T * T).fill(1);
-  const octaves = (x: number, y: number, list: [number, number][], seed: number, ridged = false) =>
-    list.reduce((t, [cells, w], k) => {
-      const n = periodic((x * cells) / T, (y * cells) / T, cells, seed + k);
-      return t + w * (ridged ? (1 - Math.abs(n)) ** 2 : n);
-    }, 0);
-  // Mountains: ridgelines (ridged noise on warped coordinates, so the ridges wander instead of following a grid),
-  // strongly lit, with fine rock noise.
-  const warpX = (x: number, y: number) => periodic((x * 3) / T, (y * 3) / T, 3, 14) * 18;
-  const warpY = (x: number, y: number) => periodic((x * 3) / T + 0.5, (y * 3) / T + 0.5, 3, 15) * 18;
-  const mountains = emboss(
-    field((x, y) => {
-      const wx = x + warpX(x, y);
-      const wy = y + warpY(x, y);
-      return octaves(wx, wy, [[4, 0.55], [8, 0.3], [16, 0.15]], 11, true) * 30 + octaves(x, y, [[48, 1]], 13) * 1.4;
-    }),
-    0.065,
-  );
-  // Hills: rolling ground, domes blended together.
-  const domes = scatter(6, 21).map(([x, y], k) => ({ x, y, r: 26 + 18 * latticeHash(k, 1, 1 << 30, 22), a: 0.6 + 0.4 * latticeHash(k, 2, 1 << 30, 23) }));
-  const hills = emboss(
-    field((x, y) => {
-      let h = 0;
-      for (const p of domes) {
-        const d = wrapDist(x, y, p.x, p.y);
-        if (d < p.r) h += p.a * (1 - (d * d) / (p.r * p.r)) ** 2;
-      }
-      return h * 16 + periodic((x * 20) / T, (y * 20) / T, 20, 24) * 0.8;
-    }),
-    0.07,
-  );
-  // Forest: clumps of tree crowns of different sizes, with shadowed ground between them.
-  const clump = (k: number, x: number, y: number) => periodic((x * 5) / T, (y * 5) / T, 5, 33) > -0.25 || latticeHash(k, 4, 1 << 30, 34) > 0.85;
-  const crowns = scatter(34, 31).map(([x, y], k) => ({ x, y, r: 2.4 + 2.2 * latticeHash(k, 1, 1 << 30, 35), k })).filter(p => clump(p.k, p.x, p.y));
-  const forestH = field((x, y) => {
-    let best = 0;
-    for (const p of crowns) {
-      const d = wrapDist(x, y, p.x, p.y);
-      if (d < p.r) best = Math.max(best, Math.sqrt(1 - (d * d) / (p.r * p.r)) * (0.7 + 0.3 * (p.r / 6)));
-    }
-    return best * 8;
-  });
-  const forest = emboss(forestH, 0.05);
-  for (let i = 0; i < T * T; i++) forest[i] += forestH[i] > 0 ? 0.03 : 0.09;
-  // Plains: a patchwork of fields, each a slightly different tone with its own furrows, darker hedges between.
-  const farms = scatter(8, 41);
-  const plains = field((x, y) => {
-    let d1 = Infinity;
-    let d2 = Infinity;
-    let owner = 0;
-    farms.forEach(([px, py], k) => {
-      const d = wrapDist(x, y, px, py);
-      if (d < d1) {
-        d2 = d1;
-        d1 = d;
-        owner = k;
-      } else if (d < d2) d2 = d;
-    });
-    const tone = (latticeHash(owner, 7, 1 << 30, 43) - 0.5) * 0.075;
-    const angle = latticeHash(owner, 8, 1 << 30, 45) * Math.PI;
-    const furrow = Math.cos(((x * Math.cos(angle) + y * Math.sin(angle)) / 2.4) * Math.PI) * 0.018;
-    const hedge = d2 - d1 < 2.2 ? 0.06 * (1 - (d2 - d1) / 2.2) : 0;
-    return tone + furrow + hedge + periodic((x * 32) / T, (y * 32) / T, 32, 44) * 0.015;
-  });
-  // Marsh: short dark reeds and pale glints of water.
-  const marsh = field((x, y) => periodic((x * 16) / T, (y * 16) / T, 16, 51) * 0.03);
-  const reeds = scatter(20, 52);
-  reeds.forEach(([px, py], k) => {
-    const wet = latticeHash(k, 3, 1 << 30, 53) > 0.7;
-    for (let dx = -4; dx <= 4; dx++) {
-      const i = wrap(Math.round(py)) * T + wrap(Math.round(px) + dx);
-      marsh[i] = wet ? -0.12 : 0.16;
-    }
-  });
-  return {
-    mountains: toGA(mountains, all),
-    hills: toGA(hills, all),
-    forest: toGA(forest, all),
-    plains: toGA(plains, all),
-    marsh: toGA(marsh, all),
-  };
-}
-
+// ---------------------------------------------------------------- writing the pictures
 function writeGA(file: string, cols: number, rows: number, ga: Buffer): number {
   const png = new PNG({ width: cols, height: rows, colorType: 4 });
   for (let i = 0; i < cols * rows; i++) {
@@ -797,10 +469,8 @@ async function main() {
   const parts = splitRelief(net, landPx, sc, sr, 4);
   bytes += writeGA(path.join(OUT, 'relief-land.png'), sc, sr, parts.land);
   bytes += writeGA(path.join(OUT, 'relief-sea.png'), sc, sr, parts.sea);
-  // A tile of fine grain, and the terrain detail tiles.
+  // A tile of fine grain.
   bytes += writeGA(path.join(OUT, 'grain.png'), GRAIN_TILE, GRAIN_TILE, grainTile());
-  const detail = terrainTiles();
-  for (const [name, ga] of Object.entries(detail)) bytes += writeGA(path.join(OUT, `detail-${name}.png`), T, T, ga);
   // Water lines along the coasts of the play window.
   const wl = waterLines(HI);
   bytes += writeGA(path.join(OUT, 'water-lines-light.png'), wl.cols, wl.rows, wl.light);
@@ -848,15 +518,6 @@ export const RELIEF: Record<'land' | 'sea', Record<'sharp' | 'soft', ReliefTile>
 
 /** A seamless tile of fine grain (${GRAIN_TILE} px), to be drawn at a fixed size on screen. */
 export const GRAIN = { src: require('../../../assets/map/grain.png') as ImageSourcePropType, px: ${GRAIN_TILE} };
-
-/** Close-zoom terrain detail, one seamless tile (${GRAIN_TILE} px) per terrain, to be drawn at a fixed size on screen. */
-export const TERRAIN_DETAIL: Record<'mountains' | 'hills' | 'forest' | 'plains' | 'marsh', ImageSourcePropType> = {
-  mountains: require('../../../assets/map/detail-mountains.png'),
-  hills: require('../../../assets/map/detail-hills.png'),
-  forest: require('../../../assets/map/detail-forest.png'),
-  plains: require('../../../assets/map/detail-plains.png'),
-  marsh: require('../../../assets/map/detail-marsh.png'),
-};
 
 /** Lines in the water along the play window's coasts (light ones with a glow off the shore, or dark ones). */
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {

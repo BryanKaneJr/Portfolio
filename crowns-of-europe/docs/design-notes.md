@@ -183,6 +183,16 @@ here.
     rather than on it, the route line runs between those points, and siege bars hang under the tokens. Tokens are a
     little smaller where regions are close together, and the game opens (and "show on map" goes) at a zoom where a
     name with an army under it fits in a region.
+22. **Drawn terrain instead of a stretched photograph (on request).** Close up, the baked hill shading (one picture
+    for the whole map) was enlarged two or three times and looked smeared and muddy. Now the terrain is drawn, as on
+    a hand-made map, by `scripts/build-terrain.ts`, with real data deciding where, loosely: peaks along the real
+    ranges (rugged ground, measured at known places: over ~1,150 m between high and low within 8 map units, or very
+    high), rounded hills on the uplands (the Massif Central, the Black Forest, the Ardennes) and lightly on high
+    plateaus (the Meseta, Anatolia), clumps of trees where the land is forest from space (dark green in NASA's
+    Blue Marble; conifers in the north and up high), dunes in the southern deserts and reeds in marsh regions;
+    snow on the highest peaks. About 11,600 marks, kept as four numbers each and drawn as vector paths per layer
+    for the part of the map in view (sharp at any zoom); they fade in as you zoom in and the hill shading fades to
+    a third of its strength under them. The fine terrain tiles that came before are gone.
 
 ## Key numbers (all in `src/sim/`)
 

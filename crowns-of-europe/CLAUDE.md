@@ -36,7 +36,8 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/` or `ui/map/reliefTiles.ts`. The builder warns about seeds in the water; fix those.
+  `assets/map/`, `ui/map/reliefTiles.ts` or `ui/map/terrainSymbols.ts`. The builder warns about seeds in the water;
+  fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
   (`science.ts`, `advances.json`). Gate new unlocks with `hasAdvance`/`unlocked()`, never with the year.
@@ -57,12 +58,12 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Outliner, Sheet, RegionSheet,
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, build-relief, build-icons, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
+scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
 ```
@@ -84,6 +85,7 @@ npm run icons:build         # after adding an emblem to scripts/build-icons.ts (
 npm run relief:build        # then: relief, land colour, water lines and the known world's shadows
                             # (assets/map/; fetches elevation and Blue Marble tiles once into
                             # scripts/data/terrain-cache, git-ignored)
+npm run terrain:build       # then: the drawn terrain (ui/map/terrainSymbols.ts) from the same cache
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -109,7 +111,9 @@ black or white with alpha), baked water lines (Parchment), sea zones, regions (o
 regions' own outline (a clip path, so coasts stay crisp at any zoom; the baked pictures reach a few pixels past the
 coast): the land-colour image (Atlas: NASA's Blue Marble evened out, so each country takes on its land's greens,
 tans and texture; soft again close up), hill shading, and a grain tile drawn the same size on screen at any zoom;
-close up, each region's terrain as a fine tile drawn the same way (crags, hills, trees, fields, reeds); then
+then the drawn terrain (`ui/map/terrain.ts`: peaks, hills, trees, dunes and reeds as vector marks, placed from real
+elevation and land colour by `scripts/build-terrain.ts`), fading in as you zoom in while the hill shading gives way to
+it; then
 occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
 (fading out as you zoom out), rivers, nation borders, a fade into parchment along the window's edges, every
 coastline (known or not, one ink, culled by cell), selection, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each

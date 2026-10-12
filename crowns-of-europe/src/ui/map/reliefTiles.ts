@@ -27,15 +27,6 @@ export const RELIEF: Record<'land' | 'sea', Record<'sharp' | 'soft', ReliefTile>
 /** A seamless tile of fine grain (256 px), to be drawn at a fixed size on screen. */
 export const GRAIN = { src: require('../../../assets/map/grain.png') as ImageSourcePropType, px: 256 };
 
-/** Close-zoom terrain detail, one seamless tile (256 px) per terrain, to be drawn at a fixed size on screen. */
-export const TERRAIN_DETAIL: Record<'mountains' | 'hills' | 'forest' | 'plains' | 'marsh', ImageSourcePropType> = {
-  mountains: require('../../../assets/map/detail-mountains.png'),
-  hills: require('../../../assets/map/detail-hills.png'),
-  forest: require('../../../assets/map/detail-forest.png'),
-  plains: require('../../../assets/map/detail-plains.png'),
-  marsh: require('../../../assets/map/detail-marsh.png'),
-};
-
 /** Lines in the water along the play window's coasts (light ones with a glow off the shore, or dark ones). */
 export const WATER_LINES: Record<'light' | 'dark', ReliefTile> = {
   light: { src: require('../../../assets/map/water-lines-light.png'), x: 0, y: 0, w: 2575, h: 2242 },

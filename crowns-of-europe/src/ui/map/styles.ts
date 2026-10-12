@@ -23,7 +23,7 @@ export interface MapStyle {
   relief: number; // opacity of the hill and depth shading
   landColour: number; // how strongly the land's natural colour (Blue Marble) shows through the country colours
   grain: number; // a fine painted grain over the land, the same size on screen at any zoom
-  terrainDetail: number; // close up, each region's terrain as a fine texture (crags, hills, trees, fields, reeds)
+  drawn: DrawnTerrain | null; // the hand-drawn terrain (mountains, hills, trees, dunes, reeds), fading in as you zoom in
   land: (hex: string) => string; // how a nation's colour is painted
   wild: string; // known land nobody holds
   unknown: { fill: string; shadow: number; label: Ink; wasteLabel: string }; // the blank parchment, the known world's shadow on it, names written there
@@ -35,6 +35,16 @@ export interface MapStyle {
   nationLabel: Ink & { curved: boolean; spacing: number; em: number; spread: boolean }; // em: a capital's width; spread: space a short name out along a long country
   regionLabel: Ink;
   vignette: string | null; // darkened screen edges
+}
+
+/** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. */
+export interface DrawnTerrain {
+  light: string; // a mountain's lit face
+  shade: string; // the shaded flanks of mountains and hills
+  ink: string; // the lines: ridges, hills, tree outlines, dunes, reeds
+  tree: string; // tree crowns
+  snow: string;
+  reliefClose: number; // the hill shading's strength once the drawn terrain is fully in (a fraction of `relief`)
 }
 
 /** How a name is inked: fill, an outline around the letters, and (optionally) a drop shadow. */
@@ -68,7 +78,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 1,
     landColour: 0.34,
     grain: 1,
-    terrainDetail: 0.9,
+    drawn: { light: 'rgba(255,247,228,0.4)', shade: 'rgba(52,36,22,0.36)', ink: 'rgba(46,32,19,0.8)', tree: 'rgba(38,62,28,0.5)', snow: 'rgba(255,255,255,0.92)', reliefClose: 0.3 },
     land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
     wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
     unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
@@ -98,7 +108,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 0.55,
     landColour: 0,
     grain: 0.7,
-    terrainDetail: 0.55,
+    drawn: { light: 'rgba(255,248,232,0.4)', shade: 'rgba(96,64,32,0.28)', ink: 'rgba(84,54,28,0.78)', tree: 'rgba(80,86,42,0.32)', snow: 'rgba(255,255,255,0.9)', reliefClose: 0.35 },
     land: hex => mix(hex, '#ead8ac', 0.48),
     wild: '#ecdfbb',
     unknown: { fill: '#e9dab4', shadow: 0.3, label: { fill: '#6e5636', halo: 'rgba(240,228,196,0.6)', shadow: null }, wasteLabel: '#6b5534' },
@@ -128,7 +138,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     relief: 0,
     landColour: 0,
     grain: 0,
-    terrainDetail: 0,
+    drawn: null,
     land: hex => hex,
     wild: '#ece6d2',
     unknown: { fill: '#e4e1d8', shadow: 0.18, label: { fill: '#8a8679', halo: 'rgba(255,255,255,0.6)', shadow: null }, wasteLabel: '#8a8679' },

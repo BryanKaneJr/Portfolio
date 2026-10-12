@@ -132,7 +132,7 @@ never claim the mainland) and hands the rest to wilderness seeds, simplifies sha
 so neighbours never gap, and writes paths, labels and the adjacency graph, plus the lands beyond the play window
 (drawn in outline, never playable) and the unknown waters. `scripts/build-relief.ts` then bakes hill shading, sea
 depths, the land's natural colour (NASA's Blue Marble), the water lines along the coasts and the known world's
-shadow into images from public-domain elevation tiles and imagery, using the map's own coastline so nothing spills over a shore. `src/ui/map/styles.ts` says how each map style paints it all.
+shadow into images from public-domain elevation tiles and imagery, using the map's own coastline so nothing spills over a shore. `scripts/build-terrain.ts` places the drawn terrain from the same data, loosely, as on a hand-drawn map: peaks along the real mountain ranges, hills on the uplands, woods where the land is forest from space (conifers in the north and up high), dunes in the deserts and reeds in the marshes; they are drawn as vector marks, sharp at any zoom. `src/ui/map/styles.ts` says how each map style paints it all.
 
 ## Credits
 

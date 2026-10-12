@@ -177,3 +177,19 @@ describe('baked map pictures', () => {
     }
   });
 });
+
+describe('drawn terrain', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { terrainPaths } = require('../src/ui/map/terrain') as typeof import('../src/ui/map/terrain');
+  const around = (id: string, r = 40) => {
+    const reg = MAP.regions.find(x => x.id === id)!;
+    return terrainPaths(reg.label[0] - r, reg.label[1] - r, reg.label[0] + r, reg.label[1] + r);
+  };
+  test('peaks stand in the mountains, dunes in the desert, and nothing out at sea', () => {
+    expect(around('switzerland').peakLine.length).toBeGreaterThan(0);
+    expect(around('upper_egypt', 80).dune.length).toBeGreaterThan(0);
+    expect(around('masovia', 30).peakLine).toBe('');
+    const sea = terrainPaths(900, 700, 1200, 1000); // the open Atlantic
+    expect(Object.values(sea).join('')).toBe('');
+  });
+});
