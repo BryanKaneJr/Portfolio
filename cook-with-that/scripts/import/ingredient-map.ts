@@ -913,6 +913,45 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'tomato sauce or ketchup': null, // the editor picks one
   'salt free seasoning blend': null, // a store blend; the editor names the herbs and spices
 
+  // ── Reviewed by parallel import worker r5-soups-salads-dips ──
+  'iceberg lettuce': { add: 'produce' }, // crisp pale head lettuce; romaine and leaf lettuce are separate (r5-grill-fry registered the same key)
+  galangal: { add: 'produce' }, // fresh or frozen Thai rhizome, piney and peppery; not ginger
+  'makrut lime leaves': { add: 'produce' }, // fresh or frozen citrus leaves for Thai soups and curries; not lime zest
+  'kaffir lime leaves': '=makrut lime leaves', // the older name still on many packages
+  tomatillo: { add: 'produce' }, // husked green fruit for salsa verde; not green (unripe) tomatoes
+  tomatillos: '=tomatillo',
+  'pomegranate molasses': { add: 'pantry' }, // thick, tart reduced pomegranate juice; not cane molasses
+  'potato chips': { add: 'pantry' }, // bagged fried potato slices for snacking; not potatoes or tater tots
+  'potato crisps': '=potato chips', // British name
+
+  // ── Reviewed by parallel import worker r5-desserts-snacks ──
+  'glutinous rice': { add: 'grain' }, // Thai/Lao sticky rice, soaked and steamed; not jasmine, sushi or arborio rice
+  'sticky rice': '=glutinous rice', // its everyday name
+  'maraschino cherries': { add: 'pantry' }, // jarred, bright red cherries in syrup; not fresh, tart or dried cherries
+
+  // ── Reviewed by parallel import worker r5-grill-fry ──
+  plantain: { add: 'produce' }, // the starchy cooking banana, green or ripe; the recipe says which. Not banana
+  plantains: '=plantain',
+  catfish: { add: 'protein' }, // fresh or frozen fillets; not cod or tilapia
+  'catfish fillets': '=catfish',
+  'cube steak': { add: 'protein' }, // thin beef round steak run through a tenderizer; not sirloin or flank steak
+  'cubed steak': '=cube steak',
+  'chickpea flour': { add: 'grain' }, // ground dried chickpeas, for pakoras and socca; not wheat flour
+  besan: '=chickpea flour',
+  'gram flour': '=chickpea flour',
+  'garbanzo bean flour': '=chickpea flour',
+  iceberg: '=iceberg lettuce',
+  'green tomatoes': 'tomato', // unripe fresh tomatoes, the same fruit; the recipe names the ripeness (see notes.md)
+
+  // ── Reviewed by parallel import worker r5-world ──
+  kimchi: { add: 'pantry' }, // Korean fermented napa cabbage with chili, sold chilled in jars; not sauerkraut or fresh napa cabbage
+  'masa harina': { add: 'grain' }, // dried nixtamalized corn flour for tortillas and pupusas; not masarepa, cornmeal or cornstarch
+  mirin: { add: 'pantry' }, // Japanese sweet rice wine for cooking (aji-mirin in most US stores); not rice vinegar or sake
+  'poblano pepper': { add: 'produce' }, // large, mild dark-green fresh chile (dried, it's an ancho); not bell, Anaheim or jalapeño
+  'poblano peppers': '=poblano pepper',
+  'poblano chiles': '=poblano pepper',
+  poblano: '=poblano pepper',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

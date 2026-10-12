@@ -5,7 +5,7 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Chip } from '../components/Chip';
 import { RecipeCard } from '../components/RecipeCard';
 import { SelectionSummary } from '../components/SelectionSummary';
-import { RECIPES, ingredientName } from '../data/catalog';
+import { ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { countExact, runSearch, type RecipeResult } from '../logic/matchRecipes';
 import { useAppState } from '../state/AppState';
@@ -18,7 +18,7 @@ export default function ResultsScreen() {
   const app = useAppState();
   const { search } = app;
   // Staples are a My Pantry concept only: here every ingredient a recipe needs is listed.
-  const result = useMemo(() => runSearch(RECIPES, search), [search]);
+  const result = useMemo(() => runSearch(app.library, search), [app.library, search]);
   const { exact, close, narrowing, tryWithout, blockers } = result;
 
   const hasExact = exact.length > 0;
@@ -31,7 +31,9 @@ export default function ResultsScreen() {
   // Use ingredients no recipe needs (catalog items that are only optional extras, or not used yet).
   const neverNeeded = hasExact
     ? []
-    : search.useIds.filter(id => countExact(RECIPES, { meal: null, dishType: null, useIds: [id], avoidIds: [] }) === 0);
+    : search.useIds.filter(
+        id => countExact(app.library, { meal: null, dishType: null, useIds: [id], avoidIds: [] }) === 0,
+      );
   const single = search.useIds.length === 1 ? search.useIds[0] : null;
   const noCloseText =
     search.useIds.length === 0

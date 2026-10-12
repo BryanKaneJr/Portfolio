@@ -68,20 +68,44 @@ Hard rules (from the plan, still in force):
    salty sauce already seasons the dish ("you dont salt certain foods, like bacon").
 15. **Equipment never filters recipes** (owner: "we dont list equipment in filters"). A waffle iron or food processor
    is fine when it defines the dish.
+16. **My Kitchen: your recipes, notes, meal plan, shopping list** (owner, 2026-10-11: "save the recipes, then also edit
+   them… save the alterations you made… then maybe a meal plan calendar"). The owner chose: an edit **replaces** the
+   bundled recipe for that person everywhere (search, Avoid, pantry, plan), with "Show original" on the recipe page;
+   everything is editable; ingredients are picked from the catalog so search stays exact, with a "your own
+   ingredient" fallback (`custom:` IDs) that search and Avoid can't see; people can write recipes from scratch (`my-`
+   IDs); a week plan with breakfast, lunch and dinner slots plus a shopping list that leaves out the pantry and
+   staples. All on the phone (AsyncStorage, `src/state/favoritesStorage.ts`). ♥ on home opens **My Kitchen**
+   (Saved · Meal plan · Shopping list): a third header button doesn't fit beside the title at iPhone widths. Every
+   screen that searches uses `app.library` (bundled + edits + own), never the bundled `RECIPES` directly.
+17. **Our written recipes stay separate from adapted ones** (owner, 2026-10-11: "for now keep original recipes separate
+   from our from scratch ones"). `src/data/recipes.ts` has `WRITTEN_RECIPES` (27 seed + `src/data/originals/`, source
+   type 'original'), `SOURCE_RECIPES` (`src/data/imported/`, 'licensed') and one switch, `INCLUDE_WRITTEN_RECIPES`
+   (on), so a release can leave the written ones out. Nothing in the app labels or filters them. Tests keep each list
+   to its own kind and check the adapted recipes alone still form a valid library.
+18. **No cook-testing required** (owner, 2026-10-11: "we don't need to test I don't think"). The paper review is the
+   last check, so every new batch gets one (reviewers reading each recipe as a cook, plus `npm run audit:recipes`,
+   whose `ratio` check flags leavening, yeast and salt per cup of flour, liquid per cup of grain, gelatin per cup of
+   liquid, pasta and meat per serving, and oven and frying-oil settings).
+   Written recipes are also **checked against published ones** (owner, 2026-10-12: "find recipes on the internet…
+   compare against to see if they work… cut the least confident ones"): each is compared with 2–3 published versions
+   of the dish, numbers outside their shared range are fixed, and a recipe that matches one source across the board is
+   reworked from ratios (`docs/recipe-review/verification/`).
 
 ## Layout
 ```
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
-                 pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
-src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (380, with aliases), recipes (27 seed + originals/ + imported/), collections,
+                 pantry, pantry-results, recipe/[id] (edit, notes, add to plan), favorites (My Kitchen: saved, meal
+                 plan, shopping list), edit (recipe editor), plan-add, _layout (ReadyGate waits for storage restore)
+src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard,
+                 AddToPlanSheet
+src/data/        types, ingredients (399, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
-                 validateContent, units (US/metric display)
+                 validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
 tests/           Jest: engine, pantry, staples, content validation, import pipeline, originals, units, taglines,
-                 offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
+                 myKitchen (edits, own recipes, plan, shopping), offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
 ```
 
 ## Commands
@@ -99,9 +123,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 548 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 257 newer originals written
+- All 668 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 377 newer originals written
   for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
-  98% of common 2-ingredient picks find an exact match (66% of triples).
+  98% of common 2-ingredient picks find an exact match (73% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 - **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
   1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
@@ -151,6 +175,25 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   confusable titles were made clearer; four suggested tweaks were applied after checking). Summary, what changed
   for each decision and the cook-test-first list: `docs/recipe-review/README.md`; per-group detail in
   `docs/recipe-review/rv01.md` … `rv11.md`.
+- **Round 5 (2026-10-11, owner: "send some workers to write more recipes"):** six writers, 20 originals each, in new
+  theme files: comfort food, breakfast, grilled and fried, soups/salads/bowls/dips, world dinners, desserts and snacks.
+  Lists aimed at thin areas (breakfast, grilled, fried, dips, salads) and at common trios with no exact match (pasta +
+  cheddar + broccoli, eggs + rice + ground beef…). 668 recipes, 399 ingredients; triples 66% → 73%. The owner asked
+  whether writers copy recipes from the internet: they write from their own knowledge and may only look up facts.
+  This round was audited: no writer made a single web search or fetch (their transcripts were checked), and a web
+  search of sample sentences found no published match. Owner's other worry, "recipes that simply dont work", is why
+  every batch gets the paper review (decision 18). Notes: `docs/import-notes/2026-10-11-round-5/`; review:
+  `docs/recipe-review/round-5/` (36 of 120 fixed; the soft pretzels and layer bars were rewritten from ratios after a
+  reviewer recognised published formulas).
+- **Checked against published recipes (2026-10-12):** nine checkers compared all 404 written recipes with 2–5
+  published versions each (1,208 sources cited). All work: 393 as written, 11 had one number outside the published
+  range and were fixed, none scored below 4 of 5, so none was cut. 16 matched one published recipe across the board
+  (Toll House cookies, Pioneer Woman tres leches, Eagle Brand fudge…) and were reworked from ratios, then checked the
+  same way. The owner then had the 96 recipes that scored 4 moved onto the published amounts ("the 96 we take the
+  amounts used in comparisons"): per quantity, the median of 4–9 published versions, never one source's whole formula
+  and never back toward a reworked recipe's source. 87 had numbers moved, 9 only clearer cues; 400 now score 5 and 4
+  stay at 4 (their last edge value would mean copying the source they were reworked away from). Scores, sources and
+  notes for every recipe: `docs/recipe-review/verification/`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
@@ -164,10 +207,13 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Cook-testing:** 548 drafts, read and fixed on paper but none cooked yet. Start with the cook-test-first list in
-   `docs/recipe-review/README.md`. Release needs every recipe reviewed (quantities, times, food safety). Consider a
-   review checklist or a sign-off field per recipe. Workers fixed source errors (ratios, missing leavening, unsafe
-   temperatures); `docs/import-notes/` lists each change.
+1. **Paper review of every new batch** (decision 18: no cook-testing). Done for all 668: the first 548 in
+   `docs/recipe-review/`, round 5's 120 in `docs/recipe-review/round-5/` (36 fixed; two formulas a reviewer recognised
+   as published ones were rewritten from ratios). New batches get the same: reviewers reading each recipe as a cook,
+   plus `npm run audit:recipes`. The "cook-test first" lists are now lists of the riskiest recipes to re-read.
+   All 404 written recipes were then checked against published versions (`docs/recipe-review/verification/`); new
+   written batches get that check too. The 96 that scored 4 of 5 were then moved onto the typical published amounts
+   (owner's choice over cutting them); 400 now score 5.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
    and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web

@@ -35,7 +35,9 @@ export default function RootLayout() {
               <Stack.Screen name="index" options={{ headerShown: false, title: 'Find recipes' }} />
               <Stack.Screen name="results" options={{ title: 'Recipes' }} />
               <Stack.Screen name="recipe/[id]" options={{ title: '' }} />
-              <Stack.Screen name="favorites" options={{ title: 'Favorites' }} />
+              <Stack.Screen name="favorites" options={{ title: 'My Kitchen' }} />
+              <Stack.Screen name="edit" options={{ title: 'Edit recipe' }} />
+              <Stack.Screen name="plan-add" options={{ title: 'Add a recipe' }} />
               <Stack.Screen name="pantry" options={{ title: 'My pantry' }} />
               <Stack.Screen name="pantry-results" options={{ title: 'From your pantry' }} />
               <Stack.Screen name="selections" options={{ title: 'Your ingredients' }} />

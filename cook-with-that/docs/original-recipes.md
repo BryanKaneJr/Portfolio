@@ -16,6 +16,11 @@ headnotes and a particular cook's exact formula are expression. So:
 - **Facts are fine to check:** what goes in a traditional dish, safe internal temperatures, a cut's cooking time.
   Never copy the wording of whatever you checked.
 - **No outside credit.** `source: ORIGINAL_DRAFT` (from `src/data/recipeBuilders.ts`), never an `origin`.
+- **Checked against published versions after writing** (owner, 2026-10-12). Once a batch is written, a separate
+  checker compares each recipe's deciding numbers with 2–3 published recipes for the same dish and moves only a number
+  that sits outside the range they agree on. If a recipe turns out to match **one** published recipe across the board
+  (classics recalled from memory do), rework it from ratios until at least four deciding quantities or the method
+  differ, staying inside the agreed range. How the first 404 were checked: `recipe-review/verification/`.
 
 ## Standard
 
