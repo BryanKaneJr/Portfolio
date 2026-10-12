@@ -81,7 +81,7 @@ and lamb at 130°F with the USDA line, no egg warnings, salt where fitting). Eac
 `align-8.md`; every recipe's `aligned` entry in `verdicts.json` lists old → new and the published values used.
 
 - **87 recipes had numbers moved.** Examples: gnocchi for 4 is 1 lb, not 2; the biryani uses 2 lb of chicken, not
-  2 1/2; tuna pasta bake and cauliflower cheese sauces have the usual 2 tbsp flour per cup of milk; mulligatawny has
+  2 1/2; tuna pasta bake and cauliflower cheese sauces have the usual 2–2 1/2 tbsp of flour per cup of milk; mulligatawny has
   1 cup of lentils; easy tomato soup simmers 30 minutes; several bakes moved from 375–400°F to the usual 350°F with
   longer times; the pad kra pao and gyudon sauces and the jollof and Jamaican rice-and-peas liquids sit at the median.
 - **9 already sat at the typical values;** their 4 came from the dish (pan or oven), so only the doneness cue or pan
