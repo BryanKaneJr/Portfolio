@@ -53,7 +53,7 @@ export const BAKING_BREAKFAST_RECIPES: Recipe[] = [
     meals: ['dessert'],
     dishTypes: ['baked_goods'],
     prepMinutes: 300,
-    cookMinutes: 25,
+    cookMinutes: 30,
     servings: 15,
     ingredients: [
       r('butter', 'unsalted butter', '1 tbsp', 'softened, for the dish'),
@@ -77,7 +77,7 @@ export const BAKING_BREAKFAST_RECIPES: Recipe[] = [
       'Fold the flour mixture into the yolk mixture with a spatula just until smooth.',
       'In a clean bowl with clean beaters, beat the egg whites on medium-high speed until foamy. Gradually add the remaining 1/4 cup sugar and beat for 2–3 minutes more, until the whites hold stiff, glossy peaks.',
       'Stir a big spoonful of the whites into the batter to loosen it, then gently fold in the rest until no white streaks remain, keeping as much air in as you can.',
-      'Spread the batter in the dish. Bake for 20–25 minutes, until golden, springy when pressed and a toothpick in the center comes out clean.',
+      'Spread the batter in the dish. Bake for 25–30 minutes, until golden, springy when pressed and a toothpick in the center comes out clean.',
       'Let the cake cool for 30 minutes, then poke holes all over it with a fork, about every 1/2 inch, going right to the bottom.',
       'Whisk the evaporated milk, condensed milk and 1/2 cup of the heavy cream in a large measuring cup. Pour it slowly and evenly over the cake in three additions, waiting a minute or two between them so it can soak in.',
       'Cover and refrigerate for at least 4 hours, or overnight. The cake will absorb nearly all of the liquid.',
