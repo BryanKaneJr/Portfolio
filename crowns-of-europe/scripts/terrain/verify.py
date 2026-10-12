@@ -119,7 +119,7 @@ def check_determinism(data, sprites):
         "raw_render_offsets": {"box_map_units": small, "overlapping_box": big, "max_abs_diff": int(raw.max()), "pixels_differing": int((raw.max(axis=2) > 0).sum()), "pixels": int(raw.shape[0] * raw.shape[1])},
         "shipped_tiles_across_band_boundary": {"band_boundary_y": boundary_y, "tiles": rows},
         "level2_rebuilt_byte_identical": f"{sum(rebuilt)}/{len(rebuilt)} tiles",
-        "note": "raw: the same symbols land in the same places wherever a box starts; the pixels differ only where Skia anti-aliases the combined hachure paths a little differently for a bigger box (a few hundredths of a percent of pixels). Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
+        "note": "raw: the same symbols land in the same places wherever a box starts; a few isolated edge pixels (a few hundredths of a percent) differ, where Skia anti-aliases an edge a little differently on a surface of another size. Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
     }
 
 
