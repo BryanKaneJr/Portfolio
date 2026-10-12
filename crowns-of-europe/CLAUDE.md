@@ -38,7 +38,8 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts` or `ui/map/paintingTiles.ts`. The builder warns about seeds in the water;
+  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/paintingTiles.ts`,
+  `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
   fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
@@ -60,14 +61,15 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols), game/ (Bars, Outliner, Sheet, RegionSheet,
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols,
+               terrainLayer + terrainCache + terrainTiles + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
-               dev/ (soak, trace, ottomans, powers, opening)
-tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
+scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
+               dev/ (soak, trace, ottomans, powers, opening), terrain/ (the Illustrated style's offline tile pipeline, Python)
+tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, soak (Jest, node)
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), painting/ (the
                owner's painting of the world; the 157 MB original is not in git)
 assets/        map/ (generated pictures, incl. mountains/), units/ (the rendered troops, ships, forts), fonts, icons
@@ -96,6 +98,11 @@ npm run painting:build      # the Painted style's ground: art/painting/fullmap.p
                             # and tiled into assets/map/painting (see art/painting/README.md)
 npm run models:build        # the troops, ships and forts (assets/units/) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
+npm run tiles:build         # the Illustrated style's terrain tiles and river/lake vectors (assets/map/terrain,
+                            # ui/map/terrainTiles.ts, terrainVectors.ts) from ETOPO 2022, ESA WorldCover and Natural
+                            # Earth; Python + GDAL, see scripts/terrain/README.md
+npm run tiles:verify        # determinism, tile joins, coastline agreement, detail per level → docs/terrain/
+npm run screens:terrain     # before/after screenshots, a tap test and frame/memory numbers → docs/terrain/
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -116,8 +123,16 @@ hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, t
 are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
 
-How it is painted comes from a style (`ui/map/styles.ts`: Painted, the default; Atlas; Parchment; Flat), chosen in
-Settings or the map-mode menu and saved as a preference. Painted lays the realms' colours (translucent) over the
+How it is painted comes from a style (`ui/map/styles.ts`: Illustrated, the default; Painted; Atlas; Parchment; Flat),
+chosen in Settings or the map-mode menu and saved as a preference. Illustrated is Atlas with an illustrated atlas
+under the realms' colours where its terrain tiles exist (so far central and eastern Europe, `TERRAIN_REGION`): tiles
+drawn offline by `scripts/terrain` from real elevation, land cover and rivers onto the game's own coastline, in five
+levels (1–16 px per map unit, 512 px tiles, a quadtree from map (0, 0)); `ui/map/terrainLayer.ts` picks the level the
+zoom needs (the coarsest under the whole drawn area, the next finer ones over the screen plus a buffer, fading in),
+`terrainCache.ts` keeps them warm (LRU), and Natural Earth rivers and lakes are drawn as vectors on top. Inside the
+region Atlas's own land overlays and drawn terrain are cut away (`tOut`); the tiles' sea fades into the style's sea at
+the region's edge (keep `sea` and `relief` in step with `EDGE_MATCH` in `scripts/terrain/config.py`; a test checks).
+See `docs/terrain/`. Painted lays the realms' colours (translucent) over the
 owner's painting of the world (`art/painting`, fitted to the coasts and tiled by `npm run painting:build` into
 `assets/map/painting` + `ui/map/paintingTiles.ts`: three levels, the coarsest always under the finest the zoom
 needs); past the edges, the wastes and the uncharted New World are veiled, not covered, and the sea zones are cut to

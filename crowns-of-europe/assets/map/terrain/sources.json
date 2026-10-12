@@ -1,0 +1,300 @@
+{
+ "note": "Source data for the terrain tiles, fetched by scripts/terrain/fetch.py. The cache files are not committed; their checksums are recorded so a rebuild can be checked against them.",
+ "region_bbox_lonlat": [
+  0.0,
+  36.0,
+  38.0,
+  59.6
+ ],
+ "retrieved": "2026-10-12",
+ "etopo": {
+  "name": "NOAA ETOPO 2022 Global Relief Model, 15 arc-second, surface elevation (ice surface), GeoTIFF tiles",
+  "version": "ETOPO 2022 v1",
+  "base": "https://www.ngdc.noaa.gov/mgg/global/relief/ETOPO2022/data/15s/15s_surface_elev_gtif/",
+  "tile": "ETOPO_2022_v1_15s_{ns}{lat:02d}{ew}{lon:03d}_surface.tif",
+  "doi": "https://doi.org/10.25921/fd45-gt74",
+  "licence": "Public domain (U.S. Government work, NOAA National Centers for Environmental Information)",
+  "attribution": "NOAA National Centers for Environmental Information. 2022: ETOPO 2022 15 Arc-Second Global Relief Model. https://doi.org/10.25921/fd45-gt74",
+  "tiles": [
+   "ETOPO_2022_v1_15s_N45E000_surface.tif",
+   "ETOPO_2022_v1_15s_N45E015_surface.tif",
+   "ETOPO_2022_v1_15s_N45E030_surface.tif",
+   "ETOPO_2022_v1_15s_N60E000_surface.tif",
+   "ETOPO_2022_v1_15s_N60E015_surface.tif",
+   "ETOPO_2022_v1_15s_N60E030_surface.tif"
+  ],
+  "cache": {
+   "file": "etopo2022_15s_region.tif",
+   "bytes": 125475604,
+   "sha256": "f9d0d1133e2f9d4ad7ef3830b666fb5c3c95c0edcf4579156c9ed3f9625edb7a"
+  }
+ },
+ "worldcover": {
+  "name": "ESA WorldCover 10 m 2021 v200, land cover map (Cloud Optimized GeoTIFF tiles)",
+  "version": "v200 (2021)",
+  "base": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/",
+  "tile": "ESA_WorldCover_10m_2021_v200_{ns}{lat:02d}{ew}{lon:03d}_Map.tif",
+  "overview_factor": 16,
+  "doi": "https://doi.org/10.5281/zenodo.7254221",
+  "licence": "CC BY 4.0",
+  "attribution": "\u00a9 ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "tiles_read": [
+   "ESA_WorldCover_10m_2021_v200_N36E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N36E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N39E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N42E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N45E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N48E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N51E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E036_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E006_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E009_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E012_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E015_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E018_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E021_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E024_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E027_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E033_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E036_Map.tif"
+  ],
+  "tiles_missing_open_sea": [
+   "ESA_WorldCover_10m_2021_v200_N42E030_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E000_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N54E003_Map.tif",
+   "ESA_WorldCover_10m_2021_v200_N57E000_Map.tif"
+  ],
+  "cache": {
+   "file": "worldcover2021_ov16_region.tif",
+   "bytes": 48236187,
+   "sha256": "6c1487e2b9ae8df8c6dc416fa0077524fb63fc00dfc095ba780601a75105436c"
+  }
+ },
+ "natural_earth": {
+  "name": "Natural Earth 1:10m physical vectors (rivers and lake centre-lines with the European supplement, lakes with the European supplement, coastline)",
+  "version": "v5.1.2 (nvkelso/natural-earth-vector)",
+  "base": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/",
+  "files": [
+   "ne_10m_rivers_lake_centerlines.geojson",
+   "ne_10m_rivers_europe.geojson",
+   "ne_10m_lakes.geojson",
+   "ne_10m_lakes_europe.geojson",
+   "ne_10m_coastline.geojson"
+  ],
+  "licence": "Public domain",
+  "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com",
+  "cache": [
+   {
+    "file": "ne_10m_rivers_lake_centerlines.geojson",
+    "bytes": 7307743,
+    "sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a"
+   },
+   {
+    "file": "ne_10m_rivers_europe.geojson",
+    "bytes": 2534505,
+    "sha256": "90712202ac46985812e90840df9acd5101599a9c649868d5bc55ee96c2fedd4c"
+   },
+   {
+    "file": "ne_10m_lakes.geojson",
+    "bytes": 5043554,
+    "sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9"
+   },
+   {
+    "file": "ne_10m_lakes_europe.geojson",
+    "bytes": 1008063,
+    "sha256": "b4dd9e7a5edd0d07b54768b5404d1ebe77f80b9d579c85fff65f90cf50369769"
+   },
+   {
+    "file": "ne_10m_coastline.geojson",
+    "bytes": 10110735,
+    "sha256": "6f75ae0e0de157b14946e2255eb1f5486d9a13819032e26d4610852d296788f6"
+   }
+  ]
+ },
+ "tiles": {
+  "region_map_units": [
+   1792,
+   576,
+   2368,
+   1088
+  ],
+  "tile_px": 512,
+  "jpeg_quality": 84,
+  "edge_match": {
+   "sea": "#a1b5b5",
+   "relief": 0.55,
+   "relief_image": "assets/map/relief-sea.png",
+   "band_units": 24
+  },
+  "levels": {
+   "L0": {
+    "ppu": 1,
+    "tiles": 4,
+    "symbols": 95,
+    "seconds": 4.9
+   },
+   "L1": {
+    "ppu": 2,
+    "tiles": 9,
+    "symbols": 332,
+    "seconds": 5.6
+   },
+   "L2": {
+    "ppu": 4,
+    "tiles": 25,
+    "symbols": 47281,
+    "seconds": 24.7
+   },
+   "L3": {
+    "ppu": 8,
+    "tiles": 72,
+    "symbols": 185134,
+    "seconds": 106.3
+   },
+   "L4": {
+    "ppu": 16,
+    "tiles": 288,
+    "symbols": 724841,
+    "seconds": 414.1
+   }
+  }
+ },
+ "projection_check": [
+  {
+   "lon": 3.0,
+   "lat": 57.0,
+   "x": 1809.459459459,
+   "y": 579.992102694
+  },
+  {
+   "lon": 35.0,
+   "lat": 38.0,
+   "x": 2366.216216216,
+   "y": 1077.117602789
+  },
+  {
+   "lon": 11.4,
+   "lat": 47.27,
+   "x": 1955.608108108,
+   "y": 857.237341328
+  },
+  {
+   "lon": 24.5,
+   "lat": 45.5,
+   "x": 2183.530405405,
+   "y": 901.886695928
+  },
+  {
+   "lon": 19.04,
+   "lat": 47.5,
+   "x": 2088.533783784,
+   "y": 851.327012756
+  },
+  {
+   "lon": 7.65,
+   "lat": 45.98,
+   "x": 1890.363175676,
+   "y": 889.920451307
+  },
+  {
+   "lon": 16.37,
+   "lat": 48.21,
+   "x": 2042.079391892,
+   "y": 832.916962107
+  },
+  {
+   "lon": -101,
+   "lat": 71.2,
+   "x": 0.0,
+   "y": -0.0
+  },
+  {
+   "lon": 47,
+   "lat": -25,
+   "x": 2575.0,
+   "y": 2242.321379133
+  }
+ ]
+}

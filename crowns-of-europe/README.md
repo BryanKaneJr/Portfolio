@@ -141,7 +141,11 @@ Coastlines: [Natural Earth](https://www.naturalearthdata.com/) via `world-atlas`
 the zooms used; public domain). Land colours: NASA's
 [Blue Marble Next Generation](https://visibleearth.nasa.gov/collection/1484/blue-marble) via
 [GIBS](https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api)
-(public domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
+(public domain). The illustrated terrain (`scripts/terrain`): elevation from
+[NOAA ETOPO 2022](https://doi.org/10.25921/fd45-gt74) (public domain); land cover © ESA WorldCover project 2021 /
+contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium
+([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)); rivers and lakes from Natural Earth 1:10m (public
+domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
 code. The troops, ships and forts on the map are rendered from free 3D models (CC0) by

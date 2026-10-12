@@ -214,6 +214,17 @@ here.
     The painting is 2.25 px per map unit: sharp zoomed out, soft close up; a sharper painting of the game's frame
     would fix that and needs only a rebuild. The drawn mountains and trees stay in the other styles.
 
+25. **An illustrated atlas from real data (prototype: central and eastern Europe).** Instead of one big picture, the
+    ground is drawn offline from real data in the game's own projection: NOAA ETOPO 2022 elevation, ESA WorldCover
+    land cover and Natural Earth rivers and lakes are warped onto the map's units (an exact affine of web Mercator,
+    no estimated control points) and painted as a muted parchment atlas: relief shading, ink peaks at the real
+    summits, trees in the real forests, marsh, grass, rivers, coastal ripples. The game's coastline is the authority;
+    the terrain is painted to it and never moves a border. It ships as five levels of 512 px tiles (1-16 px per map
+    unit; the finest covers the closest zoom on a 3x screen), each level drawn from data at its own resolution so
+    zooming in shows more real detail, not a magnified picture. It is the default style ("Illustrated"); outside the
+    region it is Atlas. Pipeline: `scripts/terrain/` (Python + GDAL). Audit, verification, screenshots and the plan
+    for the whole map: `docs/terrain/`. Painted stays as an option.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |

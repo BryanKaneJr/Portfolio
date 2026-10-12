@@ -5,7 +5,7 @@
  * when let go. Units are plain views on top of the SVG.
  */
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
+import { PixelRatio, Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
@@ -23,6 +23,10 @@ import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles'
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 import { PAINTING } from './paintingTiles';
+import { terrainCache, terrainStats } from './terrainCache';
+import { decodedBytes, neighbours, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
+import { TERRAIN_LEVELS, TERRAIN_REGION } from './terrainTiles';
+import { TERRAIN_LAKES, TERRAIN_RIVERS } from './terrainVectors';
 import { mountainsIn, terrainPaths } from './terrain';
 
 export interface Camera {
@@ -394,6 +398,34 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const pt = st.painting;
   const fine = k >= 0.55 ? 0 : k >= 0.28 ? 1 : 2;
   const tiles = pt ? [...(fine < 2 ? [2, fine] : [2])].flatMap(l => PAINTING[l].tiles.filter(t => visible([t.x, t.y, t.x + t.w, t.y + t.h])).map(t => ({ ...t, key: `${l}-${t.x}-${t.y}` }))) : [];
+  // The illustrated terrain (scripts/terrain → terrainTiles.ts): its tiles where they exist, the realms' colours over
+  // them at the style's opacity, rivers and lake shores on top; around the region the style is drawn as usual.
+  const tr = st.terrain;
+  const TR = TERRAIN_REGION;
+  const terrainOn = !!tr && TR.x1 > vx && TR.x0 < vx + vw && TR.y1 > vy && TR.y0 < vy + vh;
+  const allTerrain = terrainOn && vx >= TR.x0 && vy >= TR.y0 && vx + vw <= TR.x1 && vy + vh <= TR.y1;
+  const halfW = w / OVER / 2 / k;
+  const halfH = h / OVER / 2 / k;
+  const screen = { x0: cam.cx - halfW, y0: cam.cy - halfH, x1: cam.cx + halfW, y1: cam.cy + halfH };
+  const dpr = PixelRatio.get();
+  const terrainTiles = terrainOn ? tilesToDraw(TERRAIN_LEVELS, k, dpr, screen, { x0: vx, y0: vy, x1: vx + vw, y1: vy + vh }) : [];
+  // Neighbouring tiles overlap by a hair (0.6 points) so no seam of the layer below shows between them.
+  const seam = px(0.6);
+  const riverPaths = new Map<number, string>();
+  const lakePaths: string[] = [];
+  if (terrainOn) {
+    const z = webZoom(k, MAP_W / (MAP.projection.east - MAP.projection.west));
+    const widen = 0.75 + 0.14 * Math.max(0, Math.min(3, z - 4));
+    for (const r of TERRAIN_RIVERS) if (r.z <= z + 0.7 && visible(r.b)) riverPaths.set(r.w * widen, (riverPaths.get(r.w * widen) ?? '') + r.d);
+    for (const l of TERRAIN_LAKES) if (l.z <= z + 1.2 && visible(l.b)) lakePaths.push(l.d);
+  }
+  // Keep the tiles drawn and the ones a pan or zoom step would want next warm (terrainCache.ts); note what was drawn.
+  useEffect(() => {
+    if (!terrainOn) return;
+    const pick = pickLevel(TERRAIN_LEVELS, k, dpr);
+    const evicted = terrainCache.use([...terrainTiles.map(t => t.key), ...neighbours(TERRAIN_LEVELS, k, dpr, screen).map(t => t.key)]);
+    Object.assign(terrainStats, { tiles: terrainTiles.length, decodedBytes: decodedBytes(TERRAIN_LEVELS, terrainTiles), level: pick.fine, alpha: pick.alpha, cached: terrainCache.size, evicted: terrainStats.evicted + evicted.length });
+  });
   const names = showRegionNames ? [] : st.nationLabel.curved ? placeNames(arcs, k, st, charted, visible) : [];
   const dash = (d: number[] | null) => (d ? d.map(px).join(' ') : undefined);
   const nl = st.nationLabel;
@@ -409,6 +441,16 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         {landD ? (
           <ClipPath id="land">
             <Path d={landD} />
+          </ClipPath>
+        ) : null}
+        {terrainOn ? (
+          <ClipPath id="tIn">
+            <Rect x={TR.x0} y={TR.y0} width={TR.x1 - TR.x0} height={TR.y1 - TR.y0} />
+          </ClipPath>
+        ) : null}
+        {terrainOn ? (
+          <ClipPath id="tOut">
+            <Path d={`M${vx} ${vy}h${vw}v${vh}h${-vw}Z M${TR.x0} ${TR.y0}h${TR.x1 - TR.x0}v${TR.y1 - TR.y0}h${TR.x0 - TR.x1}Z`} clipRule="evenodd" />
           </ClipPath>
         ) : null}
         {pt && landD ? (
@@ -451,6 +493,10 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       ))}
       {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.sea[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {linesAlpha > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={WATER_LINES[st.waterLines!.image].src} preserveAspectRatio="none" opacity={linesAlpha} /> : null}
+      {/* The illustrated terrain's tiles: coarse ones under the whole drawn area, finer ones over the screen */}
+      {terrainTiles.map(t => (
+        <SvgImage key={t.key} x={t.x} y={t.y} width={t.w + seam} height={t.h + seam} href={t.src} preserveAspectRatio="none" opacity={t.opacity < 1 ? t.opacity : undefined} />
+      ))}
       {/* Sea zones (with the painting showing through the land, cut to the water: they run on under the coast) */}
       <G clipPath={pt && landD ? 'url(#water)' : undefined}>
         {MAP.seas.map(sea =>
@@ -460,22 +506,27 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         )}
       </G>
       {/* Known land */}
+      {/* (Illustrated: a plain land under the colours, where there are no terrain tiles) */}
+      {tr && landD && !allTerrain ? <Path d={landD} fill={tr.base} clipPath={terrainOn ? 'url(#tOut)' : undefined} /> : null}
       {[...byFill].map(([fill, d]) => (
-        <Path key={fill} d={d} fill={fill} opacity={pt ? pt.land : 1} />
+        <Path key={fill} d={d} fill={fill} opacity={tr ? tr.fill : pt ? pt.land : 1} />
       ))}
       {/* Over the land, cut to the coastline: its own colours (fields, forest, rock, sand) showing through the
           country colours, the hills, and a fine grain (scripts/build-relief.ts) */}
-      {landD ? (
+      {landD && !allTerrain ? (
         <G clipPath="url(#land)">
+          <G clipPath={terrainOn ? 'url(#tOut)' : undefined}>
           {st.landColour > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={LAND_COLOUR[colourRes].src} preserveAspectRatio="none" opacity={st.landColour} /> : null}
           {reliefLand > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.land[res].src} preserveAspectRatio="none" opacity={reliefLand} /> : null}
           {st.grain > 0 ? <Rect x={vx} y={vy} width={vw} height={vh} fill="url(#grain)" opacity={st.grain} /> : null}
+          </G>
         </G>
       ) : null}
       {/* The drawn terrain (ui/map/terrain.ts), cut to the coastline: the mountain drawings (dark ink and a faint
           light, so the country's colour shows through), then the marks. */}
-      {landD && peaks.length ? (
+      {landD && peaks.length && !allTerrain ? (
         <G clipPath="url(#land)" opacity={mountainAlpha}>
+          <G clipPath={terrainOn ? 'url(#tOut)' : undefined}>
           {peaks.map(m =>
             m.flip ? (
               <G key={m.key} transform={`translate(${2 * m.x + m.w} 0) scale(-1 1)`}>
@@ -485,14 +536,17 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
               <SvgImage key={m.key} x={m.x} y={m.y} width={m.w} height={m.h} href={m.src} preserveAspectRatio="none" />
             ),
           )}
+          </G>
         </G>
       ) : null}
-      {landD && drawn && dt ? (
+      {landD && drawn && dt && !allTerrain ? (
         <G clipPath="url(#land)" opacity={drawnAlpha}>
+          <G clipPath={terrainOn ? 'url(#tOut)' : undefined}>
           {drawn.tree ? <Path d={drawn.tree} fill={dt.tree} /> : null}
           {drawn.treeLine ? <Path d={drawn.treeLine} fill="none" stroke={dt.ink} strokeWidth={px(0.55)} strokeLinejoin="round" strokeLinecap="round" /> : null}
           {drawn.dune ? <Path d={drawn.dune} fill="none" stroke={dt.ink} strokeWidth={px(0.8)} strokeLinecap="round" /> : null}
           {drawn.reed ? <Path d={drawn.reed} fill="none" stroke={dt.ink} strokeWidth={px(0.7)} strokeLinecap="round" /> : null}
+          </G>
         </G>
       ) : null}
       {mode === 'political' || mode === 'diplomatic'
@@ -504,6 +558,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             return null;
           })
         : null}
+      {/* Rivers and lake shores over the illustrated terrain (scripts/terrain/vectors.py), crisp at any zoom */}
+      {lakePaths.length ? <Path d={lakePaths.join('')} fill="none" stroke={tr!.lake} strokeWidth={px(0.55)} strokeLinejoin="round" /> : null}
+      {[...riverPaths].map(([wd, d]) => (
+        <Path key={`rv${wd}`} d={d} fill="none" stroke={tr!.river} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" />
+      ))}
       {/* The unknown, as blank parchment, with the known world's shadow falling on it */}
       {pt ? (
         <G>
@@ -1021,5 +1080,6 @@ if (typeof window !== 'undefined') {
       const c = unitPositions(s, cam.k, store.selection?.id).find(u => u.id === id);
       return c ? [c.x, c.y] : null;
     };
+    hook.terrain = () => ({ ...terrainStats });
   }
 }

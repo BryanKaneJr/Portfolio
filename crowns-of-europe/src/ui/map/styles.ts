@@ -39,6 +39,10 @@ export interface MapStyle {
   /** The owner's painting as the ground (ui/map/paintingTiles.ts): country colours laid over it at `land` opacity;
    * the unknown veiled at `veil` (the uncharted New World at `uncharted`) rather than covered. */
   painting: { land: number; veil: number; uncharted: number } | null;
+  /** The illustrated terrain tiles (ui/map/terrainTiles.ts, made by scripts/terrain): where they exist, the realms'
+   * colours are laid over them at `fill` opacity, with rivers and lake shores on top. Elsewhere the same colours lie
+   * over a plain land of `base`, with the style's hill shading, so the two meet without a seam of colour. */
+  terrain: { fill: number; base: string; river: string; lake: string } | null;
 }
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. (The mountain
@@ -99,6 +103,39 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     regionLabel: { fill: '#f6f2e6', halo: 'rgba(24,18,11,0.78)', shadow: null },
     vignette: null,
     painting: { land: 0.42, veil: 0.28, uncharted: 0.62 },
+    terrain: null,
+  },
+  illustrated: {
+    id: 'illustrated',
+    label: 'Illustrated',
+    help: 'An illustrated atlas drawn from real elevation, forests and rivers (central Europe so far), the realms\' colours washed over it.',
+    sea: '#a1b5b5', // the tiles' sea, so the region's edge doesn't show on the water
+    seaZone: { color: 'rgba(52,78,88,0.16)', dash: null },
+    seaLabel: 'rgba(52,78,88,0.72)',
+    waterLines: null,
+    relief: 0.55,
+    landColour: 0.2,
+    grain: 1,
+    drawn: { ink: 'rgba(46,32,19,0.8)', tree: 'rgba(38,62,28,0.5)', reliefClose: 0.3 },
+    land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
+    wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
+    unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
+    provinceBorder: { color: 'rgba(24,18,10,0.2)', width: 0.55, dash: null },
+    nationBorder: { color: 'rgba(22,16,9,0.62)', width: 0.95, halo: 'rgba(20,14,8,0.14)', haloWidth: 3 },
+    coast: { color: 'rgba(48,36,22,0.62)', width: 0.75 },
+    river: { color: '#4f7189', width: 1.5 },
+    font: {
+      nation: font('Cinzel_700Bold', SERIF),
+      nationWeight: '400', // the font file is the bold cut; asking for bold again would fake a heavier one
+      region: font('Cinzel_600SemiBold', SERIF),
+      regionWeight: '400',
+      italic: font('IMFellEnglish_400Regular_Italic', SERIF),
+    },
+    nationLabel: { fill: '#e8ede0', halo: 'rgba(22,17,10,0.55)', shadow: 'rgba(16,12,7,0.6)', curved: true, spacing: 0.08, em: 0.76, spread: true },
+    regionLabel: { fill: '#f0eee4', halo: 'rgba(24,18,11,0.72)', shadow: null },
+    vignette: null,
+    painting: null,
+    terrain: { fill: 0.5, base: '#d9d0aa', river: 'rgba(58,98,118,0.9)', lake: 'rgba(58,82,92,0.75)' },
   },
   atlas: {
     id: 'atlas',
@@ -130,6 +167,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     regionLabel: { fill: '#f0eee4', halo: 'rgba(24,18,11,0.72)', shadow: null },
     vignette: null,
     painting: null,
+    terrain: null,
   },
   parchment: {
     id: 'parchment',
@@ -161,6 +199,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     regionLabel: { fill: '#46301a', halo: 'rgba(240,228,196,0.75)', shadow: null },
     vignette: 'rgba(84,58,26,0.42)',
     painting: null,
+    terrain: null,
   },
   flat: {
     id: 'flat',
@@ -186,7 +225,8 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     regionLabel: { fill: '#1b1b1b', halo: 'rgba(255,255,255,0.8)', shadow: null },
     vignette: null,
     painting: null,
+    terrain: null,
   },
 };
 
-export const MAP_STYLE_LIST: MapStyle[] = [MAP_STYLES.painted, MAP_STYLES.atlas, MAP_STYLES.parchment, MAP_STYLES.flat];
+export const MAP_STYLE_LIST: MapStyle[] = [MAP_STYLES.illustrated, MAP_STYLES.painted, MAP_STYLES.atlas, MAP_STYLES.parchment, MAP_STYLES.flat];

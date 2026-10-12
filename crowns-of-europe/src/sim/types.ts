@@ -104,6 +104,8 @@ export interface MapSea {
 export interface MapData {
   width: number;
   height: number;
+  /** Spherical Mercator: x from `west` to `east` over `width` units, y = 0 at `north` (see scripts/build-map.ts). */
+  projection: { type: 'mercator'; west: number; east: number; north: number; south: number };
   regions: MapRegion[];
   borders: { a: RegionId; b: RegionId; path: string }[];
   seas: MapSea[];

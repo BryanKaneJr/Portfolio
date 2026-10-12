@@ -13,8 +13,8 @@ import * as commands from '../sim/commands';
 import { MAP_REGION, MAP_SEA } from '../sim/content';
 
 /** How the map is painted (src/ui/map/styles.ts). A device preference, not part of the saved game. */
-export type MapStyleId = 'painted' | 'atlas' | 'parchment' | 'flat';
-export const MAP_STYLE_IDS: MapStyleId[] = ['painted', 'atlas', 'parchment', 'flat'];
+export type MapStyleId = 'illustrated' | 'painted' | 'atlas' | 'parchment' | 'flat';
+export const MAP_STYLE_IDS: MapStyleId[] = ['illustrated', 'painted', 'atlas', 'parchment', 'flat'];
 export type MapMode = 'political' | 'terrain' | 'development' | 'faith' | 'diplomatic' | 'threat' | 'goods' | 'science';
 export type Selection =
   | { kind: 'region'; id: string }
@@ -50,7 +50,7 @@ class GameStore {
   mapVersion = 0;
   selection: Selection = null;
   mapMode: MapMode = 'political';
-  mapStyle: MapStyleId = 'painted';
+  mapStyle: MapStyleId = 'illustrated';
   overlay: Overlay = null;
   speed = 1;
   paused = true;
