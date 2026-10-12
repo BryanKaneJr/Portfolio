@@ -18,7 +18,9 @@ bundled and works in airplane mode.
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
   forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, prosperity, faith, diplomatic,
-  threat and exports.
+  threat and exports. Painted in three styles: Atlas (hill shading and sea depths under the colours, water lines
+  along the coasts, bold borders, names that curve across each country), Parchment and Flat. The rest of the
+  world is drawn faded around the edges, and the map slides back when you pull past them.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
@@ -103,7 +105,7 @@ Everything the game uses is in Expo Go, so no development build is needed to try
 | `src/ui/` | Map view, sheets, menus, cards and components. |
 | `src/state/` | The running game store (game loop, selection, toasts) and saves. |
 | `scripts/` | Map builder, content validator, icon renderer, Playwright walkthroughs, AI soak and trace tools. |
-| `tests/` | Jest: battles, movement, sieges, war and peace, colonies and the New World, the event language, determinism and a 25-year soak. |
+| `tests/` | Jest: battles, movement, sieges, war and peace, colonies and the New World, the event language, the map (lands beyond the edges, curved names, camera limits), determinism and a 25-year soak. |
 | `docs/` | `content-guide.md` (how to write events and missions) and `design-notes.md` (decisions and status). |
 
 ## How the code fits together
@@ -119,10 +121,16 @@ Content is data. Events, missions and achievements use a small condition/effect 
 The map is generated, not hand-drawn: `scripts/build-map.ts` projects Natural Earth land (Mercator), cuts out the
 Great Lakes, splits each landmass between region seed points through a fine jittered grid (organic borders, islands
 never claim the mainland) and hands the rest to wilderness seeds, simplifies shared borders once through a topology
-so neighbours never gap, and writes paths, labels and the adjacency graph.
+so neighbours never gap, and writes paths, labels and the adjacency graph, plus the lands beyond the play window
+(drawn, never playable). `scripts/build-relief.ts` then bakes hill shading, sea depths and the water lines along
+the coasts into images from public-domain elevation tiles, using the map's own coastline so nothing spills over a
+shore. `src/ui/map/styles.ts` says how each map style paints it all.
 
 ## Credits
 
-Coastlines: [Natural Earth](https://www.naturalearthdata.com/) via `world-atlas` (public domain). History,
+Coastlines: [Natural Earth](https://www.naturalearthdata.com/) via `world-atlas` (public domain). Relief: the
+[Terrain Tiles on AWS Open Data](https://registry.opendata.aws/terrain-tiles/) (ETOPO1, GMTED2010 and SRTM at
+the zooms used; public domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
+[IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
 code.

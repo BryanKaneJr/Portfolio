@@ -109,6 +109,10 @@ export interface MapData {
   wastelands: { id: string; path: string; label: [number, number]; area: number }[];
   lakes: { name: string; label: [number, number] }[];
   coast: string;
+  /** Land beyond the play window: drawn as an outline for looks, never part of the game. */
+  far: { path: string; coast: string; bbox: number[] }[];
+  farLabels: { name: string; x: number; y: number; sea?: boolean }[];
+  margin: [number, number]; // how far beyond the window the far lands are drawn (map units)
 }
 
 export interface RulerDef {

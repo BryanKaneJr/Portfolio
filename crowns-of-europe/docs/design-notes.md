@@ -116,6 +116,20 @@ here.
     a claimant at least as large as the realm can inherit it in a succession crisis. In eight AI games to 1700 France survived in seven (England
     took it in the eighth) and Austria in all eight, and no crown grew past about 50 regions.
 
+16. **A painted map, in three styles (on request).** The map takes its look from the map overhauls strategy
+    players rate highest, built from our own data: hill shading and sea depth (public-domain elevation data,
+    baked into images by `npm run relief:build`) lie over the political colours, so the Alps and the Pyrenees read
+    through France and Austria and the open ocean darkens off the shelf; lines in the water follow every coast with
+    a glow off the shore; bold inked borders between crowns sit over fine province lines that fade as you zoom
+    out; and each nation's name curves along its land in classical capitals (Cinzel), with seas and wastes in an
+    old italic (IM Fell English; both bundled, SIL Open Font License). The lands beyond the play window (Persia,
+    Tartary, Siberia, Patagonia...) are drawn as faded, hatched land with old names so the world does not end at a
+    cliff, but they are not regions: nothing there can be tapped, entered or owned. Pulling past the edge of the
+    known world, or past the zoom limits, meets growing resistance and slides back when let go. Atlas is the
+    default; Parchment (an old hand-coloured map) and Flat (clean colours, the lightest to draw) are in Settings
+    and the map-mode menu. Each style redraws in two frames in the browser; the water lines were first drawn as
+    strokes (130 ms a redraw) and are now baked.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |

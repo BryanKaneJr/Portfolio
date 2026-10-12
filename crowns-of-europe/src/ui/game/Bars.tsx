@@ -13,6 +13,7 @@ import { Icon, type IconName } from '../components/Icon';
 import { IconBtn } from '../components/kit';
 import { C, fmt, kmen, sans, serif, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
+import { MAP_STYLE_LIST } from '../map/styles';
 
 /** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
 function Res({ icon, value, sub, onPress, tone, subTone, label }: { icon: IconName; value: string; sub?: string; onPress: () => void; tone?: 'bad'; subTone?: 'good' | 'bad'; label: string }) {
@@ -114,6 +115,14 @@ export function MapModeChip() {
             ))}
           </View>
           <Text style={styles.modeHelp}>{cur.help}</Text>
+          <View style={styles.lookRow}>
+            <Text style={styles.lookLabel}>Look</Text>
+            {MAP_STYLE_LIST.map(ms => (
+              <Pressable key={ms.id} onPress={() => st.setMapStyle(ms.id)} style={[styles.lookItem, ms.id === st.mapStyle && { backgroundColor: C.chromeLine }]} testID={`mapstyle-${ms.id}`}>
+                <Text style={styles.lookText}>{ms.label}</Text>
+              </Pressable>
+            ))}
+          </View>
         </View>
       ) : null}
     </View>
@@ -185,6 +194,10 @@ const styles = StyleSheet.create({
   modeItem: { width: '50%', paddingVertical: 9, paddingHorizontal: 8, borderRadius: 7 },
   modeItemText: { color: C.chromeText, fontFamily: sans, fontSize: 14, fontWeight: '700' },
   modeHelp: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, padding: 8, paddingTop: 4, lineHeight: 15 },
+  lookRow: { flexDirection: 'row', alignItems: 'center', gap: 2, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.chromeLine, paddingTop: 4 },
+  lookLabel: { color: C.chromeMuted, fontFamily: sans, fontSize: 11, paddingHorizontal: 8 },
+  lookItem: { flex: 1, paddingVertical: 8, borderRadius: 7, alignItems: 'center' },
+  lookText: { color: C.chromeText, fontFamily: sans, fontSize: 12, fontWeight: '700' },
   toasts: { position: 'absolute', top: 44, left: 12, right: 12, alignItems: 'center', gap: 6 },
   toast: { backgroundColor: 'rgba(33,24,16,0.94)', borderRadius: 10, paddingHorizontal: 14, paddingVertical: 9, borderWidth: 1, borderColor: C.chromeLine, maxWidth: 420 },
   toastText: { color: C.chromeText, fontFamily: sans, fontSize: 14, textAlign: 'center' },

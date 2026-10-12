@@ -1,20 +1,24 @@
 /**
  * The map: pan with one finger, pinch to zoom, tap to select. While a gesture runs, the last rendered
  * picture is moved with a native transform; when it ends, the SVG re-renders at the new zoom so it stays
- * sharp. Units are plain views on top of the SVG.
+ * sharp. Pulling past the edge of the known world (or past the zoom limits) meets resistance and slides back
+ * when let go. Units are plain views on top of the SVG.
  */
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
-import Svg, { Defs, G, Line, Path, Pattern, Rect, Text as SvgText } from 'react-native-svg';
+import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Svg, { Defs, G, Image as SvgImage, Line, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
-import { C, kmen, sans, serif } from '../theme';
-import { nationColor, regionFills } from './colors';
-import { MAP_H, MAP_W, WASTE_BBOX, nationLabels, regionAt, regionPoint, seaAt } from './geometry';
+import { C, kmen, sans } from '../theme';
+import { WILD, mix, nationColor, regionFills } from './colors';
+import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
+import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
+import { RELIEF_BANDS, RELIEF_SHARP, RELIEF_WORLD, WATER_LINES } from './reliefTiles';
+import { MAP_STYLES, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 
 export interface Camera {
@@ -23,28 +27,25 @@ export interface Camera {
   k: number; // points per map unit
 }
 const OVER = 1.6; // render this much beyond the screen so short pans never show an empty edge
-const K_MAX = 7;
+const SETTLE = { duration: 320, easing: Easing.out(Easing.cubic) };
 
 export function MapView() {
   const st = useStore();
   const s = st.state!;
+  const style = MAP_STYLES[st.mapStyle];
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [cam, setCam] = useState<Camera | null>(null);
   const tx = useSharedValue(0);
   const ty = useSharedValue(0);
   const sc = useSharedValue(1);
   const startT = useSharedValue({ x: 0, y: 0, s: 1, fx: 0, fy: 0 });
+  const live = useSharedValue({ pan: false, pinch: false, rebase: false }); // which gestures are under way
 
   const kMin = size.w ? Math.min(size.w / MAP_W, size.h / MAP_H) * 0.95 : 0.3;
   const clampCam = useCallback(
     (c: Camera): Camera => {
-      const k = Math.max(kMin, Math.min(K_MAX, c.k));
-      // Keep the screen over the map: when zoomed in, the edges of the map stop the pan.
-      const halfW = size.w / 2 / k;
-      const halfH = size.h / 2 / k;
-      const cx = halfW * 2 >= MAP_W ? MAP_W / 2 : Math.max(halfW, Math.min(MAP_W - halfW, c.cx));
-      const cy = halfH * 2 >= MAP_H ? MAP_H / 2 : Math.max(halfH, Math.min(MAP_H - halfH, c.cy));
-      return { k, cx, cy };
+      const [cx, cy, k] = clampView(c.cx, c.cy, c.k, size.w, size.h, kMin);
+      return { cx, cy, k };
     },
     [kMin, size],
   );
@@ -61,7 +62,6 @@ export function MapView() {
     }
   };
 
-  // Focus requests from elsewhere in the UI ("go to army").
   // Focus requests ("go to army") move the camera once per request.
   const focus = st.focus;
   const [focusSeen, setFocusSeen] = useState(0);
@@ -95,21 +95,70 @@ export function MapView() {
   );
 
   const half = { w: size.w / 2, h: size.h / 2 };
+  const c0 = cam ?? { cx: 0, cy: 0, k: 1 };
+  const lim = { w: size.w, h: size.h, kMin };
+  /** Show the transform a gesture asks for, with resistance wherever it goes past the limits. (fx, fy): the point
+   * that stays put while zooming, from the screen centre. */
+  const show = (rx: number, ry: number, rs: number, fx: number, fy: number) => {
+    'worklet';
+    const k1 = c0.k * rs;
+    const kr = rubberZoom(k1, lim.kMin);
+    const g = kr / k1;
+    const x1 = fx - (fx - rx) * g;
+    const y1 = fy - (fy - ry) * g;
+    const [ccx, ccy] = clampCentre(c0.cx - x1 / kr, c0.cy - y1 / kr, kr, lim.w, lim.h);
+    const bx = (c0.cx - ccx) * kr;
+    const by = (c0.cy - ccy) * kr;
+    sc.set(kr / c0.k);
+    tx.set(bx + rubber(x1 - bx, lim.w));
+    ty.set(by + rubber(y1 - by, lim.h));
+  };
+  /** When the last finger lifts: slide back inside the limits, then re-render there. */
+  const settle = () => {
+    'worklet';
+    const s1 = sc.get();
+    const [cx2, cy2, k2] = clampView(c0.cx - tx.get() / (c0.k * s1), c0.cy - ty.get() / (c0.k * s1), c0.k * s1, lim.w, lim.h, lim.kMin);
+    const s2 = k2 / c0.k;
+    const x2 = (c0.cx - cx2) * k2;
+    const y2 = (c0.cy - cy2) * k2;
+    if (Math.abs(x2 - tx.get()) < 0.5 && Math.abs(y2 - ty.get()) < 0.5 && Math.abs(s2 - s1) < 0.001) {
+      runOnJS(commit)(x2, y2, s2);
+      return;
+    }
+    sc.set(withTiming(s2, SETTLE));
+    ty.set(withTiming(y2, SETTLE));
+    tx.set(
+      withTiming(x2, SETTLE, done => {
+        if (done) runOnJS(commit)(x2, y2, s2);
+      }),
+    );
+  };
   const pan = Gesture.Pan()
     .minDistance(6)
     .averageTouches(true)
     .onStart(() => {
+      live.set({ ...live.get(), pan: true });
       startT.set({ x: tx.get(), y: ty.get(), s: sc.get(), fx: 0, fy: 0 });
     })
     .onUpdate(e => {
-      tx.set(startT.get().x + e.translationX);
-      ty.set(startT.get().y + e.translationY);
+      const l = live.get();
+      if (l.pinch) return; // the pinch moves the map too, from its focal point
+      if (l.rebase) {
+        // A pinch just ended with a finger still down: carry on panning from where it left the map.
+        live.set({ ...l, rebase: false });
+        startT.set({ x: tx.get() - e.translationX, y: ty.get() - e.translationY, s: sc.get(), fx: 0, fy: 0 });
+      }
+      show(startT.get().x + e.translationX, startT.get().y + e.translationY, sc.get(), 0, 0);
     })
-    .onEnd(() => {
-      runOnJS(commit)(tx.get(), ty.get(), sc.get());
+    .onFinalize(() => {
+      const l = live.get();
+      if (!l.pan) return;
+      live.set({ ...l, pan: false });
+      if (!l.pinch) settle();
     });
   const pinch = Gesture.Pinch()
     .onStart(e => {
+      live.set({ ...live.get(), pinch: true });
       startT.set({ x: tx.get(), y: ty.get(), s: sc.get(), fx: e.focalX - half.w, fy: e.focalY - half.h });
     })
     .onUpdate(e => {
@@ -117,12 +166,13 @@ export function MapView() {
       const fx = e.focalX - half.w;
       const fy = e.focalY - half.h;
       const st0 = startT.get();
-      sc.set(st0.s * g);
-      tx.set(fx - g * (st0.fx - st0.x));
-      ty.set(fy - g * (st0.fy - st0.y));
+      show(fx - g * (st0.fx - st0.x), fy - g * (st0.fy - st0.y), st0.s * g, fx, fy);
     })
-    .onEnd(() => {
-      runOnJS(commit)(tx.get(), ty.get(), sc.get());
+    .onFinalize(() => {
+      const l = live.get();
+      if (!l.pinch) return;
+      live.set({ ...l, pinch: false, rebase: l.pan });
+      if (!l.pan) settle();
     });
   const tap = Gesture.Tap()
     .maxDuration(300)
@@ -163,25 +213,55 @@ export function MapView() {
   const W = size.w * OVER;
   const H = size.h * OVER;
   return (
-    <View ref={wrapRef} style={styles.wrap} onLayout={onLayout} testID="map">
+    <View ref={wrapRef} style={[styles.wrap, { backgroundColor: deepSea(style) }]} onLayout={onLayout} testID="map">
       {ready ? (
         <GestureDetector gesture={gesture}>
           <View style={StyleSheet.absoluteFill} collapsable={false}>
             <Animated.View style={[{ position: 'absolute', left: (size.w - W) / 2, top: (size.h - H) / 2, width: W, height: H }, animStyle]}>
-              <StaticLayer cam={cam!} w={W} h={H} mapVersion={st.mapVersion} mode={st.mapMode} selection={st.selection} />
+              <StaticLayer cam={cam!} w={W} h={H} mapVersion={st.mapVersion} mode={st.mapMode} selection={st.selection} styleId={st.mapStyle} />
               <UnitLayer cam={cam!} w={W} h={H} s={s} selection={st.selection} version={st.version} />
             </Animated.View>
           </View>
         </GestureDetector>
       ) : null}
+      {ready && style.vignette ? (
+        <Svg width={size.w} height={size.h} style={StyleSheet.absoluteFill} pointerEvents="none">
+          <Defs>
+            <RadialGradient id="vignette" cx="50%" cy="50%" r="72%">
+              <Stop offset="0.55" stopColor={style.vignette} stopOpacity={0} />
+              <Stop offset="1" stopColor={style.vignette} stopOpacity={1} />
+            </RadialGradient>
+          </Defs>
+          <Rect width={size.w} height={size.h} fill="url(#vignette)" />
+        </Svg>
+      ) : null}
     </View>
   );
 }
 
+/** The open ocean far from any coast: the sea colour under the deepest shading, for whatever lies past the edges. */
+const deepSea = (st: MapStyle) => mix(st.sea, '#000000', st.relief * 0.4);
+
 // ---------------------------------------------------------------- static layer (land, borders, labels)
 
-const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, selection }: { cam: Camera; w: number; h: number; mapVersion: number; mode: MapMode; selection: Selection }) {
+/** The lines that only change when land changes hands: one path each, so they cost one draw call apiece. */
+function borderLines(s: GameState) {
+  const charted = !!s.discovery;
+  let nation = '';
+  let province = '';
+  let river = '';
+  for (const b of MAP.borders) {
+    if (!charted && (isNewWorld(b.a) || isNewWorld(b.b))) continue;
+    if (RIVERS.has(`${b.a}|${b.b}`)) river += b.path;
+    if (s.regions[b.a].owner !== s.regions[b.b].owner) nation += b.path;
+    else province += b.path;
+  }
+  return { nation, province, river };
+}
+
+const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, selection, styleId }: { cam: Camera; w: number; h: number; mapVersion: number; mode: MapMode; selection: Selection; styleId: MapStyleId }) {
   const s = store.state!;
+  const st = MAP_STYLES[styleId];
   const { k } = cam;
   const vx = cam.cx - w / 2 / k;
   const vy = cam.cy - h / 2 / k;
@@ -191,14 +271,18 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fills = useMemo(() => regionFills(s, mode), [mapVersion, mode]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  const arcs = useMemo(() => nationArcs(s), [mapVersion]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const labels = useMemo(() => nationLabels(s), [mapVersion]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const lines = useMemo(() => borderLines(s), [mapVersion]);
   const px = (n: number) => n / k; // screen points → map units
   const showRegionNames = k >= 1.15;
   const selRegion = selection?.kind === 'region' ? selection.id : null;
   const selSea = selection?.kind === 'sea' ? selection.id : null;
   const selNation = selection?.kind === 'nation' ? selection.id : null;
   const charted = !!s.discovery;
-  // Before the New World is found it is drawn as blank parchment: no borders, names or units.
+  // Before the New World is found it is drawn like the lands beyond the map: no borders, names or units.
   const hidden = (id: string) => !charted && isNewWorld(id);
   const striped = [
     ...new Set([
@@ -212,45 +296,80 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   ];
   const stripe = px(7);
 
+  // Land in one path per colour (a nation's regions share one), faded land (beyond the map or not yet found) in one.
+  const paint = new Map<string, string>();
+  const byFill = new Map<string, string>();
+  let faded = '';
+  for (const r of MAP.regions) {
+    if (!visible(r.bbox)) continue;
+    if (hidden(r.id)) {
+      faded += r.path;
+      continue;
+    }
+    const f = fills[r.id];
+    if (!paint.has(f)) paint.set(f, f === WILD ? st.wild : st.land(f));
+    const c = paint.get(f)!;
+    byFill.set(c, (byFill.get(c) ?? '') + r.path);
+  }
+  let waste = '';
+  for (const wl of MAP.wastelands) {
+    if (WASTE_BBOX[wl.id] && !visible(WASTE_BBOX[wl.id])) continue;
+    if (!charted && NW_WASTELANDS.has(wl.id)) faded += wl.path;
+    else waste += wl.path;
+  }
+  for (const f of MAP.far) if (visible(f.bbox)) faded += f.path;
+  // Only the coasts in view.
+  const coast = COAST_CELLS.filter(c => visible(c.bbox))
+    .map(c => c.d)
+    .join('');
+  const farCoast = FAR_COAST_CELLS.filter(c => visible(c.bbox))
+    .map(c => c.d)
+    .join('');
+
+  // Relief: one soft picture of the whole world when far out; the sharp one (and the soft margins) closer in.
+  const relief = st.relief > 0 ? (k < 0.35 ? [RELIEF_WORLD] : [RELIEF_SHARP, ...RELIEF_BANDS]).filter(t => visible([t.x, t.y, t.x + t.w, t.y + t.h])) : [];
+  const RW = RELIEF_WORLD;
+  // Past the relief picture the ocean is simply deep.
+  const beyond = `M${vx} ${vy}h${vw}v${vh}h${-vw}Z M${RW.x} ${RW.y}v${RW.h}h${RW.w}v${-RW.h}Z`;
+  // Fine province lines fade out as you zoom out, leaving the bold borders between crowns.
+  const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
+  // Water lines fade in as you zoom in (further out they would crowd into a blur).
+  const linesAlpha = st.waterLines ? st.waterLines.opacity * Math.max(0, Math.min(1, (k - 0.35) / 0.25)) : 0;
+  const names = showRegionNames ? [] : st.nationLabel.curved ? placeNames(arcs, k, st, charted, visible) : [];
+  const dash = (d: number[] | null) => (d ? d.map(px).join(' ') : undefined);
+
   return (
     <Svg width={w} height={h} viewBox={`${vx} ${vy} ${vw} ${vh}`} style={StyleSheet.absoluteFill}>
       <Defs>
-        <Pattern id="waste" patternUnits="userSpaceOnUse" width={px(6)} height={px(6)}>
-          <Rect width={px(6)} height={px(6)} fill={C.waste} />
-          <Line x1={0} y1={px(6)} x2={px(6)} y2={0} stroke="#a89c7c" strokeWidth={px(0.8)} />
-        </Pattern>
-        <Pattern id="uncharted" patternUnits="userSpaceOnUse" width={px(9)} height={px(9)}>
-          <Rect width={px(9)} height={px(9)} fill="#e6dcc0" />
-          <Line x1={0} y1={px(9)} x2={px(9)} y2={0} stroke="#cfc19c" strokeWidth={px(0.7)} />
-        </Pattern>
+        {st.waste.hatch ? <Hatch id="waste" step={px(6)} color={st.waste.hatch} width={px(0.8)} /> : null}
+        {st.far.hatch ? <Hatch id="far" step={px(8)} color={st.far.hatch} width={px(0.7)} /> : null}
         {striped.map(o => (
           <Pattern key={o} id={`occ_${o}`} patternUnits="userSpaceOnUse" width={stripe} height={stripe}>
             <Path d={`M0 ${stripe} L${stripe} 0 M${-stripe / 2} ${stripe / 2} L${stripe / 2} ${-stripe / 2} M${stripe / 2} ${stripe * 1.5} L${stripe * 1.5} ${stripe / 2}`} stroke={o === REBELS ? '#222' : nationColor(o)} strokeWidth={stripe * 0.32} />
           </Pattern>
         ))}
+        {names.map(n => (
+          <Path key={n.nation} id={`nm_${n.nation}`} d={n.d} />
+        ))}
       </Defs>
-      <Rect x={vx} y={vy} width={vw} height={vh} fill={C.sea} />
+      {/* Water: deeper past the edges of the relief, with lines along the coasts (scripts/build-relief.ts) */}
+      <Rect x={vx} y={vy} width={vw} height={vh} fill={st.sea} />
+      <Path d={beyond} fill={deepSea(st)} fillRule="evenodd" />
+      {linesAlpha > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={WATER_LINES[st.waterLines!.image].src} preserveAspectRatio="none" opacity={linesAlpha} /> : null}
+      {/* Sea zones (waters no fleet can sail are left plain, like the ocean beyond the map) */}
       {MAP.seas.map(sea =>
-        !visible(sea.bbox) ? null : sea.closed ? (
-          <Path key={sea.id} d={sea.path} fill={C.seaDark} />
-        ) : hidden(sea.id) ? null : (
-          <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke="rgba(255,255,255,0.3)" strokeWidth={px(0.8)} strokeDasharray={`${px(3)} ${px(5)}`} />
+        !visible(sea.bbox) || sea.closed || hidden(sea.id) ? null : (
+          <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke={st.seaZone.color} strokeWidth={px(0.8)} strokeDasharray={dash(st.seaZone.dash)} />
         ),
       )}
-      {MAP.wastelands.map(wl =>
-        WASTE_BBOX[wl.id] && !visible(WASTE_BBOX[wl.id]) ? null : !charted && NW_WASTELANDS.has(wl.id) ? (
-          <Path key={wl.id} d={wl.path} fill="url(#uncharted)" />
-        ) : (
-          <Path key={wl.id} d={wl.path} fill="url(#waste)" stroke="#9c8f6f" strokeWidth={px(0.6)} />
-        ),
-      )}
-      {MAP.regions.map(r =>
-        !visible(r.bbox) ? null : hidden(r.id) ? (
-          <Path key={r.id} d={r.path} fill="url(#uncharted)" />
-        ) : (
-          <Path key={r.id} d={r.path} fill={fills[r.id]} stroke="rgba(42,33,24,0.38)" strokeWidth={px(0.7)} strokeLinejoin="round" />
-        ),
-      )}
+      {/* Land */}
+      {faded ? <Path d={faded} fill={st.far.fill} /> : null}
+      {faded && st.far.hatch ? <Path d={faded} fill="url(#far)" /> : null}
+      {waste ? <Path d={waste} fill={st.waste.fill} stroke={st.waste.line} strokeWidth={px(0.6)} /> : null}
+      {waste && st.waste.hatch ? <Path d={waste} fill="url(#waste)" /> : null}
+      {[...byFill].map(([fill, d]) => (
+        <Path key={fill} d={d} fill={fill} />
+      ))}
       {mode === 'political' || mode === 'diplomatic'
         ? MAP.regions.map(r => {
             const reg = s.regions[r.id];
@@ -260,31 +379,58 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             return null;
           })
         : null}
-      {MAP.borders.map(b => {
-        const oa = s.regions[b.a].owner;
-        const ob = s.regions[b.b].owner;
-        return oa !== ob && !hidden(b.a) ? <Path key={`${b.a}|${b.b}`} d={b.path} fill="none" stroke="rgba(30,22,14,0.85)" strokeWidth={px(1.5)} strokeLinecap="round" strokeLinejoin="round" /> : null;
-      })}
-      {MAP.borders.map(b => (RIVERS.has(`${b.a}|${b.b}`) ? <Path key={`r${b.a}|${b.b}`} d={b.path} fill="none" stroke="#4d86b8" strokeWidth={px(2)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null))}
-      <Path d={MAP.coast} fill="none" stroke={C.coast} strokeWidth={px(0.9)} strokeLinejoin="round" />
-      {selNation
-        ? MAP.regions.map(r => (s.regions[r.id].owner === selNation ? <Path key={`n${r.id}`} d={r.path} fill="rgba(255,255,255,0.18)" stroke={C.gold} strokeWidth={px(1.6)} /> : null))
-        : null}
+      {/* Hills and sea depths over everything painted so far */}
+      {relief.length ? (
+        <G opacity={st.relief}>
+          {relief.map(t => (
+            <SvgImage key={`${t.x},${t.y},${t.w}`} x={t.x} y={t.y} width={t.w} height={t.h} href={t.src} preserveAspectRatio="none" />
+          ))}
+        </G>
+      ) : null}
+      {faded && st.far.veil > 0 ? <Path d={faded} fill={st.far.fill} opacity={st.far.veil} /> : null}
+      {/* Lines */}
+      {provinceAlpha > 0 && lines.province ? <Path d={lines.province} fill="none" stroke={st.provinceBorder.color} strokeWidth={px(st.provinceBorder.width)} strokeDasharray={dash(st.provinceBorder.dash)} strokeLinecap="round" strokeLinejoin="round" opacity={provinceAlpha} /> : null}
+      {lines.river ? <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} /> : null}
+      {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth)} strokeLinecap="round" strokeLinejoin="round" /> : null}
+      {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width)} strokeLinecap="round" strokeLinejoin="round" /> : null}
+      {coast ? <Path d={coast} fill="none" stroke={st.coast.color} strokeWidth={px(st.coast.width)} strokeLinecap="round" strokeLinejoin="round" /> : null}
+      {farCoast ? <Path d={farCoast} fill="none" stroke={st.far.coast} strokeWidth={px(st.coast.width * 0.85)} strokeLinecap="round" strokeLinejoin="round" /> : null}
+      {selNation ? (
+        <Path
+          d={MAP.regions
+            .filter(r => s.regions[r.id].owner === selNation)
+            .map(r => r.path)
+            .join('')}
+          fill="rgba(255,255,255,0.18)"
+          stroke={C.gold}
+          strokeWidth={px(1.6)}
+        />
+      ) : null}
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="rgba(255,255,255,0.25)" stroke="#fff6d8" strokeWidth={px(2.6)} strokeLinejoin="round" /> : null}
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="none" stroke={C.goldDark} strokeWidth={px(1.2)} strokeLinejoin="round" /> : null}
-      {WASTELANDS.map(wl => {
-        const m = MAP.wastelands.find(x => x.id === wl.id);
-        if (!m || !visible([m.label[0], m.label[1], m.label[0], m.label[1]]) || (!charted && NW_WASTELANDS.has(wl.id))) return null;
-        return (
-          <SvgText key={`wl${wl.id}`} x={m.label[0]} y={m.label[1]} fontSize={px(11)} fontStyle="italic" fontFamily={serif} fill="#6f6448" textAnchor="middle">
-            {wl.name}
+      {/* Names */}
+      {MAP.farLabels.map(l =>
+        visible([l.x, l.y, l.x, l.y]) ? (
+          <SvgText key={`far${l.name}`} x={l.x} y={l.y} fontSize={px(l.sea ? 12 : 13)} fontFamily={st.font.italic} fill={l.sea ? st.far.seaLabel : st.far.label} textAnchor="middle" letterSpacing={px(l.sea ? 1.5 : 3)}>
+            {l.sea ? l.name : l.name.toUpperCase()}
           </SvgText>
-        );
-      })}
+        ) : null,
+      )}
+      {k >= 0.3
+        ? WASTELANDS.map(wl => {
+            const m = MAP.wastelands.find(x => x.id === wl.id);
+            if (!m || !visible([m.label[0], m.label[1], m.label[0], m.label[1]]) || (!charted && NW_WASTELANDS.has(wl.id))) return null;
+            return (
+              <SvgText key={`wl${wl.id}`} x={m.label[0]} y={m.label[1]} fontSize={px(11)} fontFamily={st.font.italic} fill={st.waste.label} textAnchor="middle" letterSpacing={px(0.6)}>
+                {wl.name}
+              </SvgText>
+            );
+          })
+        : null}
       {k >= 0.9
         ? MAP.seas.map(sea =>
             visible(sea.bbox) && !hidden(sea.id) && SEA[sea.id] ? (
-              <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16)} fontSize={px(10)} fontStyle="italic" fontFamily={serif} fill="#4d6f80" textAnchor="middle" opacity={0.85}>
+              <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16)} fontSize={px(11)} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle" letterSpacing={px(1)}>
                 {SEA[sea.id].name}
               </SvgText>
             ) : null,
@@ -293,7 +439,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {k >= 1.0 && charted
         ? MAP.lakes.map(l =>
             visible([l.label[0], l.label[1], l.label[0], l.label[1]]) ? (
-              <SvgText key={`lk${l.name}`} x={l.label[0]} y={l.label[1] + px(3)} fontSize={px(8)} fontStyle="italic" fontFamily={serif} fill="#4d6f80" textAnchor="middle" opacity={0.85}>
+              <SvgText key={`lk${l.name}`} x={l.label[0]} y={l.label[1] + px(3)} fontSize={px(8.5)} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle">
                 {l.name}
               </SvgText>
             ) : null,
@@ -302,7 +448,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {!charted
         ? UNCHARTED_LABELS.map(([x, y], i) =>
             visible([x, y, x, y]) ? (
-              <SvgText key={`un${i}`} x={x} y={y} fontSize={px(15)} fontStyle="italic" fontFamily={serif} fill="#8d7f5c" textAnchor="middle" letterSpacing={px(2)}>
+              <SvgText key={`un${i}`} x={x} y={y} fontSize={px(15)} fontFamily={st.font.italic} fill={st.far.label} textAnchor="middle" letterSpacing={px(2)}>
                 Uncharted lands
               </SvgText>
             ) : null,
@@ -315,43 +461,122 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             if (screen < 13) return null;
             const fs = Math.max(9, Math.min(14, screen * 0.42));
             const name = REGION[r.id].name;
+            const common = { x: r.label[0], y: r.label[1] + px(fs * 0.35), fontSize: px(fs), fontFamily: st.font.region, fontWeight: st.font.regionWeight, textAnchor: 'middle' as const, letterSpacing: px(fs * 0.04) };
             return (
               <G key={`l${r.id}`}>
-                <SvgText x={r.label[0]} y={r.label[1] + px(fs * 0.35)} fontSize={px(fs)} fontFamily={serif} textAnchor="middle" stroke="rgba(243,234,211,0.85)" strokeWidth={px(2.4)} fill="none">
+                <SvgText {...common} stroke={st.regionLabel.halo} strokeWidth={px(2.4)} strokeLinejoin="round" fill="none">
                   {name}
                 </SvgText>
-                <SvgText x={r.label[0]} y={r.label[1] + px(fs * 0.35)} fontSize={px(fs)} fontFamily={serif} textAnchor="middle" fill="#2a2118">
+                <SvgText {...common} fill={st.regionLabel.fill}>
                   {name}
                 </SvgText>
               </G>
             );
           })
-        : placeLabels(labels, k).map(l => {
-            const def = NATION[l.nation];
-            if (!def || (def.native && !charted)) return null;
-            const fs = l.fs;
-            if (!visible([l.x, l.y, l.x, l.y])) return null;
-            const text = def.name.toUpperCase();
-            return (
-              <G key={`nl${l.nation}`}>
-                <SvgText x={l.x} y={l.y} fontSize={px(fs)} fontFamily={serif} fontWeight="700" letterSpacing={px(fs * 0.12)} textAnchor="middle" stroke="rgba(243,234,211,0.75)" strokeWidth={px(2.6)} fill="none">
-                  {text}
-                </SvgText>
-                <SvgText x={l.x} y={l.y} fontSize={px(fs)} fontFamily={serif} fontWeight="700" letterSpacing={px(fs * 0.12)} textAnchor="middle" fill="#2a2118">
-                  {text}
-                </SvgText>
-              </G>
-            );
-          })}
+        : st.nationLabel.curved
+          ? names.map(n => {
+              const common = { fontSize: n.fs, fontFamily: st.font.nation, fontWeight: st.font.nationWeight, letterSpacing: n.fs * st.nationLabel.spacing, textAnchor: 'middle' as const };
+              return (
+                <G key={`nl${n.nation}`}>
+                  <SvgText {...common} stroke={st.nationLabel.halo} strokeWidth={Math.max(px(2.2), n.fs * 0.12)} strokeLinejoin="round" fill="none">
+                    <TextPath href={`#nm_${n.nation}`} startOffset="50%">
+                      {n.text}
+                    </TextPath>
+                  </SvgText>
+                  <SvgText {...common} fill={st.nationLabel.fill}>
+                    <TextPath href={`#nm_${n.nation}`} startOffset="50%">
+                      {n.text}
+                    </TextPath>
+                  </SvgText>
+                </G>
+              );
+            })
+          : placeLabels(labels, k, st).map(l => {
+              const def = NATION[l.nation];
+              if (!def || (def.native && !charted)) return null;
+              if (!visible([l.x, l.y, l.x, l.y])) return null;
+              const text = def.name.toUpperCase();
+              const common = { x: l.x, y: l.y, fontSize: px(l.fs), fontFamily: st.font.nation, fontWeight: st.font.nationWeight, letterSpacing: px(l.fs * st.nationLabel.spacing), textAnchor: 'middle' as const };
+              return (
+                <G key={`nl${l.nation}`}>
+                  <SvgText {...common} stroke={st.nationLabel.halo} strokeWidth={px(2.6)} strokeLinejoin="round" fill="none">
+                    {text}
+                  </SvgText>
+                  <SvgText {...common} fill={st.nationLabel.fill}>
+                    {text}
+                  </SvgText>
+                </G>
+              );
+            })}
     </Svg>
   );
 });
 
+/** Fine diagonal hatching, for wastes and the lands beyond the map. */
+function Hatch({ id, step, color, width }: { id: string; step: number; color: string; width: number }) {
+  return (
+    <Pattern id={id} patternUnits="userSpaceOnUse" width={step} height={step}>
+      <Line x1={0} y1={step} x2={step} y2={0} stroke={color} strokeWidth={width} />
+    </Pattern>
+  );
+}
+
 /** Where "Uncharted lands" is written across the Americas before they are found. */
 const UNCHARTED_LABELS: [number, number][] = ['ohio', 'maranhao', 'cuba'].map(id => MAP_REGION[id].label as [number, number]);
 
-/** Biggest nations first; skip a name that would overlap one already placed. */
-function placeLabels(labels: ReturnType<typeof nationLabels>, k: number) {
+interface PlacedName {
+  nation: string;
+  text: string;
+  fs: number; // map units
+  d: string; // the path the name is written along
+}
+
+/**
+ * Curved nation names. Each is as big as its land allows (along the spine, and no taller than the land is wide),
+ * up to a limit on screen; biggest nations first, and a name that would run into one already placed is left out.
+ */
+function placeNames(arcs: NationArc[], k: number, st: MapStyle, charted: boolean, visible: (b: number[]) => boolean): PlacedName[] {
+  const placed: { x: number; y: number; r: number }[] = [];
+  const out: PlacedName[] = [];
+  for (const a of [...arcs].sort((p, q) => q.area - p.area)) {
+    const def = NATION[a.nation];
+    if (!def || (def.native && !charted)) continue;
+    const text = def.name.toUpperCase();
+    const ems = text.length * (st.nationLabel.em + st.nationLabel.spacing); // the name's width in font sizes
+    const fs = Math.min(a.thickness * 0.6, (a.length * 0.95) / ems, 30 / k);
+    if (fs * k < 8) continue;
+    const [A, Cc, B] = a.curve;
+    const at = (q: number): [number, number] => [(1 - q) * (1 - q) * A[0] + 2 * (1 - q) * q * Cc[0] + q * q * B[0], (1 - q) * (1 - q) * A[1] + 2 * (1 - q) * q * Cc[1] + q * q * B[1]];
+    // Discs along the stretch of the curve the letters cover.
+    const half = Math.min(0.5, (fs * ems) / a.length / 2);
+    const steps = Math.max(2, Math.ceil((fs * ems) / (fs * 0.8)));
+    const discs: { x: number; y: number; r: number }[] = [];
+    for (let i = 0; i <= steps; i++) {
+      const [x, y] = at(0.5 - half + (2 * half * i) / steps);
+      discs.push({ x, y, r: fs * 0.45 });
+    }
+    if (!discs.some(c => visible([c.x, c.y, c.x, c.y]))) continue;
+    if (discs.some(c => placed.some(p => (c.x - p.x) ** 2 + (c.y - p.y) ** 2 < (c.r + p.r) ** 2))) continue;
+    placed.push(...discs);
+    // Lengthen the curve a little at both ends (so no letter falls off it) and lower it so the capitals sit
+    // centred on the spine rather than standing on it.
+    const blossom = (u: number, v: number): [number, number] => [
+      (1 - u) * (1 - v) * A[0] + ((1 - u) * v + u * (1 - v)) * Cc[0] + u * v * B[0],
+      (1 - u) * (1 - v) * A[1] + ((1 - u) * v + u * (1 - v)) * Cc[1] + u * v * B[1],
+    ];
+    const len = Math.hypot(B[0] - A[0], B[1] - A[1]) || 1;
+    const drop = fs * 0.36;
+    const nx = (-(B[1] - A[1]) / len) * drop;
+    const ny = ((B[0] - A[0]) / len) * drop;
+    const r1 = (v: number) => Math.round(v * 10) / 10;
+    const [p0, p1, p2] = [blossom(-0.3, -0.3), blossom(-0.3, 1.3), blossom(1.3, 1.3)].map(([x, y]) => `${r1(x + nx)} ${r1(y + ny)}`);
+    out.push({ nation: a.nation, text, fs, d: `M${p0}Q${p1} ${p2}` });
+  }
+  return out;
+}
+
+/** Straight names (the Flat style): biggest nations first; skip a name that would overlap one already placed. */
+function placeLabels(labels: ReturnType<typeof nationLabels>, k: number, st: MapStyle) {
   const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
   const out: ((typeof labels)[number] & { fs: number })[] = [];
   for (const l of [...labels].sort((a, b) => b.area - a.area)) {
@@ -359,7 +584,7 @@ function placeLabels(labels: ReturnType<typeof nationLabels>, k: number) {
     if (!def) continue;
     const fs = Math.max(8, Math.min(18, l.size * k * 0.8));
     if (l.size * k < 7) continue;
-    const w = (def.name.length * fs * 0.78 + 6) / k;
+    const w = (def.name.length * fs * (st.nationLabel.em + st.nationLabel.spacing) + 6) / k;
     const h = (fs * 1.2) / k;
     const box = { x0: l.x - w / 2, y0: l.y - h, x1: l.x + w / 2, y1: l.y + h * 0.2 };
     if (placed.some(p => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0)) continue;

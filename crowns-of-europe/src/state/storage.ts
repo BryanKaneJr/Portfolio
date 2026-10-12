@@ -91,6 +91,7 @@ export async function recordAchievements(ids: string[]): Promise<void> {
 export interface Prefs {
   hintsSeen: string[];
   speed: number;
+  mapStyle?: string;
 }
 const PREFS = 'coe.prefs';
 export async function loadPrefs(): Promise<Prefs> {

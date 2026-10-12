@@ -7,11 +7,14 @@ import { advanceDay } from '../sim/tick';
 import { invalidateMods } from '../sim/queries';
 import type { GameState, PauseReason } from '../sim/types';
 import { dateOf } from '../sim/util';
-import { recordAchievements, saveGame } from './storage';
+import { loadPrefs, recordAchievements, saveGame, savePrefs } from './storage';
 import type { Result } from '../sim/commands';
 import * as commands from '../sim/commands';
 import { MAP_REGION, MAP_SEA } from '../sim/content';
 
+/** How the map is painted (src/ui/map/styles.ts). A device preference, not part of the saved game. */
+export type MapStyleId = 'atlas' | 'parchment' | 'flat';
+export const MAP_STYLE_IDS: MapStyleId[] = ['atlas', 'parchment', 'flat'];
 export type MapMode = 'political' | 'terrain' | 'development' | 'faith' | 'diplomatic' | 'threat' | 'goods' | 'science';
 export type Selection =
   | { kind: 'region'; id: string }
@@ -47,6 +50,7 @@ class GameStore {
   mapVersion = 0;
   selection: Selection = null;
   mapMode: MapMode = 'political';
+  mapStyle: MapStyleId = 'atlas';
   overlay: Overlay = null;
   speed = 1;
   paused = true;
@@ -61,6 +65,17 @@ class GameStore {
   private carry = 0;
   private toastSeq = 0;
   private lastSavedYear = 0;
+
+  constructor() {
+    loadPrefs()
+      .then(p => {
+        if (MAP_STYLE_IDS.includes(p.mapStyle as MapStyleId) && p.mapStyle !== this.mapStyle) {
+          this.mapStyle = p.mapStyle as MapStyleId;
+          this.emit(true);
+        }
+      })
+      .catch(() => {});
+  }
 
   subscribe = (fn: () => void) => {
     this.listeners.add(fn);
@@ -126,6 +141,13 @@ class GameStore {
   setMapMode(m: MapMode) {
     this.mapMode = m;
     this.emit(true);
+  }
+  setMapStyle(id: MapStyleId) {
+    this.mapStyle = id;
+    this.emit(true);
+    loadPrefs()
+      .then(p => savePrefs({ ...p, mapStyle: id }))
+      .catch(() => {});
   }
   open(o: Overlay) {
     this.overlay = o;

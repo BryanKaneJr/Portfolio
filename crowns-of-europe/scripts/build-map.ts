@@ -573,9 +573,129 @@ for (const [a, b] of seaLinks.remove) {
 }
 for (const s of seaOut) (s as any).neighbors = [...(seaNeighbors.get(s.id) ?? [])].sort();
 
+/** Drop the stretches of a line that run along an edge of a box: where land is cut off there, it is no coast. */
+function offEdges(lines: Pt[][], box: [number, number, number, number]): Pt[][] {
+  const [x0, y0, x1, y1] = box;
+  const onEdge = (a: Pt, b: Pt) =>
+    (Math.abs(a[0] - x0) < 0.6 && Math.abs(b[0] - x0) < 0.6) ||
+    (Math.abs(a[0] - x1) < 0.6 && Math.abs(b[0] - x1) < 0.6) ||
+    (Math.abs(a[1] - y0) < 0.6 && Math.abs(b[1] - y0) < 0.6) ||
+    (Math.abs(a[1] - y1) < 0.6 && Math.abs(b[1] - y1) < 0.6);
+  const out: Pt[][] = [];
+  for (const line of lines) {
+    let run: Pt[] = [line[0]];
+    for (let i = 1; i < line.length; i++) {
+      if (onEdge(line[i - 1], line[i])) {
+        if (run.length > 1) out.push(run);
+        run = [line[i]];
+      } else run.push(line[i]);
+    }
+    if (run.length > 1) out.push(run);
+  }
+  return out;
+}
 const coastPath = linePath(
-  [...arcUsers.entries()].filter(([, u]) => u.size === 1).map(([k]) => arcCoords(k)),
+  offEdges(
+    [...arcUsers.entries()].filter(([, u]) => u.size === 1).map(([k]) => arcCoords(k)),
+    [0, 0, WIDTH, HEIGHT],
+  ),
 );
+
+// ---------- the lands beyond the known world ----------
+// Drawn for looks only (an outline and old-map shading), never part of the game: from the Pacific coast to
+// India and from the high Arctic to the far south, with the play window itself cut out. Wide margins, because a
+// phone held upright shows far more height than the map has when zoomed all the way out.
+const FAR_X = 800;
+const FAR_Y = 1400;
+const farWindow: Polygon = [
+  [
+    [-FAR_X, -FAR_Y],
+    [WIDTH + FAR_X, -FAR_Y],
+    [WIDTH + FAR_X, HEIGHT + FAR_Y],
+    [-FAR_X, HEIGHT + FAR_Y],
+    [-FAR_X, -FAR_Y],
+  ],
+];
+const farProjection = geoMercator()
+  .scale(scale)
+  .translate([-left * scale, -top * scale])
+  .clipExtent([
+    [-FAR_X - 1, -FAR_Y - 1],
+    [WIDTH + FAR_X + 1, HEIGHT + FAR_Y + 1],
+  ])
+  .precision(0.5);
+/** Douglas-Peucker: far lands need far fewer points than the land people fight over. */
+function simplifyRing(r: Pt[], tol: number): Pt[] {
+  if (r.length < 5) return r;
+  const keep = new Uint8Array(r.length);
+  keep[0] = keep[r.length - 1] = 1;
+  const stack: [number, number][] = [[0, r.length - 1]];
+  while (stack.length) {
+    const [a, b] = stack.pop()!;
+    let worst = -1;
+    let wd = tol;
+    for (let i = a + 1; i < b; i++) {
+      const d = distToSegment(r[i], r[a], r[b]);
+      if (d > wd) {
+        wd = d;
+        worst = i;
+      }
+    }
+    if (worst > 0) {
+      keep[worst] = 1;
+      stack.push([a, worst], [worst, b]);
+    }
+  }
+  return r.filter((_, i) => keep[i]);
+}
+const farRings: Polygon[] = [];
+for (const g of landGeoms) {
+  const polys: LonLat[][][] = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  for (const poly of polys) {
+    let cur: Pt[] = [];
+    const rings: Ring[] = [];
+    const recorder = {
+      moveTo(x: number, y: number) {
+        cur = [[x, y]];
+      },
+      lineTo(x: number, y: number) {
+        cur.push([x, y]);
+      },
+      closePath() {
+        const s = simplifyRing(cur, 0.9);
+        if (s.length >= 3 && Math.abs(ringArea([...s, s[0]] as Ring)) > 6) rings.push([...s, s[0]] as Ring);
+        cur = [];
+      },
+      arc() {},
+      rect() {},
+    };
+    geoPath(farProjection, recorder as any)({ type: 'Polygon', coordinates: poly } as any);
+    if (rings.length) farRings.push(...(polygonClipping.xor as (...g: Polygon[]) => MultiPolygon)(...rings.map(r => [r] as Polygon)));
+  }
+}
+const farLand: MultiPolygon = polygonClipping.difference(polygonClipping.intersection(unionAll(farRings), farWindow), windowPoly);
+// One path per 600-unit cell of the far margins (by where each piece sits), so the map draws only what is on screen.
+const farCells = new Map<string, Polygon[]>();
+for (const poly of farLand) {
+  const [x0, y0, x1, y1] = bboxOf(poly);
+  const key = `${Math.floor((x0 + x1) / 2 / 600)},${Math.floor((y0 + y1) / 2 / 600)}`;
+  farCells.set(key, [...(farCells.get(key) ?? []), poly]);
+}
+const farOut = [...farCells.values()].map(polys => {
+  const boxes = polys.map(bboxOf);
+  const rings = polys.flatMap(poly => poly.map(r => r as Pt[]));
+  return {
+    path: pathOf(polys as any),
+    // The real coast only: not the cut along the play window, nor the outer edge of the drawing.
+    coast: linePath(offEdges(offEdges(rings, [0, 0, WIDTH, HEIGHT]), [-FAR_X, -FAR_Y, WIDTH + FAR_X, HEIGHT + FAR_Y])),
+    bbox: [Math.min(...boxes.map(b => b[0])), Math.min(...boxes.map(b => b[1])), Math.max(...boxes.map(b => b[2])), Math.max(...boxes.map(b => b[3]))].map(v => round(v)),
+  };
+});
+const farLabels = ((seaData as any).farLands ?? []).map((f: { name: string; at: LonLat; sea?: boolean }) => {
+  const [x, y] = toPx(f.at);
+  return { name: f.name, x: round(x), y: round(y), ...(f.sea ? { sea: true } : {}) };
+});
+console.log(`far lands: ${farLand.length} pieces in ${farOut.length} cells`);
 
 const out = {
   width: WIDTH,
@@ -590,6 +710,9 @@ const out = {
     return { name: l.name, label: [round(c[0]), round(c[1])] };
   }),
   coast: coastPath,
+  far: farOut,
+  farLabels,
+  margin: [FAR_X, FAR_Y],
 };
 fs.writeFileSync(path.join(ROOT, 'src/content/map.json'), JSON.stringify(out));
 const missing = regions.filter(r => !regionOut.find(o => o.id === r.id)).map(r => r.id);

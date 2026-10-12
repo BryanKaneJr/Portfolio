@@ -28,8 +28,9 @@ a Mercator map, light tutorial, no audio yet).
 - **Every number is explainable.** If you add a number to the UI, make it tappable or give it a line that says
   why (see the opinion, unrest, income and war score breakdowns).
 - **Offline.** No network calls anywhere in `src/`.
-- The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes), then
-  `npm run map:build`. Never hand-edit `map.json`. The builder warns about seeds in the water; fix those.
+- The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
+  the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
+  `assets/map/` or `ui/map/reliefTiles.ts`. The builder warns about seeds in the water; fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
   (`science.ts`, `advances.json`). Gate new unlocks with `hasAdvance`/`unlocked()`, never with the year.
@@ -50,13 +51,13 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, colors, geometry, tap, MiniMap), game/ (Bars, Sheet, RegionSheet, ColonySheets,
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles), game/ (Bars, Sheet, RegionSheet, ColonySheets,
                UnitSheets, NationSheet, Cards, Panels, Menu, Science, Help), components/ (kit, Flag, Icon), describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
+scripts/       build-map, build-relief, validate-content, make-icons, screens + screens-war + screens-newworld (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening)
-tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, events, soak (Jest, node)
+tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, events, soak (Jest, node)
 ```
 
 ## Commands
@@ -71,6 +72,8 @@ npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Eur
 npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npm run map:build           # after editing regions.json / seas.json
+npm run relief:build        # then: hill shading, sea depths and water lines (assets/map/; fetches elevation
+                            # tiles once into scripts/data/terrain-cache, git-ignored)
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for
 native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compiler lint rejects `.value =`).
@@ -81,7 +84,18 @@ The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Eur
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
 rendered 1.6× the screen size so short pans never show an edge. Units are plain RN views on top. Taps are
 hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, then seas. Strokes and text sizes
-are divided by `k` so they stay constant on screen.
+are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
+zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
+
+How it is painted comes from a style (`ui/map/styles.ts`: Atlas, the default; Parchment; Flat), chosen in
+Settings or the map-mode menu and saved as a preference. Bottom to top: sea, baked water lines (Atlas and
+Parchment), the faded lands beyond the map (`MAP.far`, outside the play window: drawn, never playable), wastes,
+regions (one path per colour), occupation stripes, the relief image (hill shading and sea depth as black or white
+with alpha, over every colour: the soft world image when zoomed out, the sharp window image plus soft margins
+closer in), province lines (fading out as you zoom out), rivers, nation borders (halo + ink, one path), coasts,
+selection, then names (nation names curved along `nationArcs`, region names when zoomed in). Keep each redraw
+cheap: whole-map lines are single paths, coasts are culled by cell (`COAST_CELLS`), and anything that would mean
+stroking every coastline several times (the water lines) is baked into an image by `scripts/build-relief.ts`.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

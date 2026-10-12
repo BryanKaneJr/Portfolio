@@ -13,6 +13,7 @@
     "test": "jest",
     "validate": "tsx scripts/validate-content.ts && tsx scripts/check-terms.ts",
     "map:build": "tsx scripts/build-map.ts",
+    "relief:build": "tsx scripts/build-relief.ts",
     "icons": "node scripts/make-icons.mjs",
     "soak": "tsx scripts/dev/soak.ts",
     "export:web": "expo export --platform web",
@@ -21,9 +22,12 @@
     "check": "npm run typecheck && npm run lint && npm run validate && npm test"
   },
   "dependencies": {
+    "@expo-google-fonts/cinzel": "^0.4.2",
+    "@expo-google-fonts/im-fell-english": "^0.4.0",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.27",
     "expo-constants": "~57.0.21",
+    "expo-font": "~57.0.4",
     "expo-haptics": "~57.0.3",
     "expo-linking": "~57.0.12",
     "expo-router": "~57.0.25",
@@ -56,6 +60,7 @@
     "eslint-config-expo": "~57.0.2",
     "jest": "^29.7.0",
     "playwright": "^1.56.1",
+    "pngjs": "^3.4.0",
     "polygon-clipping": "^0.15.7",
     "polylabel": "^2.1.0",
     "prettier": "^3.9.9",

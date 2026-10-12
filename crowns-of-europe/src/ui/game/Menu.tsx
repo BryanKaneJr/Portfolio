@@ -46,6 +46,7 @@ import { Bar, Btn, Card, Empty, IconBtn, Line, Pill, Row, Section, Stat, T, Tabs
 import { C, fmt, kmen, sans, signed } from '../theme';
 import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
+import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
@@ -501,6 +502,14 @@ function Settings() {
         )}
         <T v="tiny" style={{ marginTop: 4 }}>The game also autosaves every 1 January.</T>
       </Section>
+      <Section title="Map look">
+        <Row gap={6}>
+          {MAP_STYLE_LIST.map(ms => (
+            <Btn key={ms.id} small style={{ flex: 1 }} tone={ms.id === st.mapStyle ? 'primary' : 'secondary'} label={ms.label} onPress={() => st.setMapStyle(ms.id)} />
+          ))}
+        </Row>
+        <T v="tiny" style={{ marginTop: 4 }}>{MAP_STYLES[st.mapStyle].help}</T>
+      </Section>
       <Section title="Pause automatically when…">
         {(Object.keys(PAUSE_LABEL) as PauseReason[])
           .filter(k => k !== 'gameOver')
@@ -533,7 +542,7 @@ function Settings() {
         />
       </Section>
       <T v="tiny" style={{ marginTop: 16 }}>
-        Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}. Map data © Natural Earth (public domain). History, nations and rulers are public domain.
+        Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}. Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain). Map lettering: Cinzel and IM Fell English (SIL Open Font License). History, nations and rulers are public domain.
       </T>
     </View>
   );
