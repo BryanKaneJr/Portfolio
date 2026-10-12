@@ -78,8 +78,9 @@ The two finest levels, seen close up, are thinned so single shapes stay apart:
 
 At every level, no tree is drawn inside a peak's silhouette.
 
-`vectors.py` leaves out minor rivers (Natural Earth scalerank 10 and up) shorter than 30 map units (about 130 km),
-unless they touch a lake. The close-up views keep the long rivers and every lake's inflow and outflow, without the
+`vectors.py` sets each river's width from its Natural Earth rank: the great rivers clearly heavier than tributaries.
+Natural Earth's own stroke weight is missing in the main file and unreliable in the European supplement. It leaves out
+minor rivers (scalerank 10 and up) shorter than 30 map units (about 130 km), unless they touch a lake. The close-up views keep the long rivers and every lake's inflow and outflow, without the
 short stubs.
 
 ### Source resolution against need

@@ -395,7 +395,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const peaks = mountainAlpha > 0 ? mountainsIn(vx, vy, vx + vw, vy + vh) : [];
   // Illustrated draws strong borders for close up; zoomed out (many small realms in view) they ease off a little, so
   // they don't become a dark web.
-  const borderEase = st.terrain ? 0.78 + 0.22 * Math.max(0, Math.min(1, (k - 0.7) / 0.6)) : 1;
+  const easeIn = Math.max(0, Math.min(1, (k - 0.55) / 0.65));
+  const borderEase = st.terrain ? 0.72 + 0.28 * easeIn : 1;
+  const casingEase = st.terrain ? 0.15 + 0.85 * easeIn : 1;
+  // The shore band too: narrower and fainter far out, where every small island would get its own ring.
+  const shoreEase = 0.45 + 0.55 * Math.max(0, Math.min(1, (k - 0.4) / 0.8));
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -507,9 +511,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       ))}
       {/* Illustrated: the water darkens a little along every coast, so the shore stands out from pale land */}
       {tr && coast && landD ? (
-        <G clipPath="url(#water)">
+        <G clipPath="url(#water)" opacity={0.55 + 0.45 * Math.min(1, (shoreEase - 0.45) / 0.55)}>
           {tr.shore.map(sh => (
-            <Path key={sh.width} d={coast} fill="none" stroke={sh.color} strokeWidth={px(sh.width)} strokeLinecap="round" strokeLinejoin="round" />
+            <Path key={sh.width} d={coast} fill="none" stroke={sh.color} strokeWidth={px(sh.width * shoreEase)} strokeLinecap="round" strokeLinejoin="round" />
           ))}
         </G>
       ) : null}
@@ -575,7 +579,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           })
         : null}
       {/* Rivers and lake shores over the illustrated terrain (scripts/terrain/vectors.py), crisp at any zoom */}
-      {lakePaths.length ? <Path d={lakePaths.join('')} fill="none" stroke={tr!.lake} strokeWidth={px(0.55)} strokeLinejoin="round" /> : null}
+      {lakePaths.length ? <Path d={lakePaths.join('')} fill={tr!.lakeFill} fillRule="evenodd" stroke={tr!.lake} strokeWidth={px(0.55)} strokeLinejoin="round" /> : null}
       {[...riverPaths].map(([wd, d]) => (
         <Path key={`rv${wd}`} d={d} fill="none" stroke={tr!.river} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" />
       ))}
@@ -600,7 +604,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {lines.river && st.river.width > 0 && !allTerrain ? (
         <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} clipPath={terrainOn ? 'url(#tOut)' : undefined} />
       ) : null}
-      {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth * borderEase)} strokeLinecap="round" strokeLinejoin="round" opacity={borderEase} /> : null}
+      {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth * borderEase)} strokeLinecap="round" strokeLinejoin="round" opacity={casingEase} /> : null}
       {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width * borderEase)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {/* The known world fading into the parchment at the window's edges */}
       {edgeNear ? (

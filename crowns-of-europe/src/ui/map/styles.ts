@@ -43,7 +43,7 @@ export interface MapStyle {
    * colours are laid over them at `fill` opacity, with rivers and lake shores on top. Elsewhere the same colours lie
    * over a plain land of `base`, with the style's hill shading, so the two meet without a seam of colour. `shore`
    * darkens the water along every coast (strokes of the coastline, widest first, cut to the water). */
-  terrain: { fill: number; base: string; river: string; lake: string; shore: { color: string; width: number }[] } | null;
+  terrain: { fill: number; base: string; river: string; lake: string; lakeFill: string; shore: { color: string; width: number }[] } | null;
 }
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. (The mountain
@@ -112,7 +112,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     help: 'An illustrated atlas drawn from real elevation, forests and rivers (central Europe so far), the realms\' colours washed over it.',
     sea: '#87a6ba', // the tiles' sea (EDGE_MATCH in scripts/terrain/config.py), so the region's edge doesn't show on the water
     seaZone: { color: 'rgba(52,78,88,0.16)', dash: null },
-    seaLabel: 'rgba(52,78,88,0.72)',
+    seaLabel: 'rgba(32,52,64,0.86)',
     waterLines: null,
     relief: 0.55,
     landColour: 0.2,
@@ -141,11 +141,12 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     terrain: {
       fill: 0.5,
       base: '#d9d0aa',
-      river: 'rgba(58,98,118,0.9)',
-      lake: 'rgba(58,82,92,0.75)',
+      river: 'rgba(46,86,110,0.92)',
+      lake: 'rgba(46,72,88,0.75)',
+      lakeFill: 'rgba(128,162,186,0.72)', // over the realms' colours, so a lake reads as water under any of them
       shore: [
         { color: 'rgba(38,66,84,0.1)', width: 9 },
-        { color: 'rgba(38,66,84,0.12)', width: 4 },
+        { color: 'rgba(38,66,84,0.15)', width: 4 },
       ],
     },
   },

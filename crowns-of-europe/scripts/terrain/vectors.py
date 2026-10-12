@@ -27,6 +27,14 @@ MINOR_MIN_LENGTH = 30  # map units (about 130 km): shorter minor rivers are left
 LAKE_TOUCH = 0.5  # map units
 
 
+def river_width(p):
+    """Stroke width (points, before the zoom's widening) from the river's Natural Earth rank: the great rivers (the
+    Danube, Rhine, Po, Vistula) clearly heavier than their tributaries. Natural Earth's stroke weight is missing in the
+    main file and unreliable in the European supplement (a few small rivers there are drawn as heavy as the Danube)."""
+    sr = float(p.get("scalerank") or 10)
+    return round(max(0.55, min(1.8, 2.0 - 0.13 * sr)), 2)
+
+
 def parse_rings(d):
     rings, cur = [], []
     for cmd, args in re.findall(r"([MLZ])([^MLZ]*)", d):
@@ -140,8 +148,7 @@ def main():
             minor = float(p.get("scalerank") or 0) >= MINOR_RANK and g.length < MINOR_MIN_LENGTH
             if minor and (lake_geom is None or g.distance(lake_geom) > LAKE_TOUCH):
                 continue
-            w = float(p.get("strokeweig") or 0.4)
-            rivers.append({"d": d, "w": round(min(2.2, 0.45 + w * 1.1), 2), "z": float(p.get("min_zoom") or 6), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})
+            rivers.append({"d": d, "w": river_width(p), "z": float(p.get("min_zoom") or 6), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})
     rivers.sort(key=lambda r: (r["z"], -r["w"]))
     print(f"{len(rivers)} rivers, {len(lakes)} lakes")
     lines = [

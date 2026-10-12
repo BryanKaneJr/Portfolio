@@ -52,7 +52,7 @@ DEFAULT_LAND = np.array([226, 216, 178], np.float32)
 UPLAND = np.array([212, 196, 160], np.float32)
 ROCK = np.array([198, 188, 170], np.float32)
 # Water: a soft blue-grey, deeper than the pale land so coasts read at a glance, never the navy of a modern map.
-SEA_SHALLOW = np.array([164, 192, 206], np.float32)
+SEA_SHALLOW = np.array([142, 172, 192], np.float32)  # near the style's sea, so coastal shallows are never paler than the land beside them
 SEA_DEEP = np.array([122, 154, 178], np.float32)
 LAKE = np.array([152, 184, 200], np.float32)
 SHADOW = np.array([96, 78, 58], np.float32)
