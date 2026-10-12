@@ -230,8 +230,11 @@ here.
       they feed a lake.
     - Borders between realms are near-black with a faint light casing, so they hold against forest and mountain ink;
       they ease off a little when zoomed out. Province lines are a darker warm sepia.
-    - The water is a deeper, bluer grey (#87a6ba), with a soft darker band along every shore, so coasts stand apart
-      from pale or teal coastal realms without going back to navy.
+    - The water is a deeper, bluer grey (#87a6ba), darker over deep water and never paler in the shallows (the same
+      rule inside the tiles and out, so the region's edge doesn't show at sea). A soft darker band runs along every
+      shore, so coasts stand apart from pale or teal coastal realms without going back to navy.
+    - Rivers are drawn by importance (the Danube, Rhine and Po heavier, smoothed) and ease off far out. Lakes are
+      filled as water over the realms' colours, including those Natural Earth lacks (taken from WorldCover).
     - On the web the moving map has its own compositor layer, so panning never repaints the map.
 
 ## Key numbers (all in `src/sim/`)

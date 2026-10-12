@@ -134,7 +134,8 @@ region Atlas's own land overlays and drawn terrain are cut away (`tOut`); the ti
 the region's edge (keep `sea` and `relief` in step with `EDGE_MATCH` in `scripts/terrain/config.py`; a test checks).
 Its borders between realms carry a faint light casing (`nationBorder.halo`; `provinceBorder.halo` is there too) so
 they hold against the drawn terrain, easing off a little when zoomed out (`borderEase`). `terrain.shore` darkens the
-water along every coast: the coastline stroked, cut to the water. On the web the moving map view has its own
+water along every coast: the coastline stroked, cut to the water. Its sea is darkened over deep water only
+(`TERRAIN_SEA_SHADE`, the same shading the tiles are painted with). On the web the moving map view has its own
 compositor layer (`WEB_LAYER`), so a pan never repaints the SVG; `scripts/dev/pan-layers.mjs` measures what each
 layer costs.
 See `docs/terrain/`. Painted lays the realms' colours (translucent) over the

@@ -134,7 +134,7 @@ describe('tiles to draw', () => {
     const edge = sources.tiles.edge_match;
     expect(MAP_STYLES.illustrated.sea).toBe(edge.sea);
     expect(MAP_STYLES.illustrated.relief).toBe(edge.relief);
-    expect(edge.relief_image).toBe('assets/map/relief-sea.png');
+    expect(edge.relief_image).toBe('assets/map/terrain/sea-shade.png');
   });
 
   test('the level below the needed one covers the drawn area for pans, but not under the needed one once that is opaque', () => {

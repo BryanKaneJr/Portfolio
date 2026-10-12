@@ -91,7 +91,7 @@ WC = {
     "moss": 100,
 }
 
-# Outside the region the game paints the Illustrated style's sea as this colour under its baked depth shading
-# (relief_image at this opacity). Over the last band_units of the region the tiles fade their own sea into exactly
+# The Illustrated style's sea, inside the tiles and out: this colour under the depth shading (relief_image, the game's
+# baked sea depth with only its darkening kept, written by render.py) at this opacity. Over the last band_units of the region the tiles fade their own sea into exactly
 # that, so the region's edge doesn't show on the water. tests/terrain.test.ts checks these against styles.ts.
-EDGE_MATCH = {"sea": "#87a6ba", "relief": 0.55, "relief_image": "assets/map/relief-sea.png", "band_units": 24}
+EDGE_MATCH = {"sea": "#87a6ba", "relief": 0.55, "relief_image": "assets/map/terrain/sea-shade.png", "band_units": 24}

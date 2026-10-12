@@ -51,9 +51,7 @@ COVER_COLOURS = {
 DEFAULT_LAND = np.array([226, 216, 178], np.float32)
 UPLAND = np.array([212, 196, 160], np.float32)
 ROCK = np.array([198, 188, 170], np.float32)
-# Water: a soft blue-grey, deeper than the pale land so coasts read at a glance, never the navy of a modern map.
-SEA_SHALLOW = np.array([142, 172, 192], np.float32)  # near the style's sea, so coastal shallows are never paler than the land beside them
-SEA_DEEP = np.array([122, 154, 178], np.float32)
+# Water: the sea comes from EDGE_MATCH (the style's own sea colour and depth shading), lakes from LAKE.
 LAKE = np.array([152, 184, 200], np.float32)
 SHADOW = np.array([96, 78, 58], np.float32)
 FOREST_WASH = np.array([150, 160, 106], np.float32)
@@ -202,10 +200,10 @@ def paint_base(F, box, level, gx0, gy0):
     water = np.clip(np.maximum(F["water"] * inland, F["lake"]), 0, 1)
     rgb = rgb + (LAKE - rgb) * (0.9 * smoothstep(0.35, 0.75, water))[..., None]
     # Sea: by depth (the game says sea where ETOPO has land: shallow), lightly shaded by the sea floor.
-    depth = np.where(F["elev"] < 0, -F["elev"], 5.0)
-    depth = ndimage.gaussian_filter(depth, 1.5)
-    t = np.clip(np.log1p(depth) / math.log1p(3500), 0, 1)
-    sea = SEA_SHALLOW + (SEA_DEEP - SEA_SHALLOW) * t[..., None]
+    # Sea: one rule inside the tiles and out (the app draws the same picture past the region): the style's sea colour,
+    # darkened over deep water by the game's own depth shading, never lightened in the shallows (so a lagoon is never
+    # paler than the land beside it). Computed on a coarse grid and enlarged: the shading is smooth.
+    sea = sea_colour(box, ppu, h, w)
     # Paper grain, the same on every tile: two octaves of noise on global pixel positions.
     grain = 0.5 * value_noise(gx0, gy0, w, h, 3.0, 11) + 0.5 * value_noise(gx0, gy0, w, h, 23.0, 12)
     sea *= (0.955 + 0.06 * grain)[..., None]
@@ -230,6 +228,44 @@ def edge_weight(box, ppu, h, w):
 
 
 _OUTSIDE = {}
+
+
+def shade_image(soft=False):
+    """The depth shading the Illustrated style draws over its sea (TERRAIN_SEA_SHADE): the game's baked sea depth
+    (assets/map/relief-sea*.png, grey + alpha, white over shallows and black over deep water) with only the darkening
+    kept. Written next to the tiles by write_shade_images()."""
+    src = Image.open(ROOT / ("assets/map/relief-sea-soft.png" if soft else "assets/map/relief-sea.png")).convert("LA")
+    a = np.asarray(src, np.uint8)
+    alpha = np.where(a[..., 0] < 128, a[..., 1], 0).astype(np.uint8)
+    return np.stack([np.zeros_like(alpha), alpha], axis=-1)
+
+
+def write_shade_images():
+    for soft, name in ((False, "sea-shade.png"), (True, "sea-shade-soft.png")):
+        Image.fromarray(shade_image(soft), "LA").save(TILE_DIR / name, optimize=True)
+
+
+def sea_colour(box, ppu, h, w):
+    """The sea over a box: EDGE_MATCH's colour under the dark-only depth shading at EDGE_MATCH's opacity, as the app
+    draws it (bilinear over the whole map), sampled at up to 2 px per unit and enlarged."""
+    if not _OUTSIDE:
+        im = np.asarray(Image.open(ROOT / EDGE_MATCH["relief_image"]).convert("LA"), np.float32) / 255.0
+        _OUTSIDE["grey"], _OUTSIDE["alpha"] = im[..., 0], im[..., 1]
+        _OUTSIDE["base"] = np.array([int(EDGE_MATCH["sea"][i : i + 2], 16) for i in (1, 3, 5)], np.float32)
+    f = max(1, ppu // 2)
+    hc, wc = -(-h // f), -(-w // f)
+    ys = box[1] + (np.arange(hc) + 0.5) * f / ppu
+    xs = box[0] + (np.arange(wc) + 0.5) * f / ppu
+    grey, alpha = _OUTSIDE["grey"], _OUTSIDE["alpha"]
+    v = ys[:, None] * grey.shape[0] / mp.H - 0.5
+    u = xs[None, :] * grey.shape[1] / mp.W - 0.5
+    vv, uu = np.broadcast_arrays(v, u)
+    g = ndimage.map_coordinates(grey, [vv.ravel(), uu.ravel()], order=1, mode="nearest").reshape(hc, wc)
+    a = ndimage.map_coordinates(alpha, [vv.ravel(), uu.ravel()], order=1, mode="nearest").reshape(hc, wc) * EDGE_MATCH["relief"]
+    col = _OUTSIDE["base"][None, None, :] * (1 - a)[..., None] + (g * 255)[..., None] * a[..., None]
+    if f > 1:
+        col = np.stack([ndimage.zoom(col[..., i], f, order=1)[:h, :w] for i in range(3)], axis=-1)
+    return col.astype(np.float32)
 
 
 def outside_sea(sea, edge, box, ppu):
@@ -300,16 +336,16 @@ PEAK_PX = (14 * SYM, 36 * SYM)  # mountain width range, px
 # (PEAK_WIN x SYM px: fewer peaks, so the main ones stand out), and on high ground fewer trees and hachures again
 # (HIGH_THIN: the share dropped by 1600 m, easing in from 700 m), since mountain country is the busiest.
 SPREAD = [1.0, 1.0, 1.0, 1.18, 1.2]
-PEAK_WIN = [17, 17, 17, 21, 21]
-HIGH_THIN = [0.0, 0.0, 0.0, 0.35, 0.4]  # trees
+PEAK_WIN = [17, 17, 17, 20, 20]
+HIGH_THIN = [0.0, 0.0, 0.0, 0.28, 0.32]  # trees
 HIGH_THIN_HACH = [0.0, 0.0, 0.0, 0.2, 0.25]  # hachures (lighter, so high valleys keep some slope)
 # Peaks keep apart: none within PEAK_GAP x the wider glyph of a bigger one, so neighbouring bases overlap by at most
 # about a third (the densest crests, the Savoy ridge, the Swiss and Dinaric Alps, open up). 0: no limit.
-PEAK_GAP = [0.0, 0.0, 0.0, 0.62, 0.62]
+PEAK_GAP = [0.0, 0.0, 0.0, 0.56, 0.56]
 # Trees from this much forest cover up (fewer stray single trees in open farmland close up).
-TREE_FROM = [0.4, 0.4, 0.4, 0.42, 0.43]
+TREE_FROM = [0.4, 0.4, 0.4, 0.44, 0.47]
 # On high ground the fine relief is calmed by this share, so the gaps between peaks read as quiet ground.
-CALM_HIGH = [0.0, 0.0, 0.0, 0.2, 0.25]
+CALM_HIGH = [0.0, 0.0, 0.0, 0.3, 0.35]
 PEAK_RELIEF = [900, 800, 700, 600, 520]  # metres of relief within the glyph's reach for a summit to get a mountain
 
 
@@ -555,6 +591,8 @@ def write_index(levels):
         "}",
         f"export const TERRAIN_REGION = {{ x0: {REGION[0]}, y0: {REGION[1]}, x1: {REGION[2]}, y1: {REGION[3]} }};",
         f"export const TERRAIN_TILE_PX = {TILE};",
+        "/** The depth shading drawn over the Illustrated style's sea everywhere (the tiles paint the same): darkening only. */",
+        "export const TERRAIN_SEA_SHADE = { sharp: require('../../../assets/map/terrain/sea-shade.png'), soft: require('../../../assets/map/terrain/sea-shade-soft.png') };",
         "export const TERRAIN_LEVELS: TerrainLevel[] = [",
     ]
     for level, tiles in levels:
@@ -587,6 +625,7 @@ def main():
     a = ap.parse_args()
     data = Data()
     sprites = sym.TreeSprites()
+    write_shade_images()  # first: the tiles' sea is painted from it
     if a.preview:
         level = int(a.preview[0])
         box = tuple(float(v) for v in a.preview[1:5])

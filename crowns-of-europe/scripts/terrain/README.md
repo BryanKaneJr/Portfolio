@@ -78,9 +78,18 @@ The two finest levels, seen close up, are thinned so single shapes stay apart:
 
 At every level, no tree is drawn inside a peak's silhouette.
 
+The sea follows one rule inside the tiles and out. It is the style's sea colour under the game's baked sea depth, with
+only the darkening kept: deep water darker, shallows never paler than open sea. `render.py` writes that shading as
+`assets/map/terrain/sea-shade*.png`. The app draws it past the region, and the tiles paint the same, so no seam shows
+where they end. `EDGE_MATCH` in `config.py` holds the colour, the opacity and the picture, and a test keeps them in
+step with the style.
+
 `vectors.py` sets each river's width from its Natural Earth rank: the great rivers clearly heavier than tributaries.
 Natural Earth's own stroke weight is missing in the main file and unreliable in the European supplement. It leaves out
-minor rivers (scalerank 10 and up) shorter than 30 map units (about 130 km), unless they touch a lake. The close-up views keep the long rivers and every lake's inflow and outflow, without the
+minor rivers (scalerank 10 and up) shorter than 30 map units (about 130 km), unless they touch a lake. The great rivers
+are smoothed (two Chaikin passes), since drawn heavier their coarse 1:10m kinks would show. Lakes that Natural Earth
+lacks (Hallwil, Sempach...) are added from WorldCover's water, inland only, leaving out stretches of wide river (water
+that a river line runs along). All lakes are drawn filled over the realms' colours, so they read as water. The close-up views keep the long rivers and every lake's inflow and outflow, without the
 short stubs.
 
 ### Source resolution against need

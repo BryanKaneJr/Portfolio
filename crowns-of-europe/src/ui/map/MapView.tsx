@@ -25,7 +25,7 @@ import { onMapTap } from './tap';
 import { PAINTING } from './paintingTiles';
 import { terrainCache, terrainStats } from './terrainCache';
 import { decodedBytes, neighbours, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
-import { TERRAIN_LEVELS, TERRAIN_REGION } from './terrainTiles';
+import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_SEA_SHADE } from './terrainTiles';
 import { TERRAIN_LAKES, TERRAIN_RIVERS } from './terrainVectors';
 import { mountainsIn, terrainPaths } from './terrain';
 
@@ -398,8 +398,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const easeIn = Math.max(0, Math.min(1, (k - 0.55) / 0.65));
   const borderEase = st.terrain ? 0.72 + 0.28 * easeIn : 1;
   const casingEase = st.terrain ? 0.15 + 0.85 * easeIn : 1;
-  // The shore band too: narrower and fainter far out, where every small island would get its own ring.
+  // The shore band too: far out only a thin, even line of darker water (no wide band to ring every small island).
   const shoreEase = 0.45 + 0.55 * Math.max(0, Math.min(1, (k - 0.4) / 0.8));
+  const shoreWide = Math.max(0, Math.min(1, (k - 0.8) / 0.4));
+  // Far out the rivers fade a little, so they never read as a second set of borders.
+  const riverFade = 0.6 + 0.4 * Math.max(0, Math.min(1, (k - 0.5) / 0.7));
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -426,9 +429,16 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const lakePaths: string[] = [];
   if (terrainOn) {
     const z = webZoom(k, MAP_W / (MAP.projection.east - MAP.projection.west));
-    // Rivers thicken a little as you zoom in, up to about play zoom; closer in they stay put so they don't crowd.
+    // Rivers thicken a little as you zoom in, up to about play zoom; closer in they stay put so they don't crowd. The
+    // great rivers are capped by zoom, so far out and at play zoom they never outweigh the borders between realms (they
+    // reach their full width only close up).
     const widen = 0.75 + 0.14 * Math.max(0, Math.min(2, z - 4));
-    for (const r of TERRAIN_RIVERS) if (r.z <= z + 0.7 && visible(r.b)) riverPaths.set(r.w * widen, (riverPaths.get(r.w * widen) ?? '') + r.d);
+    const cap = k <= 1.7 ? 0.6 + 0.55 * Math.max(0, (k - 0.45) / 1.25) : Math.min(1.6, 1.15 + 0.45 * ((k - 1.7) / 1.5));
+    for (const r of TERRAIN_RIVERS) {
+      if (r.z > z + 0.7 || !visible(r.b)) continue;
+      const wd = Math.round(Math.min(r.w, cap) * widen * 100) / 100;
+      riverPaths.set(wd, (riverPaths.get(wd) ?? '') + r.d);
+    }
     for (const l of TERRAIN_LAKES) if (l.z <= z + 1.2 && visible(l.b)) lakePaths.push(l.d);
   }
   // Keep the tiles drawn and the ones a pan or zoom step would want next warm (terrainCache.ts); note what was drawn.
@@ -503,7 +513,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {tiles.map(t => (
         <SvgImage key={t.key} x={t.x} y={t.y} width={t.w} height={t.h} href={t.src} preserveAspectRatio="none" />
       ))}
-      {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={RELIEF.sea[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
+      {/* (Illustrated darkens deep water only, the same shading its tiles are painted with: no seam where they end) */}
+      {st.relief > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={tr ? TERRAIN_SEA_SHADE[res] : RELIEF.sea[res].src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       {linesAlpha > 0 ? <SvgImage x={0} y={0} width={MAP_W} height={MAP_H} href={WATER_LINES[st.waterLines!.image].src} preserveAspectRatio="none" opacity={linesAlpha} /> : null}
       {/* The illustrated terrain's tiles: coarse ones under the whole drawn area, finer ones over the screen */}
       {terrainTiles.map(t => (
@@ -511,10 +522,12 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       ))}
       {/* Illustrated: the water darkens a little along every coast, so the shore stands out from pale land */}
       {tr && coast && landD ? (
-        <G clipPath="url(#water)" opacity={0.55 + 0.45 * Math.min(1, (shoreEase - 0.45) / 0.55)}>
-          {tr.shore.map(sh => (
-            <Path key={sh.width} d={coast} fill="none" stroke={sh.color} strokeWidth={px(sh.width * shoreEase)} strokeLinecap="round" strokeLinejoin="round" />
-          ))}
+        <G clipPath="url(#water)">
+          {tr.shore.map((sh, i) =>
+            i === 0 && shoreWide <= 0 ? null : (
+              <Path key={sh.width} d={coast} fill="none" stroke={sh.color} strokeWidth={px(sh.width * shoreEase)} strokeLinecap="round" strokeLinejoin="round" opacity={i === 0 ? shoreWide : 1} />
+            ),
+          )}
         </G>
       ) : null}
       {/* Sea zones (where the land is see-through, Painted and Illustrated, cut to the water: they run on under the coast) */}
@@ -581,7 +594,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {/* Rivers and lake shores over the illustrated terrain (scripts/terrain/vectors.py), crisp at any zoom */}
       {lakePaths.length ? <Path d={lakePaths.join('')} fill={tr!.lakeFill} fillRule="evenodd" stroke={tr!.lake} strokeWidth={px(0.55)} strokeLinejoin="round" /> : null}
       {[...riverPaths].map(([wd, d]) => (
-        <Path key={`rv${wd}`} d={d} fill="none" stroke={tr!.river} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" />
+        <Path key={`rv${wd}`} d={d} fill="none" stroke={wd < 0.8 ? tr!.riverMinor : tr!.river} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" opacity={riverFade} />
       ))}
       {/* The unknown, as blank parchment, with the known world's shadow falling on it */}
       {pt ? (

@@ -42,8 +42,9 @@ export interface MapStyle {
   /** The illustrated terrain tiles (ui/map/terrainTiles.ts, made by scripts/terrain): where they exist, the realms'
    * colours are laid over them at `fill` opacity, with rivers and lake shores on top. Elsewhere the same colours lie
    * over a plain land of `base`, with the style's hill shading, so the two meet without a seam of colour. `shore`
-   * darkens the water along every coast (strokes of the coastline, widest first, cut to the water). */
-  terrain: { fill: number; base: string; river: string; lake: string; lakeFill: string; shore: { color: string; width: number }[] } | null;
+   * darkens the water along every coast (strokes of the coastline, widest first, cut to the water; far out only the
+   * narrower one). */
+  terrain: { fill: number; base: string; river: string; riverMinor: string; lake: string; lakeFill: string; shore: { color: string; width: number }[] } | null;
 }
 
 /** The drawn terrain's inks (ui/map/terrain.ts), and how far the hill shading gives way to it close up. (The mountain
@@ -142,6 +143,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
       fill: 0.5,
       base: '#d9d0aa',
       river: 'rgba(46,86,110,0.92)',
+      riverMinor: 'rgba(62,112,148,0.85)', // a lighter, bluer line than the great rivers, apart from the sepia province lines
       lake: 'rgba(46,72,88,0.75)',
       lakeFill: 'rgba(128,162,186,0.72)', // over the realms' colours, so a lake reads as water under any of them
       shore: [
