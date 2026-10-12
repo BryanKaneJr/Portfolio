@@ -23,7 +23,8 @@ from config import MAP_JSON, REGION, SRC_DIR, VECTORS_TS
 TOLERANCE = 0.06  # map units (about 250 m): simplification, well under a screen pixel at the closest zoom
 PAD = 6  # map units of game land considered around the region
 MINOR_RANK = 10  # Natural Earth scalerank from which a river counts as minor
-MINOR_MIN_LENGTH = 30  # map units (about 130 km): shorter minor rivers are left out
+MINOR_MIN_LENGTH = 30  # map units (about 130 km): shorter minor rivers are left out, unless they touch a lake
+LAKE_TOUCH = 0.5  # map units
 
 
 def parse_rings(d):
@@ -134,8 +135,10 @@ def main():
                 continue
             seen.add(d)
             # Short minor rivers (the low-ranked ones, Natural Earth scalerank 10+) would only crowd the close-up
-            # views with stubs; the long ones stay, whatever their rank.
-            if float(p.get("scalerank") or 0) >= MINOR_RANK and g.length < MINOR_MIN_LENGTH:
+            # views with stubs; the long ones stay, whatever their rank, and so does any that runs into a lake (so
+            # a lake keeps its inflow and outflow, like the Aare, Reuss and Limmat on the Swiss plateau).
+            minor = float(p.get("scalerank") or 0) >= MINOR_RANK and g.length < MINOR_MIN_LENGTH
+            if minor and (lake_geom is None or g.distance(lake_geom) > LAKE_TOUCH):
                 continue
             w = float(p.get("strokeweig") or 0.4)
             rivers.append({"d": d, "w": round(min(2.2, 0.45 + w * 1.1), 2), "z": float(p.get("min_zoom") or 6), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})

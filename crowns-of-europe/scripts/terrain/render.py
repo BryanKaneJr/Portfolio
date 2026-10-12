@@ -22,7 +22,7 @@ import time
 
 import numpy as np
 import skia
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy import ndimage
 
 import mapproj as mp
@@ -52,9 +52,9 @@ DEFAULT_LAND = np.array([226, 216, 178], np.float32)
 UPLAND = np.array([212, 196, 160], np.float32)
 ROCK = np.array([198, 188, 170], np.float32)
 # Water: a soft blue-grey, deeper than the pale land so coasts read at a glance, never the navy of a modern map.
-SEA_SHALLOW = np.array([170, 194, 198], np.float32)
-SEA_DEEP = np.array([130, 158, 172], np.float32)
-LAKE = np.array([160, 188, 194], np.float32)
+SEA_SHALLOW = np.array([164, 192, 206], np.float32)
+SEA_DEEP = np.array([122, 154, 178], np.float32)
+LAKE = np.array([152, 184, 200], np.float32)
 SHADOW = np.array([96, 78, 58], np.float32)
 FOREST_WASH = np.array([150, 160, 106], np.float32)
 CANOPY = np.array([128, 138, 90], np.float32)
@@ -190,8 +190,9 @@ def paint_base(F, box, level, gx0, gy0):
     # Relief: shade the slopes away from the light, lift those toward it.
     hs, slope = relief(np.where(land > 0.5, e, 0).astype(np.float32), lat, ppu, Z[level])
     flat = math.cos(math.pi / 2 - LIGHT_ALT)
-    shadow = np.clip((flat - hs) / flat, 0, 1)
-    lit = np.clip((hs - flat) / (1 - flat), 0, 1)
+    calm = 1 - CALM_HIGH[level] * smoothstep(1000, 1800, e)
+    shadow = np.clip((flat - hs) / flat, 0, 1) * calm
+    lit = np.clip((hs - flat) / (1 - flat), 0, 1) * calm
     rgb = rgb + (SHADOW - rgb) * (0.62 * shadow)[..., None]
     rgb = rgb + (PAPER * 1.04 - rgb) * (0.4 * lit)[..., None]
     # Inland water (wide rivers, lakes not in Natural Earth), kept well away from the game's coast so the
@@ -300,8 +301,44 @@ PEAK_PX = (14 * SYM, 36 * SYM)  # mountain width range, px
 # (HIGH_THIN: the share dropped by 1600 m, easing in from 700 m), since mountain country is the busiest.
 SPREAD = [1.0, 1.0, 1.0, 1.18, 1.2]
 PEAK_WIN = [17, 17, 17, 21, 21]
-HIGH_THIN = [0.0, 0.0, 0.0, 0.35, 0.4]
+HIGH_THIN = [0.0, 0.0, 0.0, 0.35, 0.4]  # trees
+HIGH_THIN_HACH = [0.0, 0.0, 0.0, 0.2, 0.25]  # hachures (lighter, so high valleys keep some slope)
+# Peaks keep apart: none within PEAK_GAP x the wider glyph of a bigger one, so neighbouring bases overlap by at most
+# about a third (the densest crests, the Savoy ridge, the Swiss and Dinaric Alps, open up). 0: no limit.
+PEAK_GAP = [0.0, 0.0, 0.0, 0.62, 0.62]
+# Trees from this much forest cover up (fewer stray single trees in open farmland close up).
+TREE_FROM = [0.4, 0.4, 0.4, 0.45, 0.48]
+# On high ground the fine relief is calmed by this share, so the gaps between peaks read as quiet ground.
+CALM_HIGH = [0.0, 0.0, 0.0, 0.2, 0.25]
 PEAK_RELIEF = [900, 800, 700, 600, 520]  # metres of relief within the glyph's reach for a summit to get a mountain
+
+
+def keep_apart(peaks, gap):
+    """Peaks (relief, row, col, width) with the bigger ones first, dropping any that stands within gap x the wider of
+    the two glyphs of one already kept. Deterministic: ties go by position."""
+    if gap <= 0 or not peaks:
+        return peaks
+    cell = gap * PEAK_PX[1]
+    grid = {}
+    kept = []
+    for p in sorted(peaks, key=lambda t: (-t[0], t[1], t[2])):
+        _, r, c, wpx = p
+        gi, gj = int(r // cell), int(c // cell)
+        near = False
+        for di in (-1, 0, 1):
+            for dj in (-1, 0, 1):
+                for _, r2, c2, w2 in grid.get((gi + di, gj + dj), ()):
+                    if (r - r2) ** 2 + (c - c2) ** 2 < (gap * max(wpx, w2)) ** 2:
+                        near = True
+                        break
+                if near:
+                    break
+            if near:
+                break
+        if not near:
+            kept.append(p)
+            grid.setdefault((gi, gj), []).append(p)
+    return kept
 
 
 def symbols(F, slope, land, box, level, gx0, gy0):
@@ -321,14 +358,21 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     relief_m = top - low
     summit = (es >= top - 1e-3) & (relief_m > PEAK_RELIEF[level]) & (e > 700) & inland
     rs, cs = np.nonzero(summit)
+    peaks = []
     for r, c in zip(rs, cs):
         rel = relief_m[r, c]
         wpx = float(np.clip(PEAK_PX[0] + (rel - PEAK_RELIEF[level]) / 70 * SYM, *PEAK_PX))
+        peaks.append((float(rel), int(r), int(c), wpx))
+    peaks = keep_apart(peaks, PEAK_GAP[level])
+    body = Image.new("L", (w, h), 0)  # where the peaks stand: no tree is drawn there
+    paint_body = ImageDraw.Draw(body)
+    for rel, r, c, wpx in peaks:
         g = (int(gx0 + c), int(gy0 + r))
         seed = int(hash01(g[0], g[1], 7 + level) * 2**31)
         snow = float(smoothstep(2400, 3300, es[r, c]))
         y = r + wpx * 0.3  # the glyph's middle on the summit
         items.append((y, ("mountain", c, y, wpx, seed, snow)))
+        paint_body.polygon([(c - 0.62 * wpx, y), (c, y - 0.7 * wpx), (c + 0.62 * wpx, y)], fill=255)
     # Hills: lesser summits on rolling uplands.
     hill = (es >= top - 1e-3) & (relief_m > 160) & (relief_m <= PEAK_RELIEF[level]) & (e > 150) & inland
     rs, cs = np.nonzero(hill)
@@ -347,7 +391,8 @@ def symbols(F, slope, land, box, level, gx0, gy0):
         ri = np.clip(ly.astype(int), 0, h - 1)
         ci = np.clip(lx.astype(int), 0, w - 1)
         high = 1 - HIGH_THIN[level] * smoothstep(700, 1600, e[ri, ci])
-        keep = (u < smoothstep(0.4, 0.85, forest[ri, ci]) * high) & (land[ri, ci] > 0.97)
+        on_peak = np.asarray(body)[ri, ci] > 0
+        keep = (u < smoothstep(TREE_FROM[level], 0.85, forest[ri, ci]) * high) & (land[ri, ci] > 0.97) & ~on_peak
         for x, y, r, c, i, j in zip(lx[keep], ly[keep], ri[keep], ci[keep], I[keep], J[keep]):
             el = e[r, c]
             lat = lat_of(y)
@@ -377,7 +422,7 @@ def symbols(F, slope, land, box, level, gx0, gy0):
     ri = np.clip(ly.astype(int), 0, h - 1)
     ci = np.clip(lx.astype(int), 0, w - 1)
     steep = smoothstep([9, 9, 10, 11, 12][level], [20, 20, 22, 24, 26][level], slope[ri, ci])
-    keep = (u < steep * (1 - HIGH_THIN[level] * smoothstep(700, 1600, e[ri, ci]))) & (land[ri, ci] > 0.97)
+    keep = (u < steep * (1 - HIGH_THIN_HACH[level] * smoothstep(700, 1600, e[ri, ci]))) & (land[ri, ci] > 0.97)
     gyy, gxx = np.gradient(ndimage.gaussian_filter(e, 1.0))
     hach = []
     for x, y, r, c, st in zip(lx[keep], ly[keep], ri[keep], ci[keep], steep[keep]):

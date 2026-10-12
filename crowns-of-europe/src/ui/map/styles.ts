@@ -110,7 +110,7 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     id: 'illustrated',
     label: 'Illustrated',
     help: 'An illustrated atlas drawn from real elevation, forests and rivers (central Europe so far), the realms\' colours washed over it.',
-    sea: '#8ea9b3', // the tiles' sea (EDGE_MATCH in scripts/terrain/config.py), so the region's edge doesn't show on the water
+    sea: '#87a6ba', // the tiles' sea (EDGE_MATCH in scripts/terrain/config.py), so the region's edge doesn't show on the water
     seaZone: { color: 'rgba(52,78,88,0.16)', dash: null },
     seaLabel: 'rgba(52,78,88,0.72)',
     waterLines: null,
@@ -121,8 +121,9 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     land: hex => mix(muted(hex, 0.08), '#ffffff', 0.08),
     wild: '#c4c1b4', // cool grey, so land you could settle never reads as the warm parchment of the unknown
     unknown: { fill: '#e6c79d', shadow: 0.6, label: { fill: '#efe3c8', halo: 'rgba(92,66,36,0.35)', shadow: 'rgba(70,48,22,0.35)' }, wasteLabel: '#8d6c45' },
-    // Over textured terrain the lines carry a faint light casing, so they hold against forest and mountain ink.
-    provinceBorder: { color: 'rgba(30,22,12,0.42)', width: 0.6, dash: null, halo: 'rgba(250,244,228,0.3)', haloWidth: 1.8 },
+    // Over textured terrain: province lines a warm dark sepia (apart from the cool mountain ink); borders between
+    // realms near-black with a faint light casing, so they hold against forest and mountain ink.
+    provinceBorder: { color: 'rgba(40,26,14,0.55)', width: 0.72, dash: null },
     nationBorder: { color: 'rgba(24,17,9,0.82)', width: 1.1, halo: 'rgba(250,244,228,0.38)', haloWidth: 3.2 },
     coast: { color: 'rgba(40,32,22,0.7)', width: 0.8 },
     river: { color: '#4f7189', width: 1.5 },

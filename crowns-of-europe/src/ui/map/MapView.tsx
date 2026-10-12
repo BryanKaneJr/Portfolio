@@ -393,6 +393,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   // The mountains come in a little sooner: they are what most shapes the land.
   const mountainAlpha = dt ? Math.max(0, Math.min(1, (k - 0.6) / 0.4)) : 0;
   const peaks = mountainAlpha > 0 ? mountainsIn(vx, vy, vx + vw, vy + vh) : [];
+  // Illustrated draws strong borders for close up; zoomed out (many small realms in view) they ease off a little, so
+  // they don't become a dark web.
+  const borderEase = st.terrain ? 0.78 + 0.22 * Math.max(0, Math.min(1, (k - 0.7) / 0.6)) : 1;
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -597,8 +600,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {lines.river && st.river.width > 0 && !allTerrain ? (
         <Path d={lines.river} fill="none" stroke={st.river.color} strokeWidth={px(st.river.width)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} clipPath={terrainOn ? 'url(#tOut)' : undefined} />
       ) : null}
-      {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth)} strokeLinecap="round" strokeLinejoin="round" /> : null}
-      {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width)} strokeLinecap="round" strokeLinejoin="round" /> : null}
+      {st.nationBorder.halo && lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.halo} strokeWidth={px(st.nationBorder.haloWidth * borderEase)} strokeLinecap="round" strokeLinejoin="round" opacity={borderEase} /> : null}
+      {lines.nation ? <Path d={lines.nation} fill="none" stroke={st.nationBorder.color} strokeWidth={px(st.nationBorder.width * borderEase)} strokeLinecap="round" strokeLinejoin="round" /> : null}
       {/* The known world fading into the parchment at the window's edges */}
       {edgeNear ? (
         <G>

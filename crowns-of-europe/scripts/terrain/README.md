@@ -69,11 +69,18 @@ drawn on their own layer and cut to the game's land before they go on the ground
 
 The two finest levels, seen close up, are thinned so single shapes stay apart:
 - **`SPREAD`** widens the spacing of trees, hachures, grass and marsh (about 30% fewer).
-- **`PEAK_WIN`** widens the summit search, so fewer, more distinct peaks.
-- **`HIGH_THIN`** drops a further share of trees and hachures on high ground, where mountain country gets busiest.
+- **`PEAK_WIN`** widens the summit search, so there are fewer, more distinct peaks.
+- **`PEAK_GAP`** keeps any peak from standing within 0.62 of the wider glyph of a bigger one, so neighbouring bases
+  overlap by at most about a third.
+- **`HIGH_THIN`** and **`HIGH_THIN_HACH`** drop a further share of trees and hachures on high ground.
+- **`TREE_FROM`** leaves fewer stray single trees in open farmland.
+- **`CALM_HIGH`** softens the fine relief above 1000 m, so the gaps between peaks read as quiet ground.
 
-`vectors.py` leaves out minor rivers (Natural Earth scalerank 10 and up) shorter than 30 map units (about 130 km), so
-the close-up views keep the long rivers without the short stubs.
+At every level, no tree is drawn inside a peak's silhouette.
+
+`vectors.py` leaves out minor rivers (Natural Earth scalerank 10 and up) shorter than 30 map units (about 130 km),
+unless they touch a lake. The close-up views keep the long rivers and every lake's inflow and outflow, without the
+short stubs.
 
 ### Source resolution against need
 

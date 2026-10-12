@@ -132,8 +132,11 @@ zoom needs (the coarsest under the whole drawn area, the next finer ones over th
 `terrainCache.ts` keeps them warm (LRU), and Natural Earth rivers and lakes are drawn as vectors on top. Inside the
 region Atlas's own land overlays and drawn terrain are cut away (`tOut`); the tiles' sea fades into the style's sea at
 the region's edge (keep `sea` and `relief` in step with `EDGE_MATCH` in `scripts/terrain/config.py`; a test checks).
-Its borders carry a faint light casing (`provinceBorder.halo`, `nationBorder.halo`) so they hold against the drawn
-terrain, and `terrain.shore` darkens the water along every coast (the coastline stroked, cut to the water).
+Its borders between realms carry a faint light casing (`nationBorder.halo`; `provinceBorder.halo` is there too) so
+they hold against the drawn terrain, easing off a little when zoomed out (`borderEase`). `terrain.shore` darkens the
+water along every coast: the coastline stroked, cut to the water. On the web the moving map view has its own
+compositor layer (`WEB_LAYER`), so a pan never repaints the SVG; `scripts/dev/pan-layers.mjs` measures what each
+layer costs.
 See `docs/terrain/`. Painted lays the realms' colours (translucent) over the
 owner's painting of the world (`art/painting`, fitted to the coasts and tiled by `npm run painting:build` into
 `assets/map/painting` + `ui/map/paintingTiles.ts`: three levels, the coarsest always under the finest the zoom

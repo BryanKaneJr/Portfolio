@@ -225,11 +225,14 @@ here.
     region it is Atlas. Pipeline: `scripts/terrain/` (Python + GDAL). Audit, verification, screenshots and the plan
     for the whole map: `docs/terrain/`. Painted stays as an option.
     After the owner's first look:
-    - Close up it was too busy, so the two finest levels draw about 30% fewer small features (more on high ground),
-      and short minor rivers are left out.
-    - Borders carry a faint light casing, so they hold against forest and mountain ink.
-    - The water is a deeper blue-grey, with a soft darker band along every shore, so coasts stand apart from pale
-      coastal realms without going back to navy.
+    - Close up it was too busy. The two finest levels now draw about 35% fewer small features, and 40–47% fewer in
+      mountain country. Peaks keep apart, and no tree is drawn inside a peak. Short minor rivers are left out unless
+      they feed a lake.
+    - Borders between realms are near-black with a faint light casing, so they hold against forest and mountain ink;
+      they ease off a little when zoomed out. Province lines are a darker warm sepia.
+    - The water is a deeper, bluer grey (#87a6ba), with a soft darker band along every shore, so coasts stand apart
+      from pale or teal coastal realms without going back to navy.
+    - On the web the moving map has its own compositor layer, so panning never repaints the map.
 
 ## Key numbers (all in `src/sim/`)
 
