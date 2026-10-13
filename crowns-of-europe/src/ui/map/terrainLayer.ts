@@ -12,6 +12,7 @@
  * edge, and the coarsest under everything (a few tiles cover the whole region, so a pan past the drawn area, or a
  * tile still loading, shows terrain, never a hole).
  */
+import { PEAK_SIZE, PEAK_SPRITES, TERRAIN_PEAKS } from './terrainPeaks';
 import type { TerrainLevel, TerrainTile } from './terrainTiles';
 
 /** How much magnification is tolerated before the next level is needed: 0.85 means at most 1/0.85 = 1.18x. */
@@ -76,7 +77,8 @@ export interface DrawTile extends TerrainTile {
  * - the coarsest level over the whole drawn area (`drawn`: the SVG's area, larger than the screen, which a pan
  *   reveals before the map is redrawn);
  * - the level below the needed one over the drawn area too, so a long pan shows half-resolution terrain at the edges
- *   rather than the coarsest; once the needed level is opaque, not under it (it could not be seen there);
+ *   rather than the coarsest; once the needed level is opaque, not under it where the needed level covers it whole
+ *   (`full`: it could not be seen there);
  * - the needed level over the screen plus BUFFER, at its fade-in opacity.
  */
 export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, screen: Rect, drawn: Rect): DrawTile[] {
@@ -89,7 +91,9 @@ export function tilesToDraw(levels: TerrainLevel[], k: number, dpr: number, scre
   add(0, drawn, 1);
   if (fine >= 2) {
     for (const t of tilesIn(levels[fine - 1], drawn)) {
-      const hidden = alpha >= 1 && t.x >= near.x0 && t.y >= near.y0 && t.x + t.w <= near.x1 && t.y + t.h <= near.y1;
+      // Hidden only where the needed level covers it whole (tiles are made only where they show land, so a finer one
+      // may be missing where a coarser one is not).
+      const hidden = alpha >= 1 && !!t.full && t.x >= near.x0 && t.y >= near.y0 && t.x + t.w <= near.x1 && t.y + t.h <= near.y1;
       if (!hidden) out.push({ ...t, level: fine - 1, opacity: 1 });
     }
   }
@@ -157,3 +161,56 @@ export function neighbours(levels: TerrainLevel[], k: number, dpr: number, scree
 export function webZoom(k: number, unitsPerDegree: number): number {
   return Math.log2((unitsPerDegree * k * 360) / 256);
 }
+
+/**
+ * The Illustrated style's mountains and hills are features, not part of the tiles: one list of summits
+ * (terrainPeaks.ts) drawn over the realms' colours. Each level's summits fade in from its zoom on, and a glyph keeps a
+ * steady size on screen (the top tier's height at each level's own zoom, straight in between, shrinking slowly below
+ * play zoom), so zooming never magnifies them and no two sets of peaks ever show at once.
+ */
+export function peakPt(k: number, sizes: number[], ks: number[] = PEAK_SIZE.k): number {
+  if (k <= ks[0]) return sizes[0] * Math.pow(k / ks[0], 0.45);
+  for (let i = 1; i < ks.length; i++) if (k <= ks[i]) return sizes[i - 1] + ((sizes[i] - sizes[i - 1]) * (k - ks[i - 1])) / (ks[i] - ks[i - 1]);
+  return sizes[sizes.length - 1];
+}
+
+export interface PeakDraw {
+  key: number;
+  src: number;
+  x: number; // the sprite's box, map units
+  y: number;
+  w: number;
+  h: number;
+  opacity: number;
+}
+
+/** The peaks to draw at zoom k inside `view` (map units). Middle and small peaks and hills give way to the names in
+ * `names` (boxes in map units); a top-tier massif is drawn even under a name (the map would not be the map without
+ * it; the name is written over it). */
+export function peaksToDraw(k: number, view: Rect, names: Rect[] = []): PeakDraw[] {
+  const out: PeakDraw[] = [];
+  const top = peakPt(k, PEAK_SIZE.top);
+  const hill = peakPt(k, PEAK_SIZE.hill);
+  for (let i = 0; i < TERRAIN_PEAKS.length; i += 6) {
+    const [a, b] = PEAK_SIZE.from[TERRAIN_PEAKS[i + 4]];
+    if (k <= a) continue;
+    const isHill = TERRAIN_PEAKS[i + 2] === 1;
+    const tier = TERRAIN_PEAKS[i + 3];
+    const pt = isHill ? hill : top * PEAK_SIZE.tier[tier];
+    const min = isHill ? PEAK_SIZE.hillMinPt : PEAK_SIZE.minPt;
+    if (pt <= min) continue;
+    const sp = PEAK_SPRITES[TERRAIN_PEAKS[i + 5]];
+    const g = pt / k;
+    const w = sp.w * g;
+    const h = sp.h * g;
+    const x = TERRAIN_PEAKS[i] - sp.ax * w;
+    const y = TERRAIN_PEAKS[i + 1] + PEAK_SIZE.base[isHill ? 1 : 0] * g - sp.ay * h;
+    const box = { x0: x, y0: y, x1: x + w, y1: y + h };
+    if (!overlapsRect(box, view)) continue;
+    if ((isHill || tier !== 0) && names.some(n => overlapsRect(box, n))) continue;
+    out.push({ key: i / 6, src: sp.src, x, y, w, h, opacity: Math.min(1, (k - a) / (b - a), pt - min) });
+  }
+  return out;
+}
+
+const overlapsRect = (a: Rect, b: Rect) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;

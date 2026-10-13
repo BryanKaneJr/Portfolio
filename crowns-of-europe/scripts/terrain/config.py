@@ -5,6 +5,7 @@ Everything here is in the game's own map units (src/content/map.json: 2575 x 224
 The tile pyramid is a quadtree anchored at map unit (0, 0): level L has PPU[L] pixels per map unit and tiles of
 TILE pixels, so a level-L tile is TILE / PPU[L] map units square and splits exactly into four level-(L+1) tiles.
 """
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -13,16 +14,18 @@ SEAS_JSON = ROOT / "src/content/seas.json"
 
 # Caches (git-ignored): downloaded source data, and the canonical rasters made from it.
 SRC_DIR = ROOT / "scripts/data/terrain-src"
-WORK_DIR = ROOT / "scripts/data/terrain-work"
+WORK_DIR = Path(os.environ.get("TERRAIN_WORK", ROOT / "scripts/data/terrain-work"))  # (overridable, to build a second grid aside)
 
 # Outputs (committed): the tiles, the vector layers and the index the app reads.
 TILE_DIR = ROOT / "assets/map/terrain"
 TILES_TS = ROOT / "src/ui/map/terrainTiles.ts"
 VECTORS_TS = ROOT / "src/ui/map/terrainVectors.ts"
+PEAKS_TS = ROOT / "src/ui/map/terrainPeaks.ts"
 META_JSON = ROOT / "assets/map/terrain/sources.json"
 
-# The prototype region: central and eastern Europe (the Alps, the Carpathians, the Danube basin), about 3°E-35°E,
-# 38°N-57°N. Map units, multiples of the finest tile size so every level tiles it exactly.
+# The region the terrain covers, in map units (multiples of the coarsest tile's size, 512, at its corners' grid):
+# central and eastern Europe so far, about 2°E-35°E, 37.5°N-57°N. Tiles are made only where they show land, or the
+# sea within reach of it (render.py level_tiles); open sea and the parchment of the unknown are left to the style.
 REGION = (1792, 576, 2368, 1088)  # x0, y0, x1, y1
 
 # Pixels per map unit, per level. The game's closest zoom is K_MAX = 5 screen points per map unit
@@ -35,8 +38,13 @@ TILE = 512  # pixels
 MARGIN = 32  # map units
 WORK_PPU = PPU[-1]
 
-# Where the region sits in lon/lat, with room to spare, for fetching sources (degrees).
-FETCH_BBOX = (0.0, 36.0, 38.0, 59.6)  # west, south, east, north
+# Source tiles are fetched (fetch.py) and kept one file per source tile in TILE_CACHE, wherever the game's land in
+# REGION (grown by FETCH_MARGIN map units) needs them; prepare.py reads the ones it needs for each chunk of the grid.
+TILE_CACHE = SRC_DIR / "tiles"
+FETCH_MARGIN = 8  # map units
+# The grid is prepared in square chunks of this many map units, only where land is within reach (CHUNK_REACH).
+CHUNK = 256
+CHUNK_REACH = 48  # map units: the margin, a tile's 16-unit reach into the sea, and room for every filter
 
 # ---------------------------------------------------------------- sources
 ETOPO = {

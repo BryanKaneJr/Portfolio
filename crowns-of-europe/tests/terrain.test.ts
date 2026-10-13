@@ -1,6 +1,7 @@
 /** The illustrated terrain's tile layer (src/ui/map/terrainLayer.ts) and the generated tile index (terrainTiles.ts). */
 import { MAP } from '../src/sim/content';
-import { BUFFER, SHARPNESS, TileCache, decodedBytes, grow, pickLevel, tilesIn, tilesToDraw, webZoom } from '../src/ui/map/terrainLayer';
+import { BUFFER, SHARPNESS, TileCache, decodedBytes, grow, peakPt, peaksToDraw, pickLevel, tilesIn, tilesToDraw, webZoom } from '../src/ui/map/terrainLayer';
+import { PEAK_SIZE, PEAK_SPRITES, TERRAIN_PEAKS } from '../src/ui/map/terrainPeaks';
 import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_TILE_PX } from '../src/ui/map/terrainTiles';
 import { MAP_STYLES } from '../src/ui/map/styles';
 
@@ -8,26 +9,48 @@ jest.mock('react-native', () => ({ Platform: { OS: 'ios', select: (o: Record<str
 const sources = require('../assets/map/terrain/sources.json');
 
 const R = TERRAIN_REGION;
-const area = (t: { w: number; h: number }) => t.w * t.h;
 const EPS = 1e-6;
 
 describe('tile index', () => {
-  test('each level partitions the region exactly: no gaps, no overlaps, nothing outside', () => {
+  test('tiles lie on their level\'s grid inside the region, never overlap, and cover the known land', () => {
     for (const level of TERRAIN_LEVELS) {
-      const total = level.tiles.reduce((s, t) => s + area(t), 0);
-      expect(total).toBeCloseTo((R.x1 - R.x0) * (R.y1 - R.y0), 6);
+      const seen = new Set<string>();
       for (const t of level.tiles) {
         expect(t.x).toBeGreaterThanOrEqual(R.x0 - EPS);
         expect(t.y).toBeGreaterThanOrEqual(R.y0 - EPS);
         expect(t.x + t.w).toBeLessThanOrEqual(R.x1 + EPS);
         expect(t.y + t.h).toBeLessThanOrEqual(R.y1 + EPS);
-      }
-      // Pairwise: tiles on the same grid never overlap (areas add up and every tile sits on the level's grid).
-      for (const t of level.tiles) {
         const gx = Math.max(R.x0, Math.floor(t.x / level.span) * level.span);
         const gy = Math.max(R.y0, Math.floor(t.y / level.span) * level.span);
         expect(t.x).toBeCloseTo(gx, 6);
         expect(t.y).toBeCloseTo(gy, 6);
+        const cell = `${Math.floor((t.x + EPS) / level.span)},${Math.floor((t.y + EPS) / level.span)}`;
+        expect(seen.has(cell)).toBe(false); // one tile per grid cell: no overlaps
+        seen.add(cell);
+      }
+      // Every region's label point inside the region (known land) has a tile at every level.
+      for (const r of MAP.regions) {
+        const [x, y] = r.label;
+        if (x < R.x0 || x >= R.x1 || y < R.y0 || y >= R.y1) continue;
+        expect(level.tiles.some(t => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h)).toBe(true);
+      }
+    }
+  });
+
+  test('a tile is marked full exactly when its children inside the region all exist', () => {
+    for (let l = 0; l + 1 < TERRAIN_LEVELS.length; l++) {
+      const kids = new Set(TERRAIN_LEVELS[l + 1].tiles.map(t => `${Math.round(t.x * 1000)},${Math.round(t.y * 1000)}`));
+      const half = TERRAIN_LEVELS[l].span / 2;
+      for (const t of TERRAIN_LEVELS[l].tiles) {
+        const want: boolean[] = [];
+        for (const dy of [0, 1])
+          for (const dx of [0, 1]) {
+            const x = Math.max(R.x0, Math.floor((t.x + EPS) / TERRAIN_LEVELS[l].span) * TERRAIN_LEVELS[l].span + dx * half);
+            const y = Math.max(R.y0, Math.floor((t.y + EPS) / TERRAIN_LEVELS[l].span) * TERRAIN_LEVELS[l].span + dy * half);
+            if (x >= R.x1 || y >= R.y1 || x < t.x - EPS || y < t.y - EPS || x >= t.x + t.w - EPS || y >= t.y + t.h - EPS) continue;
+            want.push(kids.has(`${Math.round(x * 1000)},${Math.round(y * 1000)}`));
+          }
+        expect(!!t.full).toBe(want.length > 0 && want.every(Boolean));
       }
     }
   });
@@ -92,26 +115,26 @@ describe('tiles to draw', () => {
     return { screen, drawn: grow(screen, 0.3) };
   };
 
-  test('the screen is covered by the finest drawn level everywhere inside the region (no holes)', () => {
+  test('wherever a level has a tile, the finest one the zoom allows is drawn there (no holes, nothing hidden)', () => {
     for (const [cx, cy, k] of [
       [1950, 860, 1.7],
       [2100, 800, 3],
       [1900, 700, 5],
       [2200, 950, 0.8],
       [2368, 1088, 2.2],
+      [2040, 960, 3.5],
     ]) {
       const { screen, drawn } = view(cx, cy, k);
       const tiles = tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn);
       const pick = pickLevel(TERRAIN_LEVELS, k, 3);
-      // The opaque layers: the coarsest everywhere, the one under the finest over the screen.
-      const opaque = tiles.filter(t => t.opacity === 1);
+      const at = (x: number, y: number) => (t: { x: number; y: number; w: number; h: number }) => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h;
       for (let x = screen.x0; x < screen.x1; x += (screen.x1 - screen.x0) / 23) {
         for (let y = screen.y0; y < screen.y1; y += (screen.y1 - screen.y0) / 47) {
-          if (x < R.x0 || y < R.y0 || x >= R.x1 || y >= R.y1) continue;
-          expect(opaque.some(t => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h)).toBe(true);
-          if (pick.fine >= 1 && pick.alpha === 1) {
-            expect(tiles.some(t => t.level === pick.fine && x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h)).toBe(true);
-          }
+          const has = (l: number) => TERRAIN_LEVELS[l].tiles.some(at(x, y));
+          const drawnAt = (l: number) => tiles.some(t => t.level === l && t.opacity === 1 && at(x, y)(t));
+          if (pick.fine >= 1 && pick.alpha === 1 && has(pick.fine)) expect(tiles.some(t => t.level === pick.fine && at(x, y)(t))).toBe(true);
+          else if (pick.fine >= 2 && has(pick.fine - 1)) expect(drawnAt(pick.fine - 1)).toBe(true);
+          else if (has(0)) expect(drawnAt(0)).toBe(true);
         }
       }
     }
@@ -146,12 +169,12 @@ describe('tiles to draw', () => {
       const below = tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).filter(t => t.level === p.fine - 1);
       const inside = (t: { x: number; y: number; w: number; h: number }) => t.x >= near.x0 && t.y >= near.y0 && t.x + t.w <= near.x1 && t.y + t.h <= near.y1;
       if (p.alpha >= 1) expect(below.some(inside)).toBe(false);
-      // Every point of the drawn area inside the region is under a tile of the level below or the needed one.
+      // Every point of the drawn area where the level below has a tile is under it or under the needed one.
       const fineTiles = tilesToDraw(TERRAIN_LEVELS, k, 3, screen, drawn).filter(t => t.level === p.fine);
       for (let x = drawn.x0; x < drawn.x1; x += (drawn.x1 - drawn.x0) / 17) {
         for (let y = drawn.y0; y < drawn.y1; y += (drawn.y1 - drawn.y0) / 31) {
-          if (x < R.x0 || y < R.y0 || x >= R.x1 || y >= R.y1) continue;
           const on = (t: { x: number; y: number; w: number; h: number }) => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h;
+          if (!TERRAIN_LEVELS[p.fine - 1].tiles.some(on)) continue;
           expect(below.some(on) || fineTiles.some(on)).toBe(true);
         }
       }
@@ -199,5 +222,68 @@ describe('scales and projection', () => {
       expect((p.lon - west) * RAD * scale).toBeCloseTo(p.x, 6);
       expect((-Math.log(Math.tan(Math.PI / 4 + (p.lat * RAD) / 2)) - top) * scale).toBeCloseTo(p.y, 6);
     }
+  });
+});
+
+describe('peaks (the Illustrated style\'s mountains and hills)', () => {
+  const ALL = { x0: -1e4, y0: -1e4, x1: 1e4, y1: 1e4 };
+  const peaks: { x: number; y: number; hill: boolean; tier: number; level: number; sprite: number }[] = [];
+  for (let i = 0; i < TERRAIN_PEAKS.length; i += 6)
+    peaks.push({ x: TERRAIN_PEAKS[i], y: TERRAIN_PEAKS[i + 1], hill: TERRAIN_PEAKS[i + 2] === 1, tier: TERRAIN_PEAKS[i + 3], level: TERRAIN_PEAKS[i + 4], sprite: TERRAIN_PEAKS[i + 5] });
+
+  test('every peak lies inside the terrain region and has a sprite', () => {
+    expect(peaks.length).toBeGreaterThan(50);
+    for (const p of peaks) {
+      expect(p.x).toBeGreaterThanOrEqual(R.x0);
+      expect(p.x).toBeLessThan(R.x1);
+      expect(p.y).toBeGreaterThanOrEqual(R.y0);
+      expect(p.y).toBeLessThan(R.y1);
+      expect(PEAK_SPRITES[p.sprite]).toBeDefined();
+      expect(PEAK_SIZE.from[p.level]).toBeDefined();
+    }
+  });
+
+  test('a glyph keeps its size on screen: the top tier at each level\'s zoom, smaller far out', () => {
+    PEAK_SIZE.k.forEach((k, i) => expect(peakPt(k, PEAK_SIZE.top)).toBeCloseTo(PEAK_SIZE.top[i], 9));
+    expect(peakPt(0.9, PEAK_SIZE.top)).toBeLessThan(PEAK_SIZE.top[0]);
+    expect(peakPt(8, PEAK_SIZE.top)).toBe(PEAK_SIZE.top[PEAK_SIZE.top.length - 1]);
+    for (const k of [0.9, 1.3, 1.7, 2.4, 3.2, 4.1, 5]) {
+      const top = peakPt(k, PEAK_SIZE.top);
+      for (const d of peaksToDraw(k, ALL)) {
+        const sp = PEAK_SPRITES[TERRAIN_PEAKS[d.key * 6 + 5]];
+        expect((d.h / sp.h) * k).toBeLessThanOrEqual(top + 1e-9); // the glyph's height on screen, points
+      }
+    }
+  });
+
+  test('none far out; zooming in only adds peaks, never moves or swaps them', () => {
+    expect(peaksToDraw(0.45, ALL)).toHaveLength(0);
+    const at = (k: number) => new Set(peaksToDraw(k, ALL).map(d => d.key));
+    const play = at(1.7);
+    const close = at(3.2);
+    const max = at(5);
+    expect(play.size).toBeGreaterThan(10);
+    for (const key of play) expect(close.has(key)).toBe(true);
+    for (const key of close) expect(max.has(key)).toBe(true);
+    expect(max.size).toBeLessThanOrEqual(play.size * 4);
+    // A level's peaks wait for its zoom: none chosen for the finer levels shows at play zoom.
+    for (const key of play) expect(peaks[key].level).toBe(2);
+  });
+
+  test('the lesser peaks give way to names; a top-tier massif does not', () => {
+    const drawn = peaksToDraw(1.7, ALL);
+    const lesser = drawn.find(d => peaks[d.key].tier !== 0 && !peaks[d.key].hill)!;
+    const top = drawn.find(d => peaks[d.key].tier === 0)!;
+    const over = (d: { x: number; y: number; w: number; h: number }) => ({ x0: d.x + d.w * 0.4, y0: d.y + d.h * 0.4, x1: d.x + d.w * 0.6, y1: d.y + d.h * 0.6 });
+    const keys = new Set(peaksToDraw(1.7, ALL, [over(lesser), over(top)]).map(d => d.key));
+    expect(keys.has(lesser.key)).toBe(false);
+    expect(keys.has(top.key)).toBe(true);
+  });
+
+  test('only the peaks in view are drawn', () => {
+    const p = peaks.find(q => q.level === 2 && q.tier === 0)!;
+    const near = peaksToDraw(1.7, { x0: p.x - 5, y0: p.y - 5, x1: p.x + 5, y1: p.y + 5 });
+    expect(near.some(d => peaks[d.key] === p)).toBe(true);
+    expect(near.length).toBeLessThan(peaksToDraw(1.7, ALL).length);
   });
 });

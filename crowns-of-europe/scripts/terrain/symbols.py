@@ -5,8 +5,10 @@ with Skia. Every symbol is a function of a size and a seed, so the same place al
 - Trees: a broadleaf crown (lobed, shaded on the side away from the light, a trunk) and a conifer (a stacked,
   tiered cone). Pre-rendered into small sprites per size and variant, then stamped (fast, and identical across
   tiles).
-- Mountains: a peak with a lit face, a shaded face with a few hatch strokes, a spur, and a snow cap on the highest;
-  outline in ink. Drawn per peak with its own seeded shape (2-3 summits, slight asymmetry).
+- Mountains: a peak with a lit face near the ground's own tone, a shaded face with at most 3 hatch strokes, a spur,
+  and a small snow cap on the highest; outline in ink. Three tiers (top, middle, small): a top-tier massif has a
+  lower shoulder peak beside it, a middle one sometimes, a small one stands alone. Drawn per peak with its own seeded
+  shape (slight asymmetry).
 - Marsh: a tuft of reeds over two water strokes.
 - Grass tuft and stipple dots for open grassland and sand.
 
@@ -25,7 +27,7 @@ LEAF_DARK = (86, 100, 60)
 LEAF_LIGHT = (156, 164, 108)
 NEEDLE = (96, 112, 76)
 NEEDLE_DARK = (64, 80, 54)
-ROCK_LIGHT = (232, 220, 190)
+FACE = (222, 210, 184)  # a peak's or hill's lit face: about 10% lighter than high ground, so the realm's colour holds
 ROCK_SHADE = (150, 128, 98)
 SNOW = (250, 250, 246)
 SNOW_SHADE = (200, 206, 212)
@@ -160,8 +162,9 @@ class TreeSprites:
 
 
 # ---------------------------------------------------------------- mountains
-def _peak(canvas, x, y, w, h, r, snow, stroke, shade_a=0.8):
-    """One peak: base centred at (x, y), w wide, h high. Lit face (left), shaded face (right) hatched, outline."""
+def _peak(canvas, x, y, w, h, r, snow, stroke, shade_a, hatches):
+    """One peak: base centred at (x, y), w wide, h high. Lit face (left), shaded face (right) with `hatches` strokes,
+    outline."""
     lean = r.uniform(-0.1, 0.1) * w
     sx, sy = x + lean, y - h
     ls = (x - w * r.uniform(0.2, 0.3) + lean * 0.3, y - h * r.uniform(0.45, 0.6))
@@ -177,7 +180,7 @@ def _peak(canvas, x, y, w, h, r, snow, stroke, shade_a=0.8):
     outline.lineTo(*br)
     face = skia.Path(outline)
     face.close()
-    canvas.drawPath(face, paint(ROCK_LIGHT, 0.88))
+    canvas.drawPath(face, paint(FACE, 0.95))
     foot = (x + w * r.uniform(0.0, 0.12), y)
     shade = skia.Path()
     shade.moveTo(sx, sy)
@@ -207,9 +210,8 @@ def _peak(canvas, x, y, w, h, r, snow, stroke, shade_a=0.8):
         canvas.drawPath(capr, paint(SNOW_SHADE, 0.9))
     # Hatching across the shaded face, parallel to its fall line.
     hatch = skia.Path()
-    n = max(2, int(w / 5))
-    for i in range(n):
-        t = (i + 0.7) / (n + 0.4)
+    for i in range(hatches):
+        t = (i + 0.7) / (hatches + 0.4)
         ax = sx + (br[0] - sx) * t * 0.92 + w * 0.02
         ay = sy + (br[1] - sy) * t * 0.92 + h * 0.08
         if snow > 0 and t < 0.22 + 0.3 * snow:
@@ -225,22 +227,32 @@ def _peak(canvas, x, y, w, h, r, snow, stroke, shade_a=0.8):
     canvas.drawPath(outline, paint(INK, 0.92, stroke=stroke))
 
 
-def mountain(canvas, x, y, w, seed, snow=0.0, ink=1.0):
-    """A mountain whose base is centred at (x, y), `w` px wide: a main peak, often with a lower one behind it to a
-    side, drawn back to front; snow (0-1) caps the top."""
+# Peaks, per tier (top, middle, small; render.py features() picks them): width as a share of height, the chance of a
+# lower shoulder peak beside it (never hatched), and hatch strokes on the shaded face. A shoulder makes a peak at most
+# 1.18 x its own width wide (SUMMIT_FOOT: the widest, as a share of the height).
+SUMMIT = (((1.1, 1.22), 1.0, 3), ((1.15, 1.3), 0.5, 2), ((1.2, 1.4), 0.0, 1))
+SUMMIT_FOOT = (1.44, 1.54, 1.4)
+SUMMIT_STROKE = (1.0, 0.9, 0.8)  # outline, as a share of the given stroke
+FACE_SHADE = 0.7  # the shaded face's opacity
+SNOW_CAP = 0.5  # how far down a full snow cap reaches, as a share of the most it could (only the very top whitens)
+
+
+def summit(canvas, x, y, h, seed, tier=0, snow=0.0, stroke=1.0):
+    """A peak whose base is centred at (x, y), `h` px high (its tier's height): a top-tier massif with a lower shoulder
+    peak beside it, a middle one sometimes, a small one alone; snow (0-1) caps the top; `stroke` px of outline."""
     r = rng(seed)
-    stroke = max(0.55, w * 0.04) * ink
-    h = w * r.uniform(0.55, 0.72)
-    side = r.uniform()
-    if side < 0.75:
-        # A lower shoulder peak behind, to one side.
+    (lo, hi), shoulder, hatches = SUMMIT[tier]
+    stroke *= SUMMIT_STROKE[tier]
+    w = h * r.uniform(lo, hi)
+    if r.uniform() < shoulder:
         d = 1 if r.uniform() < 0.5 else -1
-        w2 = w * r.uniform(0.55, 0.75)
-        _peak(canvas, x + d * w * r.uniform(0.28, 0.38), y - h * 0.08, w2, h * r.uniform(0.55, 0.75), r, snow * 0.7, stroke * 0.9, 0.7)
-    _peak(canvas, x, y, w, h, r, snow, stroke)
+        w2 = w * r.uniform(0.52, 0.64)
+        x2, h2 = x + d * w * r.uniform(0.3, 0.36), h * r.uniform(0.55, 0.7)
+        _peak(canvas, x2, y - h * 0.05, w2, h2, r, snow * SNOW_CAP * 0.7, stroke * 0.85, FACE_SHADE * 0.85, 0)
+    _peak(canvas, x, y, w, h, r, snow * SNOW_CAP, stroke, FACE_SHADE, hatches)
 
 
-def hill(canvas, x, y, w, seed, ink=1.0):
+def hill(canvas, x, y, w, seed, ink=1.0, stroke=None):
     """A low rounded hill: a mound lit on its upper left and shaded on its right, outlined on top."""
     r = rng(seed)
     h = w * r.uniform(0.3, 0.4)
@@ -249,14 +261,14 @@ def hill(canvas, x, y, w, seed, ink=1.0):
     top.cubicTo(x - w * 0.3, y - h, x + w * 0.15, y - h * 1.05, x + w / 2, y)
     mound = skia.Path(top)
     mound.close()
-    canvas.drawPath(mound, paint(ROCK_LIGHT, 0.75))
+    canvas.drawPath(mound, paint(FACE, 0.85))
     shade = skia.Path()
     shade.moveTo(x + w * 0.05, y - h * 0.72)
     shade.cubicTo(x + w * 0.28, y - h * 0.62, x + w * 0.42, y - h * 0.3, x + w / 2, y)
     shade.lineTo(x + w * 0.12, y)
     shade.close()
     canvas.drawPath(shade, paint(ROCK_SHADE, 0.55))
-    canvas.drawPath(top, paint(INK, 0.8, stroke=max(0.55, w * 0.045) * ink))
+    canvas.drawPath(top, paint(INK, 0.8, stroke=(max(0.55, w * 0.045) if stroke is None else stroke) * ink))
 
 
 # ---------------------------------------------------------------- marsh, grass, sand
@@ -291,8 +303,10 @@ def export_svg(out_dir):
     items = [
         ("tree-broadleaf", lambda c: _draw_tree(c, "broadleaf")),
         ("tree-conifer", lambda c: _draw_tree(c, "conifer")),
-        ("mountain", lambda c: mountain(c, 50, 80, 80, 7)),
-        ("mountain-snow", lambda c: mountain(c, 50, 80, 80, 11, snow=1.0)),
+        ("mountain", lambda c: summit(c, 50, 80, 56, 7, tier=0, stroke=2.5)),
+        ("mountain-snow", lambda c: summit(c, 50, 80, 56, 11, tier=0, snow=1.0, stroke=2.5)),
+        ("mountain-middle", lambda c: summit(c, 50, 80, 40, 7, tier=1, stroke=2.5)),
+        ("mountain-small", lambda c: summit(c, 50, 80, 28, 7, tier=2, stroke=2.5)),
         ("hill", lambda c: hill(c, 50, 70, 70, 3)),
         ("marsh", lambda c: marsh(c, 50, 60, 60, 5)),
     ]
