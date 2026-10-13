@@ -555,9 +555,10 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
 
 /**
  * AI winners build terms within the war score they have: the war goal, claims and land they want first, then land
- * next to their own (or the loser's capital or last region, wherever it lies), then gold. A great crown down to its
- * heartland (four regions or fewer) gives up one region a peace. With nothing of that in reach, a small realm (never
- * the Emperor or a great crown) is made a vassal if the leverage covers it.
+ * next to their own (or the loser's last region, wherever it lies), then gold; a limited war won by its attackers
+ * only the war goal, and gold. A great crown down to its heartland (four regions or fewer) gives up one region a
+ * peace. With nothing of that in reach, a small realm (never the Emperor or a great crown) is made a vassal if the
+ * leverage covers it.
  */
 export function buildDemands(s: GameState, w: War, winner: NationId, budget: number): PeaceTerms {
   const winSide = sideOf(w, winner)!;
@@ -567,7 +568,10 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   const winnerRegions = new Set(ownedRegions(s, winner).map(r => r.id));
   // Land the winner wants (historical aims, missions) comes first after the war goal and claims.
   const wanted = wantedRegions(s, winner);
+  // A limited war won by its attackers is for the war goal alone (and gold).
+  const only = w.limited && winSide === 0 ? w.goal : undefined;
   const candidates = demandableRegions(s, w, winner)
+    .filter(r => !only || r === only)
     .map(r => ({ r, cost: regionPeaceCost(s, winner, r), dev: s.regions[r].dev }))
     .sort((a, b) => {
       const prio = (x: { r: string }) => (x.r === w.goal ? 100 : 0) + (x.r in s.nations[winner].claims || s.regions[x.r].cores.includes(winner) ? 50 : 0) + (wanted.get(x.r) ?? 0) * 30;
@@ -576,11 +580,11 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   let left = budget;
   for (const c of candidates) {
     if (c.cost > left) continue;
-    // Prefer regions that touch what the winner holds (or will hold). The loser's capital or last region may lie
-    // anywhere: without it, a war against a far-off realm could never end.
+    // Prefer regions that touch what the winner holds (or will hold). The loser's last region may lie anywhere:
+    // without it, a war against a far-off one-region realm could never end.
     const touches = REGION[c.r] && (winnerRegions.size === 0 || [...winnerRegions, ...terms.regions].some(x => x === c.r || isNeighbor(c.r, x)));
     const owner = s.regions[c.r].owner!;
-    const heart = owner === loser && (s.nations[loser].capital === c.r || ownedRegions(s, loser).length === 1);
+    const heart = owner === loser && ownedRegions(s, loser).length === 1;
     if (!touches && c.r !== w.goal && !wanted.has(c.r) && !heart) continue;
     // A great crown down to its heartland gives up one region a peace.
     if (NATION[owner]?.tier === 'major' && ownedRegions(s, owner).length <= 4 && terms.regions.some(x => s.regions[x].owner === owner)) continue;
@@ -590,7 +594,7 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   }
   if (left >= 10 && s.nations[loser].gold > 50) terms.gold = Math.min(Math.floor(left / 2) * 10, Math.floor(s.nations[loser].gold / 2));
   const mayVassalize =
-    !terms.regions.length && !terms.gold && loser !== s.player && NATION[loser]?.tier !== 'major' && !isNativeNation(loser) && !s.nations[loser]?.overlord && !s.nations[winner].overlord && s.hre.emperor !== loser;
+    !only && !terms.regions.length && !terms.gold && loser !== s.player && NATION[loser]?.tier !== 'major' && !isNativeNation(loser) && !s.nations[loser]?.overlord && !s.nations[winner].overlord && s.hre.emperor !== loser;
   if (mayVassalize && peaceCost(s, { ...terms, vassalize: true }) <= budget) terms.vassalize = true;
   return terms;
 }

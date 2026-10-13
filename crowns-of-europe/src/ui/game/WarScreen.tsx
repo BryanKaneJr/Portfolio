@@ -66,6 +66,8 @@ export function WarPanel({ warId }: { warId: string }) {
   const sc = scoreFor(s, w, s.player);
   const ws = warScore(s, w);
   const flip = side === 1 ? -1 : 1;
+  // An AI war for one border region: if its attackers win, that region (and gold) is all they take.
+  const limitedNote = w.limited && w.goal && side === 1 ? ` This is a limited war: if they win, they take only ${regionName(w.goal)} (and gold).` : '';
 
   // The peace table: demand what you may take, or offer any land of yours, the land they value most first.
   const winner = mode === 'demand' ? s.player : enemy;
@@ -189,7 +191,7 @@ export function WarPanel({ warId }: { warId: string }) {
           <Icon name="scroll" size={14} color={G.gold} />
           <Text style={styles.reasonText} numberOfLines={2}>
             {w.cb === 'none' ? 'Fought without a reason for war' : CB_LABEL[w.cb]}
-            {w.goal ? ` · war goal: ${regionName(w.goal)}` : ''}
+            {w.goal ? (w.limited ? ` · a limited war for ${regionName(w.goal)}` : ` · war goal: ${regionName(w.goal)}`) : ''}
           </Text>
         </View>
         <Text style={styles.since}>
@@ -299,7 +301,7 @@ export function WarPanel({ warId }: { warId: string }) {
             help={
               mode === 'demand'
                 ? 'Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years.'
-                : `Offer any of your land, or gold. The % beside a region is what it is worth to ${nationName(enemy)}: its full price if it is next to their land, they claim, want or hold it, or it is the war goal; half for land far from them. Gold is 1% for every 10. They accept if it covers their leverage.`
+                : `Offer any of your land, or gold. The % beside a region is what it is worth to ${nationName(enemy)}: its full price if it is next to their land, they claim, want or hold it, or it is the war goal; half for land far from them. Gold is 1% for every 10. They accept if it covers their leverage.${limitedNote}`
             }
           >
             <View style={styles.seg}>

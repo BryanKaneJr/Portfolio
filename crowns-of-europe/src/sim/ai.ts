@@ -538,7 +538,7 @@ function aiWar(s: GameState, nat: Nation): void {
   const aggression = s.settings.difficulty === 'hard' ? 0.85 : s.settings.difficulty === 'easy' ? 1.2 : 1;
   const evalChance = pers === 'expansionist' ? 0.3 : pers === 'opportunist' ? 0.2 : 0.1;
   if (!chance(s, evalChance)) return;
-  let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; goal?: string; score: number } | null = null;
+  let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; goal?: string; score: number; limited: boolean } | null = null;
   const wanted = wantedRegions(s, n);
   const targets = new Set(neighborsOf(s, n));
   for (const t of targets) {
@@ -550,8 +550,13 @@ function aiWar(s: GameState, nat: Nation): void {
     const cb = cbs[0];
     if (cb.cb === 'none' && pers !== 'expansionist') continue;
     // Only the allies who would answer the call count, the distant ones for less (not the Empire's sworn defenders).
+    // A crown leads only a war it could carry at least halfway itself: its allies count for no more than its own
+    // might (else a small crown with a great friend would take a great crown's heartland on the friend's back).
     const sides = likelySides(s, n, t);
-    const ratio = sideStrength(s, sides.attackers, n, t) / Math.max(1, sideStrength(s, sides.defenders, t, n, imperialDefenders(s, n, t)));
+    const own = [n, ...subjectsOf(s, n)];
+    const ownMight = sideStrength(s, sides.attackers.filter(x => own.includes(x)), n, t);
+    const alliesMight = sideStrength(s, sides.attackers.filter(x => !own.includes(x)), n, t);
+    const ratio = (ownMight + Math.min(alliesMight, ownMight)) / Math.max(1, sideStrength(s, sides.defenders, t, n, imperialDefenders(s, n, t)));
     // Crowns follow their history: land they want makes a war worth more and worth more risk.
     const wants = wantsFrom(s, n, t);
     const desire = Math.min(4, wants.reduce((sum, r) => sum + (wanted.get(r) ?? 0), 0));
@@ -566,11 +571,13 @@ function aiWar(s: GameState, nat: Nation): void {
     if (ratio < need) continue;
     // Past three to one, better odds add nothing: the land a crown wants decides which war it picks.
     const score = Math.min(3, ratio) + (goal ? s.regions[goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
-    if (!best || score > best.score) best = { target: t, cb, goal, score };
+    if (!best || score > best.score) best = { target: t, cb, goal, score, limited };
   }
   if (!best) return;
   const war = declareWar(s, n, best.target, best.cb.cb, best.goal);
-  if (war) nat.ai.lastWarDeclared = s.day;
+  if (!war) return;
+  nat.ai.lastWarDeclared = s.day;
+  if (best.limited) war.limited = true;
 }
 
 // ---------------------------------------------------------------- peace

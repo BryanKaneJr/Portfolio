@@ -528,6 +528,9 @@ export interface War {
   goalScore: number; // ticking score from holding (or failing to take) the war goal
   /** An AI leader's ultimatum to the player: imposed on `due` if it still holds ULTIMATUM_SCORE (war.ts). */
   ultimatum?: { from: NationId; due: number; terms: PeaceTerms };
+  /** Declared (by the AI) for the war goal alone, a region on its border: if the attackers win, the goal is all the
+   * land they take (buildDemands). */
+  limited?: boolean;
 }
 
 export interface Relation {
