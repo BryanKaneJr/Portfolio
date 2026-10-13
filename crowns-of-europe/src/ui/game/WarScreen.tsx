@@ -9,7 +9,7 @@ import Svg, { Defs, LinearGradient, RadialGradient, Rect, Stop } from 'react-nat
 import { NATION, nationName, regionName } from '../../sim/content';
 import { proposePeace, separatePeace } from '../../sim/commands';
 import { REBELS, ownedRegions, sideOf, subjectsOf } from '../../sim/queries';
-import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
+import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, ultimatumTerms, warScore } from '../../sim/war';
 import type { NationId, PeaceTerms, War } from '../../sim/types';
 import { DAYS_PER_YEAR, formatDate, formatShortDate, isIn } from '../../sim/util';
 import { useStore } from '../../state/store';
@@ -89,6 +89,8 @@ export function WarPanel({ warId }: { warId: string }) {
   const whiteAnswer = proposalAnswer(s, w, white, s.player);
   const myGold = s.nations[s.player].gold;
   const ult = w.ultimatum?.from === enemy ? w.ultimatum : undefined;
+  // Its terms as they stand today: what accepting signs, and what its day would impose.
+  const ultTerms = ult ? ultimatumTerms(s, w) : null;
   const anyTerms = regions.length > 0 || gold > 0 || vassalize || release.length > 0;
   const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
   const reset = (m: 'demand' | 'offer') => {
@@ -207,10 +209,10 @@ export function WarPanel({ warId }: { warId: string }) {
             <Text style={[styles.cardTitle, { color: G.bad }]}>Ultimatum</Text>
           </View>
           <View style={{ marginTop: 6 }}>
-            {ult.terms.regions.map(r => (
+            {(ultTerms?.regions ?? []).map(r => (
               <Line key={r} label={`${regionName(r)} goes to`} value={nationName(ult.from)} tone="bad" />
             ))}
-            {ult.terms.gold ? <Line label="You pay" value={`${ult.terms.gold} gold`} tone="bad" /> : null}
+            {ultTerms?.gold ? <Line label="You pay" value={`${ultTerms.gold} gold`} tone="bad" /> : null}
             <Line
               label="Takes effect"
               value={formatDate(ult.due)}
@@ -224,7 +226,7 @@ export function WarPanel({ warId }: { warId: string }) {
               label="Accept their terms"
               testID="accept-ultimatum"
               onPress={() => {
-                const r = st.run(x => proposePeace(x, w.id, ult.terms));
+                const r = st.run(x => proposePeace(x, w.id, ultimatumTerms(x, x.wars[w.id] ?? w) ?? ult.terms));
                 if (r.ok) st.close();
               }}
             />

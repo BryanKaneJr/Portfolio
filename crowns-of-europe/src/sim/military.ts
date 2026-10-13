@@ -267,6 +267,8 @@ interface Arrival {
   army: Army;
   from?: NodeId;
   day?: number;
+  /** Was it in a rout on this road (arrive() clears the flag at its refuge)? A rout is never turned back. */
+  routed: boolean;
 }
 
 export function dailyMovement(s: GameState): void {
@@ -295,7 +297,7 @@ export function dailyMovement(s: GameState): void {
     }
     a.progress += 1;
     if (a.progress < a.edgeDays) continue;
-    const before: Arrival = { army: a, from: a.from, day: a.arrivedDay };
+    const before: Arrival = { army: a, from: a.from, day: a.arrivedDay, routed: !!a.retreating };
     a.from = a.node;
     a.node = a.path.shift()!;
     a.progress = 0;
@@ -312,19 +314,21 @@ export function dailyMovement(s: GameState): void {
 }
 
 /**
- * Hostile armies that passed each other on one road today (one went X→Y, the other Y→X, say boarding ships as the
- * other landed) meet at Y: the one going the other way is turned back as if it had not yet left. (One still in Y
- * and marching out is caught by arrive().)
+ * Hostile armies that passed each other on one road today (one went X→Y, the others Y→X, say boarding ships as it
+ * landed) meet at Y: those going the other way are turned back as if they had not yet left. (One still in Y and
+ * marching out is caught by arrive().)
  */
 function metOnTheRoad(s: GameState, a: Army, arrivals: Map<string, Arrival[]>): boolean {
   if (a.retreating || isSea(a.node)) return false;
-  const met = arrivals.get(`${a.node}>${a.from}`)?.find(x => x.army.node === a.from && !x.army.battle && !x.army.retreating && armiesHostile(s, a, x.army));
-  if (!met) return false;
-  const b = met.army;
-  b.node = a.node;
-  b.from = met.from;
-  b.arrivedDay = met.day;
-  b.path = [];
+  const met = (arrivals.get(`${a.node}>${a.from}`) ?? []).filter(x => x.army.node === a.from && !x.army.battle && !x.routed && armiesHostile(s, a, x.army));
+  if (!met.length) return false;
+  for (const m of met) {
+    const b = m.army;
+    b.node = a.node;
+    b.from = m.from;
+    b.arrivedDay = m.day;
+    b.path = [];
+  }
   a.path = [];
   joinOrStartBattle(s, a.node, a);
   return true;
@@ -452,11 +456,36 @@ export function retreat(s: GameState, a: Army): boolean {
  */
 export function sendHomeAfterPeace(s: GameState, nations: NationId[]): void {
   for (const b of Object.values(s.battles)) {
-    const [x, y] = b.sides.map(side => side.armies.map(id => s.armies[id]).filter(Boolean));
-    if (!x.length || !y.length || x.some(a => y.some(o => armiesHostile(s, a, o)))) continue;
-    for (const a of [...x, ...y]) a.battle = undefined;
-    delete s.battles[b.id];
-    if ([...x, ...y].some(a => a.owner === s.player)) log(s, 'battle', `The peace ends the battle of ${regionName(b.node)}.`, { node: b.node });
+    const sides = b.sides.map(side => side.armies.map(id => s.armies[id]).filter(Boolean));
+    // An army no longer at war with anyone across the field leaves it (one of several wars fought here has ended);
+    // whoever was fighting only it may then have nobody left to fight either.
+    const left: Army[] = [];
+    for (let changed = true; changed; ) {
+      changed = false;
+      for (const i of [0, 1] as const) {
+        const out = sides[i].filter(a => !sides[1 - i].some(o => armiesHostile(s, a, o)));
+        if (!out.length) continue;
+        sides[i] = sides[i].filter(a => !out.includes(a));
+        left.push(...out);
+        changed = true;
+      }
+    }
+    if (!left.length) continue;
+    for (const a of left) a.battle = undefined;
+    if (!sides[0].length || !sides[1].length) {
+      for (const a of [...sides[0], ...sides[1]]) a.battle = undefined;
+      delete s.battles[b.id];
+      if ([...left, ...sides[0], ...sides[1]].some(a => a.owner === s.player)) log(s, 'battle', `The peace ends the battle of ${regionName(b.node)}.`, { node: b.node });
+      continue;
+    }
+    for (const i of [0, 1] as const) {
+      const side = b.sides[i];
+      side.armies = sides[i].map(a => a.id);
+      // Those still fighting lead the side (its leader's war takes the score); those gone stay on the report.
+      const here = new Set(sides[i].map(a => a.owner));
+      side.nations = [...side.nations.filter(n => here.has(n)), ...side.nations.filter(n => !here.has(n))];
+    }
+    for (const a of left) if (a.owner === s.player) log(s, 'battle', `The peace takes the ${a.name} out of the battle of ${regionName(b.node)}.`, { node: b.node });
   }
   for (const a of Object.values(s.armies)) {
     if (!nations.includes(a.owner) || a.battle || a.retreating) continue;
@@ -549,11 +578,11 @@ export function dailyRecruitment(s: GameState): void {
     if (!ready.length) continue;
     nat.recruiting = nat.recruiting.filter(r => r.done > s.day);
     let mustered = 0;
-    let elsewhere = 0;
     let refunded = 0;
     let first: RegionId | null = null;
-    let moved: { from: RegionId; to: RegionId } | null = null;
-    let stranded: RegionId | null = null;
+    const movedTo = new Map<RegionId, number>(); // where recruits mustered instead, and how many
+    const lost = new Set<RegionId>(); // where they trained, no longer yours
+    const stranded = new Set<RegionId>(); // ... with none of your land in reach
     for (const r of ready) {
       // Recruits muster where they trained if you still hold it, else in the nearest region you hold; with none in
       // reach over land, their gold (at today's price) and levies come back.
@@ -564,11 +593,11 @@ export function dailyRecruitment(s: GameState): void {
           nat.gold += unitCost(s, nat.id, r.type);
           nat.manpower += 1000;
           refunded++;
-          stranded ??= r.region;
+          stranded.add(r.region);
           continue;
         }
-        elsewhere++;
-        moved ??= { from: r.region, to: at };
+        movedTo.set(at, (movedTo.get(at) ?? 0) + 1);
+        lost.add(r.region);
       }
       addRegiments(s, nat.id, at, { [r.type]: 1 });
       mustered++;
@@ -576,8 +605,10 @@ export function dailyRecruitment(s: GameState): void {
     }
     if (nat.id !== s.player) continue;
     const lines: string[] = [];
-    if (mustered) lines.push(`${mustered} new regiment${mustered > 1 ? 's are' : ' is'} ready${moved ? `, ${elsewhere} at ${regionName(moved.to)} as the enemy holds ${regionName(moved.from)}` : ''}.`);
-    if (stranded) lines.push(`${refunded} could not muster in ${regionName(stranded)}, held by the enemy: gold and levies returned.`);
+    const names = (rs: Iterable<RegionId>) => [...rs].map(regionName).join(', ');
+    const instead = [...movedTo].map(([at, k]) => `${k} at ${regionName(at)}`).join(', ');
+    if (mustered) lines.push(`${mustered} new regiment${mustered > 1 ? 's are' : ' is'} ready${movedTo.size ? `, ${instead}, as you no longer hold ${names(lost)}` : ''}.`);
+    if (refunded) lines.push(`${refunded} could not muster (you no longer hold ${names(stranded)}): gold and levies returned.`);
     log(s, 'war', lines.join(' '), { node: first ?? ready[0].region });
   }
 }

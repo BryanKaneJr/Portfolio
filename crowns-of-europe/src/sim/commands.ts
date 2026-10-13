@@ -54,6 +54,7 @@ import {
   proposalAnswer,
   refuseCall,
   scoreFor,
+  ultimatumTerms,
 } from './war';
 
 export interface Result {
@@ -470,7 +471,8 @@ export function answerOffer(s: GameState, offerId: string, accept: boolean): Res
       const w = s.wars[o.war];
       if (!w) return no('That war is already over.');
       if (accept) {
-        makePeace(s, w, o.terms);
+        // An ultimatum signs its terms as they stand today (the land still theirs to take, the gold you have).
+        makePeace(s, w, (o.ultimatum !== undefined && w.ultimatum?.from === o.from && ultimatumTerms(s, w)) || o.terms);
         return ok('Peace is signed.');
       }
       // Refusing an ultimatum doesn't stop its clock: it still takes effect on its day if they hold the leverage.

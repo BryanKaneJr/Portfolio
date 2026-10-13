@@ -324,6 +324,78 @@ describe('the AI at war', () => {
     expect(aiAnswersCall(s, 'MOR', 'GRA', 'CAS', true)).toBe(false);
     expect(likelySides(s, 'CAS', 'GRA').defenders).not.toContain('MOR');
   });
+
+  test('a limited war won by its attackers takes only its goal', () => {
+    const s = emptyGame('POR');
+    s.alliances = {};
+    forceWar(s, 'FRA', 'BUR');
+    const w = declareWar(s, 'FRA', 'BUR', 'none', 'picardy')!;
+    for (const r of ownedRegions(s, 'BUR')) r.controller = 'FRA';
+    expect(buildDemands(s, w, 'FRA', 100).regions.length).toBeGreaterThan(1);
+    w.limited = true;
+    expect(buildDemands(s, w, 'FRA', 100).regions).toEqual(['picardy']);
+    // The defenders, winning, are not held to it.
+    for (const r of ownedRegions(s, 'FRA')) r.controller = 'BUR';
+    expect(buildDemands(s, w, 'BUR', 100).regions.length).toBeGreaterThan(1);
+  });
+
+  test('a subject that wins its war of independence goes free, even from a penniless overlord', () => {
+    const { makeSubject } = require('../src/sim/territory') as typeof import('../src/sim/territory'); // eslint-disable-line @typescript-eslint/no-require-imports
+    const s = emptyGame('FRA');
+    s.alliances = {};
+    forceWar(s, 'CAS', 'GRA');
+    makeSubject(s, 'CAS', 'GRA', 'vassal');
+    const w = declareWar(s, 'GRA', 'CAS', 'independence')!;
+    w.started = s.day - years(1.1);
+    w.battleScore = 40;
+    s.nations.CAS.gold = 10;
+    debugAI.aiPeace(s, s.nations.GRA);
+    expect(s.wars[w.id]).toBeUndefined();
+    expect(s.nations.GRA.overlord).toBeUndefined();
+  });
+
+  test('the ruler leads the main army (not a detachment), never two at once, and hands over to a new ruler', () => {
+    const { rulerAsGeneral } = require('../src/sim/rulers') as typeof import('../src/sim/rulers'); // eslint-disable-line @typescript-eslint/no-require-imports
+    const { applyEffect } = require('../src/sim/events') as typeof import('../src/sim/events'); // eslint-disable-line @typescript-eslint/no-require-imports
+    const s = emptyGame('FRA');
+    const nat = s.nations.TUR;
+    nat.generals = [];
+    expect(rulerAsGeneral(s, 'TUR').stars).toBeGreaterThanOrEqual(3);
+    expect(nat.heir).toBeDefined();
+    const main = army(s, 'TUR', nat.capital, 30);
+    main.general = { id: 'g1', name: 'Hired', stars: 1, hired: s.day, lifespan: 1e6 };
+    const tiny = army(s, 'TUR', nat.capital, 1);
+    debugAI.aiGenerals(s, nat);
+    expect(main.general?.isRuler).toBe(true);
+    expect(tiny.general?.name).toBe('Hired'); // the general he displaced takes the next army
+    // His army in a rout: he is not sent to lead another as well.
+    main.retreating = true;
+    tiny.general = undefined;
+    debugAI.aiGenerals(s, nat);
+    expect(Object.values(s.armies).filter(a => a.general?.isRuler)).toHaveLength(1);
+    main.retreating = false;
+    // A new ruler: the old one no longer commands, and the new one takes the field.
+    applyEffect(s, 'TUR', { newRuler: { name: 'Mehmed II', skill: 5, traits: ['warrior'], age: 19 } } as never);
+    expect(Object.values(s.armies).some(a => a.general?.name === nat.ruler.name)).toBe(false);
+    debugAI.aiGenerals(s, nat);
+    const led = Object.values(s.armies).filter(a => a.general?.isRuler);
+    expect(led.map(a => a.general!.name)).toEqual(['Mehmed II']);
+  });
+
+  test('an army never marches to a battle it could not join (hostile to both sides)', () => {
+    const s = granadaWar();
+    forceWar(s, 'CAS', 'POR');
+    declareWar(s, 'CAS', 'POR', 'none');
+    forceWar(s, 'GRA', 'POR');
+    declareWar(s, 'POR', 'GRA', 'none');
+    const gra = army(s, 'GRA', 'andalusia', 10);
+    army(s, 'POR', 'andalusia', 30);
+    const { joinOrStartBattle } = require('../src/sim/battle') as typeof import('../src/sim/battle'); // eslint-disable-line @typescript-eslint/no-require-imports
+    joinOrStartBattle(s, 'andalusia', gra);
+    expect(gra.battle).toBeDefined();
+    const cas = army(s, 'CAS', 'toledo', 8);
+    expect(attackOdds(s, [cas], gra).win).toBe(false);
+  });
 });
 
 describe('ultimatums and the player’s own peace offers', () => {
@@ -416,6 +488,20 @@ describe('ultimatums and the player’s own peace offers', () => {
     expect(fitted.regions).toEqual(['lisbon', 'porto']); // 36% + 12%: Alentejo (9%) no longer fits
     expect(fitted.gold).toBe(20);
     expect(peaceCost(s, fitted)).toBeLessThanOrEqual(50);
+  });
+
+  test('if your gold runs low, the ultimatum asks only what you have, and you can still accept it', () => {
+    const { s, w } = beaten(25);
+    s.nations.POR.gold = 1000;
+    debugAI.aiPeace(s, s.nations.CAS);
+    expect(w.ultimatum).toBeDefined();
+    expect(w.ultimatum!.terms.gold).toBeGreaterThan(10);
+    s.nations.POR.gold = 10;
+    const now = peace.ultimatumTerms(s, w)!;
+    expect(now.gold).toBeLessThanOrEqual(10);
+    expect(now.regions).toEqual(w.ultimatum!.terms.regions);
+    expect(proposePeace(s, w.id, now).ok).toBe(true);
+    expect(s.wars[w.id]).toBeUndefined();
   });
 
   test('a peace accepted in the window cancels the ultimatum', () => {

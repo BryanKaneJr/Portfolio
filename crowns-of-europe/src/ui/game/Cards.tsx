@@ -8,7 +8,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
-import { ULTIMATUM_SCORE, peaceCost, scoreFor } from '../../sim/war';
+import { ULTIMATUM_SCORE, peaceCost, scoreFor, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate } from '../../sim/util';
@@ -102,7 +102,8 @@ export function OfferCard() {
     const due = o.ultimatum;
     title = due !== undefined ? 'An Ultimatum' : 'A Peace Proposal';
     icon = 'treaty';
-    const t = o.terms;
+    // An ultimatum as it stands today (the land still theirs to take, the gold you have): what accepting signs.
+    const t = (due !== undefined && w?.ultimatum?.from === o.from && ultimatumTerms(s, w)) || o.terms;
     const youWin = t.winner === s.player;
     body = (
       <>
@@ -115,6 +116,7 @@ export function OfferCard() {
             <Line key={r} label={`${regionName(r)} goes to`} value={nationName(t.winner)} tone={youWin ? 'good' : 'bad'} />
           ))}
           {t.gold ? <Line label={youWin ? 'They pay you' : 'You pay'} value={`${t.gold} gold`} tone={youWin ? 'good' : 'bad'} /> : null}
+          {w?.cb === 'independence' && !t.white && t.winner === w.attackers[0] ? <Line label={`${nationName(t.winner)} goes free`} value="independence" tone={youWin ? 'good' : 'bad'} /> : null}
           {w ? <Line label="Your leverage now" value={`${scoreFor(s, w, s.player)}%`} /> : null}
           {w && !t.white ? <Line label="Value of the deal" value={`${peaceCost(s, t)}%`} tone="muted" /> : null}
           {due !== undefined ? (

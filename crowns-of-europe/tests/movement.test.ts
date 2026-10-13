@@ -1,6 +1,7 @@
 import { emptyGame, army, forceWar } from './helpers';
-import { findPath, orderMove } from '../src/sim/military';
+import { dailyMovement, findPath, orderMove } from '../src/sim/military';
 import { declareWar, leaveWar, makePeace } from '../src/sim/war';
+import { joinOrStartBattle } from '../src/sim/battle';
 import { advanceDay, advanceDays } from '../src/sim/tick';
 import { GRAPH, regionName } from '../src/sim/content';
 import { REBELS, bumpOwnership } from '../src/sim/queries';
@@ -239,7 +240,7 @@ describe('movement', () => {
     expect(s.regions[moved.node].controller).toBe('FRA');
     expect(nat.gold - gold).toBe(unitCost(s, 'FRA', 'cav'));
     expect(nat.manpower - levies).toBe(1000);
-    expect(s.log[0].text).toMatch(/^2 new regiments are ready, 1 at .+ as the enemy holds Champagne\. 1 could not muster in Candia/);
+    expect(s.log[0].text).toMatch(/^2 new regiments are ready, 1 at .+, as you no longer hold Champagne\. 1 could not muster \(you no longer hold Candia\)/);
   });
 
   test('at peace, armies leave land they may no longer enter', () => {
@@ -294,5 +295,75 @@ describe('movement', () => {
     expect(s.regions[sco.path[sco.path.length - 1]].owner).toBe('SCO');
     advanceDays(s, 60);
     expect(s.regions[sco.node].owner).toBe('SCO');
+  });
+
+  test('a rout reaching its refuge is never turned back on the road, whichever army moves first', () => {
+    for (const routFirst of [true, false]) {
+      const s = emptyGame('POR');
+      s.alliances = {};
+      forceWar(s, 'FRA', 'BUR');
+      declareWar(s, 'FRA', 'BUR', 'none');
+      // The order the armies were raised in is the order they move in.
+      const first = army(s, routFirst ? 'BUR' : 'FRA', routFirst ? 'champagne' : 'burgundy', routFirst ? 5 : 10);
+      const second = army(s, routFirst ? 'FRA' : 'BUR', routFirst ? 'burgundy' : 'champagne', routFirst ? 10 : 5);
+      const [bur, fra] = routFirst ? [first, second] : [second, first];
+      bur.retreating = true;
+      bur.path = ['burgundy'];
+      bur.edgeDays = 5;
+      bur.progress = 4;
+      fra.path = ['champagne'];
+      fra.edgeDays = 5;
+      fra.progress = 4;
+      dailyMovement(s);
+      expect(bur.node).toBe('burgundy');
+      expect(bur.battle).toBeUndefined();
+    }
+  });
+
+  test('every enemy army boarding from the shore an army lands on is turned back to fight', () => {
+    for (const boardFirst of [true, false]) {
+      const s = emptyGame('POR');
+      s.alliances = {};
+      forceWar(s, 'FRA', 'ENG');
+      declareWar(s, 'FRA', 'ENG', 'none');
+      const lands = boardFirst ? null : army(s, 'ENG', 'channel', 8);
+      const boarding = [army(s, 'FRA', 'normandy', 5), army(s, 'FRA', 'normandy', 5)];
+      const eng = lands ?? army(s, 'ENG', 'channel', 8);
+      for (const x of boarding) {
+        x.path = ['channel', 'kent'];
+        x.edgeDays = 4;
+        x.progress = 3;
+      }
+      eng.path = ['normandy'];
+      eng.edgeDays = 4;
+      eng.progress = 3;
+      dailyMovement(s);
+      for (const x of boarding) {
+        expect(x.node).toBe('normandy');
+        expect(x.battle).toBeDefined();
+      }
+    }
+  });
+
+  test('a peace takes its armies out of a battle that goes on for another war, and the score goes to that war', () => {
+    const s = emptyGame('POR');
+    s.alliances = {};
+    forceWar(s, 'FRA', 'ENG');
+    forceWar(s, 'SCO', 'ENG');
+    const w = declareWar(s, 'FRA', 'ENG', 'none')!;
+    w.attackers.push('SCO');
+    const sco = army(s, 'SCO', 'yorkshire', 10);
+    const fra = army(s, 'FRA', 'yorkshire', 10);
+    army(s, 'ENG', 'yorkshire', 10);
+    sco.arrivedDay = s.day;
+    sco.from = 'lowlands';
+    joinOrStartBattle(s, 'yorkshire', sco);
+    const b = Object.values(s.battles)[0];
+    expect(b.sides[0].nations[0]).toBe('SCO');
+    leaveWar(s, w, 'SCO');
+    expect(sco.battle).toBeUndefined();
+    expect(fra.battle).toBe(b.id);
+    expect(b.sides[0].armies).toEqual([fra.id]);
+    expect(b.sides[0].nations[0]).toBe('FRA');
   });
 });

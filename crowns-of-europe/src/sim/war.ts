@@ -424,7 +424,8 @@ export function peaceAcceptance(s: GameState, w: War, terms: PeaceTerms, decider
     add('Worth to them', offerValue(s, w, terms));
     add('Leverage they hold', -Math.max(0, sc));
     const u = w.ultimatum;
-    if (u?.from === decider && meets(terms, u.terms)) add('Their ultimatum met', Math.max(0, sc - offerValue(s, w, u.terms)));
+    const asked = u?.from === decider ? ultimatumTerms(s, w) : null;
+    if (asked && meets(terms, asked)) add('Their ultimatum met', Math.max(0, sc - offerValue(s, w, asked)));
     add('War exhaustion', D.warExhaustion);
     add('Base', 5);
   }
@@ -629,6 +630,16 @@ export function fitTerms(s: GameState, w: War, terms: PeaceTerms, budget: number
   }
   out.gold = Math.max(0, Math.min(terms.gold, Math.floor(left) * 10, Math.floor(s.nations[terms.loser]?.gold ?? 0)));
   return out;
+}
+
+/**
+ * An ultimatum's terms as they stand today: the land its sender may still demand and no more gold than the loser
+ * has, within the leverage it holds (as if at ULTIMATUM_SCORE when it has less: what it would impose on regaining
+ * it). What the screens show, what accepting it signs, and on its day what is imposed.
+ */
+export function ultimatumTerms(s: GameState, w: War): PeaceTerms | null {
+  const u = w.ultimatum;
+  return u ? fitTerms(s, w, u.terms, Math.max(ULTIMATUM_SCORE, scoreFor(s, w, u.from))) : null;
 }
 
 /** Daily: an ultimatum whose day has come is imposed if its sender still holds ULTIMATUM_SCORE; otherwise it lapses. */

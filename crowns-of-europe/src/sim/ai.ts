@@ -251,30 +251,37 @@ const BIG_ARMY = 10;
 
 /**
  * Generals take the field. The idle ones (hired, given by events and missions, freed by a merge) go to the largest
- * armies without a commander; a skilled ruler leads the largest in person when an heir stands ready, and comes home
- * when the succession is no longer safe. At war (or bracing for one), a general is hired for an army of 8+
- * regiments that has none; in peace only for one of 10+, and from a full treasury.
+ * armies without a commander; a skilled ruler leads the largest army of 8+ regiments in person when an heir stands
+ * ready (taking it from a lesser general, who goes back to the pool), and comes home when the succession is no
+ * longer safe. At war (or bracing for one), a general is hired for an army of 8+ regiments that has none; in peace
+ * only for one of 10+, and from a full treasury.
  */
 function aiGenerals(s: GameState, nat: Nation): void {
   const n = nat.id;
-  const armies = armiesOf(s, n).filter(a => !a.retreating);
+  const all = armiesOf(s, n);
+  const armies = all.filter(a => !a.retreating);
   const rulerMayLead = !!nat.heir && !nat.ruler.regency && rulerAsGeneral(s, n).stars >= RULER_LEADS_STARS;
-  if (!rulerMayLead) for (const a of armies) if (a.general?.isRuler) a.general = undefined;
-  const rulerLeads = armies.some(a => a.general?.isRuler);
+  // Home comes the ruler when the succession is unsafe (even from a rout), and any stale ruler-general.
+  for (const a of all) if (a.general?.isRuler && (!rulerMayLead || a.general.name !== nat.ruler.name)) a.general = undefined;
+  if (rulerMayLead && !all.some(a => a.general?.isRuler)) {
+    const ruler = rulerAsGeneral(s, n);
+    const host = armies
+      .filter(a => !a.battle && armyRegs(a) >= HIRE_FOR_REGS && (!a.general || a.general.stars < ruler.stars))
+      .sort((x, y) => armyRegs(y) - armyRegs(x))[0];
+    if (host) {
+      if (host.general) nat.generals.push(host.general);
+      host.general = ruler;
+    }
+  }
   const leaderless = armies.filter(a => !a.general).sort((x, y) => armyRegs(y) - armyRegs(x));
   if (!leaderless.length) return;
-  // The best commanders to the biggest armies: idle generals and the ruler, by stars.
+  // The best idle commanders to the biggest armies.
   const pool = [...nat.generals].sort((x, y) => y.stars - x.stars);
-  if (rulerMayLead && !rulerLeads) {
-    const ruler = rulerAsGeneral(s, n);
-    const at = pool.findIndex(g => g.stars < ruler.stars);
-    pool.splice(at < 0 ? pool.length : at, 0, ruler);
-  }
   let hires = 0;
   for (const a of leaderless) {
     const g = pool.shift();
     if (g) {
-      if (!g.isRuler) nat.generals = nat.generals.filter(x => x.id !== g.id);
+      nat.generals = nat.generals.filter(x => x.id !== g.id);
       a.general = g;
       continue;
     }
@@ -610,7 +617,7 @@ function aiPeace(s: GameState, nat: Nation): void {
       if (nat.flags[`_offered_${w.id}`] && s.day - nat.flags[`_offered_${w.id}`] < months(8)) continue;
       if (sc >= 35) {
         const terms = buildDemands(s, w, n, sc);
-        if (terms.regions.length || terms.gold) offerPeace(s, nat, w, terms);
+        if (terms.regions.length || terms.gold || (w.cb === 'independence' && side === 0)) offerPeace(s, nat, w, terms);
       } else if (sc <= -45 || (sc <= -20 && years_ > 4)) {
         const terms = buildDemands(s, w, s.player, Math.round(-sc * 0.7));
         terms.winner = s.player;
@@ -633,9 +640,11 @@ function aiPeace(s: GameState, nat: Nation): void {
       // Winning a young war of conquest but the war goal is not yet affordable: fight on for it.
       const goalHeld = side === 0 && !!w.goal && isIn(w.defenders, s.regions[w.goal]?.owner) && !terms.regions.includes(w.goal);
       if (goalHeld && years_ < 3 && sc < 60) continue;
-      const any = terms.regions.length > 0 || terms.gold > 0 || terms.vassalize;
+      // A subject winning its war of independence asks for its freedom (a peace that is not white frees it).
+      const freedom = w.cb === 'independence' && side === 0;
+      const any = terms.regions.length > 0 || terms.gold > 0 || terms.vassalize || freedom;
       if (any && peaceAcceptance(s, w, terms, enemyLeader).accept) makePeace(s, w, terms);
-      else if (sc >= 60 && (terms.regions.length || terms.vassalize)) makePeace(s, w, terms); // forced
+      else if (sc >= 60 && (terms.regions.length || terms.vassalize || freedom)) makePeace(s, w, terms); // forced
       else if (!any && years_ >= 1) {
         // Winning with nothing in reach to ask for: whatever gold the loser can spare, or a white peace.
         const gold = Math.min(sc * 10, Math.floor(s.nations[enemyLeader].gold / 2));
@@ -746,7 +755,7 @@ function armyAI(s: GameState, a: Army): void {
     .filter(x => x.f.winner === 0 && x.f.ratio >= DANGER_MARGIN)
     .sort((x, y) => y.f.ratio - x.f.ratio);
   if (threats.length && !a.battle) {
-    const friends = Object.values(s.armies).filter(o => o.owner === n && o.id !== a.id && !o.battle && !o.retreating && (tree.dist.get(o.node) ?? 999) <= 15);
+    const friends = Object.values(s.armies).filter(o => o.owner === n && !here.includes(o) && !o.battle && !o.retreating && (tree.dist.get(o.node) ?? 999) <= 15);
     if (friends.length && forecast(s, stackOf(s, threats[0].o, a), [...here, ...friends], a.node).winner === 1) {
       mergeWithNearby(s, a, tree);
       return;
@@ -859,6 +868,9 @@ export function attackOdds(s: GameState, ours: Army[], target: Army, from?: Node
   const b = target.battle ? s.battles[target.battle] : undefined;
   if (b) {
     const theirs = b.sides[0].armies.includes(target.id) ? 0 : 1;
+    // An army hostile to both sides could never join (joinOrStartBattle): no odds worth marching for.
+    const other = b.sides[1 - theirs].armies.map(id => s.armies[id]).filter(Boolean);
+    if (ours[0] && other.some(o => armiesHostile(s, ours[0], o))) return { win: false, ratio: 0, forecast: forecast(s, ours, [target], b.node) };
     const them = b.sides[theirs].armies.map(id => s.armies[id]).filter(Boolean);
     const us = [...b.sides[1 - theirs].armies.map(id => s.armies[id]).filter(Boolean), ...ours];
     const river = b.river ? s.armies[b.sides[0].armies[0]]?.from : undefined;

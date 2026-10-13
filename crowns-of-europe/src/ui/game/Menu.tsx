@@ -241,9 +241,10 @@ function Diplomacy() {
       ) : null}
       <Section
         title="Other nations"
+        help="Neighbours: the realms whose land borders yours, by land or across a strait, and your allies and subjects wherever they are. All: every realm."
         right={
           <Row gap={4}>
-            <Btn small tone={filter === 'neighbors' ? 'primary' : 'secondary'} label="Nearby" onPress={() => setFilter('neighbors')} />
+            <Btn small tone={filter === 'neighbors' ? 'primary' : 'secondary'} label="Neighbours" onPress={() => setFilter('neighbors')} />
             <Btn small tone={filter === 'all' ? 'primary' : 'secondary'} label="All" onPress={() => setFilter('all')} />
           </Row>
         }

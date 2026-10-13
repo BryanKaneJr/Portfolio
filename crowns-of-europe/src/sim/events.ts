@@ -311,6 +311,8 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       if (s.regions[v.region] && s.nations[v.to]?.alive) transferRegion(s, v.region, v.to);
       break;
     case 'newRuler':
+      // The old ruler no longer commands any army (as when a ruler dies).
+      for (const a of Object.values(s.armies)) if (a.owner === n && a.general?.isRuler) a.general = undefined;
       nat.ruler = { name: v.name, skill: clamp(v.skill, 1, 5), traits: v.traits ?? [], born: yearOf(s.day) - (v.age ?? 30) };
       invalidateMods();
       break;
