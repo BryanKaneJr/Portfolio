@@ -127,10 +127,16 @@ export interface RulerDef {
   traits: string[];
 }
 
+/** A flag (drawn by ui/components/Flag.tsx): a field `pattern` in `colors` (the field first), and optionally a charge
+ * (a figure) in `chargeColor` (default colors[1]); a quarterly flag puts its charge in quarters 1 and 4 and `charge2`
+ * (in `charge2Color`, default colors[0]) in quarters 2 and 3. */
 export interface FlagDef {
   pattern: string;
   colors: [string, string] | string[];
   charge?: string;
+  chargeColor?: string;
+  charge2?: string;
+  charge2Color?: string;
 }
 
 export interface NationDef {

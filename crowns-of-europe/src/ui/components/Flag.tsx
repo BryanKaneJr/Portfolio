@@ -1,12 +1,24 @@
-/** Simple public-domain-style heraldry drawn from each nation's flag spec. */
+/** Simple public-domain-style heraldry drawn from each nation's flag spec (nations.json `flag`). */
 import { memo, type ReactElement } from 'react';
 import Svg, { Circle, ClipPath, Defs, G, LinearGradient, Path, Polygon, Rect, Stop } from 'react-native-svg';
 import { NATION } from '../../sim/content';
+import type { FlagDef } from '../../sim/types';
+import { CHARGES } from './charges';
 
 const W = 30;
 const H = 20;
 
+/** A figure on the flag, centred on (15, 10) of the 30 x 20 box. */
 function Charge({ kind, color }: { kind?: string; color: string }) {
+  const drawn = kind ? CHARGES[kind] : undefined;
+  if (drawn)
+    return (
+      <>
+        {drawn.map((p, i) => (
+          <Path key={i} d={p.d} fill={color} fillRule={p.evenOdd ? 'evenodd' : 'nonzero'} />
+        ))}
+      </>
+    );
   switch (kind) {
     case 'eagle':
     case 'griffin':
@@ -38,57 +50,132 @@ function Charge({ kind, color }: { kind?: string; color: string }) {
   }
 }
 
-/** The flag's field and charges, drawn in a W x H box. */
-export function flagBody(nation: string): ReactElement {
-  const def = NATION[nation];
-  if (!def)
-    // Rebels: a black banner with a pitchfork-ish mark.
-    return (
-      <>
-        <Rect width={W} height={H} fill="#2b2b2b" />
-        <Path d="M15 4v12M12 4v4h6V4" stroke="#d8d8d8" strokeWidth={1.4} fill="none" />
-      </>
-    );
-  const [a, b] = def.flag.colors as [string, string];
-  let body: ReactElement;
-  switch (def.flag.pattern) {
+/** A small cross, as in the quarters of a cross cantoned. */
+const smallCross = (x: number, y: number, c: string) => (
+  <>
+    <Rect x={x - 0.7} y={y - 2.2} width={1.4} height={4.4} fill={c} />
+    <Rect x={x - 2.2} y={y - 0.7} width={4.4} height={1.4} fill={c} />
+  </>
+);
+/** A charge drawn small in one quarter of a quarterly flag (quarters 1-4: top left, top right, bottom left, bottom right). */
+const inQuarter = (q: number, kind: string, color: string) => {
+  const cx = q % 2 === 1 ? 7.5 : 22.5;
+  const cy = q <= 2 ? 5 : 15;
+  return (
+    <G key={`q${q}`} transform={`translate(${cx - 7.5} ${cy - 5}) scale(0.5)`}>
+      <Charge kind={kind} color={color} />
+    </G>
+  );
+};
+
+/** The flag's field (its pattern, in colors[0], colors[1] and colors[2]) in a W x H box. */
+function field(f: FlagDef): ReactElement {
+  const [a, b, c = a] = f.colors as string[];
+  switch (f.pattern) {
+    case 'perPale':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect x={15} width={15} height={H} fill={b} />
+        </>
+      );
+    case 'perFess':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect y={10} width={W} height={10} fill={b} />
+        </>
+      );
+    case 'chief':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect width={W} height={6.6} fill={b} />
+        </>
+      );
+    case 'canton':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect width={12} height={9} fill={b} />
+        </>
+      );
+    case 'tierced':
+      return (
+        <>
+          <Rect width={W} height={6.7} fill={a} />
+          <Rect y={6.6} width={W} height={6.8} fill={b} />
+          <Rect y={13.3} width={W} height={6.7} fill={c} />
+        </>
+      );
+    case 'chevron':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Path d="M0 15L15 4L30 15L30 20L15 9L0 20Z" fill={b} />
+        </>
+      );
+    case 'border':
+    case 'bordure':
+      return (
+        <>
+          <Rect width={W} height={H} fill={b} />
+          <Rect x={2.8} y={2.8} width={24.4} height={14.4} fill={a} />
+        </>
+      );
     case 'cross':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Rect x={12.5} width={5} height={H} fill={b} />
           <Rect y={7.5} width={W} height={5} fill={b} />
         </>
       );
-      break;
+    case 'crossPatty':
+      // Four arms widening to notched ends, as the Hospitallers' cross.
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Path d="M15 10L11.6 2.4L15 4.2L18.4 2.4ZM15 10L22.6 6.6L20.8 10L22.6 13.4ZM15 10L18.4 17.6L15 15.8L11.6 17.6ZM15 10L7.4 13.4L9.2 10L7.4 6.6Z" fill={b} />
+        </>
+      );
+    case 'crossCantoned':
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect x={13.2} width={3.6} height={H} fill={b} />
+          <Rect y={8.2} width={W} height={3.6} fill={b} />
+          {smallCross(6.6, 4.1, b)}
+          {smallCross(23.4, 4.1, b)}
+          {smallCross(6.6, 15.9, b)}
+          {smallCross(23.4, 15.9, b)}
+        </>
+      );
     case 'nordic':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Rect x={9} width={4} height={H} fill={b} />
           <Rect y={8} width={W} height={4} fill={b} />
         </>
       );
-      break;
     case 'saltire':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Path d="M0 0L30 20M30 0L0 20" stroke={b} strokeWidth={4} />
         </>
       );
-      break;
     case 'quarterly':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Rect x={15} width={15} height={10} fill={b} />
           <Rect y={10} width={15} height={10} fill={b} />
         </>
       );
-      break;
     case 'pales':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           {[3.75, 11.25, 18.75, 26.25].map(x => (
@@ -96,9 +183,8 @@ export function flagBody(nation: string): ReactElement {
           ))}
         </>
       );
-      break;
     case 'barry':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           {[2.5, 7.5, 12.5, 17.5].map(y => (
@@ -106,25 +192,22 @@ export function flagBody(nation: string): ReactElement {
           ))}
         </>
       );
-      break;
     case 'fess':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Rect y={6.5} width={W} height={7} fill={b} />
         </>
       );
-      break;
     case 'bend':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Path d="M0 0L30 20" stroke={b} strokeWidth={5} />
         </>
       );
-      break;
     case 'bendy':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           {[-10, 0, 10, 20].map(x => (
@@ -132,9 +215,8 @@ export function flagBody(nation: string): ReactElement {
           ))}
         </>
       );
-      break;
     case 'lozengy':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           {[0, 6, 12, 18, 24, 30].flatMap(x =>
@@ -142,18 +224,16 @@ export function flagBody(nation: string): ReactElement {
           )}
         </>
       );
-      break;
-    case 'border':
-      body = (
+    case 'ermine':
+      return (
         <>
-          <Rect width={W} height={H} fill={b} />
-          <Rect x={3} y={3} width={24} height={14} fill={a} />
-          <Rect x={12} y={6} width={6} height={8} rx={1} fill="#2a4c9c" />
+          <Rect width={W} height={H} fill={a} />
+          {[5, 15, 25].flatMap(x => [5, 15].map(y => <Path key={`${x}${y}`} d={`M${x} ${y - 2.5}v4M${x - 1.5} ${y + 2}l1.5-1.5l1.5 1.5`} stroke={b} strokeWidth={1.2} fill="none" />))}
         </>
       );
-      break;
     case 'lis':
-      body = (
+      // Three fleurs-de-lis, two and one.
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <G transform="translate(-7 -1.5) scale(0.6)">
@@ -167,52 +247,84 @@ export function flagBody(nation: string): ReactElement {
           </G>
         </>
       );
-      break;
+    case 'semeLis':
+      // Strewn with fleurs-de-lis.
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          {[
+            [5, 4],
+            [15, 4],
+            [25, 4],
+            [10, 10],
+            [20, 10],
+            [5, 16],
+            [15, 16],
+            [25, 16],
+          ].map(([x, y]) => (
+            <G key={`${x}-${y}`} transform={`translate(${x - 15 * 0.36} ${y - 10 * 0.36}) scale(0.36)`}>
+              <Charge kind="lis" color={b} />
+            </G>
+          ))}
+        </>
+      );
     case 'crescent':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Path d="M13 4.5a6 6 0 1 0 0 11a5 5 0 1 1 0-11Z" fill={b} />
           <Polygon points="19,7.5 19.8,9.4 21.8,9.5 20.2,10.7 20.8,12.6 19,11.5 17.2,12.6 17.8,10.7 16.2,9.5 18.2,9.4" fill={b} />
         </>
       );
-      break;
     case 'star':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Charge kind="star" color={b} />
         </>
       );
-      break;
-    case 'ermine':
-      body = (
-        <>
-          <Rect width={W} height={H} fill={a} />
-          {[5, 15, 25].flatMap(x => [5, 15].map(y => <Path key={`${x}${y}`} d={`M${x} ${y - 2.5}v4M${x - 1.5} ${y + 2}l1.5-1.5l1.5 1.5`} stroke={b} strokeWidth={1.2} fill="none" />))}
-        </>
-      );
-      break;
     case 'harp':
-      body = (
+      return (
         <>
           <Rect width={W} height={H} fill={a} />
           <Path d="M11 15V5c4 0 8 3 8 7l-8 3Zm2-1v-6M15 13V8M17 12V9" stroke={b} strokeWidth={1.2} fill="none" />
         </>
       );
-      break;
-    case 'charge':
-      body = (
-        <>
-          <Rect width={W} height={H} fill={a} />
-          <Charge kind={def.flag.charge} color={b} />
-        </>
-      );
-      break;
-    default:
-      body = <Rect width={W} height={H} fill={a} />;
+    default: // 'plain', and 'charge' (a plain field with its charge)
+      return <Rect width={W} height={H} fill={a} />;
   }
-  return body;
+}
+
+/** The flag's field and charges, drawn in a W x H box. */
+export function flagBody(nation: string): ReactElement {
+  const def = NATION[nation];
+  if (!def)
+    // Rebels: a black banner with a pitchfork-ish mark.
+    return (
+      <>
+        <Rect width={W} height={H} fill="#2b2b2b" />
+        <Path d="M15 4v12M12 4v4h6V4" stroke="#d8d8d8" strokeWidth={1.4} fill="none" />
+      </>
+    );
+  const f = def.flag;
+  const color = f.chargeColor ?? f.colors[1];
+  if (f.pattern === 'quarterly' && f.charge)
+    // Quartered arms: the charge in quarters 1 and 4, the second charge (if any) in 2 and 3.
+    return (
+      <>
+        {field(f)}
+        {inQuarter(1, f.charge, color)}
+        {inQuarter(4, f.charge, color)}
+        {f.charge2 ? inQuarter(2, f.charge2, f.charge2Color ?? f.colors[0]) : null}
+        {f.charge2 ? inQuarter(3, f.charge2, f.charge2Color ?? f.colors[0]) : null}
+      </>
+    );
+  return (
+    <>
+      {field(f)}
+      {f.charge ? <Charge kind={f.charge} color={color} /> : null}
+    </>
+  );
 }
 
 export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
