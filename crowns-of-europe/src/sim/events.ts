@@ -9,6 +9,7 @@ import {
   hasTruce,
   invalidateMods,
   isCoastal,
+  nationMods,
   ownedRegions,
   rulerAge,
   subjectsOf,
@@ -25,7 +26,7 @@ import { newGeneral, rulerDies } from './rulers';
 import { spawnRebels } from './rebels';
 import { canDeclareWar, declareWar, joinWar } from './war';
 import { SETTLERS_NEEDED, coloniesOf, discoverNewWorld, newWorldRegions } from './colonies';
-import type { Condition, Effect, EventDef, Faith, GameState, NationId } from './types';
+import type { Condition, Effect, EventDef, Faith, GameState, NationId, RegionId } from './types';
 import { chance, clamp, months, pickWeighted, randInt, yearOf } from './util';
 
 // ---------------------------------------------------------------- conditions
@@ -178,6 +179,72 @@ const REFORMATION_ZONE = (r: string) => {
   return def.hre || lat > 54 || ['bohemia', 'moravia', 'silesia', 'switzerland', 'lowlands', 'highlands', 'london', 'wessex', 'midlands', 'yorkshire', 'wales', 'hungary', 'transylvania', 'upper_hungary'].includes(r) || (lon > 13 && lon < 24 && lat > 51);
 };
 
+/**
+ * How much applying a numeric effect would change its number for nation `n` right now, exactly as applyEffect does
+ * it (the realm's prosperity for gold per prosperity, the floors and ceilings of order, renown, levies..., Threat's
+ * modifiers): what event cards and mission rewards show. Null for effects that are not one amount.
+ */
+export function effectDelta(s: GameState, n: NationId, e: Effect): number | null {
+  const nat = s.nations[n];
+  if (!nat) return null;
+  const k = Object.keys(e)[0];
+  const v = (e as any)[k];
+  switch (k) {
+    case 'gold':
+      return v;
+    case 'goldPerDev':
+      return v * totalDev(s, n);
+    case 'manpower':
+      return Math.max(0, nat.manpower + v) - nat.manpower;
+    case 'stability':
+      return clamp(nat.stability + v, -3, 3) - nat.stability;
+    case 'prestige':
+      return clamp(nat.prestige + v, 0, 100) - nat.prestige;
+    case 'science':
+      return Math.max(0, nat.science + v) - nat.science;
+    case 'threat':
+      // As addThreat: a rise is scaled by the realm's Threat modifiers.
+      return (v > 0 ? clamp(nat.threat + v * (1 + nationMods(s, n).threatGain), 0, 200) : Math.max(0, nat.threat + v)) - nat.threat;
+    case 'papalFavor':
+      return nat.faith === 'catholic' ? clamp(nat.papalFavor + v, 0, 100) - nat.papalFavor : 0;
+    case 'warExhaustion':
+      return clamp(nat.warExhaustion + v, 0, 20) - nat.warExhaustion;
+    case 'devRegion': {
+      const reg = s.regions[v.region];
+      return reg ? clamp(reg.dev + v.amount, 1, 10) - reg.dev : 0;
+    }
+    case 'devCapital': {
+      const reg = s.regions[nat.capital];
+      return reg ? clamp(reg.dev + v, 1, 10) - reg.dev : 0;
+    }
+    case 'fortRegion': {
+      const reg = s.regions[v.region];
+      return reg ? clamp(reg.fort + v.amount, 0, 3) - reg.fort : 0;
+    }
+    case 'rulerSkill':
+      return clamp(nat.ruler.skill + v, 1, 5) - nat.ruler.skill;
+    default:
+      return null;
+  }
+}
+
+/**
+ * Where an effect lands for nation `n`: rebels rise in the region named if it is theirs, else in the capital; a free
+ * army musters in the region named if they hold it, else in the capital (null: they hold neither, and none comes).
+ */
+export function effectRegion(s: GameState, n: NationId, e: Effect): RegionId | null {
+  const nat = s.nations[n];
+  if (!nat) return null;
+  if ('rebels' in e) return e.rebels.region && s.regions[e.rebels.region]?.owner === n ? e.rebels.region : nat.capital;
+  if ('addRegiments' in e) {
+    const v = e.addRegiments;
+    const region = v.region && s.regions[v.region]?.controller === n ? v.region : nat.capital;
+    return s.regions[region]?.controller === n ? region : null;
+  }
+  if ('devCapital' in e) return nat.capital;
+  return null;
+}
+
 export function applyEffect(s: GameState, n: NationId, e: Effect): void {
   const nat = s.nations[n];
   if (!nat) return;
@@ -276,11 +343,11 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       invalidateMods();
       break;
     case 'rebels':
-      spawnRebels(s, v.region && s.regions[v.region]?.owner === n ? v.region : nat.capital, v.regiments);
+      spawnRebels(s, effectRegion(s, n, e)!, v.regiments);
       break;
     case 'addRegiments': {
-      const region = v.region && s.regions[v.region]?.controller === n ? v.region : nat.capital;
-      if (s.regions[region]?.controller === n) addRegiments(s, n, region, { inf: v.inf ?? 0, cav: v.cav ?? 0, art: v.art ?? 0 });
+      const region = effectRegion(s, n, e);
+      if (region) addRegiments(s, n, region, { inf: v.inf ?? 0, cav: v.cav ?? 0, art: v.art ?? 0 });
       break;
     }
     case 'hireGeneral':

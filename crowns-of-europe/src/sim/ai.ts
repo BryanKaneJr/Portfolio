@@ -437,7 +437,10 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
     const best = candidates[0];
     if (best && best.score > 0) {
       if (best.o.id === s.player) {
-        if (!s.offers.some(x => x.from === n) && opinion(s, n, s.player) >= 50 && chance(s, 0.3)) s.offers.push({ id: `o${++s.seq}`, kind: 'alliance', from: n, day: s.day });
+        if (!s.offers.some(x => x.from === n) && opinion(s, n, s.player) >= 50 && chance(s, 0.3)) {
+          s.offers.push({ id: `o${++s.seq}`, kind: 'alliance', from: n, day: s.day });
+          requestPause(s, 'offer');
+        }
       } else if (acceptance(s, best.o.id, n, 'alliance').accept) doDiplomacy(s, n, best.o.id, 'alliance');
     }
   }
@@ -692,7 +695,7 @@ function offerPeace(s: GameState, nat: Nation, w: War, terms: PeaceTerms, ultima
     s.offers.push({ id: `o${++s.seq}`, kind: 'peace', from: nat.id, war: w.id, day: s.day, terms });
     log(s, 'peace', `${NATION[nat.id].name} sends a peace proposal.`, { important: true });
   }
-  requestPause(s, 'peaceOffer');
+  requestPause(s, ultimatum ? 'ultimatum' : 'peaceOffer');
 }
 
 // ---------------------------------------------------------------- armies

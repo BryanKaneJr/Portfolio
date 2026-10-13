@@ -35,7 +35,7 @@ bundled and works in airplane mode.
   troops keep it safe. Every New World region has an export (silver, gold, sugar, tobacco, cocoa, dyes, furs,
   fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic
   takes weeks to cross.
-- **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy, and automatic pauses (all configurable)
+- **Real time with pause:** day ticks at 1×, 2× or 4×, a monthly economy; time stops by itself only for events and the great turns (a war on you, an ultimatum), while offers and battle results drop in as tappable notices (all configurable)
   for wars declared on you, events and offers.
 - **Armies:** regiments of 1,000 men (infantry, cavalry, artillery once you know Bombards), merge and split, generals of
   one to five stars (each star +10% to everything the army does: damage, steadiness, march and siege speed), the

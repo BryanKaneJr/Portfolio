@@ -2,7 +2,7 @@
  * Small building blocks shared by every screen, in the "gilded glass" look (see theme.ts): capsule buttons, grouped
  * lists with hairlines, gilded section headers, stat tiles and a segmented control.
  */
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type TextStyle, type ViewStyle } from 'react-native';
 import { C, G, R, S, display, displaySemi, sans } from '../theme';
 import { Icon, type IconName } from './Icon';
@@ -79,6 +79,76 @@ export function Btn({
           </Text>
         ) : null}
       </View>
+    </Pressable>
+  );
+}
+
+/** How long an armed ConfirmBtn waits for its second tap. */
+const CONFIRM_MS = 4000;
+
+/** A ConfirmBtn's state, for a screen that rearranges itself while it is armed: armed for `key` (what it acts on)
+ * until a few seconds pass, it is used, or `key` changes. */
+export function useConfirm(key: string) {
+  const [armed, setArmed] = useState<string | null>(null);
+  const on = armed === key;
+  useEffect(() => {
+    if (!on) return;
+    const t = setTimeout(() => setArmed(null), CONFIRM_MS);
+    return () => clearTimeout(t);
+  }, [on]);
+  return { armed: on, arm: () => setArmed(key), disarm: () => setArmed(null) };
+}
+
+/**
+ * A button for what cannot be undone: the first tap arms it (it turns red, reads `confirm`, and says beneath what
+ * will happen), a second tap acts. It disarms itself after a few seconds, or when `armKey` (what it acts on) changes.
+ * Pass `state` (useConfirm) to know outside it when it is armed.
+ */
+export function ConfirmBtn({
+  label,
+  confirm,
+  consequences,
+  onConfirm,
+  armKey,
+  state,
+  small,
+  tone = 'ghost',
+  style,
+  testID,
+}: {
+  label: string;
+  confirm: string;
+  consequences: string[];
+  onConfirm: () => void;
+  armKey: string;
+  state?: ReturnType<typeof useConfirm>;
+  small?: boolean;
+  tone?: 'secondary' | 'ghost' | 'danger';
+  style?: StyleProp<ViewStyle>;
+  testID?: string;
+}) {
+  const own = useConfirm(armKey);
+  const c = state ?? own;
+  if (!c.armed) return <Btn small={small} tone={tone} label={label} onPress={c.arm} style={style} testID={testID} />;
+  return (
+    <Pressable
+      testID={testID ? `${testID}-confirm` : undefined}
+      accessibilityRole="button"
+      accessibilityLabel={[confirm, ...consequences].join('. ')}
+      onPress={() => {
+        c.disarm();
+        onConfirm();
+      }}
+      style={({ pressed }) => [styles.confirm, small && styles.confirmSmall, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}
+    >
+      <Text style={[styles.btnText, small && { fontSize: 14 }, { color: G.bad }]} numberOfLines={1}>
+        {confirm}
+      </Text>
+      {consequences.map(line => (
+        <Text key={line} style={styles.confirmLine}>
+          {line}
+        </Text>
+      ))}
     </Pressable>
   );
 }
@@ -269,6 +339,9 @@ export const styles = StyleSheet.create({
   btnSmall: { minHeight: 36, paddingHorizontal: 14 },
   btnText: { fontFamily: sans, fontSize: 16, fontWeight: '700', letterSpacing: 0.1 },
   btnSub: { fontFamily: sans, fontSize: 11, opacity: 0.75, marginTop: 1 },
+  confirm: { width: '100%', alignItems: 'center', justifyContent: 'center', minHeight: 48, paddingHorizontal: 16, paddingVertical: 9, borderRadius: R.lg, borderWidth: 1, backgroundColor: 'rgba(236,122,104,0.16)', borderColor: 'rgba(236,122,104,0.55)' },
+  confirmSmall: { minHeight: 36, paddingVertical: 7 },
+  confirmLine: { fontFamily: sans, fontSize: 12, color: G.text2, marginTop: 2, textAlign: 'center' },
   iconBtn: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
   badge: { minWidth: 18, height: 18, borderRadius: 9, backgroundColor: '#e5533f', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 5 },
   badgeText: { color: '#fff', fontSize: 11, fontWeight: '800', fontFamily: sans },

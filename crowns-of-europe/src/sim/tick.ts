@@ -26,7 +26,7 @@ import { monthlyGenerals, monthlyRulers } from './rulers';
 import { dailySieges } from './siege';
 import { takeMapDirty } from './territory';
 import { monthlyThreat } from './threat';
-import type { GameState, TickResult } from './types';
+import type { GameState, Offer, TickResult } from './types';
 import { dateOf, months, years } from './util';
 import { checkUltimatums, monthlyWars, refuseCall } from './war';
 import { regionName } from './content';
@@ -95,11 +95,25 @@ function fabrication(s: GameState): void {
   }
 }
 
+/** How long an offer waits for the player's answer. */
+export const OFFER_DAYS = months(2);
+
+/**
+ * The day an unanswered offer lapses: the first of the month after OFFER_DAYS (expireOffers runs monthly). An
+ * ultimatum's day is its own: its terms are imposed or it lapses then (checkUltimatums).
+ */
+export function offerLapses(o: Offer): number {
+  if (o.kind === 'peace' && o.ultimatum !== undefined) return o.ultimatum;
+  let d = o.day + OFFER_DAYS + 1;
+  while (dateOf(d).day !== 1) d++;
+  return d;
+}
+
 /** Offers the player ignores lapse after two months (an ignored call to arms counts as a refusal). */
 function expireOffers(s: GameState): void {
-  const old = s.offers.filter(o => s.day - o.day > months(2));
+  const old = s.offers.filter(o => s.day - o.day > OFFER_DAYS);
   if (!old.length) return;
-  s.offers = s.offers.filter(o => s.day - o.day <= months(2));
+  s.offers = s.offers.filter(o => s.day - o.day <= OFFER_DAYS);
   for (const o of old) if (o.kind === 'callToArms') refuseCall(s, s.player, o.from, s.wars[o.war]?.defenders[0] === o.from);
 }
 

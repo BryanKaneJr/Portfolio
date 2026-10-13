@@ -71,7 +71,8 @@ src/state/     store (game loop, selection, overlays, toasts, play-test hook on 
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, aiwars, opening, pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
-tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, soak (Jest, node)
+tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
+               amounts (effects as shown), soak (Jest, node)
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), troops/ and ships/
                (the owner's soldiers and ships), painting/ (the owner's painting of the world; the 157 MB original is
                not in git)
@@ -199,7 +200,11 @@ the war screen, `game/WarScreen.tsx`), the dock (time, and the realm's pages as 
 (`game/Sheet.tsx`: inset glass, grab handle, drag to resize or dismiss) rest just above the dock so time stays in
 reach (armies and fleets open compact, and the map glides whatever you select into the clear space above its
 sheet: `ui/layout.ts` holds the shared sizes; keep the land around a selected army tappable); full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
-controls; cards (events, offers, battles) sit on glass over the dimmed map. Keep the walkthroughs' test IDs.
+controls; cards (events, offers, battles) sit on glass over the dimmed map. Only event cards come up on their own
+(and block time until answered); the clock stops for what `settings.autoPause` asks (by default events, a war on you,
+an ultimatum, the end: `DEFAULT_AUTOPAUSE`). Offers and battle results drop in as notices (a toast with an `action`,
+`store.notify`) and wait under the bell (Messages: offers at the top); their cards open as overlays (`offer`,
+`report`, with `back` to the page they came from). Keep the walkthroughs' test IDs.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

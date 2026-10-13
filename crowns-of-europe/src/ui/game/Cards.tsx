@@ -11,7 +11,8 @@ import { answerOffer, playerAnswerEvent } from '../../sim/commands';
 import { ULTIMATUM_SCORE, peaceCost, scoreFor, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
-import { formatDate } from '../../sim/util';
+import { formatDate, formatShortDate } from '../../sim/util';
+import { offerLapses } from '../../sim/tick';
 import { store, useStore } from '../../state/store';
 import { Engraving, Icon, type IconName } from '../components/Icon';
 import { Shield } from '../components/Flag';
@@ -64,18 +65,17 @@ export function EventCard() {
       <Text style={styles.story}>{e.text}</Text>
       <View style={{ gap: 8, marginTop: 16 }}>
         {e.choices.map((c, i) => (
-          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects)} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
+          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects, { s, n: pe.nation })} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
         ))}
       </View>
     </CardShell>
   );
 }
 
-export function OfferCard() {
+/** An offer from another ruler. `onLater` closes it unanswered: it waits under the bell until it lapses. */
+export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => void }) {
   const st = useStore();
   const s = st.state!;
-  const o = s.offers[0] as Offer | undefined;
-  if (!o) return null;
   const from = nationName(o.from);
   const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined && !!s.wars[o.war];
   let title = '';
@@ -163,6 +163,14 @@ export function OfferCard() {
           }}
         />
       ) : null}
+      <Btn
+        style={{ marginTop: 8 }}
+        tone="ghost"
+        label="Later"
+        sub={`${ultimatum ? 'Under the bell; takes effect' : 'Under the bell until'} ${formatShortDate(offerLapses(o))}`}
+        onPress={onLater}
+        testID="offer-later"
+      />
     </CardShell>
   );
 }

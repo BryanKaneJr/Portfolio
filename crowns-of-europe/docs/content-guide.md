@@ -163,7 +163,7 @@ Applied to "this nation" unless the effect names another.
 | Effect | Does |
 | --- | --- |
 | `{ "gold": 100 }` / `{ "gold": -50 }` | gold (can go negative; the treasury takes loans automatically) |
-| `{ "goldPerDev": 2 }` | gold × total development (scales with nation size; negative allowed) |
+| `{ "goldPerDev": 2 }` | gold × total development (scales with nation size; negative allowed). Cards show the coins, worked out for the realm now ("Pay 84 gold"), never the formula (`effectDelta` in events.ts) |
 | `{ "manpower": 5000 }` | men |
 | `{ "stability": 1 }` | -3..+3 |
 | `{ "prestige": 10 }` | 0..100 |

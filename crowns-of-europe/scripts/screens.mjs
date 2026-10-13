@@ -52,6 +52,11 @@ await shot('region-sheet');
 await coe(() => { const { store } = window.__coe; const a = Object.values(store.state.armies).find(x => x.owner === store.state.player); store.select({ kind: 'army', id: a.id }); });
 await shot('army-sheet');
 if (await has('hint-ok')) await tapId('hint-ok');
+// Disbanding asks first: the first tap arms the button and says what it will do; the army is still there.
+await tapId('disband');
+await shot('army-disband-confirm');
+if (!(await has('disband-confirm'))) throw new Error('Disband did not ask to be tapped again');
+if (!(await coe(() => !!window.__coe.store.state.armies[window.__coe.store.selection?.id]))) throw new Error('The first tap disbanded the army');
 
 // Give a march order the way a player does: tap the army's token, then tap a region of your own (one with no unit
 // on it). The map glides so the army sits clear of its sheet; the order must take.

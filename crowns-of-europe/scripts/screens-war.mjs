@@ -18,15 +18,26 @@ const has = async id => (await page.getByTestId(id).count()) > 0;
 const tapId = async id => page.getByTestId(id).first().click();
 const coe = (fn, arg) => page.evaluate(fn, arg);
 const seen = new Set();
+const once = async name => { if (!seen.has(name)) { seen.add(name); await shot(name); } };
+/**
+ * Answer what is waiting, as a player would. Event cards (and an offer the settings pause for, like an ultimatum)
+ * come up on their own. Other offers and battle results only drop in as notices: tap one the first time, then
+ * answer the rest from the messages under the bell (offers at the top, battles under their tab).
+ */
 async function cards() {
-  for (let i = 0; i < 8; i++) {
-    for (const [id, name] of [['choice-0', 'event'], ['offer-accept', 'offer'], ['report-close', 'report']]) {
-      if (await has(id)) {
-        if (!seen.has(name)) { seen.add(name); await shot(`card-${name}`); }
-        await tapId(name === 'offer' ? 'offer-decline' : id);
-      }
-    }
-    if (!(await has('choice-0')) && !(await has('offer-accept')) && !(await has('report-close'))) return;
+  for (let i = 0; i < 12; i++) {
+    if (await has('choice-0')) { await once('card-event'); await tapId('choice-0'); continue; }
+    if (await has('offer-accept')) { await once('card-offer'); await tapId('offer-decline'); continue; }
+    if (await has('report-close')) { await once('card-report'); await tapId('report-close'); continue; }
+    if (await has('panel-close')) { await tapId('panel-close'); continue; }
+    if (!seen.has('toast') && (await has('toast-open'))) { await once('toast'); await tapId('toast-open'); continue; }
+    const waiting = await coe(() => { const s = window.__coe.store.state; return { offers: s.offers.length, reports: s.unseenReports.length }; });
+    if (!waiting.offers && !(waiting.reports && !seen.has('card-report'))) return;
+    await tapId('messages');
+    await once('messages-waiting');
+    if (await has('message-offer')) { await tapId('message-offer'); continue; }
+    await tapId('messages-battles');
+    if (await has('message-report-unseen')) await tapId('message-report-unseen');
   }
 }
 /** Centre the map on an army's region and tap its token (it stands under the region's name). */

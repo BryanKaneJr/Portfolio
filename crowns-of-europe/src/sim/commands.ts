@@ -39,7 +39,7 @@ import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
-import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
+import type { Army, GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
 import { clamp, formatDate, months } from './util';
 import {
   ULTIMATUM_SCORE,
@@ -132,11 +132,20 @@ export function splitHalf(s: GameState, armyId: string): Result {
   return split(s, armyId, take);
 }
 
+/**
+ * What disbanding an army does, for the confirmation before it: half its men (not the mercenaries') go back to the
+ * levies, its mercenary regiments are let go, and a general it has returns to your pool (a ruler, to court).
+ */
+export function disbandOutcome(a: Army): { levies: number; mercs: number; general?: { name: string; isRuler: boolean } } {
+  const levies = Math.round(armyMen(a) * (1 - a.mercs / Math.max(1, armyRegs(a))) * 0.5);
+  return { levies, mercs: a.mercs, ...(a.general ? { general: { name: a.general.name, isRuler: !!a.general.isRuler } } : {}) };
+}
+
 export function disband(s: GameState, armyId: string): Result {
   const a = s.armies[armyId];
   if (!a || a.owner !== s.player) return no('Not your army.');
   if (a.battle) return no('Not in the middle of a battle!');
-  const back = Math.round(armyMen(a) * (1 - a.mercs / Math.max(1, armyRegs(a))) * 0.5);
+  const back = disbandOutcome(a).levies;
   me(s).manpower += back;
   if (a.general && !a.general.isRuler) me(s).generals.push(a.general);
   delete s.armies[armyId];
