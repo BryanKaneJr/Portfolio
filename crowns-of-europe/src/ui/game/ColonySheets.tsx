@@ -21,7 +21,7 @@ import {
   settlerGrowth,
 } from '../../sim/colonies';
 import { abandonPlayerColony, colonize, fundExpedition } from '../../sim/commands';
-import { REBELS, armyRegs } from '../../sim/queries';
+import { REBELS, armyRegs, seesUnit } from '../../sim/queries';
 import { formatDate } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { regionPoint } from '../map/geometry';
@@ -70,7 +70,7 @@ export function WildSheet({ id }: { id: string }) {
   const growth = c ? settlerGrowth(s, r) : [];
   const perMonth = c ? monthlySettlers(s, r) : 0;
   const risk = c ? attackChance(s, r) : 0;
-  const armiesHere = Object.values(s.armies).filter(a => a.node === id);
+  const armiesHere = Object.values(s.armies).filter(a => a.node === id && seesUnit(s, s.player, a.owner, id, a.rebelOf));
   const hostility = def.hostility ?? 0;
   return (
     <Sheet

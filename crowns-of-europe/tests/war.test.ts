@@ -2,6 +2,7 @@ import { emptyGame, army, forceWar } from './helpers';
 import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
 import { advanceDays } from '../src/sim/tick';
 import { pairKey } from '../src/sim/util';
+import { REBELS, seesUnit } from '../src/sim/queries';
 
 describe('war and peace', () => {
   test('claims give a reason for war with a goal', () => {
@@ -67,5 +68,28 @@ describe('war and peace', () => {
     makePeace(s, w, { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: 'FRA', loser: 'BUR' });
     for (const r of Object.values(s.regions)) expect(r.owner).toBe(owners[r.id]);
     expect(s.truces[pairKey('FRA', 'BUR')]).toBeGreaterThan(s.day);
+  });
+});
+
+describe('who sees whose troops', () => {
+  test('yours, your friends\' and enemies\', and anyone in your land; nobody else\'s', () => {
+    const s = emptyGame('CAS');
+    s.alliances = {};
+    forceWar(s, 'CAS', 'GRA');
+    const sees = (owner: string, where: string, rebelOf?: string) => seesUnit(s, 'CAS', owner, where, rebelOf);
+    expect(sees('CAS', 'lesser_poland')).toBe(true); // your own, anywhere
+    expect(sees('POL', 'lesser_poland')).toBe(false); // a stranger at home
+    expect(sees('POR', 'atlantic')).toBe(false); // ... or at sea
+    expect(sees('POR', 'castile')).toBe(true); // in your land
+    s.alliances[pairKey('CAS', 'POR')] = s.day;
+    expect(sees('POR', 'lisbon')).toBe(true); // an ally
+    expect(sees('GRA', 'granada')).toBe(false);
+    declareWar(s, 'CAS', 'GRA', 'claim', 'granada');
+    expect(sees('GRA', 'granada')).toBe(true); // an enemy
+    s.nations.NAV.overlord = 'CAS';
+    expect(sees('NAV', 'navarre')).toBe(true); // a subject
+    expect(sees(REBELS, 'granada', 'CAS')).toBe(true); // risen against you
+    expect(sees(REBELS, 'lesser_poland', 'POL')).toBe(false); // risen against someone else
+    expect(sees(REBELS, 'castile', 'POL')).toBe(true); // ... but in your land
   });
 });

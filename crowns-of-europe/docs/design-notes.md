@@ -199,7 +199,8 @@ here.
     (about 390 in all). They are baked so the ink darkens the land and the paper is a faint light: the country's
     colour shows through, so who holds the Alps stays plain. Armies and fleets are a pike block or a ship rendered
     from CC0 3D models (KayKit, Kenney) on a base in the owner's colour, the count on a badge beside it; forts are a
-    tower or a castle by the region's name. Next, at the owner's choice: a painted map of the whole frame (and the
+    tower or a castle by the region's name. (Later the armies became the owner's own soldier drawings under each
+    realm's banner, and only the units the player would know about are shown: see the end of these notes.) Next, at the owner's choice: a painted map of the whole frame (and the
     margins seen past its edges) under the country colours; templates in the map's exact projection were made for
     it, and the coasts and borders will be refitted to the painting where they disagree.
 

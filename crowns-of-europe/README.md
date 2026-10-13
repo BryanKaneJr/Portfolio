@@ -148,9 +148,9 @@ contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover co
 domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
-code. The troops, ships and forts on the map are rendered from free 3D models (CC0) by
+code. The ships and forts on the map are rendered from free 3D models (CC0) by
 [Kay Lousberg (KayKit)](https://kaylousberg.itch.io/) and [Kenney](https://kenney.nl/) with `npm run models:build`
-(`assets/units/CREDITS.md`). The mountain drawings were made for the game (`art/mountains`). Icons (coins, helmet,
+(`assets/units/CREDITS.md`). The troop and mountain drawings were made for the game (`art/troops`, `art/mountains`). Icons (coins, helmet,
 scales, laurels, crowns, the fire behind an enemy's arms and the rest of the emblems) by [Lorc](https://lorcblog.blogspot.com/) and
 [Delapouite](https://delapouite.com/) from [game-icons.net](https://game-icons.net/), under
 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/); `npm run icons:build` copies them in

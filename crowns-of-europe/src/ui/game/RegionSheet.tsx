@@ -16,7 +16,7 @@ import {
   requestSanction,
 } from '../../sim/commands';
 import { convertCost, coreCost, devCost, fortCost, FABRICATE_COST, mercCost, regionTax, regionTrade, shipCost, unitCost } from '../../sim/economy';
-import { REBELS, armyRegs, isCored } from '../../sim/queries';
+import { REBELS, armyRegs, isCored, seesUnit } from '../../sim/queries';
 import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
@@ -48,7 +48,7 @@ export function RegionSheet({ id }: { id: string }) {
   const trade = regionTrade(s, r);
   const unrest = unrestBreakdown(s, r);
   const siege = r.siege ? siegeInfo(s, id) : null;
-  const armiesHere = Object.values(s.armies).filter(a => a.node === id);
+  const armiesHere = Object.values(s.armies).filter(a => a.node === id && seesUnit(s, s.player, a.owner, id, a.rebelOf));
   const coastal = MAP_REGION[id].seas.length > 0;
   const canArt = unlocked(s, s.player, 'artillery');
   const canWarship = unlocked(s, s.player, 'warships');

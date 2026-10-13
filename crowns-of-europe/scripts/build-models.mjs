@@ -1,6 +1,6 @@
 /**
- * Renders the map's unit sprites from free CC0 3D models: assets/units/troop.png (a pike block of three men-at-arms),
- * ship.png (a three-masted ship), castle.png (a keep with towers) and castle-small.png (a lone tower).
+ * Renders the map's unit sprites from free CC0 3D models: assets/units/ship.png (a three-masted ship), castle.png (a
+ * keep with towers) and castle-small.png (a lone tower). (The armies are the owner's drawings: scripts/build-troops.ts.)
  *
  *   node scripts/build-models.mjs                       (npm run models:build)
  *   node scripts/build-models.mjs --only ship,castle    render some sprites only
@@ -35,12 +35,6 @@ const SIZE = 192;
 const KAYKIT = 'https://raw.githubusercontent.com/KayKit-Game-Assets';
 const HEX = 'addons/kaykit_medieval_hexagon_pack/Assets/gltf/buildings/blue';
 const KITS = {
-  knight: {
-    title: 'KayKit Character Pack: Adventurers 1.0',
-    base: `${KAYKIT}/KayKit-Character-Pack-Adventures-1.0/672074b73ba276876a19e8816ecdc5241817ab47`,
-    licence: 'LICENSE.txt',
-    files: ['addons/kaykit_character_pack_adventures/Characters/gltf/Knight.glb'],
-  },
   hex: {
     title: 'KayKit Medieval Hexagon Pack 1.0',
     base: `${KAYKIT}/KayKit-Medieval-Hexagon-Pack-1.0/84fa4e91af6a88989be7c99e0891cede11f2ca38`,
@@ -56,40 +50,17 @@ const KITS = {
     licence: 'License.txt',
   },
 };
-const KNIGHT = 'kits/knight/addons/kaykit_character_pack_adventures/Characters/gltf/Knight.glb';
 const hex = name => `kits/hex/${HEX}/${name}.gltf`;
 const kenney = (kit, name) => `kits/${kit}/Models/GLB format/${name}.glb`;
 
 // ---------------------------------------------------------------------------------------------------------------
-// The sprites. Lengths are the models' own (the knight is about 2.4 tall, the ship 13 long). `parts` share one scene:
-// `anim`/`time` pose a rigged model, `hide` drops named nodes (the knight carries every weapon and shield of his
-// pack), `pike` stands a pike in a hand, `pos` places the part. `elevation` is the camera's angle down from the
-// horizon and `azimuth` turns it round the scene (0 = facing the models' front). `palette` mutes the colour atlas:
-// hue name -> [new hue, saturation factor, lightness] (see muted() in the page code).
-const KNIGHT_KIT = ['1H_Sword', '1H_Sword_Offhand', '2H_Sword', 'Rectangle_Shield', 'Spike_Shield', 'Round_Shield'];
-const KNIGHT_PALETTE = { sat: 0.7, map: { red: [25, 0.35, 0.36] } }; // red cape and shield -> umber
+// The sprites. Lengths are the models' own (the ship is about 13 long). `parts` share one scene: `anim`/`time` pose a
+// rigged model, `hide` drops named nodes, `pike` stands a pike in a hand, `pos` places the part. `elevation` is the
+// camera's angle down from the horizon and `azimuth` turns it round the scene (0 = facing the models' front).
+// `palette` mutes the colour atlas: hue name -> [new hue, saturation factor, lightness] (see muted() in the page code).
 const STONE_PALETTE = { sat: 0.75, lift: 0.12, map: { blue: [12, 0.45, 0.42] } }; // blue roofs -> tile
 const SHIP_PALETTE = { sat: 0.6, warm: 0.04, map: { orange: [27, 0.6, 0.4], red: [20, 0.5, 0.35] } };
-const TROOP_AZ = 30;
-const PIKEMAN = { url: KNIGHT, anim: 'Unarmed_Idle', hide: KNIGHT_KIT, pike: { hand: 'handslotr', lean: 4 } };
-/** Where to stand a figure so it shows sx to the right on screen and d towards the viewer (world units). */
-const at = (azimuth, sx, d) => {
-  const a = (azimuth * Math.PI) / 180;
-  return [sx * Math.cos(a) + d * Math.sin(a), 0, -sx * Math.sin(a) + d * Math.cos(a)];
-};
 const SPRITES = [
-  {
-    // a pike block: three men-at-arms with pikes in a loose wedge, facing a little left
-    name: 'troop',
-    palette: KNIGHT_PALETTE,
-    elevation: 40,
-    azimuth: TROOP_AZ,
-    parts: [
-      { ...PIKEMAN, time: 0.1, pos: at(TROOP_AZ, 1.05, -0.95) },
-      { ...PIKEMAN, time: 0.9, pos: at(TROOP_AZ, -0.95, -0.55) },
-      { ...PIKEMAN, time: 0.5, pos: at(TROOP_AZ, 0.1, 0.65) },
-    ],
-  },
   // bow to the left
   { name: 'ship', palette: SHIP_PALETTE, parts: [{ url: kenney('pirate', 'ship-large') }], elevation: 35, azimuth: 60 },
   { name: 'castle', palette: STONE_PALETTE, parts: [{ url: hex('building_castle_blue') }], elevation: 35, azimuth: 30 },

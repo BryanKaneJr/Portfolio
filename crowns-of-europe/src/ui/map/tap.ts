@@ -20,13 +20,15 @@ export function onMapTap(mx: number, my: number, k: number): void {
   const sel = store.selection;
   const ordering = (sel?.kind === 'army' && s.armies[sel.id]?.owner === s.player) || (sel?.kind === 'fleet' && s.fleets[sel.id]?.owner === s.player);
   let best: { kind: string; id: string; d: number; mine: boolean } | null = null;
+  // Tokens grow as you zoom in past play zoom, and so does the reach of a tap on one.
+  const reach = Math.max(1, tokenScale(k));
   for (const c of unitPositions(s, k, sel?.kind === 'army' || sel?.kind === 'fleet' ? sel.id : undefined)) {
     // A unit's figure stands above its point: measure from the middle of the figure.
     const d = Math.hypot(c.x - mx, c.y - (TOKEN_MIDDLE * tokenScale(k)) / k - my) * k;
-    if (d > HIT) continue;
+    if (d > HIT * reach) continue;
     const mine = c.kind === 'army' ? s.armies[c.id]?.owner === s.player : c.kind === 'fleet' ? s.fleets[c.id]?.owner === s.player : false;
     // While giving orders, a near miss on one of your other units is a march order, not a change of selection.
-    if (ordering && mine && c.id !== sel?.id && d > HIT_SWITCH) continue;
+    if (ordering && mine && c.id !== sel?.id && d > HIT_SWITCH * reach) continue;
     // Prefer your own units, then the closest.
     if (!best || (mine && !best.mine) || (mine === best.mine && d < best.d)) best = { kind: c.kind, id: c.id, d, mine };
   }

@@ -23,10 +23,10 @@ a Mercator map, light tutorial, no audio yet).
 - **Original text only.** No other game's wording, art or mechanic names. Free art under an open licence is fine
   with credit: the emblems are game-icons.net glyphs (CC BY 3.0, Lorc and Delapouite), listed in
   `scripts/build-icons.ts` and credited in the README and Settings > About; add any new one there and run
-  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The troops, ships and forts are rendered
-  from CC0 3D models (KayKit, Kenney) by `npm run models:build` (credits in `assets/units/CREDITS.md`); the mountain
-  drawings in `art/mountains` were made for the game by its owner. Player-facing text says prosperity,
-  levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
+  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The ships and forts are rendered from CC0
+  3D models (KayKit, Kenney) by `npm run models:build` (credits in `assets/units/CREDITS.md`); the troop drawings in
+  `art/troops` and the mountain drawings in `art/mountains` were made for the game by its owner. Player-facing text
+  says prosperity, levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
   colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
   `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
   `docs/content-guide.md` and the in-game one in `ui/game/Help.tsx`.
@@ -38,8 +38,8 @@ a Mercator map, light tutorial, no audio yet).
 - **Offline.** No network calls anywhere in `src/`.
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/paintingTiles.ts`,
-  `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
+  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/troopArt.ts`,
+  `ui/map/paintingTiles.ts`, `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
   fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
@@ -67,12 +67,12 @@ src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, re
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
-scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
+scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-troops, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, opening, pan-layers), terrain/ (the Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, soak (Jest, node)
-art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), painting/ (the
-               owner's painting of the world; the 157 MB original is not in git)
-assets/        map/ (generated pictures, incl. mountains/), units/ (the rendered troops, ships, forts), fonts, icons
+art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), troops/ (the owner's
+               soldiers), painting/ (the owner's painting of the world; the 157 MB original is not in git)
+assets/        map/ (generated pictures, incl. mountains/), units/ (the troops, ships, forts), fonts, icons
 ```
 
 ## Commands
@@ -96,7 +96,8 @@ npm run terrain:build       # then: the drawn terrain (ui/map/terrainSymbols.ts,
                             # same cache and art/mountains
 npm run painting:build      # the Painted style's ground: art/painting/fullmap.png (not in git) fitted to the coasts
                             # and tiled into assets/map/painting (see art/painting/README.md)
-npm run models:build        # the troops, ships and forts (assets/units/) from CC0 3D models (fetched once into
+npm run troops:build        # the armies' figures (assets/units/, ui/map/troopArt.ts) from art/troops
+npm run models:build        # the ships and forts (assets/units/) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
 npm run tiles:build         # the Illustrated style's terrain tiles and river/lake vectors (assets/map/terrain,
                             # ui/map/terrainTiles.ts, terrainVectors.ts) from ETOPO 2022, ESA WorldCover and Natural
@@ -111,16 +112,21 @@ native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compil
 The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Europe is the top-right corner).
 `MapView` keeps a camera `{cx, cy, k}` in React state. During a gesture the last rendered SVG is moved with a
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
-rendered 1.6× the screen size so short pans never show an edge. Units are little figures (a pike block or a ship,
-rendered from 3D models) standing on a base in the owner's colour, the count on a badge beside it, and forts are a
-tower (level 1) or a castle just before the region's name; all drawn in one SVG on top. Taps on a unit are measured
-from the middle of its figure (`TOKEN_MIDDLE`), above its point.
+rendered 1.6× the screen size so short pans never show an edge. Units are little figures standing on a base in the
+owner's colour under the realm's banner (its flag, `flagBody`, on a pole), the count on a badge beside it: an army is
+one of the owner's drawings (`art/troops`: a lone soldier for a small army, a squad of four or five for bigger ones,
+`troopArt`), a fleet a ship rendered from a 3D model. Forts are a tower (level 1) or a castle just before the region's
+name; all drawn in one SVG on top. Taps on a unit are measured from the middle of its figure (`TOKEN_MIDDLE`), above
+its point. Only the units the player would know about are drawn, at any zoom, and listed in region sheets
+(`seesUnit` in `sim/queries.ts`): their own, their allies', overlord's and subjects', their enemies' in a war, and
+anyone's in land they own or hold; rebels risen against them.
 Zoomed out (k below `UNITS_K`, where the nation names show) the map is for the realms: no units except a selected
 one; from `REGION_NAMES_K` on, region names replace the nation names and each army stands just under its region's
 name (`armyAnchor`), its token a little smaller until `PLAY_K` (1.7), the zoom the game opens at and "show on map"
 goes to. Taps are
 hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, then seas. Strokes and text sizes
-are divided by `k` so they stay constant on screen. A gesture may pull past the edge of the known world or the
+are divided by `k` so they stay constant on screen; past `PLAY_K` names, forts and unit tokens grow partway with the
+zoom (`grow`, `ZOOM_GROW`: about 1.6x at the closest), so they stay easy to read and find. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
 
 How it is painted comes from a style (`ui/map/styles.ts`: Illustrated, the default; Painted; Atlas; Parchment; Flat),

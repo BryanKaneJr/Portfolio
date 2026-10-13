@@ -4,6 +4,7 @@ import { MAP } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
 import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs } from '../src/ui/map/geometry';
+import { TROOP_ART } from '../src/ui/map/troopArt';
 
 describe('the map beyond the known world', () => {
   test('the lands past the edges are drawn but lie outside the play window', () => {
@@ -174,6 +175,14 @@ describe('baked map pictures', () => {
     for (const f of files) {
       const [w, h] = size(`${dir}/${f}`);
       expect({ f, mp: (w * h) / 1e6 < 5.2 }).toEqual({ f, mp: true });
+    }
+  });
+
+  test('the troop figures are built from the owner\'s drawings at the sizes the map is told', () => {
+    for (const [name, art] of Object.entries(TROOP_ART)) {
+      expect(fs.existsSync(path.join(__dirname, `../art/troops/${name}.png`))).toBe(true);
+      expect(size(path.join(__dirname, `../assets/units/${name}.png`))).toEqual([art.w, art.h]);
+      expect(art.h).toBe(192); // tall enough for the closest zoom on a 3x screen
     }
   });
 });

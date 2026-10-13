@@ -39,7 +39,7 @@ function Charge({ kind, color }: { kind?: string; color: string }) {
 }
 
 /** The flag's field and charges, drawn in a W x H box. */
-function flagBody(nation: string): ReactElement {
+export function flagBody(nation: string): ReactElement {
   const def = NATION[nation];
   if (!def)
     // Rebels: a black banner with a pitchfork-ish mark.

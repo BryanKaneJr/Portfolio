@@ -11,7 +11,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
-import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
+import { REBELS, armyRegs, armyMen, seesUnit } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans } from '../theme';
@@ -24,6 +24,8 @@ import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 import { PAINTING } from './paintingTiles';
 import { terrainCache, terrainStats } from './terrainCache';
+import { TROOP_ART, type TroopArt } from './troopArt';
+import { flagBody } from '../components/Flag';
 import { decodedBytes, famousMountains, neighbours, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
 import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_SEA_SHADE } from './terrainTiles';
 import { TERRAIN_LAKES, TERRAIN_RIVERS } from './terrainVectors';
@@ -698,7 +700,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             const m = MAP.wastelands.find(x => x.id === wl.id);
             if (!m || !visible([m.label[0], m.label[1], m.label[0], m.label[1]]) || (!charted && NW_WASTELANDS.has(wl.id))) return null;
             return (
-              <SvgText key={`wl${wl.id}`} x={m.label[0]} y={m.label[1]} fontSize={px(11)} fontFamily={st.font.italic} fill={st.unknown.wasteLabel} textAnchor="middle" letterSpacing={px(0.6)}>
+              <SvgText key={`wl${wl.id}`} x={m.label[0]} y={m.label[1]} fontSize={px(11 * grow(k))} fontFamily={st.font.italic} fill={st.unknown.wasteLabel} textAnchor="middle" letterSpacing={px(0.6)}>
                 {wl.name}
               </SvgText>
             );
@@ -717,7 +719,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {k >= 0.9
         ? MAP.seas.map(sea =>
             visible(sea.bbox) && !hidden(sea.id) && (!sea.closed || sea.charted) ? (
-              <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16)} fontSize={px(11)} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle" letterSpacing={px(1)}>
+              <SvgText key={`sl${sea.id}`} x={MAP_SEA[sea.id].label[0]} y={MAP_SEA[sea.id].label[1] + px(16 * grow(k))} fontSize={px(11 * grow(k))} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle" letterSpacing={px(1)}>
                 {SEA_NAMES[sea.id]}
               </SvgText>
             ) : null,
@@ -726,7 +728,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {k >= 1.0 && charted
         ? MAP.lakes.map(l =>
             visible([l.label[0], l.label[1], l.label[0], l.label[1]]) ? (
-              <SvgText key={`lk${l.name}`} x={l.label[0]} y={l.label[1] + px(3)} fontSize={px(8.5)} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle">
+              <SvgText key={`lk${l.name}`} x={l.label[0]} y={l.label[1] + px(3 * grow(k))} fontSize={px(8.5 * grow(k))} fontFamily={st.font.italic} fill={st.seaLabel} textAnchor="middle">
                 {l.name}
               </SvgText>
             ) : null,
@@ -899,16 +901,21 @@ export interface ChipPos {
 export const REGION_NAMES_K = 1.15;
 const MIN_NAME_RADIUS = 13;
 /** Units show from the zoom at which region names do. Further out the map is for the realms and their names, and only
- * a unit you have selected (or a battle) stays on it, so names and tokens never fight. */
+ * a unit you have selected (or a battle) stays on it, so names and tokens never fight. Only the units you would know
+ * about are drawn at all (`seesUnit`): yours, your friends', your enemies', and anyone's in your land. */
 export const UNITS_K = REGION_NAMES_K;
-/** From this zoom on every unit is drawn; between UNITS_K and here, only the ones that matter to you (see `matters`). */
-export const ALL_UNITS_K = 1.4;
 /** The zoom the game opens at and "show on map" goes to: regions are big enough here for a name with an army under it. */
 export const PLAY_K = 1.7;
-/** Tokens are drawn smaller between UNITS_K and PLAY_K, where regions are close together. */
-export const tokenScale = (k: number) => Math.max(0.82, Math.min(1, 0.82 + ((k - UNITS_K) / (PLAY_K - UNITS_K)) * 0.18));
+/**
+ * Names, forts and units keep their size on screen up to play zoom; closer in they grow, though more slowly than the
+ * map (about 1.6x at the closest zoom), so they stay easy to read and to find without crowding the land.
+ */
+export const ZOOM_GROW = 0.45;
+export const grow = (k: number) => Math.pow(Math.max(1, k / PLAY_K), ZOOM_GROW);
+/** A token's scale: a little smaller between UNITS_K and PLAY_K, where regions are close together; growing past it. */
+export const tokenScale = (k: number) => Math.max(0.82, Math.min(1, 0.82 + ((k - UNITS_K) / (PLAY_K - UNITS_K)) * 0.18)) * grow(k);
 /** A region name's size on screen (points), as StaticLayer writes it. */
-const nameSize = (labelRadius: number, k: number) => Math.max(9, Math.min(14, labelRadius * k * 0.42));
+export const nameSize = (labelRadius: number, k: number) => Math.max(9, Math.min(14 * grow(k), labelRadius * k * 0.42));
 
 /** Where a region's armies stand (map units): just under its name when the name is written at this zoom (the name's
  * descenders, a small gap, then the token's top), else on its centre. (An army at sea is on its fleet's route.) */
@@ -925,31 +932,22 @@ const fleetAnchor = (id: string, k: number): [number, number] => {
   return [x, y - (16 * tokenScale(k)) / k];
 };
 
-/** Units the player should always see: their own, friends', enemies', and anyone standing in their land. */
-export function matters(s: GameState, owner: string, where: string, rebelOf?: string): boolean {
-  const p = s.player;
-  if (owner === p) return true;
-  if (s.regions[where]?.owner === p) return true;
-  if (owner === REBELS) return rebelOf === p;
-  return allied(s, p, owner) || !!warBetween(s, p, owner) || s.nations[owner]?.overlord === p || s.nations[p].overlord === owner;
-}
-
 /** Where each army/fleet/battle marker sits (map units). Shared with tap hit-testing, so hidden units can't be tapped. */
 export function unitPositions(s: GameState, k: number, selected?: string): ChipPos[] {
   const out: ChipPos[] = [];
   const stacks = new Map<string, number>();
   const step = (26 * tokenScale(k)) / k;
-  const all = k >= ALL_UNITS_K;
   const hidden = (id: string) => k < UNITS_K && id !== selected; // zoomed out: names only
+  const sees = (owner: string, where: string, rebelOf?: string) => seesUnit(s, s.player, owner, where, rebelOf);
   for (const b of Object.values(s.battles)) {
     if (hidden(b.id)) continue;
-    if (!all && !b.sides.some(side => side.armies.some(id => s.armies[id] && matters(s, s.armies[id].owner, b.node, s.armies[id].rebelOf)))) continue;
+    if (b.id !== selected && !b.sides.some(side => side.armies.some(id => s.armies[id] && sees(s.armies[id].owner, b.node, s.armies[id].rebelOf)))) continue;
     const [x, y] = regionPoint(b.node);
     out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
   }
   for (const a of Object.values(s.armies)) {
     if (a.battle || (!s.discovery && isNewWorld(a.node)) || hidden(a.id)) continue;
-    if (!all && a.id !== selected && !matters(s, a.owner, a.node, a.rebelOf)) continue;
+    if (a.id !== selected && !sees(a.owner, a.node, a.rebelOf)) continue;
     let [x, y] = armyAnchor(a.node, k);
     if (a.path.length && a.edgeDays > 0) {
       const [nx, ny] = armyAnchor(a.path[0], k);
@@ -967,7 +965,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
   const fleetStacks = new Map<string, number>();
   for (const f of Object.values(s.fleets)) {
     if (hidden(f.id)) continue;
-    if (!all && f.id !== selected && !matters(s, f.owner, f.sea)) continue;
+    if (f.id !== selected && !sees(f.owner, f.sea)) continue;
     let [x, y] = fleetAnchor(f.sea, k);
     if (f.path.length && f.edgeDays > 0) {
       const [nx, ny] = fleetAnchor(f.path[0], k);
@@ -1014,7 +1012,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
     <View style={StyleSheet.absoluteFill} pointerEvents="none">
       {/* Sieges: a bar under the besiegers' tokens. */}
       {Object.values(s.regions).map(r => {
-        if (!r.siege || k < UNITS_K || (k < ALL_UNITS_K && !matters(s, r.siege.by, r.id))) return null;
+        if (!r.siege || k < UNITS_K || !seesUnit(s, s.player, r.siege.by, r.id)) return null;
         const [x, y] = armyAnchor(r.id, k);
         const X = toX(x);
         const Y = toY(y) + 18 * ts;
@@ -1031,19 +1029,21 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path, selArmy ? armyAnchor : fleetAnchor).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
       ) : null}
-      {/* Forts: a tower or a castle just before the region's name; then armies and fleets, a pike block or a ship on
-          a base in the owner's colour with the count beside it. */}
+      {/* Forts: a tower or a castle just before the region's name; then armies and fleets, soldiers or a ship on a
+          base in the owner's colour under the realm's banner, with the count beside it. */}
       <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
+        <BannerDefs />
         {k >= UNITS_K
           ? MAP.regions.map(r => {
               const level = s.regions[r.id]?.fort ?? 0;
               if (!level || r.labelRadius * k < MIN_NAME_RADIUS || (!s.discovery && isNewWorld(r.id))) return null;
               const fs = nameSize(r.labelRadius, k);
               const pic = level >= 2 ? FORT.castle : FORT.tower;
-              const X = toX(r.label[0]) - REGION[r.id].name.length * fs * NAME_EM * 0.5 - pic.size * pic.wide * 0.5 - 2;
+              const size = pic.size * grow(k);
+              const X = toX(r.label[0]) - REGION[r.id].name.length * fs * NAME_EM * 0.5 - size * pic.wide * 0.5 - 2;
               const Y = toY(r.label[1]) + fs * 0.35; // the name's baseline
               if (!inView(X, Y)) return null;
-              return <SvgImage key={`f${r.id}`} x={X - pic.size / 2} y={Y - pic.size * pic.feet} width={pic.size} height={pic.size} href={pic.src} />;
+              return <SvgImage key={`f${r.id}`} x={X - size / 2} y={Y - size * pic.feet} width={size} height={size} href={pic.src} />;
             })
           : null}
         {chips.map(c => {
@@ -1054,11 +1054,12 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           if (c.kind === 'fleet') {
             const f = s.fleets[c.id];
             if (!f) return null;
-            return <Token key={c.id} x={X} y={Y} figure="ship" n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
+            return <Token key={c.id} x={X} y={Y} figure="ship" nation={f.owner} n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
           }
           const a = s.armies[c.id] as Army | undefined;
           if (!a) return null;
-          return <Token key={c.id} x={X} y={Y} figure="troop" n={armyRegs(a)} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
+          const regs = armyRegs(a);
+          return <Token key={c.id} x={X} y={Y} figure={troopArt(a.id, regs)} nation={a.owner} n={regs} color={a.owner === REBELS ? '#2b2b2b' : nationColor(a.owner)} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
         })}
       </Svg>
       {chips.map(c => {
@@ -1080,14 +1081,23 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
 });
 
 /**
- * What stands on each token: a pike block for an army, a ship for a fleet, rendered from free 3D models
- * (scripts/build-models.mjs, credits in assets/units/CREDITS.md). `feet`: where the figure stands in its picture
- * (a fraction of its height); `size`: how big it is drawn, in points.
+ * What stands on each token. An army is one of the owner's drawings (art/troops, made ready by
+ * scripts/build-troops.ts): a lone soldier for a small army (one of two, by the army), four men from SQUAD regiments,
+ * five from HOST; all TROOP_H points tall at play zoom, standing on the base. A fleet is a ship rendered from a free 3D
+ * model (scripts/build-models.mjs, credits in assets/units/CREDITS.md); `feet`: where it floats in its picture (a share
+ * of its height), `size`: how big it is drawn (points).
  */
-const FIGURE = {
-  troop: { src: require('../../../assets/units/troop.png'), feet: 182 / 192, size: 36 },
-  ship: { src: require('../../../assets/units/ship.png'), feet: 178 / 192, size: 40 },
-};
+const TROOP_H = 36;
+const SQUAD = 4;
+const HOST = 10;
+export function troopArt(id: string, regs: number): TroopArt {
+  if (regs >= HOST) return 'squad-5';
+  if (regs >= SQUAD) return 'squad-4';
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
+  return h & 1 ? 'soldier-b' : 'soldier-a';
+}
+const SHIP = { src: require('../../../assets/units/ship.png'), feet: 178 / 192, size: 40 };
 /** A region's fort, beside its name: a lone tower at level 1, a castle from level 2. `wide`: how much of its picture's
  * width the building takes. */
 const FORT = {
@@ -1099,22 +1109,63 @@ const NAME_EM = 0.68;
 const BASE_Y = 6; // the base's centre, below the token's point (points)
 const BASE_RX = 14;
 const BASE_RY = 5;
-/** From the token's point up to the top of the figure (points). */
-const TOKEN_TOP = 27;
-/** Where a token looks to be, above its point: taps are measured from here (points). */
-export const TOKEN_MIDDLE = 8;
+/** The realm's banner over each unit: its flag (as in the headers) on a pole that tops the figure by BANNER_RISE, the
+ * cloth BANNER_W wide, waving and cut in a shallow swallowtail, inked like the drawings and a little faded. */
+const BANNER_W = 15;
+const BANNER_RISE = 7;
+const INK = '#2a1d12';
+const BANNER_D = 'M0 0.5C6 -1.2 11 2.2 17 0.6S26 -0.6 30 0.8L26.5 10.4L30 20C25 18.6 21 21.6 15 20.2S5 19 0 20.5Z'; // in the flag's 30 x 20 box
+/** From the token's point up to the top of the banner (points). */
+const TOKEN_TOP = TROOP_H - BASE_Y - 1 + BANNER_RISE + 3;
+/** Where a token looks to be, above its point (the middle of the figure): taps are measured from here (points). */
+export const TOKEN_MIDDLE = 12;
+
+/** The banner's cloth and folds, defined once in the units' drawing. */
+function BannerDefs() {
+  return (
+    <Defs>
+      <ClipPath id="unitBanner">
+        <Path d={BANNER_D} />
+      </ClipPath>
+      <LinearGradient id="unitBannerFold" x1="0" y1="0" x2="1" y2="0">
+        <Stop offset="0" stopColor="#ffffff" stopOpacity={0.24} />
+        <Stop offset="0.3" stopColor="#000000" stopOpacity={0.2} />
+        <Stop offset="0.55" stopColor="#ffffff" stopOpacity={0.16} />
+        <Stop offset="0.8" stopColor="#000000" stopOpacity={0.24} />
+        <Stop offset="1" stopColor="#ffffff" stopOpacity={0.08} />
+      </LinearGradient>
+    </Defs>
+  );
+}
 
 /**
- * One army or fleet on the map: the figure standing on a base in its owner's colour, the count on a badge at the
- * base's right (beside it rather than under it, so a token takes no more room than a name). (x, y) is the token's
- * point (screen points). Your own units' bases have a light rim, the selected one a gold one and a glow; a
- * gold dot means it is on the move.
+ * One army or fleet on the map: the figure standing on a base in its owner's colour under the realm's banner, the
+ * count on a badge at the base's right (beside it rather than under it, so a token takes no more room than a name).
+ * (x, y) is the token's point (screen points). Your own units' bases have a light rim, the selected one a gold one
+ * and a glow; a gold dot at the base's left means it is on the move.
  */
-function Token({ x, y, figure, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; figure: keyof typeof FIGURE; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
-  const f = FIGURE[figure];
+function Token({ x, y, figure, nation, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; figure: TroopArt | 'ship'; nation: string; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
   const label = `${n}`;
   const pw = 10 + 6.4 * label.length;
-  const top = BASE_Y + 1 - f.size * f.feet;
+  let fig: { src: number; x: number; y: number; w: number; h: number };
+  let figTop: number; // the top of what is drawn
+  let poleX: number;
+  let poleFoot: number;
+  if (figure === 'ship') {
+    const top = BASE_Y + 1 - SHIP.size * SHIP.feet;
+    fig = { src: SHIP.src, x: -SHIP.size / 2, y: top, w: SHIP.size, h: SHIP.size };
+    figTop = top + 4; // the mastheads
+    poleX = 4;
+    poleFoot = figTop + 12;
+  } else {
+    const art = TROOP_ART[figure];
+    const w = (TROOP_H * art.w) / art.h;
+    fig = { src: art.src, x: -w / 2, y: BASE_Y + 1 - TROOP_H, w, h: TROOP_H };
+    figTop = fig.y;
+    poleX = Math.max(3.5, w * 0.28);
+    poleFoot = BASE_Y - 1;
+  }
+  const poleTop = figTop - BANNER_RISE;
   return (
     <G transform={`translate(${x} ${y}) scale(${scale})${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
       {sel ? <Ellipse cx={0} cy={BASE_Y + 1} rx={BASE_RX + 7} ry={BASE_RY + 4} fill="rgba(236,208,143,0.35)" stroke="#ecd08f" strokeWidth={1} /> : null}
@@ -1122,8 +1173,21 @@ function Token({ x, y, figure, n, color, mine, sel, moving, faded, scale }: { x:
       <Ellipse cx={0} cy={BASE_Y + 3.2} rx={BASE_RX + 1} ry={BASE_RY + 1} fill="rgba(0,0,0,0.38)" />
       <Ellipse cx={0} cy={BASE_Y + 2} rx={BASE_RX} ry={BASE_RY} fill={mix(color, '#000000', 0.38)} stroke="rgba(13,16,21,0.85)" strokeWidth={1} />
       <Ellipse cx={0} cy={BASE_Y} rx={BASE_RX} ry={BASE_RY} fill={color} stroke={sel ? '#ecd08f' : mine ? '#fff3d6' : 'rgba(13,16,21,0.85)'} strokeWidth={sel ? 2 : 1.3} />
-      <SvgImage x={-f.size / 2} y={top} width={f.size} height={f.size} href={f.src} />
-      {moving ? <Circle cx={BASE_RX - 2} cy={-TOKEN_TOP + 8} r={4} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
+      {/* The banner's pole, behind the figure, with its spearhead. */}
+      <Path d={`M${poleX} ${poleFoot}V${poleTop}`} stroke={INK} strokeWidth={2.4} strokeLinecap="round" />
+      <Path d={`M${poleX} ${poleFoot - 0.6}V${poleTop + 0.4}`} stroke="#8b6a43" strokeWidth={1.1} strokeLinecap="round" />
+      <Path d={`M${poleX} ${poleTop - 3.6}l1.5 2.6l-1.5 1.3l-1.5-1.3Z`} fill="#c9b27a" stroke={INK} strokeWidth={0.7} strokeLinejoin="round" />
+      <SvgImage x={fig.x} y={fig.y} width={fig.w} height={fig.h} href={fig.src} preserveAspectRatio="none" />
+      {/* The cloth, flying to the right from the pole's top. */}
+      <G transform={`translate(${poleX} ${poleTop + 0.6}) scale(${BANNER_W / 30})`}>
+        <G clipPath="url(#unitBanner)">
+          {flagBody(nation)}
+          <Rect width={30} height={21} fill="#7a5530" opacity={0.14} />
+          <Rect width={30} height={21} fill="url(#unitBannerFold)" />
+        </G>
+        <Path d={BANNER_D} fill="none" stroke={INK} strokeWidth={1.6} strokeLinejoin="round" />
+      </G>
+      {moving ? <Circle cx={-BASE_RX - 1} cy={BASE_Y} r={3.6} fill="#ecd08f" stroke="rgba(13,16,21,0.9)" strokeWidth={1.2} /> : null}
       <Rect x={BASE_RX - 6} y={BASE_Y - 4} width={pw} height={15} rx={7.5} fill="rgba(13,16,21,0.92)" stroke="rgba(214,178,110,0.75)" strokeWidth={1} />
       <SvgText x={BASE_RX - 6 + pw / 2} y={BASE_Y + 7.2} textAnchor="middle" fontSize={11} fontWeight="800" fill="#fffaf0" fontFamily={sans}>
         {label}
