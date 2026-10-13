@@ -1,10 +1,11 @@
 /**
  * Rule-based AI: predictable enough to plan around, aggressive enough to feel alive.
- * Monthly (staggered per nation): economy, diplomacy, war and peace decisions, weighted by personality.
- * Every few days per army: attack beatable stacks, besiege enemy land, retreat from bigger stacks, merge.
+ * Monthly (staggered per nation): economy, generals, diplomacy, war and peace decisions, weighted by personality.
+ * Every few days per army: attack stacks the battle forecast says it beats, besiege enemy land, retreat from
+ * fights it would lose, gather before walking out alone, merge.
  */
 import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
-import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
+import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, charted, freeColonists, sendExpedition, startColony } from './colonies';
 import { log } from './log';
 import { FUNDING_SHARE, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
 import { wantedRegions, wantsFrom } from './aims';
@@ -13,9 +14,11 @@ import {
   allied,
   alliesOf,
   armiesHostile,
+  armiesOf,
   armyRegs,
   atWar,
   controllerHostile,
+  fleetsOf,
   forceLimit,
   friendlyTo,
   hasTruce,
@@ -48,11 +51,14 @@ import {
   LOAN_SIZE,
 } from './economy';
 import { acceptance, canRival, doDiplomacy, opinion } from './diplomacy';
-import { buildDemands, casusBelli, declareWar, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, canDeclareWar } from './war';
+import { buildDemands, casusBelli, declareWar, imperialDefenders, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, canDeclareWar } from './war';
 import { coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
 import { minSiegeRegs } from './siege';
-import { fleetPower, findSeaPath, seaDistances } from './navy';
+import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy';
+import { forecast, type Forecast } from './forecast';
+import { GENERAL_COST } from './commands';
+import { newGeneral, rulerAsGeneral } from './rulers';
 import type { Army, GameState, Nation, NationId, NodeId, PeaceTerms, Region, War } from './types';
 import { chance, isIn, months, pick, yearOf, years } from './util';
 
@@ -67,6 +73,7 @@ export function monthlyAI(s: GameState): void {
     if (!nat.alive || isHuman(s, nat.id) || s.day < nat.ai.nextEval) continue;
     nat.ai.nextEval = s.day + 30;
     aiEconomy(s, nat);
+    aiGenerals(s, nat);
     aiPeace(s, nat);
     // New World peoples defend their land but never start wars or court European crowns.
     if (isNativeNation(nat.id)) continue;
@@ -231,6 +238,62 @@ function musterRegion(s: GameState, n: NationId, war: boolean): string | undefin
     }
   }
   return best ?? home;
+}
+
+// ---------------------------------------------------------------- generals
+
+/** The ruler takes the field in person only with this many stars as a general (and an heir to succeed). */
+const RULER_LEADS_STARS = 3;
+/** At war, an army this big without a general gets one hired, at the price the player pays. */
+const HIRE_FOR_REGS = 8;
+/** An army this big is worth taking a general away from a small one, and gets one hired even in peace. */
+const BIG_ARMY = 10;
+
+/**
+ * Generals take the field. The idle ones (hired, given by events and missions, freed by a merge) go to the largest
+ * armies without a commander; a skilled ruler leads the largest in person when an heir stands ready, and comes home
+ * when the succession is no longer safe. At war (or bracing for one), a general is hired for an army of 8+
+ * regiments that has none; in peace only for one of 10+, and from a full treasury.
+ */
+function aiGenerals(s: GameState, nat: Nation): void {
+  const n = nat.id;
+  const armies = armiesOf(s, n).filter(a => !a.retreating);
+  const rulerMayLead = !!nat.heir && !nat.ruler.regency && rulerAsGeneral(s, n).stars >= RULER_LEADS_STARS;
+  if (!rulerMayLead) for (const a of armies) if (a.general?.isRuler) a.general = undefined;
+  const rulerLeads = armies.some(a => a.general?.isRuler);
+  const leaderless = armies.filter(a => !a.general).sort((x, y) => armyRegs(y) - armyRegs(x));
+  if (!leaderless.length) return;
+  // The best commanders to the biggest armies: idle generals and the ruler, by stars.
+  const pool = [...nat.generals].sort((x, y) => y.stars - x.stars);
+  if (rulerMayLead && !rulerLeads) {
+    const ruler = rulerAsGeneral(s, n);
+    const at = pool.findIndex(g => g.stars < ruler.stars);
+    pool.splice(at < 0 ? pool.length : at, 0, ruler);
+  }
+  let hires = 0;
+  for (const a of leaderless) {
+    const g = pool.shift();
+    if (g) {
+      if (!g.isRuler) nat.generals = nat.generals.filter(x => x.id !== g.id);
+      a.general = g;
+      continue;
+    }
+    const regs = armyRegs(a);
+    // A big army with nobody to lead it takes the general of a far smaller one.
+    if (regs >= BIG_ARMY) {
+      const spare = armies.filter(o => o.general && !o.general.isRuler && !o.battle && armyRegs(o) * 2 <= regs).sort((x, y) => armyRegs(x) - armyRegs(y))[0];
+      if (spare) {
+        a.general = spare.general;
+        spare.general = undefined;
+        continue;
+      }
+    }
+    const atArms = nat.armyMode === 'war';
+    if (regs < (atArms ? HIRE_FOR_REGS : BIG_ARMY) || isNativeNation(n) || hires >= 2 || nat.gold < GENERAL_COST + reserve(s, nat) * (atArms ? 0.5 : 1.5)) break;
+    nat.gold -= GENERAL_COST;
+    a.general = newGeneral(s, n);
+    hires++;
+  }
 }
 
 // ---------------------------------------------------------------- science
@@ -401,7 +464,11 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
   }
 }
 
-/** Forge a claim on land the crown wants (aims, missions) next to its own, as the player can. */
+/**
+ * Forge a claim on land the crown wants (aims, missions) next to its own, as the player can. A crown with nothing
+ * it wants next door and no reason for war on any neighbour eyes the richest border region of a clearly weaker
+ * neighbour instead (how much weaker depends on its bent; a great crown's land is not fair game).
+ */
 function aiClaims(s: GameState, nat: Nation): void {
   const n = nat.id;
   if (nat.fabricating || nat.overlord || nat.gold < FABRICATE_COST + reserve(s, nat) * 0.5 || !chance(s, 0.25)) return;
@@ -409,31 +476,69 @@ function aiClaims(s: GameState, nat: Nation): void {
   for (const [r, w] of wantedRegions(s, n)) {
     const o = s.regions[r]?.owner;
     if (!o || o === n || r in nat.claims || s.nations[o].overlord === n || allied(s, n, o)) continue;
-    if (!GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n)) continue;
+    if (!bordersOwn(s, n, r)) continue;
     const score = w * 10 + s.regions[r].dev;
     if (!best || score > best.score) best = { r, score };
+  }
+  if (!best && !hasCause(s, n)) {
+    const mine = militaryPower(s, n);
+    for (const r of Object.values(s.regions)) {
+      const o = r.owner;
+      if (!o || o === n || r.id in nat.claims || NATION[o]?.tier === 'major' || canDeclareWar(s, n, o)) continue;
+      if (militaryPower(s, o) * (WEAKER_NEIGHBOUR[NATION[n].personality] ?? 2) > mine || !bordersOwn(s, n, r.id)) continue;
+      if (!best || r.dev > best.score) best = { r: r.id, score: r.dev };
+    }
   }
   if (!best) return;
   nat.gold -= FABRICATE_COST;
   nat.fabricating = { region: best.r, done: s.day + FABRICATE_DAYS };
 }
 
+/** A neighbour this many times weaker (or more) is fair game for a forged claim: the ambitious look sooner. */
+const WEAKER_NEIGHBOUR: Record<string, number> = { expansionist: 1.5, opportunist: 1.5, trader: 2, defensive: 3 };
+
+/** Does region `r` touch land `n` owns (by land or a strait)? */
+function bordersOwn(s: GameState, n: NationId, r: string): boolean {
+  return GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);
+}
+
+/** Has `n` a reason for war (a claim, a holy war, a rival...) on a neighbour it may attack? */
+function hasCause(s: GameState, n: NationId): boolean {
+  return neighborsOf(s, n).some(t => !canDeclareWar(s, n, t) && !hasTruce(s, n, t) && casusBelli(s, n, t)[0].cb !== 'none');
+}
+
 // ---------------------------------------------------------------- war
 
-export function sideStrength(s: GameState, nations: NationId[]): number {
-  return nations.reduce((t, n) => t + militaryPower(s, n), 0);
+/**
+ * The might a side brings to a war. Given its leader and the enemy, it counts all of the leader's and its subjects'
+ * (and of those `sworn` to come, the Empire's defenders) and less of a distant ally's (its armies come late, and not
+ * all of them): 1 next door, two thirds five regions off, a third from across the map.
+ */
+export function sideStrength(s: GameState, nations: NationId[], leader?: NationId, enemy?: NationId, sworn: NationId[] = []): number {
+  return nations.reduce((t, x) => {
+    const own = !leader || !enemy || x === leader || s.nations[x]?.overlord === leader || sworn.includes(x);
+    const near = own ? 1 : proximity(s, x, enemy);
+    return t + militaryPower(s, x) * (0.35 + 0.65 * near);
+  }, 0);
 }
+
+/** Years a crown lets pass after declaring a war before it declares another: the ambitious sooner. */
+const WAR_COOLDOWN: Record<string, number> = { expansionist: 2, opportunist: 3, trader: 4, defensive: 5 };
+/** A limited war, for one region on the border (a claim, a lost core, land it wants), needs this much less might
+ * (nobody fights to the last man over one region), but still a clear edge: a war at even odds is lost half the time. */
+const LIMITED_WAR = 0.75;
+const LIMITED_WAR_FLOOR = 1.15;
 
 function aiWar(s: GameState, nat: Nation): void {
   const n = nat.id;
   if (atWar(s, n) || nat.overlord) return;
-  if (nat.ai.lastWarDeclared && s.day - nat.ai.lastWarDeclared < years(3)) return;
-  if (nat.stability < 0 || nat.warExhaustion > 5 || nat.loans > 3) return;
   const pers = NATION[n].personality;
+  if (nat.ai.lastWarDeclared && s.day - nat.ai.lastWarDeclared < years(WAR_COOLDOWN[pers] ?? 3)) return;
+  if (nat.stability < 0 || nat.warExhaustion > 5 || nat.loans > 3) return;
   const aggression = s.settings.difficulty === 'hard' ? 0.85 : s.settings.difficulty === 'easy' ? 1.2 : 1;
   const evalChance = pers === 'expansionist' ? 0.3 : pers === 'opportunist' ? 0.2 : 0.1;
   if (!chance(s, evalChance)) return;
-  let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; score: number } | null = null;
+  let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; goal?: string; score: number } | null = null;
   const wanted = wantedRegions(s, n);
   const targets = new Set(neighborsOf(s, n));
   for (const t of targets) {
@@ -444,21 +549,27 @@ function aiWar(s: GameState, nat: Nation): void {
     const cbs = casusBelli(s, n, t);
     const cb = cbs[0];
     if (cb.cb === 'none' && pers !== 'expansionist') continue;
+    // Only the allies who would answer the call count, the distant ones for less (not the Empire's sworn defenders).
     const sides = likelySides(s, n, t);
-    const ratio = sideStrength(s, sides.attackers) / Math.max(1, sideStrength(s, sides.defenders));
+    const ratio = sideStrength(s, sides.attackers, n, t) / Math.max(1, sideStrength(s, sides.defenders, t, n, imperialDefenders(s, n, t)));
     // Crowns follow their history: land they want makes a war worth more and worth more risk.
-    const desire = Math.min(4, wantsFrom(s, n, t).reduce((sum, r) => sum + (wanted.get(r) ?? 0), 0));
+    const wants = wantsFrom(s, n, t);
+    const desire = Math.min(4, wants.reduce((sum, r) => sum + (wanted.get(r) ?? 0), 0));
+    // A war for one border region (the claim, or the land it wants most) is a limited one.
+    const goal = cb.goal ?? wants.find(r => bordersOwn(s, n, r));
+    const limited = !!goal && bordersOwn(s, n, goal);
     let need = REQUIRED_RATIO[pers] * aggression;
     if (cb.cb === 'none') need *= 1.8;
-    if (desire) need *= 0.85;
+    if (limited) need = Math.max(LIMITED_WAR_FLOOR, need * LIMITED_WAR);
+    else if (desire) need *= 0.85;
     if (t === s.player && s.settings.difficulty === 'easy') need *= 1.3;
     if (ratio < need) continue;
     // Past three to one, better odds add nothing: the land a crown wants decides which war it picks.
-    const score = Math.min(3, ratio) + (cb.goal ? s.regions[cb.goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
-    if (!best || score > best.score) best = { target: t, cb, score };
+    const score = Math.min(3, ratio) + (goal ? s.regions[goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
+    if (!best || score > best.score) best = { target: t, cb, goal, score };
   }
   if (!best) return;
-  const war = declareWar(s, n, best.target, best.cb.cb, best.cb.goal);
+  const war = declareWar(s, n, best.target, best.cb.cb, best.goal);
   if (war) nat.ai.lastWarDeclared = s.day;
 }
 
@@ -495,18 +606,51 @@ function aiPeace(s: GameState, nat: Nation): void {
       continue;
     }
     // AI vs AI.
+    const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: n, loser: enemyLeader };
+    // A war neither side can carry to the other is let go after a year.
+    if (years_ >= 1 && !inReach(s, w)) {
+      makePeace(s, w, white);
+      continue;
+    }
     if (sc >= 25 || (sc >= 10 && years_ > 3)) {
       const terms = buildDemands(s, w, n, sc);
       // Winning a young war of conquest but the war goal is not yet affordable: fight on for it.
       const goalHeld = side === 0 && !!w.goal && isIn(w.defenders, s.regions[w.goal]?.owner) && !terms.regions.includes(w.goal);
       if (goalHeld && years_ < 3 && sc < 60) continue;
-      if ((terms.regions.length || terms.gold) && peaceAcceptance(s, w, terms, enemyLeader).accept) makePeace(s, w, terms);
-      else if (sc >= 60 && terms.regions.length) makePeace(s, w, terms); // forced
+      const any = terms.regions.length > 0 || terms.gold > 0 || terms.vassalize;
+      if (any && peaceAcceptance(s, w, terms, enemyLeader).accept) makePeace(s, w, terms);
+      else if (sc >= 60 && (terms.regions.length || terms.vassalize)) makePeace(s, w, terms); // forced
+      else if (!any && years_ >= 1) {
+        // Winning with nothing in reach to ask for: whatever gold the loser can spare, or a white peace.
+        const gold = Math.min(sc * 10, Math.floor(s.nations[enemyLeader].gold / 2));
+        const settle = gold >= 10 ? { ...terms, gold } : white;
+        if (peaceAcceptance(s, w, settle, enemyLeader).accept) makePeace(s, w, settle);
+      }
     } else if (Math.abs(sc) < 15 && years_ > 4) {
-      const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: n, loser: enemyLeader };
       if (peaceAcceptance(s, w, white, enemyLeader).accept && peaceAcceptance(s, w, white, n).accept) makePeace(s, w, white);
     }
   }
+}
+
+/**
+ * Can either side of a war get at the other: fighting on the other's land already, a road (or strait) between their
+ * lands, or ships to carry an army from a coast of its own to an enemy coast?
+ */
+function inReach(s: GameState, w: War): boolean {
+  const lands: [Region[], Region[]] = [[], []];
+  for (const r of Object.values(s.regions)) {
+    const side = isIn(w.attackers, r.owner) ? 0 : isIn(w.defenders, r.owner) ? 1 : null;
+    if (side === null) continue;
+    if (r.controller !== r.owner && isIn(side === 0 ? w.defenders : w.attackers, r.controller)) return true;
+    lands[side].push(r);
+  }
+  for (const x of lands[0]) for (const y of lands[1]) if (hops(x.id, y.id) < 99) return true;
+  const coast = (rs: Region[]) => rs.some(r => charted(s, r.id) && GRAPH[r.id].some(e => e.kind === 'coast'));
+  for (const i of [0, 1] as const) {
+    const ships = (i === 0 ? w.attackers : w.defenders).some(x => transportCapacity(fleetsOf(s, x)) > 0);
+    if (ships && coast(lands[i]) && coast(lands[1 - i])) return true;
+  }
+  return false;
 }
 
 function offerPeace(s: GameState, nat: Nation, w: War, terms: PeaceTerms): void {
@@ -545,6 +689,20 @@ function enemiesOf(s: GameState, n: NationId): Set<NationId> {
   return out;
 }
 
+// The margins below compare how long each side would hold out (the forecast's ratio), which grows about as the
+// square of the odds on even ground: 1.5 is roughly a quarter more might, 2 two fifths more, 3 three quarters more.
+/** Attack only a fight the forecast gives us clearly: we would hold out this many times longer than they would. */
+const ATTACK_MARGIN = 1.5;
+/** An enemy stack that would beat us this clearly, attacking where we stand, is a danger: join up or fall back. */
+const DANGER_MARGIN = 2;
+/** A stack the nearest enemy stack in reach would beat this clearly gathers with our other armies before it walks
+ * out alone. */
+const ALONE_MARGIN = 3;
+/** How far (days of march) the AI looks for enemies to fight, and for enemies too strong to walk out against. */
+const REACH_DAYS = 40;
+/** How far a stack too weak to walk out alone goes to join a bigger one (farther, and it would leave its land open). */
+const GATHER_DAYS = 20;
+
 function armyAI(s: GameState, a: Army): void {
   const n = a.owner;
   const nat = s.nations[n];
@@ -556,52 +714,90 @@ function armyAI(s: GameState, a: Army): void {
     return;
   }
   const tree = pathTree(s, a, { maxDays: 90 });
-  const myStrength = armyStrength(s, a) + friendlyStrengthAt(s, a);
+  const myStrength = armyStrength(s, a);
   const hostileArmies = Object.values(s.armies).filter(o => o.id !== a.id && !o.retreating && armiesHostile(s, a, o) && !isSea(o.node));
 
-  // 1) Danger: a much bigger enemy stack nearby → join up with our other armies if together we can face it,
-  // otherwise fall back toward friends or a fort.
-  const danger = hostileArmies.filter(o => (tree.dist.get(o.node) ?? 999) <= 20 && armyStrength(s, o) > myStrength * 1.4);
-  if (danger.length && !a.battle) {
-    const biggest = Math.max(...danger.map(o => armyStrength(s, o)));
+  // 1) Danger: an enemy stack nearby that would beat us attacking here → join up with our other armies if together
+  // we would hold, otherwise fall back toward friends or a fort.
+  const here = [a, ...Object.values(s.armies).filter(o => o.id !== a.id && o.node === a.node && isIdle(o) && o.owner !== REBELS && n !== REBELS && friendlyTo(s, o.owner, n))];
+  const threats = hostileArmies
+    .filter(o => !o.battle && (tree.dist.get(o.node) ?? 999) <= 20)
+    .map(o => ({ o, f: forecast(s, stackOf(s, o, a), here, a.node) }))
+    .filter(x => x.f.winner === 0 && x.f.ratio >= DANGER_MARGIN)
+    .sort((x, y) => y.f.ratio - x.f.ratio);
+  if (threats.length && !a.battle) {
     const friends = Object.values(s.armies).filter(o => o.owner === n && o.id !== a.id && !o.battle && !o.retreating && (tree.dist.get(o.node) ?? 999) <= 15);
-    if (friends.length && myStrength + friends.reduce((t, o) => t + armyStrength(s, o), 0) >= biggest * 1.1) {
+    if (friends.length && forecast(s, stackOf(s, threats[0].o, a), [...here, ...friends], a.node).winner === 1) {
       mergeWithNearby(s, a, tree);
       return;
     }
-    const safe = safeSpot(s, a, tree, danger);
+    const safe = safeSpot(s, a, tree, threats.map(x => x.o));
     if (safe && safe !== a.node && pathFromTree(tree, a.node, safe)) {
       move(s, a, safe, tree); // keeps the march going if the first step is the same
       return;
     }
   }
-  // 2) Attack a stack we can beat (rebels count), but not far off, and an army besieging its war goal only
-  // turns on enemies who come close (a relief army), never chases off after others.
+  // 2) Attack a stack the forecast says we beat clearly (rebels count; terrain, rivers, generals and morale all
+  // weigh), but not far off; an army besieging its war goal only turns on enemies who come close (a relief army),
+  // never chases off after others.
   const goals = new Set(Object.values(s.wars).filter(w => sideOf(w, n) !== null).map(w => w.goal));
   const onGoal = goals.has(a.node) && !!s.regions[a.node]?.siege && s.regions[a.node].siege!.by === n;
-  let bestTarget: { node: NodeId; score: number } | null = null;
+  // Our other stacks standing here join in when the fight needs them (and only then: one great stack starves and
+  // besieges one city at a time).
+  const mates = a.path.length ? [] : armiesOf(s, n).filter(o => o.id !== a.id && o.node === a.node && isIdle(o));
+  const matesStrength = mates.reduce((t, x) => t + armyStrength(s, x), 0);
+  const clear = (x: Odds) => x.win && x.ratio >= ATTACK_MARGIN;
+  let bestTarget: { node: NodeId; score: number; together: boolean } | null = null;
   for (const o of hostileArmies) {
     const d = tree.dist.get(o.node);
-    if (d === undefined || d > (onGoal ? 10 : 40)) continue;
-    const theirs = armyStrength(s, o) + Object.values(s.armies).filter(x => x.node === o.node && x.id !== o.id && x.owner === o.owner).reduce((t, x) => t + armyStrength(s, x), 0);
-    if (myStrength < theirs * 1.25) continue;
+    if (d === undefined || d > (onGoal ? 10 : REACH_DAYS)) continue;
+    const theirs = stackOf(s, o, a).reduce((t, x) => t + armyStrength(s, x), 0);
+    if (theirs > (myStrength + matesStrength) * 3) continue; // hopeless whatever the ground: no need to ask
+    const from = tree.prev.get(o.node);
+    const together = !clear(attackOdds(s, [a], o, from));
+    if (together && (!mates.length || !clear(attackOdds(s, [a, ...mates], o, from)))) continue;
     const score = theirs / (d + 5);
-    if (!bestTarget || score > bestTarget.score) bestTarget = { node: o.node, score };
+    if (!bestTarget || score > bestTarget.score) bestTarget = { node: o.node, score, together };
   }
   if (bestTarget) {
+    if (bestTarget.together) for (const m of mates) mergeArmies(s, a, m);
     move(s, a, bestTarget.node, tree);
     return;
   }
-  // 3) Besiege: enemy-held regions we can reach, preferring the war goal, low forts and our own lost land.
+  // 3) Gather: in our own (or friendly) land, a stack the nearest enemy stack in reach would crush does not walk out
+  // alone: it joins a bigger army of ours close by, or holds its ground (and falls back if the enemy comes, above).
+  if (!a.battle && friendlyTo(s, n, s.regions[a.node]?.controller ?? null)) {
+    let nearest: Army | null = null;
+    let nearestDays = REACH_DAYS + 1;
+    for (const o of hostileArmies) {
+      const d = tree.dist.get(o.node);
+      if (d !== undefined && d < nearestDays) {
+        nearestDays = d;
+        nearest = o;
+      }
+    }
+    const f = nearest && forecast(s, stackOf(s, nearest, a), [a], a.node);
+    if (f && f.winner === 0 && f.ratio >= ALONE_MARGIN) {
+      if (armiesOf(s, n).some(o => o.id !== a.id && armyRegs(o) >= armyRegs(a) && (tree.dist.get(o.node) ?? 999) < GATHER_DAYS)) mergeWithNearby(s, a, tree, GATHER_DAYS);
+      else a.path = [];
+      return;
+    }
+  }
+  // 4) Besiege: enemy-held regions we can reach, preferring the war goal, low forts and our own lost land; not
+  // where an enemy stack stands that the forecast says we would not beat.
   const regs = armyRegs(a);
   let bestSiege: { node: NodeId; score: number } | null = null;
   const takenBy = new Set(Object.values(s.armies).filter(x => x.owner === n && x.id !== a.id).map(x => (x.path.length ? x.path[x.path.length - 1] : x.node)));
+  const guards = new Map<NodeId, Army>();
+  for (const o of hostileArmies) if (isIdle(o)) guards.set(o.node, o);
   for (const r of Object.values(s.regions)) {
     if (!controllerHostile(s, n, r)) continue;
     const d = tree.dist.get(r.id);
     if (d === undefined) continue;
     if (regs < minSiegeRegs(r.fort)) continue;
     if (takenBy.has(r.id) && r.id !== a.node) continue;
+    const guard = r.id !== a.node && guards.get(r.id);
+    if (guard && !clear(attackOdds(s, [a], guard, tree.prev.get(r.id)))) continue;
     const ownLand = r.owner === n ? 25 : 0;
     const goal = goals.has(r.id) ? 30 : 0;
     const score = (r.dev * 2 + ownLand + goal + (r.fort === 0 ? 6 : 0) - r.fort * 4) / (d + 8);
@@ -616,16 +812,42 @@ function armyAI(s: GameState, a: Army): void {
     move(s, a, bestSiege.node, tree);
     return;
   }
-  // 4) Nothing to do. With enemies in reach, join the biggest friendly army; with the war out of reach
+  // 5) Nothing to do. With enemies in reach, join the biggest friendly army; with the war out of reach
   // (overseas, say), wait as in peacetime, spread out so the troops don't starve.
   if (hostileArmies.some(o => tree.dist.has(o.node))) mergeWithNearby(s, a, tree);
   else peaceStation(s, a);
 }
 
-function friendlyStrengthAt(s: GameState, a: Army): number {
-  return Object.values(s.armies)
-    .filter(o => o.id !== a.id && o.node === a.node && o.owner !== REBELS && a.owner !== REBELS && friendlyTo(s, o.owner, a.owner) && !o.path.length)
-    .reduce((t, o) => t + armyStrength(s, o), 0);
+/** Standing still: not marching, retreating or fighting. */
+const isIdle = (o: Army) => !o.path.length && !o.retreating && !o.battle;
+
+/** The stack `o` stands in: itself and the armies standing beside it that are hostile to `me` too. */
+function stackOf(s: GameState, o: Army, me: Army): Army[] {
+  return [o, ...Object.values(s.armies).filter(x => x.id !== o.id && x.node === o.node && isIdle(x) && armiesHostile(s, me, x))];
+}
+
+/** A fight seen from our side: do we win, and how many times longer would we hold out than they would. */
+interface Odds {
+  win: boolean;
+  ratio: number;
+  forecast: Forecast;
+}
+
+/** The odds if `ours` march on `target` (and whoever stands with it) from `from`, or join a battle already raging
+ * around it, on the other side. */
+export function attackOdds(s: GameState, ours: Army[], target: Army, from?: NodeId): Odds {
+  const b = target.battle ? s.battles[target.battle] : undefined;
+  if (b) {
+    const theirs = b.sides[0].armies.includes(target.id) ? 0 : 1;
+    const them = b.sides[theirs].armies.map(id => s.armies[id]).filter(Boolean);
+    const us = [...b.sides[1 - theirs].armies.map(id => s.armies[id]).filter(Boolean), ...ours];
+    const river = b.river ? s.armies[b.sides[0].armies[0]]?.from : undefined;
+    const f = theirs === 1 ? forecast(s, us, them, b.node, river) : forecast(s, them, us, b.node, river);
+    const side = theirs === 1 ? 0 : 1;
+    return { win: f.winner === side, ratio: side === 0 ? f.ratio : 1 / f.ratio, forecast: f };
+  }
+  const f = forecast(s, ours, stackOf(s, target, ours[0]), target.node, from);
+  return { win: f.winner === 0, ratio: f.ratio, forecast: f };
 }
 
 function move(s: GameState, a: Army, node: NodeId, tree: ReturnType<typeof pathTree>): void {
@@ -672,7 +894,7 @@ function pathDistanceGuess(a: NodeId, b: NodeId): number {
   return 2;
 }
 
-function mergeWithNearby(s: GameState, a: Army, tree: ReturnType<typeof pathTree>): void {
+function mergeWithNearby(s: GameState, a: Army, tree: ReturnType<typeof pathTree>, maxDays = 40): void {
   const own = Object.values(s.armies).filter(o => o.owner === a.owner && o.id !== a.id && !o.battle && !o.retreating);
   const here = own.find(o => o.node === a.node && !o.path.length && !a.path.length);
   if (here) {
@@ -680,7 +902,7 @@ function mergeWithNearby(s: GameState, a: Army, tree: ReturnType<typeof pathTree
     mergeArmies(s, big, small);
     return;
   }
-  const biggest = own.filter(o => tree.dist.has(o.node) && (tree.dist.get(o.node) ?? 999) < 40).sort((x, y) => armyRegs(y) - armyRegs(x))[0];
+  const biggest = own.filter(o => tree.dist.has(o.node) && (tree.dist.get(o.node) ?? 999) < maxDays).sort((x, y) => armyRegs(y) - armyRegs(x))[0];
   if (biggest && armyRegs(biggest) >= armyRegs(a)) move(s, a, biggest.node, tree);
 }
 
@@ -781,4 +1003,4 @@ export function monthlyFleetAI(s: GameState): void {
 }
 
 
-export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace };
+export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace, aiGenerals };
