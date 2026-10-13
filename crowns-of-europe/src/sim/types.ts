@@ -522,6 +522,8 @@ export interface War {
   started: number;
   battleScore: number; // attacker-side points from battles (+ attacker, - defender)
   goalScore: number; // ticking score from holding (or failing to take) the war goal
+  /** An AI leader's ultimatum to the player: imposed on `due` if it still holds ULTIMATUM_SCORE (war.ts). */
+  ultimatum?: { from: NationId; due: number; terms: PeaceTerms };
 }
 
 export interface Relation {
@@ -586,7 +588,7 @@ export interface PendingEvent {
 
 export type Offer =
   | { id: string; kind: 'callToArms'; from: NationId; war: WarId; day: number }
-  | { id: string; kind: 'peace'; from: NationId; war: WarId; day: number; terms: PeaceTerms }
+  | { id: string; kind: 'peace'; from: NationId; war: WarId; day: number; terms: PeaceTerms; ultimatum?: number } // ultimatum: the day it takes effect
   | { id: string; kind: 'alliance' | 'marriage' | 'access'; from: NationId; day: number };
 
 export interface PeaceTerms {

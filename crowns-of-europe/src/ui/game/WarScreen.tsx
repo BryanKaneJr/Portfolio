@@ -9,9 +9,9 @@ import Svg, { Defs, LinearGradient, RadialGradient, Rect, Stop } from 'react-nat
 import { NATION, nationName, regionName } from '../../sim/content';
 import { proposePeace, separatePeace } from '../../sim/commands';
 import { REBELS, ownedRegions, sideOf, subjectsOf } from '../../sim/queries';
-import { CB_LABEL, demandableRegions, isCapitalAtStake, peaceAcceptance, peaceCost, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
+import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, warScore } from '../../sim/war';
 import type { NationId, PeaceTerms, War } from '../../sim/types';
-import { DAYS_PER_YEAR, formatShortDate, isIn } from '../../sim/util';
+import { DAYS_PER_YEAR, formatDate, formatShortDate, isIn } from '../../sim/util';
 import { useStore } from '../../state/store';
 import { BurningShield, ShieldMedallion } from '../components/BurningShield';
 import { Shield } from '../components/Flag';
@@ -47,7 +47,8 @@ export function WarPanel({ warId }: { warId: string }) {
   const [gold, setGold] = useState(0);
   const [vassalize, setVassalize] = useState(false);
   const [release, setRelease] = useState<string[]>([]);
-  const [mode, setMode] = useState<'demand' | 'offer'>('demand');
+  // Losing, you'll want to offer something rather than demand.
+  const [mode, setMode] = useState<'demand' | 'offer'>(() => (w && sideOf(w, s.player) !== null && scoreFor(s, w, s.player) < 0 ? 'offer' : 'demand'));
   const [levHelp, setLevHelp] = useState(false);
   if (!w || sideOf(w, s.player) === null) {
     return (
@@ -66,15 +67,26 @@ export function WarPanel({ warId }: { warId: string }) {
   const ws = warScore(s, w);
   const flip = side === 1 ? -1 : 1;
 
-  // The peace table.
+  // The peace table: demand what you may take, or offer any land of yours, the land they value most first.
   const winner = mode === 'demand' ? s.player : enemy;
   const loser = mode === 'demand' ? enemy : s.player;
-  const candidates = demandableRegions(s, w, winner);
+  const candidates =
+    mode === 'demand'
+      ? demandableRegions(s, w, winner).map(r => ({ r, price: regionPeaceCost(s, winner, r), why: '' }))
+      : ownedRegions(s, s.player)
+          .map(reg => {
+            const v = concessionValue(s, w, enemy, reg.id);
+            return { r: reg.id, price: v.value, why: v.why };
+          })
+          .sort((a, b) => b.price - a.price || regionName(a.r).localeCompare(regionName(b.r)));
   const terms: PeaceTerms = { regions, gold, vassalize, release: mode === 'demand' ? release : [], winner, loser };
   const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: s.player, loser: enemy };
-  const cost = peaceCost(s, terms);
-  const answer = peaceAcceptance(s, w, terms, enemy);
-  const whiteAnswer = peaceAcceptance(s, w, white, enemy);
+  const cost = mode === 'demand' ? peaceCost(s, terms) : offerValue(s, w, terms);
+  // The same verdict proposePeace acts on.
+  const answer = proposalAnswer(s, w, terms, s.player);
+  const whiteAnswer = proposalAnswer(s, w, white, s.player);
+  const myGold = s.nations[s.player].gold;
+  const ult = w.ultimatum?.from === enemy ? w.ultimatum : undefined;
   const anyTerms = regions.length > 0 || gold > 0 || vassalize || release.length > 0;
   const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
   const reset = (m: 'demand' | 'offer') => {
@@ -104,8 +116,8 @@ export function WarPanel({ warId }: { warId: string }) {
     <View>
       <View style={styles.deal}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.dealLabel}>{anyTerms ? `Terms ${cost}%` : `Leverage ${signed(budget)}%`}</Text>
-          {anyTerms ? <Text style={styles.dealSub}>Leverage {signed(budget)}%</Text> : null}
+          <Text style={styles.dealLabel}>{anyTerms ? (mode === 'demand' ? `Terms ${cost}%` : `Worth ${cost}% to them`) : `${mode === 'demand' ? 'Leverage' : 'Their leverage'} ${signed(budget)}%`}</Text>
+          {anyTerms ? <Text style={styles.dealSub}>{mode === 'demand' ? 'Leverage' : 'Their leverage'} {signed(budget)}%</Text> : null}
         </View>
         {anyTerms ? (
           <View style={[styles.verdict, { borderColor: answer.accept ? G.good : G.bad }]}>
@@ -185,6 +197,39 @@ export function WarPanel({ warId }: { warId: string }) {
         </Text>
       </View>
 
+      {/* Their ultimatum: what they demand, and when it takes effect. */}
+      {ult ? (
+        <View style={[styles.card, styles.ultimatum]} testID="ultimatum">
+          <View style={styles.levTitle}>
+            <Icon name="scroll" size={14} color={G.bad} />
+            <Text style={[styles.cardTitle, { color: G.bad }]}>Ultimatum</Text>
+          </View>
+          <View style={{ marginTop: 6 }}>
+            {ult.terms.regions.map(r => (
+              <Line key={r} label={`${regionName(r)} goes to`} value={nationName(ult.from)} tone="bad" />
+            ))}
+            {ult.terms.gold ? <Line label="You pay" value={`${ult.terms.gold} gold`} tone="bad" /> : null}
+            <Line
+              label="Takes effect"
+              value={formatDate(ult.due)}
+              help={`Sent at ${ULTIMATUM_SCORE}% leverage, asking no more than it buys. If they still hold ${ULTIMATUM_SCORE}% on this day, these terms are imposed; push them below it and the ultimatum lapses. Any peace signed first ends it.`}
+            />
+          </View>
+          {isLeader ? (
+            <Btn
+              style={{ marginTop: 10 }}
+              tone="secondary"
+              label="Accept their terms"
+              testID="accept-ultimatum"
+              onPress={() => {
+                const r = st.run(x => proposePeace(x, w.id, ult.terms));
+                if (r.ok) st.close();
+              }}
+            />
+          ) : null}
+        </View>
+      ) : null}
+
       {/* Leverage: a tug of war, and what it is made of. */}
       <View style={styles.card}>
         <View style={styles.levHead}>
@@ -251,7 +296,11 @@ export function WarPanel({ warId }: { warId: string }) {
         <>
           <Section
             title="Peace"
-            help="Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years."
+            help={
+              mode === 'demand'
+                ? 'Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years.'
+                : `Offer any of your land, or gold. The % beside a region is what it is worth to ${nationName(enemy)}: its full price if it is next to their land, they claim, want or hold it, or it is the war goal; half for land far from them. Gold is 1% for every 10. They accept if it covers their leverage.`
+            }
           >
             <View style={styles.seg}>
               {(['demand', 'offer'] as const).map(m => (
@@ -262,7 +311,7 @@ export function WarPanel({ warId }: { warId: string }) {
             </View>
             <Text style={styles.sub}>{mode === 'demand' ? 'Regions to take' : 'Regions to give up'}</Text>
             {candidates.length ? (
-              candidates.map(r => {
+              candidates.map(({ r, price, why }) => {
                 const on = regions.includes(r);
                 const reg = s.regions[r];
                 return (
@@ -272,27 +321,32 @@ export function WarPanel({ warId }: { warId: string }) {
                       <Text style={styles.optionText}>{regionName(r)}</Text>
                       <Text style={styles.optionSub}>
                         Prosperity {reg.dev}
-                        {r in s.nations[winner].claims || reg.cores.includes(winner) ? ' · claimed' : ''}
-                        {reg.controller === winner ? ' · occupied' : ''}
+                        {mode === 'offer' ? ` · ${why}` : ''}
+                        {mode === 'demand' && (r in s.nations[winner].claims || reg.cores.includes(winner)) ? ' · claimed' : ''}
+                        {mode === 'demand' && reg.controller === winner ? ' · occupied' : ''}
                         {isCapitalAtStake(s, r) ? ' · capital' : ''}
                       </Text>
                     </View>
                     <View style={[styles.cost, on && styles.costOn]}>
-                      <Text style={[styles.costText, on && { color: '#1a1408' }]}>{regionPeaceCost(s, winner, r)}%</Text>
+                      <Text style={[styles.costText, on && { color: '#1a1408' }]}>{price}%</Text>
                     </View>
                   </Pressable>
                 );
               })
             ) : (
-              <Empty text={mode === 'demand' ? 'Occupy or claim their regions to demand them.' : 'None they could take.'} />
+              <Empty text={mode === 'demand' ? 'Occupy or claim their regions to demand them.' : 'You have no land to offer.'} />
             )}
             <Text style={styles.sub}>{mode === 'demand' ? 'Gold reparations' : 'Pay gold'}</Text>
             <View style={styles.seg}>
-              {[0, 50, 100, 200, 400].map(g => (
-                <Pressable key={g} onPress={() => setGold(g)} style={[styles.segItem, gold === g && styles.segOn]}>
-                  <Text style={[styles.segText, gold === g && styles.segTextOn]}>{g ? `${g}` : 'None'}</Text>
-                </Pressable>
-              ))}
+              {[0, 50, 100, 200, 400].map(g => {
+                // You can't offer gold you don't have.
+                const short = mode === 'offer' && g > myGold;
+                return (
+                  <Pressable key={g} disabled={short} onPress={() => setGold(g)} style={[styles.segItem, gold === g && styles.segOn, short && { opacity: 0.35 }]}>
+                    <Text style={[styles.segText, gold === g && styles.segTextOn]}>{g ? `${g}` : 'None'}</Text>
+                  </Pressable>
+                );
+              })}
             </View>
             {releasable.length ? (
               <>
@@ -421,6 +475,7 @@ const styles = StyleSheet.create({
   reasonText: { color: G.text, fontFamily: sans, fontSize: 13.5, fontWeight: '600', flexShrink: 1, textAlign: 'center' },
   since: { color: G.text3, fontFamily: sans, fontSize: 12, textAlign: 'center', marginTop: 3 },
   card: { marginTop: 12, backgroundColor: G.group, borderRadius: R.lg, padding: 14, borderWidth: StyleSheet.hairlineWidth, borderColor: G.line },
+  ultimatum: { borderWidth: 1, borderColor: G.bad, backgroundColor: 'rgba(236,122,104,0.08)' },
   cardTitle: { fontFamily: displaySemi, fontSize: 12, color: G.gold, letterSpacing: 1.6, textTransform: 'uppercase' },
   levHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   levTitle: { flexDirection: 'row', alignItems: 'center', gap: 8 },

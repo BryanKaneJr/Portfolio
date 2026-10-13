@@ -5,7 +5,7 @@
  */
 import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
 import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, freeColonists, sendExpedition, startColony } from './colonies';
-import { log } from './log';
+import { log, requestPause } from './log';
 import { FUNDING_SHARE, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
 import { wantedRegions, wantsFrom } from './aims';
 import {
@@ -48,7 +48,7 @@ import {
   LOAN_SIZE,
 } from './economy';
 import { acceptance, canRival, doDiplomacy, opinion } from './diplomacy';
-import { buildDemands, casusBelli, declareWar, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, canDeclareWar } from './war';
+import { ULTIMATUM_SCORE, buildDemands, casusBelli, declareWar, fitTerms, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, sendUltimatum, canDeclareWar } from './war';
 import { coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
 import { minSiegeRegs } from './siege';
@@ -478,7 +478,16 @@ function aiPeace(s: GameState, nat: Nation): void {
     }
     const sc = scoreFor(s, w, n);
     if (enemyLeader === s.player) {
-      // Talk to the player through offers.
+      // Talk to the player through offers. All but totally beaten, the player gets an ultimatum: terms worth no more
+      // than the leverage held, imposed after ULTIMATUM_DAYS. It stands until its day (checkUltimatums).
+      if (w.ultimatum) continue;
+      if (sc >= ULTIMATUM_SCORE) {
+        const terms = fitTerms(s, w, buildDemands(s, w, n, sc), sc);
+        if (terms.regions.length || terms.gold) {
+          offerPeace(s, nat, w, terms, true);
+          continue;
+        }
+      }
       if (s.offers.some(o => o.kind === 'peace' && o.war === w.id)) continue;
       if (nat.flags[`_offered_${w.id}`] && s.day - nat.flags[`_offered_${w.id}`] < months(8)) continue;
       if (sc >= 35) {
@@ -509,10 +518,14 @@ function aiPeace(s: GameState, nat: Nation): void {
   }
 }
 
-function offerPeace(s: GameState, nat: Nation, w: War, terms: PeaceTerms): void {
+function offerPeace(s: GameState, nat: Nation, w: War, terms: PeaceTerms, ultimatum = false): void {
   nat.flags[`_offered_${w.id}`] = s.day;
-  s.offers.push({ id: `o${++s.seq}`, kind: 'peace', from: nat.id, war: w.id, day: s.day, terms });
-  log(s, 'peace', `${NATION[nat.id].name} sends a peace proposal.`, { important: true });
+  if (ultimatum) sendUltimatum(s, w, nat.id, terms);
+  else {
+    s.offers.push({ id: `o${++s.seq}`, kind: 'peace', from: nat.id, war: w.id, day: s.day, terms });
+    log(s, 'peace', `${NATION[nat.id].name} sends a peace proposal.`, { important: true });
+  }
+  requestPause(s, 'peaceOffer');
 }
 
 // ---------------------------------------------------------------- armies

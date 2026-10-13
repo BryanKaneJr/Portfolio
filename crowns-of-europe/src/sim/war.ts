@@ -1,6 +1,7 @@
 /**
  * Wars: reasons for war, calls to arms, war score (0-100% from battles, occupation, blockades and the
- * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations.
+ * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations; an AI leader at
+ * ULTIMATUM_SCORE against the player sends an ultimatum, and the player may offer any land of theirs instead.
  */
 import { GRAPH, NATION, REGION, isNativeNation, nationName, regionName } from './content';
 import { log, involvesPlayer, newsworthy, requestPause } from './log';
@@ -26,9 +27,13 @@ import { wantedRegions, wantsFrom } from './aims';
 import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
-import { clamp, isIn, months, pairKey, yearOf, years } from './util';
+import { clamp, formatDate, isIn, months, pairKey, yearOf, years } from './util';
 
 export const TRUCE_YEARS = 10;
+/** Leverage at which an AI war leader stops proposing peace to the player and sends an ultimatum. */
+export const ULTIMATUM_SCORE = 99;
+/** Days the player has before an ultimatum's terms are imposed. */
+export const ULTIMATUM_DAYS = 30;
 
 export interface CbOption {
   cb: CasusBelli;
@@ -350,6 +355,37 @@ export interface PeaceAnswer {
   reasons: { label: string; value: number }[];
 }
 
+/**
+ * What a region the loser offers is worth to the winner, and why: its price at the peace table (regionPeaceCost)
+ * when it is the war goal, the winner claims or wants it (aims), its side holds it, or it lies next to the winner's
+ * land; half that for land far from them, which is less worth having.
+ */
+export function concessionValue(s: GameState, w: War, winner: NationId, r: RegionId): { value: number; why: string } {
+  const full = regionPeaceCost(s, winner, r);
+  const why = worthwhile(s, w, winner, r);
+  return why ? { value: full, why } : { value: Math.round(full / 2), why: 'far from their land: half' };
+}
+
+function worthwhile(s: GameState, w: War, winner: NationId, r: RegionId): string | null {
+  const reg = s.regions[r];
+  if (r === w.goal) return 'war goal';
+  if (r in s.nations[winner].claims || reg.cores.includes(winner)) return 'they claim it';
+  if (wantedRegions(s, winner).has(r)) return 'they want it';
+  if (isIn(sideOf(w, winner) === 1 ? w.defenders : w.attackers, reg.controller)) return 'they hold it';
+  if ((GRAPH[r] ?? []).some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === winner)) return 'next to their land';
+  return null;
+}
+
+/** What a loser's offer is worth to the winner: its own regions by concessionValue, 1% for every 10 gold it has. */
+export function offerValue(s: GameState, w: War, terms: PeaceTerms): number {
+  let v = 0;
+  for (const r of terms.regions) if (s.regions[r]?.owner === terms.loser) v += concessionValue(s, w, terms.winner, r).value;
+  return Math.round(v + Math.min(terms.gold, Math.max(0, s.nations[terms.loser]?.gold ?? 0)) / 10);
+}
+
+/** Does `terms` give at least everything `asked` demands? */
+const meets = (terms: PeaceTerms, asked: PeaceTerms) => terms.winner === asked.winner && asked.regions.every(r => terms.regions.includes(r)) && terms.gold >= asked.gold;
+
 /** Would the AI leader on the other side accept these terms? */
 export function peaceAcceptance(s: GameState, w: War, terms: PeaceTerms, decider: NationId): PeaceAnswer {
   const reasons: { label: string; value: number }[] = [];
@@ -371,17 +407,44 @@ export function peaceAcceptance(s: GameState, w: War, terms: PeaceTerms, decider
     add('Length of war', Math.min(15, yearsOfWar * 2));
     if (terms.regions.includes(D.capital)) add('Their capital', -15);
   } else {
-    // The decider would be the winner: the player is offering concessions.
-    const cost = peaceCost(s, terms);
+    // The decider would be the winner: the player is offering concessions, worth what they are to them. What
+    // their own ultimatum asks for is all they want, whatever more their leverage would buy.
     const sc = scoreFor(s, w, decider);
-    add('What you offer', cost);
+    add('Worth to them', offerValue(s, w, terms));
     add('Leverage they hold', -Math.max(0, sc));
+    const u = w.ultimatum;
+    if (u?.from === decider && meets(terms, u.terms)) add('Their ultimatum met', Math.max(0, sc - offerValue(s, w, u.terms)));
     add('War exhaustion', D.warExhaustion);
     add('Base', 5);
   }
   const total = reasons.reduce((t, r) => t + r.value, 0);
   return { accept: total >= 0, reasons };
 }
+
+/**
+ * The other leader's answer to a peace that war leader `n` proposes: the verdict the war screen shows is the one
+ * proposePeace acts on. As peaceAcceptance, except that demands costing no more than your leverage can't be
+ * refused, and none past 100% is ever accepted.
+ */
+export function proposalAnswer(s: GameState, w: War, terms: PeaceTerms, n: NationId): PeaceAnswer {
+  const decider = sideOf(w, n) === 0 ? w.defenders[0] : w.attackers[0];
+  const { reasons } = peaceAcceptance(s, w, terms, decider);
+  const sum = () => reasons.reduce((t, r) => t + r.value, 0);
+  if (!terms.white && terms.winner === n) {
+    const cost = peaceCost(s, terms);
+    if (cost > 100 && sum() >= 0) reasons.push({ label: 'More than 100%', value: -sum() - 1 });
+    else if (cost <= 100 && cost <= scoreFor(s, w, n) && sum() < 0) reasons.push({ label: 'Within your leverage', value: -sum() });
+  } else if (!terms.white && sum() >= 0) {
+    // An offer can only give what is yours (or what their ultimatum asks of your side).
+    if (terms.gold > Math.max(0, s.nations[n].gold)) reasons.push({ label: 'More gold than you have', value: -sum() - 1 });
+    else if (!offersOwnLand(s, w, terms)) reasons.push({ label: 'Land that isn’t yours', value: -sum() - 1 });
+  }
+  return { accept: sum() >= 0, reasons };
+}
+
+/** Every region in a loser's offer is its own, or one the winner's ultimatum demands. */
+export const offersOwnLand = (s: GameState, w: War, terms: PeaceTerms) =>
+  terms.regions.every(r => s.regions[r]?.owner === terms.loser || (w.ultimatum?.from === terms.winner && w.ultimatum.terms.regions.includes(r)));
 
 export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (!s.wars[w.id]) return;
@@ -427,6 +490,8 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   }
   for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + years(TRUCE_YEARS);
   delete s.wars[w.id];
+  // Proposals and an ultimatum still waiting in this war end with it.
+  s.offers = s.offers.filter(o => o.kind !== 'peace' || o.war !== w.id);
   bumpWars();
   const W = s.nations[winner];
   const L = s.nations[loser];
@@ -514,4 +579,55 @@ export { hostile, yearOf };
 
 export function pendingOffer(s: GameState, kind: Offer['kind']): Offer | undefined {
   return s.offers.find(o => o.kind === kind);
+}
+
+// ---------------------------------------------------------------- ultimatums
+
+/**
+ * Terms cut down to what the winner may still demand (demandableRegions) and to cost no more than `budget`: the
+ * regions in their order while they fit, then gold up to what is left and what the loser has.
+ */
+export function fitTerms(s: GameState, w: War, terms: PeaceTerms, budget: number): PeaceTerms {
+  const may = new Set(demandableRegions(s, w, terms.winner));
+  const out: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], winner: terms.winner, loser: terms.loser };
+  let left = Math.max(0, budget);
+  for (const r of terms.regions) {
+    const c = regionPeaceCost(s, terms.winner, r);
+    if (!may.has(r) || c > left) continue;
+    out.regions.push(r);
+    left -= c;
+  }
+  out.gold = Math.max(0, Math.min(terms.gold, Math.floor(left) * 10, Math.floor(s.nations[terms.loser]?.gold ?? 0)));
+  return out;
+}
+
+/** Daily: an ultimatum whose day has come is imposed if its sender still holds ULTIMATUM_SCORE; otherwise it lapses. */
+export function checkUltimatums(s: GameState): void {
+  for (const w of Object.values(s.wars)) {
+    const u = w.ultimatum;
+    if (!u || s.day < u.due) continue;
+    delete w.ultimatum;
+    s.offers = s.offers.filter(o => !(o.kind === 'peace' && o.war === w.id && o.ultimatum !== undefined));
+    const side = sideOf(w, u.from);
+    const leads = side !== null && (side === 0 ? w.attackers : w.defenders)[0] === u.from;
+    const lev = leads ? scoreFor(s, w, u.from) : 0;
+    // Still no more than the leverage it holds, and only land it may still demand.
+    const terms = fitTerms(s, w, u.terms, lev);
+    if (leads && lev >= ULTIMATUM_SCORE && (terms.regions.length || terms.gold)) {
+      log(s, 'peace', `${nationName(u.from)} imposes the terms of its ultimatum.`, { nation: u.from, important: true });
+      makePeace(s, w, terms);
+    } else {
+      const why = !leads ? '' : lev < ULTIMATUM_SCORE ? `: its leverage has fallen to ${lev}%` : ': nothing it asked for is left to take';
+      log(s, 'peace', `${nationName(u.from)}’s ultimatum lapses${why}.`, { nation: u.from, important: true });
+    }
+  }
+}
+
+/** Sent by an AI war leader (ai.ts): due in ULTIMATUM_DAYS, replacing any proposal of its still waiting. */
+export function sendUltimatum(s: GameState, w: War, from: NationId, terms: PeaceTerms): void {
+  const due = s.day + ULTIMATUM_DAYS;
+  w.ultimatum = { from, due, terms };
+  s.offers = s.offers.filter(o => !(o.kind === 'peace' && o.war === w.id));
+  s.offers.push({ id: `o${++s.seq}`, kind: 'peace', from, war: w.id, day: s.day, terms, ultimatum: due });
+  log(s, 'peace', `${nationName(from)} sends an ultimatum: its terms take effect on ${formatDate(due)}.`, { nation: from, important: true });
 }
