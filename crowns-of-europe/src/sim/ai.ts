@@ -474,7 +474,8 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
 /**
  * Forge a claim on land the crown wants (aims, missions) next to its own, as the player can. A crown with nothing
  * it wants next door and no reason for war on any neighbour eyes the richest border region of a clearly weaker
- * neighbour instead (how much weaker depends on its bent; a great crown's land is not fair game).
+ * neighbour instead (how much weaker depends on its bent; a great crown's land is not fair game, and a great crown
+ * does not do this).
  */
 function aiClaims(s: GameState, nat: Nation): void {
   const n = nat.id;
@@ -487,7 +488,9 @@ function aiClaims(s: GameState, nat: Nation): void {
     const score = w * 10 + s.regions[r].dev;
     if (!best || score > best.score) best = { r, score };
   }
-  if (!best && !hasCause(s, n)) {
+  // (Only a lesser crown: a great crown that eyed its weaker neighbours' land too would swallow them one by one,
+  // and needs no help finding wars: its aims, rivals and faith give it enough.)
+  if (!best && !hasCause(s, n) && NATION[n].tier !== 'major') {
     const mine = militaryPower(s, n);
     for (const r of Object.values(s.regions)) {
       const o = r.owner;
