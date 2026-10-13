@@ -855,7 +855,8 @@ export function attackOdds(s: GameState, ours: Army[], target: Army, from?: Node
     const them = b.sides[theirs].armies.map(id => s.armies[id]).filter(Boolean);
     const us = [...b.sides[1 - theirs].armies.map(id => s.armies[id]).filter(Boolean), ...ours];
     const river = b.river ? s.armies[b.sides[0].armies[0]]?.from : undefined;
-    const f = theirs === 1 ? forecast(s, us, them, b.node, river) : forecast(s, them, us, b.node, river);
+    const [att, def] = theirs === 1 ? [us, them] : [them, us];
+    const f = forecast(s, att, def, b.node, river, !!b.pitched);
     const side = theirs === 1 ? 0 : 1;
     return { win: f.winner === side, ratio: side === 0 ? f.ratio : 1 / f.ratio, forecast: f };
   }

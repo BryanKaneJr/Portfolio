@@ -13,8 +13,10 @@ import type { Army, Battle, BattleReport, BattleSide, GameState, NationId, NodeI
 import { chance, clamp, randInt } from './util';
 
 export const WIPE_RATIO = 5;
-const CASUALTY_K = 6;
-const MORALE_K = 0.069;
+/** Men lost per point of damage dealt. */
+export const CASUALTY_K = 6;
+/** Morale lost per point of damage, before it is shared out over the regiments. */
+export const MORALE_K = 0.069;
 /** Three days of volleys (the guns tell), then three of charges (the horse tells), and so on. */
 export type BattlePhase = 'volley' | 'charge';
 const PHASE_FACTOR: Record<BattlePhase, Record<UnitType, number>> = {

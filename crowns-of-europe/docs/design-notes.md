@@ -256,6 +256,33 @@ here.
     told apart at banner size, with figures drawn for the game as bold silhouettes
     (`ui/components/charges.ts`); `npm run validate` rejects an unknown pattern or figure, or two identical flags.
 
+27. **Armies, wars and peace without holes (on request).** An audit of how armies move and fight and how wars end
+    found armies vanishing, slipping past each other and left stranded, and an AI that seldom used generals, misjudged
+    attacks and stopped making war after about 1470. Fixed:
+    - Nothing vanishes without a word. A beaten army retreats by land or on its own transports; if it has no way
+      out it scatters, its men counted as losses and the report saying so. A retreat whose road closes stands down;
+      every next step of a march is checked again (a strait closed, transports gone, access ended) and stops with a
+      message. Recruits finishing in land the enemy holds muster in another region, or the money comes back.
+    - Enemies marching past each other on one road meet and fight. The army that marched in attacks with the
+      terrain and any river against it; when both sides were already standing there (a war declared, rebels rising)
+      the battle is pitched and nobody suffers that.
+    - At peace, armies in land they may no longer enter march home, access ignored on the way out
+      (`sendHomeAfterPeace`); once a month any other stray does the same (`monthlyStrays`).
+    - The AI puts generals in the field (`aiGenerals`), and asks a battle forecast (`forecast.ts`: battle.ts's own
+      rules at the average roll, in days each side would hold out) before it moves: it attacks only where it would
+      hold out 1.5 times longer; joins up or falls back from an enemy stack that would outlast it twice over; and a
+      stack the nearest enemy would outlast three times over gathers with a bigger army instead of walking out
+      alone. It counts only allies that would answer and could reach the fight, picks limited wars, forges claims on
+      weaker neighbours, and lets go after a year of a war neither side can carry to the other. Measured in AI-only
+      games: armies of 10+ regiments with a general 0% → 92–96%, attackers losing 30% → 20% of battles, wars per
+      decade after 1470 4.8 → 5.9.
+    - Losing a war: at 99% leverage the enemy leader stops proposing and sends an ultimatum (`ULTIMATUM_SCORE`),
+      never asking more than its leverage buys (`fitTerms`). You have a month (`ULTIMATUM_DAYS`) to make peace or
+      push its leverage below 99%; otherwise its terms are imposed. At any time you may offer your own peace instead:
+      any of your regions or gold. Land the enemy claims, wants, holds or borders (or the war goal) is worth its full
+      price to them, far-off land half (`concessionValue`); they accept when the offer covers their leverage, and
+      an offer that gives everything their ultimatum asks always does.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
@@ -266,7 +293,7 @@ here.
 | Manpower | 3,000 + 400 per development (half for non-cores); recovers 1/60 of the maximum per month |
 | Force limit | (6 + development / 2.5) × (1 + modifiers) regiments; upkeep rises above it |
 | Upkeep | infantry 0.18, cavalry 0.36, artillery 0.42 gold/month (half in peacetime pay) |
-| Battle | daily d10; attacker −1 in rough terrain (−2 mountains, −1 river); damage = roll × front-line power × (1 + 0.1 × the best general's stars); casualties = damage × 6; morale loss = damage × 0.069 / regiments / (1 + 0.1 × the losing side's general's stars) |
+| Battle | daily d10; attacker (the army that marched in) −1 in rough terrain (−2 mountains, −1 river; none in a pitched battle); damage = roll × front-line power × (1 + 0.1 × the best general's stars); casualties = damage × 6; morale loss = damage × 0.069 / regiments / (1 + 0.1 × the losing side's general's stars) |
 | Generals | 1-5 stars (hired: 25/35/25/12/3%; a ruler: skill × 0.7, +1 for a warrior); each star +10% to battle damage, steadiness, march speed (days ÷ 1.1 per star) and siege speed |
 | Front width | plains 20, forest and hills 14, marsh 12, mountains 10 |
 | Stack wipe | winner's men ≥ 5 × loser's remaining men |

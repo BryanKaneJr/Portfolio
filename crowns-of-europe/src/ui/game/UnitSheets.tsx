@@ -251,9 +251,9 @@ export function BattleSheet({ id }: { id: string }) {
   return (
     <Sheet
       title={`Battle of ${regionName(b.node)}`}
-      subtitle={`Day ${b.days} · ${battlePhase(b) === 'volley' ? 'volleys' : 'charges'} · ${terrain}${b.river ? ' · across a river' : ''}`}
+      subtitle={`Day ${b.days} · ${battlePhase(b) === 'volley' ? 'volleys' : 'charges'} · ${terrain}${b.pitched ? ' · pitched' : b.river ? ' · across a river' : ''}`}
       onClose={() => st.select(null)}
-      help={`Each day both sides roll a die; the attacker loses 1 in rough terrain (2 in mountains, 1 more across a river). Damage is the roll times the front line (${FRONT_WIDTH[terrain]} regiments wide here), plus ${Math.round(STAR_BONUS * 100)}% for each star of the side’s best general, whose stars also steady its morale. Three days of volleys favour guns, then three of charges favour horse. At zero morale a side retreats; with five times the enemy’s remaining men, the winner annihilates them.`}
+      help={`Each day both sides roll a die; the army that marched in attacks and loses 1 in rough terrain (2 in mountains, 1 more across a river). ${b.pitched ? 'This is a pitched battle: both sides were already here when it broke out, so neither suffers that. ' : ''}Damage is the roll times the front line (${FRONT_WIDTH[terrain]} regiments wide here), plus ${Math.round(STAR_BONUS * 100)}% for each star of the side’s best general, whose stars also steady its morale. Three days of volleys favour guns, then three of charges favour horse. At zero morale a side retreats (with nowhere to go, it scatters); with five times the enemy’s remaining men, the winner annihilates them.`}
     >
       {[0, 1].map(i => {
         const side = sides[i];

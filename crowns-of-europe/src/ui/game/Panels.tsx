@@ -281,7 +281,7 @@ export function LogPanel() {
                   <Text style={styles.logText}>
                     Battle of {regionName(r.node)}: {r.nations[r.winner].map(n => (NATION[n] ? nationName(n) : 'Rebels')).join(', ')} won
                     {you !== null ? (r.winner === you ? ' (your victory)' : ' (your defeat)') : ''}
-                    {r.wiped ? ', annihilation' : ''}.
+                    {r.wiped ? ', annihilation' : r.scattered ? ', the beaten army scattered' : ''}.
                   </Text>
                 </Pressable>
               );

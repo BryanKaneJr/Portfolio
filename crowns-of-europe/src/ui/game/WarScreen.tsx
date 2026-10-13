@@ -275,7 +275,7 @@ export function WarPanel({ warId }: { warId: string }) {
                   <Text style={styles.battleTitle}>Battle of {regionName(b.r.node)}</Text>
                   <Text style={styles.battleSub}>
                     {formatShortDate(b.r.day)}
-                    {b.r.wiped ? ' · annihilated' : ''}
+                    {b.r.wiped ? ' · annihilated' : b.r.scattered ? ' · scattered' : ''}
                   </Text>
                 </View>
                 <Text style={styles.battleLoss}>

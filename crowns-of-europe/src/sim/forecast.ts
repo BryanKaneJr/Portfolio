@@ -1,19 +1,17 @@
 /**
  * Battle forecast: how a fight would go if these armies met here today, by battle.ts's own rules played out with
  * the average roll instead of dice. The attackers lose 1 from the roll in rough terrain (2 in mountains) and 1 more
- * across a river; each side's front line, unit power, generals' stars and present morale count as in a real battle.
+ * across a river, unless it is a pitched battle (both sides already standing there when it broke out); each side's
+ * front line, unit power, generals' stars and present morale count as in a real battle.
  * The AI asks it before marching on an enemy and when an enemy draws near.
  */
 import { REGION, isSea, riverBetween } from './content';
-import { WIPE_RATIO, sidePower, type BattlePhase } from './battle';
+import { CASUALTY_K, MORALE_K, WIPE_RATIO, sidePower, type BattlePhase } from './battle';
 import { FRONT_WIDTH } from './military';
 import { REBELS, armyMen, maxMorale, nationMods } from './queries';
 import { starBonus } from './rulers';
 import type { Army, GameState, NationId, NodeId, UnitType } from './types';
 
-// The constants of battle.ts's daily exchange (casualties and morale lost per point of damage).
-const CASUALTY_K = 6;
-const MORALE_K = 0.069;
 /** A forecast looks this many days ahead at most (real battles last days, a few weeks at worst). */
 const HORIZON = 60;
 
@@ -91,16 +89,24 @@ function bleed(st: SideStats, casualties: number): void {
 
 /**
  * How a battle between `attackers` (walking into `node`, from `fromNode` if given, for the river) and `defenders`
- * (standing there) would go, by battle.ts's daily exchange at the average roll.
+ * (standing there) would go, by battle.ts's daily exchange at the average roll. A `pitched` battle (both sides
+ * already standing there when it broke out: a war declared, rebels rising) carries no penalty for the attackers.
  */
-export function forecast(s: GameState, attackers: Army[], defenders: Army[], node: NodeId, fromNode?: NodeId): Forecast {
+export function forecast(
+  s: GameState,
+  attackers: Army[],
+  defenders: Army[],
+  node: NodeId,
+  fromNode?: NodeId,
+  pitched = false,
+): Forecast {
   const st = [sideStats(s, attackers), sideStats(s, defenders)] as const;
   if (st[0].totalMen <= 0 || st[1].totalMen <= 0) {
     const winner = st[0].totalMen > 0 ? 0 : 1;
     return { winner, ratio: winner === 0 ? Infinity : 0, days: 0, wipeRisk: 1, men: [st[0].totalMen, st[1].totalMen] };
   }
   const width = isSea(node) ? FRONT_WIDTH.plains : FRONT_WIDTH[REGION[node].terrain];
-  const roll = [averageRoll(attackPenalty(node, fromNode)), averageRoll(0)];
+  const roll = [averageRoll(pitched ? 0 : attackPenalty(node, fromNode)), averageRoll(0)];
   // Holy war zeal softens the morale a side loses to another faith.
   const zeal = [0, 1].map(i => {
     const me = st[i].owner;
