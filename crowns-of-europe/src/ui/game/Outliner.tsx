@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { regionName } from '../../sim/content';
+import { attackChance, growingOf } from '../../sim/colonies';
 import { armiesOf, armyRegs, fleetsOf } from '../../sim/queries';
 import { useStore } from '../../state/store';
 import { Glass } from '../components/Glass';
@@ -15,6 +16,7 @@ import { regionPoint } from '../map/geometry';
 import { G, R, displaySemi, sans } from '../theme';
 import { dockTop, sheetHeight } from '../layout';
 import { LensPanel, MODE_ICONS, TOP_BAR_H } from './Bars';
+import { raidedRecently } from './ColonySheets';
 
 function Item({ icon, title, sub, right, tone, onPress }: { icon: IconName; title: string; sub: string; right?: string; tone?: 'bad' | 'good'; onPress: () => void }) {
   return (
@@ -50,6 +52,7 @@ export function SideRail() {
   const fleets = fleetsOf(s, p);
   const sieges = Object.values(s.regions).filter(r => r.siege?.by === p);
   const colonies = Object.values(s.regions).filter(r => r.colony?.by === p);
+  const growing = growingOf(s, p);
   const count = armies.length + fleets.length;
 
   const toggle = (k: 'outliner' | 'lens') => setOpen(o => (o === k ? null : k));
@@ -97,9 +100,15 @@ export function SideRail() {
             {sieges.map(r => (
               <Item key={r.id} icon="siege" title={regionName(r.id)} sub="Under siege" right={`${Math.round((r.siege?.progress ?? 0) * 100)}%`} onPress={() => go(r.id, { kind: 'region', id: r.id })} />
             ))}
-            {colonies.length ? <Text style={styles.head}>Colonies</Text> : null}
-            {colonies.map(r => (
-              <Item key={r.id} icon="flag" title={regionName(r.id)} sub="Being settled" right={`${Math.round(r.colony!.settlers)}`} onPress={() => go(r.id, { kind: 'region', id: r.id })} />
+            {colonies.length || growing.length ? <Text style={styles.head}>Colonies</Text> : null}
+            {colonies.map(r => {
+              // Red when the settlers are in danger: natives who may attack, or enemy troops raiding them lately.
+              const raided = raidedRecently(s, r);
+              const risk = attackChance(s, r) > 0;
+              return <Item key={r.id} icon="flag" title={regionName(r.id)} sub={raided ? 'Raided by enemy troops' : risk ? 'Being settled · at risk' : 'Being settled'} right={`${Math.round(r.colony!.settlers)}`} tone={raided || risk ? 'bad' : undefined} onPress={() => go(r.id, { kind: 'region', id: r.id })} />;
+            })}
+            {growing.map(r => (
+              <Item key={r.id} icon="flag" title={regionName(r.id)} sub={`Growing · prosperity ${r.dev}`} right={`${Math.round(r.growing!.settlers)}`} onPress={() => go(r.id, { kind: 'region', id: r.id })} />
             ))}
           </ScrollView>
         </Glass>

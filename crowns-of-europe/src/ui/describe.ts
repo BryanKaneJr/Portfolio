@@ -154,6 +154,8 @@ export function effectLines(e: Effect): ModLine[] {
       return L('Your ships find the New World');
     case 'settlers':
       return L(`${sgn(v)} settlers in each of your colonies`, v > 0);
+    case 'settlersOne':
+      return L(`${sgn(v)} settlers in one of your colonies`, v > 0);
     default:
       return [];
   }

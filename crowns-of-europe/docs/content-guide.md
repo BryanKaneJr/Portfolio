@@ -203,7 +203,8 @@ Applied to "this nation" unless the effect names another.
 | `{ "loans": 2 }` | take loans (+100 gold each, with interest) |
 | `{ "emperor": true }` | this nation becomes Holy Roman Emperor |
 | `{ "discoverNewWorld": true }` | this nation finds the New World (if no one has yet): prestige, a colonist for 30 years, and the nation flag `found_new_world` |
-| `{ "settlers": 200 }` | settlers added to each of this nation's colonies being settled (negative removes; a colony is founded at 1,000) |
+| `{ "settlers": 200 }` | settlers added to each of this nation's colonies being settled (negative removes; a colony is founded at 1,000). For something empire-wide, like a royal charter |
+| `{ "settlersOne": -150 }` | settlers added to one of this nation's colonies being settled, picked at random (negative removes; the player is told which). For something that happens in one place: a hurricane, a fever, a good harvest, a raid |
 
 Ruler traits: warrior, administrator, diplomat, pious, spendthrift, cruel, just, craven, scholar, ambitious,
 feeble, shrewd, builder, merchant.

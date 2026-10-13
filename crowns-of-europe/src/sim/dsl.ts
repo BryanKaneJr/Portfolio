@@ -156,6 +156,7 @@ export const EFFECT_SCHEMA: Record<string, Arg> = {
   emperor: 'true',
   discoverNewWorld: 'true',
   settlers: 'number',
+  settlersOne: 'number',
 };
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);

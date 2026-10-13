@@ -313,7 +313,7 @@ here.
 | Generals | 1-5 stars (hired: 25/35/25/12/3%; a ruler: skill × 0.7, +1 for a warrior); each star +10% to battle damage, steadiness, march speed (days ÷ 1.1 per star) and siege speed |
 | Front width | plains 20, forest and hills 14, marsh 12, mountains 10 |
 | Stack wipe | winner's men ≥ 5 × loser's remaining men |
-| Sieges | 15 days without a fort; 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
+| Sieges | 15 days without a fort (60 for a founded New World colony of a crown its owner still holds: the settlers hold out); 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
 | Supply | 10/7/7/5/5 by terrain + 0.8 × development (+3 in friendly land), × 0.6 in northern/eastern winters |
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
 | Peace cost | 3% per development per region (× 0.7 if claimed, × 2 for the capital of a realm of 3+ regions), 2% per development to vassalize, 1% per 10 gold |
@@ -322,7 +322,12 @@ here.
 | Advance cost | base (600 … 7,500) × (1 + 5% per year before its historical year, or −1.2% per year after, to 60%) × (1 + 1% per region beyond 10, +50% max) × (1 − 10% per neighbour who knows it, 3 max) × (1 + modifiers) |
 | University | 150 gold, +100 for each one you have; prosperity 5+ |
 | Expedition west | 100 gold, 8 months, needs Ocean Navigation; everyone knows the New World by 1500 |
-| Colony | 30 gold + 1 gold/month; 1,000 settlers at 9/month (+3 next to your land), −7% per thousand natives, −45% inland, −6% per New World region owned |
+| Colonists | 1 for a Christian crown with an ocean coast and Ocean Navigation; a 2nd with Galleons and 30+ prosperity at home; +1 each from Overseas Charters, being first to the New World (30 years), Navigators, events and missions. Each settles one colony or grows one region at a time |
+| Colony | 30 gold + 1 gold/month; 1,000 settlers at 9/month (+3 next to your land, + modifiers), −45% inland, −6% per New World region owned (60% at most); natives: by force −7% per thousand (50% at most), trading −15% |
+| Natives | By force: attack chance a month = natives × hostility × 0.25% (20% at most), killing 50 + 25 × natives settlers; they dwindle 0.02k a month (and 0.5k at 5% a month with a guard); at founding +1 prosperity per 3k, their faith stays at 3k+, +2 unrest for 5 years at 2k+. Trading: no attacks (half the chance if fierce), no dwindling, at founding +1 prosperity per 2k there at the start, no unrest (their faith stays at 3k+ too). A trading colony may turn to force, never back |
+| Guards | Your troops in the region (free) or paid guards (0.5 gold/month): no native attacks |
+| Raids | An enemy army in a colony being settled, with none of the founder's or a friend's there: 20 settlers per regiment a month (200 at most); at 0 the colony is lost |
+| Growing a colony | A free colonist in a founded New World region of yours: 1 gold/month, settlers as a colony (no natives, no neighbour bonus), +1 prosperity per 1,000 up to 8; ends if the region is lost or occupied. Unaided, colonies grow +1 every ~15 years up to 5 |
 | Trade goods | value × (0.5 + 0.1 × development): silver 2.0, gold 1.8, sugar 1.1, tobacco/cocoa 0.9, dyes 0.8, furs 0.7, fish 0.6, grain 0.4 |
 
 ## Status
@@ -330,8 +335,9 @@ here.
 Verified: `npm run check` (typecheck, lint, content validation, 28 simulation tests including colonies, ocean
 convoys, native battles, a 25-year AI soak and save/load determinism) and three Playwright walkthroughs of the web
 build at iPhone size (title, nation picker, map, every sheet and menu tab, war declaration, marching through a
-strait, sieges, events, offers, peace screen, map modes; the uncharted Atlantic, an expedition, discovery, a colony,
-the Colonies tab, trade goods and an army crossing to Brazil) with no runtime errors. The simulation runs at about
+strait, sieges, events, offers, peace screen, map modes; the uncharted Atlantic, an expedition, discovery, colonies
+taken by force and by trade, guards, a colony grown, a raid in the outliner, the Colonies tab with where to settle,
+trade goods and an army crossing to Brazil) with no runtime errors. The simulation runs at about
 2.8 ms per day on a laptop (the bigger map and ocean routes cost about 0.8 ms more than before).
 
 Not yet done:

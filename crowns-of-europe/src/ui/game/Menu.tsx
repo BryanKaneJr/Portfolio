@@ -36,12 +36,12 @@ import { shipCount } from '../../sim/navy';
 import type { PauseReason } from '../../sim/types';
 import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
-import { ColoniesTab } from './ColonySheets';
+import { ColoniesTab, idleColonists } from './ColonySheets';
 import { GeneralRow } from './UnitSheets';
 import { GLYPH_CREDIT } from '../components/gameIcons';
 import { STAR_BONUS } from '../../sim/rulers';
 import { ScienceTab } from './Science';
-import { colonistsOf, coloniesOf, freeColonists, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
+import { colonistsOf, coloniesOf, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
 import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
@@ -64,7 +64,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
     { key: 'science', label: 'Science', badge: !s.nations[p].researching && availableAdvances(s, p).length ? 1 : 0 },
-    ...(colonial || tab === 'colonies' ? [{ key: 'colonies' as MenuTab, label: 'Colonies', badge: Math.max(0, freeColonists(s, p)) }] : []),
+    ...(colonial || tab === 'colonies' ? [{ key: 'colonies' as MenuTab, label: 'Colonies', badge: idleColonists(s, p) }] : []),
     { key: 'missions', label: 'Missions', badge: missionsReady },
   ];
   return (

@@ -1,8 +1,9 @@
 /**
  * Sieges: an army standing in an enemy-held region takes it. Regions without a fort fall after a short
- * control timer; forts need enough regiments (3 per fort level) and time, sped up by artillery.
+ * control timer (longer for a founded New World colony: its settlers hold out in their stockades); forts need
+ * enough regiments (3 per fort level) and time, sped up by artillery.
  */
-import { REGION, nationName, regionName } from './content';
+import { REGION, isNativeNation, nationName, regionName } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armyRegs, controllerHostile, friendlyTo, nationMods } from './queries';
 import { starBonus } from './rulers';
@@ -11,6 +12,8 @@ import type { Army, GameState, NationId, RegionId } from './types';
 import { chance } from './util';
 
 export const CONTROL_DAYS = 15;
+/** Days to occupy a founded New World colony of a crown without a fort: its settlers hold out in their stockades. */
+export const COLONY_HOLD_DAYS = 60;
 export const FORT_DAYS = 75; // per fort level at normal speed
 export const minSiegeRegs = (fort: number) => Math.max(1, fort * 3);
 
@@ -39,7 +42,7 @@ export function siegeInfo(s: GameState, r: RegionId, here?: Army[]): SiegeInfo |
   const art = group.reduce((t, a) => t + a.regs.art.n, 0);
   const need = minSiegeRegs(reg.fort);
   let daily: number;
-  if (reg.fort <= 0) daily = 1 / CONTROL_DAYS;
+  if (reg.fort <= 0) daily = 1 / controlDays(s, r);
   else {
     const siegeMod = lead.owner === REBELS ? 0 : nationMods(s, lead.owner).siegeSpeed;
     const defMod = !reg.controller || reg.controller === REBELS || !s.nations[reg.controller] ? 0 : nationMods(s, reg.controller).fortDefense;
@@ -73,6 +76,17 @@ export function dailySieges(s: GameState): void {
     if (reg.fort > 0 && chance(s, 0.003)) reg.siege.progress += 0.1;
     if (reg.siege.progress >= 1) completeSiege(s, reg.id, info.by);
   }
+}
+
+/**
+ * Days an army needs to take region `r` if it has no fort: CONTROL_DAYS, or COLONY_HOLD_DAYS for a New World region
+ * a crown (not a native realm) owns and still holds, its settlers holding out (taking it back once occupied is quick).
+ * The region and army sheets show the time left from siegeInfo's `daily`, so they follow this too.
+ */
+export function controlDays(s: GameState, r: RegionId): number {
+  const reg = s.regions[r];
+  const colony = !!REGION[r]?.nw && !!reg?.owner && reg.controller === reg.owner && !isNativeNation(reg.owner);
+  return colony ? COLONY_HOLD_DAYS : CONTROL_DAYS;
 }
 
 function completeSiege(s: GameState, r: RegionId, by: NationId): void {

@@ -22,7 +22,7 @@ import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import { years } from '../../sim/util';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
-import { UnchartedSheet, WildSheet } from './ColonySheets';
+import { GrowSection, UnchartedSheet, WildSheet } from './ColonySheets';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
@@ -110,6 +110,7 @@ export function RegionSheet({ id }: { id: string }) {
         </Section>
       ) : null}
 
+      {mine && def.nw ? <GrowSection id={id} /> : null}
       {mine ? (
         <Section
           title="Invest"

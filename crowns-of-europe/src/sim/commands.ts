@@ -3,7 +3,7 @@
  * Commands mutate the state in place; the UI re-renders from the store afterwards.
  */
 import { ADVANCE, GRAPH, MAP_REGION, POLICY, UNITS, isSea, nationName, regionName } from './content';
-import { COLONY_COST, EXPEDITION_MONTHS, abandonColony, charted, sendExpedition, startColony } from './colonies';
+import { COLONY_COST, COLONY_GUARD_UPKEEP, COLONY_UPKEEP, EXPEDITION_MONTHS, GROW_SETTLERS, MAX_GROWN_DEV, abandonColony, charted, sendExpedition, setGuard, setPolicy, startColony, startGrowing, stopGrowing as stopGrowingColony } from './colonies';
 import {
   CONVERT_DAYS,
   FABRICATE_COST,
@@ -39,7 +39,7 @@ import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
-import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
+import type { GameState, NativePolicy, NodeId, PeaceTerms, ShipType, UnitType } from './types';
 import { clamp, formatDate, months } from './util';
 import {
   ULTIMATUM_SCORE,
@@ -375,10 +375,39 @@ export function moveFleet(s: GameState, fleetId: string, sea: string): Result {
 
 // ---------------------------------------------------------------- the New World
 
-export function colonize(s: GameState, region: string): Result {
-  const why = startColony(s, s.player, region);
+/** Send a colonist to uncolonized land. Where natives live, choose to trade with them or take their land by force. */
+export function colonize(s: GameState, region: string, policy: NativePolicy = 'force'): Result {
+  const why = startColony(s, s.player, region, policy);
   if (why) return no(why);
-  return ok(`Settlers sail for ${regionName(region)} (−${COLONY_COST} gold). The colony is founded at 1,000 settlers.`);
+  const trade = s.regions[region].colony?.policy === 'trade';
+  return ok(`Settlers sail for ${regionName(region)} (−${COLONY_COST} gold)${trade ? ' to trade with the natives' : ''}. The colony is founded at 1,000 settlers.`);
+}
+
+/** Hire guards for a colony being settled, or dismiss them. */
+export function setColonyGuard(s: GameState, region: string, on: boolean): Result {
+  const why = setGuard(s, s.player, region, on);
+  if (why) return no(why);
+  return ok(on ? `Guards watch over ${regionName(region)} (${COLONY_GUARD_UPKEEP} gold a month): the natives will not attack it.` : `The guards in ${regionName(region)} are dismissed.`);
+}
+
+/** A colony trading with the natives turns to taking their land by force (there is no going back). */
+export function setColonyPolicy(s: GameState, region: string, policy: NativePolicy): Result {
+  const why = setPolicy(s, s.player, region, policy);
+  if (why) return no(why);
+  return ok(`Your settlers in ${regionName(region)} now take the land by force.`);
+}
+
+/** Send a free colonist to grow a founded New World region of yours. */
+export function growColony(s: GameState, region: string): Result {
+  const why = startGrowing(s, s.player, region);
+  if (why) return no(why);
+  return ok(`Settlers sail for ${regionName(region)} (${COLONY_UPKEEP} gold a month): +1 prosperity for every ${GROW_SETTLERS.toLocaleString()} who arrive, up to ${MAX_GROWN_DEV}.`);
+}
+
+export function stopGrowing(s: GameState, region: string): Result {
+  const why = stopGrowingColony(s, s.player, region);
+  if (why) return no(why);
+  return ok(`No more settlers sail for ${regionName(region)}. The colonist is free again.`);
 }
 
 export function abandonPlayerColony(s: GameState, region: string): Result {

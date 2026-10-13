@@ -7,7 +7,7 @@ import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
 import { fleetPower, shipCount, transportCapacity } from '../../sim/navy';
 import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, seesUnit } from '../../sim/queries';
 import { battlePhase, battleSides } from '../../sim/battle';
-import { minSiegeRegs, siegeInfo } from '../../sim/siege';
+import { COLONY_HOLD_DAYS, CONTROL_DAYS, minSiegeRegs, siegeInfo } from '../../sim/siege';
 import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
 import { Flag, Shield } from '../components/Flag';
@@ -141,7 +141,7 @@ export function ArmySheet({ id }: { id: string }) {
         </Section>
       ) : null}
       {reg && reg.owner !== a.owner && reg.controller !== a.owner ? (
-        <Section title="Siege" help="A fort needs 3 regiments per level to besiege; land without one falls in 15 days. Artillery (+10% each) and a general’s stars speed a siege up.">
+        <Section title="Siege" help={`A fort needs 3 regiments per level to besiege; land without one falls in ${CONTROL_DAYS} days (a colony across the ocean holds out for ${COLONY_HOLD_DAYS}). Artillery (+10% each) and a general’s stars speed a siege up.`}>
           {siege?.enough ? (
             <>
               <Line label={reg.fort ? `Fort level ${reg.fort}` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}% · ~${Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days`} />

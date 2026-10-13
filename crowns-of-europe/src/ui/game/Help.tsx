@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { loadPrefs, savePrefs } from '../../state/storage';
+import { attackChance, canGrow, charted, coloniesOf, freeColonists, newWorldRegions } from '../../sim/colonies';
 import { availableAdvances } from '../../sim/science';
 import { store, useStore } from '../../state/store';
 import { Glass } from '../components/Glass';
@@ -18,7 +19,7 @@ const TOPICS: { title: string; body: string }[] = [
   { title: 'Armies', body: 'Tap your army (soldiers under your banner), then tap a region to march there. The number beside it is regiments of 1,000 men. Armies and fleets show once you zoom in far enough to read the regions’ names; zoomed out, the map shows the realms. Recruit in any region you own: infantry is cheap and sturdy, cavalry hits hard on open ground, artillery (once you know Bombards) wins long battles and sieges. You see only the armies and fleets you would know about: yours, your friends’, your enemies’ in a war, and any in your land.' },
   { title: 'Battles', body: 'Battles start when enemies share a region (enemies marching past each other on the same road meet and fight) and last several days, so you can send reinforcements. Each day both sides roll a die; damage is the roll times your front line. A general has one to five stars, each adding 10% to everything their army does (damage, steadiness, march and siege speed). Rough terrain and rivers hurt the army that marched in, but not when both sides were already standing there (a pitched battle). A side at zero morale retreats; cut off with nowhere to go, it scatters. Beat an army with five times its numbers and it is annihilated.' },
   { title: 'Supply', body: 'Each region feeds only so many regiments (see the army sheet). Above that, you lose men every month, worse in winter in the north and east. One great army of 40 regiments or two of 20? That’s the choice.' },
-  { title: 'Sieges', body: 'Stand in an enemy region to take it: open regions fall in 15 days, forts take months and need 3 regiments per fort level. Enemy forts block your march past them.' },
+  { title: 'Sieges', body: 'Stand in an enemy region to take it: open regions fall in 15 days, and a colony across the ocean, its settlers holding out in their stockades, in 60. Forts take months and need 3 regiments per fort level. Enemy forts block your march past them.' },
   { title: 'War and peace', body: 'Declare war from a nation’s sheet. You need a reason (a claim, a holy war, a rival) or you lose order and gain Threat. Battles, occupied land, blockades and holding your war goal give you leverage; spend it in the peace deal on regions, gold or vassals (a big realm’s capital costs double). Losing? Offer your own peace: any of your regions, or gold. Land near them, claimed, wanted or held by them, or the war goal is worth its full price to them; land far away, half. They accept when it covers their leverage. At 99% leverage an enemy sends an ultimatum, never asking more than its leverage: make peace within a month or push it below 99%, or its terms are imposed. A crown that goes to war for one region on its border fights a limited war: if it wins, it takes only that region (and gold). A peace brings a 10-year truce, and a truce binds: neither side may join a war against the other. A battle at the walls only pauses a siege.' },
   { title: 'Threat and coalitions', body: 'Taking land raises your Threat, most with your neighbours and those of other faiths. When three or more fear you, they form a coalition that joins any war you start against a member. Threat fades slowly.' },
   { title: 'Money', body: 'Gold comes from taxes (higher in prosperous regions) and trade centres. Spend it on troops, prosperity, forts, integrating new land, science and order. Run out and you borrow; too much debt means bankruptcy.' },
@@ -27,7 +28,7 @@ const TOPICS: { title: string; body: string }[] = [
   { title: 'Science', body: 'Your scholars earn science every month. It comes mostly from how prosperous your richest regions are (not how much land you rule), from trade centres and universities, and is faster in learned lands like Italy and the West. Big realms pay more for each advance, so a small, rich crown can keep up with an empire. Spend science in the Science tab on three tracks of four advances: War (artillery, then stronger troops), Sea (the African coast, the New World, galleons) and Statecraft (more science, money and order). Funding your scholars (a switch) and universities buy science with gold. An advance taken long before its time costs more.' },
   { title: 'Policies', body: 'Policies are lasting choices of how you rule. You start with one slot and gain another for every three advances; some policies need an advance first.' },
   { title: 'Missions', body: 'Your nation’s missions (in the Realm menu) are concrete goals with rewards: claims for the next war, gold, renown and lasting bonuses.' },
-  { title: 'Colonies and the New World', body: 'The African coast from Arguin to the Gold Coast is uncolonized: ivory, gold and fish for whoever settles it (you need Caravels). Across the Atlantic lie uncharted lands. A crown with an ocean coast that knows Ocean Navigation can fund an expedition west (Colonies tab); by 1500 everyone has heard of the New World, but settling it still needs Ocean Navigation. Then send colonists to the pale, uncolonized regions: each colonist settles one colony at a time, and a colony grows until it has 1,000 settlers and becomes a region of yours. Natives slow it down and may attack it; any of your regiments standing there keeps the settlers safe. Inland colonies grow slower, and the more land you hold across the ocean, the thinner your settlers spread. Every overseas region has an export (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
+  { title: 'Colonies and the New World', body: 'The African coast from Arguin to the Gold Coast is uncolonized: ivory, gold and fish for whoever settles it (you need Caravels). Across the Atlantic lie uncharted lands: a crown with an ocean coast that knows Ocean Navigation can fund an expedition west (Colonies tab), and by 1500 everyone knows the way. A Christian crown on the ocean gets a colonist when it learns Ocean Navigation and a second with Galleons and 30 prosperity at home; policies, events and missions add more. Each colonist settles one colony at a time, and a colony becomes a region of yours at 1,000 settlers. The Colonies tab lists where to settle. Where natives live, choose: trade with them (a little slower, but they keep the peace unless fierce, and join a richer colony) or take the land (slower the more of them there are, and they may attack). A trading colony can take the land later, never the reverse. Paid guards or any regiment of yours keep settlers safe from natives. In a war, enemy troops raid colonies being settled unless your troops are there, and a founded colony holds out 60 days. With no land left, send a colonist to grow one of your colonies: +1 prosperity per 1,000 settlers, up to 8. Every overseas region has an export (silver, sugar, furs...) that pays you each month. The Aztecs, Maya, K’iche’ and Haudenosaunee defend their own lands: conquer them in a holy war.' },
   { title: 'Ships and the ocean', body: 'An army boards from a coast when your transports are in that sea, and the fleet then carries it as far as it needs to go, across the ocean if you like. Crossing the open Atlantic takes weeks. A stronger enemy fleet bars the way.' },
   { title: 'Map modes', body: 'The lens button on the right switches the map: political, terrain, prosperity, faith, diplomatic (how others see you), threat, science and exports.' },
 ];
@@ -46,7 +47,7 @@ export const GLOSSARY: { word: string; means: string }[] = [
   { word: 'War exhaustion', means: 'Grows as a war drags on and men die. It slows your levies and raises unrest; peace lets it fade.' },
   { word: 'Policy', means: 'A lasting choice of how you rule, with its own bonuses. One slot, and one more for every three advances.' },
   { word: 'Mission', means: 'A goal your nation wants to reach, with a reward when you do.' },
-  { word: 'Colonist', means: 'Each one can settle one colony at a time overseas.' },
+  { word: 'Colonist', means: 'Each one settles one colony overseas at a time, or grows one of your colonies there.' },
   { word: 'Export', means: 'What an overseas region sends home: gold every month, on top of its taxes.' },
   { word: 'Science', means: 'What your scholars earn each month and spend on advances.' },
   { word: 'Advance', means: 'A step forward in war, at sea or in statecraft: it unlocks things (artillery, colonies, galleons) or makes you stronger.' },
@@ -105,8 +106,22 @@ const HINTS: Hint[] = [
   },
   {
     id: 'newworld',
-    text: 'A New World has been found! Tap a pale region across the Atlantic to start a colony.',
+    text: 'A New World has been found! See where to settle under Realm, Colonies, or tap a pale region across the Atlantic.',
     when: () => !!store.state?.discovery,
+  },
+  {
+    id: 'natives',
+    text: 'Natives may attack your settlers. Guard the colony from its sheet, or station a regiment there.',
+    when: () => !!store.state && coloniesOf(store.state, store.state.player).some(r => attackChance(store.state!, r) > 0),
+  },
+  {
+    id: 'grow',
+    text: 'Your colonists are idle and no land is left to settle. Tap a colony of yours across the ocean and grow it.',
+    when: () => {
+      const s = store.state;
+      if (!s || freeColonists(s, s.player) <= 0 || Object.values(s.regions).some(r => !r.owner && !r.colony && charted(s, r.id))) return false;
+      return newWorldRegions(s, s.player).some(r => !canGrow(s, s.player, r.id));
+    },
   },
   {
     id: 'mission',

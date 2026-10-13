@@ -13,7 +13,7 @@ import {
   totalDev,
 } from './queries';
 import type { GameState, NationId, Region, ShipType } from './types';
-import { COLONY_UPKEEP, coloniesOf, goodsIncome } from './colonies';
+import { colonyExpenses, goodsIncome } from './colonies';
 import { FUNDING_SHARE } from './science';
 import { chance, clamp, years } from './util';
 
@@ -140,8 +140,8 @@ export function ledger(s: GameState, n: NationId): Ledger {
   if (forts > 0) expenses.push({ label: 'Forts', value: forts });
   if (generals > 0) expenses.push({ label: 'Generals', value: generals });
   if (nat.scienceFunding) expenses.push({ label: 'Funding your scholars (10% of income)', value: (tax + trade + goods + tributeIn) * FUNDING_SHARE });
-  const colonies = coloniesOf(s, n).length;
-  if (colonies > 0) expenses.push({ label: `Colonies being settled (${colonies})`, value: colonies * COLONY_UPKEEP });
+  // Colonies being settled, their paid guards and colonists growing founded regions.
+  expenses.push(...colonyExpenses(s, n));
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
   if (tributeOut > 0) expenses.push({ label: `Tribute to ${NATION[nat.overlord!]?.name}`, value: tributeOut });
   const totalIncome = income.reduce((a, i) => a + i.value, 0);

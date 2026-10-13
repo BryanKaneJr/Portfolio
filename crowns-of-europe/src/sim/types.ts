@@ -325,7 +325,8 @@ export type Effect =
   | { loans: number }
   | { emperor: true }
   | { discoverNewWorld: true }
-  | { settlers: number };
+  | { settlers: number }
+  | { settlersOne: number };
 
 export interface EventChoice {
   text: string;
@@ -490,9 +491,25 @@ export interface Siege {
   started: number;
 }
 
+/** How a colony's settlers deal with the natives: trade with them, or take the land by force (colonies.ts). */
+export type NativePolicy = 'trade' | 'force';
+
 export interface Colony {
   by: NationId;
   settlers: number; // a colony is founded at 1,000
+  started: number; // day
+  /** Missing: 'force' (every colony before the choice existed). A trading colony may turn to force, never back. */
+  policy?: NativePolicy;
+  /** Natives (thousands) on the land when the colony began: trading, they join it at founding. */
+  natives0?: number;
+  /** A paid company of guards (COLONY_GUARD_UPKEEP a month): the natives don't attack. */
+  guard?: boolean;
+}
+
+/** A colonist sent to one of its crown's founded New World regions to raise its prosperity (colonies.ts). */
+export interface Growing {
+  by: NationId;
+  settlers: number; // +1 prosperity every GROW_SETTLERS, then it starts again
   started: number; // day
 }
 
@@ -513,6 +530,8 @@ export interface Region {
   devBought: number;
   natives: number; // thousands, on uncolonized land
   colony?: Colony;
+  growing?: Growing;
+  lastRaid?: number; // day an enemy army last raided the colony being settled here
   university?: boolean;
 }
 
@@ -578,7 +597,7 @@ export interface Nation {
   lastMonthIncome: number;
   lastMonthExpenses: number;
   record: { battlesWon: number; battlesLost: number; warsWon: number; warsLost: number; stackWipes: number; bestRatio: number; regionsTaken: number };
-  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number };
+  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number; colonyLevy?: number };
 }
 
 export interface Coalition {

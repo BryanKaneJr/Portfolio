@@ -2,6 +2,8 @@ import { emptyGame } from './helpers';
 import { CONDITION_SCHEMA, EFFECT_SCHEMA } from '../src/sim/dsl';
 import { applyEffect, evalCondition, fireEvent, answerEvent } from '../src/sim/events';
 import { EVENTS } from '../src/sim/content';
+import { discoverNewWorld, startColony } from '../src/sim/colonies';
+import { learnAdvance } from '../src/sim/science';
 import { execSync } from 'node:child_process';
 
 const sample: Record<string, unknown> = {
@@ -60,6 +62,26 @@ describe('event language', () => {
     expect(evalCondition(s, 'FRA', { truceWith: 'ENG' })).toBe(true); // the 1444 truce
     // All effect keys at least run without throwing.
     expect(Object.keys(EFFECT_SCHEMA).length).toBeGreaterThan(30);
+  });
+
+  test('settlersOne changes one colony being settled, picked at random, and tells the player which', () => {
+    const s = emptyGame('POR');
+    discoverNewWorld(s, null);
+    learnAdvance(s, 'POR', 'ocean_navigation');
+    s.nations.POR.gold = 500;
+    expect(startColony(s, 'POR', 'bahia')).toBeNull();
+    expect(startColony(s, 'POR', 'pernambuco')).toBeNull();
+    s.regions.bahia.colony!.settlers = 400;
+    s.regions.pernambuco.colony!.settlers = 400;
+    applyEffect(s, 'POR', { settlersOne: -150 });
+    const hit = ['bahia', 'pernambuco'].filter(id => s.regions[id].colony!.settlers !== 400);
+    expect(hit).toHaveLength(1);
+    expect(s.regions[hit[0]].colony!.settlers).toBe(250);
+    expect(s.log[0].text).toBe(`150 settlers lost in ${hit[0] === 'bahia' ? 'Bahia' : 'Pernambuco'}.`);
+    // 'settlers' still reaches every colony; with none, nothing happens.
+    applyEffect(s, 'POR', { settlers: 100 });
+    expect(s.regions.bahia.colony!.settlers + s.regions.pernambuco.colony!.settlers).toBe(850);
+    expect(() => applyEffect(s, 'FRA', { settlersOne: 100 })).not.toThrow();
   });
 
   test('player events wait for an answer, then apply the chosen effects', () => {

@@ -26,7 +26,7 @@ import { spawnRebels } from './rebels';
 import { canDeclareWar, declareWar, joinWar } from './war';
 import { SETTLERS_NEEDED, coloniesOf, discoverNewWorld, newWorldRegions } from './colonies';
 import type { Condition, Effect, EventDef, Faith, GameState, NationId } from './types';
-import { chance, clamp, months, pickWeighted, randInt, yearOf } from './util';
+import { chance, clamp, months, pick, pickWeighted, randInt, yearOf } from './util';
 
 // ---------------------------------------------------------------- conditions
 
@@ -367,6 +367,18 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
     case 'settlers':
       for (const r of coloniesOf(s, n)) r.colony!.settlers = Math.max(0, Math.min(SETTLERS_NEEDED - 1, r.colony!.settlers + v));
       break;
+    case 'settlersOne': {
+      // Something that happens in one place (a storm, a fever, a good harvest): one colony, picked at random.
+      const all = coloniesOf(s, n);
+      if (!all.length) break;
+      const r = pick(s, all);
+      const before = r.colony!.settlers;
+      r.colony!.settlers = Math.max(0, Math.min(SETTLERS_NEEDED - 1, before + v));
+      const change = Math.round(r.colony!.settlers - before);
+      if (n === s.player && change)
+        log(s, 'colony', change > 0 ? `${change} more settlers in ${regionName(r.id)}.` : `${-change} settlers lost in ${regionName(r.id)}.`, { node: r.id });
+      break;
+    }
   }
 }
 

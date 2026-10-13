@@ -8,7 +8,6 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { readyMissionCount } from '../../sim/missions';
 import { availableAdvances, scienceRate } from '../../sim/science';
-import { charted, freeColonists } from '../../sim/colonies';
 import { ledger } from '../../sim/economy';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
@@ -23,6 +22,7 @@ import { MAP_MODES } from '../map/colors';
 import { MAP_STYLE_LIST } from '../map/styles';
 
 import { DOCK_H, TOP_BAR_H } from '../layout';
+import { idleColonists as idleColonistsOf } from './ColonySheets';
 export { DOCK_H, TOP_BAR_H };
 
 /** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
@@ -91,8 +91,8 @@ export function BottomBar() {
   const insets = useSafeAreaInsets();
   const p = s.player;
   const missions = readyMissionCount(s, p);
-  // Idle colonists with land left to settle also call you to the realm.
-  const idleColonists = freeColonists(s, p) > 0 && Object.values(s.regions).some(r => !r.owner && !r.colony && charted(s, r.id)) ? freeColonists(s, p) : 0;
+  // Idle colonists with land left to settle, or a colony to grow, also call you to the realm.
+  const idleColonists = idleColonistsOf(s, p);
   const pickAdvance = !s.nations[p].researching && availableAdvances(s, p).length ? 1 : 0;
   const menu = (tab: MenuTab) => st.open({ kind: 'menu', tab });
   return (

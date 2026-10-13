@@ -52,6 +52,10 @@ await coe(() => { const s = window.__coe.store.state; s.day = 11323; s.nations[s
 await tapId('menu');
 await tapId('tab-colonies');
 await shot('colonies-before');
+await page.mouse.move(195, 600);
+await page.mouse.wheel(0, 700);
+await shot('colonies-before-sites');
+await page.mouse.wheel(0, -2000);
 await tapId('menu-expedition');
 await shot('expedition-sent');
 await page.getByLabel('Close').first().click();
@@ -69,16 +73,59 @@ await coe(() => window.__coe.store.select({ kind: 'region', id: 'bahia' }));
 await shot('wild-sheet');
 await tapId('colonize');
 await shot('colony-started');
+// Pay guards to keep the natives off, and arm (but don't confirm) abandoning it.
+if (await has('colony-guard')) {
+  await tapId('colony-guard');
+  await page.getByLabel('About Native attacks').first().click();
+  await shot('colony-guarded');
+  await page.getByLabel('Hide the explanation').first().click();
+}
+await tapId('colony-abandon');
+await shot('abandon-armed');
+await page.waitForTimeout(4300); // the armed button settles back by itself
+// A second colony, trading with the natives of Porto Seguro.
+await coe(() => window.__coe.store.select({ kind: 'region', id: 'porto_seguro' }));
+await shot('wild-sheet-choice');
+await tapId('colonize-trade');
+await shot('colony-trading');
 for (let i = 0; i < 24; i++) {
   await coe(() => window.__coe.advance(30));
   await answerCards();
 }
 await coe(() => window.__coe.store.select({ kind: 'region', id: 'bahia' }));
 await shot('colony-growing');
+// Bahia's last settlers land: a founded colony, and a colonist sent to grow it.
+await coe(() => { const c = window.__coe.store.state.regions.bahia.colony; if (c) c.settlers = 999; });
+for (let i = 0; i < 4 && (await coe(() => !!window.__coe.store.state.regions.bahia.colony)); i++) {
+  await coe(() => window.__coe.advance(30));
+  await answerCards();
+}
+await coe(() => window.__coe.store.select({ kind: 'region', id: 'bahia' }));
+await shot('grow-offer');
+await tapId('grow');
+for (let i = 0; i < 4; i++) {
+  await coe(() => window.__coe.advance(30));
+  await answerCards();
+}
+await coe(() => window.__coe.store.select({ kind: 'region', id: 'bahia' }));
+await shot('growing-sheet');
 await coe(() => window.__coe.store.select(null));
+// Enemy troops raided Porto Seguro lately: the outliner marks it.
+await coe(() => { const { store } = window.__coe; store.state.regions.porto_seguro.lastRaid = store.state.day - 5; store.emit(); });
+await tapId('outliner');
+await shot('outliner-colonies');
+await tapId('outliner');
 await tapId('menu');
 await tapId('tab-colonies');
 await shot('colonies-tab');
+// Further down: what is being grown, and where to settle next.
+await page.mouse.move(195, 600);
+await page.mouse.wheel(0, 700);
+await page.getByLabel('About Where to settle').first().click();
+await shot('colonies-tab-sites');
+await page.getByLabel('Hide the explanation').first().click();
+await page.mouse.wheel(0, 1400);
+await shot('colonies-tab-end');
 await page.getByLabel('Close').first().click();
 // Exports map mode.
 await page.getByTestId('mapmode').click();

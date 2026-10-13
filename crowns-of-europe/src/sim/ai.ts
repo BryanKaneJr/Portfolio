@@ -4,8 +4,26 @@
  * Every few days per army: attack stacks the battle forecast says it beats, besiege enemy land, retreat from
  * fights it would lose, gather before walking out alone, merge.
  */
-import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea } from './content';
-import { COLONY_COST, EXPEDITION_COST, EXPEDITION_YEAR, GOOD_VALUE, canColonize, canSendExpedition, charted, freeColonists, sendExpedition, startColony } from './colonies';
+import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea, mapDistance } from './content';
+import {
+  COLONY_COST,
+  COLONY_GUARD_UPKEEP,
+  EXPEDITION_COST,
+  EXPEDITION_YEAR,
+  GOOD_VALUE,
+  canColonize,
+  canGrow,
+  canSendExpedition,
+  charted,
+  coloniesOf,
+  freeColonists,
+  newWorldRegions,
+  riskWithoutGuards,
+  sendExpedition,
+  setGuard,
+  startColony,
+  startGrowing,
+} from './colonies';
 import { log, requestPause } from './log';
 import { FUNDING_SHARE, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
 import { wantedRegions, wantsFrom } from './aims';
@@ -22,6 +40,7 @@ import {
   forceLimit,
   friendlyTo,
   hasTruce,
+  hostile,
   isCoastal,
   maxMorale,
   militaryPower,
@@ -59,7 +78,7 @@ import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy
 import { forecast, type Forecast } from './forecast';
 import { GENERAL_COST } from './commands';
 import { newGeneral, rulerAsGeneral } from './rulers';
-import type { Army, GameState, Nation, NationId, NodeId, PeaceTerms, Region, War } from './types';
+import type { Army, GameState, Nation, NationId, NativePolicy, NodeId, PeaceTerms, Region, UnitType, War } from './types';
 import { chance, isIn, months, pick, yearOf, years } from './util';
 
 /** The player's nation is run by the AI only in spectator mode (dev tools, title-screen demo). */
@@ -149,11 +168,8 @@ function aiEconomy(s: GameState, nat: Nation): void {
     const steppe = NATION[n].trait === 'steppe_horde';
     const roll = (current + toRecruit) % 10;
     const type = native ? 'inf' : roll === 0 && unlocked(s, n, 'artillery') ? 'art' : roll < (steppe ? 6 : 3) ? 'cav' : 'inf';
-    const cost = unitCost(s, n, type);
-    if (nat.gold < cost + 15 || nat.manpower < 1000) break;
-    nat.gold -= cost;
-    nat.manpower -= 1000;
-    nat.recruiting.push({ type, region: musterAt, done: s.day + RECRUIT_DAYS });
+    if (nat.gold < unitCost(s, n, type) + 15 || nat.manpower < 1000) break;
+    queueRecruit(s, nat, type, musterAt);
     toRecruit--;
   }
   // Losing a war with money in the bank: hire mercenaries.
@@ -211,6 +227,13 @@ function aiEconomy(s: GameState, nat: Nation): void {
       }
     }
   }
+}
+
+/** Pay for a regiment (gold and levies) and start training it in `region` (it musters after RECRUIT_DAYS). */
+function queueRecruit(s: GameState, nat: Nation, type: UnitType, region: string): void {
+  nat.gold -= unitCost(s, nat.id, type);
+  nat.manpower -= 1000;
+  nat.recruiting.push({ type, region, done: s.day + RECRUIT_DAYS });
 }
 
 /**
@@ -328,6 +351,11 @@ function aiScience(s: GameState, nat: Nation, res: number): void {
 
 // ---------------------------------------------------------------- the New World
 
+/** Below this a free plot of land isn't worth a colonist when one of ours could be grown instead. */
+const SETTLE_WORTH = 2;
+/** At most one levy for the colonies' defence per crown in this many days. */
+const COLONY_LEVY_DAYS = 180;
+
 function aiColonies(s: GameState, nat: Nation): void {
   const n = nat.id;
   const res = reserve(s, nat);
@@ -337,6 +365,8 @@ function aiColonies(s: GameState, nat: Nation): void {
     const ripe = 1 + (yearOf(s.day) - EXPEDITION_YEAR) / 8;
     if (chance(s, 0.0006 * keen * ripe)) sendExpedition(s, n);
   }
+  aiColonyGuards(s, nat, res);
+  aiColonialDefence(s, nat, res);
   if (freeColonists(s, n) <= 0 || nat.gold < COLONY_COST + res * 0.5 || nat.lastMonthIncome - nat.lastMonthExpenses < 0.5) return;
   let best: string | null = null;
   let bestScore = -Infinity;
@@ -357,7 +387,77 @@ function aiColonies(s: GameState, nat: Nation): void {
       best = r.id;
     }
   }
-  if (best) startColony(s, n, best);
+  // No land worth a colonist in reach: grow the founded colony whose exports gain most from more settlers.
+  const grow = bestScore < SETTLE_WORTH ? bestToGrow(s, n) : null;
+  if (grow) startGrowing(s, n, grow);
+  else if (best) startColony(s, n, best, nativePolicyFor(s, best));
+}
+
+/** Trade with natives who would fight (hostile, and numerous enough to matter) unless they are fierce: then take the land. */
+function nativePolicyFor(s: GameState, r: string): NativePolicy {
+  const hostility = REGION[r].hostility ?? 0;
+  return hostility >= 2 && hostility < 3 && s.regions[r].natives >= 2 ? 'trade' : 'force';
+}
+
+/** The New World region of ours a colonist would add most exports to (+1 prosperity is worth GOOD_VALUE / 10). */
+function bestToGrow(s: GameState, n: NationId): string | null {
+  let best: string | null = null;
+  let bestValue = -Infinity;
+  for (const r of newWorldRegions(s, n)) {
+    if (canGrow(s, n, r.id)) continue;
+    const good = REGION[r.id].good;
+    const value = (good ? GOOD_VALUE[good] : 0) * (r.cores.includes(n) ? 1 : 0.5) - r.dev * 0.01;
+    if (value > bestValue) {
+      bestValue = value;
+      best = r.id;
+    }
+  }
+  return best;
+}
+
+/** Paid guards on the colonies the natives would attack, while the treasury allows; dismissed when not needed. */
+function aiColonyGuards(s: GameState, nat: Nation, res: number): void {
+  const n = nat.id;
+  for (const r of coloniesOf(s, n)) {
+    const c = r.colony!;
+    const risk = riskWithoutGuards(s, r) > 0;
+    if (c.guard && !risk) setGuard(s, n, r.id, false);
+    else if (!c.guard && risk && nat.gold > res * 0.3 && nat.lastMonthIncome - nat.lastMonthExpenses > COLONY_GUARD_UPKEEP + 0.25) setGuard(s, n, r.id, true);
+  }
+}
+
+/**
+ * At war, a crown whose New World land (or a colony it is settling) has an enemy army in it or next door raises a
+ * regiment or two in its nearest New World region with no enemy in or beside it, if it can afford them; at most
+ * once every COLONY_LEVY_DAYS.
+ */
+function aiColonialDefence(s: GameState, nat: Nation, res: number): void {
+  const n = nat.id;
+  if (s.day - (nat.ai.colonyLevy ?? -Infinity) < COLONY_LEVY_DAYS || !atWar(s, n)) return;
+  const enemies = enemiesOf(s, n);
+  const enemyAt = new Set<NodeId>();
+  const hostileAt = new Set<NodeId>();
+  for (const id in s.armies) {
+    const a = s.armies[id];
+    if (a.retreating || !hostile(s, n, a.owner, undefined, a.rebelOf)) continue;
+    hostileAt.add(a.node);
+    if (enemies.has(a.owner)) enemyAt.add(a.node);
+  }
+  if (!enemyAt.size) return;
+  const near = (at: Set<NodeId>, id: string) => at.has(id) || GRAPH[id].some(e => (e.kind === 'land' || e.kind === 'strait') && at.has(e.to));
+  const threatened = Object.values(s.regions).find(r => REGION[r.id].nw && (r.owner === n || r.colony?.by === n) && near(enemyAt, r.id));
+  if (!threatened) return;
+  const safe = newWorldRegions(s, n)
+    .filter(r => r.controller === n && !near(hostileAt, r.id))
+    .sort((a, b) => hops(a.id, threatened.id) - hops(b.id, threatened.id) || mapDistance(a.id, threatened.id) - mapDistance(b.id, threatened.id));
+  if (!safe.length) return;
+  const cost = unitCost(s, n, 'inf');
+  let raised = 0;
+  while (raised < 2 && nat.gold >= cost + res * 0.5 && nat.manpower >= 1000) {
+    queueRecruit(s, nat, 'inf', safe[0].id);
+    raised++;
+  }
+  if (raised) nat.ai.colonyLevy = s.day;
 }
 
 /** Where each colonial crown looks first (by the region's longitude and latitude). */
@@ -1064,4 +1164,4 @@ export function monthlyFleetAI(s: GameState): void {
 }
 
 
-export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace, aiGenerals };
+export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace, aiGenerals, aiColonies };
