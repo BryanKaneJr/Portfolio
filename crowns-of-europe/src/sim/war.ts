@@ -25,6 +25,7 @@ import { addOpinion, isHreMember, opinion } from './diplomacy';
 import { wantedRegions, wantsFrom } from './aims';
 import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
+import { sendHomeAfterPeace } from './military';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
 import { clamp, isIn, months, pairKey, yearOf, years } from './util';
 
@@ -428,6 +429,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + years(TRUCE_YEARS);
   delete s.wars[w.id];
   bumpWars();
+  sendHomeAfterPeace(s, all);
   const W = s.nations[winner];
   const L = s.nations[loser];
   if (!terms.white) {
@@ -472,6 +474,7 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
   for (const e of enemies) s.truces[pairKey(n, e)] = s.day + years(5);
   if (!w.attackers.length || !w.defenders.length) delete s.wars[w.id];
   bumpWars();
+  sendHomeAfterPeace(s, [n, ...subjectsOf(s, n), ...enemies]);
   if (newsworthy(s, n) || [...w.attackers, ...w.defenders].includes(s.player)) log(s, 'peace', `${nationName(n)} makes a separate peace and leaves the ${w.name}.`, { important: involvesPlayer(s, n) });
 }
 

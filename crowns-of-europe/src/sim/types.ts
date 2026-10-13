@@ -426,6 +426,8 @@ export interface Army {
   battle?: BattleId;
   retreating?: boolean;
   from?: NodeId; // the node it last left (for river crossings)
+  arrivedDay?: number; // the day it last entered a node (or mustered): the army that moved in today is the attacker
+  homeward?: NodeId; // marching home at peace through land it has no access to (access isn't checked on the way)
   rebelOf?: NationId; // rebel armies: who they rebel against
   rebelSince?: number;
   stance?: 'hold';
@@ -461,6 +463,7 @@ export interface Battle {
   days: number;
   sides: [BattleSide, BattleSide]; // 0 = attacker, 1 = defender
   river: boolean;
+  pitched?: boolean; // both sides were already standing there (a war declared, rebels rising): no attacker penalty
   log: { day: number; rolls: [number, number]; losses: [number, number] }[];
 }
 
@@ -474,6 +477,7 @@ export interface BattleReport {
   startMen: [number, number];
   losses: [number, number];
   wiped: boolean;
+  scattered?: boolean; // the beaten army had nowhere to retreat and scattered (its men count as losses)
   days: number;
   generals: [string | null, string | null];
   warScore: number; // points gained by the winner's side

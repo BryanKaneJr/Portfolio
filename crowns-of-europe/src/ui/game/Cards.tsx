@@ -145,7 +145,8 @@ export function OfferCard() {
 export function ReportCard({ report, onClose }: { report: BattleReport; onClose: () => void }) {
   const you = report.playerSide;
   const won = you !== null && report.winner === you;
-  const title = report.wiped ? (won ? 'Annihilation!' : 'Our Army Is Destroyed') : you === null ? 'Battle Report' : won ? 'Victory' : 'Defeat';
+  const verdict = report.scattered ? (won ? 'The Enemy Is Scattered' : 'Our Army Is Scattered') : won ? 'Victory' : 'Defeat';
+  const title = report.wiped ? (won ? 'Annihilation!' : 'Our Army Is Destroyed') : you === null ? 'Battle Report' : verdict;
   return (
     <CardShell>
       <View style={[styles.banner, { backgroundColor: you === null ? G.raised : won ? 'rgba(128,200,144,0.18)' : 'rgba(236,122,104,0.18)', borderColor: you === null ? G.gilt : won ? G.good : G.bad }]}>
@@ -173,6 +174,7 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
         </View>
       ))}
       {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The beaten army was annihilated.</T> : null}
+      {report.scattered ? <T v="small" style={{ marginTop: 8 }}>Cut off with nowhere to retreat, the beaten army scattered.</T> : null}
       {report.warScore ? <T v="small" style={{ marginTop: 6 }}>Leverage +{report.warScore}% to the winner.</T> : null}
       <Btn style={{ marginTop: 14 }} label="Continue" onPress={onClose} testID="report-close" />
     </CardShell>
