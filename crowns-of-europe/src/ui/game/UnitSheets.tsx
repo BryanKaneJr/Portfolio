@@ -5,7 +5,7 @@ import { ERA, REGION, SEA, UNITS, nationName, regionName } from '../../sim/conte
 import { assignGeneral, disband, GENERAL_COST, hireGeneral, mergeAt, split, splitHalf, stopArmy } from '../../sim/commands';
 import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
 import { fleetPower, shipCount, transportCapacity } from '../../sim/navy';
-import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo } from '../../sim/queries';
+import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, seesUnit } from '../../sim/queries';
 import { battlePhase, battleSides } from '../../sim/battle';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
 import type { Army, UnitType } from '../../sim/types';
@@ -38,7 +38,7 @@ export function ArmySheet({ id }: { id: string }) {
   const era = a.owner === REBELS ? ERA(1) : ERA(s.nations[a.owner].era);
   const atRegion = !!REGION[a.node];
   const supply = atRegion && a.owner !== REBELS ? supplyLimit(s, a.node, a.owner) : 0;
-  const friendlyRegs = atRegion ? Object.values(s.armies).filter(o => o.node === a.node && o.owner !== REBELS && a.owner !== REBELS && friendlyTo(s, o.owner, a.owner)).reduce((t, o) => t + armyRegs(o), 0) : 0;
+  const friendlyRegs = atRegion ? Object.values(s.armies).filter(o => o.node === a.node && o.owner !== REBELS && a.owner !== REBELS && friendlyTo(s, o.owner, a.owner) && seesUnit(s, s.player, o.owner, a.node)).reduce((t, o) => t + armyRegs(o), 0) : 0;
   const siege = atRegion ? siegeInfo(s, a.node) : null;
   const reg = atRegion ? s.regions[a.node] : null;
   const others = Object.values(s.armies).filter(o => o.owner === a.owner && o.id !== a.id && o.node === a.node && !o.path.length);
@@ -220,7 +220,7 @@ export function FleetSheet({ id }: { id: string }) {
 export function SeaSheet({ id }: { id: string }) {
   const st = useStore();
   const s = st.state!;
-  const fleets = Object.values(s.fleets).filter(f => f.sea === id);
+  const fleets = Object.values(s.fleets).filter(f => f.sea === id && seesUnit(s, s.player, f.owner, id));
   if (!charted(s, id)) return <UnchartedSheet />;
   const def = SEA[id];
   return (

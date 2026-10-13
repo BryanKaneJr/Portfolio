@@ -5,8 +5,8 @@ Soldiers drawn for this game by its owner, used for the armies on the map. `scri
 `src/ui/map/unitArt.ts`. The map draws a lone soldier for a small army (one of the two, by the army), four men from 4
 regiments and five from 10 (`troopArt` in `src/ui/map/MapView.tsx`), each under its realm's banner.
 
-Each stands on its bottom edge, on a transparent ground. More drawings in the same style can be added here and to `ART`
-in the build script.
+Each stands on its bottom edge, on a transparent ground. More drawings in the same style can be added here and to
+`TROOPS` in `scripts/build-units.ts` (and picked in `troopArt`).
 
 | File | What it is |
 | --- | --- |

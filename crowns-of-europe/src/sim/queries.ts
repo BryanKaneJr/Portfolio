@@ -293,14 +293,14 @@ export function friendlyTo(s: GameState, a: NationId, b: NationId | null): boole
 
 /**
  * Does `viewer` see a unit of `owner` standing in `where` (a region or a sea)? Its own, its friends' (allies, its
- * overlord's and subjects'), its enemies' in a war, and anyone's in land it owns or holds; rebels, by the realm they
- * rise against. Everyone else's troops and ships are out of sight.
+ * overlord's and subjects'), its enemies' in a war, and anyone's in land it owns or holds; rebels, when they rise
+ * against it or a friend of it. Everyone else's troops and ships are out of sight.
  */
 export function seesUnit(s: GameState, viewer: NationId, owner: NationId, where: NodeId, rebelOf?: NationId): boolean {
   if (owner === viewer) return true;
   const r = s.regions[where];
   if (r && (r.owner === viewer || r.controller === viewer)) return true;
-  if (owner === REBELS) return rebelOf === viewer;
+  if (owner === REBELS) return !!rebelOf && friendlyTo(s, viewer, rebelOf);
   return friendlyTo(s, viewer, owner) || !!warBetween(s, viewer, owner);
 }
 

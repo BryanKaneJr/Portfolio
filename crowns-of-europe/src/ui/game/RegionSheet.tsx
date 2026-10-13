@@ -95,7 +95,7 @@ export function RegionSheet({ id }: { id: string }) {
       ) : null}
       {coreIn !== null && mine ? <Line label="Integrated in" value={`${coreIn} years`} help="Until then it pays half its taxes and levies. Integrate now under Invest." /> : null}
       {r.converting ? <Line label="Converting to" value={FAITH_NAME[r.converting.to]} /> : null}
-      {r.siege ? (
+      {r.siege && seesUnit(s, s.player, r.siege.by, id) ? (
         <Line
           label={`Besieged by ${nationName(r.siege.by)}`}
           value={`${Math.round(r.siege.progress * 100)}%${siege && siege.daily > 0 ? ` · ~${Math.ceil((1 - r.siege.progress) / siege.daily)} days` : ''}`}

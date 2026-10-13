@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { MAP } from '../src/sim/content';
+import { MAP, NATION } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
 import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs } from '../src/ui/map/geometry';
 import { SHIP_ART, TROOP_ART } from '../src/ui/map/unitArt';
+import { PARCHMENT, colorDistance, mix } from '../src/ui/map/colorMath';
+import { MIN_ALL, MIN_NEAR, MIN_NEIGHBOUR, nationPairs } from '../scripts/lib/nationColors';
 
 describe('the map beyond the known world', () => {
   test('the lands past the edges are drawn but lie outside the play window', () => {
@@ -203,5 +205,24 @@ describe('drawn terrain', () => {
     const sea: [number, number, number, number] = [1000, 700, 1200, 1000]; // the open Atlantic
     expect(Object.values(terrainPaths(...sea)).join('')).toBe('');
     expect(mountainsIn(...sea)).toEqual([]);
+  });
+});
+
+describe('the realms\' colours', () => {
+  test('no two realms look alike, neighbours look very different, and none is the parchment', () => {
+    const { neighbours, near } = nationPairs();
+    const shown = (id: string) => mix(NATION[id].color, PARCHMENT, 0.12); // as nationColor draws it
+    const ids = Object.keys(NATION);
+    const close: string[] = [];
+    for (let i = 0; i < ids.length; i++)
+      for (let j = i + 1; j < ids.length; j++) {
+        const k = ids[i] < ids[j] ? `${ids[i]}|${ids[j]}` : `${ids[j]}|${ids[i]}`;
+        const min = neighbours.has(k) ? MIN_NEIGHBOUR : near.has(k) ? MIN_NEAR : MIN_ALL;
+        const d = colorDistance(shown(ids[i]), shown(ids[j]));
+        if (d < min) close.push(`${k} ${d.toFixed(3)} < ${min}`);
+      }
+    expect(close).toEqual([]);
+    expect(neighbours.size).toBeGreaterThan(100);
+    for (const id of ids) expect({ id, paper: colorDistance(shown(id), PARCHMENT) > 0.05 }).toEqual({ id, paper: true });
   });
 });

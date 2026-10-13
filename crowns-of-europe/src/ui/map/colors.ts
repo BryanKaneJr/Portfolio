@@ -6,17 +6,10 @@ import { perceivedThreat } from '../../sim/threat';
 import type { GameState, Good, Region } from '../../sim/types';
 import type { MapMode } from '../../state/store';
 import { FAITH_COLOR, TERRAIN_COLOR } from '../theme';
+import { PARCHMENT, colorDistance, mix, oklab } from './colorMath';
 
-export function mix(a: string, b: string, t: number): string {
-  const pa = parseInt(a.slice(1), 16);
-  const pb = parseInt(b.slice(1), 16);
-  const r = Math.round(((pa >> 16) & 255) * (1 - t) + ((pb >> 16) & 255) * t);
-  const g = Math.round(((pa >> 8) & 255) * (1 - t) + ((pb >> 8) & 255) * t);
-  const bl = Math.round((pa & 255) * (1 - t) + (pb & 255) * t);
-  return '#' + ((1 << 24) | (r << 16) | (g << 8) | bl).toString(16).slice(1);
-}
+export { PARCHMENT, colorDistance, mix, oklab };
 
-const PARCHMENT = '#efe3c2';
 export const nationColor = (n: string | null) => (n && NATION[n] ? mix(NATION[n].color, PARCHMENT, 0.12) : '#3a3a3a');
 /** Uncolonized land: pale and unclaimed, so it reads as "up for grabs". */
 export const WILD = '#f1e8cf';

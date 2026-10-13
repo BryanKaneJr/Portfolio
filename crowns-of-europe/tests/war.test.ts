@@ -91,5 +91,7 @@ describe('who sees whose troops', () => {
     expect(sees(REBELS, 'granada', 'CAS')).toBe(true); // risen against you
     expect(sees(REBELS, 'lesser_poland', 'POL')).toBe(false); // risen against someone else
     expect(sees(REBELS, 'castile', 'POL')).toBe(true); // ... but in your land
+    expect(sees(REBELS, 'navarre', 'NAV')).toBe(true); // risen against a subject of yours
+    expect(seesUnit(s, 'NAV', REBELS, 'granada', 'CAS')).toBe(true); // ... or against your overlord
   });
 });

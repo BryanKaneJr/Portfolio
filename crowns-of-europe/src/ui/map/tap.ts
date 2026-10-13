@@ -24,7 +24,8 @@ export function onMapTap(mx: number, my: number, k: number): void {
   const reach = Math.max(1, tokenScale(k));
   for (const c of unitPositions(s, k, sel?.kind === 'army' || sel?.kind === 'fleet' ? sel.id : undefined)) {
     // A unit's figure stands above its point: measure from the middle of the figure.
-    const d = Math.hypot(c.x - mx, c.y - (TOKEN_MIDDLE * tokenScale(k)) / k - my) * k;
+    const lift = c.kind === 'battle' ? 0 : (TOKEN_MIDDLE * tokenScale(k)) / k;
+    const d = Math.hypot(c.x - mx, c.y - lift - my) * k;
     if (d > HIT * reach) continue;
     const mine = c.kind === 'army' ? s.armies[c.id]?.owner === s.player : c.kind === 'fleet' ? s.fleets[c.id]?.owner === s.player : false;
     // While giving orders, a near miss on one of your other units is a march order, not a change of selection.

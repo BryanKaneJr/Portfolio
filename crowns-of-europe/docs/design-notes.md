@@ -238,6 +238,19 @@ here.
       filled as water over the realms' colours, including those Natural Earth lacks (taken from WorldCover).
     - On the web the moving map has its own compositor layer, so panning never repaints the map.
 
+26. **Units the owner drew, under banners; only what you would know; realms that never share a colour (on
+    request).** Armies are the owner's soldier drawings (`art/troops`): a lone soldier below 4 regiments, four men
+    from 4, five from 10; fleets their ship drawings (`art/ships`): a lone ship up to 4 ships, several from 5
+    (`npm run units:build`). Each stands in a shadow baked from its own silhouette (soft at its feet, cast behind it
+    to the right), not on a coloured base, and flies its realm's flag on a pole as a small waving banner; the count
+    is on a badge beside it, gold-rimmed for your own. Units, battles and sieges are shown, and listed in sheets, only
+    if they are yours, a friend's (ally, overlord, subject), an enemy's in a war, or in land you own or hold
+    (`seesUnit`); rebels when they rise against you or a friend. Past play zoom, names, forts and tokens grow partway
+    with the zoom (`grow`: (k / 1.7)^0.45, about 1.6x at the closest). Every realm's map colour is now unlike every
+    other's and far from its neighbours', picked by `scripts/dev/nation-colors.ts` (the iconic ones kept: French
+    blue, English red, Castilian gold, Aragonese orange, Portuguese green, Ottoman teal, Austrian white...;
+    `tests/map.test.ts` checks the distances).
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |

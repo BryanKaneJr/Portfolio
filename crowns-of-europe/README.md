@@ -39,8 +39,10 @@ bundled and works in airplane mode.
   for wars declared on you, events and offers.
 - **Armies:** regiments of 1,000 men (infantry, cavalry, artillery once you know Bombards), merge and split, generals of
   one to five stars (each star +10% to everything the army does: damage, steadiness, march and siege speed), the
-  ruler leading in person, mercenaries, supply limits and winter attrition. On the map an army is a token with a
-  pikeman on it, a fleet one with a ship, the count beneath; tap one, then tap where it should go.
+  ruler leading in person, mercenaries, supply limits and winter attrition. On the map an army is a soldier or a
+  squad (the owner's drawings), a fleet a ship or several, each under its realm's banner, the count beside it; tap
+  one, then tap where it should go. You see only the units you would know about: yours, your friends', your
+  enemies' in a war, and any in your land.
 - **Battles** that run for days so reinforcements can join: each day 1d10 less terrain for the attacker, days of
   volleys (the guns tell) and of charges (the horse tells), the general's stars, damage
   scaled by the front line (20 wide on plains, 10 in mountains), morale, retreat, cavalry pursuit, and the
