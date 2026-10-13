@@ -40,16 +40,18 @@ import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
 import type { GameState, NodeId, PeaceTerms, ShipType, UnitType } from './types';
-import { clamp, months } from './util';
+import { clamp, formatDate, months } from './util';
 import {
+  ULTIMATUM_SCORE,
   canDeclareWar,
   casusBelli,
   declareWar,
   joinWar,
   leaveWar,
   makePeace,
-  peaceAcceptance,
+  offersOwnLand,
   peaceCost,
+  proposalAnswer,
   refuseCall,
   scoreFor,
 } from './war';
@@ -416,19 +418,17 @@ export function proposePeace(s: GameState, warId: string, terms: PeaceTerms): Re
   const myLeader = side === 0 ? w.attackers[0] : w.defenders[0];
   const theirLeader = side === 0 ? w.defenders[0] : w.attackers[0];
   if (myLeader !== s.player) return no('Only the war leader can negotiate the peace. You can make a separate peace instead.');
-  const decider = theirLeader;
-  const winnerIsMe = terms.winner === s.player;
-  if (winnerIsMe && !terms.white) {
+  const leaders = [s.player, theirLeader];
+  if (terms.winner === terms.loser || !leaders.includes(terms.winner) || !leaders.includes(terms.loser)) return no('Those terms are not for this war.');
+  if (terms.loser === s.player && terms.gold > Math.max(0, me(s).gold)) return no('You don’t have that much gold.');
+  if (terms.loser === s.player && !offersOwnLand(s, w, terms)) return no('You can only offer land of your own.');
+  // The answer the war screen shows is the one acted on.
+  if (!proposalAnswer(s, w, terms, s.player).accept) {
+    if (terms.white || terms.winner !== s.player) return no(`${nationName(theirLeader)} refuses the offer.`);
     const cost = peaceCost(s, terms);
-    const sc = scoreFor(s, w, s.player);
     if (cost > 100) return no('That deal costs more than 100% leverage.');
-    if (cost > Math.max(sc, 0) && sc < 100) {
-      const ans = peaceAcceptance(s, w, terms, decider);
-      if (!ans.accept) return no(`${nationName(decider)} refuses: your demands cost ${cost}% but your leverage is ${sc}%.`);
-    }
+    return no(`${nationName(theirLeader)} refuses: your demands cost ${cost}% but your leverage is ${scoreFor(s, w, s.player)}%.`);
   }
-  const ans = peaceAcceptance(s, w, terms, decider);
-  if (!ans.accept && !(winnerIsMe && peaceCost(s, terms) <= scoreFor(s, w, s.player))) return no(`${nationName(decider)} refuses the offer.`);
   makePeace(s, w, terms);
   return ok('Peace is signed.');
 }
@@ -473,6 +473,8 @@ export function answerOffer(s: GameState, offerId: string, accept: boolean): Res
         makePeace(s, w, o.terms);
         return ok('Peace is signed.');
       }
+      // Refusing an ultimatum doesn't stop its clock: it still takes effect on its day if they hold the leverage.
+      if (o.ultimatum !== undefined) return ok(`You refuse. ${from} will impose its terms on ${formatDate(o.ultimatum)} unless its leverage falls below ${ULTIMATUM_SCORE}%.`);
       return ok('You reject the proposal. The war goes on.');
     }
     case 'alliance':

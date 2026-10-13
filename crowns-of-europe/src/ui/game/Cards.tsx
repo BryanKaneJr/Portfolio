@@ -8,7 +8,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
-import { peaceCost, scoreFor } from '../../sim/war';
+import { ULTIMATUM_SCORE, peaceCost, scoreFor } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate } from '../../sim/util';
@@ -77,6 +77,7 @@ export function OfferCard() {
   const o = s.offers[0] as Offer | undefined;
   if (!o) return null;
   const from = nationName(o.from);
+  const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined && !!s.wars[o.war];
   let title = '';
   let body: ReactNode = null;
   let icon: IconName = 'scroll';
@@ -98,14 +99,15 @@ export function OfferCard() {
     );
   } else if (o.kind === 'peace') {
     const w = s.wars[o.war];
-    title = 'A Peace Proposal';
+    const due = o.ultimatum;
+    title = due !== undefined ? 'An Ultimatum' : 'A Peace Proposal';
     icon = 'treaty';
     const t = o.terms;
     const youWin = t.winner === s.player;
     body = (
       <>
         <T>
-          {from} proposes peace in the {w?.name ?? 'war'}.
+          {from} {due !== undefined ? 'demands' : 'proposes'} peace in the {w?.name ?? 'war'}.
         </T>
         <View style={{ marginTop: 8 }}>
           {t.white ? <Line label="White peace" value="no changes" /> : null}
@@ -115,6 +117,14 @@ export function OfferCard() {
           {t.gold ? <Line label={youWin ? 'They pay you' : 'You pay'} value={`${t.gold} gold`} tone={youWin ? 'good' : 'bad'} /> : null}
           {w ? <Line label="Your leverage now" value={`${scoreFor(s, w, s.player)}%`} /> : null}
           {w && !t.white ? <Line label="Value of the deal" value={`${peaceCost(s, t)}%`} tone="muted" /> : null}
+          {due !== undefined ? (
+            <Line
+              label="Takes effect"
+              value={formatDate(due)}
+              tone="bad"
+              help={`Sent at ${ULTIMATUM_SCORE}% leverage, asking no more than it buys. If they still hold ${ULTIMATUM_SCORE}% on this day, these terms are imposed; push them below it and the ultimatum lapses. Refusing doesn’t stop the clock; any peace signed first ends it.`}
+            />
+          ) : null}
         </View>
       </>
     );
@@ -136,8 +146,21 @@ export function OfferCard() {
       {body}
       <Row style={{ marginTop: 16 }}>
         <Btn style={{ flex: 1 }} label="Accept" onPress={() => store.run(x => answerOffer(x, o.id, true))} testID="offer-accept" />
-        <Btn style={{ flex: 1 }} tone="secondary" label="Decline" onPress={() => store.run(x => answerOffer(x, o.id, false))} testID="offer-decline" />
+        <Btn style={{ flex: 1 }} tone="secondary" label={ultimatum ? 'Refuse' : 'Decline'} onPress={() => store.run(x => answerOffer(x, o.id, false))} testID="offer-decline" />
       </Row>
+      {ultimatum ? (
+        <Btn
+          style={{ marginTop: 8 }}
+          tone="secondary"
+          label="Offer other terms"
+          testID="offer-counter"
+          onPress={() => {
+            // The ultimatum stands while you choose what to offer instead.
+            store.run(x => answerOffer(x, o.id, false), { quiet: true });
+            store.open({ kind: 'peace', war: o.war });
+          }}
+        />
+      ) : null}
     </CardShell>
   );
 }

@@ -28,7 +28,7 @@ import { takeMapDirty } from './territory';
 import { monthlyThreat } from './threat';
 import type { GameState, TickResult } from './types';
 import { dateOf, months, years } from './util';
-import { monthlyWars, refuseCall } from './war';
+import { checkUltimatums, monthlyWars, refuseCall } from './war';
 import { regionName } from './content';
 
 export const END_YEAR = 1750;
@@ -47,6 +47,7 @@ export function advanceDay(s: GameState): TickResult {
   dailySieges(s);
   dailyMorale(s);
   cleanupArmies(s);
+  checkUltimatums(s);
   if (d.day === 1) monthly(s);
   if (d.year >= END_YEAR && !s.gameOver) {
     s.gameOver = { reason: 'end', day: s.day };
