@@ -240,7 +240,22 @@ describe('movement', () => {
     expect(s.regions[moved.node].controller).toBe('FRA');
     expect(nat.gold - gold).toBe(unitCost(s, 'FRA', 'cav'));
     expect(nat.manpower - levies).toBe(1000);
-    expect(s.log[0].text).toMatch(/^2 new regiments are ready, 1 at .+, as you no longer hold Champagne\. 1 could not muster \(you no longer hold Candia\)/);
+    expect(s.log[0].text).toMatch(/^2 new regiments are ready, 1 at .+, as Champagne is not safe\. 1 could not muster \(Candia is not safe, and none of your land is in reach\)/);
+  });
+
+  test('recruits never muster where an enemy army stands, even in land still held', () => {
+    const s = emptyGame('FRA');
+    forceWar(s, 'FRA', 'BUR');
+    declareWar(s, 'FRA', 'BUR', 'none');
+    const besiegers = army(s, 'BUR', 'champagne', 10);
+    expect(s.regions.champagne.controller).toBe('FRA');
+    s.nations.FRA.recruiting = [{ type: 'inf', region: 'champagne', done: s.day + 1 }];
+    advanceDay(s);
+    const recruits = Object.values(s.armies).filter(a => a.owner === 'FRA');
+    expect(recruits).toHaveLength(1);
+    expect(recruits[0].node).not.toBe('champagne');
+    expect(recruits[0].battle).toBeUndefined();
+    expect(besiegers.battle).toBeUndefined();
   });
 
   test('at peace, armies leave land they may no longer enter', () => {

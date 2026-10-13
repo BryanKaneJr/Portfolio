@@ -857,9 +857,10 @@ function armyAI(s: GameState, a: Army): void {
 /** Standing still: not marching, retreating or fighting. */
 const isIdle = (o: Army) => !o.path.length && !o.retreating && !o.battle;
 
-/** The stack `o` stands in: itself and the armies standing beside it that are hostile to `me` too. */
+/** The stack `o` stands in: itself and the armies beside it that are hostile to `me` too, standing or marching out
+ * (a battle there catches both: joinOrStartBattle). */
 function stackOf(s: GameState, o: Army, me: Army): Army[] {
-  return [o, ...Object.values(s.armies).filter(x => x.id !== o.id && x.node === o.node && isIdle(x) && armiesHostile(s, me, x))];
+  return [o, ...Object.values(s.armies).filter(x => x.id !== o.id && x.node === o.node && !x.retreating && !x.battle && armiesHostile(s, me, x))];
 }
 
 /** A fight seen from our side: do we win, and how many times longer would we hold out than they would. */

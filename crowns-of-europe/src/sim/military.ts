@@ -583,11 +583,17 @@ export function dailyRecruitment(s: GameState): void {
     const movedTo = new Map<RegionId, number>(); // where recruits mustered instead, and how many
     const lost = new Set<RegionId>(); // where they trained, no longer yours
     const stranded = new Set<RegionId>(); // ... with none of your land in reach
+    // Where enemy armies stand (a siege, say): recruits never muster under their noses.
+    const enemyAt = new Set<NodeId>();
+    for (const id in s.armies) {
+      const o = s.armies[id];
+      if (hostile(s, nat.id, o.owner, undefined, o.rebelOf)) enemyAt.add(o.node);
+    }
     for (const r of ready) {
-      // Recruits muster where they trained if you still hold it, else in the nearest region you hold; with none in
-      // reach over land, their gold (at today's price) and levies come back.
+      // Recruits muster where they trained if you still hold it with no enemy army there, else in the nearest such
+      // region; with none in reach over land, their gold (at today's price) and levies come back.
       let at: RegionId | null = r.region;
-      if (s.regions[r.region].controller !== nat.id) {
+      if (s.regions[r.region].controller !== nat.id || enemyAt.has(r.region)) {
         at = nearestHeld(s, nat.id, r.region);
         if (!at) {
           nat.gold += unitCost(s, nat.id, r.type);
@@ -607,8 +613,10 @@ export function dailyRecruitment(s: GameState): void {
     const lines: string[] = [];
     const names = (rs: Iterable<RegionId>) => [...rs].map(regionName).join(', ');
     const instead = [...movedTo].map(([at, k]) => `${k} at ${regionName(at)}`).join(', ');
-    if (mustered) lines.push(`${mustered} new regiment${mustered > 1 ? 's are' : ' is'} ready${movedTo.size ? `, ${instead}, as you no longer hold ${names(lost)}` : ''}.`);
-    if (refunded) lines.push(`${refunded} could not muster (you no longer hold ${names(stranded)}): gold and levies returned.`);
+    // (Not safe: no longer yours, held by the enemy, or an enemy army stands there.)
+    const unsafe = (rs: Set<RegionId>) => `${names(rs)} ${rs.size > 1 ? 'are' : 'is'} not safe`;
+    if (mustered) lines.push(`${mustered} new regiment${mustered > 1 ? 's are' : ' is'} ready${movedTo.size ? `, ${instead}, as ${unsafe(lost)}` : ''}.`);
+    if (refunded) lines.push(`${refunded} could not muster (${unsafe(stranded)}, and none of your land is in reach): gold and levies returned.`);
     log(s, 'war', lines.join(' '), { node: first ?? ready[0].region });
   }
 }
