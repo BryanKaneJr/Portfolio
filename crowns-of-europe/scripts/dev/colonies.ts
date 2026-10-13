@@ -2,12 +2,13 @@
  * Dev tool: the colonial race over a whole AI-only game. npx tsx scripts/dev/colonies.ts [years] [seeds...]
  * Prints one JSON line per seed: when the New World was found and by whom; the uncolonized New World regions left
  * at milestone years; for each colonial crown its first colony, New World regions and busy/total colonists at those
- * years and its share of income from exports in 1700; colonies lost to natives and to raids; and how many New World
+ * years (colonists settling + growing / all) and its share of income from exports in 1700; colonies lost to natives and to raids; and how many New World
  * regions changed hands in wars. The spectated player answers peace offers as the AI would.
  */
 import { newGame } from '../../src/sim/state';
 import { advanceDay } from '../../src/sim/tick';
 import { answerOffer } from '../../src/sim/commands';
+import * as colonies from '../../src/sim/colonies';
 import { colonistsOf, coloniesOf, goodsIncome, newWorldRegions } from '../../src/sim/colonies';
 import { REGION } from '../../src/sim/content';
 import { peaceAcceptance } from '../../src/sim/war';
@@ -56,7 +57,9 @@ for (const seed of seeds.length ? seeds : [1, 2, 3]) {
       const crowns: Record<string, string> = {};
       for (const n of CROWNS) {
         if (!s.nations[n]?.alive) continue;
-        crowns[n] = `${newWorldRegions(s, n).length}nw ${coloniesOf(s, n).length}/${colonistsOf(s, n)}c`;
+        // New World regions; colonists settling + growing / all of them (growing: older versions have none).
+        const grow = (colonies as { growingOf?: (s: GameState, n: NationId) => unknown[] }).growingOf?.(s, n).length ?? 0;
+        crowns[n] = `${newWorldRegions(s, n).length}nw ${coloniesOf(s, n).length}+${grow}/${colonistsOf(s, n)}c`;
       }
       at[y] = { wild: NW.filter(id => !s.regions[id].owner).length, settling: NW.filter(id => !!s.regions[id].colony).length, crowns };
       if (y === 1700) {
