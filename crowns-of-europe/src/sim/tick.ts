@@ -13,6 +13,7 @@ import {
   dailyRecruitment,
   monthlyAttrition,
   monthlyReinforce,
+  monthlyStrays,
 } from './military';
 import { monthlyMissions } from './missions';
 import { monthlyColonies } from './colonies';
@@ -67,6 +68,7 @@ function monthly(s: GameState): void {
   monthlyDiplomacy(s);
   monthlyThreat(s);
   monthlyWars(s);
+  monthlyStrays(s);
   monthlyNavy(s);
   monthlyColonies(s);
   monthlyReligion(s);

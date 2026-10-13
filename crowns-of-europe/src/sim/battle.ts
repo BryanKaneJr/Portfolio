@@ -1,8 +1,8 @@
 /**
- * Battles run day by day so reinforcements can join. Each day both sides roll 1d10 (− terrain for the attacker);
- * damage = roll × front-line strength × (1 + 10% per star of the general), which costs the enemy men and morale (a
- * general's stars also soften the morale their own side loses). A side at 0 morale retreats;
- * if the winner has five times the loser's remaining men, the loser is annihilated.
+ * Battles run day by day so reinforcements can join. Each day both sides roll 1d10 (− terrain for an army that
+ * marched in to attack); damage = roll × front-line strength × (1 + 10% per star of the general), which costs the
+ * enemy men and morale (a general's stars also soften the morale their own side loses). A side at 0 morale retreats
+ * (or, with nowhere to go, scatters); if the winner has five times the loser's remaining men, the loser is annihilated.
  */
 import { NATION, REGION, regionName, nationName, riverBetween } from './content';
 import { log, requestPause } from './log';
@@ -46,29 +46,41 @@ export function joinOrStartBattle(s: GameState, node: NodeId, a: Army): void {
     else if (hostileTo1 && !hostileTo0) addToSide(s, existing, 0, a);
     return;
   }
-  const here = Object.values(s.armies).filter(o => o.node === node && !o.retreating && o.path.length === 0 && !o.battle && o.id !== a.id);
+  // Armies here, standing or still marching out.
+  const here = Object.values(s.armies).filter(o => o.node === node && !o.retreating && !o.battle && o.id !== a.id);
   const enemies = here.filter(o => armiesHostile(s, a, o));
   if (!enemies.length) return;
+  // The army that marched in today attacks, with the terrain (and any river it crossed) against it. If both sides
+  // were already standing here (a war declared, rebels rising), the newcomer opens the battle and nobody suffers
+  // the attacker's penalty.
+  const since = (x: Army) => x.arrivedDay ?? x.rebelSince ?? -1;
+  const atk = enemies.reduce((best, o) => (since(o) > since(best) ? o : best), a);
+  const moved = atk.arrivedDay === s.day && !!atk.from; // (a new army has no road behind it)
+  const river = moved && atk.from ? riverBetween(atk.from, node) : undefined;
   const b: Battle = {
     id: `b${++s.seq}`,
     node,
     started: s.day,
     days: 0,
-    river: !!(a.from && riverBetween(a.from, node)),
+    river: !!river,
     sides: [
       { armies: [], nations: [], startMen: 0, losses: 0, roll: 0 },
       { armies: [], nations: [], startMen: 0, losses: 0, roll: 0 },
     ],
     log: [],
   };
+  if (!moved) b.pitched = true;
   s.battles[b.id] = b;
-  addToSide(s, b, 0, a);
-  for (const o of enemies) addToSide(s, b, 1, o);
-  // Friends of the attacker standing here join in too.
-  for (const o of here) if (!o.battle && !armiesHostile(s, a, o) && enemies.some(e => armiesHostile(s, o, e))) addToSide(s, b, 0, o);
+  const all = [a, ...here];
+  const defenders = all.filter(o => armiesHostile(s, atk, o));
+  addToSide(s, b, 0, atk);
+  for (const o of defenders) addToSide(s, b, 1, o);
+  // Friends of the attacker here join in too.
+  for (const o of all) if (!o.battle && !armiesHostile(s, atk, o) && defenders.some(e => armiesHostile(s, o, e))) addToSide(s, b, 0, o);
   const involved = [...b.sides[0].nations, ...b.sides[1].nations];
   if (involved.includes(s.player)) {
-    log(s, 'battle', `Battle of ${regionName(node)}: ${b.sides[0].nations.map(nationName).join(', ')} attack ${b.sides[1].nations.map(nationName).join(', ')}${b.river ? ` across the ${riverBetween(a.from!, node)}` : ''}.`, {
+    const [x, y] = b.sides.map(side => side.nations.map(nationName).join(', '));
+    log(s, 'battle', `Battle of ${regionName(node)}: ${x} ${moved ? 'attack' : 'clash with'} ${y}${river ? ` across the ${river}` : ''}.`, {
       node,
       important: true,
     });
@@ -161,7 +173,7 @@ export function dailyBattles(s: GameState): void {
     const rolls: [number, number] = [0, 0];
     for (const i of [0, 1] as const) {
       const me = st[i];
-      const mod = i === 0 ? -(terrainPenalty + (b.river ? 1 : 0)) : 0;
+      const mod = i === 0 && !b.pitched ? -(terrainPenalty + (b.river ? 1 : 0)) : 0;
       const roll = randInt(s, 1, 10);
       rolls[i] = roll;
       const eff = Math.max(1, roll + mod);
@@ -220,6 +232,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
   let loserMen = L.armies.reduce((a, x) => a + armyMen(x), 0);
   const wiped = L.armies.length > 0 && winnerMen >= WIPE_RATIO * Math.max(1, loserMen);
   let extra = 0;
+  const scattered: Army[] = [];
   if (wiped) {
     extra = loserMen;
     for (const a of L.armies) {
@@ -242,7 +255,12 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
         a.general = undefined;
       }
       a.battle = undefined;
-      retreat(s, a);
+      if (!retreat(s, a)) scattered.push(a);
+    }
+    // Cut off with nowhere to run: the army scatters, and every man left counts as lost.
+    for (const a of scattered) {
+      extra += armyMen(a);
+      delete s.armies[a.id];
     }
   }
   b.sides[loser].losses += extra;
@@ -295,6 +313,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     startMen: [b.sides[0].startMen, b.sides[1].startMen],
     losses: [b.sides[0].losses, b.sides[1].losses],
     wiped,
+    ...(scattered.length ? { scattered: true } : {}),
     days: b.days,
     generals: [st[0].general.name, st[1].general.name],
     warScore: Math.round(points),
@@ -321,6 +340,10 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
         : `${name} lost${wiped ? ': our army is annihilated.' : '.'} Our losses ${lossL.toLocaleString()}, theirs ${lossW.toLocaleString()}.`,
       { node: b.node, important: true },
     );
+    for (const a of scattered) {
+      const whose = a.owner === s.player || a.owner === REBELS ? 'The' : `The ${NATION[a.owner]?.adj ?? nationName(a.owner)}`;
+      log(s, 'battle', `${whose} ${a.name} has nowhere to retreat from ${regionName(b.node)} and scatters: ${armyMen(a).toLocaleString()} men lost.`, { node: b.node, important: true });
+    }
   } else if (wiped && ratio > 0) {
     const big = b.sides[loser].startMen >= 15000;
     if (big)

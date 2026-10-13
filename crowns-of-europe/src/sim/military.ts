@@ -1,4 +1,4 @@
-/** Armies: pathfinding, movement, recruitment, merging/splitting, supply, attrition and reinforcement. */
+/** Armies: pathfinding, movement, retreats, recruitment, merging/splitting, supply, attrition and reinforcement. */
 import { GRAPH, MAP_REGION, REGION, SEA, UNITS, isSea, regionName, type Edge } from './content';
 import { charted } from './colonies';
 import { log, requestPause } from './log';
@@ -17,6 +17,7 @@ import {
   fleetsOf,
 } from './queries';
 import { joinOrStartBattle } from './battle';
+import { unitCost } from './economy';
 import { starBonus } from './rulers';
 import { fleetPower, transportCapacity } from './navy';
 import { makeArmy } from './state';
@@ -127,12 +128,12 @@ export interface PathTree {
  * stop you (you may end on one, not pass it), boarding at a coast needs your own transports in that sea
  * (they then sail along with the army, so one fleet can carry it across the ocean), a stronger enemy fleet
  * bars a sea, enemy fleets close straits, and the New World is closed until it is discovered.
- * With `to`, stops as soon as that node is settled.
+ * With `to`, stops as soon as that node is settled; with `land`, never takes to the sea.
  */
 export function pathTree(
   s: GameState,
   army: Pick<Army, 'owner' | 'general' | 'rebelOf' | 'node' | 'regs'>,
-  opts: { retreat?: boolean; ignoreAccess?: boolean; to?: NodeId; maxDays?: number } = {},
+  opts: { retreat?: boolean; ignoreAccess?: boolean; land?: boolean; to?: NodeId; maxDays?: number } = {},
 ): PathTree {
   const from = army.node;
   const regs = armyRegs(army as Army);
@@ -163,6 +164,7 @@ export function pathTree(
       if (done.has(e.to)) continue;
       if (!charted(s, e.to)) continue;
       if (isSea(e.to)) {
+        if (opts.land) continue;
         // Boarding needs transports here; once aboard, the fleet comes along unless an enemy bars the way.
         const boarding = !isSea(cur);
         const cache = boarding ? sailOk : seaOpen;
@@ -210,14 +212,19 @@ export function orderMove(s: GameState, a: Army, to: NodeId): PathResult | null 
   if (a.battle || a.retreating) return null;
   const res = findPath(s, a, to);
   if (!res) return null;
-  // Keep walking the current edge if the new route starts the same way.
-  const keep = a.path.length > 0 && res.path[0] === a.path[0];
-  a.path = res.path;
+  setPath(a, res.path);
+  a.homeward = undefined;
+  return res;
+}
+
+/** Give an army a new route, still walking the current edge if the new route starts the same way. */
+function setPath(a: Army, path: NodeId[]): void {
+  const keep = a.path.length > 0 && path[0] === a.path[0];
+  a.path = path;
   if (!keep) {
     a.progress = 0;
     a.edgeDays = 0;
   }
-  return res;
 }
 
 /** Days left until arrival along the current path. */
@@ -238,18 +245,49 @@ export function etaDays(s: GameState, a: Army): number {
 
 // ---------------------------------------------------------------- daily movement
 
+type Stop = 'strait' | 'ships' | 'access';
+const STOPPED: Record<Stop, string> = {
+  strait: 'an enemy fleet holds the strait to',
+  ships: 'no transports to carry it into the',
+  access: 'no access to',
+};
+
+/** Why an army can't set out along edge `e` now (a strait closed, its transports gone, access ended), or null. */
+function blocked(s: GameState, a: Army, e: Edge): Stop | null {
+  if (e.kind === 'strait' && e.sea && !straitOpen(s, a.owner, e.sea)) return 'strait';
+  if (isSea(e.to) && !isSea(a.node) && !canSail(s, a.owner, e.to, armyRegs(a))) return 'ships';
+  // A rout, and a march home at peace, may cross land the army has no access to.
+  const exempt = a.retreating || (a.homeward !== undefined && a.path[a.path.length - 1] === a.homeward);
+  if (!exempt && !isSea(e.to) && !canEnter(s, a.owner, e.to, a.rebelOf)) return 'access';
+  return null;
+}
+
+/** An army that reached a node today, with where it had come from before (to turn it back if need be). */
+interface Arrival {
+  army: Army;
+  from?: NodeId;
+  day?: number;
+}
+
 export function dailyMovement(s: GameState): void {
+  // Today's arrivals by road ("from>to"), to catch hostile armies that pass each other on it.
+  const arrivals = new Map<string, Arrival[]>();
   for (const a of Object.values(s.armies)) {
-    if (!a.path.length || a.battle) continue;
+    if (a.battle) continue;
+    if (!a.path.length) {
+      // A retreat that lost its road (a strait an enemy fleet closed behind it, say) ends where it stands.
+      if (a.retreating) a.retreating = false;
+      continue;
+    }
     if (a.edgeDays === 0) {
+      // Re-check the next step: a strait may have closed, the transports sailed off, access ended.
       const e = GRAPH[a.node].find(x => x.to === a.path[0]);
-      if (!e) {
+      const why = e ? blocked(s, a, e) : null;
+      if (!e || why) {
+        if (why && a.owner === s.player) log(s, 'war', `The ${a.name} stopped at ${regionName(a.node)}: ${STOPPED[why]} ${regionName(a.path[0])}.`, { node: a.node });
         a.path = [];
-        continue;
-      }
-      // Re-check the next step (a strait may have closed, access may have ended).
-      if (!a.retreating && !isSea(e.to) && !canEnter(s, a.owner, e.to, a.rebelOf)) {
-        a.path = [];
+        a.retreating = false;
+        a.homeward = undefined;
         continue;
       }
       a.edgeDays = edgeDays(s, a, a.node, e, a.retreating);
@@ -257,13 +295,39 @@ export function dailyMovement(s: GameState): void {
     }
     a.progress += 1;
     if (a.progress < a.edgeDays) continue;
+    const before: Arrival = { army: a, from: a.from, day: a.arrivedDay };
     a.from = a.node;
     a.node = a.path.shift()!;
     a.progress = 0;
     a.edgeDays = 0;
+    a.arrivedDay = s.day;
     if (isSea(a.from) && isSea(a.node)) convoy(s, a, a.from, a.node);
+    if (metOnTheRoad(s, a, arrivals)) continue;
+    const road = `${a.from}>${a.node}`;
+    const list = arrivals.get(road);
+    if (list) list.push(before);
+    else arrivals.set(road, [before]);
     arrive(s, a);
   }
+}
+
+/**
+ * Hostile armies that passed each other on one road today (one went X→Y, the other Y→X, say boarding ships as the
+ * other landed) meet at Y: the one going the other way is turned back as if it had not yet left. (One still in Y
+ * and marching out is caught by arrive().)
+ */
+function metOnTheRoad(s: GameState, a: Army, arrivals: Map<string, Arrival[]>): boolean {
+  if (a.retreating || isSea(a.node)) return false;
+  const met = arrivals.get(`${a.node}>${a.from}`)?.find(x => x.army.node === a.from && !x.army.battle && !x.army.retreating && armiesHostile(s, a, x.army));
+  if (!met) return false;
+  const b = met.army;
+  b.node = a.node;
+  b.from = met.from;
+  b.arrivedDay = met.day;
+  b.path = [];
+  a.path = [];
+  joinOrStartBattle(s, a.node, a);
+  return true;
 }
 
 /** The transports carrying an army sail on with it from one sea zone to the next. */
@@ -280,13 +344,14 @@ function convoy(s: GameState, a: Army, from: string, to: string): void {
 }
 
 function arrive(s: GameState, a: Army): void {
+  if (!a.path.length) a.homeward = undefined;
   if (isSea(a.node)) return;
   if (a.retreating) {
     if (!a.path.length) a.retreating = false;
     return;
   }
-  // Enemies here? Fight.
-  const enemies = Object.values(s.armies).filter(o => o.node === a.node && o.id !== a.id && !o.retreating && o.path.length === 0 && armiesHostile(s, a, o));
+  // Enemies here, standing or still marching out? Fight.
+  const enemies = Object.values(s.armies).filter(o => o.node === a.node && o.id !== a.id && !o.retreating && armiesHostile(s, a, o));
   const battleHere = Object.values(s.battles).find(b => b.node === a.node);
   if (enemies.length || (battleHere && battleHasEnemyOf(s, battleHere.id, a))) {
     a.path = [];
@@ -339,39 +404,98 @@ export function dailyEngagements(s: GameState): void {
 
 // ---------------------------------------------------------------- retreat
 
-/** Send a beaten army to the nearest friendly region with no enemies in it. */
-export function retreat(s: GameState, a: Army): void {
-  const q: NodeId[] = [a.node];
-  const seen = new Set(q);
-  let target: NodeId | null = null;
-  while (q.length && !target) {
-    const cur = q.shift()!;
-    for (const e of GRAPH[cur]) {
-      if (seen.has(e.to) || isSea(e.to)) continue;
-      seen.add(e.to);
-      const reg = s.regions[e.to];
-      const safe =
-        a.owner === REBELS
-          ? reg.owner === a.rebelOf
-          : friendlyTo(s, a.owner, reg.controller) && !Object.values(s.armies).some(o => o.node === e.to && armiesHostile(s, a, o));
-      if (safe && !Object.values(s.battles).some(b => b.node === e.to)) {
-        target = e.to;
-        break;
-      }
-      q.push(e.to);
-    }
-  }
+/** Where a beaten army may rest: land its side holds (rebels: their target's land), with no enemy or battle there. */
+function refugeTest(s: GameState, a: Army): (node: NodeId) => boolean {
+  const unsafe = new Set<NodeId>();
+  for (const id in s.armies) if (armiesHostile(s, a, s.armies[id])) unsafe.add(s.armies[id].node);
+  for (const id in s.battles) unsafe.add(s.battles[id].node);
+  return node => {
+    if (isSea(node) || node === a.node || unsafe.has(node)) return false;
+    const reg = s.regions[node];
+    return a.owner === REBELS ? reg.owner === a.rebelOf : friendlyTo(s, a.owner, reg.controller);
+  };
+}
+
+/** The nearest refuge by days on the roads a rout can take, over land only or by sea too. */
+function nearestRefuge(s: GameState, a: Army, safe: (node: NodeId) => boolean, land: boolean): PathResult | null {
+  const tree = pathTree(s, a, { retreat: true, land });
+  let best: NodeId | null = null;
+  for (const [node, d] of tree.dist) if (safe(node) && (best === null || d < tree.dist.get(best)!)) best = node;
+  return best === null ? null : pathFromTree(tree, a.node, best);
+}
+
+/**
+ * Send a beaten army to the nearest safe region by days on the roads a march could take (access and forts don't
+ * stop a rout), so it can always get there: over land if it can, otherwise aboard its own idle transports to the
+ * nearest friendly coast. Returns false if there is no way out; the battle then counts the army as scattered.
+ */
+export function retreat(s: GameState, a: Army): boolean {
   a.battle = undefined;
-  if (!target) {
-    // Nowhere to run: the army scatters.
-    delete s.armies[a.id];
-    return;
-  }
-  const res = findPath(s, a, target, { retreat: true });
+  const safe = refugeTest(s, a);
+  const res = nearestRefuge(s, a, safe, true) ?? nearestRefuge(s, a, safe, false);
+  if (!res) return false;
   a.retreating = true;
-  a.path = res?.path ?? [target];
+  a.homeward = undefined;
+  a.path = res.path;
   a.progress = 0;
   a.edgeDays = 0;
+  return true;
+}
+
+// ---------------------------------------------------------------- home at peace
+
+/**
+ * After a peace between these realms (or one leaving a war): battles between realms no longer at war break off, and
+ * their armies standing in, or marching through, land they may no longer enter march back to their nearest own
+ * region, access ignored on the way out (by sea on their own transports if need be). Armies left at sea with no
+ * orders go home too. An army with no way home disbands into the levies.
+ */
+export function sendHomeAfterPeace(s: GameState, nations: NationId[]): void {
+  for (const b of Object.values(s.battles)) {
+    const [x, y] = b.sides.map(side => side.armies.map(id => s.armies[id]).filter(Boolean));
+    if (!x.length || !y.length || x.some(a => y.some(o => armiesHostile(s, a, o)))) continue;
+    for (const a of [...x, ...y]) a.battle = undefined;
+    delete s.battles[b.id];
+    if ([...x, ...y].some(a => a.owner === s.player)) log(s, 'battle', `The peace ends the battle of ${regionName(b.node)}.`, { node: b.node });
+  }
+  for (const a of Object.values(s.armies)) {
+    if (!nations.includes(a.owner) || a.battle || a.retreating) continue;
+    const barred = (node: NodeId) => !isSea(node) && !canEnter(s, a.owner, node, a.rebelOf);
+    const adrift = isSea(a.node) && !a.path.length;
+    if (adrift || barred(a.node) || a.path.some(barred)) withdraw(s, a);
+  }
+}
+
+/**
+ * Monthly: an army left standing in land it may no longer enter some other way (a war that ended with a realm's
+ * fall, an alliance broken, access lapsed) goes home the same way.
+ */
+export function monthlyStrays(s: GameState): void {
+  for (const a of Object.values(s.armies)) {
+    if (a.owner === REBELS || a.battle || a.retreating || a.path.length || isSea(a.node)) continue;
+    if (!canEnter(s, a.owner, a.node, a.rebelOf)) withdraw(s, a);
+  }
+}
+
+function withdraw(s: GameState, a: Army): void {
+  const tree = pathTree(s, a, { ignoreAccess: true });
+  let home: NodeId | null = null;
+  for (const [node, d] of tree.dist) if (s.regions[node]?.owner === a.owner && (home === null || d < tree.dist.get(home)!)) home = node;
+  const res = home === null ? null : pathFromTree(tree, a.node, home);
+  if (res) {
+    setPath(a, res.path);
+    a.homeward = res.path.length ? home! : undefined;
+    if (a.homeward && a.owner === s.player) log(s, 'war', `The ${a.name} marches home to ${regionName(a.homeward)}.`, { node: a.node });
+    return;
+  }
+  // No way home (an island with no ships to fetch it): the army disbands, and as with any disband half the
+  // levies in it come back.
+  const nat = s.nations[a.owner];
+  const back = Math.round(armyMen(a) * (1 - a.mercs / Math.max(1, armyRegs(a))) * 0.5);
+  nat.manpower += back;
+  if (a.general && !a.general.isRuler) nat.generals.push(a.general);
+  delete s.armies[a.id];
+  if (a.owner === s.player) log(s, 'war', `The ${a.name} has no way home from ${regionName(a.node)} and disbands: ${back.toLocaleString()} men return to the levies.`, { node: a.node, important: true });
 }
 
 // ---------------------------------------------------------------- recruiting, merging, splitting
@@ -389,8 +513,33 @@ export function addRegiments(s: GameState, n: NationId, node: RegionId, add: Par
   }
   const a = makeArmy(s, n, node, add.inf ?? 0, add.cav ?? 0, add.art ?? 0, mercs);
   a.morale = maxMorale(s, n) * 0.5;
+  a.arrivedDay = s.day; // the newest army here, though it marched in from nowhere
   s.armies[a.id] = a;
   return a;
+}
+
+/**
+ * The nearest region `n` owns and holds with no enemy army in it, in steps over land and straits from `from`, or
+ * null if none is in reach.
+ */
+function nearestHeld(s: GameState, n: NationId, from: RegionId): RegionId | null {
+  const enemyAt = new Set<NodeId>();
+  for (const id in s.armies) {
+    const o = s.armies[id];
+    if (hostile(s, n, o.owner, undefined, o.rebelOf)) enemyAt.add(o.node);
+  }
+  const q = [from];
+  const seen = new Set(q);
+  for (let i = 0; i < q.length; i++) {
+    for (const e of GRAPH[q[i]]) {
+      if (seen.has(e.to) || isSea(e.to)) continue;
+      seen.add(e.to);
+      const r = s.regions[e.to];
+      if (r?.owner === n && r.controller === n && !enemyAt.has(e.to)) return e.to;
+      q.push(e.to);
+    }
+  }
+  return null;
 }
 
 export function dailyRecruitment(s: GameState): void {
@@ -399,12 +548,37 @@ export function dailyRecruitment(s: GameState): void {
     const ready = nat.recruiting.filter(r => r.done <= s.day);
     if (!ready.length) continue;
     nat.recruiting = nat.recruiting.filter(r => r.done > s.day);
+    let mustered = 0;
+    let elsewhere = 0;
+    let refunded = 0;
+    let first: RegionId | null = null;
+    let moved: { from: RegionId; to: RegionId } | null = null;
+    let stranded: RegionId | null = null;
     for (const r of ready) {
-      // Recruits only muster in a region you still hold.
-      if (s.regions[r.region].controller !== nat.id) continue;
-      addRegiments(s, nat.id, r.region, { [r.type]: 1 });
+      // Recruits muster where they trained if you still hold it, else in the nearest region you hold; with none in
+      // reach over land, their gold (at today's price) and levies come back.
+      let at: RegionId | null = r.region;
+      if (s.regions[r.region].controller !== nat.id) {
+        at = nearestHeld(s, nat.id, r.region);
+        if (!at) {
+          nat.gold += unitCost(s, nat.id, r.type);
+          nat.manpower += 1000;
+          refunded++;
+          stranded ??= r.region;
+          continue;
+        }
+        elsewhere++;
+        moved ??= { from: r.region, to: at };
+      }
+      addRegiments(s, nat.id, at, { [r.type]: 1 });
+      mustered++;
+      first ??= at;
     }
-    if (nat.id === s.player) log(s, 'war', `${ready.length} new regiment${ready.length > 1 ? 's are' : ' is'} ready.`, { node: ready[0].region });
+    if (nat.id !== s.player) continue;
+    const lines: string[] = [];
+    if (mustered) lines.push(`${mustered} new regiment${mustered > 1 ? 's are' : ' is'} ready${moved ? `, ${elsewhere} at ${regionName(moved.to)} as the enemy holds ${regionName(moved.from)}` : ''}.`);
+    if (stranded) lines.push(`${refunded} could not muster in ${regionName(stranded)}, held by the enemy: gold and levies returned.`);
+    log(s, 'war', lines.join(' '), { node: first ?? ready[0].region });
   }
 }
 

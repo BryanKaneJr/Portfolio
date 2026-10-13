@@ -5,9 +5,9 @@ import { armyMen } from '../src/sim/queries';
 import { STAR_BONUS, newGeneral, starBonus } from '../src/sim/rulers';
 import { edgeDays } from '../src/sim/military';
 import { siegeInfo } from '../src/sim/siege';
-import { GRAPH } from '../src/sim/content';
+import { GRAPH, isSea } from '../src/sim/content';
 import { SAVE_VERSION, migrateSave } from '../src/sim/state';
-import type { General } from '../src/sim/types';
+import type { Army, GameState, General } from '../src/sim/types';
 
 describe('battles', () => {
   test('a 40k stack hitting 8k wipes it out within days', () => {
@@ -90,6 +90,59 @@ describe('battles', () => {
     // Even a 40-regiment stack only fights 10 wide in the mountains: it still wins.
     expect(r.winner).toBe(0);
     expect(armyMen(s.armies[a.id])).toBeGreaterThan(20000);
+  });
+});
+
+describe('retreats', () => {
+  /** A shaken Turkish army landed on Crete (one region, no land route off it) is beaten by Venice. */
+  function islandBattle(transports: number): { s: GameState; tur: Army } {
+    const s = emptyGame('TUR');
+    forceWar(s, 'TUR', 'VEN');
+    const tur = army(s, 'TUR', 'candia', 6);
+    army(s, 'VEN', 'candia', 10);
+    if (transports)
+      s.fleets.f1 = { id: 'f1', name: 'Transports', owner: 'TUR', sea: 'aegean', ships: { galley: 0, transport: transports, warship: 0 }, hull: 1, path: [], progress: 0, edgeDays: 0 };
+    advanceDay(s);
+    tur.morale *= 0.3;
+    declareWar(s, 'TUR', 'VEN', 'none');
+    for (let i = 0; i < 30 && !s.reports.length; i++) advanceDay(s);
+    return { s, tur };
+  }
+
+  test('a beaten island army with transports nearby escapes by sea to a friendly coast', () => {
+    const { s, tur } = islandBattle(2);
+    const r = s.reports[0];
+    expect(r.nations[r.winner]).toContain('VEN');
+    expect(r.wiped).toBe(false);
+    expect(r.scattered).toBeUndefined();
+    expect(s.armies[tur.id]).toBe(tur);
+    expect(tur.retreating).toBe(true);
+    // Every step is a road it can take, out over the sea and into land Turkey holds.
+    let at = tur.node;
+    for (const n of tur.path) {
+      expect(GRAPH[at].some(e => e.to === n)).toBe(true);
+      at = n;
+    }
+    const seas = tur.path.filter(isSea);
+    expect(seas.length).toBeGreaterThan(0);
+    expect(s.regions[at].controller).toBe('TUR');
+    advanceDays(s, 40);
+    expect(tur.node).toBe(at);
+    expect(tur.retreating).toBe(false);
+    expect(s.fleets.f1.sea).toBe(seas[seas.length - 1]); // the transports sailed with it
+  });
+
+  test('with no way out it scatters: the report says so and counts every man', () => {
+    const { s, tur } = islandBattle(0);
+    const r = s.reports[0];
+    const lost = 1 - r.winner;
+    expect(r.nations[lost]).toContain('TUR');
+    expect(r.wiped).toBe(false);
+    expect(r.scattered).toBe(true);
+    expect(s.armies[tur.id]).toBeUndefined();
+    expect(Math.abs(r.losses[lost] - r.startMen[lost])).toBeLessThan(50);
+    expect(r.warScore).toBeGreaterThan(0);
+    expect(s.log.some(l => l.important && l.text.startsWith(`The ${tur.name} has nowhere to retreat from Candia and scatters:`) && / men lost\.$/.test(l.text))).toBe(true);
   });
 });
 
