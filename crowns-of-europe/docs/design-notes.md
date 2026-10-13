@@ -272,10 +272,20 @@ here.
       rules at the average roll, in days each side would hold out) before it moves: it attacks only where it would
       hold out 1.5 times longer; joins up or falls back from an enemy stack that would outlast it twice over; and a
       stack the nearest enemy would outlast three times over gathers with a bigger army instead of walking out
-      alone. It counts only allies that would answer and could reach the fight, picks limited wars, forges claims on
-      weaker neighbours, and lets go after a year of a war neither side can carry to the other. Measured in AI-only
-      games: armies of 10+ regiments with a general 0% → 92–96%, attackers losing 30% → 20% of battles, wars per
-      decade after 1470 4.8 → 5.9.
+      alone. It counts only allies that would answer and could reach the fight, and lets go after a year of a war
+      neither side can carry to the other. A lesser crown with nothing it wants next door forges a claim on a
+      clearly weaker neighbour; a great crown follows its aims, missions, rivals and faith.
+    - Wars that stay in proportion. A crown counts its allies for no more than its own might when it weighs a war
+      (Scotland, on France's back, was taking England's heartland a region a war, and England died in 10 of 16 AI
+      games). An AI war for one border region is a limited war: won by its attackers, it takes that region and gold,
+      nothing more. Only a loser's last region, not its capital, may be taken from afar. A crown rests three years
+      (four or five if it is a trader or defensive) after declaring a war or making peace in one it led; past the
+      Threat at which coalitions form, each 10 Threat asks a tenth more might; and a great crown without a reason
+      for war needs 2.5 times the might (others 1.8).
+    - Measured over 16 AI-only games to 1700, against the same seeds before: armies of 10+ regiments with a general
+      0% → 92–96%; attackers losing 30% → 20% of battles; wars declared per decade after 1470 4.8 → 5.2; realms alive
+      in 1700 25.5 → 26.1; France independent in 15 of 16 (median 22 regions, colonies included, from 16), Austria in
+      12 (median 8, from 6), England in 12 (from 15), the Ottomans in 15 (median 26.5, from 28.5).
     - Losing a war: at 99% leverage the enemy leader stops proposing and sends an ultimatum (`ULTIMATUM_SCORE`),
       never asking more than its leverage buys (`fitTerms`). You have a month (`ULTIMATUM_DAYS`) to make peace or
       push its leverage below 99%; otherwise its terms are imposed. At any time you may offer your own peace instead:
