@@ -137,6 +137,9 @@ export interface FlagDef {
   chargeColor?: string;
   charge2?: string;
   charge2Color?: string;
+  /** No flag or arms of this realm survive from about 1444: drawn for the game from its own symbols (said behind the
+   * nation sheet's "?"). */
+  stylised?: boolean;
 }
 
 export interface NationDef {

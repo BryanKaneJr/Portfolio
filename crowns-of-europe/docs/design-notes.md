@@ -251,8 +251,9 @@ here.
     blue, English red, Castilian gold, Aragonese orange, Portuguese green, Ottoman teal, Austrian white...;
     `tests/map.test.ts` checks the distances). Every flag was redrawn from the realm's arms or banner around 1444
     (England's quartering of France and England, Castile and León, Portugal's quinas in a red bordure, the chains of
-    Navarre, St Mark's lion, the keys of St Peter, the Livonian sword...; stylised and labelled where a people bore no
-    European-style arms), no two alike, with figures drawn for the game as bold silhouettes
+    Navarre, St Mark's lion, the keys of St Peter, the Palaiologoi's cross and firesteels...; stylised where no flag or
+    arms of the realm survive, and said so behind its sheet's "?" (`flag.stylised`)), no two alike and neighbours
+    told apart at banner size, with figures drawn for the game as bold silhouettes
     (`ui/components/charges.ts`); `npm run validate` rejects an unknown pattern or figure, or two identical flags.
 
 ## Key numbers (all in `src/sim/`)

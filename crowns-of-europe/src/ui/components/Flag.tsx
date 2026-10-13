@@ -28,6 +28,10 @@ const smallCross = (x: number, y: number, c: string) => (
     <Rect x={x - 2.2} y={y - 0.7} width={4.4} height={1.4} fill={c} />
   </>
 );
+/** A firesteel (a B-shaped fire striker), its straight back at x, opening away from it (dir 1: right, -1: left). */
+const beta = (x: number, y: number, dir: number, c: string) => (
+  <Path d={`M${x} ${y - 2.3}v4.6h${1.3 * dir}a${1.15} ${1.15} 0 0 ${dir > 0 ? 0 : 1} 0 -2.3a${1.15} ${1.15} 0 0 ${dir > 0 ? 0 : 1} 0 -2.3Z`} fill={c} />
+);
 /** A charge drawn small in one quarter of a quarterly flag (quarters 1-4: top left, top right, bottom left, bottom right). */
 const inQuarter = (q: number, kind: string, color: string) => {
   const cx = q % 2 === 1 ? 7.5 : 22.5;
@@ -86,7 +90,6 @@ function field(f: FlagDef): ReactElement {
           <Path d="M0 15L15 4L30 15L30 20L15 9L0 20Z" fill={b} />
         </>
       );
-    case 'border':
     case 'bordure':
       return (
         <>
@@ -120,6 +123,19 @@ function field(f: FlagDef): ReactElement {
           {smallCross(23.4, 4.1, b)}
           {smallCross(6.6, 15.9, b)}
           {smallCross(23.4, 15.9, b)}
+        </>
+      );
+    case 'crossBetas':
+      // The Palaiologoi's cross between four firesteels (betas), their backs to the cross.
+      return (
+        <>
+          <Rect width={W} height={H} fill={a} />
+          <Rect x={13.2} width={3.6} height={H} fill={b} />
+          <Rect y={8.2} width={W} height={3.6} fill={b} />
+          {beta(10.6, 4.1, -1, b)}
+          {beta(19.4, 4.1, 1, b)}
+          {beta(10.6, 15.9, -1, b)}
+          {beta(19.4, 15.9, 1, b)}
         </>
       );
     case 'nordic':
@@ -239,29 +255,7 @@ function field(f: FlagDef): ReactElement {
           ))}
         </>
       );
-    case 'crescent':
-      return (
-        <>
-          <Rect width={W} height={H} fill={a} />
-          <Path d="M13 4.5a6 6 0 1 0 0 11a5 5 0 1 1 0-11Z" fill={b} />
-          <Polygon points="19,7.5 19.8,9.4 21.8,9.5 20.2,10.7 20.8,12.6 19,11.5 17.2,12.6 17.8,10.7 16.2,9.5 18.2,9.4" fill={b} />
-        </>
-      );
-    case 'star':
-      return (
-        <>
-          <Rect width={W} height={H} fill={a} />
-          <Charge kind="star" color={b} />
-        </>
-      );
-    case 'harp':
-      return (
-        <>
-          <Rect width={W} height={H} fill={a} />
-          <Charge kind="harp" color={b} />
-        </>
-      );
-    default: // 'plain', and 'charge' (a plain field with its charge)
+    default: // 'plain'
       return <Rect width={W} height={H} fill={a} />;
   }
 }

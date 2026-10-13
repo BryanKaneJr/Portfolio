@@ -67,7 +67,7 @@ export function NationSheet({ id }: { id: string }) {
       subtitle={`${GOV[def.gov]} · ${def.faith === 'native' ? 'Native beliefs' : def.faith[0].toUpperCase() + def.faith.slice(1)} · ${PERS[def.personality]}${n.overlord ? ` · Subject of ${nationName(n.overlord)}` : ''}`}
       left={<Shield nation={id} size={30} />}
       onClose={() => st.select(null)}
-      help={`Tap Opinion for what makes it up.${def.native ? ' A New World people makes no treaties and fields weaker armies.' : ''} Army vs yours compares the strength of their regiments with yours.`}
+      help={`Tap Opinion for what makes it up.${def.native ? ' A New World people makes no treaties and fields weaker armies.' : ''} Army vs yours compares the strength of their regiments with yours.${def.flag.stylised ? ' Their banner is a stylisation: no flag or arms of theirs survive from this time, so it is drawn from their own symbols.' : ''}`}
     >
       <Row gap={6} style={{ marginBottom: 6, flexWrap: 'wrap' }}>
         {def.native ? <Pill text="New World people" color={C.parchment2} /> : null}
