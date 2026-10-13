@@ -257,8 +257,8 @@ here.
     (`ui/components/charges.ts`); `npm run validate` rejects an unknown pattern or figure, or two identical flags.
 
 27. **Armies, wars and peace without holes (on request).** An audit of how armies move and fight and how wars end
-    found armies vanishing, slipping past each other and left stranded, and an AI that seldom used generals, misjudged
-    attacks and stopped making war after about 1470. Fixed:
+    found armies vanishing, slipping past each other and left stranded, and an AI that seldom used generals and
+    misjudged attacks. Fixed:
     - Nothing vanishes without a word. A beaten army retreats by land or on its own transports; if it has no way
       out it scatters, its men counted as losses and the report saying so. A retreat whose road closes stands down;
       every next step of a march is checked again (a strait closed, transports gone, access ended) and stops with a
@@ -268,7 +268,8 @@ here.
       the battle is pitched and nobody suffers that.
     - At peace, armies in land they may no longer enter march home, access ignored on the way out
       (`sendHomeAfterPeace`); once a month any other stray does the same (`monthlyStrays`).
-    - The AI puts generals in the field (`aiGenerals`), and asks a battle forecast (`forecast.ts`: battle.ts's own
+    - The AI puts generals in the field (`aiGenerals`; a skilled ruler with an heir leads its largest army of 8+
+      in person, and a new ruler takes the old one's place), and asks a battle forecast (`forecast.ts`: battle.ts's own
       rules at the average roll, in days each side would hold out) before it moves: it attacks only where it would
       hold out 1.5 times longer; joins up or falls back from an enemy stack that would outlast it twice over; and a
       stack the nearest enemy would outlast three times over gathers with a bigger army instead of walking out
@@ -282,13 +283,18 @@ here.
       (four or five if it is a trader or defensive) after declaring a war or making peace in one it led; past the
       Threat at which coalitions form, each 10 Threat asks a tenth more might; and a great crown without a reason
       for war needs 2.5 times the might (others 1.8).
+    - The AI never marches down a road through an enemy stack it would not clearly beat, its forecast counts the
+      enemy armies marching out of a region as well as those standing in it (a battle there catches both), and
+      recruits never muster beside an enemy army (they go to the nearest region with none, or come back as gold).
     - Measured over 16 AI-only games to 1700, against the same seeds before: armies of 10+ regiments with a general
-      0% → 92–96%; attackers losing 30% → 20% of battles; wars declared per decade after 1470 4.8 → 5.2; realms alive
-      in 1700 25.5 → 26.1; France independent in 15 of 16 (median 22 regions, colonies included, from 16), Austria in
-      12 (median 8, from 6), England in 12 (from 15), the Ottomans in 15 (median 26.5, from 28.5).
+      0% → 90–100%; the attackers in battles an AI army marched into on purpose lose 12–17%; wars declared per decade
+      after 1470 unchanged at 4.8; realms alive in 1700 25.5 → 27.3; England independent in 14 of 16 (from 15), Austria 11
+      (from 12), France 11 (from 14: four of the others in a personal union, keeping 14–19 regions), Burgundy 15
+      (from 12), the Ottomans in all 16 (median 20 regions, from 28.5).
     - Losing a war: at 99% leverage the enemy leader stops proposing and sends an ultimatum (`ULTIMATUM_SCORE`),
       never asking more than its leverage buys (`fitTerms`). You have a month (`ULTIMATUM_DAYS`) to make peace or
-      push its leverage below 99%; otherwise its terms are imposed. At any time you may offer your own peace instead:
+      push its leverage below 99%; otherwise its terms are imposed. Its terms are shown, signed and imposed as they
+      stand that day (land still theirs to take, no more gold than you have). At any time you may offer your own peace instead:
       any of your regions or gold. Land the enemy claims, wants, holds or borders (or the war goal) is worth its full
       price to them, far-off land half (`concessionValue`); they accept when the offer covers their leverage, and
       an offer that gives everything their ultimatum asks always does.
