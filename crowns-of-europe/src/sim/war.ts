@@ -501,6 +501,8 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
     }
   }
   for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + years(TRUCE_YEARS);
+  // Its leaders rest before the next war (the AI's war cooldown counts from here as well as from a declaration).
+  for (const n of [w.attackers[0], w.defenders[0]]) if (s.nations[n]) s.nations[n].ai.lastPeace = s.day;
   delete s.wars[w.id];
   // Proposals and an ultimatum still waiting in this war end with it.
   s.offers = s.offers.filter(o => o.kind !== 'peace' || o.war !== w.id);

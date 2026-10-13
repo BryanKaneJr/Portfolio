@@ -578,7 +578,7 @@ export interface Nation {
   lastMonthIncome: number;
   lastMonthExpenses: number;
   record: { battlesWon: number; battlesLost: number; warsWon: number; warsLost: number; stackWipes: number; bestRatio: number; regionsTaken: number };
-  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number };
+  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number };
 }
 
 export interface Coalition {

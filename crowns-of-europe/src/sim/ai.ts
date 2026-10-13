@@ -52,7 +52,7 @@ import {
 } from './economy';
 import { acceptance, canRival, doDiplomacy, opinion } from './diplomacy';
 import { ULTIMATUM_SCORE, buildDemands, casusBelli, declareWar, fitTerms, imperialDefenders, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, sendUltimatum, canDeclareWar } from './war';
-import { coalitionWarCheck, proximity } from './threat';
+import { COALITION_JOIN, coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
 import { minSiegeRegs } from './siege';
 import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy';
@@ -540,7 +540,9 @@ function aiWar(s: GameState, nat: Nation): void {
   const n = nat.id;
   if (atWar(s, n) || nat.overlord) return;
   const pers = NATION[n].personality;
-  if (nat.ai.lastWarDeclared && s.day - nat.ai.lastWarDeclared < years(WAR_COOLDOWN[pers] ?? 3)) return;
+  // A crown rests between wars: so many years after it last declared one, or made peace in one it led.
+  const lastWar = Math.max(nat.ai.lastWarDeclared ?? -Infinity, nat.ai.lastPeace ?? -Infinity);
+  if (s.day - lastWar < years(WAR_COOLDOWN[pers] ?? 3)) return;
   if (nat.stability < 0 || nat.warExhaustion > 5 || nat.loans > 3) return;
   const aggression = s.settings.difficulty === 'hard' ? 0.85 : s.settings.difficulty === 'easy' ? 1.2 : 1;
   const evalChance = pers === 'expansionist' ? 0.3 : pers === 'opportunist' ? 0.2 : 0.1;
@@ -570,7 +572,8 @@ function aiWar(s: GameState, nat: Nation): void {
     // A war for one border region (the claim, or the land it wants most) is a limited one.
     const goal = cb.goal ?? wants.find(r => bordersOwn(s, n, r));
     const limited = !!goal && bordersOwn(s, n, goal);
-    let need = REQUIRED_RATIO[pers] * aggression;
+    // A feared crown holds back: past the Threat at which coalitions form, each 10 more asks a tenth more might.
+    let need = REQUIRED_RATIO[pers] * aggression * (1 + Math.max(0, nat.threat - COALITION_JOIN) / 100);
     if (cb.cb === 'none') need *= 1.8;
     if (limited) need = Math.max(LIMITED_WAR_FLOOR, need * LIMITED_WAR);
     else if (desire) need *= 0.85;
