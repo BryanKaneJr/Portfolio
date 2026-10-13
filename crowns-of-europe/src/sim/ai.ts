@@ -532,8 +532,8 @@ export function sideStrength(s: GameState, nations: NationId[], leader?: NationI
   }, 0);
 }
 
-/** Years a crown lets pass after declaring a war before it declares another: the ambitious sooner. */
-const WAR_COOLDOWN: Record<string, number> = { expansionist: 2, opportunist: 3, trader: 4, defensive: 5 };
+/** Years a crown lets pass after declaring a war (or making peace in one it led) before it declares another. */
+const WAR_COOLDOWN: Record<string, number> = { expansionist: 3, opportunist: 3, trader: 4, defensive: 5 };
 /** A limited war, for one region on the border (a claim, a lost core, land it wants), needs this much less might
  * (nobody fights to the last man over one region), but still a clear edge: a war at even odds is lost half the time. */
 const LIMITED_WAR = 0.75;
@@ -577,7 +577,8 @@ function aiWar(s: GameState, nat: Nation): void {
     const limited = !!goal && bordersOwn(s, n, goal);
     // A feared crown holds back: past the Threat at which coalitions form, each 10 more asks a tenth more might.
     let need = REQUIRED_RATIO[pers] * aggression * (1 + Math.max(0, nat.threat - COALITION_JOIN) / 100);
-    if (cb.cb === 'none') need *= 1.8;
+    // Without a reason for war it takes far more might; a great crown, whose every move the others watch, more still.
+    if (cb.cb === 'none') need *= NATION[n].tier === 'major' ? 2.5 : 1.8;
     if (limited) need = Math.max(LIMITED_WAR_FLOOR, need * LIMITED_WAR);
     else if (desire) need *= 0.85;
     if (t === s.player && s.settings.difficulty === 'easy') need *= 1.3;
