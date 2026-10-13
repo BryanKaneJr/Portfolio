@@ -116,8 +116,9 @@ native deps). Reanimated 4 shared values use `.get()`/`.set()` (the React Compil
 The map is Mercator, 2575 × 2242 units (17.4 units per degree of longitude; Europe is the top-right corner).
 `MapView` keeps a camera `{cx, cy, k}` in React state. During a gesture the last rendered SVG is moved with a
 native transform (Reanimated); on release the SVG re-renders at the new camera (crisp at any zoom). The SVG is
-rendered 1.6× the screen size so short pans never show an edge. Units are little figures standing on a base in the
-owner's colour under the realm's banner (its flag, `flagBody`, on a pole), the count on a badge beside it: an army is
+rendered 1.6× the screen size so short pans never show an edge. Units are little figures standing in their own shadow
+(baked from each drawing by `npm run units:build`) under the realm's banner (its flag, `flagBody`, on a pole), the
+count on a badge beside it (gold-rimmed for your own): an army is
 one of the owner's drawings (`art/troops`: a lone soldier for a small army, a squad of four or five for bigger ones,
 `troopArt`), a fleet one of their ships (`art/ships`: a lone ship, or several from 5 ships, `shipArt`). Forts are
 a tower (level 1) or a castle just before the region's name; all drawn in one SVG on top. Taps on a unit are
