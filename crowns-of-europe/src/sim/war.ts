@@ -103,15 +103,25 @@ export function imperialDefenders(s: GameState, a: NationId, b: NationId): Natio
   );
 }
 
+/**
+ * Who would likely fight on each side if `a` attacked `b`: both leaders' subjects, the coalition against `a` and the
+ * Empire's defenders, and the allies who would answer the call (as `aiAnswersCall` decides; the player's answer
+ * can't be known, so a player ally counts), with their subjects.
+ */
 export function likelySides(s: GameState, a: NationId, b: NationId): { attackers: NationId[]; defenders: NationId[] } {
   const attackers = [a, ...subjectsOf(s, a)];
   const defenders = [b, ...subjectsOf(s, b)];
-  // A truce binds: allies under truce with the other side stay out.
-  for (const al of alliesOf(s, b)) if (!attackers.includes(al) && !allied(s, al, a) && !hasTruce(s, al, a)) defenders.push(al);
+  const join = (side: NationId[], n: NationId) => {
+    for (const x of [n, ...subjectsOf(s, n)]) if (!attackers.includes(x) && !defenders.includes(x)) side.push(x);
+  };
+  // A truce binds: allies under truce with the other side stay out. Subjects come with their overlord, not as allies.
+  const answers = (al: NationId, leader: NationId, enemy: NationId, defensive: boolean) =>
+    !s.nations[al]?.overlord && !hasTruce(s, al, enemy) && ((defensive && al === s.player) || aiAnswersCall(s, al, leader, enemy, defensive));
+  for (const al of alliesOf(s, b)) if (!attackers.includes(al) && !allied(s, al, a) && answers(al, b, a, true)) join(defenders, al);
   const c = coalitionAgainst(s, a);
   if (c?.members.includes(b)) for (const m of c.members) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
   for (const m of imperialDefenders(s, a, b)) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
-  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && !hasTruce(s, al, b) && aiAnswersCall(s, al, a, b, false)) attackers.push(al);
+  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && answers(al, a, b, false)) join(attackers, al);
   return { attackers, defenders };
 }
 
@@ -478,7 +488,12 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
   if (newsworthy(s, n) || [...w.attackers, ...w.defenders].includes(s.player)) log(s, 'peace', `${nationName(n)} makes a separate peace and leaves the ${w.name}.`, { important: involvesPlayer(s, n) });
 }
 
-/** AI winners build terms within the war score they have. */
+/**
+ * AI winners build terms within the war score they have: the war goal, claims and land they want first, then land
+ * next to their own (or the loser's capital or last region, wherever it lies), then gold. A great crown down to its
+ * heartland (four regions or fewer) gives up one region a peace. With nothing of that in reach, a small realm (never
+ * the Emperor or a great crown) is made a vassal if the leverage covers it.
+ */
 export function buildDemands(s: GameState, w: War, winner: NationId, budget: number): PeaceTerms {
   const winSide = sideOf(w, winner)!;
   const loser = winSide === 0 ? w.defenders[0] : w.attackers[0];
@@ -496,14 +511,22 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   let left = budget;
   for (const c of candidates) {
     if (c.cost > left) continue;
-    // Prefer regions that touch what the winner holds (or will hold).
+    // Prefer regions that touch what the winner holds (or will hold). The loser's capital or last region may lie
+    // anywhere: without it, a war against a far-off realm could never end.
     const touches = REGION[c.r] && (winnerRegions.size === 0 || [...winnerRegions, ...terms.regions].some(x => x === c.r || isNeighbor(c.r, x)));
-    if (!touches && c.r !== w.goal && !wanted.has(c.r)) continue;
+    const owner = s.regions[c.r].owner!;
+    const heart = owner === loser && (s.nations[loser].capital === c.r || ownedRegions(s, loser).length === 1);
+    if (!touches && c.r !== w.goal && !wanted.has(c.r) && !heart) continue;
+    // A great crown down to its heartland gives up one region a peace.
+    if (NATION[owner]?.tier === 'major' && ownedRegions(s, owner).length <= 4 && terms.regions.some(x => s.regions[x].owner === owner)) continue;
     terms.regions.push(c.r);
     left -= c.cost;
     if (terms.regions.length >= 4) break;
   }
   if (left >= 10 && s.nations[loser].gold > 50) terms.gold = Math.min(Math.floor(left / 2) * 10, Math.floor(s.nations[loser].gold / 2));
+  const mayVassalize =
+    !terms.regions.length && !terms.gold && loser !== s.player && NATION[loser]?.tier !== 'major' && !isNativeNation(loser) && !s.nations[loser]?.overlord && !s.nations[winner].overlord && s.hre.emperor !== loser;
+  if (mayVassalize && peaceCost(s, { ...terms, vassalize: true }) <= budget) terms.vassalize = true;
   return terms;
 }
 
