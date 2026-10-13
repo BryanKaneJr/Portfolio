@@ -36,6 +36,9 @@ export interface Camera {
 }
 const OVER = 1.6; // render this much beyond the screen so short pans never show an empty edge
 const SETTLE = { duration: 320, easing: Easing.out(Easing.cubic) };
+// A TERRAIN_RIVERS width (points) from which a river is one of the great ones (Danube, Rhine, Po, Vistula...): darker
+// ink at every zoom. The same line as SMOOTH_FROM in scripts/terrain/vectors.py.
+const GREAT_RIVER = 1;
 
 export function MapView() {
   const st = useStore();
@@ -401,8 +404,11 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   // The shore band too: far out only a thin, even line of darker water (no wide band to ring every small island).
   const shoreEase = 0.45 + 0.55 * Math.max(0, Math.min(1, (k - 0.4) / 0.8));
   const shoreWide = Math.max(0, Math.min(1, (k - 0.8) / 0.4));
-  // Far out the rivers fade a little, so they never read as a second set of borders.
-  const riverFade = 0.6 + 0.4 * Math.max(0, Math.min(1, (k - 0.5) / 0.7));
+  // Far out the minor rivers fade, so they never read as a second set of borders; the great ones only a little, so the
+  // Danube, Rhine and Vistula still show over the whole of Europe.
+  const riverEase = Math.max(0, Math.min(1, (k - 0.5) / 0.7));
+  const riverFade = 0.6 + 0.4 * riverEase;
+  const greatFade = 0.85 + 0.15 * riverEase;
   // Fine province lines fade out as you zoom out, leaving the borders between crowns.
   const provinceAlpha = Math.max(0, Math.min(1, (k - 0.32) / 0.45));
   // Water lines fade in as you zoom in (further out they would crowd into a blur).
@@ -425,19 +431,24 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const terrainTiles = terrainOn ? tilesToDraw(TERRAIN_LEVELS, k, dpr, screen, { x0: vx, y0: vy, x1: vx + vw, y1: vy + vh }) : [];
   // Neighbouring tiles overlap by a hair (0.6 points) so no seam of the layer below shows between them.
   const seam = px(0.6);
-  const riverPaths = new Map<number, string>();
+  const riverPaths = new Map<string, { wd: number; great: boolean; d: string }>();
   const lakePaths: string[] = [];
   if (terrainOn) {
     const z = webZoom(k, MAP_W / (MAP.projection.east - MAP.projection.west));
     // Rivers thicken a little as you zoom in, up to about play zoom; closer in they stay put so they don't crowd. The
     // great rivers are capped by zoom, so far out and at play zoom they never outweigh the borders between realms (they
-    // reach their full width only close up).
+    // reach their full width only close up). Their ink comes from their rank, not their capped width, so far out they
+    // stay the darker line and the minor ones the lighter.
     const widen = 0.75 + 0.14 * Math.max(0, Math.min(2, z - 4));
-    const cap = k <= 1.7 ? 0.6 + 0.55 * Math.max(0, (k - 0.45) / 1.25) : Math.min(1.6, 1.15 + 0.45 * ((k - 1.7) / 1.5));
+    const cap = k <= 1.7 ? 0.9 + 0.25 * Math.max(0, (k - 0.45) / 1.25) : Math.min(1.6, 1.15 + 0.45 * ((k - 1.7) / 1.5));
     for (const r of TERRAIN_RIVERS) {
       if (r.z > z + 0.7 || !visible(r.b)) continue;
       const wd = Math.round(Math.min(r.w, cap) * widen * 100) / 100;
-      riverPaths.set(wd, (riverPaths.get(wd) ?? '') + r.d);
+      const great = r.w >= GREAT_RIVER;
+      const key = `${great ? 'g' : 'm'}${wd}`;
+      const run = riverPaths.get(key);
+      if (run) run.d += r.d;
+      else riverPaths.set(key, { wd, great, d: r.d });
     }
     for (const l of TERRAIN_LAKES) if (l.z <= z + 1.2 && visible(l.b)) lakePaths.push(l.d);
   }
@@ -593,8 +604,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         : null}
       {/* Rivers and lake shores over the illustrated terrain (scripts/terrain/vectors.py), crisp at any zoom */}
       {lakePaths.length ? <Path d={lakePaths.join('')} fill={tr!.lakeFill} fillRule="evenodd" stroke={tr!.lake} strokeWidth={px(0.55)} strokeLinejoin="round" /> : null}
-      {[...riverPaths].map(([wd, d]) => (
-        <Path key={`rv${wd}`} d={d} fill="none" stroke={wd < 0.8 ? tr!.riverMinor : tr!.river} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" opacity={riverFade} />
+      {[...riverPaths].map(([key, { wd, great, d }]) => (
+        <Path key={`rv${key}`} d={d} fill="none" stroke={great ? tr!.river : tr!.riverMinor} strokeWidth={px(wd)} strokeLinecap="round" strokeLinejoin="round" opacity={great ? greatFade : riverFade} />
       ))}
       {/* The unknown, as blank parchment, with the known world's shadow falling on it */}
       {pt ? (

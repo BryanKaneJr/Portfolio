@@ -3,8 +3,9 @@
  * like best: the known world lies on blank parchment (everything past the edges, the deep wastes and the waters no
  * fleet sails), casting a soft shadow onto it; muted colours with the hills and a painted grain showing through;
  * a dark slate sea; quiet borders; and big pale names that curve along each country, spaced out to fill a long
- * thin one. Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw. Painted, the
- * default, lays the realms' colours over the owner's painting of the world.
+ * thin one. Illustrated, the default, is Atlas over an illustrated atlas of the real terrain where its tiles exist
+ * (scripts/terrain). Parchment is an old hand-coloured map; Flat is a clean modern one and the lightest to draw.
+ * Painted lays the realms' colours over the owner's painting of the world.
  */
 import { Platform } from 'react-native';
 import { mix } from './colors';
