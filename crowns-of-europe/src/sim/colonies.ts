@@ -139,6 +139,9 @@ export function colonistSources(s: GameState, n: NationId): ColonistPart[] {
 /** Development of a nation's Old World land (colonies don't make a realm great at home). */
 export const homeDev = (s: GameState, n: NationId) => ownedRegions(s, n).reduce((t, r) => t + (REGION[r.id].nw ? 0 : r.dev), 0);
 export const colonistsOf = (s: GameState, n: NationId) => colonistSources(s, n).reduce((t, p) => t + p.value, 0);
+/** Does colonizing concern `n` at all: colonists, colonies or New World land, or an ocean coast and Caravels? */
+export const colonialCrown = (s: GameState, n: NationId) =>
+  colonistsOf(s, n) > 0 || coloniesOf(s, n).length > 0 || newWorldRegions(s, n).length > 0 || (hasOceanCoast(s, n) && unlocked(s, n, 'coastColonies'));
 /** A nation's colonies being settled. */
 export const coloniesOf = (s: GameState, n: NationId): Region[] => Object.values(s.regions).filter(r => r.colony?.by === n);
 /** A nation's founded New World regions its colonists are growing (one lost in a peace frees its colonist at once). */
@@ -146,7 +149,7 @@ export const growingOf = (s: GameState, n: NationId): Region[] => Object.values(
 /** Colonists with nothing to do: neither settling a colony nor growing one. */
 export const freeColonists = (s: GameState, n: NationId) => colonistsOf(s, n) - coloniesOf(s, n).length - growingOf(s, n).length;
 
-const busyReason = (s: GameState, n: NationId) => (colonistsOf(s, n) ? 'All your colonists are busy.' : 'You have no colonists yet (see the Colonies tab of the Realm menu).');
+const busyReason = (s: GameState, n: NationId) => (colonistsOf(s, n) ? 'All your colonists are busy.' : `You have no colonists yet (${advanceFor('oceanColonies').name} gives one).`);
 const nextToOwn = (s: GameState, n: NationId, r: RegionId) => GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);
 
 /** Why `n` can't start a colony in region `r` (null if it can). */
@@ -173,6 +176,7 @@ export function startColony(s: GameState, n: NationId, r: RegionId, policy: Nati
   const reg = s.regions[r];
   s.nations[n].gold -= COLONY_COST;
   reg.colony = { by: n, settlers: 0, started: s.day, policy: reg.natives > 0 ? policy : 'force', natives0: reg.natives };
+  reg.lastRaid = undefined; // (a raid on an earlier colony here is not this one's)
   markMapDirty();
   return null;
 }
@@ -328,10 +332,22 @@ const troopsThere = (s: GameState, r: Region) => Object.values(s.armies).some(a 
 export const guardOf = (s: GameState, r: Region): ColonyGuard => (troopsThere(s, r) ? 'troops' : r.colony?.guard ? 'paid' : null);
 const fmtK = (k: number) => `${Math.round(k * 10) / 10}k`;
 
-/** Prosperity a colony in region `id` would start with if founded today, its natives treated by `policy`. */
-export function foundingDev(s: GameState, id: RegionId, policy: NativePolicy, natives0 = s.regions[id]?.natives ?? 0): number {
-  const natives = s.regions[id]?.natives ?? 0;
+/** Prosperity a colony in region `id` starts with when founded: natives who traded join as they were at the start
+ * (`natives0`), those whose land was taken as they are by then (`natives`). */
+export function foundingDev(s: GameState, id: RegionId, policy: NativePolicy, natives0 = s.regions[id]?.natives ?? 0, natives = s.regions[id]?.natives ?? 0): number {
   return Math.min(10, REGION[id].dev + (policy === 'trade' ? Math.floor(natives0 / 2) : Math.floor(natives / 3)));
+}
+
+/** Natives lost each month where settlers take the land (disease and settlers push them back). */
+export const NATIVE_DECLINE = 0.02;
+
+/** The prosperity a colony `n` starts in region `id` today would have when founded: taking the land, the natives
+ * dwindle by NATIVE_DECLINE a month until then (and a guard pushes them back faster still). */
+export function expectedFoundingDev(s: GameState, n: NationId, id: RegionId, policy: NativePolicy): number {
+  const natives = s.regions[id]?.natives ?? 0;
+  if (policy === 'trade') return foundingDev(s, id, 'trade', natives, natives);
+  const pace = Math.max(1, settlerGrowthFor(s, n, id, 'force').reduce((t, x) => t + x.value, 0));
+  return foundingDev(s, id, 'force', natives, Math.max(0, natives - NATIVE_DECLINE * (SETTLERS_NEEDED / pace)));
 }
 
 // ---------------------------------------------------------------- where to settle
@@ -347,7 +363,9 @@ export interface ColonySite {
   /** Years to found the colony at that pace. */
   years: Record<NativePolicy, number>;
   good: Good | null;
-  /** Prosperity at founding, taking the land by force with the natives there today. */
+  /** The quicker way to settle it (the pace, prosperity and exports shown are for this one). */
+  best: NativePolicy;
+  /** Prosperity at founding, settled the quicker way (expectedFoundingDev). */
   dev: number;
   /** Exports a month at that prosperity (as goodsIncome would pay). */
   value: number;
@@ -368,7 +386,8 @@ export function colonySites(s: GameState, n: NationId): ColonySite[] {
     const pace = (p: NativePolicy) => Math.max(1, settlerGrowthFor(s, n, r.id, p).reduce((t, x) => t + x.value, 0));
     const perMonth = { force: pace('force'), trade: pace('trade') };
     const yearsTo = (p: NativePolicy) => Math.round((SETTLERS_NEEDED / perMonth[p] / 12) * 10) / 10;
-    const dev = foundingDev(s, r.id, 'force');
+    const best: NativePolicy = r.natives > 0 && perMonth.trade > perMonth.force ? 'trade' : 'force';
+    const dev = expectedFoundingDev(s, n, r.id, best);
     const value = def.good ? exportValue(s, n, def.good, dev) : 0;
     const site: ColonySite = {
       id: r.id,
@@ -378,12 +397,13 @@ export function colonySites(s: GameState, n: NationId): ColonySite[] {
       perMonth,
       years: { force: yearsTo('force'), trade: yearsTo('trade') },
       good: def.good ?? null,
+      best,
       dev,
       value,
       risk: attackLinesFor(s, r.id, 'force', null).reduce((t, x) => t + x.value, 0),
     };
     // Exports a month per year of waiting (plus a little for any land at all).
-    out.push({ ...site, worth: (value + 0.1) / (Math.min(site.years.force, site.years.trade) + 5) });
+    out.push({ ...site, worth: (value + 0.1) / (site.years[best] + 5) });
   }
   out.sort((a, b) => (a.blocked ? 1 : 0) - (b.blocked ? 1 : 0) || b.worth - a.worth || (a.id < b.id ? -1 : 1));
   return out.map(({ worth: _worth, ...site }) => site);
@@ -413,7 +433,7 @@ export function monthlyColonies(s: GameState): void {
     if (raidColony(s, r)) continue;
     const force = (c.policy ?? 'force') === 'force';
     // Disease and settlers push the natives back (trading partners stay).
-    if (force && r.natives > 0) r.natives = Math.max(0, r.natives - 0.02);
+    if (force && r.natives > 0) r.natives = Math.max(0, r.natives - NATIVE_DECLINE);
     if (chance(s, attackChance(s, r))) {
       const loss = Math.round(50 + r.natives * 25);
       c.settlers -= loss;
@@ -429,6 +449,18 @@ export function monthlyColonies(s: GameState): void {
     }
     c.settlers += monthlySettlers(s, r);
     if (c.settlers >= SETTLERS_NEEDED) foundColony(s, r);
+  }
+
+  // Colonists lost (a charter or a modifier ran out, the realm at home shrank): the newest colony being grown
+  // calls its colonist back first; colonies being settled are left to finish.
+  const grown = new Map<NationId, Region[]>();
+  for (const r of Object.values(s.regions)) if (r.growing) grown.set(r.growing.by, [...(grown.get(r.growing.by) ?? []), r]);
+  for (const [n, rs] of grown) {
+    for (const r of rs.sort((a, b) => b.growing!.started - a.growing!.started)) {
+      if (freeColonists(s, n) >= 0) break;
+      r.growing = undefined;
+      if (n === s.player) log(s, 'colony', `You have fewer colonists now: the settlers bound for ${regionName(r.id)} stay home.`, { node: r.id });
+    }
   }
 
   // Colonists grow founded regions.

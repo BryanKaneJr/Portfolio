@@ -5,7 +5,7 @@ import { router } from 'expo-router';
 import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, nationName, regionName } from '../../sim/content';
 import { choosePolicy, GENERAL_COST, hireGeneral, repayLoan, boostStability, playerCompleteMission } from '../../sim/commands';
 import { ledger, stabilityCost } from '../../sim/economy';
-import { availableAdvances, policySlots, unlocked } from '../../sim/science';
+import { availableAdvances, policySlots } from '../../sim/science';
 import { etaDays } from '../../sim/military';
 import { missionState, missionsFor } from '../../sim/missions';
 import { evalCondition } from '../../sim/events';
@@ -41,7 +41,7 @@ import { GeneralRow } from './UnitSheets';
 import { GLYPH_CREDIT } from '../components/gameIcons';
 import { STAR_BONUS } from '../../sim/rulers';
 import { ScienceTab } from './Science';
-import { colonistsOf, coloniesOf, hasOceanCoast, newWorldRegions } from '../../sim/colonies';
+import { colonialCrown } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
 import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
@@ -58,7 +58,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
   const missionsReady = missionsFor(s.player).filter(m => missionState(s, s.player, m) === 'ready').length;
   const p = s.player;
   // Colonies only matter to crowns that can settle somewhere, or already do.
-  const colonial = colonistsOf(s, p) > 0 || coloniesOf(s, p).length > 0 || newWorldRegions(s, p).length > 0 || (hasOceanCoast(s, p) && unlocked(s, p, 'coastColonies'));
+  const colonial = colonialCrown(s, p);
   const tabs: { key: MenuTab; label: string; badge?: number }[] = [
     { key: 'military', label: 'Army' },
     { key: 'diplomacy', label: 'Diplomacy' },

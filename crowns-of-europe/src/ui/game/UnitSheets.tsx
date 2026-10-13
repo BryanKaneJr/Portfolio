@@ -5,7 +5,7 @@ import { ERA, REGION, SEA, UNITS, nationName, regionName } from '../../sim/conte
 import { assignGeneral, disband, GENERAL_COST, hireGeneral, mergeAt, split, splitHalf, stopArmy } from '../../sim/commands';
 import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
 import { fleetPower, shipCount, transportCapacity } from '../../sim/navy';
-import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, seesUnit } from '../../sim/queries';
+import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, hostile, seesUnit } from '../../sim/queries';
 import { battlePhase, battleSides } from '../../sim/battle';
 import { COLONY_HOLD_DAYS, CONTROL_DAYS, minSiegeRegs, siegeInfo } from '../../sim/siege';
 import type { Army, UnitType } from '../../sim/types';
@@ -16,7 +16,7 @@ import { Bar, Btn, Empty, Line, Row, Section, Stars, Stat, T } from '../componen
 import { C, G, fmt, kmen, sans } from '../theme';
 import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
-import { charted } from '../../sim/colonies';
+import { RAID_MAX, RAID_PER_REG, charted } from '../../sim/colonies';
 import { STAR_BONUS, rulerAsGeneral } from '../../sim/rulers';
 import { UnchartedSheet } from './ColonySheets';
 
@@ -140,7 +140,13 @@ export function ArmySheet({ id }: { id: string }) {
           <Line label={friendlyRegs > supply ? 'Over the limit: losing men' : `Supply in ${regionName(a.node)}`} value={`${friendlyRegs} / ${supply}`} tone={friendlyRegs > supply ? 'bad' : 'good'} />
         </Section>
       ) : null}
-      {reg && reg.owner !== a.owner && reg.controller !== a.owner ? (
+      {reg?.colony && a.owner !== REBELS && reg.colony.by !== a.owner && hostile(s, a.owner, reg.colony.by) ? (
+        <Section title="Raid" help={`Standing in a colony being settled by an enemy, each regiment kills ${RAID_PER_REG} settlers a month (${RAID_MAX} at most) unless troops of theirs, or of their friends, are here. At none left, the colony is lost. Land nobody holds can't be besieged.`}>
+          <Line label={`${nationName(reg.colony.by)}’s settlers`} value={`${Math.max(0, Math.round(reg.colony.settlers))} left`} />
+          <Line label="Killed a month" value={`${Math.min(RAID_MAX, RAID_PER_REG * armyRegs(a))}`} tone={a.owner === s.player ? "good" : "bad"} />
+        </Section>
+      ) : null}
+      {reg && reg.owner && reg.owner !== a.owner && reg.controller !== a.owner ? (
         <Section title="Siege" help={`A fort needs 3 regiments per level to besiege; land without one falls in ${CONTROL_DAYS} days (a colony across the ocean holds out for ${COLONY_HOLD_DAYS}). Artillery (+10% each) and a general’s stars speed a siege up.`}>
           {siege?.enough ? (
             <>

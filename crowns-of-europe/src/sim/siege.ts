@@ -5,7 +5,7 @@
  */
 import { REGION, isNativeNation, nationName, regionName } from './content';
 import { log, requestPause } from './log';
-import { REBELS, armyRegs, controllerHostile, friendlyTo, nationMods } from './queries';
+import { REBELS, armyRegs, controllerHostile, friendlyTo, hostile, nationMods } from './queries';
 import { starBonus } from './rulers';
 import { setController } from './territory';
 import type { Army, GameState, NationId, RegionId } from './types';
@@ -92,8 +92,9 @@ export function controlDays(s: GameState, r: RegionId): number {
 function completeSiege(s: GameState, r: RegionId, by: NationId): void {
   const reg = s.regions[r];
   const prevController = reg.controller;
-  // Liberating your own (or a friend's) region hands it back to its owner.
-  const newController = by !== REBELS && friendlyTo(s, by, reg.owner) ? reg.owner : by === REBELS ? REBELS : by;
+  // Liberating your own (or a friend's) region hands it back to its owner; not one you are at war with as well (an
+  // old ally fighting on its overlord's side), which you take.
+  const newController = by !== REBELS && !!reg.owner && friendlyTo(s, by, reg.owner) && !hostile(s, by, reg.owner) ? reg.owner : by === REBELS ? REBELS : by;
   setController(s, r, newController);
   const involved = [by, reg.owner, prevController].includes(s.player);
   if (involved) {

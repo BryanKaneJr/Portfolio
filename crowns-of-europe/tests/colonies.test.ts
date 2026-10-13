@@ -17,6 +17,7 @@ import {
   colonistsOf,
   colonySites,
   discoverNewWorld,
+  expectedFoundingDev,
   exportValue,
   freeColonists,
   growingOf,
@@ -499,6 +500,80 @@ describe('colonization', () => {
     expect(r.dev).toBe(REGION.chesapeake.dev + 1); // 5.5-5.98k natives join: +1
     expect(r.unrestMods.some(m => m.amount === 2)).toBe(true);
     expect(r.faith).toBe('native'); // too many to give up their faith
+  });
+
+  test('colonists lost (a timed charter ending) call back the newest colony being grown', () => {
+    const s = portugal();
+    give(s, 'bahia', 'POR', 3);
+    give(s, 'pernambuco', 'POR', 3);
+    give(s, 'rio', 'POR', 3);
+    s.nations.POR.modifiers.push({ id: 'charter', name: 'Charter', mods: { colonists: 1 }, until: s.day + 40 });
+    invalidateMods();
+    expect(colonistsOf(s, 'POR')).toBe(3);
+    expect(growColony(s, 'bahia').ok).toBe(true);
+    s.day += 1;
+    expect(growColony(s, 'pernambuco').ok).toBe(true);
+    s.day += 1;
+    expect(growColony(s, 'rio').ok).toBe(true);
+    advanceDays(s, 70); // the charter runs out; a month turns
+    expect(colonistsOf(s, 'POR')).toBe(2);
+    expect(freeColonists(s, 'POR')).toBe(0);
+    expect(growingOf(s, 'POR').map(r => r.id).sort()).toEqual(['bahia', 'pernambuco']);
+  });
+
+  test('a new colony is not marked as raided for a raid on an earlier one there', () => {
+    const s = portugal();
+    s.regions.bahia.natives = 0;
+    s.regions.bahia.lastRaid = s.day - 5;
+    expect(startColony(s, 'POR', 'bahia')).toBeNull();
+    expect(s.regions.bahia.lastRaid).toBeUndefined();
+  });
+
+  test('the prosperity a colony taking the land will have counts the natives it pushes back by then', () => {
+    const s = portugal();
+    const r = s.regions.bahia;
+    r.natives = 3;
+    expect(expectedFoundingDev(s, 'POR', 'bahia', 'trade')).toBe(REGION.bahia.dev + 1); // 3k join, as they are
+    expect(expectedFoundingDev(s, 'POR', 'bahia', 'force')).toBe(REGION.bahia.dev); // fewer than 3k left by then
+    const site = colonySites(s, 'POR').find(x => x.id === 'bahia')!;
+    expect(site.dev).toBe(expectedFoundingDev(s, 'POR', 'bahia', site.best));
+  });
+
+  test('at war, an AI army raids an undefended enemy colony being settled nearby', () => {
+    const s = emptyGame('FRA');
+    discoverNewWorld(s, null);
+    give(s, 'pernambuco', 'CAS', 3);
+    s.regions.bahia.natives = 0;
+    s.regions.bahia.colony = { by: 'POR', settlers: 400, started: s.day };
+    war(s, 'CAS', 'POR');
+    const cas = army(s, 'CAS', 'pernambuco', 6);
+    debugAI.armyAI(s, cas);
+    expect(cas.path[cas.path.length - 1]).toBe('bahia');
+  });
+
+  test('an army of a realm both allied with and at war with a region owner takes the region', () => {
+    const s = emptyGame('POR');
+    forceWar(s, 'FRA', 'SCO');
+    s.alliances['FRA|SCO'] = s.day;
+    war(s, 'FRA', 'SCO');
+    s.regions.highlands.fort = 0;
+    army(s, 'FRA', 'highlands', 6);
+    advanceDays(s, 30);
+    expect(s.regions.highlands.controller).toBe('FRA');
+    expect(s.regions.highlands.siege).toBeUndefined();
+  });
+
+  test('at peace, troops stranded across the ocean keep a garrison and disband the rest', () => {
+    const s = emptyGame('FRA');
+    discoverNewWorld(s, null);
+    give(s, 'quebec', 'FRA', 3);
+    give(s, 'acadia', 'FRA', 3);
+    const a = army(s, 'FRA', 'quebec', 20);
+    const levies = s.nations.FRA.manpower;
+    debugAI.armyAI(s, a);
+    const left = Object.values(s.armies).filter(x => x.owner === 'FRA' && REGION[x.node]?.nw).reduce((t, x) => t + x.regs.inf.n, 0);
+    expect(left).toBe(2);
+    expect(s.nations.FRA.manpower).toBeGreaterThan(levies);
   });
 });
 

@@ -31,7 +31,7 @@ import {
   colonistsOf,
   coloniesOf,
   colonySites,
-  foundingDev,
+  expectedFoundingDev,
   freeColonists,
   goodsIncome,
   growingOf,
@@ -190,14 +190,14 @@ function SettleSection({ id }: { id: string }) {
   const hostility = def.hostility ?? 0;
   const pace = (pol: NativePolicy) => Math.max(1, total(settlerGrowthFor(s, p, id, pol)));
   const risk = (pol: NativePolicy) => total(attackLinesFor(s, id, pol, null)) > 1e-9;
-  const dev = { trade: foundingDev(s, id, 'trade'), force: foundingDev(s, id, 'force') };
+  const dev = { trade: expectedFoundingDev(s, p, id, 'trade'), force: expectedFoundingDev(s, p, id, 'force') };
   const cost = `${COLONY_COST} gold`;
   const tradeGist = [risk('trade') ? 'fewer attacks' : 'no attacks', dev.trade > dev.force ? 'richer' : ''].filter(Boolean).join(', ');
   const forceGist = risk('force') ? 'they may attack' : 'no attacks';
   const help = [
     `A colony costs ${cost}, then ${COLONY_UPKEEP} gold a month until ${fmt(SETTLERS_NEEDED)} settlers make it a region of yours; the years are at today's pace.`,
     natives
-      ? `Trading with the natives costs your settlers some time, but the natives keep the peace${hostility >= 3 ? ' (fierce ones still attack, half as often)' : ''} and join the colony: prosperity ${dev.trade} at founding here. Taking the land is slower the more natives live on it, they may attack unless guards or troops of yours are there, and fewer of them join (prosperity ${dev.force} here, with today's natives), resenting it for a while. A trading colony can turn to taking the land later, never back.`
+      ? `Trading with the natives costs your settlers some time, but the natives keep the peace${hostility >= 3 ? ' (fierce ones still attack, half as often)' : ''} and join the colony: prosperity ${dev.trade} at founding here. Taking the land is slower the more natives live on it, they may attack unless guards or troops of yours are there, and fewer of them join, as they dwindle by then (prosperity ${dev.force} here), resenting it for a while. A trading colony can turn to taking the land later, never back.`
       : '',
     def.good ? `Once founded, its ${GOOD_NAME[def.good].toLowerCase()} pays you every month on top of taxes.` : '',
     'Inland land can only be settled from a region of yours next door.',
@@ -345,6 +345,7 @@ export function GrowSection({ id }: { id: string }) {
   const p = s.player;
   const r = s.regions[id];
   const g = r.growing?.by === p ? r.growing : undefined;
+  const [armed, arm] = useArmed();
   if (!g && r.dev >= MAX_GROWN_DEV) return null;
   const help = `A colonist can bring settlers to a colony of yours: every ${fmt(GROW_SETTLERS)} who arrive raise its prosperity by 1, up to ${MAX_GROWN_DEV}, for ${COLONY_UPKEEP} gold a month. Then the colonist is free again. The time is at today's pace.`;
   if (g) {
@@ -356,7 +357,14 @@ export function GrowSection({ id }: { id: string }) {
           <Line label="Settlers per month" value={plus(per)} help={<Parts parts={settlerGrowth(s, r)} format={settlerFmt} bad={v => v < 0} />} />
           <Line label={`Prosperity ${r.dev + 1} in`} value={eta(GROW_SETTLERS - g.settlers, per)} />
         </View>
-        <Btn small tone="ghost" label="Stop sending settlers" onPress={() => st.run(x => stopGrowing(x, id))} style={{ marginTop: 8 }} testID="grow-stop" />
+        <Btn
+          small
+          tone="ghost"
+          label={armed === 'stop' ? `Tap again: ${fmt(g.settlers)} settlers lost` : 'Stop sending settlers'}
+          onPress={() => (armed === 'stop' || g.settlers < 1 ? st.run(x => stopGrowing(x, id)) : arm('stop'))}
+          style={{ marginTop: 8 }}
+          testID="grow-stop"
+        />
       </Section>
     );
   }
@@ -437,7 +445,7 @@ function GrowingRow({ s, r }: { s: GameState; r: Region }) {
 
 /** A place to settle: the pace, the years, its export and whether the natives would fight. Tap to see it. */
 function SiteRow({ s, site, why }: { s: GameState; site: ColonySite; why: string | null }) {
-  const best = Math.max(site.perMonth.force, site.perMonth.trade);
+  const best = site.perMonth[site.best];
   // Natives who would attack even settlers who trade with them (taking the land, most natives may).
   const fierce = site.natives > 0 && total(attackLinesFor(s, site.id, 'trade', null)) > 1e-9;
   return (
@@ -494,7 +502,7 @@ export function ColoniesTab() {
       {!s.discovery ? (
         <Section
           title="The western ocean"
-          help={`Find a New World first for renown and an extra colonist for 30 years; if nobody does, the way west becomes common knowledge in ${DISCOVERY_YEAR}. Closer to home, the African coast from Arguin to the Gold Coast can be settled once you know Caravels.`}
+          help={`Find a New World first for renown and an extra colonist for 30 years; if nobody does, the way west becomes common knowledge in ${DISCOVERY_YEAR}. Closer to home, the African coast from Arguin to the Gold Coast can be settled once you know Caravels and have a colonist (${advanceFor('oceanColonies').name} gives one).`}
         >
           <View style={{ gap: 6 }}>
             <Btn icon="ship" label={me.expedition ? 'Your expedition is at sea' : 'Fund an expedition west'} sub={me.expedition ? `Back around ${formatDate(me.expedition.done)}` : `${EXPEDITION_COST} gold · back in about ${EXPEDITION_MONTHS} months`} disabled={!!why} onPress={() => st.run(fundExpedition)} testID="menu-expedition" />
@@ -524,7 +532,7 @@ export function ColoniesTab() {
       ) : null}
       <Section
         title="Where to settle"
-        help={`Land nobody holds, the most worth having first. +N/mo: settlers a month if you began today (trading or taking the land, whichever is quicker), then the years to ${fmt(SETTLERS_NEEDED)}. Gold: its export each month once founded, more as it prospers. At risk: natives fierce enough to attack even settlers who trade with them. Tap one to see it.`}
+        help={`Land nobody holds, the most worth having first. +N/mo: settlers a month if you began today (trading or taking the land, whichever is quicker), then the years to ${fmt(SETTLERS_NEEDED)}. Gold: its export each month once founded (settled the quicker way), more as it prospers. At risk: natives fierce enough to attack even settlers who trade with them. Tap one to see it.`}
       >
         {shared ? <T v="tiny" style={{ marginBottom: 2 }}>{shared}</T> : null}
         {shown.length ? shown.map(x => <SiteRow key={x.id} s={s} site={x} why={shared ? null : x.blocked} />) : <Empty text={growing.length || owned.length ? 'No land is left to settle. Grow a colony instead.' : 'No land is left to settle.'} />}

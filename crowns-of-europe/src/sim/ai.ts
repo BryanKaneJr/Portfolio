@@ -33,6 +33,7 @@ import {
   alliesOf,
   armiesHostile,
   armiesOf,
+  armyMen,
   armyRegs,
   atWar,
   controllerHostile,
@@ -447,8 +448,17 @@ function aiColonialDefence(s: GameState, nat: Nation, res: number): void {
   const near = (at: Set<NodeId>, id: string) => at.has(id) || GRAPH[id].some(e => (e.kind === 'land' || e.kind === 'strait') && at.has(e.to));
   const threatened = Object.values(s.regions).find(r => REGION[r.id].nw && (r.owner === n || r.colony?.by === n) && near(enemyAt, r.id));
   if (!threatened) return;
+  // Not past the army limit, and not if our troops on that shore already match the enemy's near it.
+  if (totalRegiments(s, n) >= forceLimit(s, n)) return;
+  const regsNear = (mine: boolean) =>
+    Object.values(s.armies)
+      .filter(a => (mine ? a.owner === n : enemies.has(a.owner)) && !a.retreating && !isSea(a.node) && hops(a.node, threatened.id) <= (mine ? 3 : 1))
+      .reduce((t, a) => t + armyRegs(a), 0);
+  if (regsNear(true) >= regsNear(false)) return;
+  // Raised where they can march to the threat over land: the threatened region itself if we hold it and no enemy
+  // army stands there, else the nearest such region of ours on that shore.
   const safe = newWorldRegions(s, n)
-    .filter(r => r.controller === n && !near(hostileAt, r.id))
+    .filter(r => r.controller === n && !hostileAt.has(r.id) && hops(r.id, threatened.id) < 99)
     .sort((a, b) => hops(a.id, threatened.id) - hops(b.id, threatened.id) || mapDistance(a.id, threatened.id) - mapDistance(b.id, threatened.id));
   if (!safe.length) return;
   const cost = unitCost(s, n, 'inf');
@@ -849,7 +859,9 @@ function armyAI(s: GameState, a: Army): void {
     peaceStation(s, a);
     return;
   }
-  const tree = pathTree(s, a, { maxDays: 90 });
+  // Across the ocean with enemies on the same shore, an army stays there to fight rather than sail home mid-war.
+  const shoreFight = !isSea(a.node) && !!REGION[a.node]?.nw && Object.values(s.armies).some(o => !o.retreating && !isSea(o.node) && armiesHostile(s, a, o) && hops(o.node, a.node) < 99);
+  const tree = pathTree(s, a, { maxDays: 90, land: shoreFight });
   const myStrength = armyStrength(s, a);
   const hostileArmies = Object.values(s.armies).filter(o => o.id !== a.id && !o.retreating && armiesHostile(s, a, o) && !isSea(o.node));
 
@@ -951,6 +963,18 @@ function armyAI(s: GameState, a: Army): void {
     const ownLand = r.owner === n ? 25 : 0;
     const goal = goals.has(r.id) ? 30 : 0;
     sieges.push({ node: r.id, score: (r.dev * 2 + ownLand + goal + (r.fort === 0 ? 6 : 0) - r.fort * 4) / (d + 8) });
+  }
+  // Raids: an enemy's colony being settled with nobody of theirs (or their friends') there to defend it; the army
+  // stands in it and the settlers die month by month (colonies.ts).
+  if (n !== REBELS) {
+    for (const r of Object.values(s.regions)) {
+      const c = r.colony;
+      if (!c || !hostile(s, n, c.by)) continue;
+      const d = tree.dist.get(r.id);
+      if (d === undefined || (takenBy.has(r.id) && r.id !== a.node)) continue;
+      if (Object.values(s.armies).some(o => o.node === r.id && o.owner !== REBELS && (o.owner === c.by || friendlyTo(s, c.by, o.owner)))) continue;
+      sieges.push({ node: r.id, score: (6 + c.settlers / 200) / (d + 8) });
+    }
   }
   // The best siege whose road is open.
   for (const x of sieges.sort((p, q) => q.score - p.score)) {
@@ -1102,6 +1126,30 @@ function peaceStation(s: GameState, a: Army): void {
     const b = splitArmy(s, a, { inf: Math.floor(a.regs.inf.n * share), cav: Math.floor(a.regs.cav.n * share), art: Math.floor(a.regs.art.n * share) });
     if (b) orderMove(s, b, best.to);
   };
+  // Across the ocean with no road home, a garrison stays on that shore (two regiments, or one for every two regions
+  // of ours there); the rest sail home if we have the ships, or disband as in peacetime.
+  if (a.node !== home && !isSea(a.node) && hops(a.node, home) >= 99) {
+    const there = Object.values(s.armies)
+      .filter(o => o.owner === a.owner && !isSea(o.node) && hops(o.node, a.node) < 99)
+      .reduce((t, o) => t + armyRegs(o), 0);
+    const garrison = Math.max(2, Math.ceil(ownedRegions(s, a.owner).filter(r => hops(r.id, a.node) < 99).length / 2));
+    const excess = Math.min(armyRegs(a), there - garrison);
+    if (excess > 0) {
+      let k = excess;
+      const take = { inf: 0, cav: 0, art: 0 };
+      for (const t of ['inf', 'cav', 'art'] as const) {
+        take[t] = Math.min(a.regs[t].n, k);
+        k -= take[t];
+      }
+      const part = excess >= armyRegs(a) ? a : splitArmy(s, a, take);
+      if (part && !orderMove(s, part, home)) {
+        nat.manpower += Math.round(armyMen(part) * (1 - part.mercs / Math.max(1, armyRegs(part))) * 0.5);
+        if (part.general && !part.general.isRuler) nat.generals.push(part.general);
+        delete s.armies[part.id];
+      }
+      if (part === a) return;
+    }
+  }
   if (a.node !== home && !isSea(a.node)) {
     // Stay in our own land while it can feed us; otherwise go home (now and then, also to regroup).
     const reg = s.regions[a.node];
