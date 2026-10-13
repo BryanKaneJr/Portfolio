@@ -15,6 +15,7 @@ Land and sea come from the game's own coastline (land.npy): the terrain is paint
 Run:  python scripts/terrain/render.py                    all levels → assets/map/terrain + src/ui/map/terrainTiles.ts
                                                           (and the peaks → terrainPeaks.ts, assets/map/terrain/peaks)
       python scripts/terrain/render.py --peaks            only the peaks the app draws (seconds)
+      python scripts/terrain/render.py --index            only the tile index, for the tiles on disk
       python scripts/terrain/render.py --preview L x0 y0 x1 y1 out.png    one box of one level (map units)
 """
 import argparse
@@ -743,7 +744,7 @@ def level_tiles(level):
     return out
 
 
-BLOCK = 4096 // TILE  # tiles a side drawn in one go (with its halo)
+BLOCK = 2048 // TILE  # tiles a side drawn in one go (with its halo): a few hundred MB a worker
 WORKERS = max(1, min(4, (os.cpu_count() or 1)))
 _W = {}
 
@@ -954,6 +955,8 @@ def write_index(levels):
         "}",
         f"export const TERRAIN_REGION = {{ x0: {REGION[0]}, y0: {REGION[1]}, x1: {REGION[2]}, y1: {REGION[3]} }};",
         f"export const TERRAIN_TILE_PX = {TILE};",
+        "/** Regions the finest level is not made for (their next level stands in at the closest zooms). */",
+        f"export const TERRAIN_FINEST_SKIP: string[] = [{', '.join(repr(r) for r in L4_SKIP)}];",
         "/** The depth shading drawn over the Illustrated style's sea everywhere (the tiles paint the same): darkening only. */",
         "export const TERRAIN_SEA_SHADE = { sharp: require('../../../assets/map/terrain/sea-shade.png'), soft: require('../../../assets/map/terrain/sea-shade-soft.png') };",
         "export const TERRAIN_LEVELS: TerrainLevel[] = [",
@@ -988,9 +991,19 @@ def main():
     ap.add_argument("--preview", nargs=6, metavar=("LEVEL", "X0", "Y0", "X1", "Y1", "OUT"))
     ap.add_argument("--levels", default=",".join(str(i) for i in range(len(PPU))))
     ap.add_argument("--peaks", action="store_true", help="only write the peaks the app draws (terrainPeaks.ts, sprites)")
+    ap.add_argument("--index", action="store_true", help="only write the tile index (terrainTiles.ts) for the tiles on disk")
     a = ap.parse_args()
     if a.peaks:
         write_peaks()
+        return
+    if a.index:
+        levels = []
+        for level in range(len(PPU)):
+            tiles = [{"tx": tx, "ty": ty, "x": x0, "y": y0, "w": x1 - x0, "h": y1 - y0, "file": f"L{level}/{tx}_{ty}.jpg"} for tx, ty, x0, y0, x1, y1 in level_tiles(level)]
+            missing = [t["file"] for t in tiles if not (TILE_DIR / t["file"]).exists()]
+            assert not missing, f"tiles not rendered: {missing[:5]}"
+            levels.append((level, tiles))
+        write_index(levels)
         return
     data = Data()
     sprites = sym.TreeSprites()

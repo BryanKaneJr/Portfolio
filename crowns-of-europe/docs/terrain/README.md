@@ -1,15 +1,16 @@
-# Illustrated terrain: the central and eastern Europe prototype
+# Illustrated terrain
 
 This replaces the map's low-resolution ground with an illustrated atlas drawn from real geographic data in the game's
-own coordinates. It covers one prototype region: central and eastern Europe, with the Alps, the Carpathians, the
-Danube basin, and the Adriatic, Baltic and Black Sea coasts. It renders inside the real game as the default map style,
-"Illustrated". Political colours, borders, selection, labels, units and every game system are unchanged.
+own coordinates. It began as a prototype over central and eastern Europe (rounds 1 and 2) and since round 3 covers the
+whole known Old World: Europe, North Africa, the Middle East, West Africa and the Atlantic islands (the New World keeps
+the Atlas style). It renders inside the real game as the default map style, "Illustrated". Political colours, borders,
+selection, labels, units and every game system are unchanged.
 
 | Document | What it is |
 | --- | --- |
 | [ARCHITECTURE-AUDIT.md](ARCHITECTURE-AUDIT.md) | How the map renders today, the coordinate system, which assets lose resolution, and the engine decision |
 | [../../scripts/terrain/README.md](../../scripts/terrain/README.md) | The offline pipeline: setup, steps, coordinates, levels, data sources and licences |
-| [WORLD-SCALING-PLAN.md](WORLD-SCALING-PLAN.md) | Taking it from one region to the whole map: sizes, options, order of work |
+| [WORLD-SCALING-PLAN.md](WORLD-SCALING-PLAN.md) | Taking it from one region to the whole map: sizes, options, order of work (the Old World is done) |
 | [verification.json](verification.json) | Measured checks of the tiles: determinism, joins, coastline, detail per level |
 | [perf.json](perf.json) | In-game measurements in headless Chromium: re-render time, frame times, tiles, decoded memory, JS heap |
 | [screens/](screens/) | Before (Atlas) and after (Illustrated) screenshots of ten views: five zooms, the Adriatic coast, the region's edge, and the tap test |
@@ -61,12 +62,12 @@ Danube basin, and the Adriatic, Baltic and Black Sea coasts. It renders inside t
 
 | Claim | Evidence |
 | --- | --- |
-| The pipeline runs end to end, offline from the app | `fetch → prepare → render → vectors → verify` ran on this machine. `sources.json` records every source file's URL, size and SHA-256. Render time per level: L0 5 s, L1 6 s, L2 24 s, L3 101 s, L4 345 s (one core). |
-| 398 tiles in 5 levels, 28.3 MB, bundled | `assets/map/terrain/L0…L4` (4 / 9 / 25 / 72 / 288 tiles); `src/ui/map/terrainTiles.ts` (generated index). |
+| The pipeline runs end to end, offline from the app | `fetch → prepare → render → vectors → verify` ran on this machine. `sources.json` records every source tile's URL and SHA-256. The whole Old World: prepare 18.5 min (40 chunks), render 5 min 41 s with four workers (L0 5 s, L1 9 s, L2 25 s, L3 80 s, L4 197 s), vectors 70 s. |
+| 1,239 tiles in 5 levels, 59.4 MB, bundled | `assets/map/terrain/L0…L4` (12 / 35 / 102 / 339 / 751 tiles, only where they show known land); `src/ui/map/terrainTiles.ts` (generated index). |
 | One coordinate system, no estimated alignment | `tests/terrain.test.ts` projects sample points with pyproj (EPSG:4326 → 3857 → map units) and checks them against the game's own formula: equal to 6 decimal places. |
-| The tiles follow the game's coastline | The land/sea painted in the L4 tiles was read back and compared with the game's outline within 3 map units of the coast (7.5 M pixels). 73 k pixels disagree. Nearly all are either the coast pixel itself (20 k, anti-aliased) or lakes, lagoons and wide rivers deliberately painted on the game's land (53 k). That leaves **173 pixels unexplained (0.002 %)**: 171 are game land painted as water, a median of 1.4 units from the coast, and 2 are game sea painted as land. Symbols are cut to the game's land, so nothing spills over a coast. |
-| No seams between tiles | At every tile edge of L0–L2, and at a sample of 12 edges of L3 and of L4, the colour step across the edge was compared with the step at the same line in a render that has no edge there. The tiles add **1.5–2.4 grey levels** on average (at most 3.8, out of 255): JPEG noise. Against the steps across 8 px JPEG blocks inside tiles the ratio is 1.02–1.11 for L1–L4. |
-| Deterministic, so rebuilds and neighbours agree | Re-rendering level 2 gives byte-identical tiles (25/25). Two overlapping boxes drawn at different offsets place every symbol identically. Their pixels differ on 89 of 262,144 pixels (0.03 %): isolated edge pixels that Skia anti-aliases a little differently on a surface of another size. |
+| The tiles follow the game's coastline | The land/sea painted in the L4 tiles was read back and compared with the game's outline within 3 map units of the coast, over central Europe (the same box every round; 7.5 M pixels). 73 k pixels disagree. Nearly all are either the coast pixel itself (20 k, anti-aliased) or lakes, lagoons and wide rivers deliberately painted on the game's land (53 k). That leaves **172 pixels unexplained (0.002 %)**: 171 are game land painted as water, a median of 1.4 units from the coast, and 1 is game sea painted as land. Symbols are cut to the game's land, so nothing spills over a coast. |
+| No seams between tiles | At every tile edge of L0–L1, and at a sample of 24 edges of L2 and 12 each of L3 and L4, the colour step across the edge was compared with the step at the same line in a render that has no edge there. The tiles add **1.0–1.9 grey levels** on average (at most 4.6, out of 255): JPEG noise. Against the steps across 8 px JPEG blocks inside tiles the ratio is 1.03–1.08 for L2–L4 (higher at L0–L1, 1.3–1.7, because the sea inside a tile is now perfectly flat). |
+| Deterministic, so rebuilds and neighbours agree | Drawing two level 2 blocks again, as `render.py` draws them, gives byte-identical tiles (32/32). Two overlapping boxes drawn at different offsets place every symbol identically. Their pixels differ on 80 of 262,144 pixels (0.03 %): isolated edge pixels that Skia anti-aliases a little differently on a surface of another size. |
 | Each zoom level adds real detail, not magnification | The fine detail (Laplacian energy) of each level against the level above it magnified ×2 over the same ground: **10–58×** more (paper grain alone is under 1 % of that). Real features in a 32 × 32-unit box of the Swiss plateau and Prealps (`alps` in `verification.json`), by level L1–L4: 2 → 51 → 189 → 769 symbols (peaks 2 → 2 → 7 → 26), plus hachures 6 → 20 → 76 → 339. The Carpathians: 2 → 112 → 309 → 1,064. These are round 2's thinner counts; round 1's are in the round 2 section below. |
 | No magnification at the closest zoom | L4 is 16 px per map unit; the closest zoom (K_MAX = 5) on a 3× screen needs 15. Level choice allows at most 1/0.85 = 1.18× while a finer level fades in (tested). |
 | Political state, borders, labels, units, selection are unchanged | They are drawn by the same SVG layers on top of the tiles. Tapping Bavaria in the illustrated region selects Bavaria (`perf.json`). The main, war and New World walkthroughs pass with no page errors. |
@@ -76,37 +77,36 @@ Danube basin, and the Adriatic, Baltic and Black Sea coasts. It renders inside t
 
 | View | k | Level drawn | Tiles drawn | Decoded tile memory | Redraw after a camera move, Atlas → Illustrated (unthrottled; CPU 4× slower) |
 | --- | --- | --- | --- | --- | --- |
-| europe | 0.45 | L1 | 13 | 5.6 MB | 23 → 22 ms; 95 → 147 ms |
-| region | 0.9 | L2 | 38 | 23.6 MB | 62 → 67 ms; 374 → 352 ms |
-| alps-play | 1.7 | L3 | 59 | 53.1 MB | 42 → 59 ms; 223 → 190 ms |
-| carpathians-play | 1.7 | L3 | 64 | 55.1 MB | 54 → 69 ms; 268 → 245 ms |
-| danube-play | 1.7 | L3 | 64 | 57.1 MB | 41 → 48 ms; 189 → 253 ms |
-| alps-close | 3.2 | L4 | 102 | 100.5 MB | 28 → 45 ms; 142 → 216 ms |
-| alps-max | 5 | L4 | 48 | 47.4 MB | 35 → 23 ms; 123 → 202 ms |
-| adriatic-play | 1.7 | L3 | 72 | 65.1 MB | 45 → 45 ms; 156 → 376 ms |
-| dalmatia-close | 3.2 | L4 | 88 | 85.1 MB | 34 → 27 ms; 128 → 131 ms |
-| region-edge-west | 1.7 | L3 | 36 | 32.5 MB | 54 → 36 ms; 160 → 152 ms |
+| europe | 0.45 | L1 | 46 | 35.3 MB | 31 → 32 ms; 120 → 159 ms |
+| region | 0.9 | L2 | 88 | 84.4 MB | 176 → 108 ms; 340 → 425 ms |
+| alps-play | 1.7 | L3 | 99 | 98.5 MB | 41 → 37 ms; 255 → 334 ms |
+| carpathians-play | 1.7 | L3 | 89 | 88.5 MB | 39 → 63 ms; 243 → 420 ms |
+| danube-play | 1.7 | L3 | 90 | 89.5 MB | 60 → 36 ms; 247 → 360 ms |
+| alps-close | 3.2 | L4 | 102 | 102 MB | 66 → 33 ms; 173 → 149 ms |
+| alps-max | 5 | L4 | 48 | 48 MB | 27 → 33 ms; 115 → 129 ms |
+| adriatic-play | 1.7 | L3 | 93 | 93 MB | 41 → 53 ms; 201 → 333 ms |
+| dalmatia-close | 3.2 | L4 | 106 | 106 MB | 23 → 32 ms; 138 → 146 ms |
+| region-edge-west (France; no edge since round 3) | 1.7 | L3 | 95 | 94.8 MB | 49 → 46 ms; 147 → 352 ms |
+
+These are round 3's, with the whole Old World covered and the woods not yet reworked.
 
 - **Panning** at play zoom: a two-second drag, twice per style. The camera moved 101 × 67 map units in every run.
-  - Unthrottled: both styles had median 16.7 ms, p95 16.8 ms and worst 16.8 ms, with no long task. The redraw on
+  - Unthrottled: both styles had median 16.7 ms, p95 16.7–16.8 ms and worst 16.8 ms, with no long task. The redraw on
     release was under 50 ms every time.
-  - CPU 4× slower, Illustrated: median 16.7 ms, p95 16.8 ms, worst 50.1 ms, no long task during the drag. The redraw
-    on release took 208 ms and 284 ms.
-  - CPU 4× slower, Atlas: median 16.7 ms, p95 16.7–16.8 ms, worst 50 ms, with one long task during a drag. The redraw
-    on release took 184 ms and 217 ms.
+  - CPU 4× slower, Illustrated: median 16.7 ms, worst 83.4 ms (one long task in one drag). The redraw on release took
+    240 ms and 185 ms.
+  - CPU 4× slower, Atlas: median 16.7 ms, worst 100 ms (one long task in one drag). The redraw on release took 262 ms
+    and 189 ms.
 
   During a drag only a transform moves, so frames hold 60 fps. On the web the moving view is its own compositor layer
-  (round 2, below). When the finger lifts, the map is drawn again. With the tiles that costs a little more than
-  without: 208–284 ms against 184–217 ms at 4× slowdown, and under 50 ms unthrottled. That redraw is how the game's
-  renderer already works.
+  (round 2). When the finger lifts, the map is drawn again. With the tiles, the redraw at 4× slowdown is now often
+  100–170 ms slower than Atlas's at play zoom (about 90 tiles drawn, against 59–64 in round 2's central region). That
+  redraw is how the game's renderer already works.
 - **Redraw times** run from the camera change to two animation frames later, so they include up to about 33 ms of
-  waiting for frames. Each is a single sample, and at 4× slowdown they vary by ±100 ms or more from run to run. For
-  example, with the same tiles, adriatic-play measured 228 ms in one run and 376 ms in the next, and dalmatia-close
-  303 ms and then 131 ms.
-- **JS heap:** 22.7–52.4 MB in both styles. Images are decoded outside the JS heap. Their memory is the "decoded tile
+  waiting for frames. Each is a single sample, and at 4× slowdown they vary by ±100 ms or more from run to run.
+- **JS heap:** 23.5–55.6 MB in both styles. Images are decoded outside the JS heap. Their memory is the "decoded tile
   memory" column, computed from the tiles drawn.
-- **Decoded tile memory** is highest (100 MB) just after the finest level starts to fade in at k ≈ 3.2, when two levels
-  cover the screen. It is 47 MB at the closest zoom and 53–65 MB at play zoom.
+- **Decoded tile memory** is 89–99 MB at play zoom, where two levels cover the screen, and 48–106 MB close up.
 - **Raw data:** `perf.json`. Screenshots of every view before and after: `screens/compare-*.jpg`.
 
 ### What is incomplete or open
@@ -114,10 +114,8 @@ Danube basin, and the Adriatic, Baltic and Black Sea coasts. It renders inside t
 - **Not measured on a phone.** All the performance numbers come from desktop Chromium, with the CPU slowed 4× as a rough
   stand-in for a mid-range phone. Frame rate, memory and image decoding in react-native-svg on iOS and Android are
   still to be measured. That is the next step, and the plan says how.
-- **One region.** Outside central and eastern Europe the Illustrated style is Atlas-like.
-  - At sea the region's edge is invisible: the tiles fade into the style's own sea over the last 24 units.
-  - On land a straight line shows where the tiles end, for example through France at 2°E
-    (`screens/compare-region-edge-west.jpg`). It goes away with the whole-map rollout.
+- **The New World keeps the Atlas style.** The Old World is covered (round 3), so no edge of the terrain shows on land
+  there; the Americas lie across the ocean and are drawn as before.
 - **Elevation is interpolated at the finest level.** ETOPO 2022 15″ has about 10–14 samples per map unit here, and L4
   draws 16 px per unit. Relief at L4 is therefore 1.2–1.6× interpolated (cubic, then smoothed). Land cover, symbols,
   coasts and rivers are true to L4.
@@ -262,6 +260,77 @@ layer (`WEB_LAYER` in `MapView`). A drag moves the map as it was already painted
 had no slow frames since. `scripts/dev/pan-layers.mjs` measures each layer's cost with and without it. The table above
 and `perf.json` are round 2's.
 
+
+## Round 3: features, not fill; the whole Old World
+
+The owner, after round 2: "What's up with France being half filled with stuff? And I think you're in a loop of going
+too crazy with the mountains. There's a ton that are too huge. And there's just way too many. It's a feature, not a
+fill the map mentality."
+
+### France: the terrain now covers the whole known Old World
+
+France looked half filled because the prototype's tiles ended on a straight line at 2°E. East of it was the
+illustrated terrain, west of it the plain Atlas style. The other edges cut Sweden, Livonia, Russia, Anatolia and Sicily
+the same way. The terrain now covers every region of the Old World. A tile is made only where it shows the game's known
+land, or the sea within reach of it. Open sea and the parchment over the wastes are the style's own, so every remaining
+boundary lies at sea, under parchment or at the map's own edge.
+
+- **Tiles:** 1,239 in all (12 / 35 / 102 / 339 / 751 per level).
+  - The finest level skips 23 regions where nobody zooms right in: the giant northern and eastern regions, West Africa
+    and the Atlantic islands (`TERRAIN_FINEST_SKIP`). Level 3 stands in there, up to 1.9× enlarged at the closest zoom.
+  - The app hides a coarser tile only where all four of its children exist (`full`).
+- **Size:** 59.4 MB of tiles with the trees as they are now (the woods are being reworked next; symbols are about 40%
+  of a land tile's bytes). Rivers and lakes for the whole Old World: 954 KB of vectors, against 798 KB for central
+  Europe before. Paths are now written as relative steps at 0.1-unit precision.
+- **Sea:** painted without paper grain, exactly the app's own sea, so a tile left out over open sea shows no seam.
+  What the parchment covers is painted plain, to keep bytes down.
+- **Pipeline:**
+  - Sources are fetched one file per source tile: 31 ETOPO and 451 WorldCover tiles.
+  - `prepare.py` works in 256-unit chunks: 40 chunks in 18.5 minutes, writing coarser copies for the coarser levels.
+    On the old region it reproduces the old grid exactly.
+  - `render.py` draws in 2048-px blocks with four workers: the whole Old World in 5 minutes 41.
+- **Memory:** a screen at play zoom now has tiles across its whole drawn area, which the old region's edges used to
+  leave empty. Decoded tile memory there is 89–99 MB, against 53–65 MB before; at the closest zooms it is about the same
+  (48–106 MB, against 47–101 MB). Easing the level switch (`SHARPNESS`) so play zoom draws one level instead of two would roughly halve
+  it, at the cost of slightly softer terrain at k 1.6–1.8.
+
+### Mountains: a few well-chosen peaks, drawn by the app
+
+Before, a peak stood at every local summit within a fixed window of tile pixels, at every level. So mountain country
+was a lattice of glyphs that grew about fourfold per level. Glyphs were 13–34 pt wide and covered 40–60% of the high
+ground. The new rule:
+
+- **One list of summits** for the whole region (`render.py` features()): ranked by height and isolation, only on the
+  main crests of real ranges (the same range rule as the Atlas style's mountain drawings), and never in valleys, basins
+  or on plateaus.
+- **Three fixed tiers.** The top tier is only the great massifs (Mont Blanc, Monte Rosa, the Bernese Oberland, the
+  Tatra...). A peak keeps its tier, place and shape at every zoom, and zooming in only adds lesser peaks into the gaps.
+- **Drawn by the app, not baked into the tiles** (`terrainPeaks.ts`, `peaksToDraw` in `terrainLayer.ts`):
+  - a steady size on screen: the top tier 12 pt tall at play zoom, 15 close up, 17 at the closest;
+  - translucent sprites, so the realm's colour shows through;
+  - none far out (they fade in from k 0.6, as the Atlas drawings do), and the lesser ones give way to region names.
+
+  Two tile levels cross-fading can no longer show two sets of peaks, and size or count can be tuned without
+  re-rendering a tile.
+- **Hills** only on notable uplands, a few each. No slope hachures at any zoom: the relief shading carries the slopes.
+
+Peaks drawn on a phone screen:
+
+| View | Peaks (top / middle / small / hills) | Round 2 |
+| --- | --- | --- |
+| Alps, play zoom (alps-play) | 25 (8 / 5 / 7 / 5) | 113 peaks, plus 255 fainter ones from the next level |
+| Alps, close (alps-close) | 26 | 116, plus 394 fainter |
+| Switzerland, closest zoom (alps-max) | 23 | 214 |
+| Danube and Carpathians, play zoom | 39–41 | 159–174, plus 351–391 fainter |
+| France / Iberia / Scandinavia / Anatolia, play zoom | 17 / 22 / 18 / 44 | (not covered) |
+| Region zoom (k 0.9) | 25 top and middle-tier only | 69, plus 268 fainter |
+
+### Checks
+
+- `npm run check` passes: 85 Jest tests, 20 of them for the terrain. New tests cover the sparse tiles (grid, no overlap,
+  every region's land covered, the `full` flags), the finest level's skipped regions, and the peaks (inside the region,
+  steady size, none far out, nested as you zoom, giving way to names, only in view).
+- The main, war and New World walkthroughs pass with no page errors. Tapping Bavaria still selects Bavaria.
 
 ## Data sources and licences
 

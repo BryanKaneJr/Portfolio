@@ -15,12 +15,13 @@ import re
 
 import numpy as np
 import shapely
+from shapely import STRtree
 from shapely.geometry import LineString, MultiLineString, Polygon, box, shape
 
 import mapproj as mp
-from config import MAP_JSON, REGION, SRC_DIR, VECTORS_TS
+from config import L4_SKIP, MAP_JSON, REGION, SRC_DIR, VECTORS_TS
 
-TOLERANCE = 0.06  # map units (about 250 m): simplification, well under a screen pixel at the closest zoom
+TOLERANCE = 0.1  # map units (about 400 m): simplification, half a point at the closest zoom
 PAD = 6  # map units of game land considered around the region
 MINOR_RANK = 10  # Natural Earth scalerank from which a river counts as minor
 MINOR_MIN_LENGTH = 30  # map units (about 130 km): shorter minor rivers are left out, unless they touch a lake
@@ -29,6 +30,7 @@ SMOOTH_FROM = 1.0  # rivers this wide (points) and up are smoothed: drawn heavie
 # Lakes Natural Earth lacks (Hallwil, Sempach...) are taken from ESA WorldCover's water, inland only, so they too are
 # drawn as water over the realms' colours instead of showing as tinted smudges in the tiles.
 WC_LAKE_MIN_AREA = 0.3  # map units² (about 6 km²)
+WC_LAKE_MIN_AREA_COARSE = 1.5  # ...over the regions the finest level skips (config.L4_SKIP: Finland, Karelia...)
 WC_LAKE_CORE = 0.3  # map units: water within this of a river line, over most of a body, is the river itself
 WC_LAKE_COAST = 2.0  # map units from the game's coast, as the tiles keep inland water (render.py)
 WC_LAKE_PPU = 8  # px per map unit the lakes are found at
@@ -103,7 +105,7 @@ def smooth(geom):
     return MultiLineString(lines) if len(lines) > 1 else (lines[0] if lines else geom)
 
 
-def worldcover_lakes(land_r, ne_lakes, rivers):
+def worldcover_lakes(land_r, ne_lakes, rivers, coarse=None):
     """Inland water bodies from the prepared WorldCover fractions (prepare.py), as polygons in map units: not Natural
     Earth lakes, not within WC_LAKE_COAST of the game's coast, at least WC_LAKE_MIN_AREA."""
     from rasterio import features
@@ -119,20 +121,46 @@ def worldcover_lakes(land_r, ne_lakes, rivers):
     mask &= ndimage.distance_transform_edt(land) / P >= WC_LAKE_COAST
     transform = __import__("affine").Affine(1 / P, 0, g["x0"], 0, 1 / P, g["y0"])
     out = []
+    # (Each buffer once, and an index of their pieces, so each lake is tested only against what is near it.)
+    near_lakes = STRtree(list(getattr(ne_lakes.buffer(0.3), "geoms", [ne_lakes.buffer(0.3)]))) if ne_lakes is not None else None
+    cores = STRtree(list(getattr(rivers.buffer(WC_LAKE_CORE), "geoms", [rivers.buffer(WC_LAKE_CORE)]))) if rivers is not None else None
+    land_parts = STRtree(list(getattr(land_r, "geoms", [land_r])))
     for geom, v in features.shapes(mask.astype(np.uint8), mask=mask, transform=transform):
         poly = shape(geom)
         if poly.area < WC_LAKE_MIN_AREA:
             continue
-        if ne_lakes is not None:
-            poly = poly.difference(ne_lakes.buffer(0.3))
-        poly = poly.intersection(land_r).simplify(TOLERANCE)
+        if near_lakes is not None:
+            hits = near_lakes.geometries.take(near_lakes.query(poly))
+            if len(hits):
+                poly = poly.difference(shapely.union_all(hits))
+        hits = land_parts.geometries.take(land_parts.query(poly))
+        poly = poly.intersection(shapely.union_all(hits)).simplify(TOLERANCE) if len(hits) else Polygon()
         if poly.is_empty or poly.area < WC_LAKE_MIN_AREA:
             continue
-        # A lake, not a stretch of wide river: no Natural Earth river runs along most of it.
-        if rivers is not None and poly.intersection(rivers.buffer(WC_LAKE_CORE)).area > 0.4 * poly.area:
+        if coarse is not None and poly.area < WC_LAKE_MIN_AREA_COARSE and coarse.intersects(poly.representative_point()):
             continue
+        # A lake, not a stretch of wide river: no Natural Earth river runs along most of it.
+        if cores is not None:
+            hits = cores.geometries.take(cores.query(poly))
+            if len(hits) and poly.intersection(shapely.union_all(hits)).area > 0.4 * poly.area:
+                continue
         out.append(poly)
     return out
+
+
+def num(v):
+    """A coordinate to one decimal, as short as it goes (0.1 unit is half a point at the closest zoom)."""
+    t = f"{v:.1f}"
+    return t[:-2] if t.endswith(".0") else t
+
+
+def ring_d(coords, close=False):
+    """One line or ring as an SVG path: an absolute move, then relative steps (each from the rounded point before, so
+    rounding never drifts)."""
+    pts = [(round(x, 1), round(y, 1)) for x, y in coords]
+    pts = [p for i, p in enumerate(pts) if i == 0 or p != pts[i - 1]]
+    steps = " ".join(f"{num(x1 - x0)} {num(y1 - y0)}" for (x0, y0), (x1, y1) in zip(pts, pts[1:]))
+    return f"M{num(pts[0][0])} {num(pts[0][1])}" + (f"l{steps}" if steps else "") + ("Z" if close else "")
 
 
 def path_d(geom):
@@ -143,7 +171,7 @@ def path_d(geom):
         coords = list(line.coords) if isinstance(line, LineString) else list(line.exterior.coords)
         if len(coords) < 2:
             continue
-        out.append("M" + "L".join(f"{x:.2f} {y:.2f}" for x, y in coords))
+        out.append(ring_d(coords))
     return "".join(out)
 
 
@@ -158,6 +186,12 @@ def main():
     region = box(*rb)
     land_r = land.intersection(region)
     print(f"game land in region: {land_r.area:.0f} square map units")
+    land_tree = STRtree(list(getattr(land_r, "geoms", [land_r])))
+
+    def clip(g):
+        """A shape cut to the game's land in the region (tested only against the land near it)."""
+        hits = land_tree.geometries.take(land_tree.query(g))
+        return g.intersection(shapely.union_all(hits)) if len(hits) else Polygon()
 
     lakes = []
     lake_union = []
@@ -166,7 +200,7 @@ def main():
             g = to_map_geom(shape(f["geometry"]))
             if not g.intersects(region):
                 continue
-            g = g.intersection(land_r)
+            g = clip(shapely.make_valid(g))
             if g.is_empty or g.area < 0.05:
                 continue
             g = g.simplify(TOLERANCE)
@@ -177,9 +211,17 @@ def main():
                 if isinstance(poly, Polygon):
                     rings.append(poly.exterior)
                     rings.extend(poly.interiors)
-            d = "".join("M" + "L".join(f"{x:.2f} {y:.2f}" for x, y in r.coords) + "Z" for r in rings)
+            d = "".join(ring_d(r.coords, close=True) for r in rings)
             lakes.append({"d": d, "z": float(p.get("min_zoom") or 0), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})
     lake_geom = shapely.union_all(lake_union) if lake_union else None
+    lake_tree = STRtree(lake_union) if lake_union else None
+
+    def lakes_near(g, pad=0.0):
+        """The lakes within pad of a shape, joined (None if none)."""
+        if lake_tree is None:
+            return None
+        hits = lake_tree.geometries.take(lake_tree.query(g.buffer(pad) if pad else g, predicate="intersects"))
+        return shapely.union_all(hits) if len(hits) else None
 
     rivers = []
     river_geoms = []
@@ -192,9 +234,10 @@ def main():
             g = to_map_geom(shape(f["geometry"]))
             if not g.intersects(region):
                 continue
-            g = g.intersection(land_r)
-            if lake_geom is not None:
-                g = g.difference(lake_geom)
+            g = clip(g)
+            near = lakes_near(g)
+            if near is not None:
+                g = g.difference(near)
             if g.is_empty:
                 continue
             g = g.simplify(TOLERANCE)
@@ -209,17 +252,20 @@ def main():
             # views with stubs; the long ones stay, whatever their rank, and so does any that runs into a lake (so
             # a lake keeps its inflow and outflow, like the Aare, Reuss and Limmat on the Swiss plateau).
             minor = float(p.get("scalerank") or 0) >= MINOR_RANK and g.length < MINOR_MIN_LENGTH
-            if minor and (lake_geom is None or g.distance(lake_geom) > LAKE_TOUCH):
+            if minor and lakes_near(g, LAKE_TOUCH) is None:
                 continue
             rivers.append({"d": d, "w": river_width(p), "z": float(p.get("min_zoom") or 6), "b": [round(v, 1) for v in g.bounds], "name": p.get("name") or ""})
-    wc = worldcover_lakes(land_r, lake_geom, shapely.union_all(river_geoms) if river_geoms else None)
+    m = json.loads(MAP_JSON.read_text())
+    coarse = shapely.union_all([Polygon(r).buffer(0) for item in m["regions"] if item["id"] in L4_SKIP for r in parse_rings(item["path"]) if len(r) >= 3])
+    shapely.prepare(coarse)
+    wc = worldcover_lakes(land_r, lake_geom, shapely.union_all(river_geoms) if river_geoms else None, coarse)
     for g in wc:
         rings = []
         for poly in getattr(g, "geoms", [g]):
             if isinstance(poly, Polygon):
                 rings.append(poly.exterior)
                 rings.extend(poly.interiors)
-        d = "".join("M" + "L".join(f"{x:.2f} {y:.2f}" for x, y in r.coords) + "Z" for r in rings)
+        d = "".join(ring_d(r.coords, close=True) for r in rings)
         # Shown from about play zoom (bigger ones a little sooner), like Natural Earth's smaller lakes.
         lakes.append({"d": d, "z": 6.0 if g.area >= 2 else 6.7 if g.area >= 0.5 else 7.0, "b": [round(v, 1) for v in g.bounds], "name": "(WorldCover)"})
     print(f"{len(wc)} lakes from WorldCover added")

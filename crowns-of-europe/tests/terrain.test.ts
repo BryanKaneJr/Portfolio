@@ -2,7 +2,7 @@
 import { MAP } from '../src/sim/content';
 import { BUFFER, SHARPNESS, TileCache, decodedBytes, grow, peakPt, peaksToDraw, pickLevel, tilesIn, tilesToDraw, webZoom } from '../src/ui/map/terrainLayer';
 import { PEAK_SIZE, PEAK_SPRITES, TERRAIN_PEAKS } from '../src/ui/map/terrainPeaks';
-import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_TILE_PX } from '../src/ui/map/terrainTiles';
+import { TERRAIN_FINEST_SKIP, TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_TILE_PX } from '../src/ui/map/terrainTiles';
 import { MAP_STYLES } from '../src/ui/map/styles';
 
 jest.mock('react-native', () => ({ Platform: { OS: 'ios', select: (o: Record<string, unknown>) => o.ios ?? o.default } }));
@@ -28,10 +28,12 @@ describe('tile index', () => {
         expect(seen.has(cell)).toBe(false); // one tile per grid cell: no overlaps
         seen.add(cell);
       }
-      // Every region's label point inside the region (known land) has a tile at every level.
+      // Every region's label point inside the region (known land) has a tile at every level (at the finest, every
+      // region's but those it skips).
+      const finest = level === TERRAIN_LEVELS[TERRAIN_LEVELS.length - 1];
       for (const r of MAP.regions) {
         const [x, y] = r.label;
-        if (x < R.x0 || x >= R.x1 || y < R.y0 || y >= R.y1) continue;
+        if (x < R.x0 || x >= R.x1 || y < R.y0 || y >= R.y1 || (finest && TERRAIN_FINEST_SKIP.includes(r.id))) continue;
         expect(level.tiles.some(t => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h)).toBe(true);
       }
     }

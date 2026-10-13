@@ -2,13 +2,14 @@
 Step 5: check the tiles, by measurement rather than by eye. Writes docs/terrain/verification.json (and comparison
 crops in docs/terrain/img/).
 
-1. Determinism and band seams: a box straddling tile edges and the boundary between two render bands is rendered
+1. Determinism and block seams: a box straddling tile edges and the boundary between two render blocks is rendered
    afresh and compared with the stitched tiles (only JPEG noise may differ).
 2. Tile joins: across every shared edge, the colour step between the two tiles' facing pixel columns/rows is compared
    with the step across a JPEG block edge inside the tiles; and, definitively, with the step at the same line in a
    render that has no edge there (a seam would add a step the unsplit render does not have).
-3. Coastline: where a tile paints sea and where the game's own coastline (land.npy) says sea, at the finest level;
-   disagreements are counted by distance from the game's coast.
+3. Coastline: where a tile paints sea and where the game's own coastline (land.npy) says sea, at the finest level, over
+   COAST_BOX (central Europe: the same area every round, so the numbers compare); disagreements are counted by
+   distance from the game's coast.
 4. Real detail: each level against the level above it magnified 2x over the same area: the finer level must carry
    more fine detail (Laplacian energy), i.e. it is not the coarser picture enlarged.
 
@@ -26,6 +27,7 @@ import symbols as sym
 from config import PPU, REGION, ROOT, TILE, TILE_DIR, WORK_DIR, WORK_PPU
 
 OUT = ROOT / "docs/terrain"
+COAST_BOX = (1792, 576, 2368, 1088)  # central Europe, from the Rhine to the Dnieper and from the Baltic to Sicily
 
 
 def load_tile(level, tx, ty):
@@ -57,17 +59,17 @@ def stitched(level, box):
 
 def check_determinism(data, sprites):
     """(a) The renderer itself: two overlapping boxes drawn at different offsets agree pixel for pixel on their overlap
-    (raw, before JPEG). (b) The shipped tiles: a tile-aligned box across the boundary between the first two L4 render
-    bands is drawn afresh, cut into its tiles and encoded exactly as render.py does; the result is compared with the
-    tiles on disk (bytes and decoded pixels)."""
+    (raw, before JPEG). (b) The shipped tiles: a tile-aligned box across a boundary between two rows of L4 render
+    blocks is drawn afresh, cut into its tiles and encoded exactly as render.py does; the result is compared with the
+    tiles on disk (bytes and decoded pixels). (c) Two L2 blocks drawn again exactly as render.py draws them must give
+    the same bytes for every tile."""
     import io
 
     level = 4
     ppu = PPU[level]
     span = TILE / ppu
-    band_rows = max(1, 4096 // TILE)
-    first_row = int(math.floor(REGION[1] / span))
-    boundary_y = (first_row + band_rows) * span  # where the first band ends
+    block = render.BLOCK * span
+    boundary_y = math.ceil(840 / block) * block  # a boundary between two rows of render blocks, in the Alps
     # (a) raw: a 32-unit box and a 48-unit box around it.
     small = (1950.0, boundary_y - 16, 1982.0, boundary_y + 16)
     big = (small[0] - 8, small[1] - 8, small[2] + 8, small[3] + 8)
@@ -76,7 +78,7 @@ def check_determinism(data, sprites):
     o = 8 * ppu
     b = b[o : o + a.shape[0], o : o + a.shape[1]]
     raw = np.abs(a.astype(np.int16) - b.astype(np.int16))
-    # (b) shipped tiles: one tile column, the tile rows either side of the band boundary.
+    # (b) shipped tiles: one tile column, the tile rows either side of the block boundary.
     tx = int(1952 // span)
     box = (tx * span, boundary_y - span, (tx + 1) * span, boundary_y + span)
     fresh, _ = render.render_box(data, sprites, level, box)
@@ -93,7 +95,7 @@ def check_determinism(data, sprites):
         blocks = dd.reshape(TILE // 8, 8, TILE // 8, 8).max(axis=(1, 3)) > 0
         rows.append({
             "tile": f"L{level}/{tx}_{ty}",
-            "band": 1 + k,
+            "block_row": 1 + k,
             "bytes_identical": buf.getvalue() == disk,
             "decoded_mean_abs_diff": round(float(dd.mean()), 4),
             "jpeg_blocks_differing_share": round(float(blocks.mean()), 4),
@@ -101,25 +103,29 @@ def check_determinism(data, sprites):
             "jpeg_error_vs_raw_mean": round(float(jpeg_err.mean()), 3),
             "jpeg_error_vs_raw_p99": float(np.percentile(jpeg_err, 99)),
         })
-    # (c) a whole level rebuilt: L2 is drawn as one band, so drawing it again must give the same bytes for every tile.
+    # (c) L2 blocks rebuilt as render.py draws them (the same block, the same box): the same bytes for every tile.
     rebuilt = []
-    tiles2 = render.level_tiles(2)
-    box2 = (min(t[2] for t in tiles2), min(t[3] for t in tiles2), max(t[4] for t in tiles2), max(t[5] for t in tiles2))
-    img2, _ = render.render_box(data, sprites, 2, box2)
-    for tx2, ty2, x0, y0, x1, y1 in tiles2:
-        c0, r0 = int(round((x0 - box2[0]) * PPU[2])), int(round((y0 - box2[1]) * PPU[2]))
-        c1, r1 = int(round((x1 - box2[0]) * PPU[2])), int(round((y1 - box2[1]) * PPU[2]))
-        buf = io.BytesIO()
-        Image.fromarray(img2[r0:r1, c0:c1]).save(buf, format="JPEG", quality=render.QUALITY, optimize=True)
-        rebuilt.append(buf.getvalue() == (TILE_DIR / "L2" / f"{tx2}_{ty2}.jpg").read_bytes())
+    blocks = {}
+    for t in render.level_tiles(2):
+        blocks.setdefault((t[1] // render.BLOCK, t[0] // render.BLOCK), []).append(t)
+    for key in sorted(blocks, key=lambda k: -len(blocks[k]))[:2]:
+        blk = blocks[key]
+        box2 = (min(t[2] for t in blk), min(t[3] for t in blk), max(t[4] for t in blk), max(t[5] for t in blk))
+        img2, _ = render.render_box(data, sprites, 2, box2)
+        for tx2, ty2, x0, y0, x1, y1 in blk:
+            c0, r0 = int(round((x0 - box2[0]) * PPU[2])), int(round((y0 - box2[1]) * PPU[2]))
+            c1, r1 = int(round((x1 - box2[0]) * PPU[2])), int(round((y1 - box2[1]) * PPU[2]))
+            buf = io.BytesIO()
+            Image.fromarray(img2[r0:r1, c0:c1]).save(buf, format="JPEG", quality=render.QUALITY, optimize=True)
+            rebuilt.append(buf.getvalue() == (TILE_DIR / "L2" / f"{tx2}_{ty2}.jpg").read_bytes())
     stitched_view = stitched(level, small)
     diff = np.abs(a.astype(np.float32) - stitched_view)
     Image.fromarray(np.concatenate([a, stitched_view.astype(np.uint8), np.clip(diff * 8, 0, 255).astype(np.uint8)], axis=1)).save(OUT / "img/determinism-L4.png")
     return {
         "raw_render_offsets": {"box_map_units": small, "overlapping_box": big, "max_abs_diff": int(raw.max()), "pixels_differing": int((raw.max(axis=2) > 0).sum()), "pixels": int(raw.shape[0] * raw.shape[1])},
-        "shipped_tiles_across_band_boundary": {"band_boundary_y": boundary_y, "tiles": rows},
+        "shipped_tiles_across_block_boundary": {"block_boundary_y": boundary_y, "tiles": rows},
         "level2_rebuilt_byte_identical": f"{sum(rebuilt)}/{len(rebuilt)} tiles",
-        "note": "raw: the same symbols land in the same places wherever a box starts; a few isolated edge pixels (a few hundredths of a percent) differ, where Skia anti-aliases an edge a little differently on a surface of another size. Rebuilt: drawing the same band again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
+        "note": "raw: the same symbols land in the same places wherever a box starts; a few isolated edge pixels (a few hundredths of a percent) differ, where Skia anti-aliases an edge a little differently on a surface of another size. Rebuilt: drawing the same block again gives byte-identical tiles. Shipped: re-encoding a fresh one-tile-wide render matches the tiles on disk except in JPEG blocks where that 1-level rounding tips a coefficient. What remains between a raw render and a tile is JPEG compression (quality 84, 4:2:0 chroma), largest at sharp colour edges such as lake shores; determinism-L4.png shows raw | tiles | difference x8.",
     }
 
 
@@ -129,19 +135,16 @@ def check_joins():
     with like). A seam would make the edge step clearly larger."""
     out = {}
     for level in range(len(PPU)):
-        files = sorted((TILE_DIR / f"L{level}").glob("*.jpg"))
-        tiles = {}
-        for f in files:
-            tx, ty = (int(v) for v in f.stem.split("_"))
-            tiles[(tx, ty)] = np.asarray(Image.open(f).convert("RGB"), np.float32)
+        made = {tuple(int(v) for v in f.stem.split("_")) for f in (TILE_DIR / f"L{level}").glob("*.jpg")}
         across, inside = [], []
-        for (tx, ty), t in tiles.items():
-            r = tiles.get((tx + 1, ty))
+        for tx, ty in sorted(made):
+            t = load_tile(level, tx, ty)
+            r = load_tile(level, tx + 1, ty) if (tx + 1, ty) in made else None
             if r is not None and r.shape[0] == t.shape[0]:
                 across.append(np.abs(t[:, -1] - r[:, 0]).mean())
                 m = (t.shape[1] // 16) * 8  # a block boundary near the middle
                 inside.append(np.abs(t[:, m - 1] - t[:, m]).mean())
-            b = tiles.get((tx, ty + 1))
+            b = load_tile(level, tx, ty + 1) if (tx, ty + 1) in made else None
             if b is not None and b.shape[1] == t.shape[1]:
                 across.append(np.abs(t[-1] - b[0]).mean())
                 m = (t.shape[0] // 16) * 8
@@ -154,18 +157,18 @@ def check_joins():
 def check_seams_vs_raw(data, sprites):
     """The definitive seam test: at a tile edge, the colour step between the two tiles' facing pixels against the step
     at the same line in a render with no edge there (one box drawn across it). Equal steps mean the edge adds
-    nothing but JPEG noise; a seam would add a step the unsplit render does not have. L0-L2 are drawn whole, every
-    edge measured; L3 and L4 at a sample of edges spread over the region, each drawn as a two-tile box."""
+    nothing but JPEG noise; a seam would add a step the unsplit render does not have. L0 and L1 are drawn whole, every
+    edge measured; L2-L4 at a sample of edges spread over the region, each drawn as a two-tile box."""
     out = {}
     for level in range(len(PPU)):
         ppu = PPU[level]
         span = TILE / ppu
         tiles = {(t[0], t[1]): t for t in render.level_tiles(level)}
         pairs = [((tx, ty), (tx + 1, ty), "v") for (tx, ty) in tiles if (tx + 1, ty) in tiles] + [((tx, ty), (tx, ty + 1), "h") for (tx, ty) in tiles if (tx, ty + 1) in tiles]
-        if level >= 3:
-            pairs = sorted(pairs, key=lambda p: (p[0][1] * 131 + p[0][0] * 31) % 97)[:12]  # a fixed, spread-out sample
+        if level >= 2:
+            pairs = sorted(pairs, key=lambda p: (p[0][1] * 131 + p[0][0] * 31) % 97)[:12 if level >= 3 else 24]  # a fixed, spread-out sample
         whole = None
-        if level <= 2:
+        if level <= 1:
             box = (min(t[2] for t in tiles.values()), min(t[3] for t in tiles.values()), max(t[4] for t in tiles.values()), max(t[5] for t in tiles.values()))
             whole, _ = render.render_box(data, sprites, level, box)
             whole = whole.astype(np.float32)
@@ -216,27 +219,37 @@ def check_coast():
     cover = np.load(WORK_DIR / "cover.npy", mmap_mode="r")
     water_i = g["classes"].index("water")
     f = WORK_PPU // ppu
-    c0 = int(round((REGION[0] - g["x0"]) * WORK_PPU))
-    r0 = int(round((REGION[1] - g["y0"]) * WORK_PPU))
-    w = int((REGION[2] - REGION[0]) * ppu)
-    h = int((REGION[3] - REGION[1]) * ppu)
+    B = COAST_BOX
+    c0 = int(round((B[0] - g["x0"]) * WORK_PPU))
+    r0 = int(round((B[1] - g["y0"]) * WORK_PPU))
+    w = int((B[2] - B[0]) * ppu)
+    h = int((B[3] - B[1]) * ppu)
     cov = np.asarray(land[r0 : r0 + h * f : f, c0 : c0 + w * f : f])
     game_land = cov > 127
     partial = (cov > 0) & (cov < 255)
     inland_water = (np.asarray(lake[r0 : r0 + h * f : f, c0 : c0 + w * f : f]) > 64) | (np.asarray(cover[water_i, r0 : r0 + h * f : f, c0 : c0 + w * f : f]) > 64)
-    painted_land = np.zeros((h, w), bool)
+    painted_land = np.zeros((h, w), bool)  # (no tile: open sea, which the app paints as sea)
+    tiled = np.zeros((h, w), bool)
     span = TILE / ppu
     for f_ in sorted((TILE_DIR / f"L{level}").glob("*.jpg")):
         tx, ty = (int(v) for v in f_.stem.split("_"))
+        tx0, ty0 = max(REGION[0], tx * span), max(REGION[1], ty * span)
+        if tx0 >= B[2] or ty0 >= B[3] or tx0 + span <= B[0] or ty0 + span <= B[1]:
+            continue
         t = np.asarray(Image.open(f_).convert("RGB"), np.int16)
-        x0, y0 = int(round((max(REGION[0], tx * span) - REGION[0]) * ppu)), int(round((max(REGION[1], ty * span) - REGION[1]) * ppu))
+        # The tile's overlap with the box, in each one's pixels.
+        ox0, oy0 = max(B[0], tx0), max(B[1], ty0)
+        ox1, oy1 = min(B[2], tx0 + t.shape[1] / ppu), min(B[3], ty0 + t.shape[0] / ppu)
+        src = t[int(round((oy0 - ty0) * ppu)) : int(round((oy1 - ty0) * ppu)), int(round((ox0 - tx0) * ppu)) : int(round((ox1 - tx0) * ppu))]
+        x0, y0 = int(round((ox0 - B[0]) * ppu)), int(round((oy0 - B[1]) * ppu))
         # The painted sea and inland water are bluer than red (shallows by about 8, deeps by 26, ripple lines by 26);
         # every land colour is redder than blue (farmland by about 48, forest 46, snow, the closest, 6).
-        sea = t[..., 2] - t[..., 0] > 0
-        painted_land[y0 : y0 + t.shape[0], x0 : x0 + t.shape[1]] = ~sea
+        sea = src[..., 2] - src[..., 0] > 0
+        painted_land[y0 : y0 + src.shape[0], x0 : x0 + src.shape[1]] = ~sea
+        tiled[y0 : y0 + src.shape[0], x0 : x0 + src.shape[1]] = True
     coast = game_land ^ ndimage.binary_erosion(game_land)
     dist = ndimage.distance_transform_edt(~coast) / ppu  # map units from the game's coast
-    near = dist <= 3
+    near = (dist <= 3) & tiled
     disagree = (painted_land != game_land) & near
     edge_px = disagree & (partial | (dist <= 1.5 / ppu))  # the coast's own (anti-aliased) pixel and its neighbour
     water_on_land = disagree & ~edge_px & game_land & ~painted_land & ndimage.binary_dilation(inland_water, iterations=2)
@@ -258,7 +271,8 @@ def check_coast():
         "unexplained_game_sea_painted_as_land": int(sea_as_land.sum()),
         "unexplained_game_land_painted_as_sea": int(land_as_sea.sum()),
         "unexplained_distance_units": {"median": round(float(np.median(d)), 3) if d.size else 0, "p95": round(float(np.percentile(d, 95)), 3) if d.size else 0, "max": round(float(d.max()), 3) if d.size else 0},
-        "note": "sea/land read from the L4 tiles' colours vs the game's coastline, within 3 map units of it (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit). img/coast-unexplained-L4.png marks (black) each 16x16 px block with an unexplained pixel.",
+        "box_map_units": COAST_BOX,
+        "note": "sea/land read from the L4 tiles' colours vs the game's coastline, within 3 map units of it, over central Europe (1 unit is about 4.1-4.5 km here; 1 px = 1/16 unit). img/coast-unexplained-L4.png marks (black) each 16x16 px block with an unexplained pixel.",
     }
 
 
@@ -310,7 +324,7 @@ def main():
     import argparse
 
     checks = {
-        "determinism_and_band_seams": lambda d, sp: check_determinism(d, sp),
+        "determinism_and_block_seams": lambda d, sp: check_determinism(d, sp),
         "tile_joins": lambda d, sp: check_joins(),
         "seams_vs_unsplit_render": lambda d, sp: check_seams_vs_raw(d, sp),
         "coastline_vs_game": lambda d, sp: check_coast(),

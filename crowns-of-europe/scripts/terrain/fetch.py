@@ -1,11 +1,13 @@
 """
-Step 1: fetch only the source data the prototype region needs, into scripts/data/terrain-src (git-ignored), and
-record what was fetched (URLs, sizes, SHA-256, dates, licences) in assets/map/terrain/sources.json.
+Step 1: fetch only the source data the region needs, one file per source tile, into scripts/data/terrain-src/tiles
+(TILE_CACHE, git-ignored), and record what was fetched (URLs, files, SHA-256, dates, licences) in
+assets/map/terrain/sources.json.
 
-- ETOPO 2022 15 arc-second surface elevation: the 15° tiles over FETCH_BBOX, each read only over the bbox (the
-  GeoTIFFs are internally tiled, so GDAL fetches just those blocks over HTTP), mosaicked into one GeoTIFF.
-- ESA WorldCover 10 m 2021: the 3° tiles over FETCH_BBOX, read from each Cloud Optimized GeoTIFF's built-in 1/16
-  overview (about 160 m), mosaicked into one GeoTIFF. Tiles that do not exist (open sea) are recorded as missing.
+Only source tiles under the game's known land in REGION (grown by FETCH_MARGIN map units) are read:
+- ETOPO 2022 15 arc-second surface elevation: each 15° tile is read only over the part of it the land needs (the
+  GeoTIFFs are internally tiled, so GDAL fetches just those blocks over HTTP), on the tile's own pixel grid.
+- ESA WorldCover 10 m 2021: each 3° tile, read from its Cloud Optimized GeoTIFF's built-in 1/16 overview (about
+  160 m). Tiles that do not exist (open sea) are recorded as missing.
 - Natural Earth 1:10m physical vectors, as GeoJSON from the pinned release.
 
 Run: python scripts/terrain/fetch.py   (idempotent: anything already in the cache is kept)
@@ -16,16 +18,19 @@ import json
 import math
 import sys
 import urllib.request
+from pathlib import Path
 
 import numpy as np
 import rasterio
+import shapely
 from rasterio.enums import Resampling
 from rasterio.transform import from_origin
-from rasterio.windows import from_bounds
 
-from config import ETOPO, FETCH_BBOX, META_JSON, NATURAL_EARTH, SRC_DIR, WORLDCOVER
+import mapproj as mp
+import prepare
+from config import ETOPO, FETCH_MARGIN, META_JSON, NATURAL_EARTH, REGION, SRC_DIR, TILE_CACHE, WORLDCOVER
 
-GDAL_ENV = dict(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR", GDAL_HTTP_MAX_RETRY="4", GDAL_HTTP_RETRY_DELAY="2", CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif")
+GDAL_ENV = dict(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR", GDAL_HTTP_MAX_RETRY="6", GDAL_HTTP_RETRY_DELAY="3", CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif")
 
 
 def sha256(path):
@@ -40,91 +45,71 @@ def tile_name(spec, lat, lon):
     return spec["tile"].format(ns="N" if lat >= 0 else "S", lat=abs(lat), ew="E" if lon >= 0 else "W", lon=abs(lon))
 
 
+def land_lonlat():
+    """The game's land in REGION, grown by FETCH_MARGIN, in lon/lat."""
+    box = shapely.box(*REGION)
+    land = shapely.union_all([g for g in prepare.game_land_geoms() if g.intersects(box)]).buffer(FETCH_MARGIN).intersection(box)
+    return shapely.transform(land, lambda c: np.column_stack(mp.to_lonlat(c[:, 0], c[:, 1])))
+
+
+def write(out, data, **profile):
+    part = Path(str(out) + ".part")
+    with rasterio.open(part, "w", **profile) as dst:
+        dst.write(data, 1)
+    part.rename(out)
+
+
 # ---------------------------------------------------------------- ETOPO 2022
-def fetch_etopo():
-    out = SRC_DIR / "etopo2022_15s_region.tif"
-    west, south, east, north = FETCH_BBOX
-    res = 15 / 3600
-    width = int(round((east - west) / res))
-    height = int(round((north - south) / res))
-    tiles = []
-    # 15° tiles named by their north-west corner: the tile "N60E000" covers 45°N-60°N, 0°E-15°E.
+def fetch_etopo(land):
+    """15° tiles named by their north-west corner ("N60E000" covers 45°N-60°N, 0°E-15°E)."""
+    west, south, east, north = land.bounds
+    names = []
     for tlat in range(int(math.floor(south / 15)) * 15 + 15, int(math.ceil(north / 15)) * 15 + 1, 15):
         for tlon in range(int(math.floor(west / 15)) * 15, int(math.ceil(east / 15)) * 15, 15):
-            tiles.append((tlat, tlon))
-    if out.exists():
-        print(f"etopo: cached {out.name}")
-        return out, [tile_name(ETOPO, a, b) for a, b in tiles]
-    mosaic = np.full((height, width), np.nan, dtype=np.float32)
-    names = []
-    with rasterio.Env(**GDAL_ENV):
-        for tlat, tlon in tiles:
+            part = shapely.box(tlon, tlat - 15, tlon + 15, tlat).intersection(land)
+            if part.is_empty:
+                continue
             name = tile_name(ETOPO, tlat, tlon)
-            url = "/vsicurl/" + ETOPO["base"] + name
-            with rasterio.open(url) as src:
-                b = src.bounds
-                ix0, iy0 = max(west, b.left), min(north, b.top)
-                ix1, iy1 = min(east, b.right), max(south, b.bottom)
-                if ix0 >= ix1 or iy1 >= iy0:
-                    continue
-                win = from_bounds(ix0, iy1, ix1, iy0, src.transform).round_offsets().round_lengths()
-                data = src.read(1, window=win).astype(np.float32)
-                data[data == src.nodata] = np.nan
-                c0 = int(round((ix0 - west) / res))
-                r0 = int(round((north - iy0) / res))
-                h, w = data.shape
-                mosaic[r0 : r0 + h, c0 : c0 + w] = data[: height - r0, : width - c0]
-                names.append(name)
-                print(f"etopo: {name} {w}x{h}")
-    assert not np.isnan(mosaic).any(), "ETOPO mosaic has holes"
-    profile = dict(driver="GTiff", width=width, height=height, count=1, dtype="float32", crs="EPSG:4326", transform=from_origin(west, north, res, res), compress="deflate", predictor=3, tiled=True)
-    with rasterio.open(out, "w", **profile) as dst:
-        dst.write(mosaic, 1)
-    return out, names
+            names.append(name)
+            out = TILE_CACHE / name
+            if out.exists():
+                continue
+            b = part.bounds
+            with rasterio.open("/vsicurl/" + ETOPO["base"] + name) as src:
+                win = rasterio.windows.from_bounds(*b, src.transform).round_offsets().round_lengths()
+                win = win.intersection(rasterio.windows.Window(0, 0, src.width, src.height))
+                data = src.read(1, window=win)
+                profile = dict(driver="GTiff", width=data.shape[1], height=data.shape[0], count=1, dtype=data.dtype, crs=src.crs, transform=src.window_transform(win), nodata=src.nodata, compress="deflate", predictor=3 if data.dtype.kind == "f" else 2, tiled=True)
+            write(out, data, **profile)
+            print(f"etopo: {name} {data.shape[1]}x{data.shape[0]}", flush=True)
+    return names
 
 
 # ---------------------------------------------------------------- ESA WorldCover
-def fetch_worldcover():
-    out = SRC_DIR / "worldcover2021_ov16_region.tif"
-    west, south, east, north = FETCH_BBOX
-    f = WORLDCOVER["overview_factor"]
-    res = 3 / (36000 / f)  # degrees per pixel at the overview
-    width = int(round((east - west) / res))
-    height = int(round((north - south) / res))
-    lat0 = int(math.floor(south / 3)) * 3
-    lon0 = int(math.floor(west / 3)) * 3
+def fetch_worldcover(land):
+    """3° tiles named by their south-west corner, from each COG's 1/16 overview."""
+    west, south, east, north = land.bounds
+    n = 36000 // WORLDCOVER["overview_factor"]
     present, missing = [], []
-    if out.exists():
-        meta = json.loads((SRC_DIR / "worldcover_tiles.json").read_text())
-        print(f"worldcover: cached {out.name}")
-        return out, meta["present"], meta["missing"]
-    mosaic = np.zeros((height, width), dtype=np.uint8)  # 0: no data (open sea: WorldCover has no tiles there)
-    with rasterio.Env(**GDAL_ENV):
-        for tlat in range(lat0, int(math.ceil(north)), 3):
-            for tlon in range(lon0, int(math.ceil(east)), 3):
-                name = tile_name(WORLDCOVER, tlat, tlon)
-                url = "/vsicurl/" + WORLDCOVER["base"] + name
-                try:
-                    with rasterio.open(url) as src:
-                        n = 36000 // f
-                        data = src.read(1, out_shape=(n, n), resampling=Resampling.nearest)  # served from the 1/16 overview
-                except rasterio.errors.RasterioIOError:
-                    missing.append(name)
-                    continue
+    for tlat in range(int(math.floor(south / 3)) * 3, int(math.ceil(north)), 3):
+        for tlon in range(int(math.floor(west / 3)) * 3, int(math.ceil(east)), 3):
+            if not shapely.box(tlon, tlat, tlon + 3, tlat + 3).intersects(land):
+                continue
+            name = tile_name(WORLDCOVER, tlat, tlon)
+            out = TILE_CACHE / name
+            if out.exists():
                 present.append(name)
-                # Place the 3° tile into the mosaic (clipped to the bbox).
-                c0 = int(round((tlon - west) / res))
-                r0 = int(round((north - (tlat + 3)) / res))
-                rs, cs = max(0, -r0), max(0, -c0)
-                re_, ce = min(n, height - r0), min(n, width - c0)
-                if re_ > rs and ce > cs:
-                    mosaic[r0 + rs : r0 + re_, c0 + cs : c0 + ce] = data[rs:re_, cs:ce]
-                print(f"worldcover: {name}")
-    profile = dict(driver="GTiff", width=width, height=height, count=1, dtype="uint8", crs="EPSG:4326", transform=from_origin(west, north, res, res), compress="deflate", tiled=True, nodata=0)
-    with rasterio.open(out, "w", **profile) as dst:
-        dst.write(mosaic, 1)
-    (SRC_DIR / "worldcover_tiles.json").write_text(json.dumps({"present": present, "missing": missing}, indent=1))
-    return out, present, missing
+                continue
+            try:
+                with rasterio.open("/vsicurl/" + WORLDCOVER["base"] + name) as src:
+                    data = src.read(1, out_shape=(n, n), resampling=Resampling.nearest)  # served from the 1/16 overview
+            except rasterio.errors.RasterioIOError:
+                missing.append(name)  # open sea: WorldCover has no tile there
+                continue
+            write(out, data, driver="GTiff", width=n, height=n, count=1, dtype="uint8", crs="EPSG:4326", transform=from_origin(tlon, tlat + 3, 3 / n, 3 / n), compress="deflate", tiled=True, nodata=0)
+            present.append(name)
+            print(f"worldcover: {name}", flush=True)
+    return present, missing
 
 
 # ---------------------------------------------------------------- Natural Earth
@@ -143,22 +128,25 @@ def fetch_natural_earth():
 
 
 def main():
-    SRC_DIR.mkdir(parents=True, exist_ok=True)
-    etopo, etopo_tiles = fetch_etopo()
-    wc, wc_present, wc_missing = fetch_worldcover()
+    TILE_CACHE.mkdir(parents=True, exist_ok=True)
+    land = land_lonlat()
+    with rasterio.Env(**GDAL_ENV):
+        etopo = fetch_etopo(land)
+        wc_present, wc_missing = fetch_worldcover(land)
     ne = fetch_natural_earth()
-    today = datetime.date.today().isoformat()
-    meta = {
-        "note": "Source data for the terrain tiles, fetched by scripts/terrain/fetch.py. The cache files are not committed; their checksums are recorded so a rebuild can be checked against them.",
-        "region_bbox_lonlat": FETCH_BBOX,
-        "retrieved": today,
-        "etopo": {**ETOPO, "tiles": etopo_tiles, "cache": {"file": etopo.name, "bytes": etopo.stat().st_size, "sha256": sha256(etopo)}},
-        "worldcover": {**WORLDCOVER, "tiles_read": wc_present, "tiles_missing_open_sea": wc_missing, "cache": {"file": wc.name, "bytes": wc.stat().st_size, "sha256": sha256(wc)}},
+    meta = json.loads(META_JSON.read_text()) if META_JSON.exists() else {}
+    meta.update({
+        "note": "Source data for the terrain tiles, fetched by scripts/terrain/fetch.py, one file per source tile. The cache files are not committed; their checksums are recorded so a rebuild can be checked against them.",
+        "region_map_units": REGION,
+        "region_bbox_lonlat": [round(v, 3) for v in land.bounds],
+        "retrieved": datetime.date.today().isoformat(),
+        "etopo": {**ETOPO, "tiles": [{"file": n, "sha256": sha256(TILE_CACHE / n)} for n in etopo]},
+        "worldcover": {**WORLDCOVER, "tiles_read": [{"file": n, "sha256": sha256(TILE_CACHE / n)} for n in wc_present], "tiles_missing_open_sea": wc_missing},
         "natural_earth": {**NATURAL_EARTH, "cache": [{"file": p.name, "bytes": p.stat().st_size, "sha256": sha256(p)} for p in ne]},
-    }
+    })
     META_JSON.parent.mkdir(parents=True, exist_ok=True)
     META_JSON.write_text(json.dumps(meta, indent=1) + "\n")
-    print(f"wrote {META_JSON}")
+    print(f"wrote {META_JSON}: {len(etopo)} ETOPO tiles, {len(wc_present)} WorldCover tiles ({len(wc_missing)} missing: open sea)")
 
 
 if __name__ == "__main__":

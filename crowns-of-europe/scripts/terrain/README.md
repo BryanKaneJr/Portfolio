@@ -1,14 +1,18 @@
 # Terrain pipeline (offline)
 
-Builds the illustrated terrain tiles and the river and lake vectors the map draws in the "Illustrated" style. It runs
-on a workstation or in CI, never on the phone. The app only bundles what it writes:
+Builds the illustrated terrain tiles, the peaks and the river and lake vectors the map draws in the "Illustrated"
+style. It runs on a workstation or in CI, never on the phone. The app only bundles what it writes:
 - `assets/map/terrain/L*/*.jpg`
+- `assets/map/terrain/peaks/*.png`
 - `assets/map/terrain/sea-shade.png`, `sea-shade-soft.png`
 - `src/ui/map/terrainTiles.ts`
+- `src/ui/map/terrainPeaks.ts`
 - `src/ui/map/terrainVectors.ts`
 
-So far it covers one prototype region: central and eastern Europe, map units x 1792–2368, y 576–1088 (about 2°E–35°E,
-38°N–57°N).
+It covers the whole known Old World: `REGION` in `config.py`, map units x 1184–2576, y 128–1728 (about 33°W–47°E,
+4°N–69°N). The New World keeps the Atlas style. Tiles are made only where they show the game's known land, or the sea
+within reach of it; open sea and the parchment over the wastes are left to the style, so no edge of the terrain shows
+on land.
 
 ## Setup
 
@@ -22,13 +26,15 @@ sudo apt-get install libegl1                          # skia-python needs the sy
 
 | Step | Script | What it does | Output |
 | --- | --- | --- | --- |
-| 1 | `fetch.py` | Downloads only the source data the region needs. ETOPO 2022 15″ tiles are read over the region only, since GDAL fetches just the needed GeoTIFF blocks. ESA WorldCover is read from each Cloud Optimized GeoTIFF's built-in 1/16 level (~160 m). Natural Earth 1:10m vectors come from the pinned v5.1.2 release. | `scripts/data/terrain-src/` (git-ignored); sizes, SHA-256 and URLs in `assets/map/terrain/sources.json` |
-| 2 | `prepare.py` | Warps every dataset onto one canonical grid in the game's map units at 16 px per unit: elevation (cubic), land-cover fractions per class (average of 0/255 masks), and the game's own land outline rasterised 4×4-supersampled. | `scripts/data/terrain-work/` (git-ignored) |
-| 3 | `render.py` | Draws each level from that data: land colour, relief, symbols, water, paper grain. Large levels are drawn in bands of tile rows with an 8-unit halo, then cut into 512 px JPEG tiles. Also writes the tile index and the sea's depth shading. | `assets/map/terrain/L0…L4/*.jpg`, `assets/map/terrain/sea-shade*.png`, `src/ui/map/terrainTiles.ts` |
-| 4 | `vectors.py` | Natural Earth rivers and lakes in map units, cut to the game's coastline and the region, simplified to 0.06 units, plus WorldCover's small lakes (from step 2's grid). | `src/ui/map/terrainVectors.ts` |
+| 1 | `fetch.py` | Downloads only the source tiles under the game's land in the region, one file per source tile. ETOPO 2022 15″ tiles are read over the part the land needs only, since GDAL fetches just the needed GeoTIFF blocks. ESA WorldCover is read from each Cloud Optimized GeoTIFF's built-in 1/16 level (~160 m). Natural Earth 1:10m vectors come from the pinned v5.1.2 release. | `scripts/data/terrain-src/tiles/` (git-ignored); files, SHA-256 and URLs in `assets/map/terrain/sources.json` |
+| 2 | `prepare.py` | Warps every dataset onto one canonical grid in the game's map units at 16 px per unit, in 256-unit chunks where land is within reach: elevation (cubic), land-cover fractions per class (average of 0/255 masks), and the game's own land outline rasterised 4×4-supersampled. Writes coarser copies (8, 4, 2, 1 px per unit) for the coarser levels. | `scripts/data/terrain-work/` (git-ignored; about 12 GB for the Old World) |
+| 3 | `render.py` | Draws each level from that data: land colour, relief, trees and marsh, water, paper grain on the land. Each level is drawn in blocks of 4 × 4 tiles with an 8-unit halo, four at a time, then cut into 512 px JPEG tiles. Also writes the tile index, the peaks (list and sprites) and the sea's depth shading. | `assets/map/terrain/L0…L4/*.jpg`, `assets/map/terrain/peaks/`, `assets/map/terrain/sea-shade*.png`, `src/ui/map/terrainTiles.ts`, `src/ui/map/terrainPeaks.ts` |
+| 4 | `vectors.py` | Natural Earth rivers and lakes in map units, cut to the game's known land in the region, simplified to 0.1 units and written as relative steps at 0.1-unit precision, plus WorldCover's small lakes (from step 2's 8 px/unit copy; at least 1.5 square units over `L4_SKIP`'s regions). | `src/ui/map/terrainVectors.ts` |
 | 5 | `verify.py` | Measures determinism, tile joins, coastline agreement and real detail per level. | `docs/terrain/verification.json`, `docs/terrain/img/` |
 
-`render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning.
+`render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning. `render.py --peaks` rewrites
+only the peaks (seconds), and `render.py --index` only the tile index for the tiles on disk. Set `TERRAIN_WORK` to
+build a second grid aside.
 `symbols.py` on its own writes the symbol library as SVG to `art/terrain-symbols/` for review.
 
 ## Coordinates: one canonical system, the game's
@@ -57,33 +63,41 @@ land is painted as shallows.
 
 Each level is drawn from the data at its own resolution:
 - **Relief** is shaded from elevation averaged to that level's pixels.
-- **Mountains** mark summits found within a fixed window in pixels.
 - **Trees** stand on a jittered lattice of fixed pixel spacing.
 
 So a finer level carries more and smaller real features; it is not a coarser level enlarged. `verify.py` measures
 this.
 
 Symbol sizes are in tile pixels, chosen for phones. The app picks the level by zoom × screen density, so on a 3× screen
-every level is shown at about 0.6–1.2 device pixels per tile pixel. `SYM` in `render.py` scales every symbol, spacing
-and search window so that a tree is about 3–6 points tall and a mountain about 10–30 points wide there. Symbols are
-drawn on their own layer and cut to the game's land before they go on the ground, so nothing spills over the coast.
+every level is shown at about 0.6–1.2 device pixels per tile pixel. `SYM` in `render.py` scales every symbol and
+spacing so that a tree is about 3–6 points tall there. Symbols are drawn on their own layer and cut to the game's land
+before they go on the ground, so nothing spills over the coast. The two finest levels are thinned (`SPREAD`,
+`HIGH_THIN`, `TREE_FROM`), and `CALM_HIGH` softens the fine relief above 1000 m.
 
-The two finest levels, seen close up, are thinned so single shapes stay apart:
-- **`SPREAD`** widens the spacing of trees, hachures, grass and marsh (about 30% fewer).
-- **`PEAK_WIN`** widens the summit search, so there are fewer, more distinct peaks.
-- **`PEAK_GAP`** keeps any peak from standing within 0.56 of the wider glyph of a bigger one, so neighbouring bases
-  overlap by less than half.
-- **`HIGH_THIN`** and **`HIGH_THIN_HACH`** drop a further share of trees and hachures on high ground.
-- **`TREE_FROM`** leaves fewer stray single trees in open farmland.
-- **`CALM_HIGH`** softens the fine relief above 1000 m, so the gaps between peaks read as quiet ground.
+**Mountains and hills are features, drawn by the app, not by the tiles** (`features()`, `write_peaks()`):
+- One list of summits for the whole region, ranked by height and isolation (a k-d tree finds each summit's nearest
+  higher one), only on the main crests of real ranges: the Atlas style's range rule (`ranges()`), at least
+  `PEAK_RELIEF` of relief, a share of the highest ground near it (`CREST`, `PEAK_SHARE`) and a height floor
+  (`PEAK_FLOOR`). Valleys, basins and plateaus stay bare.
+- Three fixed tiers (`TIER`): the top tier is each massif's few highest isolated summits (`TOP_*`). A summit keeps its
+  tier, place and shape (a hash of its position) at every level; each level only adds lesser ones, at least
+  `PEAK_SPACE` apart, at most `PEAK_CROWD` in any 60 pt square, and the lesser ones clear of region names.
+- Hills only on the highest points of uplands off the ranges, a few each (`HILL_*`). No slope hachures anywhere.
+- The tiles keep clear ground where each stands (no tree on it). `write_peaks()` writes the list to `terrainPeaks.ts`
+  with sprites drawn by `symbols.summit()` and `hill()` and turned into an overlay (`as_overlay`: the lit face and snow
+  lighten, the shaded face and ink darken, so the realm's colour shows through). The app sizes them in screen points
+  (`PEAK_SIZE`) and leaves out the lesser ones under a name (`terrainLayer.peaksToDraw`).
 
-At every level, no tree is drawn inside a peak's silhouette.
+A tile is made only where, grown by `REACH` (16 units), it shows the game's known land (`level_tiles`); the finest
+level skips the regions in `L4_SKIP`, where level 3 stands in. The index marks a tile `full` when all four of its
+children exist, and the app hides a coarser tile only there. What the style covers with its parchment (the wastes,
+the unknown waters, past the map's edge) is painted plain (`hidden_mask`).
 
 The sea follows one rule inside the tiles and out. It is the style's sea colour under the game's baked sea depth, with
 only the darkening kept: deep water darker, shallows never paler than open sea. `render.py` writes that shading as
 `assets/map/terrain/sea-shade*.png`. The app draws it past the region, and the tiles paint the same, so no seam shows
-where they end. `EDGE_MATCH` in `config.py` holds the colour, the opacity and the picture, and a test keeps them in
-step with the style.
+where they end, and no paper grain is laid on it, so a tile left out over open sea leaves no seam. `EDGE_MATCH` in
+`config.py` holds the colour, the opacity and the picture, and a test keeps them in step with the style.
 
 `vectors.py` sets each river's width from its Natural Earth rank: the great rivers clearly heavier than tributaries.
 Natural Earth's own stroke weight is missing in the main file and unreliable in the European supplement. It leaves out
