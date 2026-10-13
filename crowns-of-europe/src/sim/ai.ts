@@ -783,6 +783,19 @@ function armyAI(s: GameState, a: Army): void {
   const mates = a.path.length ? [] : armiesOf(s, n).filter(o => o.id !== a.id && o.node === a.node && isIdle(o));
   const matesStrength = mates.reduce((t, x) => t + armyStrength(s, x), 0);
   const clear = (x: Odds) => x.win && x.ratio >= ATTACK_MARGIN;
+  // Enemy stacks standing in a region, and whether the road to a region runs through one we would not clearly beat
+  // (an army passing through fights whoever stands there).
+  const guards = new Map<NodeId, Army>();
+  for (const o of hostileArmies) if (isIdle(o)) guards.set(o.node, o);
+  const roadBlocked = (to: NodeId) => {
+    const res = pathFromTree(tree, a.node, to);
+    if (!res) return true;
+    for (let i = 0; i < res.path.length - 1; i++) {
+      const g = guards.get(res.path[i]);
+      if (g && !clear(attackOdds(s, [a], g, i ? res.path[i - 1] : a.node))) return true;
+    }
+    return false;
+  };
   let bestTarget: { node: NodeId; score: number; together: boolean } | null = null;
   for (const o of hostileArmies) {
     const d = tree.dist.get(o.node);
@@ -793,7 +806,9 @@ function armyAI(s: GameState, a: Army): void {
     const together = !clear(attackOdds(s, [a], o, from));
     if (together && (!mates.length || !clear(attackOdds(s, [a, ...mates], o, from)))) continue;
     const score = theirs / (d + 5);
-    if (!bestTarget || score > bestTarget.score) bestTarget = { node: o.node, score, together };
+    if (bestTarget && score <= bestTarget.score) continue;
+    if (roadBlocked(o.node)) continue;
+    bestTarget = { node: o.node, score, together };
   }
   if (bestTarget) {
     if (bestTarget.together) for (const m of mates) mergeArmies(s, a, m);
@@ -820,12 +835,11 @@ function armyAI(s: GameState, a: Army): void {
     }
   }
   // 4) Besiege: enemy-held regions we can reach, preferring the war goal, low forts and our own lost land; not
-  // where an enemy stack stands that the forecast says we would not beat.
+  // where, or past where, an enemy stack stands that the forecast says we would not beat.
   const regs = armyRegs(a);
   let bestSiege: { node: NodeId; score: number } | null = null;
   const takenBy = new Set(Object.values(s.armies).filter(x => x.owner === n && x.id !== a.id).map(x => (x.path.length ? x.path[x.path.length - 1] : x.node)));
-  const guards = new Map<NodeId, Army>();
-  for (const o of hostileArmies) if (isIdle(o)) guards.set(o.node, o);
+  const sieges: { node: NodeId; score: number }[] = [];
   for (const r of Object.values(s.regions)) {
     if (!controllerHostile(s, n, r)) continue;
     const d = tree.dist.get(r.id);
@@ -836,8 +850,14 @@ function armyAI(s: GameState, a: Army): void {
     if (guard && !clear(attackOdds(s, [a], guard, tree.prev.get(r.id)))) continue;
     const ownLand = r.owner === n ? 25 : 0;
     const goal = goals.has(r.id) ? 30 : 0;
-    const score = (r.dev * 2 + ownLand + goal + (r.fort === 0 ? 6 : 0) - r.fort * 4) / (d + 8);
-    if (!bestSiege || score > bestSiege.score) bestSiege = { node: r.id, score };
+    sieges.push({ node: r.id, score: (r.dev * 2 + ownLand + goal + (r.fort === 0 ? 6 : 0) - r.fort * 4) / (d + 8) });
+  }
+  // The best siege whose road is open.
+  for (const x of sieges.sort((p, q) => q.score - p.score)) {
+    if (x.node === a.node || !roadBlocked(x.node)) {
+      bestSiege = x;
+      break;
+    }
   }
   if (bestSiege) {
     // Big stacks split so two sieges run at once (and attrition stays down).
