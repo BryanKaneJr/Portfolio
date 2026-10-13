@@ -1,7 +1,7 @@
 /** The illustrated terrain's tile layer (src/ui/map/terrainLayer.ts) and the generated tile index (terrainTiles.ts). */
 import { MAP } from '../src/sim/content';
-import { BUFFER, SHARPNESS, TileCache, decodedBytes, grow, peakPt, peaksToDraw, pickLevel, tilesIn, tilesToDraw, webZoom } from '../src/ui/map/terrainLayer';
-import { PEAK_SIZE, PEAK_SPRITES, TERRAIN_PEAKS } from '../src/ui/map/terrainPeaks';
+import { BUFFER, FAMOUS_MIN_W, FAMOUS_RANGES, MOUNTAIN_PT, SHARPNESS, TileCache, decodedBytes, famousMountains, grow, pickLevel, tilesIn, tilesToDraw, webZoom } from '../src/ui/map/terrainLayer';
+import { MOUNTAINS } from '../src/ui/map/terrainSymbols';
 import { TERRAIN_FINEST_SKIP, TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_TILE_PX } from '../src/ui/map/terrainTiles';
 import { MAP_STYLES } from '../src/ui/map/styles';
 
@@ -227,65 +227,41 @@ describe('scales and projection', () => {
   });
 });
 
-describe('peaks (the Illustrated style\'s mountains and hills)', () => {
+describe("the Illustrated style's mountains (the owner's drawings, sparingly)", () => {
   const ALL = { x0: -1e4, y0: -1e4, x1: 1e4, y1: 1e4 };
-  const peaks: { x: number; y: number; hill: boolean; tier: number; level: number; sprite: number }[] = [];
-  for (let i = 0; i < TERRAIN_PEAKS.length; i += 6)
-    peaks.push({ x: TERRAIN_PEAKS[i], y: TERRAIN_PEAKS[i + 1], hill: TERRAIN_PEAKS[i + 2] === 1, tier: TERRAIN_PEAKS[i + 3], level: TERRAIN_PEAKS[i + 4], sprite: TERRAIN_PEAKS[i + 5] });
+  const placed = (key: number) => ({ x: MOUNTAINS[key * 5], y: MOUNTAINS[key * 5 + 1], w: MOUNTAINS[key * 5 + 2] });
 
-  test('every peak lies inside the terrain region and has a sprite', () => {
-    expect(peaks.length).toBeGreaterThan(50);
-    for (const p of peaks) {
-      expect(p.x).toBeGreaterThanOrEqual(R.x0);
-      expect(p.x).toBeLessThan(R.x1);
-      expect(p.y).toBeGreaterThanOrEqual(R.y0);
-      expect(p.y).toBeLessThan(R.y1);
-      expect(PEAK_SPRITES[p.sprite]).toBeDefined();
-      expect(PEAK_SIZE.from[p.level]).toBeDefined();
+  test('only the larger drawings over the famous ranges, none far out', () => {
+    expect(famousMountains(0.45, ALL)).toHaveLength(0);
+    const drawn = famousMountains(1.7, ALL);
+    expect(drawn.length).toBeGreaterThan(20);
+    expect(drawn.length).toBeLessThan(80);
+    for (const d of drawn) {
+      const m = placed(d.key);
+      expect(m.w).toBeGreaterThanOrEqual(FAMOUS_MIN_W);
+      expect(Object.values(FAMOUS_RANGES).some(r => m.x >= r.x0 && m.x <= r.x1 && m.y >= r.y0 && m.y <= r.y1)).toBe(true);
     }
   });
 
-  test('a glyph keeps its size on screen: the top tier at each level\'s zoom, smaller far out', () => {
-    PEAK_SIZE.k.forEach((k, i) => expect(peakPt(k, PEAK_SIZE.top)).toBeCloseTo(PEAK_SIZE.top[i], 9));
-    expect(peakPt(0.9, PEAK_SIZE.top)).toBeLessThan(PEAK_SIZE.top[0]);
-    expect(peakPt(8, PEAK_SIZE.top)).toBe(PEAK_SIZE.top[PEAK_SIZE.top.length - 1]);
-    for (const k of [0.9, 1.3, 1.7, 2.4, 3.2, 4.1, 5]) {
-      const top = peakPt(k, PEAK_SIZE.top);
-      for (const d of peaksToDraw(k, ALL)) {
-        const sp = PEAK_SPRITES[TERRAIN_PEAKS[d.key * 6 + 5]];
-        expect((d.h / sp.h) * k).toBeLessThanOrEqual(top + 1e-9); // the glyph's height on screen, points
+  test('small and steady on screen: the widest about MOUNTAIN_PT.w at play zoom, growing slowly', () => {
+    const widest = (k: number) => Math.max(...famousMountains(k, ALL).map(d => d.w * k));
+    expect(widest(1.7)).toBeLessThanOrEqual(MOUNTAIN_PT.w + 1e-9);
+    expect(widest(1.7)).toBeGreaterThan(MOUNTAIN_PT.w * 0.8);
+    expect(widest(5)).toBeLessThan(MOUNTAIN_PT.w * 1.7); // not 3x, as a drawing scaled with the map would be
+    expect(widest(5)).toBeGreaterThan(widest(1.7));
+  });
+
+  test('no drawing sits on a bigger one, and the lesser ones give way to names', () => {
+    const drawn = famousMountains(1.7, ALL);
+    const lesser = drawn.find(d => placed(d.key).w < 30)!;
+    const name = { x0: lesser.x + lesser.w * 0.4, y0: lesser.y + lesser.h * 0.4, x1: lesser.x + lesser.w * 0.6, y1: lesser.y + lesser.h * 0.6 };
+    expect(famousMountains(1.7, ALL, [name]).some(d => d.key === lesser.key)).toBe(false);
+    for (const a of drawn)
+      for (const b of drawn) {
+        if (a === b) continue;
+        const cx = a.x + a.w / 2;
+        const cy = a.y + a.h / 2;
+        expect(cx > b.x + b.w * 0.15 && cx < b.x + b.w * 0.85 && cy > b.y + b.h * 0.15 && cy < b.y + b.h * 0.85).toBe(false);
       }
-    }
-  });
-
-  test('none far out; zooming in only adds peaks, never moves or swaps them', () => {
-    expect(peaksToDraw(0.45, ALL)).toHaveLength(0);
-    const at = (k: number) => new Set(peaksToDraw(k, ALL).map(d => d.key));
-    const play = at(1.7);
-    const close = at(3.2);
-    const max = at(5);
-    expect(play.size).toBeGreaterThan(10);
-    for (const key of play) expect(close.has(key)).toBe(true);
-    for (const key of close) expect(max.has(key)).toBe(true);
-    expect(max.size).toBeLessThanOrEqual(play.size * 4);
-    // A level's peaks wait for its zoom: none chosen for the finer levels shows at play zoom.
-    for (const key of play) expect(peaks[key].level).toBe(2);
-  });
-
-  test('the lesser peaks give way to names; a top-tier massif does not', () => {
-    const drawn = peaksToDraw(1.7, ALL);
-    const lesser = drawn.find(d => peaks[d.key].tier !== 0 && !peaks[d.key].hill)!;
-    const top = drawn.find(d => peaks[d.key].tier === 0)!;
-    const over = (d: { x: number; y: number; w: number; h: number }) => ({ x0: d.x + d.w * 0.4, y0: d.y + d.h * 0.4, x1: d.x + d.w * 0.6, y1: d.y + d.h * 0.6 });
-    const keys = new Set(peaksToDraw(1.7, ALL, [over(lesser), over(top)]).map(d => d.key));
-    expect(keys.has(lesser.key)).toBe(false);
-    expect(keys.has(top.key)).toBe(true);
-  });
-
-  test('only the peaks in view are drawn', () => {
-    const p = peaks.find(q => q.level === 2 && q.tier === 0)!;
-    const near = peaksToDraw(1.7, { x0: p.x - 5, y0: p.y - 5, x1: p.x + 5, y1: p.y + 5 });
-    expect(near.some(d => peaks[d.key] === p)).toBe(true);
-    expect(near.length).toBeLessThan(peaksToDraw(1.7, ALL).length);
   });
 });

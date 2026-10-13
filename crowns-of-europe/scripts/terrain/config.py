@@ -20,7 +20,6 @@ WORK_DIR = Path(os.environ.get("TERRAIN_WORK", ROOT / "scripts/data/terrain-work
 TILE_DIR = ROOT / "assets/map/terrain"
 TILES_TS = ROOT / "src/ui/map/terrainTiles.ts"
 VECTORS_TS = ROOT / "src/ui/map/terrainVectors.ts"
-PEAKS_TS = ROOT / "src/ui/map/terrainPeaks.ts"
 META_JSON = ROOT / "assets/map/terrain/sources.json"
 
 # The region the terrain covers, in map units: the whole known Old World, from the Azores to the map's east edge and

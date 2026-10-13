@@ -12,7 +12,7 @@
  * edge, and the coarsest under everything (a few tiles cover the whole region, so a pan past the drawn area, or a
  * tile still loading, shows terrain, never a hole).
  */
-import { PEAK_SIZE, PEAK_SPRITES, TERRAIN_PEAKS } from './terrainPeaks';
+import { MOUNTAINS, MOUNTAIN_ART } from './terrainSymbols';
 import type { TerrainLevel, TerrainTile } from './terrainTiles';
 
 /** How much magnification is tolerated before the next level is needed: 0.85 means at most 1/0.85 = 1.18x. */
@@ -163,52 +163,62 @@ export function webZoom(k: number, unitsPerDegree: number): number {
 }
 
 /**
- * The Illustrated style's mountains and hills are features, not part of the tiles: one list of summits
- * (terrainPeaks.ts) drawn over the realms' colours. Each level's summits fade in from its zoom on, and a glyph keeps a
- * steady size on screen (the top tier's height at each level's own zoom, straight in between, shrinking slowly below
- * play zoom), so zooming never magnifies them and no two sets of peaks ever show at once.
+ * The Illustrated style's mountains: the owner's own drawings (art/mountains, placed along the real ranges by
+ * scripts/build-terrain.ts for the Atlas style), used sparingly. Only the famous ranges get them, only their larger
+ * drawings (FAMOUS_MIN_W map units and up), and small: a steady size on screen, growing only slowly as you zoom in.
+ * They fade in from k 0.6 like the Atlas drawings, and give way to the region names (all but the largest).
  */
-export function peakPt(k: number, sizes: number[], ks: number[] = PEAK_SIZE.k): number {
-  if (k <= ks[0]) return sizes[0] * Math.pow(k / ks[0], 0.45);
-  for (let i = 1; i < ks.length; i++) if (k <= ks[i]) return sizes[i - 1] + ((sizes[i] - sizes[i - 1]) * (k - ks[i - 1])) / (ks[i] - ks[i - 1]);
-  return sizes[sizes.length - 1];
-}
+export const FAMOUS_RANGES: Record<string, Rect> = {
+  alps: { x0: 1844, y0: 831, x1: 2044, y1: 948 }, // 5-16.5°E, 43.6-48.3°N
+  pyrenees: { x0: 1719, y0: 953, x1: 1815, y1: 982 }, // 2.2°W-3.3°E, 42.2-43.4°N
+  carpathians: { x0: 2053, y0: 788, x1: 2227, y1: 931 }, // 17-27°E, 44.3-49.9°N
+  apennines: { x0: 1914, y0: 948, x1: 2044, y1: 1066 }, // 9-16.5°E, 38.5-43.6°N
+  scandinavian: { x0: 1844, y0: 63, x1: 2105, y1: 514 }, // 5-20°E, 59-70°N
+  atlas: { x0: 1583, y0: 1088, x1: 1949, y1: 1265 }, // 10°W-11°E, 29-37.5°N
+};
+export const FAMOUS_MIN_W = 18; // map units: a drawing at least this wide in the Atlas placement (the ranges' main massifs)
+export const MOUNTAIN_PT = { k: 1.7, w: 32, grow: 0.4 }; // the widest drawing's width on screen at play zoom (points), and how it grows with zoom
+const WIDEST = 40; // the Atlas placement's widest drawing, map units
+const BIG = 30; // drawings this wide and up are drawn even under a name
 
-export interface PeakDraw {
+export interface MountainDraw {
   key: number;
   src: number;
-  x: number; // the sprite's box, map units
+  x: number; // map units
   y: number;
   w: number;
   h: number;
+  flip: boolean;
   opacity: number;
 }
 
-/** The peaks to draw at zoom k inside `view` (map units). Middle and small peaks and hills give way to the names in
- * `names` (boxes in map units); a top-tier massif is drawn even under a name (the map would not be the map without
- * it; the name is written over it). */
-export function peaksToDraw(k: number, view: Rect, names: Rect[] = []): PeakDraw[] {
-  const out: PeakDraw[] = [];
-  const top = peakPt(k, PEAK_SIZE.top);
-  const hill = peakPt(k, PEAK_SIZE.hill);
-  for (let i = 0; i < TERRAIN_PEAKS.length; i += 6) {
-    const [a, b] = PEAK_SIZE.from[TERRAIN_PEAKS[i + 4]];
-    if (k <= a) continue;
-    const isHill = TERRAIN_PEAKS[i + 2] === 1;
-    const tier = TERRAIN_PEAKS[i + 3];
-    const pt = isHill ? hill : top * PEAK_SIZE.tier[tier];
-    const min = isHill ? PEAK_SIZE.hillMinPt : PEAK_SIZE.minPt;
-    if (pt <= min) continue;
-    const sp = PEAK_SPRITES[TERRAIN_PEAKS[i + 5]];
-    const g = pt / k;
-    const w = sp.w * g;
-    const h = sp.h * g;
-    const x = TERRAIN_PEAKS[i] - sp.ax * w;
-    const y = TERRAIN_PEAKS[i + 1] + PEAK_SIZE.base[isHill ? 1 : 0] * g - sp.ay * h;
-    const box = { x0: x, y0: y, x1: x + w, y1: y + h };
+let famous: { key: number; x: number; y: number; w: number; art: number; flip: boolean }[] | null = null;
+
+/** The drawings to show at zoom k inside `view` (map units), largest first; the lesser ones skip `names` and any
+ * larger drawing they would overlap. */
+export function famousMountains(k: number, view: Rect, names: Rect[] = []): MountainDraw[] {
+  if (!famous) {
+    famous = [];
+    for (let i = 0; i < MOUNTAINS.length; i += 5) {
+      const [x, y, w] = [MOUNTAINS[i], MOUNTAINS[i + 1], MOUNTAINS[i + 2]];
+      if (w < FAMOUS_MIN_W || !Object.values(FAMOUS_RANGES).some(r => x >= r.x0 && x <= r.x1 && y >= r.y0 && y <= r.y1)) continue;
+      famous.push({ key: i / 5, x, y, w, art: MOUNTAINS[i + 3], flip: MOUNTAINS[i + 4] === 1 });
+    }
+    famous.sort((a, b) => b.w - a.w || a.y - b.y || a.x - b.x);
+  }
+  const opacity = Math.max(0, Math.min(1, (k - 0.6) / 0.4));
+  if (opacity <= 0) return [];
+  const pt = (MOUNTAIN_PT.w / WIDEST) * Math.pow(k / MOUNTAIN_PT.k, MOUNTAIN_PT.grow); // points per Atlas map unit of width
+  const out: MountainDraw[] = [];
+  for (const m of famous) {
+    const art = MOUNTAIN_ART[m.art];
+    const w = (m.w * pt) / k;
+    const h = (w * art.h) / art.w;
+    const box = { x0: m.x - w / 2, y0: m.y - h / 2, x1: m.x + w / 2, y1: m.y + h / 2 };
     if (!overlapsRect(box, view)) continue;
-    if ((isHill || tier !== 0) && names.some(n => overlapsRect(box, n))) continue;
-    out.push({ key: i / 6, src: sp.src, x, y, w, h, opacity: Math.min(1, (k - a) / (b - a), pt - min) });
+    if (m.w < BIG && names.some(n => overlapsRect(box, n))) continue;
+    if (out.some(o => overlapsRect(box, { x0: o.x + o.w * 0.15, y0: o.y + o.h * 0.15, x1: o.x + o.w * 0.85, y1: o.y + o.h * 0.85 }))) continue;
+    out.push({ key: m.key, src: art.src, x: box.x0, y: box.y0, w, h, flip: m.flip, opacity });
   }
   return out;
 }

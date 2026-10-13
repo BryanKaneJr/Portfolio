@@ -4,8 +4,8 @@ Step 3: render the illustrated terrain tiles from the canonical rasters (prepare
 
 Each level is drawn from the data at that level's own resolution, so it carries the detail that resolution can hold:
 relief shading from the elevation averaged to the level's pixels, and trees placed in the real forests. Nothing is
-magnified from a coarser level. Mountains and hills are features: one list of summits chosen once for the whole
-region, each drawn at every level from the first one that shows it, sized in screen points (see features()). Every
+magnified from a coarser level. Mountains are not drawn in the tiles: the app draws the owner's drawings over the
+famous ranges; the tiles only keep the main summits (features()) clear of trees. Every
 random choice is a hash of a global position, so a rebuild draws the same map, and a tile and its neighbour agree
 pixel for pixel at their shared edge (big levels are drawn in bands of tile rows, each with a halo wider than any
 filter or symbol).
@@ -13,8 +13,6 @@ filter or symbol).
 Land and sea come from the game's own coastline (land.npy): the terrain is painted to it, never the other way round.
 
 Run:  python scripts/terrain/render.py                    all levels → assets/map/terrain + src/ui/map/terrainTiles.ts
-                                                          (and the peaks → terrainPeaks.ts, assets/map/terrain/peaks)
-      python scripts/terrain/render.py --peaks            only the peaks the app draws (seconds)
       python scripts/terrain/render.py --index            only the tile index, for the tiles on disk
       python scripts/terrain/render.py --preview L x0 y0 x1 y1 out.png    one box of one level (map units)
 """
@@ -36,7 +34,7 @@ from scipy.spatial import cKDTree
 import mapproj as mp
 import symbols as sym
 import prepare
-from config import EDGE_MATCH, L4_SKIP, MAP_JSON, META_JSON, PEAKS_TS, PPU, REGION, ROOT, TILE, TILE_DIR, TILES_TS, WORK_DIR, WORK_PPU
+from config import EDGE_MATCH, L4_SKIP, MAP_JSON, META_JSON, PPU, REGION, ROOT, TILE, TILE_DIR, TILES_TS, WORK_DIR, WORK_PPU
 
 HALO = 8  # map units drawn around each band and thrown away: wider than any filter or symbol at any level
 LIGHT_AZ = math.radians(315)  # from the north-west
@@ -613,15 +611,15 @@ def features():
 
 def symbols(F, slope, land, box, level, gx0, gy0):
     """Every symbol in the box as (sort_y, draw) pairs: trees, marsh, grass (and an empty hachure list: the relief
-    shading carries the slopes; the peaks and hills are the app's, see write_peaks())."""
+    shading carries the slopes; the mountains are the app's)."""
     ppu = PPU[level]
     h, w = F["elev"].shape
     e = np.maximum(F["elev"], 0)
     items = []
     lat_of = lambda ly: mp.to_lonlat(0, box[1] + ly / ppu)[1]
-    # Mountains and hills are not drawn here: the app draws them over the realms' colours from the same list
-    # (write_peaks(), terrainPeaks.ts), at a steady size on screen. The tiles keep clear ground where each one stands
-    # (no tree on it, nor just below it, where a tree would stand in front), so it reads as a feature in a forest too.
+    # Mountains are not drawn here: the app draws the owner's drawings over the famous ranges (terrainLayer.ts,
+    # famousMountains). The tiles keep a little clear ground at the main summits (features(): no tree on a summit, nor
+    # just below it), so the high ground reads open under the relief shading.
     body = Image.new("L", (w, h), 0)
     paint_body = ImageDraw.Draw(body)
     below = TREE_PX[level]
@@ -809,129 +807,6 @@ def full_flags(levels):
     return flags
 
 
-# ---------------------------------------------------------------- the peaks the app draws
-PEAK_SPRITE_PX = 96  # a sprite's glyph height (mountains) or width (hills): about twice the largest it is drawn on a 3x screen
-PEAK_VARIANTS = 6  # shapes per tier (a summit takes the one its seed picks)
-SNOW_STEPS = (0.0, 0.5, 1.0)
-# How strongly each tone of the glyph (drawn in its opaque colours) lightens or darkens what is under it, by luminance:
-# the shaded face and the ink darken towards INK, the lit face and the snow lighten towards paper white.
-DARK_L, DARK_ALPHA = (40, 100, 150, 186), (0.95, 0.72, 0.46, 0.4)
-LIGHT_L, LIGHT_ALPHA = (194, 214, 246), (0.42, 0.52, 0.94)
-SPLIT_L = 190
-PEAK_FROM = {2: (0.6, 1.0), 3: (2.5, 2.9), 4: (4.0, 4.4)}  # zoom over which a level's peaks fade in (the Atlas: 0.6-1.0)
-PEAK_MIN_PT = 5.0  # a glyph smaller than this on screen is left out (fading in over the next point)
-HILL_MIN_PT = 8.0
-
-
-def as_overlay(px):
-    """A glyph drawn in opaque colours (RGBA, premultiplied, uint8) as an overlay for the realms' colours: its lit face
-    and snow lighten towards paper white, its shaded face, hatching and outline darken towards ink, each by its own
-    amount (DARK_*, LIGHT_*), so the realm's colour shows through and the peak still reads as a solid form."""
-    f = px.astype(np.float32) / 255.0
-    a = f[..., 3]
-    c = np.where(a[..., None] > 0, f[..., :3] / np.maximum(a[..., None], 1e-6), 0) * 255.0
-    lum = c @ np.array([0.299, 0.587, 0.114], np.float32)
-    lit = lum >= SPLIT_L
-    alpha = a * np.where(lit, np.interp(lum, LIGHT_L, LIGHT_ALPHA), np.interp(lum, DARK_L, DARK_ALPHA))
-    rgb = np.where(lit[..., None], np.array([255, 252, 244], np.float32), np.array(sym.INK, np.float32))
-    return np.dstack([rgb, alpha * 255.0]).round().clip(0, 255).astype(np.uint8)
-
-
-def peak_sprite(kind, tier, variant, snow):
-    """One sprite: (RGBA uint8 straight alpha, base centre x, base y) in sprite pixels."""
-    G = PEAK_SPRITE_PX
-    if kind == "mountain":
-        stroke = OUTLINE_PT * G / (PEAK_PT[2] * TIER[tier])  # the outline in points at play zoom, whatever the tier
-        pad = int(math.ceil(stroke * 1.5)) + 2
-        w, h = int(math.ceil(sym.SUMMIT_FOOT[tier] * G)) + 2 * pad, int(math.ceil(1.05 * G)) + 2 * pad
-        bx, by = w / 2, h - pad
-    else:
-        stroke = 0.8 * OUTLINE_PT * G / HILL_PT[2]
-        pad = int(math.ceil(stroke * 1.5)) + 2
-        w, h = G + 2 * pad, int(math.ceil(0.45 * G)) + 2 * pad
-        bx, by = w / 2, h - pad
-    surface = skia.Surface(w, h)
-    canvas = surface.getCanvas()
-    canvas.clear(skia.ColorTRANSPARENT)
-    seed = 1000 * (tier + 1) + 17 * variant + (500 if kind == "hill" else 0)
-    if kind == "mountain":
-        sym.summit(canvas, bx, by, G, seed, tier, snow, stroke)
-    else:
-        sym.hill(canvas, bx, by, G, seed, stroke=stroke)
-    px = surface.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)
-    return as_overlay(px), bx, by
-
-
-def write_peaks():
-    """The mountains and hills for the app (features()): their sprites (assets/map/terrain/peaks/) and
-    src/ui/map/terrainPeaks.ts, which lists each with its place, tier, the tile level it was chosen for and its sprite."""
-    out_dir = TILE_DIR / "peaks"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob("*.png"):
-        old.unlink()
-    sprites, index, rows = [], {}, []
-    rx0, ry0, rx1, ry1 = REGION
-    known, _ = cover_geoms()
-    for x, y, kind, tier, level, seed, snow in features():
-        if not (rx0 <= x < rx1 and ry0 <= y < ry1) or not known.contains(shapely.Point(x, y)):
-            continue  # (the margin around the region, and the wastes under the parchment)
-        variant = seed % PEAK_VARIANTS
-        step = min(range(len(SNOW_STEPS)), key=lambda i: abs(SNOW_STEPS[i] - snow)) if kind == "mountain" else 0
-        key = (kind, tier, variant, step)
-        if key not in index:
-            img, bx, by = peak_sprite(kind, tier, variant, SNOW_STEPS[step])
-            name = f"{kind[0]}{tier}-{variant}-{step}.png"
-            Image.fromarray(img, "RGBA").save(out_dir / name, optimize=True)
-            G = PEAK_SPRITE_PX
-            index[key] = len(sprites)
-            sprites.append({"file": name, "w": img.shape[1] / G, "h": img.shape[0] / G, "ax": bx / img.shape[1], "ay": by / img.shape[0]})
-        rows.append((round(x, 2), round(y, 2), 0 if kind == "mountain" else 1, tier, level, index[key]))
-    rows.sort(key=lambda r: (r[4], r[1], r[0]))
-    lines = [
-        "/**",
-        " * The Illustrated style's mountains and hills (scripts/terrain/render.py, write_peaks): one list of summits chosen",
-        " * once for the whole terrain region, drawn by the app over the realms' colours at a steady size on screen.",
-        " * Generated: do not edit by hand.",
-        " */",
-        "export interface PeakSprite {",
-        "  src: number;",
-        "  w: number; // the sprite's size, as a multiple of its glyph's size (a mountain's height, a hill's width)",
-        "  h: number;",
-        "  ax: number; // where the glyph's base centre sits in the sprite (0-1)",
-        "  ay: number;",
-        "}",
-        "export const PEAK_SPRITES: PeakSprite[] = [",
-    ]
-    for sp in sprites:
-        lines.append(f"  {{ src: require('../../../assets/map/terrain/peaks/{sp['file']}'), w: {sp['w']:.4f}, h: {sp['h']:.4f}, ax: {sp['ax']:.4f}, ay: {sp['ay']:.4f} }},")
-    lines += [
-        "];",
-        "/** Per peak, six numbers: x, y (the summit, map units), kind (0 mountain, 1 hill), tier (0 top, 1 middle, 2 small),",
-        " * the tile level it was chosen for (2, 3, 4: it shows from that level's zoom on) and its sprite. */",
-        "export const TERRAIN_PEAKS: number[] = [",
-    ]
-    for r in rows:
-        lines.append(f"  {r[0]}, {r[1]}, {r[2]}, {r[3]}, {r[4]}, {r[5]},")
-    sizes = {lev: [VIEW_K[lev], PEAK_PT[lev], HILL_PT[lev]] for lev in (2, 3, 4)}
-    lines += [
-        "];",
-        "/** How big they are on screen: the top tier's height and a hill's width (points) at the zoom each level is made",
-        " * for, the tiers' shares of the top's height, where each level's peaks fade in, and the smallest drawn. */",
-        "export const PEAK_SIZE = {",
-        f"  k: [{', '.join(str(sizes[l][0]) for l in (2, 3, 4))}],",
-        f"  top: [{', '.join(str(sizes[l][1]) for l in (2, 3, 4))}],",
-        f"  hill: [{', '.join(str(sizes[l][2]) for l in (2, 3, 4))}],",
-        f"  tier: [{', '.join(str(t) for t in TIER)}],",
-        f"  from: {{ {', '.join(f'{l}: [{a}, {b}]' for l, (a, b) in PEAK_FROM.items())} }} as Record<number, [number, number]>,",
-        f"  minPt: {PEAK_MIN_PT},",
-        f"  hillMinPt: {HILL_MIN_PT},",
-        "  base: [0.3, 0.15], // the glyph's base below the summit, as a share of its size (mountain, hill)",
-        "};",
-    ]
-    PEAKS_TS.write_text("\n".join(lines) + "\n")
-    print(f"{len(rows)} peaks, {len(sprites)} sprites")
-
-
 def write_index(levels):
     lines = [
         "/**",
@@ -990,12 +865,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--preview", nargs=6, metavar=("LEVEL", "X0", "Y0", "X1", "Y1", "OUT"))
     ap.add_argument("--levels", default=",".join(str(i) for i in range(len(PPU))))
-    ap.add_argument("--peaks", action="store_true", help="only write the peaks the app draws (terrainPeaks.ts, sprites)")
     ap.add_argument("--index", action="store_true", help="only write the tile index (terrainTiles.ts) for the tiles on disk")
     a = ap.parse_args()
-    if a.peaks:
-        write_peaks()
-        return
     if a.index:
         levels = []
         for level in range(len(PPU)):
@@ -1026,7 +897,6 @@ def main():
         stats[f"L{level}"] = {"ppu": PPU[level], "tiles": len(tiles), "symbols": n, "seconds": round(time.time() - t0, 1)}
         print(f"L{level}: {len(tiles)} tiles in {time.time() - t0:.0f}s")
     write_index(levels)
-    write_peaks()
     meta = json.loads(META_JSON.read_text())
     meta["tiles"] = {"region_map_units": REGION, "tile_px": TILE, "jpeg_quality": QUALITY, "edge_match": EDGE_MATCH, "levels": stats}
     meta["projection_check"] = projection_check()

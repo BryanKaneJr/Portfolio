@@ -39,7 +39,7 @@ a Mercator map, light tutorial, no audio yet).
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
   the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
   `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/paintingTiles.ts`,
-  `ui/map/terrainTiles.ts`, `ui/map/terrainVectors.ts` or `ui/map/terrainPeaks.ts`. The builder warns about seeds in the water;
+  `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
   fix those.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
@@ -62,7 +62,7 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols,
-               terrainLayer + terrainCache + terrainTiles + terrainPeaks + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
+               terrainLayer + terrainCache + terrainTiles + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
@@ -98,9 +98,9 @@ npm run painting:build      # the Painted style's ground: art/painting/fullmap.p
                             # and tiled into assets/map/painting (see art/painting/README.md)
 npm run models:build        # the troops, ships and forts (assets/units/) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
-npm run tiles:build         # the Illustrated style's terrain tiles, peaks and river/lake vectors (assets/map/terrain,
-                            # ui/map/terrainTiles.ts, terrainPeaks.ts, terrainVectors.ts) from ETOPO 2022, ESA WorldCover
-                            # and Natural Earth; Python + GDAL, see scripts/terrain/README.md
+npm run tiles:build         # the Illustrated style's terrain tiles and river/lake vectors (assets/map/terrain,
+                            # ui/map/terrainTiles.ts, terrainVectors.ts) from ETOPO 2022, ESA WorldCover and Natural
+                            # Earth; Python + GDAL, see scripts/terrain/README.md
 npm run tiles:verify        # determinism, tile joins, coastline agreement, detail per level → docs/terrain/
 npm run screens:terrain     # before/after screenshots, a tap test and frame/memory numbers → docs/terrain/
 ```
@@ -131,9 +131,10 @@ offline by `scripts/terrain` from real elevation, land cover and rivers onto the
 the parchment of the unknown are the style's own; the finest level skips the giant northern regions, West Africa and
 the islands, `TERRAIN_FINEST_SKIP`). `ui/map/terrainLayer.ts` picks the level the zoom needs (the coarsest under the
 whole drawn area, the next finer ones over the screen plus a buffer, fading in; a coarser tile is hidden only where
-its children all exist, `full`), `terrainCache.ts` keeps them warm (LRU). Its mountains and hills are features, not
-part of the tiles: one list of summits (`terrainPeaks.ts`) drawn over the realms' colours at a steady size on screen
-(`peaksToDraw`: none far out, the lesser ones give way to region names, zooming in only adds them). Natural Earth
+its children all exist, `full`), `terrainCache.ts` keeps them warm (LRU). Its mountains are the owner's drawings
+(the Atlas style's, `art/mountains`), not part of the tiles, and used sparingly: only over the famous ranges
+(`FAMOUS_RANGES`), only their larger drawings, small and steady on screen (`famousMountains`, `MOUNTAIN_PT`: none far
+out, the lesser ones give way to region names). Natural Earth
 rivers and lakes (plus ESA WorldCover's small lakes) are
 drawn as vectors on top: lakes filled over the realms' colours, the great rivers (`GREAT_RIVER`) in a darker ink than the
 rest, all capped thinner far out and the minor ones faded. Inside the

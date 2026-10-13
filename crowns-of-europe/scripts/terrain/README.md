@@ -1,12 +1,10 @@
 # Terrain pipeline (offline)
 
-Builds the illustrated terrain tiles, the peaks and the river and lake vectors the map draws in the "Illustrated"
+Builds the illustrated terrain tiles and the river and lake vectors the map draws in the "Illustrated"
 style. It runs on a workstation or in CI, never on the phone. The app only bundles what it writes:
 - `assets/map/terrain/L*/*.jpg`
-- `assets/map/terrain/peaks/*.png`
 - `assets/map/terrain/sea-shade.png`, `sea-shade-soft.png`
 - `src/ui/map/terrainTiles.ts`
-- `src/ui/map/terrainPeaks.ts`
 - `src/ui/map/terrainVectors.ts`
 
 It covers the whole known Old World: `REGION` in `config.py`, map units x 1184–2576, y 128–1728 (about 33°W–47°E,
@@ -28,14 +26,12 @@ sudo apt-get install libegl1                          # skia-python needs the sy
 | --- | --- | --- | --- |
 | 1 | `fetch.py` | Downloads only the source tiles under the game's land in the region, one file per source tile. ETOPO 2022 15″ tiles are read over the part the land needs only, since GDAL fetches just the needed GeoTIFF blocks. ESA WorldCover is read from each Cloud Optimized GeoTIFF's built-in 1/16 level (~160 m). Natural Earth 1:10m vectors come from the pinned v5.1.2 release. | `scripts/data/terrain-src/tiles/` (git-ignored); files, SHA-256 and URLs in `assets/map/terrain/sources.json` |
 | 2 | `prepare.py` | Warps every dataset onto one canonical grid in the game's map units at 16 px per unit, in 256-unit chunks where land is within reach: elevation (cubic), land-cover fractions per class (average of 0/255 masks), and the game's own land outline rasterised 4×4-supersampled. Writes coarser copies (8, 4, 2, 1 px per unit) for the coarser levels. | `scripts/data/terrain-work/` (git-ignored; about 12 GB for the Old World) |
-| 3 | `render.py` | Draws each level from that data: land colour, relief, trees and marsh, water, paper grain on the land. Each level is drawn in blocks of 4 × 4 tiles with an 8-unit halo, four at a time, then cut into 512 px JPEG tiles. Also writes the tile index, the peaks (list and sprites) and the sea's depth shading. | `assets/map/terrain/L0…L4/*.jpg`, `assets/map/terrain/peaks/`, `assets/map/terrain/sea-shade*.png`, `src/ui/map/terrainTiles.ts`, `src/ui/map/terrainPeaks.ts` |
+| 3 | `render.py` | Draws each level from that data: land colour, relief, trees and marsh, water, paper grain on the land. Each level is drawn in blocks of 4 × 4 tiles with an 8-unit halo, four at a time, then cut into 512 px JPEG tiles. Also writes the tile index and the sea's depth shading. | `assets/map/terrain/L0…L4/*.jpg`, `assets/map/terrain/sea-shade*.png`, `src/ui/map/terrainTiles.ts` |
 | 4 | `vectors.py` | Natural Earth rivers and lakes in map units, cut to the game's known land in the region, simplified to 0.1 units and written as relative steps at 0.1-unit precision, plus WorldCover's small lakes (from step 2's 8 px/unit copy; at least 1.5 square units over `L4_SKIP`'s regions). | `src/ui/map/terrainVectors.ts` |
 | 5 | `verify.py` | Measures determinism, tile joins, coastline agreement and real detail per level. | `docs/terrain/verification.json`, `docs/terrain/img/` |
 
-`render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning. `render.py --peaks` rewrites
-only the peaks (seconds), and `render.py --index` only the tile index for the tiles on disk. Set `TERRAIN_WORK` to
-build a second grid aside.
-`symbols.py` on its own writes the symbol library as SVG to `art/terrain-symbols/` for review.
+`render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning; `render.py --index` writes
+only the tile index for the tiles on disk. Set `TERRAIN_WORK` to build a second grid aside.
 
 ## Coordinates: one canonical system, the game's
 
@@ -74,19 +70,10 @@ spacing so that a tree is about 3–6 points tall there. Symbols are drawn on th
 before they go on the ground, so nothing spills over the coast. The two finest levels are thinned (`SPREAD`,
 `HIGH_THIN`, `TREE_FROM`), and `CALM_HIGH` softens the fine relief above 1000 m.
 
-**Mountains and hills are features, drawn by the app, not by the tiles** (`features()`, `write_peaks()`):
-- One list of summits for the whole region, ranked by height and isolation (a k-d tree finds each summit's nearest
-  higher one), only on the main crests of real ranges: the Atlas style's range rule (`ranges()`), at least
-  `PEAK_RELIEF` of relief, a share of the highest ground near it (`CREST`, `PEAK_SHARE`) and a height floor
-  (`PEAK_FLOOR`). Valleys, basins and plateaus stay bare.
-- Three fixed tiers (`TIER`): the top tier is each massif's few highest isolated summits (`TOP_*`). A summit keeps its
-  tier, place and shape (a hash of its position) at every level; each level only adds lesser ones, at least
-  `PEAK_SPACE` apart, at most `PEAK_CROWD` in any 60 pt square, and the lesser ones clear of region names.
-- Hills only on the highest points of uplands off the ranges, a few each (`HILL_*`). No slope hachures anywhere.
-- The tiles keep clear ground where each stands (no tree on it). `write_peaks()` writes the list to `terrainPeaks.ts`
-  with sprites drawn by `symbols.summit()` and `hill()` and turned into an overlay (`as_overlay`: the lit face and snow
-  lighten, the shaded face and ink darken, so the realm's colour shows through). The app sizes them in screen points
-  (`PEAK_SIZE`) and leaves out the lesser ones under a name (`terrainLayer.peaksToDraw`).
+**Mountains are not drawn in the tiles.** The app draws the owner's own drawings (`art/mountains`, placed along the
+real ranges by `scripts/build-terrain.ts` for the Atlas style) over the famous ranges only, small (`famousMountains`
+in `src/ui/map/terrainLayer.ts`). The tiles carry the relief shading, no slope hachures, and keep the main summits
+clear of trees (`features()`: one ranked list of summits on the crests of real ranges, by height and isolation).
 
 A tile is made only where, grown by `REACH` (16 units), it shows the game's known land (`level_tiles`); the finest
 level skips the regions in `L4_SKIP`, where level 3 stands in. The index marks a tile `full` when all four of its

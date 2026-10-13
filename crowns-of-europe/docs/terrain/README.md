@@ -25,7 +25,7 @@ selection, labels, units and every game system are unchanged.
  prepare.py  warp all onto ONE grid in map units (16 px/unit),
              + the game's own land outline rasterised (authoritative)
  render.py   5 levels × 512 px JPEG tiles (L0 1 px/unit … L4 16 px/unit)  →  terrainTiles.ts (index, require per tile)
-             relief, land cover colours, peaks at real summits, trees           terrainLayer.ts: level choice, culling,
+             relief, land cover colours, trees                                  terrainLayer.ts: level choice, culling,
              in real forests, marsh, grass, water, coastal ripples                buffer, crossfade
  vectors.py  Natural Earth rivers + lakes, cut to the game's coast        →  terrainVectors.ts: drawn as SVG paths,
                                                                                  filtered by importance per zoom
@@ -42,8 +42,9 @@ selection, labels, units and every game system are unchanged.
   names, selection, units and the fog of the unknown are drawn by the existing SVG layers as before.
 - **Real detail per level.** Every level is drawn from the data at its own resolution:
   - relief from elevation averaged to the level's pixels
-  - peaks at summits found in a window of fixed pixels
   - trees on a lattice of fixed pixel spacing
+
+  (Mountains are not in the tiles: the app draws the owner's drawings over the famous ranges; see round 3.)
 
   So a finer level has more and smaller real features. `verify.py` measures this.
 - **Runtime.** The tiles are `<Image>` elements in the same SVG and the same viewBox as the political layers, so they
@@ -294,42 +295,44 @@ boundary lies at sea, under parchment or at the map's own edge.
   (48–106 MB, against 47–101 MB). Easing the level switch (`SHARPNESS`) so play zoom draws one level instead of two would roughly halve
   it, at the cost of slightly softer terrain at k 1.6–1.8.
 
-### Mountains: a few well-chosen peaks, drawn by the app
+### Mountains: the owner's drawings, small, over the famous ranges only
 
-Before, a peak stood at every local summit within a fixed window of tile pixels, at every level. So mountain country
-was a lattice of glyphs that grew about fourfold per level. Glyphs were 13–34 pt wide and covered 40–60% of the high
-ground. The new rule:
+A first pass replaced the dense glyphs with a ranked list of summits drawn as sprites. The owner then asked to go back
+to their own shaded mountain drawings (`art/mountains`, the ones the Atlas style uses), smaller, and only in the famous
+mountain areas. That is what the Illustrated style now draws:
 
-- **One list of summits** for the whole region (`render.py` features()): ranked by height and isolation, only on the
-  main crests of real ranges (the same range rule as the Atlas style's mountain drawings), and never in valleys, basins
-  or on plateaus.
-- **Three fixed tiers.** The top tier is only the great massifs (Mont Blanc, Monte Rosa, the Bernese Oberland, the
-  Tatra...). A peak keeps its tier, place and shape at every zoom, and zooming in only adds lesser peaks into the gaps.
-- **Drawn by the app, not baked into the tiles** (`terrainPeaks.ts`, `peaksToDraw` in `terrainLayer.ts`):
-  - a steady size on screen: the top tier 12 pt tall at play zoom, 15 close up, 17 at the closest;
-  - translucent sprites, so the realm's colour shows through;
-  - none far out (they fade in from k 0.6, as the Atlas drawings do), and the lesser ones give way to region names.
+- **The owner's drawings, placed as the Atlas style places them** (`MOUNTAINS` in `terrainSymbols.ts`, laid along each
+  real range by `scripts/build-terrain.ts`). Nothing new is invented and nothing is baked into the tiles.
+- **Only over six famous ranges** (`FAMOUS_RANGES` in `terrainLayer.ts`): the Alps, the Pyrenees, the Carpathians,
+  the Apennines, the Scandinavian mountains and the Atlas. Elsewhere, high ground shows through the relief shading only.
+- **Only the larger drawings** (`FAMOUS_MIN_W`, 18 units wide or more). No drawing sits on a bigger one, and the
+  lesser ones give way to region names.
+- **Small and steady on screen** (`famousMountains`, `MOUNTAIN_PT`): the widest is 32 pt at play zoom and grows only
+  slowly as you zoom in (49 pt at the closest zoom). They fade in from k 0.6, so none show at the Europe zoom.
+- The tiles still keep their trees off the main summits (`render.py` features()), so the drawings sit on open ground.
+- The summit sprites and their generator are gone (`terrainPeaks.ts`, `assets/map/terrain/peaks`).
 
-  Two tile levels cross-fading can no longer show two sets of peaks, and size or count can be tuned without
-  re-rendering a tile.
-- **Hills** only on notable uplands, a few each. No slope hachures at any zoom: the relief shading carries the slopes.
+Size, ranges and how many to draw are three constants (`MOUNTAIN_PT`, `FAMOUS_RANGES`, `FAMOUS_MIN_W`); changing them
+needs no rebuild of any tile.
 
-Peaks drawn on a phone screen:
+Drawings on a phone screen (390 × 844 points):
 
-| View | Peaks (top / middle / small / hills) | Round 2 |
-| --- | --- | --- |
-| Alps, play zoom (alps-play) | 25 (8 / 5 / 7 / 5) | 113 peaks, plus 255 fainter ones from the next level |
-| Alps, close (alps-close) | 26 | 116, plus 394 fainter |
-| Switzerland, closest zoom (alps-max) | 23 | 214 |
-| Danube and Carpathians, play zoom | 39–41 | 159–174, plus 351–391 fainter |
-| France / Iberia / Scandinavia / Anatolia, play zoom | 17 / 22 / 18 / 44 | (not covered) |
-| Region zoom (k 0.9) | 25 top and middle-tier only | 69, plus 268 fainter |
+| View | Drawings on screen | Width on screen | Summit sprites (first pass) | Round 2 |
+| --- | --- | --- | --- | --- |
+| Europe (k 0.45) | 0 | – | 0 | – |
+| Region zoom (k 0.9) | 29 (at 75% opacity) | 12–25 pt | 25 | 69, plus 268 fainter |
+| Alps, play zoom (alps-play) | 13 | 15–32 pt | 25 | 113, plus 255 fainter |
+| Alps, close (alps-close) | 9 | 19–41 pt | 26 | 116, plus 394 fainter |
+| Switzerland, closest zoom (alps-max) | 6 | 23–49 pt | 23 | 214 |
+| Danube and Carpathians, play zoom | 9–13 | 15–32 pt | 39–41 | 159–174, plus 351–391 fainter |
+| Pyrenees / Norway / Atlas, play zoom | 14 / 11 / 12 | 15–32 pt | – | (not covered) |
+| France, play zoom | 7, all of them the western Alps' at the screen's east edge | 15–32 pt | 17 | (not covered) |
 
 ### Checks
 
-- `npm run check` passes: 85 Jest tests, 20 of them for the terrain. New tests cover the sparse tiles (grid, no overlap,
-  every region's land covered, the `full` flags), the finest level's skipped regions, and the peaks (inside the region,
-  steady size, none far out, nested as you zoom, giving way to names, only in view).
+- `npm run check` passes. New tests cover the sparse tiles (grid, no overlap, every region's land covered, the `full`
+  flags), the finest level's skipped regions, and the mountains (famous ranges only, none far out, small and steady on
+  screen, never on a bigger drawing, giving way to names).
 - The main, war and New World walkthroughs pass with no page errors. Tapping Bavaria still selects Bavaria.
 
 ## Data sources and licences

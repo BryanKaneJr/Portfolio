@@ -24,7 +24,7 @@ import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 import { PAINTING } from './paintingTiles';
 import { terrainCache, terrainStats } from './terrainCache';
-import { decodedBytes, neighbours, peaksToDraw, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
+import { decodedBytes, famousMountains, neighbours, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
 import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_SEA_SHADE } from './terrainTiles';
 import { TERRAIN_LAKES, TERRAIN_RIVERS } from './terrainVectors';
 import { mountainsIn, terrainPaths } from './terrain';
@@ -429,8 +429,8 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const screen = { x0: cam.cx - halfW, y0: cam.cy - halfH, x1: cam.cx + halfW, y1: cam.cy + halfH };
   const dpr = PixelRatio.get();
   const terrainTiles = terrainOn ? tilesToDraw(TERRAIN_LEVELS, k, dpr, screen, { x0: vx, y0: vy, x1: vx + vw, y1: vy + vh }) : [];
-  // Illustrated: its mountains and hills, features drawn over the realms' colours (terrainLayer.peaksToDraw); the
-  // lesser ones give way to the region names written at this zoom.
+  // Illustrated: the owner's mountain drawings, only over the famous ranges and small (terrainLayer.famousMountains);
+  // the lesser ones give way to the region names written at this zoom.
   const peakNames: { x0: number; y0: number; x1: number; y1: number }[] = [];
   if (terrainOn && showRegionNames) {
     for (const r of MAP.regions) {
@@ -440,7 +440,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       peakNames.push({ x0: r.label[0] - half, y0: r.label[1] - (fs * 0.45 + 3) / k, x1: r.label[0] + half, y1: r.label[1] + (fs * 0.45 + 3) / k });
     }
   }
-  const terrainPeaks = terrainOn ? peaksToDraw(k, { x0: vx, y0: vy, x1: vx + vw, y1: vy + vh }, peakNames) : [];
+  const terrainPeaks = terrainOn ? famousMountains(k, { x0: vx, y0: vy, x1: vx + vw, y1: vy + vh }, peakNames) : [];
   // Neighbouring tiles overlap by a hair (0.6 points) so no seam of the layer below shows between them.
   const seam = px(0.6);
   const riverPaths = new Map<string, { wd: number; great: boolean; d: string }>();
@@ -607,9 +607,15 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       ) : null}
       {landD && terrainPeaks.length ? (
         <G clipPath="url(#land)">
-          {terrainPeaks.map(p => (
-            <SvgImage key={`pk${p.key}`} x={p.x} y={p.y} width={p.w} height={p.h} href={p.src} preserveAspectRatio="none" opacity={p.opacity} />
-          ))}
+          {terrainPeaks.map(p =>
+            p.flip ? (
+              <G key={`pk${p.key}`} transform={`translate(${2 * p.x + p.w} 0) scale(-1 1)`} opacity={p.opacity}>
+                <SvgImage x={p.x} y={p.y} width={p.w} height={p.h} href={p.src} preserveAspectRatio="none" />
+              </G>
+            ) : (
+              <SvgImage key={`pk${p.key}`} x={p.x} y={p.y} width={p.w} height={p.h} href={p.src} preserveAspectRatio="none" opacity={p.opacity} />
+            ),
+          )}
         </G>
       ) : null}
       {mode === 'political' || mode === 'diplomatic'
