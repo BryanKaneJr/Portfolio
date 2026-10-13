@@ -1,6 +1,6 @@
 # Scaling the illustrated terrain from one region to the whole map
 
-The prototype covers central and eastern Europe: map units x 1792–2368, y 576–1088 (about 3°E–35°E, 38°N–57°N).
+The prototype covers central and eastern Europe: map units x 1792–2368, y 576–1088 (about 2°E–35°E, 38°N–57°N).
 That is 8.1% of the game's known land. This plan takes the same pipeline and runtime layer to every land the game
 draws, without changing the game's coordinates, geometry or systems.
 

@@ -59,7 +59,7 @@ const VIEWS = [
   // Coasts: the Adriatic at play zoom (Venice, Dalmatia, the Marches), and the Dalmatian coast close up.
   ['adriatic-play', 2000, 935, 1.7],
   ['dalmatia-close', 2035, 950, 3.2],
-  // The prototype's edge (x = 1792, about 3°E): illustrated to the east, Atlas to the west.
+  // The prototype's edge (x = 1792, about 2°E): illustrated to the east, Atlas to the west.
   ['region-edge-west', 1792, 800, 1.7],
 ];
 

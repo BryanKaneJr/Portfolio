@@ -339,8 +339,8 @@ SPREAD = [1.0, 1.0, 1.0, 1.18, 1.2]
 PEAK_WIN = [17, 17, 17, 20, 20]
 HIGH_THIN = [0.0, 0.0, 0.0, 0.28, 0.32]  # trees
 HIGH_THIN_HACH = [0.0, 0.0, 0.0, 0.2, 0.25]  # hachures (lighter, so high valleys keep some slope)
-# Peaks keep apart: none within PEAK_GAP x the wider glyph of a bigger one, so neighbouring bases overlap by at most
-# about a third (the densest crests, the Savoy ridge, the Swiss and Dinaric Alps, open up). 0: no limit.
+# Peaks keep apart: none within PEAK_GAP x the wider glyph of a bigger one, so neighbouring bases overlap by less than
+# half (the densest crests, the Savoy ridge, the Swiss and Dinaric Alps, open up). 0: no limit.
 PEAK_GAP = [0.0, 0.0, 0.0, 0.56, 0.56]
 # Trees from this much forest cover up (fewer stray single trees in open farmland close up).
 TREE_FROM = [0.4, 0.4, 0.4, 0.44, 0.47]

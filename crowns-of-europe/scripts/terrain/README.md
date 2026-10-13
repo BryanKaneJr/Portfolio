@@ -3,10 +3,11 @@
 Builds the illustrated terrain tiles and the river and lake vectors the map draws in the "Illustrated" style. It runs
 on a workstation or in CI, never on the phone. The app only bundles what it writes:
 - `assets/map/terrain/L*/*.jpg`
+- `assets/map/terrain/sea-shade.png`, `sea-shade-soft.png`
 - `src/ui/map/terrainTiles.ts`
 - `src/ui/map/terrainVectors.ts`
 
-So far it covers one prototype region: central and eastern Europe, map units x 1792–2368, y 576–1088 (about 3°E–35°E,
+So far it covers one prototype region: central and eastern Europe, map units x 1792–2368, y 576–1088 (about 2°E–35°E,
 38°N–57°N).
 
 ## Setup
@@ -23,8 +24,8 @@ sudo apt-get install libegl1                          # skia-python needs the sy
 | --- | --- | --- | --- |
 | 1 | `fetch.py` | Downloads only the source data the region needs. ETOPO 2022 15″ tiles are read over the region only, since GDAL fetches just the needed GeoTIFF blocks. ESA WorldCover is read from each Cloud Optimized GeoTIFF's built-in 1/16 level (~160 m). Natural Earth 1:10m vectors come from the pinned v5.1.2 release. | `scripts/data/terrain-src/` (git-ignored); sizes, SHA-256 and URLs in `assets/map/terrain/sources.json` |
 | 2 | `prepare.py` | Warps every dataset onto one canonical grid in the game's map units at 16 px per unit: elevation (cubic), land-cover fractions per class (average of 0/255 masks), and the game's own land outline rasterised 4×4-supersampled. | `scripts/data/terrain-work/` (git-ignored) |
-| 3 | `render.py` | Draws each level from that data: land colour, relief, symbols, water, paper grain. Large levels are drawn in bands of tile rows with an 8-unit halo, then cut into 512 px JPEG tiles. Also writes the tile index. | `assets/map/terrain/L0…L4/*.jpg`, `src/ui/map/terrainTiles.ts` |
-| 4 | `vectors.py` | Natural Earth rivers and lakes in map units, cut to the game's coastline and the region, simplified to 0.06 units. | `src/ui/map/terrainVectors.ts` |
+| 3 | `render.py` | Draws each level from that data: land colour, relief, symbols, water, paper grain. Large levels are drawn in bands of tile rows with an 8-unit halo, then cut into 512 px JPEG tiles. Also writes the tile index and the sea's depth shading. | `assets/map/terrain/L0…L4/*.jpg`, `assets/map/terrain/sea-shade*.png`, `src/ui/map/terrainTiles.ts` |
+| 4 | `vectors.py` | Natural Earth rivers and lakes in map units, cut to the game's coastline and the region, simplified to 0.06 units, plus WorldCover's small lakes (from step 2's grid). | `src/ui/map/terrainVectors.ts` |
 | 5 | `verify.py` | Measures determinism, tile joins, coastline agreement and real detail per level. | `docs/terrain/verification.json`, `docs/terrain/img/` |
 
 `render.py --preview LEVEL X0 Y0 X1 Y1 out.png` renders any box of any level, for tuning.
@@ -70,8 +71,8 @@ drawn on their own layer and cut to the game's land before they go on the ground
 The two finest levels, seen close up, are thinned so single shapes stay apart:
 - **`SPREAD`** widens the spacing of trees, hachures, grass and marsh (about 30% fewer).
 - **`PEAK_WIN`** widens the summit search, so there are fewer, more distinct peaks.
-- **`PEAK_GAP`** keeps any peak from standing within 0.62 of the wider glyph of a bigger one, so neighbouring bases
-  overlap by at most about a third.
+- **`PEAK_GAP`** keeps any peak from standing within 0.56 of the wider glyph of a bigger one, so neighbouring bases
+  overlap by less than half.
 - **`HIGH_THIN`** and **`HIGH_THIN_HACH`** drop a further share of trees and hachures on high ground.
 - **`TREE_FROM`** leaves fewer stray single trees in open farmland.
 - **`CALM_HIGH`** softens the fine relief above 1000 m, so the gaps between peaks read as quiet ground.

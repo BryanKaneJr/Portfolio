@@ -129,11 +129,13 @@ under the realms' colours where its terrain tiles exist (so far central and east
 drawn offline by `scripts/terrain` from real elevation, land cover and rivers onto the game's own coastline, in five
 levels (1–16 px per map unit, 512 px tiles, a quadtree from map (0, 0)); `ui/map/terrainLayer.ts` picks the level the
 zoom needs (the coarsest under the whole drawn area, the next finer ones over the screen plus a buffer, fading in),
-`terrainCache.ts` keeps them warm (LRU), and Natural Earth rivers and lakes are drawn as vectors on top. Inside the
+`terrainCache.ts` keeps them warm (LRU), and Natural Earth rivers and lakes (plus ESA WorldCover's small lakes) are
+drawn as vectors on top: lakes filled over the realms' colours, the great rivers (`GREAT_RIVER`) in a darker ink than the
+rest, all capped thinner far out and the minor ones faded. Inside the
 region Atlas's own land overlays and drawn terrain are cut away (`tOut`); the tiles' sea fades into the style's sea at
 the region's edge (keep `sea` and `relief` in step with `EDGE_MATCH` in `scripts/terrain/config.py`; a test checks).
-Its borders between realms carry a faint light casing (`nationBorder.halo`; `provinceBorder.halo` is there too) so
-they hold against the drawn terrain, easing off a little when zoomed out (`borderEase`). `terrain.shore` darkens the
+Its borders between realms carry a faint light casing (`nationBorder.halo`) so they hold against the drawn terrain;
+zoomed out they thin a little and the casing fades (`borderEase`, `casingEase`). `terrain.shore` darkens the
 water along every coast: the coastline stroked, cut to the water. Its sea is darkened over deep water only
 (`TERRAIN_SEA_SHADE`, the same shading the tiles are painted with). On the web the moving map view has its own
 compositor layer (`WEB_LAYER`), so a pan never repaints the SVG; `scripts/dev/pan-layers.mjs` measures what each
