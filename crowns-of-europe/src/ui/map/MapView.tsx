@@ -24,7 +24,7 @@ import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
 import { PAINTING } from './paintingTiles';
 import { terrainCache, terrainStats } from './terrainCache';
-import { TROOP_ART, type TroopArt } from './troopArt';
+import { SHIP_ART, TROOP_ART, type ShipArt, type TroopArt } from './unitArt';
 import { flagBody } from '../components/Flag';
 import { decodedBytes, famousMountains, neighbours, pickLevel, tilesToDraw, webZoom } from './terrainLayer';
 import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_SEA_SHADE } from './terrainTiles';
@@ -1054,7 +1054,8 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           if (c.kind === 'fleet') {
             const f = s.fleets[c.id];
             if (!f) return null;
-            return <Token key={c.id} x={X} y={Y} figure="ship" nation={f.owner} n={f.ships.galley + f.ships.warship + f.ships.transport} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
+            const ships = f.ships.galley + f.ships.warship + f.ships.transport;
+            return <Token key={c.id} x={X} y={Y} figure={shipArt(ships)} nation={f.owner} n={ships} color={nationColor(f.owner)} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
           }
           const a = s.armies[c.id] as Army | undefined;
           if (!a) return null;
@@ -1081,15 +1082,17 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
 });
 
 /**
- * What stands on each token. An army is one of the owner's drawings (art/troops, made ready by
- * scripts/build-troops.ts): a lone soldier for a small army (one of two, by the army), four men from SQUAD regiments,
- * five from HOST; all TROOP_H points tall at play zoom, standing on the base. A fleet is a ship rendered from a free 3D
- * model (scripts/build-models.mjs, credits in assets/units/CREDITS.md); `feet`: where it floats in its picture (a share
- * of its height), `size`: how big it is drawn (points).
+ * What stands on each token: one of the owner's drawings (art/troops, art/ships, made ready by scripts/build-units.ts).
+ * An army is a lone soldier when small (one of two, by the army), four men from SQUAD regiments, five from HOST, all
+ * TROOP_H points tall at play zoom, standing on the base; a fleet is a lone ship, or several from FLEET ships
+ * (SHIP_H points tall), riding a little low on its base.
  */
 const TROOP_H = 36;
 const SQUAD = 4;
 const HOST = 10;
+const FLEET = 5;
+const SHIP_H: Record<ShipArt, number> = { ship: 34, fleet: 31 };
+export const shipArt = (ships: number): ShipArt => (ships >= FLEET ? 'fleet' : 'ship');
 export function troopArt(id: string, regs: number): TroopArt {
   if (regs >= HOST) return 'squad-5';
   if (regs >= SQUAD) return 'squad-4';
@@ -1097,7 +1100,6 @@ export function troopArt(id: string, regs: number): TroopArt {
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
   return h & 1 ? 'soldier-b' : 'soldier-a';
 }
-const SHIP = { src: require('../../../assets/units/ship.png'), feet: 178 / 192, size: 40 };
 /** A region's fort, beside its name: a lone tower at level 1, a castle from level 2. `wide`: how much of its picture's
  * width the building takes. */
 const FORT = {
@@ -1144,28 +1146,28 @@ function BannerDefs() {
  * (x, y) is the token's point (screen points). Your own units' bases have a light rim, the selected one a gold one
  * and a glow; a gold dot at the base's left means it is on the move.
  */
-function Token({ x, y, figure, nation, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; figure: TroopArt | 'ship'; nation: string; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
+function Token({ x, y, figure, nation, n, color, mine, sel, moving, faded, scale }: { x: number; y: number; figure: TroopArt | ShipArt; nation: string; n: number; color: string; mine: boolean; sel: boolean; moving: boolean; faded?: boolean; scale: number }) {
   const label = `${n}`;
   const pw = 10 + 6.4 * label.length;
   let fig: { src: number; x: number; y: number; w: number; h: number };
-  let figTop: number; // the top of what is drawn
   let poleX: number;
   let poleFoot: number;
-  if (figure === 'ship') {
-    const top = BASE_Y + 1 - SHIP.size * SHIP.feet;
-    fig = { src: SHIP.src, x: -SHIP.size / 2, y: top, w: SHIP.size, h: SHIP.size };
-    figTop = top + 4; // the mastheads
-    poleX = 4;
-    poleFoot = figTop + 12;
+  if (figure === 'ship' || figure === 'fleet') {
+    // The banner flies from the tallest mast's top.
+    const art = SHIP_ART[figure];
+    const h = SHIP_H[figure];
+    const w = (h * art.w) / art.h;
+    fig = { src: art.src, x: -w / 2, y: BASE_Y + 3 - h, w, h };
+    poleX = fig.x + art.mast * w;
+    poleFoot = fig.y + 4;
   } else {
     const art = TROOP_ART[figure];
     const w = (TROOP_H * art.w) / art.h;
     fig = { src: art.src, x: -w / 2, y: BASE_Y + 1 - TROOP_H, w, h: TROOP_H };
-    figTop = fig.y;
     poleX = Math.max(3.5, w * 0.28);
     poleFoot = BASE_Y - 1;
   }
-  const poleTop = figTop - BANNER_RISE;
+  const poleTop = fig.y - BANNER_RISE;
   return (
     <G transform={`translate(${x} ${y}) scale(${scale})${sel ? ' scale(1.12)' : ''}`} opacity={faded ? 0.55 : 1}>
       {sel ? <Ellipse cx={0} cy={BASE_Y + 1} rx={BASE_RX + 7} ry={BASE_RY + 4} fill="rgba(236,208,143,0.35)" stroke="#ecd08f" strokeWidth={1} /> : null}

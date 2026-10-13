@@ -4,7 +4,7 @@ import { MAP } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
 import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs } from '../src/ui/map/geometry';
-import { TROOP_ART } from '../src/ui/map/troopArt';
+import { SHIP_ART, TROOP_ART } from '../src/ui/map/unitArt';
 
 describe('the map beyond the known world', () => {
   test('the lands past the edges are drawn but lie outside the play window', () => {
@@ -178,9 +178,11 @@ describe('baked map pictures', () => {
     }
   });
 
-  test('the troop figures are built from the owner\'s drawings at the sizes the map is told', () => {
-    for (const [name, art] of Object.entries(TROOP_ART)) {
-      expect(fs.existsSync(path.join(__dirname, `../art/troops/${name}.png`))).toBe(true);
+  test('the army and fleet figures are built from the owner\'s drawings at the sizes the map is told', () => {
+    const figures: [string, { w: number; h: number }][] = [...Object.entries(TROOP_ART).map(([n, a]): [string, { w: number; h: number }] => [`troops/${n}`, a]), ...Object.entries(SHIP_ART).map(([n, a]): [string, { w: number; h: number }] => [`ships/${n}`, a])];
+    for (const [file, art] of figures) {
+      const name = file.split('/')[1];
+      expect(fs.existsSync(path.join(__dirname, `../art/${file}.png`))).toBe(true);
       expect(size(path.join(__dirname, `../assets/units/${name}.png`))).toEqual([art.w, art.h]);
       expect(art.h).toBe(192); // tall enough for the closest zoom on a 3x screen
     }

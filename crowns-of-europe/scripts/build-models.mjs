@@ -1,14 +1,14 @@
 /**
- * Renders the map's unit sprites from free CC0 3D models: assets/units/ship.png (a three-masted ship), castle.png (a
- * keep with towers) and castle-small.png (a lone tower). (The armies are the owner's drawings: scripts/build-troops.ts.)
+ * Renders the map's forts from free CC0 3D models: assets/units/castle.png (a keep with towers) and castle-small.png
+ * (a lone tower). (The armies and fleets are the owner's drawings: scripts/build-units.ts.)
  *
  *   node scripts/build-models.mjs                       (npm run models:build)
- *   node scripts/build-models.mjs --only ship,castle    render some sprites only
+ *   node scripts/build-models.mjs --only castle         render some sprites only
  *   node scripts/build-models.mjs --sheet [file.png]    also write a contact sheet (default scripts/data/models/)
  *   node scripts/build-models.mjs --out dir             write the sprites somewhere else (to try changes)
  *
- * The models (KayKit by Kay Lousberg and Kenney, both CC0) are fetched once with curl into scripts/data/models
- * (git-ignored); each pack's licence file is checked for CC0. Every sprite is rendered with three.js in headless
+ * The models (KayKit by Kay Lousberg, CC0; Kenney's zipped kits can be read too) are fetched once with curl into
+ * scripts/data/models (git-ignored); each pack's licence file is checked for CC0. Every sprite is rendered with three.js in headless
  * Chromium (Playwright): an orthographic 3/4 camera, soft light from the upper left, the packs' bright colours muted,
  * 4x supersampled, then inked (a 2px outline round the silhouette and thin lines where one part stands in front of
  * another) over a faint contact shadow, and written as a 192 x 192 transparent PNG. Credits: assets/units/CREDITS.md.
@@ -43,26 +43,16 @@ const KITS = {
       .flatMap(n => [`${HEX}/${n}.gltf`, `${HEX}/${n}.bin`])
       .concat(`${HEX}/hexagons_medieval.png`),
   },
-  pirate: {
-    title: 'Kenney Pirate Kit',
-    page: 'https://kenney.nl/assets/pirate-kit',
-    zip: 'https://kenney.nl/media/pages/assets/pirate-kit/e6d4bb1525-1771333093/kenney_pirate-kit.zip',
-    licence: 'License.txt',
-  },
 };
 const hex = name => `kits/hex/${HEX}/${name}.gltf`;
-const kenney = (kit, name) => `kits/${kit}/Models/GLB format/${name}.glb`;
 
 // ---------------------------------------------------------------------------------------------------------------
-// The sprites. Lengths are the models' own (the ship is about 13 long). `parts` share one scene: `anim`/`time` pose a
+// The sprites. Lengths are the models' own. `parts` share one scene: `anim`/`time` pose a
 // rigged model, `hide` drops named nodes, `pike` stands a pike in a hand, `pos` places the part. `elevation` is the
 // camera's angle down from the horizon and `azimuth` turns it round the scene (0 = facing the models' front).
 // `palette` mutes the colour atlas: hue name -> [new hue, saturation factor, lightness] (see muted() in the page code).
 const STONE_PALETTE = { sat: 0.75, lift: 0.12, map: { blue: [12, 0.45, 0.42] } }; // blue roofs -> tile
-const SHIP_PALETTE = { sat: 0.6, warm: 0.04, map: { orange: [27, 0.6, 0.4], red: [20, 0.5, 0.35] } };
 const SPRITES = [
-  // bow to the left
-  { name: 'ship', palette: SHIP_PALETTE, parts: [{ url: kenney('pirate', 'ship-large') }], elevation: 35, azimuth: 60 },
   { name: 'castle', palette: STONE_PALETTE, parts: [{ url: hex('building_castle_blue') }], elevation: 35, azimuth: 30 },
   {
     name: 'castle-small',

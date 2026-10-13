@@ -542,7 +542,7 @@ function Settings() {
       </Section>
       <Section
         title="About"
-        help={`Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Illustrated terrain: elevation from NOAA ETOPO 2022 (public domain); land cover © ESA WorldCover project 2021 / contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium (CC BY 4.0); rivers and lakes from Natural Earth (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). ${GLYPH_CREDIT} Ships and forts rendered from 3D models by Kay Lousberg (KayKit) and Kenney (CC0). Troop and mountain drawings made for the game. History, nations and rulers are public domain.`}
+        help={`Map data © Natural Earth (public domain); relief from the Terrain Tiles on AWS Open Data (ETOPO1, GMTED2010, SRTM; public domain); land colours from the NASA Blue Marble (public domain). Illustrated terrain: elevation from NOAA ETOPO 2022 (public domain); land cover © ESA WorldCover project 2021 / contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium (CC BY 4.0); rivers and lakes from Natural Earth (public domain). Lettering: Cinzel and IM Fell English (SIL Open Font License). ${GLYPH_CREDIT} Forts rendered from 3D models by Kay Lousberg (KayKit, CC0). Troop, ship and mountain drawings made for the game. History, nations and rulers are public domain.`}
       >
         <T v="small">
           Crowns of Europe · {s.settings.difficulty} difficulty{s.settings.ironman ? ' · ironman' : ''}
