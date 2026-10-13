@@ -23,10 +23,18 @@ VECTORS_TS = ROOT / "src/ui/map/terrainVectors.ts"
 PEAKS_TS = ROOT / "src/ui/map/terrainPeaks.ts"
 META_JSON = ROOT / "assets/map/terrain/sources.json"
 
-# The region the terrain covers, in map units (multiples of the coarsest tile's size, 512, at its corners' grid):
-# central and eastern Europe so far, about 2°E-35°E, 37.5°N-57°N. Tiles are made only where they show land, or the
-# sea within reach of it (render.py level_tiles); open sea and the parchment of the unknown are left to the style.
-REGION = (1792, 576, 2368, 1088)  # x0, y0, x1, y1
+# The region the terrain covers, in map units: the whole known Old World, from the Azores to the map's east edge and
+# from the Gold Coast to the North Cape (about 33°W-47°E, 4°N-69°N; the New World ends at x 1152). Tiles are made
+# only where they show the game's known land, or the sea within reach of it (render.py level_tiles): open sea and
+# the parchment of the unknown are left to the style, so no edge of the terrain ever shows on land.
+REGION = (1184, 128, 2576, 1728)  # x0, y0, x1, y1
+# The finest level (L4) is made only where regions are small enough that players zoom right in; over these (the far
+# north and east's giant regions, West Africa and the Atlantic islands) level 3 stands in at the closest zooms.
+L4_SKIP = (
+    "norway", "svealand", "finland", "karelia", "novgorod", "yaroslavl", "ryazan", "don", "iceland",
+    "azores", "madeira", "canaries", "cape_verde", "arguin", "senegal", "gambia", "guinea", "sierra_leone", "mali",
+    "timbuktu", "gao", "ivory_coast", "gold_coast",
+)
 
 # Pixels per map unit, per level. The game's closest zoom is K_MAX = 5 screen points per map unit
 # (src/ui/map/camera.ts); on a 3x screen that is 15 device pixels per map unit, which level 4 covers.

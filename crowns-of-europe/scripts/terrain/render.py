@@ -30,11 +30,12 @@ import shapely
 import skia
 from PIL import Image, ImageDraw
 from scipy import ndimage
+from scipy.spatial import cKDTree
 
 import mapproj as mp
 import symbols as sym
 import prepare
-from config import EDGE_MATCH, MAP_JSON, META_JSON, PEAKS_TS, PPU, REGION, ROOT, TILE, TILE_DIR, TILES_TS, WORK_DIR, WORK_PPU
+from config import EDGE_MATCH, L4_SKIP, MAP_JSON, META_JSON, PEAKS_TS, PPU, REGION, ROOT, TILE, TILE_DIR, TILES_TS, WORK_DIR, WORK_PPU
 
 HALO = 8  # map units drawn around each band and thrown away: wider than any filter or symbol at any level
 LIGHT_AZ = math.radians(315)  # from the north-west
@@ -240,8 +241,10 @@ def cover_geoms():
     style hides under its parchment (the wastes and the unknown waters, a little inside their edges, and everything
     past the map's edge)."""
     if not _COVER:
-        known = shapely.union_all(prepare.game_land_geoms(("regions",)))
         m = json.loads(MAP_JSON.read_text())
+        regions = {r["id"]: prepare.path_geom(r["path"]) for r in m["regions"]}
+        known = shapely.union_all([g for g in regions.values() if g is not None])
+        fine = shapely.union_all([g for k, g in regions.items() if g is not None and k not in L4_SKIP])
         hide = prepare.game_land_geoms(("wastelands",))
         unknown = prepare.path_geom(m["unknownWater"])
         if unknown is not None:
@@ -249,10 +252,16 @@ def cover_geoms():
         hidden = shapely.union_all(hide).buffer(-HIDE_IN)
         outside = shapely.box(-1e4, -1e4, 2e4, 2e4).difference(shapely.box(0, 0, mp.W, mp.H))
         hidden = shapely.union_all([hidden, outside])
-        shapely.prepare(known)
-        shapely.prepare(hidden)
-        _COVER.update(known=known, hidden=hidden)
+        for g in (known, fine, hidden):
+            shapely.prepare(g)
+        _COVER.update(known=known, fine=fine, hidden=hidden)
     return _COVER["known"], _COVER["hidden"]
+
+
+def finest_land():
+    """The known land the finest level is made for (every region but L4_SKIP's)."""
+    cover_geoms()
+    return _COVER["fine"]
 
 
 def hidden_mask(box, ppu, h, w):
@@ -513,10 +522,14 @@ def features():
     n = len(el)
     rank = np.empty(n, np.int64)
     rank[np.lexsort((X, Y, -el))] = np.arange(n)  # highest first; ties by position
-    d = np.hypot(X[:, None] - X[None, :], Y[:, None] - Y[None, :])
-    d[rank[None, :] >= rank[:, None]] = np.inf
-    iso = np.minimum(d.min(axis=1), 64.0)
-    del d
+    # Isolation: the distance to the nearest higher candidate (ranked higher), up to 64 units.
+    tree = cKDTree(np.column_stack([X, Y]))
+    iso = np.full(n, 64.0)
+    for i, near in enumerate(tree.query_ball_point(np.column_stack([X, Y]), 64.0)):
+        near = np.asarray(near, np.int64)
+        near = near[rank[near] < rank[i]]
+        if len(near):
+            iso[i] = min(64.0, float(np.min(np.hypot(X[near] - X[i], Y[near] - Y[i]))))
     score = el + ISO_BONUS * np.log2(np.clip(iso, 2, 64) / 4)
     crest = el / np.maximum(ndimage.maximum_filter(es, size=16 * P + 1)[rs, cs], 1)
     relief8 = el - ndimage.minimum_filter(es, size=16 * P + 1)[rs, cs]
@@ -713,12 +726,13 @@ def render_box(data, sprites, level, box):
 # ---------------------------------------------------------------- the pyramid
 def level_tiles(level):
     """Every tile of a level that is made: those touching the region (clipped to it) that, grown by REACH, show the
-    game's known land. Open sea and what the parchment hides are left to the style. (tx, ty, x0, y0, x1, y1), map
-    units. A tile's parent is made whenever it is (its grown box holds the child's)."""
+    game's known land (at the finest level, land outside L4_SKIP). Open sea and what the parchment hides are left to
+    the style. (tx, ty, x0, y0, x1, y1), map units. A tile's parent is made whenever it is (its grown box holds the
+    child's)."""
     ppu = PPU[level]
     span = TILE / ppu
     rx0, ry0, rx1, ry1 = REGION
-    known, hidden = cover_geoms()
+    known = finest_land() if level == len(PPU) - 1 else cover_geoms()[0]
     out = []
     for ty in range(int(math.floor(ry0 / span)), int(math.ceil(ry1 / span))):
         for tx in range(int(math.floor(rx0 / span)), int(math.ceil(rx1 / span))):
@@ -856,9 +870,10 @@ def write_peaks():
         old.unlink()
     sprites, index, rows = [], {}, []
     rx0, ry0, rx1, ry1 = REGION
+    known, _ = cover_geoms()
     for x, y, kind, tier, level, seed, snow in features():
-        if not (rx0 <= x < rx1 and ry0 <= y < ry1):
-            continue  # (the margin around the region, where the style draws its own mountains)
+        if not (rx0 <= x < rx1 and ry0 <= y < ry1) or not known.contains(shapely.Point(x, y)):
+            continue  # (the margin around the region, and the wastes under the parchment)
         variant = seed % PEAK_VARIANTS
         step = min(range(len(SNOW_STEPS)), key=lambda i: abs(SNOW_STEPS[i] - snow)) if kind == "mountain" else 0
         key = (kind, tier, variant, step)

@@ -31,6 +31,7 @@ SMOOTH_FROM = 1.0  # rivers this wide (points) and up are smoothed: drawn heavie
 WC_LAKE_MIN_AREA = 0.3  # map units² (about 6 km²)
 WC_LAKE_CORE = 0.3  # map units: water within this of a river line, over most of a body, is the river itself
 WC_LAKE_COAST = 2.0  # map units from the game's coast, as the tiles keep inland water (render.py)
+WC_LAKE_PPU = 8  # px per map unit the lakes are found at
 
 
 def river_width(p):
@@ -60,11 +61,12 @@ def parse_rings(d):
 
 
 def game_land(bounds):
-    """The game's land near the region as one geometry: each region's, waste's and far land's outline, even-odd."""
+    """The game's known land near the region as one geometry: each region's outline, even-odd. (The wastes are under
+    the style's parchment, so nothing is drawn there.)"""
     m = json.loads(MAP_JSON.read_text())
     clip = box(*bounds)
     parts = []
-    for group in ("regions", "wastelands", "far"):
+    for group in ("regions",):
         for item in m[group]:
             polys = [Polygon(r).buffer(0) for r in parse_rings(item["path"]) if len(r) >= 3]
             if not polys:
@@ -106,16 +108,16 @@ def worldcover_lakes(land_r, ne_lakes, rivers):
     Earth lakes, not within WC_LAKE_COAST of the game's coast, at least WC_LAKE_MIN_AREA."""
     from rasterio import features
     from scipy import ndimage
-    from config import WORK_DIR, WORK_PPU
+    from config import WORK_DIR
 
     g = json.loads((WORK_DIR / "grid.json").read_text())
-    water = np.load(WORK_DIR / "cover.npy", mmap_mode="r")[g["classes"].index("water")]
-    land = np.load(WORK_DIR / "land.npy", mmap_mode="r")
-    mask = (np.asarray(water) > 140) & (np.asarray(land) > 127)
-    mask = ndimage.binary_opening(mask, iterations=2)
-    coast = ndimage.distance_transform_edt(np.asarray(land) > 127) / WORK_PPU
-    mask &= coast >= WC_LAKE_COAST
-    transform = __import__("affine").Affine(1 / WORK_PPU, 0, g["x0"], 0, 1 / WORK_PPU, g["y0"])
+    P = WC_LAKE_PPU  # the grid's coarser copy (prepare.py): fine enough for lakes of WC_LAKE_MIN_AREA, light enough for the Old World
+    water = np.load(WORK_DIR / f"cover_p{P}.npy", mmap_mode="r")[g["classes"].index("water")]
+    land = np.asarray(np.load(WORK_DIR / f"land_p{P}.npy", mmap_mode="r")) > 127
+    mask = (np.asarray(water) > 140) & land
+    mask = ndimage.binary_opening(mask, iterations=1)
+    mask &= ndimage.distance_transform_edt(land) / P >= WC_LAKE_COAST
+    transform = __import__("affine").Affine(1 / P, 0, g["x0"], 0, 1 / P, g["y0"])
     out = []
     for geom, v in features.shapes(mask.astype(np.uint8), mask=mask, transform=transform):
         poly = shape(geom)
