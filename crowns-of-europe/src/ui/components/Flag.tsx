@@ -8,46 +8,17 @@ import { CHARGES } from './charges';
 const W = 30;
 const H = 20;
 
-/** A figure on the flag, centred on (15, 10) of the 30 x 20 box. */
+/** A figure on the flag (charges.ts), centred on (15, 10) of the 30 x 20 box; a plain roundel if unknown. */
 function Charge({ kind, color }: { kind?: string; color: string }) {
   const drawn = kind ? CHARGES[kind] : undefined;
-  if (drawn)
-    return (
-      <>
-        {drawn.map((p, i) => (
-          <Path key={i} d={p.d} fill={color} fillRule={p.evenOdd ? 'evenodd' : 'nonzero'} />
-        ))}
-      </>
-    );
-  switch (kind) {
-    case 'eagle':
-    case 'griffin':
-      return <Path d="M15 5l1.5 3l5-2l-2 4l3 1l-4 2l-1 3l-2.5-1.5L12.5 16l-1-3l-4-2l3-1l-2-4l5 2L15 5Z" fill={color} />;
-    case 'lion':
-      return <Path d="M11 16l1-4l-2-2l1-3l3-1l1 2l2-1l2 2l-1 2l2 1l-1 2l-2-1v3l-2-2l-1 2l-1-2l-2 2Z" fill={color} />;
-    case 'rider':
-    case 'horse':
-      return <Path d="M9 15l1-3l3-1l2-3l2-2v2l3 1l1 2h-2l-1 2v2h-1.5l-.5-2h-3l-1 2H11l.5-2Z" fill={color} />;
-    case 'serpent':
-      return <Path d="M15 4c3 0 3 3 0 4s-3 3 0 4s3 3 0 4" stroke={color} strokeWidth={2} fill="none" />;
-    case 'lis':
-      return <Path d="M15 4c1.5 2 1.5 4 0 6c-1.5-2-1.5-4 0-6Zm-1 6c-2-2-5-1-4 2c1-1 2-1 3 0Zm2 0c2-2 5-1 4 2c-1-1-2-1-3 0ZM12 12h6v1.2h-6ZM15 13v3" fill={color} stroke={color} strokeWidth={0.6} />;
-    case 'tower':
-      return <Path d="M12 16V8h1V6h1.2v2h1.6V6H17v2h1v8h-6Z" fill={color} />;
-    case 'star':
-      return <Polygon points="15,4.5 16.5,8.6 20.8,8.7 17.4,11.3 18.6,15.5 15,13 11.4,15.5 12.6,11.3 9.2,8.7 13.5,8.6" fill={color} />;
-    case 'wheel':
-      return (
-        <G stroke={color} strokeWidth={1.4} fill="none">
-          <Circle cx={15} cy={10} r={4.5} />
-          <Path d="M15 5.5v9M10.5 10h9M11.8 6.8l6.4 6.4M18.2 6.8l-6.4 6.4" />
-        </G>
-      );
-    case 'tamga':
-      return <Path d="M11 6h8M15 6v8M11 14c2 2 6 2 8 0" stroke={color} strokeWidth={1.8} fill="none" />;
-    default:
-      return <Circle cx={15} cy={10} r={4} fill={color} />;
-  }
+  if (!drawn) return <Circle cx={15} cy={10} r={4} fill={color} />;
+  return (
+    <>
+      {drawn.map((p, i) => (
+        <Path key={i} d={p.d} fill={color} fillRule={p.evenOdd ? 'evenodd' : 'nonzero'} />
+      ))}
+    </>
+  );
 }
 
 /** A small cross, as in the quarters of a cross cantoned. */
@@ -287,7 +258,7 @@ function field(f: FlagDef): ReactElement {
       return (
         <>
           <Rect width={W} height={H} fill={a} />
-          <Path d="M11 15V5c4 0 8 3 8 7l-8 3Zm2-1v-6M15 13V8M17 12V9" stroke={b} strokeWidth={1.2} fill="none" />
+          <Charge kind="harp" color={b} />
         </>
       );
     default: // 'plain', and 'charge' (a plain field with its charge)

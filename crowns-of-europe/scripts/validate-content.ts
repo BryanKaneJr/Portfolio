@@ -2,6 +2,7 @@
  * Validates everything in src/content/: references between files, the event/mission DSL, and text limits.
  * Run: npm run validate   (part of npm run check)
  */
+import { CHARGES, FLAG_PATTERNS } from '../src/ui/components/charges';
 import {
   ACHIEVEMENTS,
   ADVANCE,
@@ -56,6 +57,17 @@ const borderKeys = new Set(MAP.borders.map(b => `${b.a}|${b.b}`));
 for (const key of RIVERS.keys()) if (!borderKeys.has(key)) errs.push(`river ${RIVERS.get(key)}: ${key} is not a border between neighbours`);
 
 // Nations
+// Flags: drawn from known patterns and charges, and no two realms bear the same one.
+const flagSeen = new Map<string, string>();
+for (const n of NATIONS) {
+  const f = n.flag;
+  if (!FLAG_PATTERNS.includes(f.pattern)) errs.push(`nation ${n.id}: unknown flag pattern ${f.pattern}`);
+  for (const c of [f.charge, f.charge2]) if (c && !CHARGES[c]) errs.push(`nation ${n.id}: unknown flag charge ${c}`);
+  if (f.charge2 && f.pattern !== 'quarterly') errs.push(`nation ${n.id}: a second charge needs a quarterly flag`);
+  const key = JSON.stringify([f.pattern, f.colors, f.charge ?? null, f.chargeColor ?? null, f.charge2 ?? null, f.charge2Color ?? null]);
+  if (flagSeen.has(key)) errs.push(`nation ${n.id}: same flag as ${flagSeen.get(key)}`);
+  flagSeen.set(key, n.id);
+}
 for (const n of NATIONS) {
   if (!REGION[n.capital] || REGION[n.capital].owner !== n.id) errs.push(`nation ${n.id}: capital must be a region it owns`);
   if (!!n.native !== (n.faith === 'native')) errs.push(`nation ${n.id}: native nations (and only they) follow the native faith`);

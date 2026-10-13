@@ -249,7 +249,11 @@ here.
     with the zoom (`grow`: (k / 1.7)^0.45, about 1.6x at the closest). Every realm's map colour is now unlike every
     other's and far from its neighbours', picked by `scripts/dev/nation-colors.ts` (the iconic ones kept: French
     blue, English red, Castilian gold, Aragonese orange, Portuguese green, Ottoman teal, Austrian white...;
-    `tests/map.test.ts` checks the distances).
+    `tests/map.test.ts` checks the distances). Every flag was redrawn from the realm's arms or banner around 1444
+    (England's quartering of France and England, Castile and León, Portugal's quinas in a red bordure, the chains of
+    Navarre, St Mark's lion, the keys of St Peter, the Livonian sword...; stylised and labelled where a people bore no
+    European-style arms), no two alike, with figures drawn for the game as bold silhouettes
+    (`ui/components/charges.ts`); `npm run validate` rejects an unknown pattern or figure, or two identical flags.
 
 ## Key numbers (all in `src/sim/`)
 
