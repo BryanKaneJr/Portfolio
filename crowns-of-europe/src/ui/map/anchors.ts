@@ -68,10 +68,29 @@ export function armyAnchor(id: string, k: number): [number, number] {
 }
 const anchors = new Map<string, [number, number]>();
 
-/** Roughly what a region's first army covers where it stands (map units: x0, y0, x1, y1): the figure and its banner
- * above the point, its count badge below and to the right. A landmark's mark keeps clear of it. */
-export function armyBox(id: string, k: number): number[] {
+/**
+ * What a region's first army covers where it stands (map units: x0, y0, x1, y1 each, from its point): the figure (up to
+ * five men abreast, with their shadow at the feet), the banner flying right from its pole above it, and the count badge
+ * at its right below. A landmark's mark keeps clear of them.
+ */
+export function armyParts(id: string, k: number): number[][] {
   const [x, y] = armyAnchor(id, k);
   const u = tokenScale(k) / k;
-  return [x - 16 * u, y - TOKEN_TOP * u, x + 30 * u, y + 16 * u];
+  return ARMY_PARTS.map(b => [x + b[0] * u, y + b[1] * u, x + b[2] * u, y + b[3] * u]);
+}
+/** In points at play zoom, from the token's point (MapView's unitToken). */
+const ARMY_PARTS = [
+  [-15, FEET_Y - TROOP_H - 1, 15, FEET_Y + 2],
+  [2, -TOKEN_TOP, 24, FEET_Y - TROOP_H + 4],
+  [7, FEET_Y - 6, 31, FEET_Y + 11],
+];
+/** The box round all of a region's army (map units: x0, y0, x1, y1). */
+export function armyBox(id: string, k: number): number[] {
+  const p = armyParts(id, k);
+  return [
+    Math.min(...p.map(b => b[0])),
+    Math.min(...p.map(b => b[1])),
+    Math.max(...p.map(b => b[2])),
+    Math.max(...p.map(b => b[3])),
+  ];
 }

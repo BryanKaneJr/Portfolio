@@ -682,7 +682,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             return <SvgImage key={`t${r.id}`} x={x} y={y} width={size} height={size} href={pic.src} />;
           })
         : null}
-      {/* Landmarks: a gold pictogram at the upper right of their town (landmarks.tsx). */}
+      {/* Landmarks: a gold pictogram near their town, clear of its army and its neighbours' names (landmarks.tsx). */}
       {showRegionNames
         ? landmarkMarks(k, px, visible, hidden, id => {
             const art = townArt(s.regions[id]);

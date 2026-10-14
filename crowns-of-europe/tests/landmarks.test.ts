@@ -1,5 +1,5 @@
 /** Landmarks (fun batch 2, track L): fifteen famous places, one bonus each for whoever holds the region. */
-import { LANDMARKS, LANDMARK_AT, MAP_REGION, REGION, type LandmarkDef } from '../src/sim/content';
+import { LANDMARKS, LANDMARK_AT, MAP, MAP_REGION, REGION, type LandmarkDef } from '../src/sim/content';
 import { MODIFIER_KEYS } from '../src/sim/dsl';
 import { heldBy, landmarkErrors, landmarksHeld } from '../src/sim/landmarks';
 import { invalidateMods, modifierSources, nationMods } from '../src/sim/queries';
@@ -7,10 +7,11 @@ import { annexNation, releaseNation, setController, transferRegion } from '../sr
 import { declareWar, makePeace } from '../src/sim/war';
 import { newGame } from '../src/sim/state';
 import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
-import { PLAY_K, REGION_NAMES_K, grow } from '../src/ui/map/anchors';
+import { PLAY_K, REGION_NAMES_K, armyBox, grow } from '../src/ui/map/anchors';
 import { K_MAX } from '../src/ui/map/camera';
 import { regionAt } from '../src/ui/map/geometry';
-import { markSize, markSpot } from '../src/ui/map/landmarkSpot';
+import { MARK_MIN, markPlace, nameBox, type TownSize } from '../src/ui/map/landmarkSpot';
+import type { RegionId } from '../src/sim/types';
 import { emptyGame, forceWar } from './helpers';
 
 /** A fresh 1444 game whose modifiers are read afresh (newGame may read some before it hands out the policies). */
@@ -214,21 +215,58 @@ describe('a new game', () => {
 });
 
 describe('landmarks on the map', () => {
-  test('every mark stands inside its own region, at every zoom it shows at', () => {
-    for (const k of [REGION_NAMES_K, PLAY_K, 2.4, 3, K_MAX]) {
-      const px = (n: number) => n / k;
-      for (const lm of LANDMARKS) {
-        const r = MAP_REGION[lm.region];
-        const size = px(markSize(r.labelRadius, k));
-        // No town, the smallest town picture and the largest (MapView TOWN_ART 19-30 points, at least 10, capped
-        // at 2.2 times the label radius on screen).
-        const towns = [size, ...[19, 30].map(pt => px(Math.min(pt * grow(k), Math.max(10, r.labelRadius * k * 2.2))))];
-        for (const t of towns) {
-          const [x, y] = markSpot(lm.region, k, px, size, t);
-          expect([k, lm.id, regionAt(x + size / 2, y + size * 0.6), regionAt(x + size / 2, y + size * 0.85)]).toEqual([k, lm.id, lm.region, lm.region]);
-        }
+  /** Every mark's box (map units) at zoom `k`, with no towns, every town the smallest picture and every town the
+   * largest (MapView TOWN_ART 19-30 points, at least 10, capped at 2.2 times the label radius on screen). */
+  function marks(k: number) {
+    const px = (n: number) => n / k;
+    const towns: TownSize[] = [
+      () => null,
+      ...[19, 30].map(pt => (id: RegionId) => px(Math.min(pt * grow(k), Math.max(10, MAP_REGION[id].labelRadius * k * 2.2)))),
+    ];
+    return towns.flatMap(town =>
+      LANDMARKS.map(lm => {
+        const [x, y, size] = markPlace(lm.region, k, px, town);
+        return { lm, size, box: [x, y, x + size, y + size] };
+      }),
+    );
+  }
+  const overlap = (a: number[] | null, b: number[]) =>
+    a ? Math.max(0, Math.min(a[2], b[2]) - Math.max(a[0], b[0])) * Math.max(0, Math.min(a[3], b[3]) - Math.max(a[1], b[1])) : 0;
+  /** Zooms from where names show to the closest, and the one the game opens at. */
+  const zooms = [
+    PLAY_K,
+    ...Array.from({ length: Math.round((K_MAX - REGION_NAMES_K) / 0.1) + 1 }, (_, i) => +(REGION_NAMES_K + i * 0.1).toFixed(2)),
+  ];
+
+  test('every mark stands inside its own region, at every zoom it shows at, never under MARK_MIN', () => {
+    for (const k of zooms)
+      for (const { lm, size, box } of marks(k)) {
+        const [x, y] = box;
+        expect([k, lm.id, regionAt(x + size / 2, y + size * 0.6), regionAt(x + size / 2, y + size * 0.85)]).toEqual([k, lm.id, lm.region, lm.region]);
+        expect(size * k).toBeGreaterThanOrEqual(MARK_MIN - 1e-6);
       }
+  });
+
+  test("no mark stands where its region's army stands", () => {
+    // Constantinople is too small for both until about 2.2 (its army covers the whole region): the mark stands where
+    // the troops hide least of it.
+    const tooSmall = (id: string, k: number) => id === 'hagia_sophia' && k < 2.2;
+    for (const k of zooms)
+      for (const { lm, box } of marks(k)) if (!tooSmall(lm.id, k)) expect([k, lm.id, overlap(armyBox(lm.region, k), box)]).toEqual([k, lm.id, 0]);
+  });
+
+  test("no mark covers its own region's name, and hardly a neighbour's", () => {
+    // Champagne's name runs into tiny Île-de-France while names are smallest; elsewhere at most a corner.
+    const share = (id: string, k: number) => (id === 'notre_dame' && k < 1.5 ? 0.75 : 0.2);
+    for (const k of zooms) {
+      const px = (n: number) => n / k;
+      const names = MAP.regions.map(r => ({ id: r.id, b: nameBox(r.id, k, px) }));
+      for (const { lm, size, box } of marks(k))
+        for (const { id, b } of names) {
+          const f = overlap(b, box) / (size * size);
+          if (id === lm.region) expect([k, lm.id, id, f]).toEqual([k, lm.id, id, 0]);
+          else if (f > share(lm.id, k)) expect([k, lm.id, id, f]).toEqual([k, lm.id, id, `under ${share(lm.id, k)}`]);
+        }
     }
   });
 });
-

@@ -1,6 +1,6 @@
 /**
- * The landmarks on the map: a gold pictogram on a soft dark halo, standing beside its region's town, at its upper right
- * where that is inside the region (Hagia Sophia by Constantinople, the Kremlin by Moscow; `landmarkSpot.ts`). Drawn
+ * The landmarks on the map: a gold pictogram on a soft dark halo, standing near its region's town inside the region,
+ * clear of the region's army and the neighbours' names where it can be (`landmarkSpot.ts`). Drawn
  * from the zoom where region names show, over the towns and under the names; never a tap target. A landmark never
  * moves, so it needs no redraw key of its own.
  */
@@ -9,7 +9,7 @@ import { G, Path } from 'react-native-svg';
 import { LANDMARKS, MAP_REGION } from '../../sim/content';
 import type { RegionId } from '../../sim/types';
 import { LANDMARK_ART, type LandmarkPath } from '../components/landmarkArt';
-import { markSize, markSpot } from './landmarkSpot';
+import { markPlace } from './landmarkSpot';
 
 /** Its ink: the gilt the interface marks things with, edged dark so it reads on any land colour. */
 export const LANDMARK_FILL = '#e3bf5c';
@@ -42,7 +42,7 @@ export function landmarkPaths(
 /**
  * Every landmark on screen. `px`: screen points to map units; `visible`: is this box on screen; `hidden`: a region
  * still blank parchment (the uncharted New World); `townSize`: the size of a region's town picture in map units
- * (null when it has none), so the mark stands beside it.
+ * (null when it has none), so the mark stands beside it and clear of the neighbours'.
  */
 export function landmarkMarks(
   k: number,
@@ -56,9 +56,7 @@ export function landmarkMarks(
     const r = MAP_REGION[lm.region];
     const art = LANDMARK_ART[lm.kind];
     if (!r || !art || hidden(lm.region)) continue;
-    const size = px(markSize(r.labelRadius, k));
-    const t = townSize(lm.region) ?? size;
-    const [x, y] = markSpot(lm.region, k, px, size, t);
+    const [x, y, size] = markPlace(lm.region, k, px, townSize);
     if (!visible([x, y, x + size, y + size])) continue;
     const scale = size / 24;
     out.push(

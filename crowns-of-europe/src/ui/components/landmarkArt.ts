@@ -2,8 +2,8 @@
  * Landmark pictograms, one per landmark (its `kind` in content/landmarks.json is its id): simple gold silhouettes in a
  * 24 x 24 box, standing on y = 21, each the outline a player would know the place by. Each path is filled and stroked
  * on its own, so overlapping pieces keep a thin dark edge (the ribs of a dome, the faces of a pyramid). `evenOdd`: the
- * path has holes (a door, a window). Nothing is thinner than about 1.2 box units, nor any hole narrower than 1.4, so
- * they hold at map size. Used by the map (ui/map/landmarks.tsx) and the region sheet (ui/game/LandmarkLine.tsx).
+ * path has holes (a door, a window). Parts are kept to about 1.2 box units or more, holes and the gaps between
+ * pieces to about 1.4 (or the pieces touch), so they hold at map size. Used by the map (ui/map/landmarks.tsx) and the region sheet (ui/game/LandmarkLine.tsx).
  */
 export interface LandmarkPath {
   d: string;
@@ -11,13 +11,15 @@ export interface LandmarkPath {
 }
 
 export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
-  // Hagia Sophia: a great low dome on its half-domes, a minaret pair either side (the outer pair taller).
+  // Hagia Sophia: a broad low block, half-domes stepping down either side of the great shallow dome on its band of
+  // windows, a minaret pair at each end (the outer pair taller).
   hagia_sophia: [
-    { d: 'M7 21V16.8H17V21ZM10.7 21V18.9A1.3 1.3 0 0 1 13.3 18.9V21Z', evenOdd: true },
-    { d: 'M7 16.8C7 14.2 8.5 13 10.2 13H13.8C15.5 13 17 14.2 17 16.8Z' },
-    { d: 'M7.6 13A4.4 4.2 0 0 1 16.4 13Z' },
-    { d: 'M0.4 21V8.5H2.3V21ZM21.7 21V8.5H23.6V21ZM0.4 8.5L1.35 3.4L2.3 8.5ZM21.7 8.5L22.65 3.4L23.6 8.5Z' },
-    { d: 'M3.7 21V10.2H5.6V21ZM18.4 21V10.2H20.3V21ZM3.7 10.2L4.65 6.4L5.6 10.2ZM18.4 10.2L19.35 6.4L20.3 10.2Z' },
+    { d: 'M4.6 21V16.6H19.4V21ZM10.8 21V18.8A1.2 1.2 0 0 1 13.2 18.8V21Z', evenOdd: true },
+    { d: 'M5.2 16.6A3.8 2.8 0 0 1 9 13.8V16.6ZM18.8 16.6A3.8 2.8 0 0 0 15 13.8V16.6Z' },
+    { d: 'M8 13.8V12.4H16V13.8Z' },
+    { d: 'M7.2 12.4A4.8 3.4 0 0 1 16.8 12.4Z' },
+    { d: 'M0.6 21V8.4H2.4V21ZM21.6 21V8.4H23.4V21ZM0.6 8.4L1.5 3.2L2.4 8.4ZM21.6 8.4L22.5 3.2L23.4 8.4Z' },
+    { d: 'M3.8 21V10.4H5.6V21ZM18.4 21V10.4H20.2V21ZM3.8 10.4L4.7 6.6L5.6 10.4ZM18.4 10.4L19.3 6.6L20.2 10.4Z' },
   ],
   // St Peter's: a tall ribbed dome on its drum, lantern on top, over a wide columned front with a cupola at each end.
   st_peters: [
@@ -34,7 +36,7 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
   ],
   // The Duomo: Brunelleschi's pointed ribbed dome and lantern over the nave, Giotto's square bell tower beside it.
   duomo: [
-    { d: 'M1.8 21V5.4H1.2V4.2H6V5.4H5.4V21ZM2.8 6.6H4.4V10.2H2.8Z', evenOdd: true },
+    { d: 'M1.5 21V5.4H0.9V4.2H6.3V5.4H5.7V21ZM2.9 6.6H4.3V10.2H2.9Z', evenOdd: true },
     { d: 'M8 21V15.4H22.5V21Z' },
     { d: 'M10.4 15.4V11.8H20.6V15.4Z' },
     { d: 'M10.8 11.8C10.8 8.2 13 5.8 15.5 4.6C14.2 6.4 13.7 9 13.7 11.8Z' },
@@ -58,11 +60,11 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
   notre_dame: [
     { d: 'M11.2 9.8L12 3.8L12.8 9.8Z' },
     {
-      d: 'M9 21V9.8H15V21H13.3V18.6A1.3 1.3 0 0 0 10.7 18.6V21ZM9.9 13.6A2.1 2.1 0 1 0 14.1 13.6A2.1 2.1 0 1 0 9.9 13.6Z',
+      d: 'M8.6 21V9.8H15.4V21H13.3V18.6A1.3 1.3 0 0 0 10.7 18.6V21ZM10.1 13.6A1.9 1.9 0 1 0 13.9 13.6A1.9 1.9 0 1 0 10.1 13.6Z',
       evenOdd: true,
     },
-    { d: 'M3.4 21V3.4H9V21ZM5.4 11V7.2A.8 .8 0 0 1 7 7.2V11Z', evenOdd: true },
-    { d: 'M15 21V3.4H20.6V21ZM17 11V7.2A.8 .8 0 0 1 18.6 7.2V11Z', evenOdd: true },
+    { d: 'M3.2 21V3.4H8.6V21ZM5.1 11V7.2A.8 .8 0 0 1 6.7 7.2V11Z', evenOdd: true },
+    { d: 'M15.4 21V3.4H20.8V21ZM17.3 11V7.2A.8 .8 0 0 1 18.9 7.2V11Z', evenOdd: true },
   ],
   // St Stephen's: the steep roof with its zigzag tiles beside the one very tall tapering spire.
   st_stephens: [
@@ -76,8 +78,8 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
   // Westminster: a pointed Gothic gable with its tall west window, a pinnacled turret at each corner.
   westminster: [
     { d: 'M6.6 21V11.2L12 5L17.4 11.2V21ZM10.2 18.8V12.6L12 9.4L13.8 12.6V18.8Z', evenOdd: true },
-    { d: 'M2.8 21V9H6.4V21ZM2.4 9V7.8H6.8V9ZM2.9 7.8L4.6 4.4L6.3 7.8Z' },
-    { d: 'M17.6 21V9H21.2V21ZM17.2 9V7.8H21.6V9ZM17.7 7.8L19.4 4.4L21.1 7.8Z' },
+    { d: 'M2.8 21V9H6.6V21ZM2.4 9V7.8H7V9ZM3 7.8L4.7 4.4L6.4 7.8Z' },
+    { d: 'M17.4 21V9H21.2V21ZM17 9V7.8H21.6V9ZM17.6 7.8L19.3 4.4L21 7.8Z' },
   ],
   // The Alhambra: a long battlemented wall on its hill, a horseshoe gate, the tall Comares tower and a small one.
   alhambra: [
@@ -91,28 +93,28 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
   ],
   // The Kremlin: its wall with the tall tent-roofed gate tower, tented corner towers, onion domes behind.
   kremlin: [
-    { d: 'M1.5 21V14H22.5V21Z' },
+    { d: 'M0.6 21V14H23.4V21Z' },
     {
-      d: 'M6 14V11.6H7.2V14ZM6.6 8.2C6.9 9.2 8.1 9.6 8.1 10.6C8.1 11.4 7.5 11.6 6.6 11.6C5.7 11.6 5.1 11.4 5.1 10.6C5.1 9.6 6.3 9.2 6.6 8.2ZM16.8 14V11.6H18V14ZM17.4 8.2C17.7 9.2 18.9 9.6 18.9 10.6C18.9 11.4 18.3 11.6 17.4 11.6C16.5 11.6 15.9 11.4 15.9 10.6C15.9 9.6 17.1 9.2 17.4 8.2Z',
+      d: 'M5.7 14V12.8H6.9V14ZM6.3 9.4C6.6 10.4 7.5 10.8 7.5 11.8C7.5 12.6 7.2 12.8 6.3 12.8C5.4 12.8 5.1 12.6 5.1 11.8C5.1 10.8 6 10.4 6.3 9.4ZM17.1 14V12.8H18.3V14ZM17.7 9.4C18 10.4 18.9 10.8 18.9 11.8C18.9 12.6 18.6 12.8 17.7 12.8C16.8 12.8 16.5 12.6 16.5 11.8C16.5 10.8 17.4 10.4 17.7 9.4Z',
     },
-    { d: 'M1.8 14V9.6H4.4V14ZM19.6 14V9.6H22.2V14Z' },
-    { d: 'M1.6 9.6L3.1 5L4.6 9.6ZM19.4 9.6L20.9 5L22.4 9.6Z' },
-    { d: 'M8.8 21V9.4H15.2V21ZM10.6 21V17.4A1.4 1.4 0 0 1 13.4 17.4V21Z', evenOdd: true },
-    { d: 'M8.4 9.4V7.8H15.6V9.4ZM9.8 7.8V5.6H14.2V7.8Z', evenOdd: true },
+    { d: 'M0.8 14V9.6H3.4V14ZM20.6 14V9.6H23.2V14Z' },
+    { d: 'M0.6 9.6L2.1 5L3.6 9.6ZM20.4 9.6L21.9 5L23.4 9.6Z' },
+    { d: 'M9 21V9.4H15V21ZM10.6 21V17.4A1.4 1.4 0 0 1 13.4 17.4V21Z', evenOdd: true },
+    { d: 'M8.6 9.4V7.8H15.4V9.4ZM9.8 7.8V5.6H14.2V7.8Z', evenOdd: true },
     { d: 'M9.8 5.6L12 0.6L14.2 5.6Z' },
   ],
-  // The Arsenal: the twin battlemented towers of the water gate, a footbridge between them over the canal.
+  // The Arsenal: the twin battlemented towers of the water gate, a footbridge between them, the canal at their feet.
   arsenal: [
-    { d: 'M2 21V19.2Q7 17.8 12 19.2Q17 20.6 22 19.2V21Z' },
     { d: 'M7.5 11.4H16.5V14.8Q12 12.4 7.5 14.8Z' },
     {
-      d: 'M3 19V8H8V19ZM16 19V8H21V19ZM4.8 13.4V10.8A0.7 0.7 0 0 1 6.2 10.8V13.4ZM17.8 13.4V10.8A0.7 0.7 0 0 1 19.2 10.8V13.4Z',
+      d: 'M3 20V8H8V20ZM16 20V8H21V20ZM4.8 13.4V10.8A0.7 0.7 0 0 1 6.2 10.8V13.4ZM17.8 13.4V10.8A0.7 0.7 0 0 1 19.2 10.8V13.4Z',
       evenOdd: true,
     },
     { d: 'M2.4 8V6.4H8.6V8ZM15.4 8V6.4H21.6V8Z', evenOdd: true },
     { d: 'M2.4 6.4V4.4H4.4V6.4ZM6.6 6.4V4.4H8.6V6.4ZM15.4 6.4V4.4H17.4V6.4ZM19.6 6.4V4.4H21.6V6.4Z', evenOdd: true },
+    { d: 'M1.6 21V18.8Q6.8 17.6 12 18.8Q17.2 20 22.4 18.8V21Z' },
   ],
-  // The Pyramids: three, the great one in front, each with a lit face and a shaded one.
+  // The Pyramids: three, the great one behind the two smaller, each face a piece of its own so an edge runs down the ridge.
   pyramids: [
     { d: 'M0.8 21L10 8.4L12.8 21Z' },
     { d: 'M10 8.4L19.2 21H12.8Z' },
@@ -135,7 +137,7 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
       evenOdd: true,
     },
     {
-      d: 'M8.1 5.4H11V6.6H8.1ZM13 5.4H15.9V6.6H13ZM7.4 8.4H10.6V9.6H7.4ZM13.4 8.4H16.6V9.6H13.4ZM7.4 11.4H10H10V12.6H7.4ZM14 11.4H16.6V12.6H14Z',
+      d: 'M8.1 5H11V6.2H8.1ZM13 5H15.9V6.2H13ZM7.4 7.6H10.6V8.8H7.4ZM13.4 7.6H16.6V8.8H13.4ZM7.8 10.2H10V11.4H7.8ZM14 10.2H16.2V11.4H14Z',
       evenOdd: true,
     },
     { d: 'M8.4 14L10.2 3.8H13.8L15.6 14Z' },
@@ -157,8 +159,8 @@ export const LANDMARK_ART: Record<string, LandmarkPath[]> = {
       d: 'M8.8 21V9.2H15.2V21ZM12 11.2L13.2 12.9L12 14.6L10.8 12.9ZM12 15.8L13.2 17.5L12 19.2L10.8 17.5Z',
       evenOdd: true,
     },
-    { d: 'M9.6 9.2V5.4H14.4V9.2ZM11.2 8.4V7A0.8 0.8 0 0 1 12.8 7V8.4Z', evenOdd: true },
-    { d: 'M10.3 5.4V3.4H13.7V5.4Z' },
-    { d: 'M10.7 3.4A1.3 1.6 0 0 1 13.3 3.4ZM11.4 1.9V.4H12.6V1.9Z' },
+    { d: 'M9.6 9.2V5.2H14.4V9.2ZM11.3 8V7.3A0.7 0.7 0 0 1 12.7 7.3V8Z', evenOdd: true },
+    { d: 'M10.3 5.2V3.2H13.7V5.2Z' },
+    { d: 'M10.7 3.2A1.3 1.6 0 0 1 13.3 3.2ZM11.4 1.8V.3H12.6V1.8Z' },
   ],
 };
