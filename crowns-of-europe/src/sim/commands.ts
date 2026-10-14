@@ -27,6 +27,7 @@ import { log } from './log';
 import { addRegiments, findPath, mergeArmies, orderMove, splitArmy } from './military';
 import { completeMission } from './missions';
 import { findSeaPath } from './navy';
+import { attackOdds } from './forecast';
 import {
   allied,
   armyMen,
@@ -88,7 +89,8 @@ export function moveArmy(s: GameState, armyId: string, to: NodeId): Result {
   if (!charted(s, to, s.player)) return no('These lands are uncharted. Send an expedition west first (Realm menu, Colonies).');
   const res = orderMove(s, a, to);
   if (!res) return no(`No route to ${regionName(to)}. You may need military access, transports, or to besiege a fort first.`);
-  return ok(res.days ? `Marching to ${regionName(to)}: ${res.days} days.` : 'Holding position.');
+  const odds = res.days ? attackOdds(s, a.id) : null;
+  return ok(res.days ? `Marching to ${regionName(to)}: ${res.days} days.${odds ? ` Battle at ${regionName(odds.node)}: ${odds.verdict}.` : ''}` : 'Holding position.');
 }
 
 export const previewMove = (s: GameState, armyId: string, to: NodeId) => {

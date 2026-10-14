@@ -1,6 +1,6 @@
 /** Mission trees: concrete goals per nation with rewards. The player claims rewards; the AI does it automatically. */
 import { MISSIONS, isNativeNation } from './content';
-import { log } from './log';
+import { log, moment } from './log';
 import { applyEffects, evalCondition } from './events';
 import type { GameState, MissionDef, NationId } from './types';
 
@@ -39,6 +39,7 @@ export function completeMission(s: GameState, n: NationId, id: string): boolean 
   s.nations[n].missionsDone.push(m.id);
   applyEffects(s, n, m.reward);
   if (n === s.player) log(s, 'mission', `Mission complete: ${m.title}.`, { important: true });
+  if (n === s.player) moment(s, { kind: 'mission', card: true, tone: 'good', title: m.title, lines: [m.desc] });
   return true;
 }
 

@@ -12,6 +12,8 @@ import { RegionSheet } from '../ui/game/RegionSheet';
 import { ArmySheet, BattleSheet, FleetSheet, SeaSheet } from '../ui/game/UnitSheets';
 import { NationSheet } from '../ui/game/NationSheet';
 import { EventCard, GameOverCard, OfferCard, ReportCard } from '../ui/game/Cards';
+import { MomentCard } from '../ui/game/MomentCard';
+import { GoalStrip } from '../ui/game/GoalStrip';
 import { BreakdownPanel, DeclareWarPanel, LogPanel } from '../ui/game/Panels';
 import { WarPanel } from '../ui/game/WarScreen';
 import { MenuPanel } from '../ui/game/Menu';
@@ -57,6 +59,7 @@ export default function GameScreen() {
       {!ov ? (
         <>
           <TopBar />
+          <GoalStrip />
           <WarRail />
           <SideRail />
           <BottomBar />
@@ -93,6 +96,7 @@ export default function GameScreen() {
         />
       ) : null}
       {offerOverlay ? <OfferCard offer={offerOverlay} onLater={() => st.leaveCard()} /> : null}
+      {ov?.kind === 'moment' ? <MomentCard ids={ov.ids} onClose={() => st.leaveCard()} /> : null}
 
       {/* Events need an answer: their cards come up on their own, one at a time, over everything else. */}
       {s.pendingEvents.length ? <EventCard /> : null}

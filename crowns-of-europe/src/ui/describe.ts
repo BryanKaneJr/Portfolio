@@ -351,10 +351,8 @@ export function conditionText(c: Condition): string {
   }
 }
 
-/** Split a goal into checkable parts for the mission list. */
-export function goalParts(c: Condition): Condition[] {
-  return 'all' in c ? c.all : [c];
-}
+/** Split a goal into checkable parts for the mission list: moved to sim/goals.ts. */
+export { goalParts } from '../sim/goals';
 
 /** A realm's adjective as shown (a proclaimed crown's): moved to sim/content.ts. */
 export { nationAdj } from '../sim/content';
@@ -424,4 +422,35 @@ export function battleResult(r: BattleReport): string {
             ? 'victory'
             : 'defeat';
   return `Battle of ${reg(r.node)}: ${how}`;
+}
+
+const GROUND_NAME: Record<string, string> = { mountains: 'the mountains', hills: 'the hills', forest: 'the forest', marsh: 'the marsh', plains: 'open ground' };
+const stars = (n: number) => (n ? `${n} star${n > 1 ? 's' : ''}` : 'no general');
+
+/**
+ * Why a battle went as it did, from the player's side: at most three lines, the weightiest first (the ground, the
+ * generals, the men's morale at the start, numbers, the troops' age). Reports from before this was kept say nothing.
+ */
+export function battleWhy(r: BattleReport): string[] {
+  const w = r.why;
+  const me = r.playerSide;
+  if (!w || me === null) return [];
+  const them = (1 - me) as 0 | 1;
+  const out: { w: number; text: string }[] = [];
+  if (w.penalty > 0) {
+    const where = `${GROUND_NAME[w.terrain]}${w.river ? ', across a river' : ''}`;
+    out.push({ w: w.penalty, text: me === 0 ? `We attacked into ${where}: −${w.penalty} to our rolls.` : `They attacked into ${where}: −${w.penalty} to their rolls.` });
+  }
+  const st = w.stars[me] - w.stars[them];
+  if (st) out.push({ w: Math.abs(st), text: `Our general: ${stars(w.stars[me])}; theirs: ${stars(w.stars[them])}.` });
+  const [m0, m1] = [w.morale[me], w.morale[them]];
+  if (Math.max(m0, m1) > 0 && Math.abs(m0 - m1) / Math.max(m0, m1) >= 0.2) out.push({ w: 1.5, text: `Morale at the start: ${dec(m0)} against their ${dec(m1)}.` });
+  const [g0, g1] = [w.regs[me], w.regs[them]];
+  if (Math.max(g0, g1) >= 1.5 * Math.max(1, Math.min(g0, g1))) out.push({ w: 2.5, text: `We had ${g0} regiment${g0 === 1 ? '' : 's'} to their ${g1}.` });
+  const era = w.era[me] - w.era[them];
+  if (era) out.push({ w: 1.5 * Math.abs(era), text: era > 0 ? 'Our troops were an age ahead.' : 'Their troops were an age ahead.' });
+  return out
+    .sort((a, b) => b.w - a.w)
+    .slice(0, 3)
+    .map(x => x.text);
 }

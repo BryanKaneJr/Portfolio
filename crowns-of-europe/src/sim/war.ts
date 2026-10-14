@@ -4,7 +4,7 @@
  * ULTIMATUM_SCORE against the player sends an ultimatum, and the player may offer any land of theirs instead.
  */
 import { GRAPH, NATION, REGION, isNativeNation, nationAdj, nationName, regionName, startingClaim } from './content';
-import { log, involvesPlayer, newsworthy, requestPause } from './log';
+import { log, involvesPlayer, moment, newsworthy, requestPause } from './log';
 import {
   REBELS,
   allied,
@@ -527,6 +527,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   const losers = winSide === 1 ? w.attackers : w.defenders;
   const winner = terms.winner;
   const loser = terms.loser;
+  const was = playerBefore(s, terms);
   let threat = 0;
   if (!terms.white) {
     for (const r of terms.regions) {
@@ -594,6 +595,42 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
   if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
+  if (all.includes(s.player)) peaceMoment(s, w, terms, was, truce);
+}
+
+/** What the player had before a peace, to tell what it changed. */
+const playerBefore = (s: GameState, terms: PeaceTerms) => {
+  const me = s.nations[s.player];
+  return { regions: terms.regions.filter(r => s.regions[r]?.owner === s.player), renown: me?.prestige ?? 0, threat: me?.threat ?? 0 };
+};
+
+/**
+ * The player's peace as a moment: a card when they led a side or land of theirs changed hands, a banner when they
+ * only fought alongside.
+ */
+function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<typeof playerBefore>, truce: number): void {
+  const p = s.player;
+  const me = s.nations[p];
+  const gained = terms.white ? [] : terms.regions.filter(r => s.regions[r]?.owner === p && !was.regions.includes(r));
+  const lost = was.regions.filter(r => s.regions[r]?.owner !== p);
+  const won = sideOf(w, terms.winner) === sideOf(w, p) || terms.winner === p;
+  const tone = terms.white ? 'info' : won ? 'good' : 'bad';
+  if (terms.winner !== p && terms.loser !== p && !gained.length && !lost.length) {
+    moment(s, { kind: 'peace', card: false, tone, title: `Peace ends the ${w.name}` });
+    return;
+  }
+  const lines: string[] = [];
+  if (terms.white) lines.push('A white peace: nothing changes hands.');
+  if (!terms.white && terms.gold) lines.push(terms.winner === p ? `They pay ${terms.gold} gold.` : terms.loser === p ? `We pay ${terms.gold} gold.` : `${nationName(terms.loser)} pays ${terms.gold} gold.`);
+  if (!terms.white && terms.vassalize) lines.push(terms.winner === p ? `${nationName(terms.loser)} becomes our vassal.` : `${nationName(terms.loser)} becomes a vassal.`);
+  for (const n of terms.white ? [] : terms.release) lines.push(`${nationName(n)} is freed.`);
+  const renown = Math.round((me?.prestige ?? 0) - was.renown);
+  if (renown) lines.push(`Renown ${renown > 0 ? '+' : '−'}${Math.abs(renown)}.`);
+  const threat = Math.round((me?.threat ?? 0) - was.threat);
+  if (threat > 0) lines.push(`Threat +${threat}.`);
+  lines.push(`Truce until ${formatDate(s.day + truce)}.`);
+  const title = gained.length ? `${regionName(gained[0])} Is Ours` : `The Treaty of ${regionName(s.nations[terms.winner].capital)}`;
+  moment(s, { kind: 'peace', card: true, tone, title, lines, gained, lost, nation: terms.winner === p ? terms.loser : terms.winner });
 }
 
 /** A participant (not a war leader) signs a white peace and leaves. */

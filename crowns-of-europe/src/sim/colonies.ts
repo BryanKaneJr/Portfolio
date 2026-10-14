@@ -11,7 +11,7 @@
  * pays its owner on top of taxes.
  */
 import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, nationAdj, nationName, regionName } from './content';
-import { log, requestPause } from './log';
+import { log, moment, requestPause } from './log';
 import { REBELS, armyRegs, bumpOwnership, friendlyTo, hostile, invalidateMods, modifierSources, nationMods, ownedRegions } from './queries';
 import { advanceFor, hasAdvance, unlocked } from './science';
 import { markMapDirty } from './territory';
@@ -111,6 +111,7 @@ export function discoverNewWorld(s: GameState, by: NationId | null): void {
   }
   const who = by ? `${nationName(by)}’s expedition has` : 'Pilots and fishermen have';
   log(s, 'colony', `${who} found land across the Atlantic: a New World! Colonists can now sail west.`, { important: true, nation: by ?? undefined });
+  moment(s, { kind: 'headline', card: false, tone: by === s.player ? 'good' : 'info', title: `${who} found a New World`, ...(by ? { nation: by } : {}) });
   // A New World people hears of the strangers instead of counting colonists.
   const card = isNativeNation(s.player) ? 'nw_strangers_from_the_sea' : 'new_world';
   if (card !== 'new_world') s.nations[s.player].flags.nw_strangers_seen = s.day;

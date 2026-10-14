@@ -7,6 +7,7 @@ import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
 import { fleetPower, shipCount, transportCapacity } from '../../sim/navy';
 import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, hostile, seesUnit } from '../../sim/queries';
 import { battlePhase, battleSides } from '../../sim/battle';
+import { attackOdds, type Odds } from '../../sim/forecast';
 import { COLONY_HOLD_DAYS, CONTROL_DAYS, minSiegeRegs, siegeInfo } from '../../sim/siege';
 import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
@@ -21,6 +22,21 @@ import { STAR_BONUS, rulerAsGeneral } from '../../sim/rulers';
 import { UnchartedSheet } from './ColonySheets';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
+
+const VERDICT = { favoured: 'Favoured', even: 'Even', outmatched: 'Outmatched' } as const;
+
+/** The odds of the first fight on the army's road, as a line to tap for the numbers behind them. */
+function OddsLine({ odds: o }: { odds: Odds }) {
+  const r = o.ratio >= 1 ? `We would likely outlast them ${fmt(Math.min(o.ratio, 9.9), 1)} to 1.` : `They would likely outlast us ${fmt(Math.min(1 / Math.max(o.ratio, 0.01), 9.9), 1)} to 1.`;
+  return (
+    <Line
+      label={`Odds at ${regionName(o.node)}`}
+      value={VERDICT[o.verdict]}
+      tone={o.verdict === 'favoured' ? 'good' : o.verdict === 'outmatched' ? 'bad' : undefined}
+      help={`${kmen(o.men[0])} of ours against ${kmen(o.men[1])}. ${r}${o.reasons.length ? ` ${o.reasons.join('. ')}.` : ''} Odds, not a promise: the dice decide.`}
+    />
+  );
+}
 
 /** What disbanding this army will do, as the sim does it (disbandOutcome). */
 function disbandLines(a: Army): string[] {
@@ -99,6 +115,7 @@ export function ArmySheet({ id }: { id: string }) {
     )
   ) : null;
   const ruler = mine ? rulerAsGeneral(s, s.player) : null;
+  const odds = mine ? attackOdds(s, a.id) : null;
 
   return (
     <Sheet
@@ -117,6 +134,7 @@ export function ArmySheet({ id }: { id: string }) {
       <View style={{ marginTop: 6 }}>
         <Bar value={a.morale / max} color={C.green} />
       </View>
+      {odds ? <OddsLine odds={odds} /> : null}
       {orders}
       <Section title="General" help={`Each star adds ${Math.round(STAR_BONUS * 100)}% to everything the army does: damage in battle, steadiness, march and siege speed. Your ruler can lead in person; if they fall, the heir takes the throne.`}>
         {picking ? null : a.general ? <GeneralRow name={a.general.isRuler ? `${a.general.name} (ruler)` : a.general.name} stars={a.general.stars} /> : <Empty text="No general" />}

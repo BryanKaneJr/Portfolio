@@ -4,7 +4,7 @@
  * enough regiments (3 per fort level) and time, sped up by artillery.
  */
 import { REGION, isNativeNation, nationName, regionName } from './content';
-import { log, requestPause } from './log';
+import { log, moment, requestPause } from './log';
 import { REBELS, armyRegs, controllerHostile, friendlyTo, hostile, nationMods } from './queries';
 import { starBonus } from './rulers';
 import { setController } from './territory';
@@ -104,7 +104,16 @@ function completeSiege(s: GameState, r: RegionId, by: NationId): void {
       log(s, 'siege', `${fort ? 'The fortress of ' : ''}${name} has fallen to your army.`, { node: r, important: reg.fort > 0 });
     else log(s, 'siege', `${name} has been taken by ${nationName(by)}.`, { node: r, important: true });
     if (reg.fort > 0) requestPause(s, 'siegeWon');
+    if (reg.fort > 0 || (!!reg.owner && s.nations[reg.owner]?.capital === r)) siegeMoment(s, r, by, prevController, newController);
   }
+}
+
+/** A fortress or a capital taken by or from the player, as a banner. */
+function siegeMoment(s: GameState, r: RegionId, by: NationId, prev: NationId | null, now: NationId | null): void {
+  const p = s.player;
+  const name = REGION[r].name;
+  if ((now === p || by === p) && prev !== p) moment(s, { kind: 'fortress', card: false, tone: 'good', title: now === s.regions[r].owner ? `${name} is retaken` : `${name} falls to our army`, node: r });
+  else if (prev === p) moment(s, { kind: 'fortress', card: false, tone: 'bad', title: `${name} falls to ${nationName(by)}`, node: r });
 }
 
 export const regionLabel = (r: RegionId) => regionName(r);

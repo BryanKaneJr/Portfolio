@@ -576,3 +576,42 @@ crowns it can proclaim (read from `formables.json`, following a crown on to the 
   after declaring war). `npx tsx scripts/dev/playall.ts [years] [ids...]` does the same for longer and prints one
   line per nation. Over 3 years (seed 1) a passive Genoa, Bosnia or Granada is annexed; that is balance, not a
   fault.
+
+## Moments, goals, speed, odds
+
+The first, simple pass at "the fun stuff".
+
+- **Moments** (`log.ts moment()`, kept to the last 20 in `s.moments`). The great turns of a game:
+  - **Card or banner.** A moment is a card when the player caused it or is a principal in it. Everything else is a
+    banner that never stops the clock.
+  - **Cards:** a peace the player signed as a war leader, or one where land of theirs changed hands; a mission
+    claimed; an achievement; another crown joining theirs in a personal union; a crown proclaimed (pushed by
+    `crowns.ts`).
+  - **Banners:** a peace they only fought in; a new ruler; their capital lost; a fortress or capital taken by or
+    from them; rebels rising against them; an enemy army crossing into their land (once a month for each enemy);
+    and the headlines: Constantinople changing hands, a great crown joining a union or ceasing to exist, a new
+    Emperor, the New World found, a coalition forming against the player.
+  - **Showing them.** Every card that comes in one tick or command opens as one `MomentCard`: the weightiest in full
+    (crown, peace, union, mission, achievement), the rest one line each under "Also". A card that comes while one is
+    up joins it. Cards wait behind an offer, report or event card. A card stops the clock, and lets it run on when
+    closed if it was running. A banner is a notice: tap it to show the place on the map, or to open it as a card.
+  - **Determinism.** A moment never draws on `rand()` and never takes an id from `s.seq`: army and battle ids steer
+    some choices, so taking one would change the game. Its id is the day and its place that day (`m3650.2`).
+- **Next goals** (`sim/goals.ts nextGoals`, `GoalStrip.tsx`). Up to three one-line chips under the top bar:
+  - **Order:** a mission (or crown) ready to claim; a claim to press now, or the next truce to run out; the mission
+    nearest done; a claim being forged; a colony's settlers; the next advance (or "Pick an advance"); the nearest
+    greater crown.
+  - A ready chip is gold. Tapping one opens Missions, Learning or the Realm, or shows the region.
+  - The strip is hidden while a sheet or card is open, and recomputed each day and after each command.
+- **8× for quiet years.** Speeds are 1×, 2×, 4× and 8× (`state/speed.ts`). 8× is refused while the player is at
+  war, and drops to 4× when a war starts.
+- **Odds before an attack** (`forecast.ts attackOdds`). These cover the first fight on an army's road, where enemies
+  it can see stand. Every army of the owner bound for that place is counted with it.
+  - **Verdict:** favoured (the forecast's hold-out ratio is 1.25 or more), outmatched (0.8 or less), or even.
+  - **Reasons:** at most two of these: the ground, a river, the generals, worn men, a 1.5× gap in men, and the troops'
+    age.
+  - **Where it shows:** the march order's notice ("Battle at Auvergne: outmatched."), and a line on the army sheet
+    that opens the numbers. The wording is odds, never a promise.
+- **A battle's why.** A battle keeps how the sides stood on its first day (`Battle.opening`). Its report keeps that
+  with the ground (`BattleReport.why`). `describe.ts battleWhy` turns it into at most three lines from the player's
+  side, under the report. Older reports show nothing.

@@ -1,6 +1,6 @@
 /** Evaluates conditions, applies effects, and fires events each month (see docs/content-guide.md). */
 import { ACHIEVEMENTS, EVENT, EVENTS, MAP_REGION, NATION, REGION, mapDistance, nationName, regionName } from './content';
-import { log, involvesPlayer, requestPause, withoutPauses } from './log';
+import { log, involvesPlayer, moment, requestPause, withoutPauses } from './log';
 import {
   alliesOf,
   atWar,
@@ -625,6 +625,7 @@ export function checkAchievements(s: GameState): string[] {
       s.achievements.push(a.id);
       got.push(a.id);
       log(s, 'mission', `Achievement unlocked: ${a.title}!`, { important: true });
+      moment(s, { kind: 'achievement', card: true, tone: 'good', title: a.title, lines: [a.desc] });
     }
   }
   return got;

@@ -20,6 +20,7 @@ import { Glass } from '../components/Glass';
 import { Btn, Line, Row, T } from '../components/kit';
 import { C, G, R, book, fmt, kmen, sans, serif } from '../theme';
 import { effectsLines, lapseMeans } from '../describe';
+import { BattleWhy } from './BattleWhy';
 
 export function CardShell({ children, wide, head }: { children: ReactNode; wide?: boolean; head?: ReactNode }) {
   return (
@@ -216,6 +217,7 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
       {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The beaten army was annihilated.</T> : null}
       {report.scattered ? <T v="small" style={{ marginTop: 8 }}>Cut off with nowhere to retreat, the beaten army scattered.</T> : null}
       {report.warScore ? <T v="small" style={{ marginTop: 6 }}>Leverage +{report.warScore}% to the winner.</T> : null}
+      <BattleWhy report={report} />
       <Btn style={{ marginTop: 14 }} label="Continue" onPress={onClose} testID="report-close" />
     </CardShell>
   );

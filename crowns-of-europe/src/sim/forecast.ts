@@ -8,7 +8,7 @@
 import { REGION, isSea, riverBetween } from './content';
 import { CASUALTY_K, MORALE_K, WIPE_RATIO, sidePower, type BattlePhase } from './battle';
 import { FRONT_WIDTH } from './military';
-import { REBELS, armyMen, maxMorale, nationMods } from './queries';
+import { REBELS, armiesHostile, armyMen, maxMorale, nationMods, seesUnit } from './queries';
 import { starBonus } from './rulers';
 import type { Army, GameState, NationId, NodeId, UnitType } from './types';
 
@@ -150,3 +150,74 @@ export function forecast(
     men: [Math.round(st[0].totalMen), Math.round(st[1].totalMen)],
   };
 }
+
+// ---------------------------------------------------------------- odds before an attack (for the player)
+
+export type Verdict = 'favoured' | 'even' | 'outmatched';
+
+/** How a forecast reads to the player: a clear edge either way, or a fight that could go either way. */
+export function verdictOf(f: Forecast): Verdict {
+  if (f.ratio >= 1.25) return 'favoured';
+  if (f.ratio <= 0.8) return 'outmatched';
+  return 'even';
+}
+
+export interface Odds {
+  node: NodeId;
+  verdict: Verdict;
+  men: [number, number];
+  ratio: number;
+  reasons: string[];
+}
+
+/**
+ * The odds of the first fight on an army's road: the first place on its path where enemies it can see stand, with
+ * every army of its owner bound there too. Null if its road meets nobody.
+ */
+export function attackOdds(s: GameState, armyId: string): Odds | null {
+  const a = s.armies[armyId];
+  if (!a || a.battle || a.retreating || !a.path.length) return null;
+  let from = a.node;
+  for (const node of a.path) {
+    if (!isSea(node)) {
+      const enemies = Object.values(s.armies).filter(o => o.node === node && !o.retreating && armiesHostile(s, a, o) && seesUnit(s, a.owner, o.owner, node, o.rebelOf));
+      if (enemies.length) {
+        const ours = Object.values(s.armies).filter(o => o.owner === a.owner && !o.battle && !o.retreating && (o.id === a.id || o.path.includes(node)));
+        const f = forecast(s, ours, enemies, node, from);
+        const men: [number, number] = [ours.reduce((t, o) => t + armyMen(o), 0), enemies.reduce((t, o) => t + armyMen(o), 0)];
+        return { node, verdict: verdictOf(f), men, ratio: f.ratio, reasons: oddsReasons(s, ours, enemies, node, from) };
+      }
+    }
+    from = node;
+  }
+  return null;
+}
+
+const GROUND: Partial<Record<string, string>> = { mountains: 'Attacking into mountains', hills: 'Attacking uphill', forest: 'Attacking through forest', marsh: 'Attacking through marsh' };
+
+/** At most two things that tilt the odds, the weightiest first: the ground, a river, generals, worn men, numbers, the troops' age. */
+export function oddsReasons(s: GameState, ours: Army[], theirs: Army[], node: NodeId, from?: NodeId): string[] {
+  const out: { w: number; text: string }[] = [];
+  const terrain = REGION[node]?.terrain ?? 'plains';
+  if (GROUND[terrain]) out.push({ w: terrain === 'mountains' ? 2 : 1, text: GROUND[terrain]! });
+  const river = from ? riverBetween(from, node) : undefined;
+  if (river) out.push({ w: 1, text: `Crossing the ${river}` });
+  const best = (l: Army[]) => Math.max(0, ...l.map(a => a.general?.stars ?? 0));
+  const stars = best(ours) - best(theirs);
+  if (stars) out.push({ w: Math.abs(stars), text: stars > 0 ? 'Our general is better' : 'Their general is better' });
+  const worn = (l: Army[]) => l.reduce((t, a) => t + Math.min(1, a.morale / maxMorale(s, a.owner)) * armyMen(a), 0) / Math.max(1, l.reduce((t, a) => t + armyMen(a), 0));
+  if (worn(ours) < 0.6) out.push({ w: 1.5, text: 'Our men are worn' });
+  else if (worn(theirs) < 0.6) out.push({ w: 1.5, text: 'Their men are worn' });
+  const men = [ours, theirs].map(l => l.reduce((t, a) => t + armyMen(a), 0));
+  if (men[1] >= men[0] * 1.5) out.push({ w: 2.5, text: `They have ${fmtTimes(men[1] / Math.max(1, men[0]))} our men` });
+  else if (men[0] >= men[1] * 1.5) out.push({ w: 2.5, text: `We have ${fmtTimes(men[0] / Math.max(1, men[1]))} their men` });
+  const age = (l: Army[]) => Math.max(...l.map(a => (a.owner === REBELS ? 1 : (s.nations[a.owner]?.era ?? 1))));
+  const era = age(ours) - age(theirs);
+  if (era) out.push({ w: 1.5 * Math.abs(era), text: era > 0 ? 'Our troops are an age ahead' : 'Their troops are an age ahead' });
+  return out
+    .sort((x, y) => y.w - x.w)
+    .slice(0, 2)
+    .map(x => x.text);
+}
+
+const fmtTimes = (r: number) => (r >= 2.95 ? `${Math.round(r)}×` : `${Math.round(r * 10) / 10}×`);

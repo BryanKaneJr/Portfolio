@@ -3,7 +3,7 @@
  * Above 7, rebels may rise. They are kept rare: a region can only rise once every few years.
  */
 import { NATION, regionName, nationName } from './content';
-import { log, involvesPlayer, newsworthy } from './log';
+import { log, involvesPlayer, moment, newsworthy } from './log';
 import { REBELS, armyRegs, isCored, nationMods } from './queries';
 import { makeArmy } from './state';
 import { setController, releaseNation } from './territory';
@@ -67,6 +67,7 @@ export function spawnRebels(s: GameState, region: RegionId, regiments: number): 
   a.morale = 2;
   if (regiments >= 6) a.general = newGeneral(s, REBELS);
   s.armies[a.id] = a;
+  if (target === s.player) moment(s, { kind: 'rebels', card: false, tone: 'bad', title: `Rebels rise in ${regionName(region)}`, node: region });
   if (newsworthy(s, target))
     log(s, 'rebels', `Rebels rise in ${regionName(region)} against ${nationName(target)} (${regiments} regiments).`, {
       node: region,

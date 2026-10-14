@@ -1,6 +1,6 @@
 /** Who owns what: region transfers, subjects, annexation, releasing and the death of nations. */
 import { NATION, REGION, nationName } from './content';
-import { log, involvesPlayer, newsworthy, requestPause } from './log';
+import { log, involvesPlayer, moment, newsworthy, requestPause } from './log';
 import { bumpOwnership, bumpWars, ownedRegions, invalidateMods } from './queries';
 import type { GameState, NationId, RegionId } from './types';
 import { pairKey } from './util';
@@ -39,9 +39,11 @@ export function transferRegion(s: GameState, r: RegionId, to: NationId, opts: { 
   delete s.nations[to]?.claims[r];
   markMapDirty();
   if (!from) return;
+  if (r === 'constantinople') moment(s, { kind: 'headline', card: false, tone: to === s.player ? 'good' : from === s.player ? 'bad' : 'info', title: `Constantinople falls to ${nationName(to)}`, node: r });
   const old = s.nations[from];
   if (!old) return;
   if (old.capital === r) {
+    if (from === s.player) moment(s, { kind: 'capital', card: false, tone: 'bad', title: `Our capital, ${regionName(r)}, is lost`, node: r });
     const rest = ownedRegions(s, from).sort((a, b) => b.dev - a.dev);
     if (rest.length) old.capital = rest[0].id;
   }
@@ -90,6 +92,7 @@ export function killNation(s: GameState, n: NationId, by?: NationId): void {
       nation: n,
       important: involvesPlayer(s, n, by),
     });
+  if (n !== s.player && NATION[n]?.tier === 'major') moment(s, { kind: 'headline', card: false, tone: 'info', title: `${nationName(n)} is no more`, nation: n });
   if (n === s.player) {
     s.gameOver = { reason: 'annexed', day: s.day };
     requestPause(s, 'gameOver');
@@ -105,6 +108,7 @@ export function makeSubject(s: GameState, overlord: NationId, subject: NationId,
   sub.overlord = overlord;
   sub.subjectType = type;
   sub.subjectSince = s.day;
+  if (type === 'union') unionMoment(s, overlord, subject);
   // End wars between them.
   for (const w of Object.values(s.wars)) {
     const a = w.attackers.includes(overlord) && w.defenders.includes(subject);
@@ -127,6 +131,15 @@ export function makeSubject(s: GameState, overlord: NationId, subject: NationId,
   for (const c of s.coalitions) if (c.target === overlord) c.members = c.members.filter(x => x !== subject);
   invalidateMods();
   markMapDirty();
+}
+
+/** A crown joins a personal union: the player's card when it is theirs, a banner when it is theirs to lose or great news. */
+function unionMoment(s: GameState, overlord: NationId, subject: NationId): void {
+  const p = s.player;
+  const title = `${nationName(subject)} joins ${nationName(overlord)} in a personal union`;
+  if (overlord === p) moment(s, { kind: 'union', card: true, tone: 'good', title: `${nationName(subject)} Joins Our Crown`, lines: [`${title}: one ruler, two realms.`], nation: subject });
+  else if (subject === p) moment(s, { kind: 'union', card: false, tone: 'bad', title, nation: overlord });
+  else if (NATION[subject]?.tier === 'major') moment(s, { kind: 'headline', card: false, tone: 'info', title, nation: subject });
 }
 
 export function releaseSubject(s: GameState, subject: NationId): void {
