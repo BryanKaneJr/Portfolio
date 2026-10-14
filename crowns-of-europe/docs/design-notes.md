@@ -199,7 +199,7 @@ here.
     (about 390 in all). They are baked so the ink darkens the land and the paper is a faint light: the country's
     colour shows through, so who holds the Alps stays plain. Armies and fleets are a pike block or a ship rendered
     from CC0 3D models (KayKit, Kenney) on a base in the owner's colour, the count on a badge beside it; forts are a
-    tower or a castle by the region's name. (Later the armies became the owner's own soldier drawings under each
+    tower or a castle by the region's name (later towns at their real places: 28). (Later the armies became the owner's own soldier drawings under each
     realm's banner, and only the units the player would know about are shown: see the end of these notes.) Next, at the owner's choice: a painted map of the whole frame (and the
     margins seen past its edges) under the country colours; templates in the map's exact projection were made for
     it, and the coasts and borders will be refitted to the painting where they disagree.
@@ -245,7 +245,7 @@ here.
     to the right), not on a coloured base, and flies its realm's flag on a pole as a small waving banner; the count
     is on a badge beside it, gold-rimmed for your own. Units, battles and sieges are shown, and listed in sheets, only
     if they are yours, a friend's (ally, overlord, subject), an enemy's in a war, or in land you own or hold
-    (`seesUnit`); rebels when they rise against you or a friend. Past play zoom, names, forts and tokens grow partway
+    (`seesUnit`); rebels when they rise against you or a friend. Past play zoom, names, forts (now towns: 28) and tokens grow partway
     with the zoom (`grow`: (k / 1.7)^0.45, about 1.6x at the closest). Every realm's map colour is now unlike every
     other's and far from its neighbours', picked by `scripts/dev/nation-colors.ts` (the iconic ones kept: French
     blue, English red, Castilian gold, Aragonese orange, Portuguese green, Ottoman teal, Austrian white...;
@@ -298,6 +298,22 @@ here.
       any of your regions or gold. Land the enemy claims, wants, holds or borders (or the war goal) is worth its full
       price to them, far-off land half (`concessionValue`); they accept when the offer covers their leverage, and
       an offer that gives everything their ultimatum asks always does.
+
+28. **Towns at their real places instead of forts beside the names (on request).** The towers and castles drawn just
+    before each region's name moved whenever the name grew with the zoom. Now every region has its chief town of
+    1444–1750 in `regions.json` (`town`: its period name and real [lon, lat]: Paris, Bursa, Adrianople, Edinburgh,
+    Candia...; in the New World and uncolonized Africa the main native or later colonial town), projected like the
+    rest of the map by `build-map` and nudged a few units inside the region where a coarse coast leaves a port in the
+    sea (it lists every move). The town is drawn there, fixed, once someone owns the region: a village, a town or a
+    city by prosperity (below 4, below 6, then cities: about 30/40/30% in 1444), inside walls where the region has a
+    fort, so the fort still shows. Rendered from the same CC0 KayKit pack as the forts were (houses, a church, a
+    keep, walls and corner towers), in the same inked 3/4 view. They lie under the region and nation names and the
+    units, show from the zoom where the region names do and grow with the zoom like them, and are not tap targets.
+    At first they showed only in regions whose name was written, a rule left over from the forts beside the names, so
+    12 small regions lost their town at play zoom: Constantinople, Genoa, Cyprus and Candia until zoomed in further,
+    and the Azores, Madeira, Cape Verde and the Lesser Antilles never (they needed more than the closest zoom). Now
+    every owned region shows its town, capped in a small one to about the region's own size (2.2 times its label
+    radius on screen, at least 10 points), so an island gets a small mark that leaves the land showing.
 
 ## Key numbers (all in `src/sim/`)
 

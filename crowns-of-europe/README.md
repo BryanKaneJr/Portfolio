@@ -17,7 +17,8 @@ bundled and works in airplane mode.
   Egypt, the Levant, the Caucasus, Mesopotamia and West Africa (with an uncolonized Guinea coast), 46 coarse
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
-  forts (0–3), faith, rivers and straits. Seven map modes: political, terrain, prosperity, faith, diplomatic,
+  forts (0–3), faith, rivers and straits, and each region's chief town at its real place (a village, town or city
+  by prosperity, walled where there is a fort). Seven map modes: political, terrain, prosperity, faith, diplomatic,
   threat and exports. Painted in three styles: Atlas (the known world on blank parchment, casting a soft shadow;
   country colours over the land's own greens and tans and its hills; a slate sea; big pale names that curve along
   each country), Parchment and
@@ -150,7 +151,7 @@ contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover co
 domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (SIL Open Font License). History,
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
-code. The forts on the map are rendered from free 3D models (CC0) by
+code. The towns on the map are rendered from free 3D models (CC0) by
 [Kay Lousberg (KayKit)](https://kaylousberg.itch.io/) with `npm run models:build` (`assets/units/CREDITS.md`). The
 troop, ship and mountain drawings were made for the game (`art/troops`, `art/ships`, `art/mountains`). Icons (coins, helmet,
 scales, laurels, crowns, the fire behind an enemy's arms and the rest of the emblems) by [Lorc](https://lorcblog.blogspot.com/) and

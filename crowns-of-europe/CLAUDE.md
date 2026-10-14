@@ -23,7 +23,7 @@ a Mercator map, light tutorial, no audio yet).
 - **Original text only.** No other game's wording, art or mechanic names. Free art under an open licence is fine
   with credit: the emblems are game-icons.net glyphs (CC BY 3.0, Lorc and Delapouite), listed in
   `scripts/build-icons.ts` and credited in the README and Settings > About; add any new one there and run
-  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The forts are rendered from CC0 3D models
+  `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The towns are rendered from CC0 3D models
   (KayKit) by `npm run models:build` (credits in `assets/units/CREDITS.md`); the troop and ship drawings in
   `art/troops` and `art/ships` and the mountain drawings in `art/mountains` were made for the game by its owner.
   Player-facing text says prosperity, levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
@@ -36,11 +36,13 @@ a Mercator map, light tutorial, no audio yet).
   what you can do, in a few words; never explain a rule inline, and don't restate what a number or button
   already shows. Long-form teaching lives in How to play and the one-time hints.
 - **Offline.** No network calls anywhere in `src/`.
-- The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, rivers, straits, lakes, the names of
-  the lands beyond the map), then `npm run map:build` and `npm run relief:build`. Never hand-edit `map.json`,
+- The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, each region's chief `town` and its real
+  [lon, lat], rivers, straits, lakes, the names of the lands beyond the map), then `npm run map:build` and
+  `npm run relief:build`. Never hand-edit `map.json`,
   `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/unitArt.ts`,
   `ui/map/paintingTiles.ts`, `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
-  fix those.
+  fix those. It also lists every town it had to nudge inside its region (coastal towns on a coarse coast: a few
+  units); a big move means a wrong coordinate or a town in the wrong region.
 - **Science gates progress.** Artillery, galleons, colonies (Caravels for the African coast, Ocean Navigation for
   expeditions and the New World) and the troops' age (`nat.era`, raised by the war advances) come from advances
   (`science.ts`, `advances.json`). Gate new unlocks with `hasAdvance`/`unlocked()`, never with the year.
@@ -75,7 +77,7 @@ tests/         battle, movement, siege, war, colonies, aims, science, ottomans, 
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), troops/ and ships/
                (the owner's soldiers and ships), painting/ (the owner's painting of the world; the 157 MB original is
                not in git)
-assets/        map/ (generated pictures, incl. mountains/), units/ (the troops, ships, forts), fonts, icons
+assets/        map/ (generated pictures, incl. mountains/), units/ (the troops, ships, towns), fonts, icons
 ```
 
 ## Commands
@@ -103,7 +105,7 @@ npm run painting:build      # the Painted style's ground: art/painting/fullmap.p
                             # and tiled into assets/map/painting (see art/painting/README.md)
 npm run units:build         # the armies' and fleets' figures (assets/units/, ui/map/unitArt.ts) from art/troops
                             # and art/ships
-npm run models:build        # the forts (assets/units/) from CC0 3D models (fetched once into
+npm run models:build        # the towns (assets/units/town-*.png) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
 npm run tiles:build         # the Illustrated style's terrain tiles and river/lake vectors (assets/map/terrain,
                             # ui/map/terrainTiles.ts, terrainVectors.ts) from ETOPO 2022, ESA WorldCover and Natural
@@ -122,8 +124,16 @@ rendered 1.6× the screen size so short pans never show an edge. Units are littl
 (baked from each drawing by `npm run units:build`) under the realm's banner (its flag, `flagBody`, on a pole), the
 count on a badge beside it (gold-rimmed for your own): an army is
 one of the owner's drawings (`art/troops`: a lone soldier for a small army, a squad of four or five for bigger ones,
-`troopArt`), a fleet one of their ships (`art/ships`: a lone ship, or several from 5 ships, `shipArt`). Forts are
-a tower (level 1) or a castle just before the region's name; all drawn in one SVG on top. Taps on a unit are
+`troopArt`), a fleet one of their ships (`art/ships`: a lone ship, or several from 5 ships, `shipArt`); all drawn in
+one SVG on top. Each owned region's chief town stands at its real place (`MAP_REGION[id].town`, from `town` in
+`regions.json`, projected by `build-map` and nudged inside the region where the coast is coarse), drawn in the map's
+own SVG just under the names (so under the units too): a village, a town or a city by the region's prosperity (below
+`TOWN_DEV`, below `CITY_DEV`, then cities), inside walls where it has a fort (`townArt`, `TOWN_ART`; `npm run
+models:build`). They show from `REGION_NAMES_K`, in every owned region, even one too small for its name to be
+written (Constantinople, Genoa, the Atlantic islands); in a small region the picture is capped to about the region's
+size (`townSize`: `TOWN_FIT` times its label radius on screen, at least `TOWN_MIN` points), so an island gets a small
+mark rather than being buried. They stand on their point (the middle of the settlement), never move, and are not tap
+targets. Taps on a unit are
 measured from the middle of its figure (`TOKEN_MIDDLE`), above its point. Only the units the player would know about are drawn, at any zoom, and listed in region sheets
 (`seesUnit` in `sim/queries.ts`): their own, their allies', overlord's and subjects', their enemies' in a war, and
 anyone's in land they own or hold; rebels risen against them.
@@ -132,7 +142,7 @@ one; from `REGION_NAMES_K` on, region names replace the nation names and each ar
 name (`armyAnchor`), its token a little smaller until `PLAY_K` (1.7), the zoom the game opens at and "show on map"
 goes to. Taps are
 hit-tested in map units (`ui/map/tap.ts`): your own units first, then regions, then seas. Strokes and text sizes
-are divided by `k` so they stay constant on screen; past `PLAY_K` names, forts and unit tokens grow partway with the
+are divided by `k` so they stay constant on screen; past `PLAY_K` names, towns and unit tokens grow partway with the
 zoom (`grow`, `ZOOM_GROW`: about 1.6x at the closest), so they stay easy to read and find. A gesture may pull past the edge of the known world or the
 zoom limits against growing resistance, then slides back (`ui/map/camera.ts`, `settle` in MapView).
 
@@ -177,7 +187,7 @@ is, then trees, dunes and reeds as vector marks; fading in as you zoom in while 
 then
 occupation stripes, the parchment over the unknown, the known world's baked shadow on it, province lines
 (fading out as you zoom out), rivers, nation borders, a fade into parchment along the window's edges, every
-coastline (known or not, one ink, culled by cell), selection, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
+coastline (known or not, one ink, culled by cell), selection, the towns, then names (nation names curved along `nationArcs` with a drop shadow, region names when zoomed in). Keep each
 redraw cheap: whole-map lines are single paths, and anything that would mean stroking every coastline several
 times (water lines, shadows) is baked into an image by `scripts/build-relief.ts`. Keep every baked picture under
 5.2 megapixels: iPhone and iPad web views decode anything bigger at half size. The drawn outlines (region paths,
