@@ -26,7 +26,7 @@ const PERS: Record<string, string> = { expansionist: 'Expansionist', defensive: 
 /** Why a crown weighs no war (the gates with no value of their own). */
 const NO_WAR: Partial<Record<WarBlock, string>> = { order: 'Order too low', weariness: 'Too war-weary', debt: 'Too deep in debt', subject: 'A subject' };
 /** A chance as a percentage: one decimal below 10%. */
-const pc = (p: number) => {
+export const pc = (p: number) => {
   const v = p * 100;
   return `${v > 0 && v < 10 ? v.toFixed(1) : Math.round(v)}%`;
 };

@@ -1,5 +1,5 @@
 /** The realm menu: Military, Diplomacy, Realm, Science, Colonies, Missions, Ledger and Settings (one tap from the map). */
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, nationName, regionName } from '../../sim/content';
@@ -12,7 +12,6 @@ import { evalCondition } from '../../sim/events';
 import {
   aliveNations,
   allied,
-  alliesOf,
   armiesOf,
   armyMen,
   armyRegs,
@@ -23,18 +22,17 @@ import {
   neighborsOf,
   ownedRegions,
   rulerAge,
-  subjectsOf,
   totalDev,
   totalRegiments,
   warsOf,
 } from '../../sim/queries';
 import { isHreMember, opinion } from '../../sim/diplomacy';
-import { coalitionAgainst, coalitionOf } from '../../sim/threat';
+import { diplomaticTies, type Ties } from '../../sim/ties';
 import { scoreFor } from '../../sim/war';
 import { hreMembers } from '../../sim/religion';
 import { shipCount } from '../../sim/navy';
 import type { PauseReason } from '../../sim/types';
-import { yearOf } from '../../sim/util';
+import { formatShortDate, yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab, idleColonists } from './ColonySheets';
 import { GeneralRow } from './UnitSheets';
@@ -47,10 +45,11 @@ import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Bar, Btn, Card, Empty, IconBtn, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
 import { C, fmt, kmen, sans, signed } from '../theme';
-import { claimsText, claimsWhy, conditionText, effectsLines, goalParts, modLines } from '../describe';
+import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
+import { pc } from './NationSheet';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
@@ -186,10 +185,11 @@ function Diplomacy() {
   const st = useStore();
   const s = st.state!;
   const p = s.player;
-  const me = s.nations[p];
   const wars = warsOf(s, p);
-  const coalition = coalitionAgainst(s, p);
-  const myCoalition = coalitionOf(s, p);
+  // Recomputed on every new day and every command (the store's version), as the state changes in place.
+  const version = st.getVersion();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const ties = useMemo(() => diplomaticTies(s, p), [version, p]);
   const [filter, setFilter] = useState<'neighbors' | 'all'>('neighbors');
   const neighbors = new Set(neighborsOf(s, p));
   const list = aliveNations(s)
@@ -218,26 +218,9 @@ function Diplomacy() {
           <Empty text="At peace." />
         )}
       </Section>
-      {coalition ? (
-        <Card style={{ marginTop: 10, borderColor: C.red }}>
-          <T v="h3">A coalition stands against you</T>
-          <T v="small">{coalition.members.map(nationName).join(', ')}</T>
-        </Card>
-      ) : null}
-      {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the coalition against {nationName(myCoalition.target)}.</T> : null}
-      <Section title="Relations">
-        {me.overlord ? <Line label="Overlord" value={`${nationName(me.overlord)} (${me.subjectType === 'union' ? 'personal union' : 'vassal'})`} /> : null}
-        <Line label="Allies" value={alliesOf(s, p).map(nationName).join(', ') || 'none'} />
-        {subjectsOf(s, p).length ? <Line label="Subjects" value={subjectsOf(s, p).map(nationName).join(', ')} /> : null}
-        {me.rivals.length ? <Line label="Rivals" value={me.rivals.map(nationName).join(', ')} /> : null}
-        {Object.keys(me.claims).length ? (
-          <Line
-            label="Claims"
-            value={claimsText(s, p, Object.keys(me.claims))}
-            help={['A reason for war on whoever holds the region, until the year shown.', claimsWhy(s, p, Object.keys(me.claims))].filter(Boolean).join(' ')}
-          />
-        ) : null}
-      </Section>
+      <DangerSection t={ties} />
+      <ClaimsSection t={ties} />
+      <TiesSection t={ties} />
       {isHreMember(s, p) || s.hre.emperor === p ? (
         <Section title="Holy Roman Empire" help="The Emperor gains levies and renown, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.">
           <Line label="Emperor" value={s.hre.emperor ? nationName(s.hre.emperor) : 'vacant'} />
@@ -263,7 +246,7 @@ function Diplomacy() {
               <Text style={styles.rowSub}>
                 {allied(s, p, n.id) ? 'Ally · ' : ''}
                 {s.nations[n.id].overlord === p ? 'Your subject · ' : ''}
-                {ownedRegions(s, n.id).length} regions
+                {regionCount(ownedRegions(s, n.id).length)}
               </Text>
             </View>
             <Text style={[styles.rowNum, { color: n.op >= 0 ? C.green : C.red }]}>{signed(Math.round(n.op))}</Text>
@@ -274,6 +257,186 @@ function Diplomacy() {
         <Ledger />
       </Section>
     </View>
+  );
+}
+
+/** Close the menu and open a crown's sheet. */
+function openNation(id: string) {
+  store.close();
+  store.select({ kind: 'nation', id });
+}
+/** Close the menu and centre the map on a region (its sheet opens). */
+function openRegion(id: string) {
+  store.close();
+  store.select({ kind: 'region', id });
+  store.focusOn(...regionPoint(id));
+}
+
+/** A crown as a small tappable chip: its flag, its name and a short note (a year, a bond). */
+function NationChip({ id, note }: { id: string; note?: string }) {
+  return (
+    <Pressable onPress={() => openNation(id)} style={({ pressed }) => [styles.chip, pressed && { opacity: 0.6 }]} accessibilityRole="button" accessibilityLabel={note ? `${nationName(id)}, ${note}` : nationName(id)}>
+      <Flag nation={id} size={16} />
+      <Text style={styles.chipText} numberOfLines={1}>
+        {nationName(id)}
+        {note ? <Text style={styles.chipNote}> · {note}</Text> : null}
+      </Text>
+    </Pressable>
+  );
+}
+
+function ChipGroup({ label, items }: { label: string; items: { id: string; note?: string }[] }) {
+  if (!items.length) return null;
+  return (
+    <View style={{ marginBottom: 8 }}>
+      <Text style={styles.blockLabel}>{label}</Text>
+      <View style={styles.chips}>
+        {items.map(x => (
+          <NationChip key={x.id} id={x.id} note={x.note} />
+        ))}
+      </View>
+    </View>
+  );
+}
+
+const to = (day: number) => `to ${yearOf(day)}`;
+const regionCount = (k: number) => `${k} ${k === 1 ? 'region' : 'regions'}`;
+const kind = (id: string) => (store.state!.nations[id]?.subjectType === 'union' ? 'union' : 'vassal');
+
+/** The other members of your coalition, as a chip note ("with Aragon"). */
+const withOthers = (members: string[]) => {
+  const others = members.filter(m => m !== store.state!.player);
+  return others.length ? `with ${others.map(nationName).join(', ')}` : undefined;
+};
+
+/** Overlord, allies, subjects, marriages, military access, truces, rivals and old bonds. */
+function TiesSection({ t }: { t: Ties }) {
+  const groups = [
+    { label: 'Overlord', items: t.overlord ? [{ id: t.overlord.nation, note: t.overlord.union ? 'personal union' : undefined }] : [] },
+    { label: 'Allies', items: t.allies.map(id => ({ id })) },
+    { label: 'Subjects', items: t.subjects.map(id => ({ id, note: kind(id) })) },
+    { label: 'Royal marriages', items: t.marriages.map(id => ({ id })) },
+    { label: 'Let you through', items: t.accessYouHave.map(a => ({ id: a.nation, note: to(a.until) })) },
+    { label: 'You let through', items: t.accessYouGive.map(a => ({ id: a.nation, note: to(a.until) })) },
+    { label: 'Truces', items: t.truces.map(x => ({ id: x.nation, note: to(x.until) })) },
+    { label: 'Your rivals', items: t.rivalsYouNamed.map(id => ({ id })) },
+    { label: 'Rivals you', items: t.rivalsOfYou.map(id => ({ id })) },
+    { label: 'Old friends', items: t.oldFriends.map(b => ({ id: b.nation, note: b.label })) },
+    { label: 'Old foes', items: t.oldFoes.map(b => ({ id: b.nation, note: b.label })) },
+    { label: 'In coalition against', items: t.coalitionIn ? [{ id: t.coalitionIn.target, note: withOthers(t.coalitionIn.members) }] : [] },
+  ];
+  if (!groups.some(g => g.items.length)) return null;
+  return (
+    <Section
+      title="Ties"
+      help="Tap a crown for its sheet. Military access lets armies cross the other’s land, for ten years. A truce bars war until the year shown; breaking it costs order, renown and much Threat, and no ally will join you. Old friends and old foes like or dislike each other from history."
+    >
+      {groups.map(g => (
+        <ChipGroup key={g.label} label={g.label} items={g.items} />
+      ))}
+    </Section>
+  );
+}
+
+/** Whose land it is when a subject holds it: "your vassal", or "Serbia, your vassal" when the names differ. */
+const subjectNote = (region: string, holder: string) => {
+  const rel = kind(holder) === 'union' ? 'in union with you' : 'your vassal';
+  return regionName(region) === nationName(holder) ? rel : `${nationName(holder)}, ${rel}`;
+};
+
+/** Your claims, the claims on your land, and the claim your clerks are forging. */
+function ClaimsSection({ t }: { t: Ties }) {
+  const s = store.state!;
+  if (!t.yourClaims.length && !t.claimsOnYou.length && !t.forging) return null;
+  const year = (until: number) =>
+    until >= 0 ? (
+      <View style={{ alignItems: 'flex-end' }}>
+        <Text style={styles.rowNum}>{yearOf(until)}</Text>
+        <Text style={styles.rowSub}>lapses</Text>
+      </View>
+    ) : null;
+  return (
+    <Section title="Claims" help="A claim is a reason for war on whoever holds the land, until it lapses. One on a subject’s land is a reason for war on its overlord. Forge one from a region’s sheet.">
+      {t.yourClaims.length || t.forging ? <Text style={styles.blockLabel}>Yours</Text> : null}
+      {t.yourClaims.map(c => (
+        <Pressable key={c.region} onPress={() => openRegion(c.region)} style={styles.row} accessibilityRole="button">
+          {c.holder ? <Flag nation={c.holder} size={22} /> : <Icon name="scroll" size={18} color={C.muted} />}
+          <View style={{ flex: 1 }}>
+            <Text style={styles.rowTitle}>{regionName(c.region)}</Text>
+            <Text style={styles.rowSub} numberOfLines={2}>
+              {c.holder ? `Held by ${nationName(c.holder)}` : 'Uncolonized'}
+              {c.why ? ` · ${c.why}` : ''}
+            </Text>
+          </View>
+          {year(c.until)}
+        </Pressable>
+      ))}
+      {t.forging ? (
+        <Pressable onPress={() => openRegion(t.forging!.region)} style={styles.row} accessibilityRole="button">
+          <Icon name="scroll" size={18} color={C.gold} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.rowTitle}>{regionName(t.forging.region)}</Text>
+            <Text style={styles.rowSub}>Being forged{t.forging.holder ? ` · held by ${nationName(t.forging.holder)}` : ''}</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={styles.rowNum}>{formatShortDate(t.forging.done)}</Text>
+            <Text style={styles.rowSub}>ready</Text>
+          </View>
+        </Pressable>
+      ) : null}
+      {t.claimsOnYou.length ? <Text style={[styles.blockLabel, t.yourClaims.length || t.forging ? { marginTop: 10 } : null]}>On your land</Text> : null}
+      {t.claimsOnYou.map(c => (
+        <Pressable key={`${c.by}:${c.region}`} onPress={() => openNation(c.by)} style={styles.row} accessibilityRole="button">
+          <Flag nation={c.by} size={22} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.rowTitle}>
+              {regionName(c.region)}
+              {c.holder && c.holder !== s.player ? <Text style={styles.rowSub}> · {subjectNote(c.region, c.holder)}</Text> : null}
+            </Text>
+            <Text style={styles.rowSub} numberOfLines={2}>
+              By {nationName(c.by)}
+              {c.why ? ` · ${c.why}` : ''}
+            </Text>
+          </View>
+          {year(c.until)}
+        </Pressable>
+      ))}
+    </Section>
+  );
+}
+
+/** Crowns that could attack you this month, or wait out a truce to, and a coalition against you. */
+function DangerSection({ t }: { t: Ties }) {
+  if (!t.couldAttack.length && !t.coalitionAgainst) return null;
+  return (
+    <Section
+      title="Danger"
+      help="Each neighbour run by the computer weighs war once a month: its chance this month. One with a claim on your land shows the year its truce with you ends, or its rest from its last war. Tap one for what makes it up. A coalition joins any war you start on a member, and may attack you."
+    >
+      {t.coalitionAgainst ? (
+        <Card style={{ borderColor: C.red, borderWidth: 1, marginBottom: 6 }}>
+          <T v="h3">A coalition stands against you</T>
+          <View style={[styles.chips, { marginTop: 6 }]}>
+            {t.coalitionAgainst.members.map(id => (
+              <NationChip key={id} id={id} />
+            ))}
+          </View>
+        </Card>
+      ) : null}
+      {t.couldAttack.map(x => (
+        <Pressable key={x.nation} onPress={() => openNation(x.nation)} style={styles.row} accessibilityRole="button">
+          <Flag nation={x.nation} size={22} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.rowTitle}>{nationName(x.nation)}</Text>
+            <Text style={styles.rowSub}>{x.waitingUntil !== undefined ? 'Waiting out a truce' : x.restingUntil !== undefined ? 'Resting · claims your land' : 'Could attack'}</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={[styles.rowNum, { color: C.red }]}>{x.waitingUntil !== undefined ? yearOf(x.waitingUntil) : x.restingUntil !== undefined ? yearOf(x.restingUntil) : pc(x.monthly)}</Text>
+            <Text style={styles.rowSub}>{x.waitingUntil !== undefined ? 'truce ends' : x.restingUntil !== undefined ? 'rest ends' : 'a month'}</Text>
+          </View>
+        </Pressable>
+      ))}
+    </Section>
   );
 }
 
@@ -464,7 +627,7 @@ function Ledger() {
           </View>
           <View style={{ alignItems: 'flex-end', minWidth: 70 }}>
             <Text style={styles.rowNum}>{sort === 'income' ? `${fmt(r.income, 1)}/mo` : sort === 'army' ? fmt(r.army) : `${r.dev}`}</Text>
-            <Text style={styles.rowSub}>{r.regions} regions</Text>
+            <Text style={styles.rowSub}>{regionCount(r.regions)}</Text>
           </View>
         </Pressable>
       ))}
@@ -569,6 +732,10 @@ const styles = StyleSheet.create({
   blockLabel: { fontFamily: sans, fontSize: 10, fontWeight: '800', color: C.muted, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 2 },
   reward: { marginTop: 8, paddingTop: 6, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.parchmentLine },
   rowNum: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink, fontVariant: ['tabular-nums'] },
+  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  chip: { flexDirection: 'row', alignItems: 'center', gap: 6, maxWidth: '100%', paddingVertical: 5, paddingLeft: 6, paddingRight: 10, borderRadius: 999, backgroundColor: C.parchment2, borderWidth: StyleSheet.hairlineWidth, borderColor: C.parchmentLine },
+  chipText: { flexShrink: 1, fontFamily: sans, fontSize: 13, fontWeight: '600', color: C.ink },
+  chipNote: { fontWeight: '400', color: C.muted },
   policy: { backgroundColor: C.parchment2, borderRadius: 10, padding: 10, marginBottom: 6 },
 });
 

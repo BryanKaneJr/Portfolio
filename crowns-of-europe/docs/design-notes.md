@@ -436,6 +436,16 @@ here.
       stay small (4 and 0 regions; 6.5 and 2.5 before). Carried on to 1700 (8 games): 28.5 realms alive, and
       England, France and Austria alive in all eight (England in 14 and France in 11 of 16 before).
 
+33. **Everything between you and the others, in one place (on request).** The owner asked for the Diplomacy tab to
+    say what claims they hold and other ties with other crowns. Under Wars it now has, each section hidden when
+    empty and every crown or region a tap away: Danger (a coalition against you; neighbours whose war chance is
+    aimed at you, a month's chance shown; one waiting out a truce with a claim on you, or resting with one, and
+    until when), Claims (yours, with who holds the land, its 1444 story and the year it lapses; the one your clerks
+    are forging and when it is ready; claims on your land and your subjects', and by whom), and Ties (overlord,
+    allies, subjects, royal marriages, who lets your armies through and whom you let through and until when,
+    truces and their end, rivals both ways, old friends and old foes with the bond's name, the coalition you are
+    in). The figures come from one pure function, `diplomaticTies` (src/sim/ties.ts), tested on the 1444 start.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
