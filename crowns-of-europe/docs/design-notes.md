@@ -473,8 +473,16 @@ has one to aim at.
 - **The computer** proclaims every January, realms in id order, the first crown in file order it may: no randomness,
   at most one a year. The Roman Empire and Francia are for players only. The player is told once, as important news,
   when a crown comes within reach, and proclaims it from Realm → Greater crowns.
-- **Measured** (`scripts/dev/crowns.ts 56 1`, before the history events): Golden Horde (Crimea) 1467, Russia 1471,
-  Spain (Castile) 1476, the Two Sicilies (Naples) 1481, Scandinavia and Persia 1500: six by 1500.
+- **Measured for the whole batch** (8 AI-only games to 1560, seeds 1-8, against the code just before it; crowns,
+  the 108 history cards, the bug fixes and the tuning above together; `scripts/dev/aiwars.ts`, `scripts/dev/crowns.ts`,
+  `scripts/dev/opening.ts 1 48 1450`): wars declared 75 → 78.5 a game (2 in the first two years, as before); realms
+  alive in 1500 53.5 → 47 and in 1560 39 → 38.5 (the extra early deaths are mostly history's: Provence, Navarre, Tver,
+  Cyprus, the Knights); Constantinople Ottoman by 1450 in 46 of 48 games (47 before); England 12 regions in 1560 (13; 2
+  in one game of 8), Sweden 3.5 (2), France 26.5 (25), the Ottomans 24.5 (23.5). The computer proclaims 4-7 crowns a
+  game: Burgundy's kingdom 1465 (4 games of 8), Scandinavia 1500 (7), Persia 1500 (5), the Commonwealth 1550 (8),
+  Spain 1476-1540 (3), Russia 1479-1557 (3), Ghana (3), the Netherlands 1560 (3), and once each the Two Sicilies,
+  the Abbasid Caliphate, the Golden Horde, Ireland's high kingdom and Mexico. Of the 108 history cards, 40-45 fire by
+  1475 and 55-63 by 1560. The Great Horde still falls early (1450, 1462) in 2 games of 8.
 - **Shown** through the display layer (`displayIn`/`nationName`/`nationAdj`/`nationFlag` in `content.ts`), so log
   lines, war names, map labels, colours and arms all follow the crown; nothing stores the old name.
 
