@@ -377,8 +377,19 @@ function aiColonies(s: GameState, nat: Nation): void {
   let bestScore = -Infinity;
   const mine = Object.values(s.regions).filter(r => r.owner === n && REGION[r.id].nw).map(r => r.id);
   const sphere = COLONIAL_SPHERE[n];
+  // Never where, or next to where, hostile troops stand: they would raid the settlers out again.
+  const danger = new Set<NodeId>();
+  for (const id in s.armies) {
+    const a = s.armies[id];
+    if (isSea(a.node) || !hostile(s, n, a.owner, undefined, a.rebelOf)) continue;
+    danger.add(a.node);
+    for (const e of GRAPH[a.node]) if (e.kind === 'land' || e.kind === 'strait') danger.add(e.to);
+  }
   for (const r of Object.values(s.regions)) {
-    if (r.owner || r.colony || canColonize(s, n, r.id)) continue;
+    if (r.owner || r.colony || danger.has(r.id) || canColonize(s, n, r.id)) continue;
+    // Nor, for five years, where raiders wiped out a colony of ours.
+    const lost = nat.flags[`_raidLost_${r.id}`];
+    if (lost !== undefined && s.day - lost < years(5)) continue;
     const def = REGION[r.id];
     const nextToOwn = GRAPH[r.id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);
     // Crowns build compact empires: near what they hold, in the part of the Americas they reached first.

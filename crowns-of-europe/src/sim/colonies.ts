@@ -504,6 +504,8 @@ function raidColony(s: GameState, r: Region): boolean {
   if (c.settlers <= 0) {
     r.colony = undefined;
     markMapDirty();
+    // Remembered, so the AI doesn't send settlers straight back into the raiders' arms (ai.ts).
+    if (s.nations[c.by]) s.nations[c.by].flags[`_raidLost_${r.id}`] = s.day;
     if (c.by === s.player) log(s, 'colony', `${who} raid${raiders[0].owner === REBELS ? '' : 's'} your colony in ${name} and the last settlers flee. The colony is lost.`, { node: r.id, important: true });
     else if (playerRaids) log(s, 'colony', `Your troops drive the last ${adj} settlers out of ${name}. Their colony is lost.`, { node: r.id, important: true });
     return true;
