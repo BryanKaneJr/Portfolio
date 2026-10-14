@@ -81,8 +81,8 @@ src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, la
 src/state/     store (game loop, selection, overlays, toasts, moments, play-test hook on window.__coe), speed (1x-8x;
                8x only at peace), storage (saves; one autosave per campaign)
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
-               dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, crowns, warchance, playall, pan-layers,
-               nation-colors), lib/ (geo, nationColors), terrain/ (the
+               dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, crowns, warchance, sieges, batch2, playall,
+               pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
                amounts (effects as shown), soak (Jest, node)
@@ -105,6 +105,8 @@ npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great
 npx tsx scripts/dev/aiwars.ts 256 1 2     # AI wars per decade, battles attackers lost, generals in the field
 npx tsx scripts/dev/colonies.ts 306 1 2   # the colonial race: free land left, first colonies, colonists busy, raids
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
+npx tsx scripts/dev/sieges.ts 56 1 2      # days to take a fort per level, and how many fall to a storm
+npx tsx scripts/dev/batch2.ts 116 1 2     # golden ages, realm acts, storms, peace extras, endowments, landmark holders
 npx tsx scripts/dev/nation-colors.ts      # the realms' map colours: closest pairs (--write picks new ones)
 npm run map:build           # after editing regions.json / seas.json
 npm run icons:build         # after adding an emblem to scripts/build-icons.ts (fetches game-icons.net once into
