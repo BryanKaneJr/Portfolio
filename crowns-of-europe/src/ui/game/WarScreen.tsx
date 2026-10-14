@@ -271,7 +271,7 @@ export function WarPanel({ warId }: { warId: string }) {
         {battles.length ? (
           <View style={{ marginTop: 10 }}>
             {battles.slice(0, 5).map(b => (
-              <Pressable key={b.r.id} onPress={() => st.open({ kind: 'report', id: b.r.id })} style={({ pressed }) => [styles.battle, pressed && { opacity: 0.6 }]}>
+              <Pressable key={b.r.id} onPress={() => st.open({ kind: 'report', id: b.r.id, back: { kind: 'peace', war: w.id } })} style={({ pressed }) => [styles.battle, pressed && { opacity: 0.6 }]}>
                 <View style={[styles.battleMark, { backgroundColor: b.won ? 'rgba(128,200,144,0.16)' : 'rgba(236,122,104,0.16)' }]}>
                   <Icon name={b.won ? 'check' : 'close'} size={13} color={b.won ? G.good : G.bad} />
                 </View>

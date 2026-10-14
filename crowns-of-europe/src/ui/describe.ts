@@ -1,13 +1,19 @@
 /** Plain-English descriptions of effects, goals and modifiers ("every number explained"). */
 import { ADVANCE, ERA, EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
-import { GOOD_NAME } from '../sim/colonies';
-import type { Condition, Effect, Modifiers } from '../sim/types';
+import { GOOD_NAME, coloniesOf } from '../sim/colonies';
+import { defensiveCall } from '../sim/log';
+import { effectDelta, effectRegion, walkEffects } from '../sim/events';
+import type { BattleReport, Condition, Effect, GameState, Modifiers, NationId, Offer } from '../sim/types';
 
 const reg = (r: string) => REGION[r]?.name ?? r;
 const regs = (x: string | string[]) => (Array.isArray(x) ? x.map(reg).join(', ') : reg(x));
 const nat = (n: string) => nationName(n);
 const sgn = (n: number) => (n > 0 ? `+${n}` : `${n}`.replace('-', '−'));
 const pctS = (n: number) => `${n > 0 ? '+' : '−'}${Math.round(Math.abs(n) * 100)}%`;
+/** A whole number with thousands separators. */
+const int = (n: number) => Math.round(n).toLocaleString('en-US');
+/** To one decimal place, only when it has one. */
+const dec = (n: number) => Math.round(n * 10) / 10;
 
 const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   taxIncome: ['tax income', 'pct', true],
@@ -60,39 +66,72 @@ export function modLines(mods: Modifiers): ModLine[] {
 }
 export const modsText = (mods: Modifiers) => modLines(mods).map(l => l.text).join(', ');
 
-export function effectLines(e: Effect): ModLine[] {
+/** The game and the nation an effect would be applied to: with it, effects show what they would really do now. */
+export interface EffectContext {
+  s: GameState;
+  n: NationId;
+}
+
+/** Gold paid or received, in coins: "Pay 84 gold", "+84 gold". */
+const goldLine = (d: number): ModLine[] => [{ text: Math.round(d) < 0 ? `Pay ${int(-d)} gold` : `+${int(d)} gold`, good: d >= 0 }];
+
+/**
+ * An effect in plain words. Given the game (`ctx`), amounts are what applying it would change right now, as the sim
+ * does it (effectDelta: gold per prosperity in coins, order or renown already at their limits...); without one (a
+ * listing with no game), the rule as written.
+ */
+export function effectLines(e: Effect, ctx?: EffectContext): ModLine[] {
   const k = Object.keys(e)[0];
   const v = (e as any)[k];
   const L = (text: string, good = true): ModLine[] => [{ text, good }];
+  const d = ctx ? effectDelta(ctx.s, ctx.n, e) : null;
+  const realm = ctx?.s.nations[ctx.n];
+  /**
+   * With the game: the change it would make now (`text`), or, when a floor or ceiling leaves nothing to change,
+   * `stays`. Null without the game. `up` is whether a rise is good.
+   */
+  const now = (text: (x: number) => string, stays: string, nominal: number, up = true, round = Math.round): ModLine[] | null => {
+    if (d === null) return null;
+    const x = round(d);
+    return x === 0 && nominal !== 0 ? L(stays, up === (nominal > 0)) : L(text(x), up === (x > 0));
+  };
   switch (k) {
     case 'gold':
-      return L(`${sgn(v)} gold`, v > 0);
+      return goldLine(v);
     case 'goldPerDev':
-      return L(`${v > 0 ? 'Gold' : 'Pay gold'} (${Math.abs(v)} × your prosperity)`, v > 0);
+      return d !== null ? goldLine(d) : L(`${v > 0 ? 'Gold' : 'Pay gold'}: ${Math.abs(v)} for each point of prosperity`, v > 0);
     case 'manpower':
-      return L(`${sgn(v).replace(/(\d)(?=(\d{3})+$)/g, '$1,')} levies`, v > 0);
+      return now(x => `${x > 0 ? '+' : '−'}${int(Math.abs(x))} levies`, 'No levies left to lose', v) ?? L(`${sgn(v).replace(/(\d)(?=(\d{3})+$)/g, '$1,')} levies`, v > 0);
     case 'stability':
-      return L(`Order ${sgn(v)}`, v > 0);
+      return now(x => `Order ${sgn(x)}`, `Order stays at ${sgn(realm?.stability ?? 0)}`, v) ?? L(`Order ${sgn(v)}`, v > 0);
     case 'prestige':
-      return L(`Renown ${sgn(v)}`, v > 0);
+      return now(x => `Renown ${sgn(x)}`, `Renown stays at ${Math.round(realm?.prestige ?? 0)}`, v) ?? L(`Renown ${sgn(v)}`, v > 0);
     case 'science':
-      return L(`${sgn(v)} science`, v > 0);
+      return now(x => `${sgn(x)} science`, 'No science left to lose', v) ?? L(`${sgn(v)} science`, v > 0);
     case 'threat':
-      return L(`Threat ${sgn(v)}`, v < 0);
+      return now(x => `Threat ${sgn(x)}`, `Threat stays at ${dec(realm?.threat ?? 0)}`, v, false, dec) ?? L(`Threat ${sgn(v)}`, v < 0);
     case 'papalFavor':
-      return L(`Papal Favor ${sgn(v)}`, v > 0);
+      if (realm && realm.faith !== 'catholic') return L('No Papal Favor: your ruler is outside the Church', v > 0);
+      return now(x => `Papal Favor ${sgn(x)}`, `Papal Favor stays at ${Math.round(realm?.papalFavor ?? 0)}`, v) ?? L(`Papal Favor ${sgn(v)}`, v > 0);
     case 'warExhaustion':
-      return L(`War exhaustion ${sgn(v)}`, v < 0);
+      return now(x => `War exhaustion ${sgn(x)}`, `War exhaustion stays at ${dec(realm?.warExhaustion ?? 0)}`, v, false, dec) ?? L(`War exhaustion ${sgn(v)}`, v < 0);
     case 'addClaim':
       return L(`Claim on ${regs(v)}`);
     case 'addCore':
       return L(`${regs(v)} becomes integrated`);
-    case 'devRegion':
-      return L(`${reg(v.region)} prosperity ${sgn(v.amount)}`, v.amount > 0);
-    case 'devCapital':
-      return L(`Capital prosperity ${sgn(v)}`, v > 0);
-    case 'fortRegion':
-      return L(`${reg(v.region)} fort ${sgn(v.amount)}`, v.amount > 0);
+    case 'devRegion': {
+      const r = ctx?.s.regions[v.region];
+      return now(x => `${reg(v.region)} prosperity ${sgn(x)}`, `${reg(v.region)} prosperity stays at ${r?.dev}`, v.amount) ?? L(`${reg(v.region)} prosperity ${sgn(v.amount)}`, v.amount > 0);
+    }
+    case 'devCapital': {
+      const cap = ctx ? effectRegion(ctx.s, ctx.n, e) : null;
+      const name = cap ? reg(cap) : 'Capital';
+      return now(x => `${name} prosperity ${sgn(x)}`, `${name} prosperity stays at ${cap ? ctx?.s.regions[cap]?.dev : ''}`, v) ?? L(`Capital prosperity ${sgn(v)}`, v > 0);
+    }
+    case 'fortRegion': {
+      const r = ctx?.s.regions[v.region];
+      return now(x => `${reg(v.region)} fort ${sgn(x)}`, `${reg(v.region)} fort stays at level ${r?.fort}`, v.amount) ?? L(`${reg(v.region)} fort ${sgn(v.amount)}`, v.amount > 0);
+    }
     case 'unrestAll':
       return L(`Unrest ${sgn(v)} in all your regions (2 years)`, v < 0);
     case 'unrestRegion':
@@ -108,10 +147,15 @@ export function effectLines(e: Effect): ModLine[] {
     }
     case 'removeModifier':
       return L('Removes a modifier');
-    case 'rebels':
-      return L(`Rebels rise (${v.regiments} regiments)${v.region ? ` in ${reg(v.region)}` : ''}`, false);
-    case 'addRegiments':
-      return L(`Free army: ${[v.inf && `${v.inf} infantry`, v.cav && `${v.cav} cavalry`, v.art && `${v.art} artillery`].filter(Boolean).join(', ')}`);
+    case 'rebels': {
+      const where = ctx ? effectRegion(ctx.s, ctx.n, e) : v.region;
+      return L(`Rebels rise (${v.regiments} regiments)${where ? ` in ${reg(where)}` : ''}`, false);
+    }
+    case 'addRegiments': {
+      const where = ctx ? effectRegion(ctx.s, ctx.n, e) : v.region;
+      if (ctx && !where) return L('No free army: your capital is not in your hands', false);
+      return L(`Free army${where ? ` at ${reg(where)}` : ''}: ${[v.inf && `${v.inf} infantry`, v.cav && `${v.cav} cavalry`, v.art && `${v.art} artillery`].filter(Boolean).join(', ')}`);
+    }
     case 'hireGeneral':
       return L(`A ${v.stars}-star general joins you${v.name ? `: ${v.name}` : ''}`);
     case 'opinion':
@@ -133,7 +177,7 @@ export function effectLines(e: Effect): ModLine[] {
     case 'newRuler':
       return L(`New ruler: ${v.name} (skill ${v.skill})`);
     case 'rulerSkill':
-      return L(`Ruler skill ${sgn(v)}`, v > 0);
+      return now(x => `Ruler skill ${sgn(x)}`, `Ruler skill stays at ${realm?.ruler.skill}`, v) ?? L(`Ruler skill ${sgn(v)}`, v > 0);
     case 'rulerTrait':
       return L(`Ruler gains “${TRAITS.ruler[v]?.name ?? v}”`, !['spendthrift', 'cruel', 'craven', 'feeble'].includes(v));
     case 'killRuler':
@@ -152,16 +196,37 @@ export function effectLines(e: Effect): ModLine[] {
       return L('You become Holy Roman Emperor');
     case 'discoverNewWorld':
       return L('Your ships find the New World');
-    case 'settlers':
-      return L(`${sgn(v)} settlers in each of your colonies`, v > 0);
-    case 'settlersOne':
-      return L(`${sgn(v)} settlers in one of your colonies`, v > 0);
+    case 'settlers': {
+      const count = ctx ? coloniesOf(ctx.s, ctx.n).length : null;
+      if (count === 0) return L('No colonies to send settlers to', v > 0);
+      return L(`${sgn(v)} settlers in ${count === 1 ? 'your colony' : `each of your${count ? ` ${count}` : ''} colonies`}`, v > 0);
+    }
+    case 'settlersOne': {
+      const count = ctx ? coloniesOf(ctx.s, ctx.n).length : null;
+      if (count === 0) return L('No colonies to send settlers to', v > 0);
+      return L(`${sgn(v)} settlers in ${count === 1 ? 'your colony' : 'one of your colonies'}`, v > 0);
+    }
     default:
       return [];
   }
 }
-export const effectsLines = (effects: Effect[]) =>
-  effects.flatMap(effectLines).filter(l => !/flag/i.test(l.text));
+const linesMemo = new WeakMap<Effect[], { s: GameState; n: NationId; version: number; lines: ModLine[] }>();
+
+/**
+ * A list of effects in plain words. Given the game, each amount is what it changes after the effects before it, as they
+ * are applied in order (walkEffects: a new ruler's traits raise the Threat that follows). With `ctx.version` (the
+ * store's), the lines are kept until the game changes, so a card can show them on every render.
+ */
+export function effectsLines(effects: Effect[], ctx?: EffectContext & { version?: number }): ModLine[] {
+  if (!ctx) return effects.flatMap(e => effectLines(e)).filter(l => !/flag/i.test(l.text));
+  const hit = ctx.version !== undefined ? linesMemo.get(effects) : undefined;
+  if (hit && hit.s === ctx.s && hit.n === ctx.n && hit.version === ctx.version) return hit.lines;
+  const lines: ModLine[] = [];
+  walkEffects(ctx.s, ctx.n, effects, (s, e) => lines.push(...effectLines(e, { s, n: ctx.n })));
+  const out = lines.filter(l => !/flag/i.test(l.text));
+  if (ctx.version !== undefined) linesMemo.set(effects, { s: ctx.s, n: ctx.n, version: ctx.version, lines: out });
+  return out;
+}
 
 export function conditionText(c: Condition): string {
   const k = Object.keys(c)[0];
@@ -287,3 +352,50 @@ export function goalParts(c: Condition): Condition[] {
 }
 
 export const nationAdj = (n: string) => NATION[n]?.adj ?? n;
+
+/** An offer in a few words, for its notice and the messages: "Castile proposes peace". */
+export function offerTitle(o: Offer): string {
+  const from = nat(o.from);
+  switch (o.kind) {
+    case 'callToArms':
+      return `${from} calls you to arms`;
+    case 'peace':
+      return o.ultimatum !== undefined ? `${from} sends you an ultimatum` : `${from} proposes peace`;
+    case 'alliance':
+      return `${from} proposes an alliance`;
+    case 'marriage':
+      return `${from} proposes a royal marriage`;
+    case 'access':
+      return `${from} asks to march through your lands`;
+  }
+}
+
+/**
+ * What letting an offer lapse does, when it does something: an unanswered call to arms counts as refusing it, and
+ * refusing an ally under attack breaks the alliance. Read after "Lapses 1 Mar 1445".
+ */
+export function lapseMeans(s: GameState, o: Offer): string | null {
+  if (o.kind !== 'callToArms') return null;
+  return defensiveCall(s, o) ? 'as a refusal: the alliance breaks' : 'as a refusal';
+}
+
+/** A battle and how it went, for its notice: "Battle of Granada: victory". */
+export function battleResult(r: BattleReport): string {
+  const you = r.playerSide;
+  const won = you !== null && r.winner === you;
+  const how =
+    you === null
+      ? `${r.nations[r.winner].map(n => (NATION[n] ? nat(n) : 'Rebels')).join(', ')} won`
+      : r.wiped
+        ? won
+          ? 'the enemy is annihilated'
+          : 'your army is destroyed'
+        : r.scattered
+          ? won
+            ? 'the enemy scatters'
+            : 'your army scatters'
+          : won
+            ? 'victory'
+            : 'defeat';
+  return `Battle of ${reg(r.node)}: ${how}`;
+}

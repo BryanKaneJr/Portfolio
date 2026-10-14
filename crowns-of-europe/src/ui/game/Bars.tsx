@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { readyMissionCount } from '../../sim/missions';
 import { availableAdvances, scienceRate } from '../../sim/science';
 import { ledger } from '../../sim/economy';
+import { liveUnseenReports } from '../../sim/queries';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
 import { SPEEDS, store, useStore, type MapMode, type MenuTab } from '../../state/store';
@@ -49,7 +50,7 @@ export function TopBar() {
   const n = s.nations[s.player];
   const bal = ledger(s, s.player).balance;
   const open = (what: 'gold' | 'manpower' | 'stability' | 'threat') => st.open({ kind: 'breakdown', what });
-  const important = s.unseenReports.length + s.offers.length;
+  const important = liveUnseenReports(s).length + s.offers.length;
   return (
     <View style={[styles.topWrap, { top: insets.top + 6 }]} pointerEvents="box-none">
       <Glass gilt radius={R.lg} style={styles.top}>
@@ -179,7 +180,8 @@ export function LensPanel({ onPick }: { onPick: () => void }) {
 
 export const MODE_ICONS = MODE_ICON;
 
-/** Banners that drop in under the top bar, like a phone's notifications. */
+/** Banners that drop in under the top bar, like a phone's notifications. One that leads somewhere (an offer, a
+ * battle) has a chevron and opens it when tapped; the rest let taps through to the map. */
 export function Toasts() {
   const st = useStore();
   const insets = useSafeAreaInsets();
@@ -187,13 +189,36 @@ export function Toasts() {
   const s = st.state;
   const atWar = !!s && Object.values(s.wars).some(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   return (
-    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8, left: atWar ? 68 : 12 }]} pointerEvents="none">
-      {st.toasts.map(t => (
-        <Glass key={t.id} strong radius={R.pill} style={styles.toast}>
-          <Icon name={t.tone === 'bad' ? 'info' : t.tone === 'good' ? 'check' : 'scroll'} size={15} color={t.tone === 'bad' ? G.bad : t.tone === 'good' ? G.good : G.gold} />
-          <Text style={styles.toastText}>{t.text}</Text>
-        </Glass>
-      ))}
+    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8, left: atWar ? 68 : 12 }]} pointerEvents="box-none">
+      {st.toasts.map(t => {
+        const body = (
+          <Glass strong radius={R.pill} style={styles.toast} pointerEvents="none">
+            <Icon name={t.tone === 'bad' ? 'info' : t.tone === 'good' ? 'check' : 'scroll'} size={15} color={t.tone === 'bad' ? G.bad : t.tone === 'good' ? G.good : G.gold} />
+            <Text style={styles.toastText}>{t.text}</Text>
+            {t.action ? <Icon name="chevron" size={14} color={G.gold} /> : null}
+          </Glass>
+        );
+        const action = t.action;
+        return action ? (
+          <Pressable
+            key={t.id}
+            testID="toast-open"
+            accessibilityRole="button"
+            accessibilityLabel={`${t.text}. Open`}
+            onPress={() => {
+              st.dismissToast(t.id);
+              action();
+            }}
+            style={({ pressed }) => [pressed && { opacity: 0.75, transform: [{ scale: 0.98 }] }]}
+          >
+            {body}
+          </Pressable>
+        ) : (
+          <View key={t.id} pointerEvents="none">
+            {body}
+          </View>
+        );
+      })}
     </View>
   );
 }

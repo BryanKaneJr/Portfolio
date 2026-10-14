@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ERA, REGION, SEA, UNITS, nationName, regionName } from '../../sim/content';
-import { assignGeneral, disband, GENERAL_COST, hireGeneral, mergeAt, split, splitHalf, stopArmy } from '../../sim/commands';
+import { assignGeneral, disband, disbandOutcome, GENERAL_COST, hireGeneral, mergeAt, split, splitHalf, stopArmy } from '../../sim/commands';
 import { etaDays, supplyLimit, FRONT_WIDTH } from '../../sim/military';
 import { fleetPower, shipCount, transportCapacity } from '../../sim/navy';
 import { REBELS, armyMen, armyRegs, maxMorale, friendlyTo, hostile, seesUnit } from '../../sim/queries';
@@ -12,7 +12,7 @@ import type { Army, UnitType } from '../../sim/types';
 import { store, useStore } from '../../state/store';
 import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
-import { Bar, Btn, Empty, Line, Row, Section, Stars, Stat, T } from '../components/kit';
+import { Bar, Btn, ConfirmBtn, Empty, Line, Row, Section, Stars, Stat, T, useConfirm } from '../components/kit';
 import { C, G, fmt, kmen, sans } from '../theme';
 import { regionPoint } from '../map/geometry';
 import { Sheet } from './Sheet';
@@ -22,12 +22,22 @@ import { UnchartedSheet } from './ColonySheets';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
 
+/** What disbanding this army will do, as the sim does it (disbandOutcome). */
+function disbandLines(a: Army): string[] {
+  const o = disbandOutcome(a);
+  const out = [o.levies > 0 ? `${fmt(o.levies)} men return to your levies` : 'No men return to your levies'];
+  if (o.mercs) out.push(`${o.mercs} mercenary regiment${o.mercs > 1 ? 's are' : ' is'} let go`);
+  if (o.general) out.push(o.general.isRuler ? `${o.general.name} returns to court` : `${o.general.name} returns to your generals`);
+  return out;
+}
+
 export function ArmySheet({ id }: { id: string }) {
   const st = useStore();
   const s = st.state!;
   const a = s.armies[id] as Army | undefined;
   const [splitting, setSplitting] = useState<Record<UnitType, number> | null>(null);
   const [picking, setPicking] = useState(false);
+  const disbanding = useConfirm(id);
   if (!a) return null;
   const mine = a.owner === s.player;
   const me = s.nations[s.player];
@@ -74,11 +84,16 @@ export function ArmySheet({ id }: { id: string }) {
     ) : (
       <View style={{ marginTop: 12 }}>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
-          {a.path.length && !a.retreating ? <Btn small tone="secondary" label="Stop" onPress={() => st.run(x => stopArmy(x, a.id))} /> : null}
-          {others.length ? <Btn small tone="secondary" label={`Merge (${others.length + 1})`} onPress={() => st.run(x => mergeAt(x, a.id))} /> : null}
-          <Btn small tone="secondary" label="Split in half" onPress={() => st.run(x => splitHalf(x, a.id))} />
-          <Btn small tone="secondary" label="Split…" onPress={() => setSplitting({ inf: 0, cav: 0, art: 0 })} />
-          <Btn small tone="ghost" label="Disband" onPress={() => st.run(x => disband(x, a.id))} />
+          {/* While disbanding waits for its second tap, it stands alone in the row. */}
+          {disbanding.armed ? null : (
+            <>
+              {a.path.length && !a.retreating ? <Btn small tone="secondary" label="Stop" onPress={() => st.run(x => stopArmy(x, a.id))} /> : null}
+              {others.length ? <Btn small tone="secondary" label={`Merge (${others.length + 1})`} onPress={() => st.run(x => mergeAt(x, a.id))} /> : null}
+              <Btn small tone="secondary" label="Split in half" onPress={() => st.run(x => splitHalf(x, a.id))} />
+              <Btn small tone="secondary" label="Split…" onPress={() => setSplitting({ inf: 0, cav: 0, art: 0 })} />
+            </>
+          )}
+          <ConfirmBtn small armKey={a.id} state={disbanding} label="Disband" confirm="Tap again to disband" consequences={disbandLines(a)} onConfirm={() => st.run(x => disband(x, a.id))} testID="disband" />
         </View>
       </View>
     )
@@ -92,7 +107,7 @@ export function ArmySheet({ id }: { id: string }) {
       left={<Shield nation={a.owner} size={30} />}
       onClose={() => st.select(null)}
       compact={mine}
-      help={mine ? 'Tap any region on the map to march there; the dashed line is the route. Tap another of your tokens to switch to it.' : undefined}
+      help={mine ? 'Tap any region on the map to march there; the dashed line is the route. Tap another of your tokens to switch to it. Disbanding sends half its men home to your levies; mercenaries are let go.' : undefined}
     >
       <Row gap={6}>
         <Stat label="Regiments" value={`${regs}`} icon="flag" />

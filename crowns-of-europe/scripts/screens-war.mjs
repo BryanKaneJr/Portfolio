@@ -18,15 +18,26 @@ const has = async id => (await page.getByTestId(id).count()) > 0;
 const tapId = async id => page.getByTestId(id).first().click();
 const coe = (fn, arg) => page.evaluate(fn, arg);
 const seen = new Set();
+const once = async name => { if (!seen.has(name)) { seen.add(name); await shot(name); } };
+/**
+ * Answer what is waiting, as a player would. Event cards (and an offer the settings pause for, like an ultimatum)
+ * come up on their own. Other offers and battle results only drop in as notices: tap one the first time, then
+ * answer the rest from the messages under the bell (offers at the top, battles under their tab).
+ */
 async function cards() {
-  for (let i = 0; i < 8; i++) {
-    for (const [id, name] of [['choice-0', 'event'], ['offer-accept', 'offer'], ['report-close', 'report']]) {
-      if (await has(id)) {
-        if (!seen.has(name)) { seen.add(name); await shot(`card-${name}`); }
-        await tapId(name === 'offer' ? 'offer-decline' : id);
-      }
-    }
-    if (!(await has('choice-0')) && !(await has('offer-accept')) && !(await has('report-close'))) return;
+  for (let i = 0; i < 12; i++) {
+    if (await has('choice-0')) { await once('card-event'); await tapId('choice-0'); continue; }
+    if (await has('offer-accept')) { await once('card-offer'); await tapId('offer-decline'); continue; }
+    if (await has('report-close')) { await once('card-report'); await tapId('report-close'); continue; }
+    if (await has('panel-close')) { await tapId('panel-close'); continue; }
+    if (!seen.has('toast') && (await has('toast-open'))) { await once('toast'); await tapId('toast-open'); continue; }
+    const waiting = await coe(() => { const s = window.__coe.store.state; return { offers: s.offers.length, reports: s.unseenReports.length }; });
+    if (!waiting.offers && !(waiting.reports && !seen.has('card-report'))) return;
+    await tapId('messages');
+    await once('messages-waiting');
+    if (await has('message-offer')) { await tapId('message-offer'); continue; }
+    await tapId('messages-battles');
+    if (await has('message-report-unseen')) await tapId('message-report-unseen');
   }
 }
 /** Centre the map on an army's region and tap its token (it stands under the region's name). */
@@ -98,6 +109,51 @@ await coe(() => window.__coe.store.open({ kind: 'breakdown', what: 'gold' }));
 await shot('gold-breakdown');
 await coe(() => window.__coe.store.open({ kind: 'help' }));
 await shot('help');
+await coe(() => window.__coe.store.close());
+// Two crowns at peace with us, to send test offers.
+const senders = await coe(() => {
+  const s = window.__coe.store.state;
+  const foe = n => Object.values(s.wars).some(w => (w.attackers.includes(s.player) && w.defenders.includes(n)) || (w.defenders.includes(s.player) && w.attackers.includes(n)));
+  return Object.values(s.nations).filter(n => n.alive && n.id !== s.player && !foe(n.id)).slice(0, 2).map(n => n.id);
+});
+// A notice goes when its offer does (answered from the messages, withdrawn); one tapped too late only says so.
+const stale = await coe(([a]) => {
+  const { store } = window.__coe;
+  const s = store.state;
+  s.settings.autoPause.offer = false;
+  s.offers.push({ id: 'oStale', kind: 'alliance', from: a, day: s.day });
+  store.notify();
+  const t = store.toasts.find(x => x.offer === 'oStale');
+  s.offers = s.offers.filter(o => o.id !== 'oStale');
+  store.notify();
+  const kept = store.toasts.some(x => x.offer === 'oStale');
+  t?.action?.();
+  return { announced: !!t, kept, overlay: store.overlay, said: store.toasts.at(-1)?.text };
+}, senders);
+if (!stale.announced || stale.kept || stale.overlay) throw new Error('A notice outlived its offer: ' + JSON.stringify(stale));
+await shot('notice-too-late');
+// Two offers that stop the clock at once: the second comes up when the first is set aside.
+await coe(([a, b]) => {
+  const { store } = window.__coe;
+  const s = store.state;
+  s.settings.autoPause.offer = true;
+  s.offers.push({ id: 'oQ1', kind: 'alliance', from: a, day: s.day }, { id: 'oQ2', kind: 'marriage', from: b, day: s.day });
+  store.notify();
+  store.emit();
+}, senders);
+if ((await coe(() => window.__coe.store.overlay?.id)) !== 'oQ1') throw new Error('The first offer that pauses did not open its card');
+await tapId('offer-later');
+if ((await coe(() => window.__coe.store.overlay?.id)) !== 'oQ2') throw new Error('The second offer did not come up after the first');
+await shot('offer-next-in-turn');
+await tapId('offer-decline');
+if (await coe(() => window.__coe.store.overlay)) throw new Error('A card stayed up after the last offer was answered');
+await coe(() => {
+  const { store } = window.__coe;
+  store.state.offers = store.state.offers.filter(o => o.id !== 'oQ1');
+  store.state.settings.autoPause.offer = false;
+  store.notify();
+  store.emit();
+});
 console.log(errors.length ? errors.join('\n') : 'no errors', [...seen]);
 await browser.close();
 server.close();

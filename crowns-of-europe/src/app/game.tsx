@@ -35,12 +35,18 @@ export default function GameScreen() {
     return () => sub.remove();
   }, []);
 
+  // A card whose offer or report is gone (answered elsewhere, withdrawn, lapsed) closes rather than leave an empty page.
+  const gone = st.cardGone();
+  useEffect(() => {
+    if (gone) store.leaveCard();
+  }, [gone]);
+
   if (!s) return <Redirect href="/" />;
 
   const sel = st.selection;
   const ov = st.overlay;
-  const unseen = s.unseenReports[0] ? s.reports.find(r => r.id === s.unseenReports[0]) : undefined;
   const reportOverlay = ov?.kind === 'report' ? s.reports.find(r => r.id === ov.id) : undefined;
+  const offerOverlay = ov?.kind === 'offer' ? s.offers.find(o => o.id === ov.id) : undefined;
 
   return (
     <View style={styles.root}>
@@ -75,23 +81,21 @@ export default function GameScreen() {
       {ov?.kind === 'declareWar' ? <DeclareWarPanel target={ov.target} /> : null}
       {ov?.kind === 'breakdown' ? <BreakdownPanel what={ov.what} /> : null}
       {ov?.kind === 'help' ? <HelpPanel /> : null}
+      {/* Offers and battle reports open from their notice or the messages (or, for an offer the player pauses for,
+          on their own); closing one returns to where it was opened. */}
       {reportOverlay ? (
         <ReportCard
           report={reportOverlay}
           onClose={() => {
             st.markReportSeen(reportOverlay.id);
-            st.open({ kind: 'log' });
+            st.leaveCard();
           }}
         />
       ) : null}
+      {offerOverlay ? <OfferCard offer={offerOverlay} onLater={() => st.leaveCard()} /> : null}
 
-      {/* Cards that need an answer, one at a time: events, offers, then unseen battle results. */}
-      {s.pendingEvents.length ? <EventCard /> : s.offers.length ? <OfferCard /> : unseen && !ov ? (
-        <ReportCard
-          report={unseen}
-          onClose={() => st.markReportSeen(unseen.id)}
-        />
-      ) : null}
+      {/* Events need an answer: their cards come up on their own, one at a time, over everything else. */}
+      {s.pendingEvents.length ? <EventCard /> : null}
       {s.gameOver ? <GameOverCard /> : null}
       </View>
     </View>

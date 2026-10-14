@@ -73,7 +73,8 @@ src/state/     store (game loop, selection, overlays, toasts, play-test hook on 
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, aiwars, opening, pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
-tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, soak (Jest, node)
+tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
+               amounts (effects as shown), soak (Jest, node)
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), troops/ and ships/
                (the owner's soldiers and ships), painting/ (the owner's painting of the world; the 157 MB original is
                not in git)
@@ -209,7 +210,17 @@ the war screen, `game/WarScreen.tsx`), the dock (time, and the realm's pages as 
 (`game/Sheet.tsx`: inset glass, grab handle, drag to resize or dismiss) rest just above the dock so time stays in
 reach (armies and fleets open compact, and the map glides whatever you select into the clear space above its
 sheet: `ui/layout.ts` holds the shared sizes; keep the land around a selected army tappable); full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
-controls; cards (events, offers, battles) sit on glass over the dimmed map. Keep the walkthroughs' test IDs.
+controls; cards (events, offers, battles) sit on glass over the dimmed map. Only event cards come up on their own
+(and block time until answered); the clock stops for what `settings.autoPause` asks (by default events, a war on you,
+an ally under attack calling you to arms, an ultimatum, the end: `DEFAULT_AUTOPAUSE`; `offerPause` sorts the offers).
+An offer the player pauses for opens its card (more than one at a time wait their turn, `queuedOffers`); other offers
+and battle results drop in as notices (a toast with an `action`, `store.notify`; a notice goes when its offer does,
+and one tapped too late only says so) and wait under the bell (Messages: offers at the top, with what letting one lapse
+means: an unanswered call to arms is a refusal). Their cards open as overlays (`offer`, `report`, with `back` to the
+page they came from) and close themselves when what they show is gone. Offers wait while time runs, so a crown that
+goes to war with the player withdraws its other offers (`withdrawEnemyOffers`) and `answerOffer` re-checks them.
+Event cards and mission rewards show each amount after the effects before it (`walkEffects` applies them in order to
+a copy). Keep the walkthroughs' test IDs.
 
 ## Current status
 - Feature-complete against the design doc's three milestones except audio and a scripted tutorial

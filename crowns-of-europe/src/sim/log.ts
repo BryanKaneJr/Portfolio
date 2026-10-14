@@ -1,5 +1,5 @@
 /** The player's message log and pause requests collected during a tick. */
-import type { GameState, LogEntry, NationId, NodeId, PauseReason } from './types';
+import type { GameState, LogEntry, NationId, NodeId, Offer, PauseReason } from './types';
 
 const MAX_LOG = 150;
 
@@ -13,7 +13,7 @@ export function log(
   if (s.log.length > MAX_LOG) s.log.length = MAX_LOG;
 }
 
-/** Pause reasons raised during the current tick; drained by advanceDay(). */
+/** Pause reasons raised during the current tick; drained by advanceDay(). Only those the player's settings ask for. */
 let pending: PauseReason[] = [];
 export function requestPause(s: GameState, reason: PauseReason): void {
   if (s.settings.autoPause[reason] && !pending.includes(reason)) pending.push(reason);
@@ -23,6 +23,26 @@ export function drainPauses(): PauseReason[] {
   pending = [];
   return out;
 }
+/** Run `fn` (a look ahead on a copy of the game) without letting it ask for a pause. */
+export function withoutPauses<T>(fn: () => T): T {
+  const held = pending;
+  pending = [];
+  try {
+    return fn();
+  } finally {
+    pending = held;
+  }
+}
+
+/** A call to arms from an ally under attack (its war's defender): refusing it, or letting it lapse, breaks the alliance. */
+export const defensiveCall = (s: GameState, o: Offer): boolean => o.kind === 'callToArms' && s.wars[o.war]?.defenders[0] === o.from;
+
+/**
+ * The setting that decides whether an offer to the player stops the clock (and pops its card) or is only announced.
+ * An ally under attack calling for help is one of the great turns, with its own setting.
+ */
+export const offerPause = (s: GameState, o: Offer): PauseReason =>
+  o.kind === 'peace' ? (o.ultimatum !== undefined ? 'ultimatum' : 'peaceOffer') : defensiveCall(s, o) ? 'allyAttacked' : 'offer';
 
 /** True if the player's nation (or its subjects/allies at war beside it) is involved. */
 export const involvesPlayer = (s: GameState, ...nations: (NationId | undefined)[]) => nations.includes(s.player);

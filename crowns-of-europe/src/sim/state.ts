@@ -1,7 +1,7 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
 import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
 import { startingAdvances } from './science';
-import { forceLimit, maxMorale, totalDev } from './queries';
+import { forceLimit, liveUnseenReports, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
@@ -11,33 +11,63 @@ export const SAVE_VERSION = 5;
 
 /** Brings a save from an earlier version up to date, or returns null if it is too old to read. */
 export function migrateSave(s: GameState): GameState | null {
-  if (s.version === SAVE_VERSION) return s;
-  if (s.version !== 4) return null;
-  // Version 5: a general has 1-5 stars instead of three separate numbers (their average, rounded).
-  const fix = (g: General | undefined) => {
-    if (!g) return;
-    const old = g as General & { fire?: number; shock?: number; maneuver?: number };
-    if (typeof old.stars !== 'number') old.stars = Math.max(1, Math.min(5, Math.round(((old.fire ?? 1) + (old.shock ?? 1) + (old.maneuver ?? 1)) / 3)));
-    delete old.fire;
-    delete old.shock;
-    delete old.maneuver;
-  };
-  for (const a of Object.values(s.armies)) fix(a.general);
-  for (const n of Object.values(s.nations)) n.generals.forEach(fix);
-  s.version = 5;
+  if (s.version !== SAVE_VERSION) {
+    if (s.version !== 4) return null;
+    // Version 5: a general has 1-5 stars instead of three separate numbers (their average, rounded).
+    const fix = (g: General | undefined) => {
+      if (!g) return;
+      const old = g as General & { fire?: number; shock?: number; maneuver?: number };
+      if (typeof old.stars !== 'number') old.stars = Math.max(1, Math.min(5, Math.round(((old.fire ?? 1) + (old.shock ?? 1) + (old.maneuver ?? 1)) / 3)));
+      delete old.fire;
+      delete old.shock;
+      delete old.maneuver;
+    };
+    for (const a of Object.values(s.armies)) fix(a.general);
+    for (const n of Object.values(s.nations)) n.generals.forEach(fix);
+    s.version = 5;
+  }
+  migrateSettings(s.settings);
+  // Unread reports of battles that have since dropped out of the list can never be opened: forget them.
+  s.unseenReports ??= [];
+  s.unseenReports = liveUnseenReports(s);
   return s;
 }
 
+/**
+ * What stops the clock in a new game: what needs a decision (events) and the great turns of fortune (a war on you,
+ * an ally attacked and calling you to arms, an ultimatum, the end). The rest (other offers, battles, sieges, arrivals)
+ * drops in as a notice instead.
+ */
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,
   battleStarted: false,
   event: true,
   siegeWon: false,
   armyArrived: false,
-  peaceOffer: true,
-  offer: true,
+  peaceOffer: false,
+  ultimatum: true,
+  allyAttacked: true,
+  offer: false,
   gameOver: true,
 };
+
+/** Bumped when the pause settings of existing games change once on load (migrateSettings). */
+export const PAUSE_SETTINGS_VERSION = 1;
+
+/**
+ * A saved game keeps its pause settings, with two one-time changes: a setting it has never seen (the ultimatum, an
+ * ally's call to arms) takes its default, and offers (peace proposals and the rest), which used to stop the clock,
+ * become notices. Toggled back on after that, they stay on.
+ */
+export function migrateSettings(set: GameSettings): GameSettings {
+  set.autoPause = { ...DEFAULT_AUTOPAUSE, ...(set.autoPause ?? {}) };
+  if ((set.pauseVersion ?? 0) < 1) {
+    set.autoPause.peaceOffer = false;
+    set.autoPause.offer = false;
+  }
+  set.pauseVersion = PAUSE_SETTINGS_VERSION;
+  return set;
+}
 
 /** Starting fleets: [sea, galleys, transports]. */
 const START_FLEETS: Record<NationId, [string, number, number]> = {
@@ -83,6 +113,7 @@ export function newGame(opts: NewGameOptions): GameState {
       ironman: !!opts.ironman,
       autoPause: { ...DEFAULT_AUTOPAUSE },
       tutorial: !!opts.tutorial,
+      pauseVersion: PAUSE_SETTINGS_VERSION,
     },
     nations: {},
     regions: {},

@@ -650,6 +650,8 @@ export type PauseReason =
   | 'siegeWon'
   | 'armyArrived'
   | 'peaceOffer'
+  | 'ultimatum'
+  | 'allyAttacked'
   | 'offer'
   | 'gameOver';
 
@@ -671,6 +673,8 @@ export interface GameSettings {
   ironman: boolean;
   autoPause: Record<PauseReason, boolean>;
   tutorial: boolean;
+  /** Which one-time changes to the pause settings this game has had (PAUSE_SETTINGS_VERSION in state.ts). */
+  pauseVersion?: number;
 }
 
 export interface GameState {

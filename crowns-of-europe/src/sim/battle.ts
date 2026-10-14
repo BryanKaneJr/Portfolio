@@ -6,7 +6,7 @@
  */
 import { NATION, REGION, regionName, nationName, riverBetween } from './content';
 import { log, requestPause } from './log';
-import { REBELS, armiesHostile, armyMen, armyRegs, maxMorale, nationMods, sideOf, unitPower } from './queries';
+import { REBELS, armiesHostile, armyMen, armyRegs, liveUnseenReports, maxMorale, nationMods, sideOf, unitPower } from './queries';
 import { FRONT_WIDTH, retreat } from './military';
 import { rulerDies, starBonus } from './rulers';
 import type { Army, Battle, BattleReport, BattleSide, GameState, NationId, NodeId, UnitType } from './types';
@@ -322,7 +322,11 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     playerSide,
   };
   s.reports.unshift(report);
-  if (s.reports.length > 25) s.reports.length = 25;
+  if (s.reports.length > 25) {
+    s.reports.length = 25;
+    // A report that drops out of the list can no longer be opened: it is no longer waiting to be read either.
+    s.unseenReports = liveUnseenReports(s);
+  }
   if (playerSide !== null) {
     s.unseenReports.push(report.id);
     const won = playerSide === winner;

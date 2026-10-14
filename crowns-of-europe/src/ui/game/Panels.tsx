@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NATION, REGION, nationName, regionName } from '../../sim/content';
 import { boostStability, playerDeclareWar } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
-import { modifierSources } from '../../sim/queries';
+import { liveUnseenReports, modifierSources } from '../../sim/queries';
 import { casusBelli, likelySides } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
 import { formatShortDate } from '../../sim/util';
@@ -15,7 +15,9 @@ import { Icon } from '../components/Icon';
 import { Btn, Empty, HelpButton, HelpNote, Line, Row, Section, T } from '../components/kit';
 import Svg, { Defs, LinearGradient as SvgGradient, Rect, Stop } from 'react-native-svg';
 import { C, G, R, fmt, sans, serif, signed } from '../theme';
-import { modLines } from '../describe';
+import { lapseMeans, modLines, offerTitle } from '../describe';
+import { defensiveCall } from '../../sim/log';
+import { offerLapses } from '../../sim/tick';
 import { regionPoint } from '../map/geometry';
 
 /**
@@ -38,7 +40,7 @@ export function Panel({ title, children, onClose, footer, right, help }: { title
         <Rect width="100%" height="100%" fill="url(#pageGlow)" />
       </Svg>
       <View style={styles.head}>
-        <Pressable onPress={onClose} hitSlop={10} style={({ pressed }) => [styles.back, pressed && { opacity: 0.6 }]} accessibilityLabel="Close">
+        <Pressable onPress={onClose} hitSlop={10} style={({ pressed }) => [styles.back, pressed && { opacity: 0.6 }]} accessibilityLabel="Close" testID="panel-close">
           <Icon name="close" size={15} color={G.text2} />
         </Pressable>
         <Text style={styles.headTitle} numberOfLines={1}>
@@ -247,12 +249,34 @@ export function LogPanel() {
   const s = st.state!;
   const [tab, setTab] = useState<'all' | 'battles'>('all');
   const reports = s.reports;
-  const unseen = new Set(s.unseenReports);
+  const unseen = new Set(liveUnseenReports(s));
   return (
     <Panel title="Messages" onClose={() => st.close()}>
-      <Row gap={6} style={{ marginBottom: 10 }}>
+      {s.offers.length ? (
+        <Section title="Waiting for your answer" help="Offers from other rulers wait here until you answer them or they lapse. An ultimatum takes effect on its day whatever you do.">
+          {s.offers.map(o => {
+            const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined;
+            const lapse = lapseMeans(s, o);
+            const grave = ultimatum || defensiveCall(s, o);
+            return (
+              <Pressable key={o.id} testID="message-offer" accessibilityRole="button" onPress={() => st.open({ kind: 'offer', id: o.id, back: { kind: 'log' } })} style={({ pressed }) => [styles.offerRow, pressed && { opacity: 0.7 }]}>
+                <Flag nation={o.from} size={24} />
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.offerText}>{offerTitle(o)}</Text>
+                  <Text style={[styles.logDate, grave && { color: G.bad }]}>
+                    {ultimatum ? 'Takes effect' : 'Lapses'} {formatShortDate(offerLapses(o))}
+                    {lapse ? ` ${lapse}` : ''}
+                  </Text>
+                </View>
+                <Icon name="chevron" size={16} color={G.gold} />
+              </Pressable>
+            );
+          })}
+        </Section>
+      ) : null}
+      <Row gap={6} style={{ marginBottom: 10, marginTop: s.offers.length ? 12 : 0 }}>
         <Btn small style={{ flex: 1 }} tone={tab === 'all' ? 'primary' : 'secondary'} label="News" onPress={() => setTab('all')} />
-        <Btn small style={{ flex: 1 }} tone={tab === 'battles' ? 'primary' : 'secondary'} label={`Battles${unseen.size ? ` (${unseen.size})` : ''}`} onPress={() => setTab('battles')} />
+        <Btn small style={{ flex: 1 }} tone={tab === 'battles' ? 'primary' : 'secondary'} label={`Battles${unseen.size ? ` (${unseen.size})` : ''}`} onPress={() => setTab('battles')} testID="messages-battles" />
       </Row>
       {tab === 'all'
         ? s.log.length
@@ -276,7 +300,7 @@ export function LogPanel() {
           ? reports.map(r => {
               const you = r.playerSide;
               return (
-                <Pressable key={r.id} onPress={() => st.open({ kind: 'report', id: r.id })} style={[styles.logRow, unseen.has(r.id) && { borderLeftColor: C.red }]}>
+                <Pressable key={r.id} testID={unseen.has(r.id) ? 'message-report-unseen' : 'message-report'} onPress={() => st.open({ kind: 'report', id: r.id, back: { kind: 'log' } })} style={[styles.logRow, unseen.has(r.id) && { borderLeftColor: C.red }]}>
                   <Text style={styles.logDate}>{formatShortDate(r.day)}</Text>
                   <Text style={styles.logText}>
                     Battle of {regionName(r.node)}: {r.nations[r.winner].map(n => (NATION[n] ? nationName(n) : 'Rebels')).join(', ')} won
@@ -305,5 +329,7 @@ const styles = StyleSheet.create({
   logRow: { paddingVertical: 10, paddingHorizontal: 12, borderLeftWidth: 3, borderLeftColor: 'transparent', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: G.line },
   logDate: { fontFamily: sans, fontSize: 11, color: C.muted },
   logText: { fontFamily: sans, fontSize: 14, color: C.ink, marginTop: 1 },
+  offerRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, paddingHorizontal: 12, borderLeftWidth: 3, borderLeftColor: C.gold, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: G.line },
+  offerText: { fontFamily: sans, fontSize: 15, fontWeight: '600', color: G.text },
 });
 

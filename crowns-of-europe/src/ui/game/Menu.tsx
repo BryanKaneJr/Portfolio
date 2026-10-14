@@ -416,7 +416,7 @@ function Missions() {
             {state === 'locked' && m.requires.length ? <T v="tiny" style={{ marginTop: 4 }}>After: {m.requires.map(r => list.find(x => x.id === r)?.title ?? r).join(', ')}</T> : null}
             <View style={styles.reward}>
               <Text style={styles.blockLabel}>Reward</Text>
-              {effectsLines(m.reward).map((l, i) => (
+              {effectsLines(m.reward, { s, n: s.player, version: st.version }).map((l, i) => (
                 <Text key={i} style={{ fontFamily: sans, fontSize: 12, color: C.goldDark, fontWeight: '600' }}>
                   • {l.text}
                 </Text>
@@ -468,15 +468,18 @@ function Ledger() {
 
 // ---------------------------------------------------------------- settings
 
+/** The pause settings, in the order shown: what needs a decision and the great turns first, then the notices. */
 const PAUSE_LABEL: Record<PauseReason, string> = {
-  warDeclaredOnYou: 'War declared on you',
-  battleStarted: 'A battle starts',
-  event: 'An event happens',
+  event: 'An event needs your decision',
+  warDeclaredOnYou: 'War is declared on you',
+  ultimatum: 'An enemy sends you an ultimatum',
+  allyAttacked: 'An ally is attacked and calls you to arms',
+  peaceOffer: 'An enemy proposes peace',
+  offer: 'An alliance, a call to join an attack or another proposal',
+  battleStarted: 'A battle begins',
   siegeWon: 'A fortress falls',
   armyArrived: 'Your army arrives',
-  peaceOffer: 'Peace offers',
-  offer: 'Offers from other rulers',
-  gameOver: 'Game over',
+  gameOver: 'The campaign ends',
 };
 
 function Settings() {
@@ -510,7 +513,7 @@ function Settings() {
           ))}
         </Row>
       </Section>
-      <Section title="Pause automatically when…">
+      <Section title="Pause automatically when…" help="Switched off, it drops in as a notice instead while time runs on: tap the notice, or find it later under the bell. An event’s card still comes up, and the end of the campaign always stops the clock.">
         {(Object.keys(PAUSE_LABEL) as PauseReason[])
           .filter(k => k !== 'gameOver')
           .map(k => (

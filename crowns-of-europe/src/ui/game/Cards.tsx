@@ -11,14 +11,15 @@ import { answerOffer, playerAnswerEvent } from '../../sim/commands';
 import { ULTIMATUM_SCORE, peaceCost, scoreFor, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
-import { formatDate } from '../../sim/util';
+import { formatDate, formatShortDate } from '../../sim/util';
+import { offerLapses } from '../../sim/tick';
 import { store, useStore } from '../../state/store';
 import { Engraving, Icon, type IconName } from '../components/Icon';
 import { Shield } from '../components/Flag';
 import { Glass } from '../components/Glass';
 import { Btn, Line, Row, T } from '../components/kit';
 import { C, G, R, book, fmt, kmen, sans, serif } from '../theme';
-import { effectsLines } from '../describe';
+import { effectsLines, lapseMeans } from '../describe';
 
 export function CardShell({ children, wide, head }: { children: ReactNode; wide?: boolean; head?: ReactNode }) {
   return (
@@ -64,20 +65,20 @@ export function EventCard() {
       <Text style={styles.story}>{e.text}</Text>
       <View style={{ gap: 8, marginTop: 16 }}>
         {e.choices.map((c, i) => (
-          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects)} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
+          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects, { s, n: pe.nation, version: st.version })} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
         ))}
       </View>
     </CardShell>
   );
 }
 
-export function OfferCard() {
+/** An offer from another ruler. `onLater` closes it unanswered: it waits under the bell until it lapses. */
+export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => void }) {
   const st = useStore();
   const s = st.state!;
-  const o = s.offers[0] as Offer | undefined;
-  if (!o) return null;
   const from = nationName(o.from);
   const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined && !!s.wars[o.war];
+  const lapse = lapseMeans(s, o);
   let title = '';
   let body: ReactNode = null;
   let icon: IconName = 'scroll';
@@ -157,12 +158,21 @@ export function OfferCard() {
           label="Offer other terms"
           testID="offer-counter"
           onPress={() => {
-            // The ultimatum stands while you choose what to offer instead.
-            store.run(x => answerOffer(x, o.id, false), { quiet: true });
+            // The ultimatum stands while you choose what to offer instead. The peace screen opens first, so an offer
+            // waiting its turn comes up when it closes rather than under it.
             store.open({ kind: 'peace', war: o.war });
+            store.run(x => answerOffer(x, o.id, false), { quiet: true });
           }}
         />
       ) : null}
+      <Btn
+        style={{ marginTop: 8 }}
+        tone="ghost"
+        label="Later"
+        sub={ultimatum ? `Under the bell; takes effect ${formatShortDate(offerLapses(o))}` : `Under the bell until ${formatShortDate(offerLapses(o))}${lapse ? `, then lapses ${lapse}` : ''}`}
+        onPress={onLater}
+        testID="offer-later"
+      />
     </CardShell>
   );
 }
