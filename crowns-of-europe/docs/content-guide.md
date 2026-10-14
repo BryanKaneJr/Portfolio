@@ -39,7 +39,14 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
   | stack wipe | annihilated |
   | a general's fire, shock and maneuver | none: a general has **1-5 stars** (`stars`), each +10% to all the army does |
   | fire and shock phases of a battle | **volleys** (the guns tell) and **charges** (the horse tells) |
-  | Threat, Claim, Era, Papal Favor, coalition, colonists, war exhaustion, policy, mission | unchanged |
+  | assault (taking a fort by force) | **Storm the walls** |
+  | humiliate (a peace term) | **Humble them** |
+  | war reparations (a peace term) | **Reparations** (a tenth of the loser's income for 10 years) |
+  | harsh treatment | **Crack down** |
+  | seize land | **Seize estates** |
+  | monument | **landmark** |
+  | national focus | **Endowment** / **endow** (one field of learning) |
+  | Threat, Claim, Era, Papal Favor, coalition, colonists, war exhaustion, policy, mission, golden age, abdicate | unchanged |
 
 - **Plain English, short.** Event text is 2-4 sentences (max 420 characters). Titles max 42 characters. Choice
   buttons max 60 characters and start with a verb ("Pay the ransom", "Let them rot").
@@ -309,3 +316,23 @@ Checked for the player each month; `nations` limits one to specific starting nat
 - Achievements see a proclaimed crown as the nation flag `crown_<ID>` (`{ "nationFlag": "crown_SIC" }`).
 - The validator checks that lands, keys and claims exist, `need` is in range, formers are realms or smaller
   crowns, the arms exist, and no crown without `from` can be proclaimed by a former on the first day.
+
+## Landmarks (`landmarks.json`)
+
+```json
+{ "id": "st_peters", "region": "rome", "name": "St Peter's", "kind": "st_peters", "mods": { "opinion": 10 },
+  "text": "Pilgrims from every Christian land come to the Apostle's tomb." }
+```
+
+- A famous place that gives its one bonus to whoever holds the region (not while it is occupied). Nothing to build
+  or pay. At most one landmark per region.
+- `mods`: exactly one modifier key (as in effects), about the size of one policy's bonus.
+- `kind`: its picture in `src/ui/components/landmarkArt.ts`, today one per landmark (the landmark's own id). A new
+  picture is a gold silhouette in a 24 x 24 box standing on y = 21, 3-7 path pieces, simple enough to read at 20
+  points on the map; check it beside the others at map size before adding it.
+- `text`: one line of real history, at most 90 characters; the region sheet adds "It goes to whoever holds the
+  region."
+- The validator checks the region, one landmark per region, one known modifier, a picture for the kind, a name and
+  the text's length. `tests/landmarks.test.ts` checks that every mark stands inside its own region on the map, clear
+  of its name and its army, at every zoom.
+
