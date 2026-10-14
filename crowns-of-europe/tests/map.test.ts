@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { MAP, NATION } from '../src/sim/content';
+import { MAP, NATION, REGION } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
-import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs } from '../src/ui/map/geometry';
+import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs, regionAt } from '../src/ui/map/geometry';
 import { SHIP_ART, TROOP_ART } from '../src/ui/map/unitArt';
 import { PARCHMENT, colorDistance, mix } from '../src/ui/map/colorMath';
 import { MIN_ALL, MIN_NEAR, MIN_NEIGHBOUR, nationPairs } from '../scripts/lib/nationColors';
@@ -27,6 +27,38 @@ describe('the map beyond the known world', () => {
     for (const seg of MAP.coast.split('M').filter(Boolean)) {
       const pts = seg.split('L').map(p => p.trim().split(/\s+/).map(Number));
       for (let i = 1; i < pts.length; i++) expect(along(pts[i - 1][0], pts[i - 1][1], pts[i][0], pts[i][1])).toBe(false);
+    }
+  });
+});
+
+describe('towns', () => {
+  // The map's spherical Mercator (scripts/build-map.ts): lon/lat to map units.
+  const { west, east, north } = MAP.projection;
+  const scale = MAP_W / (((east - west) * Math.PI) / 180);
+  const merc = (lat: number) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+  const project = ([lon, lat]: [number, number]) => [((lon - west) * Math.PI * scale) / 180, (merc(north) - merc(lat)) * scale];
+
+  test('every region has its chief town, standing in its own land near its real place', () => {
+    const far: string[] = [];
+    for (const r of MAP.regions) {
+      expect({ id: r.id, on: regionAt(r.town[0], r.town[1]) }).toEqual({ id: r.id, on: r.id });
+      expect(r.townName).toBe(REGION[r.id].town.name);
+      // Nudged inside only where the coast is too coarse for a port: a few map units (one is ~4-6 km) at most.
+      const [x, y] = project(REGION[r.id].town.lonlat);
+      if (Math.hypot(x - r.town[0], y - r.town[1]) > 6) far.push(r.id);
+    }
+    expect(far).toEqual([]);
+  });
+
+  test('Paris, London and Constantinople are where they should be', () => {
+    const at = (id: string) => MAP.regions.find(r => r.id === id)!.town;
+    for (const [id, lonlat] of [
+      ['ile_de_france', [2.35, 48.86]],
+      ['london', [-0.09, 51.51]],
+      ['bithynia', [29.06, 40.19]],
+    ] as [string, [number, number]][]) {
+      const [x, y] = project(lonlat);
+      expect(Math.hypot(x - at(id)[0], y - at(id)[1])).toBeLessThan(0.1);
     }
   });
 });

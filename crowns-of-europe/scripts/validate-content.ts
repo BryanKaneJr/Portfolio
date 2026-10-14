@@ -46,8 +46,12 @@ for (const r of REGIONS) {
   if (!(r.dev >= 1 && r.dev <= 10)) errs.push(`region ${r.id}: dev must be 1-10`);
   if (!(r.fort >= 0 && r.fort <= 3)) errs.push(`region ${r.id}: fort must be 0-3`);
   if (!FAITHS.includes(r.faith)) errs.push(`region ${r.id}: bad faith`);
+  const [lon, lat] = r.town?.lonlat ?? [NaN, NaN];
+  const { west, east, north, south } = MAP.projection;
+  if (!r.town?.name || !(lon > west && lon < east && lat > south && lat < north)) errs.push(`region ${r.id}: needs a town (a name and a [lon, lat] on the map)`);
 }
 for (const m of MAP.regions) for (const sea of m.seas) if (!SEA[sea]) errs.push(`region ${m.id}: coast on unknown or closed sea ${sea}`);
+for (const m of MAP.regions) if (!m.town || m.townName !== REGION[m.id]?.town?.name) errs.push(`region ${m.id}: its town in map.json is out of date (run npm run map:build)`);
 const mapIds = new Set(MAP.regions.map(r => r.id));
 for (const r of REGIONS) if (!mapIds.has(r.id)) errs.push(`region ${r.id} is missing from map.json (run npm run map:build)`);
 for (const id of mapIds) if (!REGION[id]) errs.push(`map.json has region ${id} that regions.json doesn't (run npm run map:build)`);

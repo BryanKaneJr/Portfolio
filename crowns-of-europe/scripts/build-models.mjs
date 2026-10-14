@@ -1,9 +1,10 @@
 /**
- * Renders the map's forts from free CC0 3D models: assets/units/castle.png (a keep with towers) and castle-small.png
- * (a lone tower). (The armies and fleets are the owner's drawings: scripts/build-units.ts.)
+ * Renders the map's towns from free CC0 3D models: assets/units/town-village.png (a few houses), town-town.png (houses
+ * round a church) and town-city.png (a dense cluster with a keep and a church), each also as *-walled.png (inside town
+ * walls, for a region with a fort). (The armies and fleets are the owner's drawings: scripts/build-units.ts.)
  *
  *   node scripts/build-models.mjs                       (npm run models:build)
- *   node scripts/build-models.mjs --only castle         render some sprites only
+ *   node scripts/build-models.mjs --only town-city      render some sprites only
  *   node scripts/build-models.mjs --sheet [file.png]    also write a contact sheet (default scripts/data/models/)
  *   node scripts/build-models.mjs --out dir             write the sprites somewhere else (to try changes)
  *
@@ -33,34 +34,108 @@ const SIZE = 192;
 // Kenney's kits are zips whose address changes when a kit is updated, so it is read from the kit's page (`zip` is the
 // address it had when this was written).
 const KAYKIT = 'https://raw.githubusercontent.com/KayKit-Game-Assets';
-const HEX = 'addons/kaykit_medieval_hexagon_pack/Assets/gltf/buildings/blue';
+const HEX = 'addons/kaykit_medieval_hexagon_pack/Assets/gltf';
+// The pack's models used here, by folder (each folder has its own copy of the colour atlas).
+const HEX_MODELS = {
+  'buildings/blue': [
+    'building_home_A_blue',
+    'building_home_B_blue',
+    'building_church_blue',
+    'building_market_blue',
+    'building_tower_B_blue',
+    'building_tower_base_blue',
+  ],
+  'buildings/neutral': ['wall_straight', 'wall_straight_gate'],
+  'decoration/nature': ['tree_single_B'],
+};
 const KITS = {
   hex: {
     title: 'KayKit Medieval Hexagon Pack 1.0',
     base: `${KAYKIT}/KayKit-Medieval-Hexagon-Pack-1.0/84fa4e91af6a88989be7c99e0891cede11f2ca38`,
     licence: 'LICENSE.txt',
-    files: ['building_castle_blue', 'building_tower_A_blue']
-      .flatMap(n => [`${HEX}/${n}.gltf`, `${HEX}/${n}.bin`])
-      .concat(`${HEX}/hexagons_medieval.png`),
+    files: Object.entries(HEX_MODELS).flatMap(([dir, names]) =>
+      names.flatMap(n => [`${HEX}/${dir}/${n}.gltf`, `${HEX}/${dir}/${n}.bin`]).concat(`${HEX}/${dir}/hexagons_medieval.png`),
+    ),
   },
 };
-const hex = name => `kits/hex/${HEX}/${name}.gltf`;
+/** A model of the hexagon pack (by its name; buildings without a folder are the blue ones). */
+const hex = name => {
+  const dir = Object.keys(HEX_MODELS).find(d => HEX_MODELS[d].includes(name));
+  if (!dir) throw new Error(`${name} is not in HEX_MODELS`);
+  return `kits/hex/${HEX}/${dir}/${name}.gltf`;
+};
 
 // ---------------------------------------------------------------------------------------------------------------
 // The sprites. Lengths are the models' own. `parts` share one scene: `anim`/`time` pose a
 // rigged model, `hide` drops named nodes, `pike` stands a pike in a hand, `pos` places the part. `elevation` is the
 // camera's angle down from the horizon and `azimuth` turns it round the scene (0 = facing the models' front).
 // `palette` mutes the colour atlas: hue name -> [new hue, saturation factor, lightness] (see muted() in the page code).
-const STONE_PALETTE = { sat: 0.75, lift: 0.12, map: { blue: [12, 0.45, 0.42] } }; // blue roofs -> tile
+// blue roofs -> tile; the trees' bright green -> a dull olive
+const STONE_PALETTE = { sat: 0.75, lift: 0.12, map: { blue: [12, 0.45, 0.42], green: [95, 0.4, 0.36] } };
+const CAMERA = { elevation: 35, azimuth: 30 }; // the 3/4 view: from the front right, as the forts had
+
+/** A building or tree of the pack at (x, z), turned rot degrees, at a scale. */
+const at = (name, x, z, rot = 0, scale = 1) => ({ url: hex(name), pos: [x, 0, z], rot, scale });
+
+/**
+ * A ring of town walls round the cluster: n straight stretches on a circle of radius r, the one facing the camera a
+ * gate, a round tower at each corner. The pack's wall is 2 long, 1.1 high and deep (a wall-walk): lowered and thinned
+ * so the roofs inside still show over it.
+ */
+function walls(r, n = 6) {
+  const parts = [];
+  const step = (2 * Math.PI) / n;
+  const turn = (CAMERA.azimuth * Math.PI) / 180 - step / 2; // a stretch faces the camera: the gate
+  const side = 2 * r * Math.sin(step / 2);
+  const mid = r * Math.cos(step / 2);
+  for (let i = 0; i < n; i++) {
+    const a = turn + (i + 0.5) * step;
+    const name = i === 0 ? 'wall_straight_gate' : 'wall_straight';
+    parts.push({ url: hex(name), palette: WALL_PALETTE, pos: [mid * Math.sin(a), 0, mid * Math.cos(a)], rot: (a * 180) / Math.PI, scale: [(side / 2) * 1.02, 0.55, 0.38], blob: false });
+    const c = turn + i * step;
+    parts.push({ url: hex('building_tower_base_blue'), pos: [r * Math.sin(c), 0, r * Math.cos(c)], scale: 0.42, blob: false });
+  }
+  return parts;
+}
+// The walls' wooden wall-walk would read as a ring of roofs: grey it towards stone.
+const WALL_PALETTE = { ...STONE_PALETTE, map: { ...STONE_PALETTE.map, orange: [30, 0.3, 0.62], red: [20, 0.3, 0.55] } };
+
+// The settlements on the map, by the region's prosperity: a village (a few houses), a town (houses round a church), a
+// city (a dense cluster with a keep and a church); each also walled, for a region with a fort.
+const VILLAGE = [
+  at('building_home_A_blue', -0.5, 0.1, 20),
+  at('building_home_B_blue', 0.5, -0.35, -15, 0.9),
+  at('building_home_A_blue', 0.45, 0.7, -35, 0.8),
+  at('tree_single_B', -0.45, -0.75, 0, 0.7),
+];
+const TOWN = [
+  at('building_church_blue', 0, -0.25, 0, 1.2),
+  at('building_home_A_blue', -1.0, 0.3, 25, 0.85),
+  at('building_home_B_blue', 1.0, 0.1, -20, 0.85),
+  at('building_home_A_blue', 0.25, 0.95, -10, 0.8),
+  at('building_home_B_blue', -0.7, -1.05, 30, 0.8),
+  at('tree_single_B', 0.9, -1.0, 0, 0.55),
+];
+const CITY = [
+  at('building_tower_B_blue', -0.7, -0.7, 0, 1.1),
+  at('building_church_blue', 0.75, -0.5, -10, 1.15),
+  at('building_market_blue', -0.05, 0.6, 15, 0.75),
+  at('building_home_A_blue', -1.4, 0.3, 25, 0.85),
+  at('building_home_B_blue', 1.55, 0.4, -20, 0.85),
+  at('building_home_A_blue', 0.85, 1.2, -10, 0.8),
+  at('building_home_B_blue', -0.9, 1.25, 35, 0.8),
+  at('building_home_A_blue', 0.05, -1.55, 0, 0.8),
+  at('building_home_B_blue', 1.65, -1.2, -30, 0.75),
+  at('building_home_A_blue', -1.7, -1.15, 40, 0.75),
+];
+const town = (name, parts) => ({ name, palette: STONE_PALETTE, parts, ...CAMERA });
 const SPRITES = [
-  { name: 'castle', palette: STONE_PALETTE, parts: [{ url: hex('building_castle_blue') }], elevation: 35, azimuth: 30 },
-  {
-    name: 'castle-small',
-    palette: STONE_PALETTE,
-    parts: [{ url: hex('building_tower_A_blue') }],
-    elevation: 35,
-    azimuth: 30,
-  },
+  town('town-village', VILLAGE),
+  town('town-village-walled', [...VILLAGE, ...walls(1.35)]),
+  town('town-town', TOWN),
+  town('town-town-walled', [...TOWN, ...walls(1.75)]),
+  town('town-city', CITY),
+  town('town-city-walled', [...CITY, ...walls(2.35, 8)]),
 ];
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -294,6 +369,11 @@ async function buildPart(part, palette) {
     const size = new THREE.Box3().setFromObject(obj, true).getSize(new THREE.Vector3());
     obj.add(pike({ x: p.x, z: p.z, length: size.y * (part.pike.length || 1.4), lean: part.pike.lean, dir: part.pike.dir, radius: size.y * 0.022 }));
   }
+  if (part.rot) obj.rotation.y = rad(part.rot);
+  if (part.scale) {
+    if (Array.isArray(part.scale)) obj.scale.set(...part.scale);
+    else obj.scale.setScalar(part.scale);
+  }
   if (part.pos) obj.position.set(...part.pos);
   obj.updateMatrixWorld(true);
   obj.userData.foot.applyMatrix4(obj.matrixWorld);
@@ -512,7 +592,10 @@ window.renderSprite = async function renderSprite(spec) {
   const c = document.createElement('canvas');
   c.width = c.height = size;
   c.getContext('2d').putImageData(out, 0, 0);
-  return c.toDataURL('image/png');
+  // Where the scene's origin on the ground (the middle of a town) lands in the picture, and the picture's scale: the
+  // map stands a town on its point with these (TOWN_ART in ui/map/MapView.tsx).
+  const o = new THREE.Vector3(0, 0, 0).project(cam);
+  return { url: c.toDataURL('image/png'), ground: [((o.x + 1) / 2) * size, ((1 - o.y) / 2) * size], ppu: scale };
 };
 
 // Contact sheet: every sprite at full size, then at map size standing on discs in a few nations' colours, once on
@@ -606,7 +689,7 @@ async function main() {
   fs.mkdirSync(outDir, { recursive: true });
   const done = [];
   for (const spec of sprites) {
-    const url = await page.evaluate(s => window.renderSprite(s), { size: SIZE, ...spec });
+    const { url, ground, ppu } = await page.evaluate(s => window.renderSprite(s), { size: SIZE, ...spec });
     // Chromium's encoder is quick, not small: re-deflate
     const png = pngjs.PNG.sync.write(pngjs.PNG.sync.read(Buffer.from(url.split(',')[1], 'base64')), {
       deflateLevel: 9,
@@ -614,7 +697,9 @@ async function main() {
     const file = path.join(outDir, `${spec.name}.png`);
     fs.writeFileSync(file, png);
     done.push({ name: spec.name, url });
-    console.log(`  ${path.relative(root, file)}  ${(png.length / 1024).toFixed(1)} KB`);
+    console.log(
+      `  ${path.relative(root, file)}  ${(png.length / 1024).toFixed(1)} KB; ground at (${ground.map(v => v.toFixed(1)).join(', ')}) px, ${ppu.toFixed(1)} px per model unit`,
+    );
   }
   if (sheet) {
     const file = typeof sheet === 'string' ? path.resolve(sheet) : path.join(CACHE, 'units-sheet.png');

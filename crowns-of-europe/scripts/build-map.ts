@@ -25,7 +25,7 @@ type LonLat = [number, number];
 type Pt = [number, number];
 
 const ROOT = path.resolve(__dirname, '..');
-const regions: { id: string; name: string; seeds: LonLat[]; nw?: boolean }[] = JSON.parse(
+const regions: { id: string; name: string; seeds: LonLat[]; nw?: boolean; town: { name: string; lonlat: LonLat } }[] = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'src/content/regions.json'), 'utf8'),
 );
 const seaData: {
@@ -527,6 +527,13 @@ const pathOf = (mp: number[][][][]): string =>
 const linePath = (lines: Pt[][]): string =>
   lines.map(l => 'M' + l.map(([x, y]) => `${round(x)} ${round(y)}`).join('L')).join('');
 
+const TOWN_INSET = 2; // map units: how far inside its region's outline a town stands at least (placeTown)
+const townMoves: { id: string; name: string; by: number; into?: string }[] = [];
+// Every region's unrounded outline, to say whose land a misplaced town really stands on.
+const regionOutline: { id: string; mp: Polygon[] }[] = simplified.features.map((f: any, gi: number) => ({
+  id: ids[gi],
+  mp: (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates) as Polygon[],
+}));
 const regionOut: any[] = [];
 const wasteOut: any[] = [];
 const regionIds = new Set(regions.map(r => r.id));
@@ -578,6 +585,7 @@ simplified.features.forEach((f: any, gi: number) => {
     .sort((a, b) => b[1] - a[1])
     .map(([sea]) => sea);
   const neighbors = neigh[gi].map((ni: number) => ids[ni]).filter((n: string) => regionIds.has(n)).sort();
+  const def = regions.find(r => r.id === id)!;
   regionOut.push({
     id,
     path: pathOf(drawnMp),
@@ -588,8 +596,56 @@ simplified.features.forEach((f: any, gi: number) => {
     area: Math.round(area),
     neighbors,
     seas,
+    town: placeTown(def, mp as Polygon[], home as Polygon, label, drawnMp as Polygon[]),
+    townName: def.town.name,
   });
 });
+
+/**
+ * Where a region's chief town stands (map units): its real place, projected like everything else. A town that falls
+ * outside the region's (unrounded) outline, or within TOWN_INSET of its edge (coastal towns on a coarse coast), is
+ * moved the shortest way to a point TOWN_INSET inside (of the points that near, the one towards the middle of the
+ * piece of land: the label point on the main piece). Every move is reported; a big one means the coordinate or the
+ * region is wrong. (Moving straight towards the label point instead could slide a town along a coast that runs that
+ * way, Alexandria's, for many units.)
+ */
+function placeTown(def: (typeof regions)[number], mp: Polygon[], home: Polygon, label: Pt, drawnMp: Polygon[]): [number, number] {
+  const at = toPx(def.town.lonlat);
+  // Inside both outlines: the one the game reads and the rounded one drawn (which cuts sharp corners).
+  const edge = (q: Pt) => Math.min(...[...mp, ...drawnMp].flatMap(poly => poly.map(r => ringDistance(q, r))));
+  const inside = (q: Pt) => mp.some(poly => pointInPoly(q, poly));
+  // On an island too small to have land TOWN_INSET from its shore, half way to its middle will do.
+  const inset = new Map(mp.map(poly => [poly, Math.min(TOWN_INSET, 0.5 * (polylabel(poly as any, 0.1) as unknown as { distance: number }).distance)]));
+  const fits = (q: Pt) => {
+    const on = mp.find(poly => pointInPoly(q, poly));
+    return !!on && drawnMp.some(poly => pointInPoly(q, poly)) && edge(q) >= inset.get(on)!;
+  };
+  if (fits(at)) return [round(at[0], 2), round(at[1], 2)];
+  // The piece it is on, or else the nearest one (an island town on a coast the map draws too coarsely).
+  const piece = mp.find(poly => pointInPoly(at, poly)) ?? [...mp].sort((a, b) => distToPoly(at, a) - distToPoly(at, b))[0];
+  const middle = piece === home ? label : (polylabel(piece as any, 0.5) as unknown as Pt);
+  const STEP = 0.2;
+  let q: Pt = middle;
+  search: for (let r = STEP; r < 80; r += STEP) {
+    const n = Math.max(24, Math.ceil((2 * Math.PI * r) / STEP));
+    const ring: Pt[] = [];
+    for (let i = 0; i < n; i++) ring.push([at[0] + r * Math.cos((2 * Math.PI * i) / n), at[1] + r * Math.sin((2 * Math.PI * i) / n)]);
+    const ok = ring.filter(fits);
+    if (ok.length) {
+      q = ok.sort((a, b) => Math.hypot(a[0] - middle[0], a[1] - middle[1]) - Math.hypot(b[0] - middle[0], b[1] - middle[1]))[0];
+      break search;
+    }
+  }
+  // Whose land it really stands on (when it is not this region's): a hint that the coordinate is wrong.
+  const into = inside(at) ? undefined : regionOutline.find(o => o.id !== def.id && o.mp.some(poly => pointInPoly(at, poly)))?.id;
+  townMoves.push({ id: def.id, name: def.town.name, by: Math.hypot(q[0] - at[0], q[1] - at[1]), into });
+  return [round(q[0], 2), round(q[1], 2)];
+}
+function ringDistance(pt: Pt, r: Ring): number {
+  let best = Infinity;
+  for (let i = 0; i < r.length - 1; i++) best = Math.min(best, distToSegment(pt, r[i] as Pt, r[i + 1] as Pt));
+  return best;
+}
 
 const borders = [...borderMap.entries()]
   .filter(([key]) => key.split('|').every(k => regionIds.has(k)))
@@ -861,6 +917,12 @@ const out = {
 fs.writeFileSync(path.join(ROOT, 'src/content/map.json'), JSON.stringify(out));
 const missing = regions.filter(r => !regionOut.find(o => o.id === r.id)).map(r => r.id);
 for (const w of warnings) console.warn('warning:', w);
+if (townMoves.length) {
+  // A map unit is 1/17.4 of a degree of longitude: about 6.4 km at the equator, 3.8 km at 54°N.
+  console.warn(`warning: ${townMoves.length} towns moved inside their region (to ${TOWN_INSET} units from its edge, less on a narrow strip or a small island):`);
+  for (const m of [...townMoves].sort((a, b) => b.by - a.by))
+    console.warn(`  ${m.id} (${m.name}): ${m.by.toFixed(1)} units${m.into ? `, was on ${m.into}'s land` : ''}`);
+}
 if (missing.length) console.warn('missing regions:', missing.join(', '));
 const noSea = regionOut.filter(r => r.seas.length === 0).length;
 console.log(

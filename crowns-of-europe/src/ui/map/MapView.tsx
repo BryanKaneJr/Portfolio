@@ -12,7 +12,7 @@ import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming
 import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
 import { REBELS, armyRegs, armyMen, seesUnit } from '../../sim/queries';
-import type { Army, GameState } from '../../sim/types';
+import type { Army, GameState, Region } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans } from '../theme';
 import { freeBand } from '../layout';
@@ -276,7 +276,7 @@ export function MapView() {
         <GestureDetector gesture={gesture}>
           <View style={StyleSheet.absoluteFill} collapsable={false}>
             <Animated.View style={[{ position: 'absolute', left: (size.w - W) / 2, top: (size.h - H) / 2, width: W, height: H }, WEB_LAYER, animStyle]}>
-              <StaticLayer cam={cam!} w={W} h={H} mapVersion={st.mapVersion} mode={st.mapMode} selection={st.selection} styleId={st.mapStyle} />
+              <StaticLayer cam={cam!} w={W} h={H} mapVersion={st.mapVersion} mode={st.mapMode} selection={st.selection} styleId={st.mapStyle} towns={townKey(s)} />
               <UnitLayer cam={cam!} w={W} h={H} s={s} selection={st.selection} version={st.version} />
             </Animated.View>
           </View>
@@ -330,7 +330,7 @@ const EDGE_STOPS: [number, number][] = [
   [1, 0],
 ];
 
-const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, selection, styleId }: { cam: Camera; w: number; h: number; mapVersion: number; mode: MapMode; selection: Selection; styleId: MapStyleId }) {
+const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, selection, styleId }: { cam: Camera; w: number; h: number; mapVersion: number; mode: MapMode; selection: Selection; styleId: MapStyleId; towns: string }) {
   const s = store.state!;
   const st = MAP_STYLES[styleId];
   const { k } = cam;
@@ -695,6 +695,21 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       ) : null}
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="rgba(255,255,255,0.25)" stroke="#fff6d8" strokeWidth={px(2.6)} strokeLinejoin="round" /> : null}
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="none" stroke={C.goldDark} strokeWidth={px(1.2)} strokeLinejoin="round" /> : null}
+      {/* Towns: each region's chief town where it really stands (a village, town or city, walled where there is a
+          fort), where its name is written; over the land and borders, under the names and the units. */}
+      {showRegionNames
+        ? MAP.regions.map(r => {
+            if (hidden(r.id) || r.labelRadius * k < MIN_NAME_RADIUS) return null;
+            const art = townArt(s.regions[r.id]);
+            if (!art) return null;
+            const pic = TOWN_ART[art];
+            const size = px(pic.size * grow(k));
+            const x = r.town[0] - (size * pic.ground[0]) / TOWN_PX;
+            const y = r.town[1] - (size * pic.ground[1]) / TOWN_PX;
+            if (!visible([x, y, x + size, y + size])) return null;
+            return <SvgImage key={`t${r.id}`} x={x} y={y} width={size} height={size} href={pic.src} />;
+          })
+        : null}
       {/* Names in the unknown */}
       {MAP.farLabels.map(l => {
         if (!visible([l.x, l.y, l.x, l.y])) return null;
@@ -921,7 +936,7 @@ export const UNITS_K = REGION_NAMES_K;
 /** The zoom the game opens at and "show on map" goes to: regions are big enough here for a name with an army under it. */
 export const PLAY_K = 1.7;
 /**
- * Names, forts and units keep their size on screen up to play zoom; closer in they grow, though more slowly than the
+ * Names, towns and units keep their size on screen up to play zoom; closer in they grow, though more slowly than the
  * map (about 1.6x at the closest zoom), so they stay easy to read and to find without crowding the land.
  */
 export const ZOOM_GROW = 0.45;
@@ -1053,23 +1068,10 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           <Path d={`M${pathPts(selArmy ? selArmy.node : selFleet!.sea, selArmy ? selArmy.path : selFleet!.path, selArmy ? armyAnchor : fleetAnchor).replace(/ /g, ' L')}`} stroke={C.red} strokeWidth={2} strokeDasharray="6 5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
       ) : null}
-      {/* Forts: a tower or a castle just before the region's name; then armies and fleets, soldiers or a ship on a
-          base in the owner's colour under the realm's banner, with the count beside it. */}
+      {/* Armies and fleets: soldiers or a ship under the realm's banner, with the count beside it. (The towns are
+          drawn with the map, under the names: StaticLayer.) */}
       <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
         <UnitDefs />
-        {k >= UNITS_K
-          ? MAP.regions.map(r => {
-              const level = s.regions[r.id]?.fort ?? 0;
-              if (!level || r.labelRadius * k < MIN_NAME_RADIUS || (!s.discovery && isNewWorld(r.id))) return null;
-              const fs = nameSize(r.labelRadius, k);
-              const pic = level >= 2 ? FORT.castle : FORT.tower;
-              const size = pic.size * grow(k);
-              const X = toX(r.label[0]) - REGION[r.id].name.length * fs * NAME_EM * 0.5 - size * pic.wide * 0.5 - 2;
-              const Y = toY(r.label[1]) + fs * 0.35; // the name's baseline
-              if (!inView(X, Y)) return null;
-              return <SvgImage key={`f${r.id}`} x={X - size / 2} y={Y - size * pic.feet} width={size} height={size} href={pic.src} />;
-            })
-          : null}
         {chips.map(c => {
           if (c.kind === 'battle') return null;
           const X = toX(c.x);
@@ -1124,12 +1126,34 @@ export function troopArt(id: string, regs: number): TroopArt {
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
   return h & 1 ? 'soldier-b' : 'soldier-a';
 }
-/** A region's fort, beside its name: a lone tower at level 1, a castle from level 2. `wide`: how much of its picture's
- * width the building takes. */
-const FORT = {
-  tower: { src: require('../../../assets/units/castle-small.png'), feet: 186 / 192, wide: 100 / 192, size: 24 },
-  castle: { src: require('../../../assets/units/castle.png'), feet: 181 / 192, wide: 104 / 192, size: 28 },
-};
+/**
+ * The settlement standing at each region's chief town (MAP_REGION[id].town), rendered by scripts/build-models.mjs: a
+ * village, a town or a city by the region's prosperity, inside walls where the region has a fort. `ground`: where the
+ * middle of the settlement stands in its 192 px picture (the build prints it), so the place stands on its town's
+ * point; `size`: points across at play zoom. A city is drawn bigger than a village, though less than their pictures'
+ * own scales would make it, so a city doesn't crowd its neighbours.
+ */
+const TOWN_ART = {
+  village: { src: require('../../../assets/units/town-village.png'), ground: [87.4, 124.5], size: 19 },
+  'village-walled': { src: require('../../../assets/units/town-village-walled.png'), ground: [96.3, 139.8], size: 22 },
+  town: { src: require('../../../assets/units/town-town.png'), ground: [93.6, 140.5], size: 23 },
+  'town-walled': { src: require('../../../assets/units/town-town-walled.png'), ground: [96.2, 140.1], size: 26 },
+  city: { src: require('../../../assets/units/town-city.png'), ground: [82.6, 146.9], size: 28 },
+  'city-walled': { src: require('../../../assets/units/town-city-walled.png'), ground: [94.6, 137.2], size: 30 },
+} as const;
+const TOWN_PX = 192; // the pictures' size
+/** The prosperity from which a region's chief town is drawn as a town, and as a city (in 1444: about 30% villages,
+ * 40% towns and 30% cities among the regions someone owns). */
+const TOWN_DEV = 4;
+const CITY_DEV = 6;
+/** Which settlement a region's town is drawn as; none on land nobody owns. */
+export function townArt(r: Region | undefined): keyof typeof TOWN_ART | null {
+  if (!r?.owner) return null;
+  const size = r.dev >= CITY_DEV ? 'city' : r.dev >= TOWN_DEV ? 'town' : 'village';
+  return r.fort >= 1 ? `${size}-walled` : size;
+}
+/** Every region's settlement in one string: the map's towns are redrawn only when one of them changes. */
+const townKey = (s: GameState) => `${s.discovery ? 1 : 0}${MAP.regions.map(r => townArt(s.regions[r.id]) ?? '').join(',')}`;
 /** A region name's letters' width, as a share of its size (Cinzel capitals, slightly spaced). */
 const NAME_EM = 0.68;
 const FEET_Y = 7; // where a figure stands, below the token's point (points)

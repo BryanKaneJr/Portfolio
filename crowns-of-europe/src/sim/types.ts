@@ -76,6 +76,8 @@ export interface RegionDef {
   hostility?: number; // 0-3: how fiercely they resist settlers
   good?: Good;
   nw?: boolean; // in the New World: unknown until it is discovered
+  /** The region's chief town (1444–1750) at its real place, drawn on the map once someone owns the region. */
+  town: { name: string; lonlat: [number, number] };
   seeds: [number, number][];
 }
 
@@ -89,6 +91,9 @@ export interface MapRegion {
   area: number;
   neighbors: RegionId[];
   seas: SeaId[];
+  /** Where its chief town stands (map units): its real place, nudged inside the region where the coast is coarse. */
+  town: [number, number];
+  townName: string;
 }
 
 export interface MapSea {
