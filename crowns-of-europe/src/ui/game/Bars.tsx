@@ -109,7 +109,7 @@ export function BottomBar() {
           <Text style={styles.date} numberOfLines={1}>
             {formatShortDate(s.day)}
           </Text>
-          <View style={{ flexDirection: 'row', gap: 3 }}>
+          <View style={{ flexDirection: 'row', gap: 2 }}>
             {SPEEDS.map((_, i) => (
               <Pressable key={i} onPress={() => st.setSpeed(i)} hitSlop={6} accessibilityLabel={`Speed ${SPEED_LABELS[i].replace('×', 'x')}`} style={[styles.speed, i <= st.speed && styles.speedOn, i === FAST && noFast && { opacity: 0.35 }]}>
                 <Text style={[styles.speedText, i <= st.speed && { color: '#1a1408' }]}>{SPEED_LABELS[i]}</Text>
@@ -264,14 +264,14 @@ const styles = StyleSheet.create({
   resSub: { color: G.text3, fontFamily: sans, fontSize: 10, fontWeight: '600', marginTop: 1 },
   bell: { width: 30, height: 34, alignItems: 'center', justifyContent: 'center' },
   dock: { position: 'absolute', left: 8, right: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, zIndex: 10 },
-  time: { flexDirection: 'row', alignItems: 'center', gap: 9, height: DOCK_H, paddingLeft: 8, paddingRight: 14 },
+  time: { flexDirection: 'row', alignItems: 'center', gap: 7, height: DOCK_H, paddingLeft: 8, paddingRight: 11 },
   play: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: G.gilt },
   playOn: { backgroundColor: G.gold, borderColor: G.goldBright },
   date: { color: G.text, fontFamily: display, fontSize: 13.5, letterSpacing: 0.3 },
-  speed: { paddingHorizontal: 6, height: 19, borderRadius: R.pill, justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.07)' },
+  speed: { paddingHorizontal: 4, height: 19, borderRadius: R.pill, justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.07)' },
   speedOn: { backgroundColor: G.gold },
   speedText: { color: G.text2, fontSize: 10.5, fontWeight: '800', fontFamily: sans },
-  tabs: { flexDirection: 'row', alignItems: 'center', height: DOCK_H, paddingHorizontal: 6, flexShrink: 1 },
+  tabs: { flexDirection: 'row', alignItems: 'center', height: DOCK_H, paddingHorizontal: 4, flexShrink: 1 },
   tabItem: { alignItems: 'center', justifyContent: 'center', width: 52, height: DOCK_H, gap: 3 },
   tabLabel: { color: G.text2, fontFamily: sans, fontSize: 10, fontWeight: '600' },
   lensMenu: { width: 268, padding: 10 },
