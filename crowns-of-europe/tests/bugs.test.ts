@@ -4,11 +4,11 @@ import { emptyGame, army, forceWar } from './helpers';
 import { findPath } from '../src/sim/military';
 import { declareWar, makePeace } from '../src/sim/war';
 import { advanceDay } from '../src/sim/tick';
-import { ADVANCE, EVENT, EVENTS, isSea, namePool } from '../src/sim/content';
+import { ADVANCE, EVENT, EVENTS, NATION, isSea, namePool } from '../src/sim/content';
 import { newGeneral, newPerson, toRoman } from '../src/sim/rulers';
 import { applyEffect, checkAchievements, effectRegion, eligible, fireEvent } from '../src/sim/events';
 import { spawnRebels } from '../src/sim/rebels';
-import { MAX_MARRIAGES, REBELS, marriageCount } from '../src/sim/queries';
+import { MAX_MARRIAGES, REBELS, bumpOwnership, marriageCount, ownedRegions } from '../src/sim/queries';
 import { acceptance, canRival } from '../src/sim/diplomacy';
 import { hireMercenaries } from '../src/sim/commands';
 import { monthlyScience } from '../src/sim/science';
@@ -122,6 +122,17 @@ describe('4. achievements are not earned by accident', () => {
     expect(s.regions[r.node].owner).toBe('CAS');
     for (let i = 0; i < 5; i++) advanceDay(s);
     expect(checkAchievements(s)).not.toEqual(expect.arrayContaining(['overwhelming_force']));
+  });
+
+  test('nor overseas: a colony rises only when there is nowhere at home', () => {
+    const s = emptyGame('CAS');
+    Object.assign(s.regions.acadia, { owner: 'CAS', controller: 'CAS', unrest: 10 });
+    bumpOwnership();
+    const rebels = EVENT.gen_defiant_governor.choices[0].effects.find(e => 'rebels' in e)!;
+    const where = effectRegion(s, 'CAS', rebels)!;
+    expect(ownedRegions(s, 'CAS').some(r => r.id === 'acadia')).toBe(true);
+    expect(where).not.toBe('acadia');
+    expect(where).not.toBe(s.nations.CAS.capital);
   });
 
   test('beating rebels 10:1 sets no record', () => {
@@ -290,14 +301,24 @@ describe('17. at most four royal marriages per house', () => {
     expect(marriageCount(s, 'FRA')).toBe(before);
   });
 
-  test('two AI years: no house passes max(4, its 1444 count)', () => {
-    const s = newGame({ player: 'POR', seed: 5 });
-    s.flags.__spectate = 1;
-    const start = Object.fromEntries(Object.keys(s.nations).map(n => [n, marriageCount(s, n)]));
-    for (let i = 0; i < 365 * 2; i++) advanceDay(s);
-    for (const n of Object.keys(s.nations))
-      expect(marriageCount(s, n)).toBeLessThanOrEqual(Math.max(MAX_MARRIAGES, start[n]));
-  }, 60000);
+  test('a house at the cap can neither ask nor be asked (the AI marries only through this check)', () => {
+    const s = emptyGame('POR');
+    const free = (n: string) =>
+      NATION[n]?.gov === 'monarchy' && n !== 'ENG' && !(['ENG', n].sort().join('|') in s.marriages);
+    const monarchies = Object.keys(s.nations).filter(free);
+    for (const o of monarchies)
+      if (marriageCount(s, 'ENG') < MAX_MARRIAGES) s.marriages[['ENG', o].sort().join('|')] = s.day;
+    expect(marriageCount(s, 'ENG')).toBe(MAX_MARRIAGES);
+    const rest = Object.keys(s.nations).filter(free);
+    expect(rest.length).toBeGreaterThan(5);
+    for (const o of rest) {
+      expect(acceptance(s, o, 'ENG', 'marriage').accept).toBe(false);
+      expect(acceptance(s, 'ENG', o, 'marriage').accept).toBe(false);
+    }
+    expect(acceptance(s, 'ENG', 'DAN', 'marriage').blocked).toBe(
+      'Your house has no one left to marry: at most four royal marriages.',
+    );
+  });
 });
 
 describe('10. army tokens stand on their own land', () => {

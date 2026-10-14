@@ -229,8 +229,9 @@ export function effectDelta(s: GameState, n: NationId, e: Effect): number | null
 }
 
 /**
- * Where an effect lands for nation `n`: rebels rise in the region named if it is theirs, else in the capital; a free
- * army musters in the region named if they hold it, else in the capital (null: they hold neither, and none comes).
+ * Where an effect lands for nation `n`: rebels rise in the region named if it is theirs, else in a distant province
+ * (`distantProvince`); a free army musters in the region named if they hold it, else in the capital (null: they hold
+ * neither, and none comes).
  */
 export function effectRegion(s: GameState, n: NationId, e: Effect): RegionId | null {
   const nat = s.nations[n];
@@ -246,15 +247,19 @@ export function effectRegion(s: GameState, n: NationId, e: Effect): RegionId | n
 }
 
 /**
- * Where an unnamed rising breaks out: the realm's own region (not the capital) with none of its armies in it, the
- * most restless first, then the farthest from the capital. Chosen without chance, so the card's preview holds.
+ * Where an unnamed rising breaks out: the realm's own region (not the capital, and not overseas) with none of its
+ * armies in it, the most restless first, then the farthest from the capital. Chosen without chance, so the card's
+ * preview holds.
  */
 function distantProvince(s: GameState, n: NationId): RegionId {
   const cap = s.nations[n].capital;
   const guarded = new Set(Object.values(s.armies).filter(a => a.owner === n).map(a => a.node));
   const far = (id: RegionId) => (MAP_REGION[cap] && MAP_REGION[id] ? mapDistance(cap, id) : 0);
   const order = (a: Region, b: Region) => b.unrest - a.unrest || far(b.id) - far(a.id) || (a.id < b.id ? -1 : 1);
-  const own = ownedRegions(s, n).filter(r => r.id !== cap);
+  // On the capital's side of the ocean, and held (a colony or an occupied region only when there is nothing else).
+  const all = ownedRegions(s, n).filter(r => r.id !== cap);
+  const home = all.filter(r => r.controller === n && !REGION[r.id]?.nw === !REGION[cap]?.nw);
+  const own = home.length ? home : all;
   const pick1 = own.filter(r => !guarded.has(r.id)).sort(order)[0] ?? own.sort(order)[0];
   return pick1?.id ?? cap;
 }
