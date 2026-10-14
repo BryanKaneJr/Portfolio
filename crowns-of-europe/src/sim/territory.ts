@@ -173,7 +173,8 @@ export function annexNation(s: GameState, by: NationId, target: NationId): void 
     if (LANDMARK_AT[r.id]) landmarkChanged(s, r.id, target, by);
   }
   bumpOwnership();
-  for (const r of Object.values(s.regions)) if (r.controller === target) r.controller = r.owner;
+  // What it occupied goes back to its owners (setController: a freed landmark gives its bonus again today).
+  for (const r of Object.values(s.regions)) if (r.controller === target) setController(s, r.id, r.owner);
   for (const a of Object.values(s.armies)) if (a.owner === target) a.owner = by;
   for (const f of Object.values(s.fleets)) if (f.owner === target) f.owner = by;
   s.nations[by].gold += Math.max(0, t.gold);

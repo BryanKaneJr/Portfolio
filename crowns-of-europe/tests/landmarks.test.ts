@@ -3,7 +3,7 @@ import { LANDMARKS, LANDMARK_AT, REGION, type LandmarkDef } from '../src/sim/con
 import { MODIFIER_KEYS } from '../src/sim/dsl';
 import { heldBy, landmarkErrors, landmarksHeld } from '../src/sim/landmarks';
 import { invalidateMods, modifierSources, nationMods } from '../src/sim/queries';
-import { setController, transferRegion } from '../src/sim/territory';
+import { annexNation, releaseNation, setController, transferRegion } from '../src/sim/territory';
 import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
 import { emptyGame } from './helpers';
 
@@ -144,5 +144,28 @@ describe('holding a landmark', () => {
     // Nobody else's landmarks are news.
     transferRegion(s, 'moscow', 'NOV', { conquest: true });
     expect(s.moments?.some(m => m.title.startsWith('The Kremlin'))).toBe(false);
+  });
+
+  test('annexing and releasing a realm move its landmark too, the same day', () => {
+    const s = game();
+    const fra = nationMods(s, 'FRA').devCost;
+    annexNation(s, 'FRA', 'GRA');
+    expect(heldBy(s, 'alhambra')).toBe('FRA');
+    expect(nationMods(s, 'FRA').devCost).toBeCloseTo(fra - 0.15);
+    expect(s.moments?.some(m => m.title === 'The Alhambra is ours')).toBe(true);
+    releaseNation(s, 'FRA', 'GRA');
+    expect(heldBy(s, 'alhambra')).toBe('GRA');
+    expect(nationMods(s, 'FRA').devCost).toBeCloseTo(fra);
+    expect(s.moments?.some(m => m.title === 'The Alhambra is lost')).toBe(true);
+  });
+
+  test('a realm annexed while it occupies a landmark frees it the same day', () => {
+    const s = game();
+    const flo = nationMods(s, 'FLO').science;
+    setController(s, 'tuscany', 'SAV'); // Savoy holds no landmark of its own
+    expect(nationMods(s, 'FLO').science).toBeCloseTo(flo - 0.1);
+    annexNation(s, 'FRA', 'SAV');
+    expect(heldBy(s, 'duomo')).toBe('FLO');
+    expect(nationMods(s, 'FLO').science).toBeCloseTo(flo);
   });
 });

@@ -682,5 +682,7 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
 - **Measured** (AI-only soak to 1500, seeds 1 and 2, against the branch point). Nothing in the AI's choices changed,
   so the games only drift apart as any small change makes them: wars started 53 and 55 (56 and 52 before), realms
   alive 45 and 46 (46 and 54), the New World found 1491 and 1477 (1487 and 1477). Time per day 2.57 and 2.62 ms
-  (2.54 and 2.91): `landmarksHeld` is fifteen lookups per uncached `nationMods`, too small to see. The lead's §6 runs
-  compare the merged batch with its baseline on more seeds.
+  (2.54 and 2.91): `landmarksHeld` is fifteen lookups per uncached `nationMods`, too small to see. Seed 3 (review):
+  wars 53 (49 before), realms alive 43 (49), New World 1477 (1475), 3.54 ms per day (3.58); there Denmark took
+  Scandinavia, a different history rather than a landmark at work. Realms alive came out lower on all three seeds
+  (−1, −8, −6), so the lead's §6 soak runs on the merged batch should watch that number.
