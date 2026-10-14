@@ -13,6 +13,8 @@ import type { Result } from '../sim/commands';
 import * as commands from '../sim/commands';
 import { MAP_REGION, MAP_SEA, bindDisplay } from '../sim/content';
 import { battleResult, offerTitle } from '../ui/describe';
+import { FAST, SPEEDS, allowedSpeed } from './speed';
+export { FAST, SPEEDS, SPEED_LABELS, allowedSpeed } from './speed';
 
 /** How the map is painted (src/ui/map/styles.ts). A device preference, not part of the saved game. */
 export type MapStyleId = 'illustrated' | 'painted' | 'atlas' | 'parchment' | 'flat';
@@ -35,11 +37,9 @@ export type Overlay =
   | { kind: 'breakdown'; what: 'gold' | 'manpower' | 'stability' | 'prestige' | 'threat' }
   | { kind: 'report'; id: string; back?: Overlay } // back: the page it was opened from, where closing it returns
   | { kind: 'offer'; id: string; back?: Overlay }
+  | { kind: 'moment'; ids: string[]; back?: Overlay } // great turns of the game (log.ts moment()), one card for a batch
   | { kind: 'help' };
 export type MenuTab = 'military' | 'diplomacy' | 'economy' | 'science' | 'colonies' | 'missions' | 'ledger' | 'settings';
-
-/** Days per real second at each speed (1×, 2×, 4×). */
-export const SPEEDS = [1.5, 3, 6];
 
 export interface Toast {
   id: number;
@@ -50,6 +50,8 @@ export interface Toast {
   /** The offer or battle report it announces: the notice goes when that does. */
   offer?: string;
   report?: string;
+  /** The moment it announces (a banner: log.ts moment()). */
+  moment?: string;
 }
 
 class GameStore {
@@ -67,6 +69,8 @@ class GameStore {
   focus: { x: number; y: number; zoom?: number; seq: number } | null = null;
   /** The map camera, published by MapView (read by play-test scripts). */
   camera: { cx: number; cy: number; k: number } | null = null;
+  /** Commands run so far (the goal strip recomputes after each). */
+  runs = 0;
   private listeners = new Set<() => void>();
   private timer: ReturnType<typeof setInterval> | null = null;
   private lastFrame = 0;
@@ -80,6 +84,9 @@ class GameStore {
   private resumeOnClose = false;
   /** Offers the settings pause for that arrived while another offer's card was up: shown next, in turn. */
   private queuedOffers: string[] = [];
+  /** Moments already announced, and moment cards waiting behind an offer, report or event card. */
+  private knownMoments = new Set<string>();
+  private queuedMoments: string[] = [];
 
   constructor() {
     loadPrefs()
@@ -120,6 +127,8 @@ class GameStore {
     // What was already waiting in the save is under the bell; only what arrives from now on is announced.
     this.knownOffers = new Set(s.offers.map(o => o.id));
     this.knownReports = new Set(s.reports.map(r => r.id));
+    this.knownMoments = new Set((s.moments ?? []).map(m => m.id));
+    this.queuedMoments = [];
     invalidateMods();
     this.emit(true);
   }
@@ -135,15 +144,17 @@ class GameStore {
   run(cmd: (s: GameState) => Result, opts: { quiet?: boolean; map?: boolean } = {}): Result {
     if (!this.state) return { ok: false, msg: 'No game' };
     const r = cmd(this.state);
-    if (r.msg && !(opts.quiet && r.ok)) this.toast(r.msg, r.ok ? 'info' : 'bad');
+    this.runs++;
     invalidateMods();
-    this.notify();
+    // A moment card that opens says it better than the command's own notice.
+    const card = this.notify();
+    if (r.msg && !(opts.quiet && r.ok) && !card) this.toast(r.msg, r.ok ? 'info' : 'bad');
     this.emit(opts.map ?? true);
     return r;
   }
 
   /** A notice under the top bar (at most three at once). With an action, tapping it goes there. */
-  toast(text: string, tone: Toast['tone'] = 'info', action?: () => void, about?: { offer?: string; report?: string }) {
+  toast(text: string, tone: Toast['tone'] = 'info', action?: () => void, about?: { offer?: string; report?: string; moment?: string }) {
     const t: Toast = { id: ++this.toastSeq, text, tone, ...(action ? { action } : {}), ...about };
     this.toasts = [...this.toasts.slice(-2), t];
     this.emit();
@@ -160,11 +171,12 @@ class GameStore {
    * opens its card and stops the clock (one at a time: those that come while a card is up are queued, and open in turn
    * as each is answered or set aside); any other offer, and each of the player's battles, drops in as a notice that
    * opens it when tapped, and waits under the bell until answered or read. Also closes a card, and drops a notice,
-   * whose offer or report is gone.
+   * whose offer or report is gone. New moments: banners drop in as notices; cards open together as one (true if
+   * they did).
    */
-  notify() {
+  notify(): boolean {
     const s = this.state;
-    if (!s) return;
+    if (!s) return false;
     // Runs every frame: the sets are rebuilt only when something came or went.
     let fresh = false;
     for (const o of s.offers) {
@@ -194,6 +206,59 @@ class GameStore {
       this.toasts = this.toasts.filter(t => !(t.offer && !this.knownOffers.has(t.offer)) && !(t.report && !this.knownReports.has(t.report)));
     }
     if (this.cardGone()) this.leaveCard();
+    return this.announceMoments();
+  }
+
+  /** New moments since the last look: banners as notices (tap for the moment), cards queued and opened as one. True
+   * if a card opened or is waiting its turn. */
+  private announceMoments(): boolean {
+    const list = this.state?.moments ?? [];
+    let card = false;
+    for (const m of list) {
+      if (this.knownMoments.has(m.id)) continue;
+      this.knownMoments.add(m.id);
+      if (m.card) {
+        this.queuedMoments.push(m.id);
+        card = true;
+      } else this.toast(m.title, m.tone, () => this.showMoment(m.id), { moment: m.id });
+    }
+    return this.openMoments() || card;
+  }
+
+  /**
+   * Open the moment cards waiting, as one card. They wait their turn behind an offer, report or event card, and
+   * behind the war and declaration panels (which close themselves once their command has run). New ones join a
+   * moment card already up. A card stops the clock, and lets it run on when closed if it was running.
+   */
+  private openMoments(): boolean {
+    const s = this.state;
+    const ov = this.overlay;
+    const behind = ov?.kind === 'offer' || ov?.kind === 'report' || ov?.kind === 'peace' || ov?.kind === 'declareWar';
+    if (!s || !this.queuedMoments.length || behind || s.pendingEvents.length || s.gameOver) return false;
+    const ids = this.queuedMoments.filter(id => s.moments?.some(m => m.id === id));
+    this.queuedMoments = [];
+    if (!ids.length) return false;
+    if (ov?.kind === 'moment') {
+      this.overlay = { ...ov, ids: [...ov.ids, ...ids] };
+      this.emit();
+      return true;
+    }
+    const running = !this.paused;
+    this.open({ kind: 'moment', ids, ...(ov && ov.kind !== 'breakdown' ? { back: ov } : {}) });
+    this.resumeOnClose = running;
+    return true;
+  }
+
+  /** A banner tapped: one with a place shows it on the map; the others open as a card. */
+  showMoment(id: string) {
+    const m = this.state?.moments?.find(x => x.id === id);
+    if (!m) {
+      this.toast('That has already passed.');
+      return;
+    }
+    const at = !m.card && m.node ? (MAP_REGION[m.node]?.label ?? MAP_SEA[m.node]?.label) : undefined;
+    if (at) this.focusOn(at[0], at[1]);
+    else this.openFromNotice({ kind: 'moment', ids: [id] });
   }
 
   /** The offer or report card up is for something no longer there (answered, withdrawn, lapsed, dropped from the list). */
@@ -241,6 +306,7 @@ class GameStore {
     this.resumeOnClose = false;
     this.overlay = null;
     if (resume) this.setPaused(false);
+    this.openMoments();
     this.emit();
   }
   /**
@@ -264,10 +330,12 @@ class GameStore {
    */
   leaveCard() {
     const ov = this.overlay;
-    const back = ov?.kind === 'offer' || ov?.kind === 'report' ? ov.back : undefined;
+    const back = ov?.kind === 'offer' || ov?.kind === 'report' || ov?.kind === 'moment' ? ov.back : undefined;
     if (this.openQueued(back)) return;
-    if (back) this.open(back);
-    else this.close();
+    if (back) {
+      this.open(back);
+      this.openMoments();
+    } else this.close();
   }
   /** Open the next queued offer still waiting (it keeps the clock stopped, as its setting asks). */
   private openQueued(back?: Overlay): boolean {
@@ -286,7 +354,9 @@ class GameStore {
   }
 
   setSpeed(i: number) {
-    this.speed = Math.max(0, Math.min(SPEEDS.length - 1, i));
+    const want = Math.max(0, Math.min(SPEEDS.length - 1, i));
+    this.speed = allowedSpeed(this.state, want);
+    if (this.speed !== want) this.toast('At war: 8× waits for peace');
     this.emit();
   }
 
@@ -350,6 +420,10 @@ class GameStore {
       }
     }
     this.notify();
+    if (this.speed === FAST && allowedSpeed(s, FAST) !== FAST) {
+      this.speed = FAST - 1;
+      this.toast('At war: back to 4×', 'bad');
+    }
     if (s.achievements.length > before) recordAchievements(s.achievements.slice(before)).catch(() => {});
     const y = dateOf(s.day).year;
     if (y !== this.lastSavedYear) {

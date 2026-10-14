@@ -28,6 +28,7 @@ const answerCards = async () => {
     if (await has('choice-0')) { await tapId('choice-0'); continue; }
     if (await has('offer-decline')) { await tapId('offer-decline'); continue; }
     if (await has('report-close')) { await tapId('report-close'); continue; }
+    if (await has('moment-close')) { await tapId('moment-close'); continue; }
     break;
   }
 };

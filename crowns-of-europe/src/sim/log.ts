@@ -15,10 +15,16 @@ export function log(
 
 const MAX_MOMENTS = 20;
 
-/** Record a great turn of the game, shown as a card or a banner. Never draws on the random numbers. */
+/**
+ * Record a great turn of the game, shown as a card or a banner. Never draws on the random numbers, and leaves the
+ * id counter (s.seq) alone too: the ids of armies and battles steer some choices, so taking one would change the game.
+ * Its id is the day and its place among that day's moments ("m3650.2").
+ */
 export function moment(s: GameState, m: Omit<Moment, 'id' | 'day'>): void {
   const list = (s.moments ??= []);
-  list.push({ id: `m${++s.seq}`, day: s.day, ...m });
+  const last = list[list.length - 1];
+  const n = last?.day === s.day ? Number(last.id.split('.')[1] ?? 0) + 1 : 0;
+  list.push({ id: `m${s.day}.${n}`, day: s.day, ...m });
   if (list.length > MAX_MOMENTS) list.shift();
 }
 

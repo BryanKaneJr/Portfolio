@@ -166,6 +166,7 @@ export function dailyBattles(s: GameState): void {
       endBattle(s, b, (1 - loser) as 0 | 1, st);
       continue;
     }
+    if (b.days === 0) b.opening = opening(s, st);
     b.days++;
     const phase = battlePhase(b);
     const terrain = REGION[b.node].terrain;
@@ -206,6 +207,17 @@ export function dailyBattles(s: GameState): void {
       endBattle(s, b, (1 - loser) as 0 | 1, after);
     }
   }
+}
+
+/** How the two sides stood on the first day, for the report's "why". */
+function opening(s: GameState, st: readonly [SideStats, SideStats]): NonNullable<Battle['opening']> {
+  const era = (x: SideStats) => (x.owner === REBELS ? 1 : (s.nations[x.owner]?.era ?? 1));
+  return {
+    morale: [Math.round(st[0].morale * 10) / 10, Math.round(st[1].morale * 10) / 10],
+    stars: [st[0].general.stars, st[1].general.stars],
+    era: [era(st[0]), era(st[1])],
+    regs: [st[0].totalRegs, st[1].totalRegs],
+  };
 }
 
 function applyCasualties(st: SideStats, casualties: number): void {
@@ -320,6 +332,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     generals: [st[0].general.name, st[1].general.name],
     warScore: Math.round(points),
     playerSide,
+    ...(b.opening ? { why: whyOf(b) } : {}),
   };
   s.reports.unshift(report);
   if (s.reports.length > 25) {
@@ -357,6 +370,13 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
         node: b.node,
       });
   }
+}
+
+/** The ground and the opening odds, kept on the report so it can say why the battle went as it did. */
+function whyOf(b: Battle): NonNullable<BattleReport['why']> {
+  const terrain = REGION[b.node].terrain;
+  const penalty = b.pitched ? 0 : (terrain === 'mountains' ? 2 : terrain === 'plains' ? 0 : 1) + (b.river ? 1 : 0);
+  return { terrain, penalty, river: !!b.river && !b.pitched, pitched: !!b.pitched, ...b.opening! };
 }
 
 export const battleSides = (s: GameState, b: Battle) => [stats(s, b.sides[0]), stats(s, b.sides[1])] as const;

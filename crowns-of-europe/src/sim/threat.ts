@@ -4,7 +4,7 @@
  * look weak. It's the main brake on steamrolling.
  */
 import { NATION, hops, isNativeNation, nationName } from './content';
-import { log, involvesPlayer } from './log';
+import { log, involvesPlayer, moment } from './log';
 import {
   aliveNations,
   allied,
@@ -118,6 +118,7 @@ function updateCoalitions(s: GameState): void {
         nation: target.id,
         important: involvesPlayer(s, target.id, ...candidates.map(m => m.id)),
       });
+      if (target.id === s.player) moment(s, { kind: 'headline', card: false, tone: 'bad', title: 'A coalition forms against you', lines: [candidates.map(m => nationName(m.id)).join(', ')] });
     } else if (candidates.length && involvesPlayer(s, target.id)) {
       log(s, 'diplomacy', `${candidates.map(m => nationName(m.id)).join(', ')} join${candidates.length === 1 ? 's' : ''} the coalition against you.`, { important: true });
     }

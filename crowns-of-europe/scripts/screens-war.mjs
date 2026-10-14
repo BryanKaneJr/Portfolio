@@ -29,6 +29,7 @@ async function cards() {
     if (await has('choice-0')) { await once('card-event'); await tapId('choice-0'); continue; }
     if (await has('offer-accept')) { await once('card-offer'); await tapId('offer-decline'); continue; }
     if (await has('report-close')) { await once('card-report'); await tapId('report-close'); continue; }
+    if (await has('moment-close')) { await once('card-moment'); await tapId('moment-close'); continue; }
     if (await has('panel-close')) { await tapId('panel-close'); continue; }
     if (!seen.has('toast') && (await has('toast-open'))) { await once('toast'); await tapId('toast-open'); continue; }
     const waiting = await coe(() => { const s = window.__coe.store.state; return { offers: s.offers.length, reports: s.unseenReports.length }; });

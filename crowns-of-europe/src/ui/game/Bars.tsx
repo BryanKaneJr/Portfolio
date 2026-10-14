@@ -12,7 +12,7 @@ import { ledger } from '../../sim/economy';
 import { liveUnseenReports } from '../../sim/queries';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
-import { SPEEDS, store, useStore, type MapMode, type MenuTab } from '../../state/store';
+import { FAST, SPEEDS, SPEED_LABELS, allowedSpeed, store, useStore, type MapMode, type MenuTab } from '../../state/store';
 import { BurningShield } from '../components/BurningShield';
 import { Shield } from '../components/Flag';
 import { Glass } from '../components/Glass';
@@ -22,7 +22,8 @@ import { G, R, display, fmt, kmen, sans, signed } from '../theme';
 import { MAP_MODES } from '../map/colors';
 import { MAP_STYLE_LIST } from '../map/styles';
 
-import { DOCK_H, TOP_BAR_H } from '../layout';
+import { DOCK_H, GOAL_STRIP_H, TOP_BAR_H } from '../layout';
+import { useGoals } from './GoalStrip';
 import { idleColonists as idleColonistsOf } from './ColonySheets';
 export { DOCK_H, TOP_BAR_H };
 
@@ -96,6 +97,7 @@ export function BottomBar() {
   const idleColonists = idleColonistsOf(s, p);
   const pickAdvance = !s.nations[p].researching && availableAdvances(s, p).length ? 1 : 0;
   const menu = (tab: MenuTab) => st.open({ kind: 'menu', tab });
+  const noFast = allowedSpeed(s, FAST) !== FAST;
   return (
     <View style={[styles.dock, { bottom: insets.bottom + 8 }]} pointerEvents="box-none">
       <Glass gilt radius={R.pill} style={styles.time}>
@@ -108,8 +110,8 @@ export function BottomBar() {
           </Text>
           <View style={{ flexDirection: 'row', gap: 3 }}>
             {SPEEDS.map((_, i) => (
-              <Pressable key={i} onPress={() => st.setSpeed(i)} hitSlop={6} accessibilityLabel={`Speed ${[1, 2, 4][i]}x`} style={[styles.speed, i <= st.speed && styles.speedOn]}>
-                <Text style={[styles.speedText, i <= st.speed && { color: '#1a1408' }]}>{['1×', '2×', '4×'][i]}</Text>
+              <Pressable key={i} onPress={() => st.setSpeed(i)} hitSlop={6} accessibilityLabel={`Speed ${SPEED_LABELS[i].replace('×', 'x')}`} style={[styles.speed, i <= st.speed && styles.speedOn, i === FAST && noFast && { opacity: 0.35 }]}>
+                <Text style={[styles.speedText, i <= st.speed && { color: '#1a1408' }]}>{SPEED_LABELS[i]}</Text>
               </Pressable>
             ))}
           </View>
@@ -185,11 +187,12 @@ export const MODE_ICONS = MODE_ICON;
 export function Toasts() {
   const st = useStore();
   const insets = useSafeAreaInsets();
+  const strip = useGoals().length > 0;
   if (!st.toasts.length) return null;
   const s = st.state;
   const atWar = !!s && Object.values(s.wars).some(w => w.attackers.includes(s.player) || w.defenders.includes(s.player));
   return (
-    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8, left: atWar ? 68 : 12 }]} pointerEvents="box-none">
+    <View style={[styles.toasts, { top: insets.top + 6 + TOP_BAR_H + 8 + (strip ? GOAL_STRIP_H + 4 : 0), left: atWar ? 68 : 12 }]} pointerEvents="box-none">
       {st.toasts.map(t => {
         const body = (
           <Glass strong radius={R.pill} style={styles.toast} pointerEvents="none">

@@ -1,6 +1,6 @@
 /** Rulers age and die, heirs take over, republics elect, theocracies choose. Generals are hired and retire. */
 import { NATION, TRAITS, namePool, nationName } from './content';
-import { log, involvesPlayer } from './log';
+import { log, involvesPlayer, moment, recentMoment } from './log';
 import { invalidateMods, married, REBELS, totalDev } from './queries';
 import type { GameState, General, NationId, Ruler } from './types';
 import { chance, pick, rand, randInt, yearOf, years, nextId } from './util';
@@ -79,9 +79,21 @@ function holdElection(s: GameState, n: NationId): void {
   nat.electionDay = s.day + years(n === 'VEN' ? 8 : 5);
   invalidateMods();
   if (involvesPlayer(s, n)) log(s, 'ruler', `${next.name} is elected to lead the republic (skill ${next.skill}).`, { nation: n, important: true });
+  newRulerMoment(s, n);
+}
+
+/** The player's new ruler, as a banner (once a day: a death in a republic also calls an election). */
+function newRulerMoment(s: GameState, n: NationId): void {
+  if (n !== s.player || recentMoment(s, 'ruler', n, 1)) return;
+  moment(s, { kind: 'ruler', card: false, tone: 'info', title: `${s.nations[n].ruler.name} now leads ${nationName(n)}`, nation: n });
 }
 
 export function rulerDies(s: GameState, n: NationId, cause: string): void {
+  succession(s, n, cause);
+  newRulerMoment(s, n);
+}
+
+function succession(s: GameState, n: NationId, cause: string): void {
   const nat = s.nations[n];
   const def = NATION[n];
   const old = nat.ruler;

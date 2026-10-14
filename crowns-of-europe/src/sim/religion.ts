@@ -1,6 +1,6 @@
 /** Faith: conversions, Reformation spread, Papal Favor, and the Holy Roman Empire's elections. */
 import { NATION, REGION, MAP_REGION, GRAPH, nationName } from './content';
-import { log, involvesPlayer } from './log';
+import { log, involvesPlayer, moment } from './log';
 import { aliveNations, ownedRegions, totalDev, REBELS } from './queries';
 import { opinion, isHreMember, addOpinion } from './diplomacy';
 import type { GameState, NationId, RegionId } from './types';
@@ -110,4 +110,5 @@ export function holdImperialElection(s: GameState): void {
   const old = s.hre.emperor;
   s.hre.emperor = winner;
   if (old !== winner) log(s, 'news', `${nationName(winner)} is elected Holy Roman Emperor.`, { important: involvesPlayer(s, winner, old ?? undefined) || isHreMember(s, s.player) });
+  if (old !== winner) moment(s, { kind: 'headline', card: false, tone: winner === s.player ? 'good' : 'info', title: `${nationName(winner)} is elected Emperor`, nation: winner });
 }

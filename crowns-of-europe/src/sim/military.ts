@@ -1,7 +1,7 @@
 /** Armies: pathfinding, movement, retreats, recruitment, merging/splitting, supply, attrition and reinforcement. */
-import { GRAPH, MAP_REGION, REGION, SEA, UNITS, isSea, regionName, type Edge } from './content';
+import { GRAPH, MAP_REGION, REGION, SEA, UNITS, isSea, nationName, regionName, type Edge } from './content';
 import { charted } from './colonies';
-import { log, requestPause } from './log';
+import { log, moment, recentMoment, requestPause } from './log';
 import {
   REBELS,
   armiesHostile,
@@ -304,6 +304,7 @@ export function dailyMovement(s: GameState): void {
     a.edgeDays = 0;
     a.arrivedDay = s.day;
     if (isSea(a.from) && isSea(a.node)) convoy(s, a, a.from, a.node);
+    if (s.regions[a.node]?.owner === s.player && s.regions[a.from]?.owner !== s.player) invaded(s, a);
     if (metOnTheRoad(s, a, arrivals)) continue;
     const road = `${a.from}>${a.node}`;
     const list = arrivals.get(road);
@@ -311,6 +312,13 @@ export function dailyMovement(s: GameState): void {
     else arrivals.set(road, [before]);
     arrive(s, a);
   }
+}
+
+/** A hostile army crosses into the player's land: a banner, once a month for each enemy. */
+function invaded(s: GameState, a: Army): void {
+  if (a.retreating || !hostile(s, a.owner, s.player, a.rebelOf) || recentMoment(s, 'invaded', a.owner)) return;
+  const who = a.owner === REBELS ? 'Rebels cross' : `${nationName(a.owner)}’s army crosses`;
+  moment(s, { kind: 'invaded', card: false, tone: 'bad', title: `${who} into ${regionName(a.node)}`, node: a.node, nation: a.owner });
 }
 
 /**
