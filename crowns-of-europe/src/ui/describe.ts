@@ -7,6 +7,9 @@ import { defensiveCall } from '../sim/log';
 import { effectDelta, effectRegion, walkEffects } from '../sim/events';
 import type { BattleReport, Condition, Effect, GameState, Modifiers, NationId, Offer } from '../sim/types';
 
+/** Faiths as players read them. */
+export const FAITH_NAME: Record<string, string> = { catholic: 'Catholic', orthodox: 'Orthodox', muslim: 'Muslim', protestant: 'Protestant', native: 'Native beliefs' };
+const faith = (f: string) => FAITH_NAME[f] ?? f;
 const reg = (r: string) => REGION[r]?.name ?? r;
 const regs = (x: string | string[]) => (Array.isArray(x) ? x.map(reg).join(', ') : reg(x));
 const nat = (n: string) => nationName(n);
@@ -40,7 +43,7 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   colonists: ['colonists', 'flat', true],
   settlerGrowth: ['settler growth', 'pct', true],
   opinion: ['opinion of you', 'flat', true],
-  diplomacy: ['diplomatic reputation', 'flat', true],
+  diplomacy: ['diplomatic skill', 'flat', true],
   holyWarMorale: ['morale against other faiths', 'pct', true],
   unrest: ['unrest', 'flat', false],
   techCost: ['cost of advances', 'pct', false],
@@ -139,9 +142,9 @@ export function effectLines(e: Effect, ctx?: EffectContext): ModLine[] {
     case 'unrestRegion':
       return L(`Unrest ${sgn(v.amount)} in ${reg(v.region)} (2 years)`, v.amount < 0);
     case 'convertRegion':
-      return L(`${reg(v.region)} becomes ${v.faith}`);
+      return L(`${reg(v.region)} becomes ${faith(v.faith)}`);
     case 'changeFaith':
-      return L(`Your nation becomes ${v}`, true);
+      return L(`Your nation becomes ${faith(v)}`, true);
     case 'modifier': {
       const dur = v.months > 0 ? (v.months >= 24 ? `${Math.round(v.months / 12)} years` : `${v.months} months`) : 'permanent';
       const lines = modLines(v.mods);
@@ -264,7 +267,7 @@ export function conditionText(c: Condition): string {
     case 'truceWith':
       return `Have a truce with ${nat(v)}`;
     case 'faith':
-      return `Be ${v}`;
+      return `Be ${faith(v)}`;
     case 'stability':
       return `Order of at least ${sgn(v[0])}`;
     case 'goldAtLeast':

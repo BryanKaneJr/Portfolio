@@ -206,7 +206,11 @@ export function ReportCard({ report, onClose }: { report: BattleReport; onClose:
             </View>
           </Row>
           <Line label="Men at the start" value={kmen(report.startMen[i])} />
-          <Line label="Casualties" value={kmen(report.losses[i])} tone={report.winner === i ? undefined : 'bad'} />
+          <Line
+            label="Casualties"
+            value={report.scatteredMen && report.winner !== i ? `${kmen(report.losses[i])} (${kmen(report.scatteredMen)} scattered)` : kmen(report.losses[i])}
+            tone={report.winner === i ? undefined : 'bad'}
+          />
         </View>
       ))}
       {report.wiped ? <T v="small" style={{ marginTop: 8 }}>The beaten army was annihilated.</T> : null}

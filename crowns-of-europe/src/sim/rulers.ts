@@ -1,5 +1,5 @@
 /** Rulers age and die, heirs take over, republics elect, theocracies choose. Generals are hired and retire. */
-import { NATION, TRAITS, namePool, nationName } from './content';
+import { NAME_ALIASES, NATION, REGNAL, TRAITS, generalPool, namePool, nationName } from './content';
 import { log, involvesPlayer } from './log';
 import { invalidateMods, married, REBELS, totalDev } from './queries';
 import type { GameState, General, NationId, Ruler } from './types';
@@ -26,12 +26,45 @@ export function rollTraits(s: GameState, skill: number): string[] {
   return traits;
 }
 
+/** Roman numerals, with no upper limit. */
+export function toRoman(k: number): string {
+  const table: [number, string][] = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+  let out = '';
+  for (const [v, r] of table)
+    while (k >= v) {
+      out += r;
+      k -= v;
+    }
+  return out;
+}
+
+const ROMAN_VALUE: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+function fromRoman(r: string): number {
+  let total = 0;
+  for (let i = 0; i < r.length; i++) {
+    const v = ROMAN_VALUE[r[i]];
+    total += v < (ROMAN_VALUE[r[i + 1]] ?? 0) ? -v : v;
+  }
+  return total;
+}
+
+/** The number in a name such as "Frederick III" when it is `base` (or another spelling of it), else 0. */
+function ordinalIn(name: string | undefined, base: string): number {
+  if (!name) return 0;
+  for (const spelling of [base, ...(NAME_ALIASES[base] ?? [])]) {
+    const m = name.startsWith(spelling + ' ') ? /^([IVXLCDM]+)\b/.exec(name.slice(spelling.length + 1)) : null;
+    if (m) return fromRoman(m[1]);
+  }
+  return 0;
+}
+
+/** A new royal name: the number follows the realm's real list, the names given in this game and the ruler and heir. */
 function regnalName(s: GameState, n: NationId): string {
   const base = pick(s, namePool(n));
-  const count = (s.nations[n].flags[`_name_${base}`] ?? 0) + 1;
-  s.nations[n].flags[`_name_${base}`] = count;
-  const numerals = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
-  return count > 1 || chance(s, 0.6) ? `${base} ${numerals[Math.min(12, count + randInt(s, 0, 2))]}` : base;
+  const nat = s.nations[n];
+  const count = Math.max(nat.flags[`_name_${base}`] ?? 0, REGNAL[n]?.[base] ?? 0, ordinalIn(nat.ruler?.name, base), ordinalIn(nat.heir?.name, base)) + 1;
+  nat.flags[`_name_${base}`] = count;
+  return count > 1 || chance(s, 0.6) ? `${base} ${toRoman(count)}` : base;
 }
 
 export function newPerson(s: GameState, n: NationId, ageMin: number, ageMax: number, name?: string): Ruler {
@@ -146,7 +179,6 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
 
 // ---------------------------------------------------------------- generals
 
-const SURNAMES = ['de Foix', 'von Stein', 'Sforza', 'Colonna', 'de la Cerda', 'Talbot', 'Percy', 'Báthory', 'Zamoyski', 'Shuisky', 'Pasha', 'Bey', 'Douglas', 'Oxenstierna', 'Wallenstein', 'Tilly', 'Montecuccoli', 'Turenne', 'Condé', 'Vauban', 'Marlborough', 'Eugene', 'Gonzaga', 'Orsini', 'Doria', 'Ruyter', 'Tromp', 'Coligny', 'Guise', 'Alba'];
 
 /** What each of a general's stars adds to everything their army does: damage in battle, steadiness (morale lost),
  * march speed and siege speed. */
@@ -166,10 +198,11 @@ function rollStars(s: GameState): number {
 }
 
 export function newGeneral(s: GameState, n: NationId, known?: { stars: number; name?: string }): General {
-  const first = n === REBELS ? 'Captain' : pick(s, namePool(n)).split(' ')[0];
+  // A noble house of the realm's own people (or a title, where surnames were not used), and a full first name.
+  const name = n === REBELS ? 'Captain' : pick(s, generalPool(n)).replace('{first}', pick(s, namePool(n)));
   return {
     id: nextId(s, 'g'),
-    name: known?.name ?? `${first} ${pick(s, SURNAMES)}`,
+    name: known?.name ?? name,
     stars: known ? Math.max(1, Math.min(MAX_STARS, Math.round(known.stars))) : rollStars(s),
     hired: s.day,
     lifespan: years(randInt(s, 8, 25)),

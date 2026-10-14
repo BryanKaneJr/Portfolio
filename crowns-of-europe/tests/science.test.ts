@@ -29,7 +29,7 @@ describe('science', () => {
     s.nations.HUN.science = advanceCost(s, 'HUN', 'bombards').total;
     monthlyScience(s);
     expect(s.nations.HUN.advances).toContain('bombards');
-    expect(s.nations.HUN.researching).toBeNull();
+    expect(s.nations.HUN.researching).toBe('pike_and_shot'); // the scholars go on down the same track
     expect(recruit(s, 'hungary', 'art').ok).toBe(true);
     // The war advances raise the age of your troops.
     learnAdvance(s, 'HUN', 'pike_and_shot');

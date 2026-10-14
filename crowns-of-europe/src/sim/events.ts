@@ -1,5 +1,5 @@
 /** Evaluates conditions, applies effects, and fires events each month (see docs/content-guide.md). */
-import { ACHIEVEMENTS, EVENT, EVENTS, MAP_REGION, NATION, REGION, nationName, regionName } from './content';
+import { ACHIEVEMENTS, EVENT, EVENTS, MAP_REGION, NATION, REGION, mapDistance, nationName, regionName } from './content';
 import { log, involvesPlayer, requestPause, withoutPauses } from './log';
 import {
   alliesOf,
@@ -26,8 +26,8 @@ import { newGeneral, rulerDies } from './rulers';
 import { spawnRebels } from './rebels';
 import { canDeclareWar, declareWar, joinWar } from './war';
 import { SETTLERS_NEEDED, coloniesOf, discoverNewWorld, newWorldRegions } from './colonies';
-import type { Condition, Effect, EventDef, Faith, GameState, NationId, RegionId } from './types';
-import { chance, clamp, months, pick, pickWeighted, randInt, yearOf } from './util';
+import type { Condition, Effect, EventDef, Faith, GameState, NationId, Region, RegionId } from './types';
+import { chance, clamp, months, pick, pickWeighted, randInt, yearOf, years } from './util';
 
 // ---------------------------------------------------------------- conditions
 
@@ -229,13 +229,14 @@ export function effectDelta(s: GameState, n: NationId, e: Effect): number | null
 }
 
 /**
- * Where an effect lands for nation `n`: rebels rise in the region named if it is theirs, else in the capital; a free
- * army musters in the region named if they hold it, else in the capital (null: they hold neither, and none comes).
+ * Where an effect lands for nation `n`: rebels rise in the region named if it is theirs, else in a distant province
+ * (`distantProvince`); a free army musters in the region named if they hold it, else in the capital (null: they hold
+ * neither, and none comes).
  */
 export function effectRegion(s: GameState, n: NationId, e: Effect): RegionId | null {
   const nat = s.nations[n];
   if (!nat) return null;
-  if ('rebels' in e) return e.rebels.region && s.regions[e.rebels.region]?.owner === n ? e.rebels.region : nat.capital;
+  if ('rebels' in e) return e.rebels.region && s.regions[e.rebels.region]?.owner === n ? e.rebels.region : distantProvince(s, n);
   if ('addRegiments' in e) {
     const v = e.addRegiments;
     const region = v.region && s.regions[v.region]?.controller === n ? v.region : nat.capital;
@@ -243,6 +244,24 @@ export function effectRegion(s: GameState, n: NationId, e: Effect): RegionId | n
   }
   if ('devCapital' in e) return nat.capital;
   return null;
+}
+
+/**
+ * Where an unnamed rising breaks out: the realm's own region (not the capital, and not overseas) with none of its
+ * armies in it, the most restless first, then the farthest from the capital. Chosen without chance, so the card's
+ * preview holds.
+ */
+function distantProvince(s: GameState, n: NationId): RegionId {
+  const cap = s.nations[n].capital;
+  const guarded = new Set(Object.values(s.armies).filter(a => a.owner === n).map(a => a.node));
+  const far = (id: RegionId) => (MAP_REGION[cap] && MAP_REGION[id] ? mapDistance(cap, id) : 0);
+  const order = (a: Region, b: Region) => b.unrest - a.unrest || far(b.id) - far(a.id) || (a.id < b.id ? -1 : 1);
+  // On the capital's side of the ocean, and held (a colony or an occupied region only when there is nothing else).
+  const all = ownedRegions(s, n).filter(r => r.id !== cap);
+  const home = all.filter(r => r.controller === n && !REGION[r.id]?.nw === !REGION[cap]?.nw);
+  const own = home.length ? home : all;
+  const pick1 = own.filter(r => !guarded.has(r.id)).sort(order)[0] ?? own.sort(order)[0];
+  return pick1?.id ?? cap;
 }
 
 export function applyEffect(s: GameState, n: NationId, e: Effect): void {
@@ -489,13 +508,16 @@ export function walkEffects(s: GameState, n: NationId, effects: Effect[], visit:
 // ---------------------------------------------------------------- firing
 
 const isOnce = (e: EventDef) => e.once ?? e.pool !== 'generic';
+/** A generic card does not come back to the same realm for this many years. */
+export const GENERIC_REPEAT_YEARS = 10;
 
-function eligible(s: GameState, n: NationId, e: EventDef, year: number, ignoreHidden = false): boolean {
+export function eligible(s: GameState, n: NationId, e: EventDef, year: number, ignoreHidden = false): boolean {
   if (e.hidden && !ignoreHidden) return false;
   if (e.nations && !e.nations.includes(n)) return false;
   if (e.window && (year < e.window[0] || year > e.window[1])) return false;
   if (isOnce(e) && (s.firedEvents[e.id] ?? 0) > 0 && !(e.pool === 'era' && e.once === false)) return false;
   if (e.pool === 'era' && e.once === false && s.nations[n].flags[`_ev_${e.id}`]) return false;
+  if (e.pool === 'generic' && s.day - (s.nations[n].flags[`_gen_${e.id}`] ?? -1e9) < years(GENERIC_REPEAT_YEARS)) return false;
   return evalCondition(s, n, e.trigger);
 }
 
@@ -504,7 +526,10 @@ export function fireEvent(s: GameState, n: NationId, e: EventDef): void {
   const nat = s.nations[n];
   if (e.pool === 'era') nat.flags[`_ev_${e.id}`] = s.day;
   nat.lastEventDay = s.day;
-  if (e.pool === 'generic') nat.flags._lastGeneric = s.day;
+  if (e.pool === 'generic') {
+    nat.flags._lastGeneric = s.day;
+    nat.flags[`_gen_${e.id}`] = s.day;
+  }
   if (n === s.player) {
     s.pendingEvents.push({ event: e.id, nation: n, day: s.day });
     requestPause(s, 'event');
@@ -526,8 +551,25 @@ export function answerEvent(s: GameState, index: number, choice: number): boolea
   return true;
 }
 
-/** Events marked `onPeace`, checked on the day a peace is signed rather than at the next monthly pass. */
-export function peaceEvents(_s: GameState): void {}
+const PEACE_EVENTS = EVENTS.filter(e => e.onPeace);
+
+/**
+ * Events marked `onPeace` (a conquest's follow-up), checked on the day a peace is signed (makePeace sets
+ * `_peaceToday`) instead of at the next monthly pass. Same checks as the monthly pass, without the roll.
+ */
+export function peaceEvents(s: GameState): void {
+  if (!s.flags._peaceToday) return;
+  delete s.flags._peaceToday;
+  if ('__noEvents' in s.flags) return;
+  const year = yearOf(s.day);
+  for (const nat of Object.values(s.nations)) {
+    if (!nat.alive) continue;
+    for (const e of PEACE_EVENTS) {
+      if (nat.id === s.player && s.pendingEvents.length >= 2) break;
+      if (eligible(s, nat.id, e, year)) fireEvent(s, nat.id, e);
+    }
+  }
+}
 
 export function monthlyEvents(s: GameState): void {
   if ('__noEvents' in s.flags) return;

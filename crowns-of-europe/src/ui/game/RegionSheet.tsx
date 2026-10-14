@@ -9,6 +9,7 @@ import {
   develop,
   fabricateClaim,
   hireMercenaries,
+  mercBlocked,
   foundUniversity,
   makeCore,
   moveCapital,
@@ -30,8 +31,7 @@ import { Shield } from '../components/Flag';
 import { Btn, Empty, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { Sheet } from './Sheet';
-
-export const FAITH_NAME: Record<string, string> = { catholic: 'Catholic', orthodox: 'Orthodox', muslim: 'Muslim', protestant: 'Protestant', native: 'Native beliefs' };
+import { FAITH_NAME } from '../describe';
 
 export function RegionSheet({ id }: { id: string }) {
   const st = useStore();
@@ -52,6 +52,7 @@ export function RegionSheet({ id }: { id: string }) {
   const armiesHere = Object.values(s.armies).filter(a => a.node === id && seesUnit(s, s.player, a.owner, id, a.rebelOf));
   const coastal = MAP_REGION[id].seas.length > 0;
   const canArt = unlocked(s, s.player, 'artillery');
+  const mercWhy = mine ? mercBlocked(s, id) : null;
   const canWarship = unlocked(s, s.player, 'warships');
   const nearMine = GRAPH[id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === s.player);
   const integratedBy = NATION[owner] && r.cores.length ? `Integrated by ${r.cores.map(nationName).join(', ')}.` : '';
@@ -146,8 +147,9 @@ export function RegionSheet({ id }: { id: string }) {
           </Row>
           <Row gap={6} style={{ marginTop: 6 }}>
             <Btn small tone="secondary" style={{ flex: 1 }} label="5 infantry" sub={`${unitCost(s, s.player, 'inf') * 5}g`} onPress={() => st.run(x => recruit(x, id, 'inf', 5))} />
-            <Btn small tone="secondary" style={{ flex: 1 }} label="Mercenaries ×4" sub={`${mercCost(s, s.player, 4)}g · no levies`} onPress={() => st.run(x => hireMercenaries(x, id, 4))} />
+            <Btn small tone="secondary" style={{ flex: 1 }} label="Mercenaries ×4" sub={`${mercCost(s, s.player, 4)}g · no levies`} disabled={!!mercWhy} onPress={() => st.run(x => hireMercenaries(x, id, 4))} />
           </Row>
+          {mercWhy ? <T v="tiny" style={{ marginTop: 4 }}>{mercWhy}</T> : null}
           {me.recruiting.filter(q => q.region === id).length ? <T v="tiny" style={{ marginTop: 4 }}>{me.recruiting.filter(q => q.region === id).length} regiment(s) training here.</T> : null}
           {coastal ? (
             <Row gap={6} style={{ marginTop: 6 }}>

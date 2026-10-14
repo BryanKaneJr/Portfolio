@@ -1,12 +1,19 @@
-/** Saves (autosave + 3 manual slots), settings and lifetime achievements in AsyncStorage. */
+/** Saves (an autosave per campaign, the 3 newest kept, + 3 manual slots), settings and lifetime achievements in AsyncStorage. */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { displayIn } from '../sim/content';
 import { migrateSave } from '../sim/state';
 import type { GameState } from '../sim/types';
 import { formatShortDate } from '../sim/util';
 
-export type SlotId = 'auto' | '1' | '2' | '3';
+/** 'auto' is the autosave of the game being saved (`auto-<campaign>`; old saves keep the plain 'auto'). */
+export type SlotId = 'auto' | '1' | '2' | '3' | `auto-${string}`;
 export const SLOTS: SlotId[] = ['auto', '1', '2', '3'];
+/** How many campaigns keep an autosave. */
+export const AUTOSAVES_KEPT = 3;
+
+export const isAutoSlot = (slot: SlotId): boolean => slot === 'auto' || slot.startsWith('auto-');
+/** Where a game autosaves: its campaign's own slot. */
+export const autoSlot = (s: GameState): SlotId => (s.campaign && s.campaign !== 'old' ? `auto-${s.campaign}` : 'auto');
 
 export interface SaveMeta {
   slot: SlotId;
@@ -21,7 +28,8 @@ export interface SaveMeta {
 const key = (slot: SlotId) => `coe.save.${slot}`;
 const META = 'coe.saves';
 
-export async function saveGame(slot: SlotId, s: GameState): Promise<void> {
+export async function saveGame(given: SlotId, s: GameState): Promise<void> {
+  const slot = given === 'auto' ? autoSlot(s) : given;
   // The message log is UI history; trim it to keep saves small.
   const data = JSON.stringify({ ...s, log: s.log.slice(0, 40) });
   await AsyncStorage.setItem(key(slot), data);
@@ -35,7 +43,16 @@ export async function saveGame(slot: SlotId, s: GameState): Promise<void> {
     savedAt: Date.now(),
     ironman: s.settings.ironman,
   };
-  const next = [...metas.filter(m => m.slot !== slot), meta];
+  let next = [...metas.filter(m => m.slot !== slot), meta];
+  if (isAutoSlot(slot)) {
+    // Each campaign has its own autosave; only the newest few are kept.
+    const old = next
+      .filter(m => isAutoSlot(m.slot))
+      .sort((a, b) => b.savedAt - a.savedAt)
+      .slice(AUTOSAVES_KEPT);
+    for (const m of old) await AsyncStorage.removeItem(key(m.slot));
+    next = next.filter(m => !old.includes(m));
+  }
   await AsyncStorage.setItem(META, JSON.stringify(next));
 }
 

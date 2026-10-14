@@ -13,7 +13,7 @@ bundled and works in airplane mode.
 
 ## What's in the game
 
-- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 160 regions in Europe, North Africa,
+- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 165 regions in Europe, North Africa,
   Egypt, the Levant, the Caucasus, Mesopotamia and West Africa (with an uncolonized Guinea coast), 46 coarse
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
@@ -75,7 +75,7 @@ bundled and works in airplane mode.
   reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
-- **Story:** 246 events (104 historical, 69 generic, 45 era, 28 New World), 231 missions, 42 achievements, unrest and rebels.
+- **Story:** 251 events (109 historical, 69 generic, 45 era, 28 New World), 274 missions, 42 achievements, unrest and rebels.
 - **AI** that recruits, invests, forms alliances, declares wars it can win, chases beatable stacks, besieges,
   retreats from bigger ones and negotiates peace. Crowns follow their history loosely: France wants the English
   off the continent, Castile wants Granada, Muscovy wants the Russian lands. They forge claims on the land they

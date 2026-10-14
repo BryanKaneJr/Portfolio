@@ -142,7 +142,7 @@ describe('retreats', () => {
     expect(s.armies[tur.id]).toBeUndefined();
     expect(Math.abs(r.losses[lost] - r.startMen[lost])).toBeLessThan(50);
     expect(r.warScore).toBeGreaterThan(0);
-    expect(s.log.some(l => l.important && l.text.startsWith(`The ${tur.name} has nowhere to retreat from Candia and scatters:`) && / men lost\.$/.test(l.text))).toBe(true);
+    expect(s.log.some(l => l.important && l.text.startsWith(`The ${tur.name} has nowhere to retreat from Candia and scatters:`) && / more men lost \([\d,]+ in all\)\.$/.test(l.text))).toBe(true);
   });
 });
 

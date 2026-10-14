@@ -5,7 +5,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ACHIEVEMENTS, NATION } from '../sim/content';
 import { store } from '../state/store';
-import { deleteSave, latestSave, listSaves, loadAchievements, loadGame, type SaveMeta } from '../state/storage';
+import { deleteSave, isAutoSlot, latestSave, listSaves, loadAchievements, loadGame, type SaveMeta } from '../state/storage';
 import { MiniMap } from '../ui/map/MiniMap';
 import { Shield } from '../ui/components/Flag';
 import { Glass } from '../ui/components/Glass';
@@ -91,7 +91,7 @@ export default function Title() {
                           {m.ironman ? ' · Ironman' : ''}
                         </Text>
                         <Text style={styles.saveSub}>
-                          {m.slot === 'auto' ? 'Autosave' : `Slot ${m.slot}`} · {m.date}
+                          {isAutoSlot(m.slot) ? 'Autosave' : `Slot ${m.slot}`} · {m.date}
                         </Text>
                       </View>
                     </Pressable>

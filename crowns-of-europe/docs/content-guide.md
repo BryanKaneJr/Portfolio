@@ -94,13 +94,14 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 | `once` | fires at most once per game. Defaults to true for historical/era, false for generic |
 | `news` | optional: shown to the player as a news line when an AI nation gets the event |
 | `hidden` | only fires through `triggerEvent` (chains). Its trigger is still checked when it comes due |
+| `onPeace` | optional: also checked on the day any peace is signed (no roll), so a conquest's follow-up ("The Fall of Granada") comes the day the land changes hands, not at the next month |
 | `trigger` | a condition (below) for "this nation" |
 | `choices` | 1-3 options. `ai` is a relative weight for AI picks (default 1) |
 
 How the engine fires events: once a month, each living nation gets at most one event. An event is eligible when
 it isn't hidden, the year is inside its window, the nation is in `nations` (if set), its trigger is true and
 (for once-events) it hasn't fired. Each eligible event rolls 1/`mtth`. A nation gets a generic event at most once
-every 14 months. The player sees a card with the effects listed under each choice; AI nations pick by weight.
+every 14 months, and the same generic card at most once in 10 years. The player sees a card with the effects listed under each choice; AI nations pick by weight.
 
 Chains: a choice can `triggerEvent` a hidden event some months later. Use flags (`setFlag` /
 `setNationFlag`) to remember what happened.

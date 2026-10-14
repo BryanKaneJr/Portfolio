@@ -10,7 +10,7 @@ import { EXCOMMUNICATE_COST } from '../../sim/religion';
 import { perceivedThreat } from '../../sim/threat';
 import { canDeclareWar } from '../../sim/war';
 import { MAX_MONTHLY, warOdds, type WarBlock } from '../../sim/ai';
-import { pairKey, yearOf } from '../../sim/util';
+import { monthYear, pairKey, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
@@ -220,7 +220,7 @@ function WarChance({ odds, player, open, onPress }: { odds: ReturnType<typeof wa
     odds.blocked === 'war'
       ? 'At war'
       : (odds.blocked === 'rest' || waiting) && odds.restUntil !== undefined
-        ? `${waiting ? 'Waiting' : 'Resting'} until ${yearOf(odds.restUntil)}`
+        ? `${waiting ? 'Waiting' : 'Resting'} until ${monthYear(odds.restUntil)}`
         : reason
           ? 'None'
           : `${pc(odds.monthly)} a month`;

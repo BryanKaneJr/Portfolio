@@ -82,7 +82,9 @@ export function joinOrStartBattle(s: GameState, node: NodeId, a: Army): void {
   const involved = [...b.sides[0].nations, ...b.sides[1].nations];
   if (involved.includes(s.player)) {
     const [x, y] = b.sides.map(side => side.nations.map(nationName).join(', '));
-    log(s, 'battle', `Battle of ${regionName(node)}: ${x} ${moved ? 'attack' : 'clash with'} ${y}${river ? ` across the ${river}` : ''}.`, {
+    const one = b.sides[0].nations.length === 1; // "Castile attacks", "Castile and Aragon attack"
+    const verb = moved ? (one ? 'attacks' : 'attack') : one ? 'clashes with' : 'clash with';
+    log(s, 'battle', `Battle of ${regionName(node)}: ${x} ${verb} ${y}${river ? ` across the ${river}` : ''}.`, {
       node,
       important: true,
     });
@@ -234,6 +236,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
   let loserMen = L.armies.reduce((a, x) => a + armyMen(x), 0);
   const wiped = L.armies.length > 0 && winnerMen >= WIPE_RATIO * Math.max(1, loserMen);
   let extra = 0;
+  let scatteredMen = 0;
   const scattered: Army[] = [];
   if (wiped) {
     extra = loserMen;
@@ -262,6 +265,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     // Cut off with nowhere to run: the army scatters, and every man left counts as lost.
     for (const a of scattered) {
       extra += armyMen(a);
+      scatteredMen += armyMen(a);
       delete s.armies[a.id];
     }
   }
@@ -286,14 +290,16 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     w.battleScore = clamp(w.battleScore + (wl === 0 ? points : -points), -40, 40);
   }
   const ratio = winnerMen / Math.max(1, loserMen + (wiped ? 0 : 0));
+  // Beating rebels is a win, but not a feat of arms: it sets no record for the achievements.
+  const feat = b.sides[loser].nations[0] !== REBELS;
   for (const n of b.sides[winner].nations) {
     const nat = s.nations[n];
     if (!nat) continue;
     nat.prestige = clamp(nat.prestige + Math.min(8, points / 3) * (1 + nationMods(s, n).prestigeGain), 0, 100);
     nat.record.battlesWon++;
-    if (wiped) nat.record.stackWipes++;
+    if (wiped && feat) nat.record.stackWipes++;
     const r = b.sides[winner].startMen / Math.max(1, b.sides[loser].startMen);
-    if (r > nat.record.bestRatio) nat.record.bestRatio = r;
+    if (feat && r > nat.record.bestRatio) nat.record.bestRatio = r;
     nat.warExhaustion = clamp(nat.warExhaustion + (lossW / 1000) * 0.08 / b.sides[winner].nations.length, 0, 20);
   }
   for (const n of b.sides[loser].nations) {
@@ -315,7 +321,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     startMen: [b.sides[0].startMen, b.sides[1].startMen],
     losses: [b.sides[0].losses, b.sides[1].losses],
     wiped,
-    ...(scattered.length ? { scattered: true } : {}),
+    ...(scattered.length ? { scattered: true, scatteredMen } : {}),
     days: b.days,
     generals: [st[0].general.name, st[1].general.name],
     warScore: Math.round(points),
@@ -332,8 +338,8 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     const won = playerSide === winner;
     if (won) {
       s.stats.battlesWon++;
-      if (wiped) s.stats.stackWipes++;
-      s.stats.bestWinRatio = Math.max(s.stats.bestWinRatio, b.sides[winner].startMen / Math.max(1, b.sides[loser].startMen));
+      if (wiped && feat) s.stats.stackWipes++;
+      if (feat) s.stats.bestWinRatio = Math.max(s.stats.bestWinRatio, b.sides[winner].startMen / Math.max(1, b.sides[loser].startMen));
     } else s.stats.battlesLost++;
     s.stats.menLost += b.sides[playerSide].losses;
     s.stats.enemiesKilled += b.sides[1 - playerSide].losses;
@@ -348,7 +354,7 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
     );
     for (const a of scattered) {
       const whose = a.owner === s.player || a.owner === REBELS ? 'The' : `The ${NATION[a.owner] ? nationAdj(a.owner) : nationName(a.owner)}`;
-      log(s, 'battle', `${whose} ${a.name} has nowhere to retreat from ${regionName(b.node)} and scatters: ${armyMen(a).toLocaleString()} men lost.`, { node: b.node, important: true });
+      log(s, 'battle', `${whose} ${a.name} has nowhere to retreat from ${regionName(b.node)} and scatters: ${armyMen(a).toLocaleString()} more men lost (${lossL.toLocaleString()} in all).`, { node: b.node, important: true });
     }
   } else if (wiped && ratio > 0) {
     const big = b.sides[loser].startMen >= 15000;

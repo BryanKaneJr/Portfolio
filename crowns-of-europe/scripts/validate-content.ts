@@ -25,6 +25,11 @@ import {
   LEARNING,
   START_ADVANCES,
 } from '../src/sim/content';
+import fs from 'node:fs';
+import path from 'node:path';
+import namesJson from '../src/content/names.json';
+import genericEventsJson from '../src/content/events-generic.json';
+import newWorldEventsJson from '../src/content/events-newworld.json';
 import { GOOD_VALUE } from '../src/sim/colonies';
 import { EVENT_IMAGES, FAITHS, MODIFIER_KEYS, validateCondition, validateEffect } from '../src/sim/dsl';
 
@@ -201,6 +206,36 @@ for (const a of ACHIEVEMENTS) {
 }
 
 // --- T1 checks ---
+// Old friends (a `friends` bond) never start as rivals.
+for (const [a, b] of SCENARIO.rivals as [string, string][]) {
+  const bond = BONDS.find(x => x.kind === 'friends' && ((x.a === a && x.b === b) || (x.a === b && x.b === a)) && (x.from ?? 0) <= SCENARIO.start.year && SCENARIO.start.year < (x.until ?? 9999));
+  if (bond) errs.push(`scenario rivals ${a}-${b}: they are old friends (${bond.label})`);
+}
+// Every name group has generals' names.
+for (const group of new Set(Object.values(namesJson.groups))) if (!(namesJson.generals as Record<string, string[]>)[group]?.length) errs.push(`names: no generals for the "${group}" group`);
+// The README's counts match the content (fix the README when content is added).
+{
+  const readme = fs.readFileSync(path.join(__dirname, '../README.md'), 'utf8');
+  const generic = EVENTS.filter(e => e.pool === 'generic').length - newWorldEventsJson.filter(e => e.pool === 'generic').length;
+  const era = EVENTS.filter(e => e.pool === 'era').length;
+  const counts: [RegExp, number, string][] = [
+    [/(\d+) events \((\d+) historical, (\d+) generic, (\d+) era, (\d+) New World\)/, 0, ''],
+    [/(\d+) missions/, MISSIONS.length, 'missions'],
+    [/(\d+) achievements/, ACHIEVEMENTS.length, 'achievements'],
+    [/(\d+) regions in Europe/, REGIONS.filter(r => !r.nw).length, 'Old World regions'],
+    [/(\d+) coarse\s+New World regions/, REGIONS.filter(r => r.nw).length, 'New World regions'],
+    [/(\d+) sea zones/, Object.keys(SEA).length, 'sea zones'],
+  ];
+  const ev = counts[0][0].exec(readme);
+  const want = [EVENTS.length, EVENTS.length - genericEventsJson.length - newWorldEventsJson.length, generic, era, newWorldEventsJson.length];
+  if (!ev) errs.push('README: no "N events (N historical, N generic, N era, N New World)" line');
+  else if (want.some((n, i) => Number(ev[i + 1]) !== n)) errs.push(`README says "${ev[0]}"; the content has ${want[0]} events (${want[1]} historical, ${want[2]} generic, ${want[3]} era, ${want[4]} New World)`);
+  for (const [re, n, what] of counts.slice(1)) {
+    const m = re.exec(readme);
+    if (!m) errs.push(`README: no count of ${what}`);
+    else if (Number(m[1]) !== n) errs.push(`README says ${m[1]} ${what}; the content has ${n}`);
+  }
+}
 
 
 // --- T2 checks ---

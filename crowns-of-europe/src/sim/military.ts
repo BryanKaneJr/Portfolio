@@ -9,6 +9,7 @@ import {
   armyRegs,
   canEnter,
   controllerHostile,
+  enemyArmyAt,
   friendlyTo,
   hostile,
   hostileFort,
@@ -93,6 +94,11 @@ class NodeHeap {
   }
 }
 
+/** Route choice only: a day at sea counts double... */
+const SEA_WEIGHT = 2;
+/** ...and taking ship adds this many days' worth, so a march wins unless the sea is clearly faster. */
+const BOARD_COST = 6;
+
 export function edgeDays(s: GameState, a: Pick<Army, 'owner' | 'general' | 'rebelOf'>, from: NodeId, e: Edge, retreating = false): number {
   let d: number;
   if (e.kind === 'sea' || (e.kind === 'coast' && isSea(e.to))) d = SEA[e.to]?.days ?? SEA_DAYS;
@@ -139,6 +145,10 @@ export function pathTree(
   const regs = armyRegs(army as Army);
   const n = army.owner;
   const dist = new Map<NodeId, number>([[from, 0]]);
+  // Routes are chosen by `cost`, where a day at sea counts double and taking ship adds BOARD_COST, so an army
+  // marches unless the sea is much faster. `dist` keeps the true days.
+  const cost = new Map<NodeId, number>([[from, 0]]);
+  const costCap = opts.maxDays === undefined ? Infinity : opts.maxDays * SEA_WEIGHT + BOARD_COST;
   const prev = new Map<NodeId, NodeId>();
   const done = new Set<NodeId>();
   const open = new NodeHeap();
@@ -157,7 +167,8 @@ export function pathTree(
     if (done.has(cur)) continue;
     done.add(cur);
     if (cur === opts.to) break;
-    if (opts.maxDays !== undefined && dist.get(cur)! > opts.maxDays) break;
+    if (cost.get(cur)! > costCap) break;
+    if (opts.maxDays !== undefined && dist.get(cur)! > opts.maxDays) continue;
     // Can't walk through a hostile fort (unless we start there).
     if (cur !== from && !isSea(cur) && !opts.retreat && hostileFort(s, n, cur)) continue;
     for (const e of GRAPH[cur]) {
@@ -179,11 +190,14 @@ export function pathTree(
         if (!opts.ignoreAccess && !opts.retreat && !canEnter(s, n, e.to, army.rebelOf)) continue;
         if (e.kind === 'strait' && e.sea && !straitOpen(s, n, e.sea, bySea.get(e.sea) ?? [])) continue;
       }
-      const nd = dist.get(cur)! + edgeDays(s, army, cur, e, opts.retreat);
-      if (nd < (dist.get(e.to) ?? Infinity)) {
-        dist.set(e.to, nd);
+      const d = edgeDays(s, army, cur, e, opts.retreat);
+      const atSea = isSea(cur) || isSea(e.to);
+      const nc = cost.get(cur)! + (atSea ? d * SEA_WEIGHT : d) + (isSea(e.to) && !isSea(cur) ? BOARD_COST : 0);
+      if (nc < (cost.get(e.to) ?? Infinity)) {
+        cost.set(e.to, nc);
+        dist.set(e.to, dist.get(cur)! + d);
         prev.set(e.to, cur);
-        open.push(nd, e.to);
+        open.push(nc, e.to);
       }
     }
   }
@@ -583,17 +597,12 @@ export function dailyRecruitment(s: GameState): void {
     const movedTo = new Map<RegionId, number>(); // where recruits mustered instead, and how many
     const lost = new Set<RegionId>(); // where they trained, no longer yours
     const stranded = new Set<RegionId>(); // ... with none of your land in reach
-    // Where enemy armies stand (a siege, say): recruits never muster under their noses.
-    const enemyAt = new Set<NodeId>();
-    for (const id in s.armies) {
-      const o = s.armies[id];
-      if (hostile(s, nat.id, o.owner, undefined, o.rebelOf)) enemyAt.add(o.node);
-    }
     for (const r of ready) {
       // Recruits muster where they trained if you still hold it with no enemy army there, else in the nearest such
       // region; with none in reach over land, their gold (at today's price) and levies come back.
       let at: RegionId | null = r.region;
-      if (s.regions[r.region].controller !== nat.id || enemyAt.has(r.region)) {
+      // (Recruits never muster under the noses of an enemy army, at a siege say.)
+      if (s.regions[r.region].controller !== nat.id || enemyArmyAt(s, nat.id, r.region)) {
         at = nearestHeld(s, nat.id, r.region);
         if (!at) {
           nat.gold += unitCost(s, nat.id, r.type);
