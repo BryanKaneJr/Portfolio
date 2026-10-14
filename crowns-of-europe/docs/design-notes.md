@@ -885,3 +885,47 @@ left between tracks:
   so abdication still waits out the reign; a new game's rulers are crowned on day 0.
 - **Content:** the Dome of the Rock's line no longer calls it golden (lead from the Middle Ages until 1959–64); the
   golden-age card reads its bonuses from `GOLDEN_MODS`.
+
+## Fun batch 2: measured
+
+AI-only games to 1560, seeds 1-24, the code just before the batch (`05ebf498`) against the batch as shipped; the
+Ottomans to 1704 (`scripts/dev/ottomans.ts 260 1 2`); the opening in 48 games (`scripts/dev/opening.ts 1 48 1450`).
+`scripts/dev/batch2.ts` prints the batch's own counters per game.
+
+- **As first merged** (seeds 1-8): wars declared 78.5 → 91.5 a game (+17%, past the spec's 15%), realms alive
+  unchanged. No one feature did it: switching each off in turn took off about 6 (AI storms), 4-4.5 (endowment, the
+  peace extras, crackdowns), 1.5 (landmarks) and 0.5 (golden age); all off gave back the old games exactly. Shorter
+  wars mean more of them: a crown's next war waits on its rest after the last (note 32), and the yearly appetite
+  itself hardly matters (halving every crown's bent took the wars to 1480 from 39 to 32).
+- **The Ottomans endow statecraft** (`endowment.ts STATESMEN`). Endowing war, their troops reached the musket's age
+  about 1590 instead of about 1635, closing the gap with Europe the science opens by 1600 (notes 21, 24). Now: the
+  second age by 1520 and still in it in 1620, as before. (The commit says this took the wars from 91.5 to 85.5: that
+  figure mixed in another run; it was 88.8 over seeds 1-8.)
+- **The AI storms at 80%, not 75%** (`AI_STORM_CHANCE`). At 75% it stormed 16 times a game, and France, storming the
+  English forts and then London, left England 9.9 regions in 1560 (12.2 before the batch) and France 28.8 (25.4);
+  at 80%, over the same 16 games, England 12.8 and France 27.2. Storming at 30 days left instead (`AI_STORM_DAYS_LEFT`)
+  gave England 10.8 and cut storms to 5 a game. The player's own storm button is unchanged.
+- **The batch as shipped** (24 games, before → after):
+
+  | | before | after |
+  |---|---|---|
+  | wars declared to 1560 (mean) | 82.3 | 83.0 |
+  | in the first two years | 2.8 | 2.9 |
+  | realms alive in 1500 / 1560 | 47.0 / 34.9 | 46.5 / 34.4 |
+  | Constantinople Ottoman by 1450 (of 48) | 46 | 48 |
+  | England / France / Castile / Ottomans, regions in 1560 | 12.7 / 25.2 / 24.6 / 24.0 | 12.3 / 26.5 / 24.7 / 23.2 |
+  | England under 5 regions | 2 games | 2 games |
+  | days to take a fort (median): level 1 / 2 / 3 | 45 / 93 / 144 | 46 / 86 / 120 |
+  | forts taken by storm a game | 0 | 9.4 (12 storms, 79% won, 18,000 men) |
+  | golden ages a game | — | 4.9 (3-8), the first about 1475; France in 23 games, the Ottomans 20, Castile 15 |
+  | crackdowns / estates seized / abdications a game | — | 12.8 / 0.2 / 0.8 |
+  | AI peaces humbling / with reparations | — | 6.7 / 1.5 of 77 |
+  | bankruptcies a game | 11.1 | 11.2 |
+  | first Pike and Shot / Ocean Navigation / Galleons / Humanism | 1492 / 1472 / 1542 / 1549 | 1483 / 1469 / 1536 / 1557 |
+
+  The landmarks mostly stay with their builders (Hagia Sophia Ottoman in all 24, Notre-Dame French, the Alhambra
+  and the Giralda Castilian; Westminster French in 5 games, the Duomo in 8). The crowns that endow war reach Pike and
+  Shot about 9 years sooner; the Ottomans, endowing statecraft, 10 years later (1514).
+- **`npm run soak` cannot compare builds past a century or so:** its spectated Hungary falls between about 1550 and
+  1590, and the game stops with it, so "alive at the end" is counted on different days.
+
