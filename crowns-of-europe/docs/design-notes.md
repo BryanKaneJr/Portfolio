@@ -646,8 +646,8 @@ Patronage: that is already the policy "Patronage of the Arts".
 | Who | every crown that studies (not New World peoples) |
 
 - **UI.** Science tab, under Fund your scholars: "Endow" with War · Sea · Statecraft (the tab's own labels and
-  icons). Tapping a field arms it; "Endow Sea" then asks for a second tap ("Tap again to endow") and says how long
-  it is locked. While locked, the other fields are dim and the row says when it can change.
+  icons). Tapping a field arms its button at once ("Tap to endow Sea", in gilt), so it takes two taps; the button
+  says how long it is locked. While locked, the other fields are dim and the row says when it can change.
 - **AI** (`aiEndowment`, monthly, never changes it): Portugal, Castile and England endow Sea; otherwise
   expansionist and opportunist crowns War, defensive ones Statecraft, traders Sea if coastal, else Statecraft.
   `researchScore` divides by cost, so the AI's (and the player's scholars') next pick leans to the endowed field
@@ -699,12 +699,15 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
 - **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Eleven gold silhouettes in a 24 × 24 box standing
   on y = 21: dome, cathedral, spire, palace, castle, gate, pyramid, temple, mud mosque, bridge, tower. Each piece is
   filled and edged dark on its own, so overlapping pieces keep a thin edge.
-- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`). The mark stands
-  at the upper right of its town: its bottom-left corner at the town plus (0.25, −0.55) times the town picture's
-  size. It is 13 points at play zoom, growing like the towns, never under 9 and capped at 1.6 × the region's label
-  radius on screen, so Constantinople gets a small one. Where that box would cover the region's own name (Cairo,
-  whose town sits by its name), it is lifted just above the name. Not a tap target; hidden with the uncharted New
-  World.
+- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the spot in
+  `landmarkSpot.ts`). The mark stands at the upper right of its town: its bottom-left corner at the town plus
+  (0.25, −0.55) times the town picture's size. It is 13 points at play zoom, growing like the towns, never under 9
+  and capped at 1.6 × the region's label radius on screen, so Constantinople gets a small one. Where that box would
+  cover the region's own name (Cairo, whose town sits by its name), it is lifted just above the name. Where the
+  upper right falls outside the region (a town by a border or the sea), it tries the upper left, right above, the
+  three spots below, then level with the town on either side, and takes the first whose middle and foot are in its
+  own region; failing all (Constantinople at play zoom), it stands on the region's label point. A test checks every
+  landmark at five zooms. Not a tap target; hidden with the uncharted New World.
 - **Region sheet** (`ui/game/LandmarkLine.tsx`, under the pills, `testID="landmark"`): the pictogram on a raised
   tile, the name in Cinzel, the bonus in words (`modsText`), "Lost while occupied" when it is, and the history plus
   "It goes to whoever holds the region." behind its "?". How to play has a Landmarks topic and the glossary a
@@ -776,7 +779,8 @@ above.
 Three war ideas, each one button or one checkbox with its price shown before the tap.
 
 - **Storm the walls** (`siege.ts stormOdds`, `storm`, `aiStorms`; `commands.ts stormWalls`; `ui/game/StormButton.tsx`
-  on the army sheet's Siege section and on the region sheet under "Besieged by", for the siege's leader only).
+  on the army sheet just under its stats, in sight when the sheet opens compact, and on the region sheet under
+  "Besieged by", for the siege's leader only). It reads "55% chance · about 2,250 men".
   - **Odds:** 5%, plus 70% of the siege's progress, 5% a gun (+25% at most), 2% a regiment over the minimum (+10% at
     most), 3% a star of the best general there; 5% to 85%. The "?" beside the button lists the parts. The odds shown
     are the odds rolled (one `chance()`).
@@ -785,7 +789,8 @@ Three war ideas, each one button or one checkbox with its price shown before the
     its troops), with a lost battle's war exhaustion (`men / 1000 × 0.1`); counted in the player's men lost.
   - **Won:** the fort falls at once (`completeSiege`). **Thrown back:** the siege loses 10% of its progress.
   - **AI:** monthly, on each fort it besieges, when the odds reach 75% (`AI_STORM_CHANCE`). With no guns that needs
-    spare regiments or a general and a siege nearly done; with five guns about half done.
+    spare regiments or a general and a siege nearly done; with five guns about half done. Not when the siege would
+    end within 10 days anyway (`AI_STORM_DAYS_LEFT`): about a third of AI storms came 2–6 days from the fall.
 - **Humble them** (`war.ts HUMBLE_COST` 15%, `HUMBLE_RENOWN` 15, +5 against a rival). A checkbox at the peace table
   (demand only). The winner gains it times `1 + prestigeGain` (`humbleGain`, the figure the table and the offer card
   show), the loser loses it, on top of a won war's +10/−10.
@@ -793,14 +798,16 @@ Three war ideas, each one button or one checkbox with its price shown before the
   table, demanded or offered ("Pay reparations"), hidden while "Make them your vassal" is ticked (a vassal pays
   tribute). The loser pays a tenth of its taxes, trade and exports to the winner for 10 years (`Nation.reparations`):
   an expense line for the payer, an income line for the receiver. Its price is the gold rule on what it pays
-  (1.2% per gold of monthly income), 5% to 25%. One at a time: a new one replaces the old. It ends on its day, when
+  (1.2% per gold of monthly income), 2% to 25% (`REPARATIONS_MIN`: a 5% floor made them dearer than plain gold from a
+  small realm). One at a time: a new one replaces the old. It ends on its day, when
   either crown is gone, when the payer becomes anyone's subject, or in a war between the two (checked monthly, and
-  by the ledger). A subject pays none (`canPayReparations`): it is not priced, offered, asked or set, since it would
-  end at once.
+  by the ledger; the player is told when theirs end early). A subject pays none, nor a crown still fighting the
+  winner in another war (`canPayReparations`): it is not priced, offered, asked or set, since it would end at once.
 - **An ally's storm.** The siege's leader decides; men fall from every besieging army, so when an ally's storm costs
   the player men, the log says how many. The player's own toast counts the men who actually fell.
 - **AI peace terms** (`buildDemands`): vassals are decided first, as before. Then, with leverage left after land and
-  gold, reparations (loser's income 2 or more, under 50 gold asked), then humbling a rival. **Never in a limited war**
+  gold, reparations (loser's income 5 a month or more, `AI_REPARATIONS_INCOME`; under 50 gold asked), then
+  humbling a rival. **Never in a limited war**
   won by its attackers: Help promises the player such a war takes "only that region (and gold)". An ultimatum
   (`fitTerms`) carries land and gold only. AI against AI, terms refused with the extras are signed without them
   (`ai.ts acceptedTerms`), so the extras never keep a war going. An AI's offer of concessions to the player may carry
@@ -838,3 +845,24 @@ left between tracks:
 - **Still to watch** (from the track reviews): realms alive in 1500 came out lower on Track L's three seeds (−1, −8,
   −6) and mixed on R's and W's; AI reparations are rare (about 2% of AI peaces); the Ottomans endowing War take Pike
   and Shot about 1492–94 (the §5 safeguard, one line in `aiEndowment`, waits on `ottomans.ts 260`).
+
+## Fun batch 2: after the review
+
+- **Reparations already void** are no longer sold: a loser still at war with the winner in another war (drawn in by
+  an alliance or the Emperor) pays none, so they are not priced, offered or set (`canPayReparations(s, loser,
+  winner)`, decided in `makePeace` before the war ends). When the player's reparations, paid or received, end early,
+  the log says why.
+- **Reparations' floor** is 2%, not 5%, so from a small realm they cost no more leverage than the gold they bring
+  (Granada's 22 gold was 5%, the same as 50 gold now). The AI asks them only of a loser with 5 gold a month or more.
+- **The AI storms** only a siege with 10 or more days still to run. Seeds 1–3 to 1480 (`sieges.ts 36`): storms
+  tried 5 / 8 / 3 (were 7 / 14 / 8), men lost 6,750 / 12,750 / 4,500 (were 8,250 / 15,000 / 9,750); fort-1 sieges
+  took a median 44 / 56 / 52 days, within the seeds' noise.
+- **Landmarks stay in their region** at every zoom (`landmarkSpot.ts`): at play zoom Hagia Sophia stood in the
+  Black Sea, the Duomo in Romagna, St Stephen's in Upper Hungary and the Alhambra on Castile's side of the border.
+- **Buttons.** An armed confirm keeps its caller's layout (Storm the walls no longer pushes its "?" off the sheet);
+  the golden age and Endow arm in gilt, not the red of Disband. Storm the walls says "chance" and sits under the
+  army's stats. Endow takes two taps (the field arms its button). A foreign landmark's bonus says whose it is.
+- **Old saves:** a ruler with no crowning day (a save from before this batch) counts as crowned the day it loads,
+  so abdication still waits out the reign; a new game's rulers are crowned on day 0.
+- **Content:** the Dome of the Rock's line no longer calls it golden (lead from the Middle Ages until 1959–64); the
+  golden-age card reads its bonuses from `GOLDEN_MODS`.

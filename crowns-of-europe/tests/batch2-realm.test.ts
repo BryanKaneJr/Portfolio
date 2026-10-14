@@ -18,6 +18,7 @@ import {
   seizeGold,
 } from '../src/sim/realm';
 import { canAbdicate, rulerAsGeneral } from '../src/sim/rulers';
+import { migrateSave, newGame } from '../src/sim/state';
 import { abdicateRuler, crackDownOn, proclaimGolden, seizeTheEstates } from '../src/sim/commands';
 import type { GameState, NationId } from '../src/sim/types';
 import { months, sum, yearOf, years } from '../src/sim/util';
@@ -112,7 +113,7 @@ describe('abdicate', () => {
   test('each reason it is refused', () => {
     const s = emptyGame('ENG');
     const eng = s.nations.ENG;
-    // Henry VI (born 1421) has reigned since 1444 (no crowning day: read as day 0).
+    // Henry VI (born 1421) has reigned since 1444 (a new game's rulers are crowned on day 0).
     expect(canAbdicate(s, 'ENG')).toBe('Reigned under 10 years');
     eng.ruler.born = 1444 - 50;
     expect(canAbdicate(s, 'ENG')).toBeNull();
@@ -157,6 +158,20 @@ describe('abdicate', () => {
   });
 });
 
+test('abdicate: a save from before crowning days counts an unknown reign as just begun', () => {
+  const s = emptyGame('ENG');
+  s.day = years(86); // 1530
+  const old = JSON.parse(JSON.stringify(s)) as GameState;
+  delete old.nations.ENG.ruler.crowned;
+  old.nations.ENG.ruler.born = 1500;
+  const m = migrateSave(old)!;
+  expect(m.nations.ENG.ruler.crowned).toBe(m.day);
+  expect(canAbdicate(m, 'ENG')).toBe('Reigned under 10 years');
+  // A ruler who has one keeps it.
+  expect(newGame({ player: 'ENG', seed: 1 }).nations.ENG.ruler.crowned).toBe(0);
+  expect(migrateSave(JSON.parse(JSON.stringify(s)))!.nations.ENG.ruler.crowned).toBe(0);
+});
+
 describe('golden age', () => {
   function ready(s: GameState, n: NationId) {
     const nat = s.nations[n];
@@ -197,6 +212,7 @@ describe('golden age', () => {
     expect(after.unrest - before.unrest).toBeCloseTo(-1);
     const m = s.moments![s.moments!.length - 1];
     expect(m).toMatchObject({ kind: 'golden', card: true, tone: 'good', title: 'A Golden Age for France' });
+    expect(m.lines?.[1]).toBe('+10% tax income, 10% cheaper to invest, +10% levies, −1 unrest.');
     expect(m.lines?.[2]).toBe(`Until ${yearOf(s.day + years(50))}.`);
     // Once a game.
     expect(proclaimGolden(s).ok).toBe(false);

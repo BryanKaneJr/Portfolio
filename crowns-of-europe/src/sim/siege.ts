@@ -127,8 +127,10 @@ export const STORM_MEN_PER_FORT = 750;
 export const STORM_SETBACK = 0.1;
 export const STORM_MIN = 0.05;
 export const STORM_MAX = 0.85;
-/** The AI storms only at these odds or better. */
+/** The AI storms only at these odds or better, */
 export const AI_STORM_CHANCE = 0.75;
+/** and only a siege with at least this many days still to run (sooner, the men are better saved). */
+export const AI_STORM_DAYS_LEFT = 10;
 
 export interface StormOdds {
   chance: number; // 0..1
@@ -236,12 +238,18 @@ function takeMen(armies: Army[], men: number): Map<NationId, number> {
   return out;
 }
 
-/** Monthly, for an AI crown: storm the walls of each fort it besieges once the odds reach AI_STORM_CHANCE. */
+/**
+ * Monthly, for an AI crown: storm the walls of each fort it besieges once the odds reach AI_STORM_CHANCE, unless the
+ * siege would end within AI_STORM_DAYS_LEFT days anyway.
+ */
 export function aiStorms(s: GameState, nat: Nation): void {
   for (const reg of Object.values(s.regions)) {
     if (reg.siege?.by !== nat.id || reg.fort <= 0) continue;
     const o = stormOdds(s, reg.id);
-    if (o && !o.blocked && o.by === nat.id && o.chance >= AI_STORM_CHANCE) storm(s, reg.id);
+    if (!o || o.blocked || o.by !== nat.id || o.chance < AI_STORM_CHANCE) continue;
+    const daily = siegeInfo(s, reg.id)?.daily ?? 0;
+    if (daily > 0 && (1 - reg.siege.progress) / daily < AI_STORM_DAYS_LEFT) continue;
+    storm(s, reg.id);
   }
 }
 

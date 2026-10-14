@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg from 'react-native-svg';
-import { LANDMARK_AT } from '../../sim/content';
+import { LANDMARK_AT, nationName } from '../../sim/content';
 import { useStore } from '../../state/store';
 import { LANDMARK_ART } from '../components/landmarkArt';
 import { HelpButton, HelpNote } from '../components/kit';
@@ -20,6 +20,8 @@ export function LandmarkLine({ id }: { id: string }) {
   if (!lm || !r) return null;
   const art = LANDMARK_ART[lm.kind] ?? [];
   const occupied = r.controller !== r.owner;
+  // Someone else's: the bonus is its owner's, so say whose (and that others like them, not you, the better).
+  const bonus = !r.owner || r.owner === st.state!.player ? modsText(lm.mods) : `For ${nationName(r.owner)}: ${modsText(lm.mods).replace(' of you', ' of them')}`;
   return (
     <View style={{ marginBottom: 8 }} testID="landmark">
       <View style={styles.row}>
@@ -32,7 +34,7 @@ export function LandmarkLine({ id }: { id: string }) {
           <Text style={styles.name} numberOfLines={1}>
             {lm.name}
           </Text>
-          <Text style={[styles.bonus, occupied && { color: G.text3 }]}>{modsText(lm.mods)}</Text>
+          <Text style={[styles.bonus, occupied && { color: G.text3 }]}>{bonus}</Text>
           {occupied ? <Text style={[styles.bonus, { color: G.bad }]}>Lost while occupied</Text> : null}
         </View>
         <HelpButton open={open} onPress={() => setOpen(o => !o)} label={`About ${lm.name}`} />

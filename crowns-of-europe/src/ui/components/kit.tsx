@@ -96,13 +96,15 @@ export function useConfirm(key: string) {
     const t = setTimeout(() => setArmed(null), CONFIRM_MS);
     return () => clearTimeout(t);
   }, [on]);
-  return { armed: on, arm: () => setArmed(key), disarm: () => setArmed(null) };
+  // `armFor(k)` arms it for a key about to be the current one (a choice and its confirmation in one tap).
+  return { armed: on, arm: () => setArmed(key), armFor: (k: string) => setArmed(k), disarm: () => setArmed(null) };
 }
 
 /**
  * A button for what cannot be undone: the first tap arms it (it turns red, reads `confirm`, and says beneath what
  * will happen), a second tap acts. It disarms itself after a few seconds, or when `armKey` (what it acts on) changes.
- * Pass `state` (useConfirm) to know outside it when it is armed.
+ * Pass `state` (useConfirm) to know outside it when it is armed. `armedTone` 'gold' arms it in gilt instead of red,
+ * for a good act that is still for good (a golden age).
  */
 export function ConfirmBtn({
   label,
@@ -113,6 +115,7 @@ export function ConfirmBtn({
   state,
   small,
   tone = 'ghost',
+  armedTone = 'bad',
   style,
   testID,
 }: {
@@ -123,7 +126,8 @@ export function ConfirmBtn({
   armKey: string;
   state?: ReturnType<typeof useConfirm>;
   small?: boolean;
-  tone?: 'secondary' | 'ghost' | 'danger';
+  tone?: 'secondary' | 'ghost' | 'danger' | 'gold';
+  armedTone?: 'bad' | 'gold';
   style?: StyleProp<ViewStyle>;
   testID?: string;
 }) {
@@ -139,9 +143,9 @@ export function ConfirmBtn({
         c.disarm();
         onConfirm();
       }}
-      style={({ pressed }) => [styles.confirm, small && styles.confirmSmall, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}
+      style={({ pressed }) => [styles.confirm, armedTone === 'gold' && styles.confirmGold, small && styles.confirmSmall, style, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}
     >
-      <Text style={[styles.btnText, small && { fontSize: 14 }, { color: G.bad }]} numberOfLines={1}>
+      <Text style={[styles.btnText, small && { fontSize: 14 }, { color: armedTone === 'gold' ? G.gold : G.bad }]} numberOfLines={1}>
         {confirm}
       </Text>
       {consequences.map(line => (
@@ -340,6 +344,7 @@ export const styles = StyleSheet.create({
   btnText: { fontFamily: sans, fontSize: 16, fontWeight: '700', letterSpacing: 0.1 },
   btnSub: { fontFamily: sans, fontSize: 11, opacity: 0.75, marginTop: 1, textAlign: 'center' },
   confirm: { width: '100%', alignItems: 'center', justifyContent: 'center', minHeight: 48, paddingHorizontal: 16, paddingVertical: 9, borderRadius: R.lg, borderWidth: 1, backgroundColor: 'rgba(236,122,104,0.16)', borderColor: 'rgba(236,122,104,0.55)' },
+  confirmGold: { backgroundColor: 'rgba(214,178,110,0.16)', borderColor: G.gold },
   confirmSmall: { minHeight: 36, paddingVertical: 7 },
   confirmLine: { fontFamily: sans, fontSize: 12, color: G.text2, marginTop: 2, textAlign: 'center' },
   iconBtn: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },

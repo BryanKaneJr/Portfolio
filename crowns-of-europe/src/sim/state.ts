@@ -48,6 +48,9 @@ export function migrateSave(s: GameState): GameState | null {
   s.moments ??= [];
   // Saves from before campaigns had ids share the one old autosave slot.
   s.campaign ??= 'old';
+  // Saves from before rulers kept their crowning day: an unknown reign counts as just begun, so abdicating still
+  // waits out its years (a new game's rulers of 1444 have theirs, day 0).
+  for (const n of Object.values(s.nations)) if (n.ruler) n.ruler.crowned ??= s.day;
   return s;
 }
 
@@ -205,7 +208,7 @@ export function newGame(opts: NewGameOptions): GameState {
       prestige: def.tier === 'major' ? 20 : 10,
       threat: 0,
       loans: 0,
-      ruler: { ...def.ruler, traits: [...def.ruler.traits], regency: 1444 - def.ruler.born < 16 },
+      ruler: { ...def.ruler, traits: [...def.ruler.traits], regency: 1444 - def.ruler.born < 16, crowned: 0 },
       heir: def.heir ? { ...def.heir, traits: [...def.heir.traits] } : undefined,
       faith: def.faith,
       capital: def.capital,

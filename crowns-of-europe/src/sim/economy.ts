@@ -223,8 +223,16 @@ export const SHIP_DAYS = 60;
 // ---------------------------------------------------------------- monthly
 
 export function monthlyEconomy(s: GameState): void {
-  // Reparations that have run their course, or lost their reason, end.
-  for (const nat of Object.values(s.nations)) if (nat.reparations && !reparationsOf(s, nat.id)) delete nat.reparations;
+  // Reparations that have run their course, or lost their reason, end; the player hears when theirs end early.
+  for (const nat of Object.values(s.nations)) {
+    const rep = nat.reparations;
+    if (!rep || reparationsOf(s, nat.id)) continue;
+    delete nat.reparations;
+    if (rep.until > s.day && nat.alive && s.nations[rep.to]?.alive && (nat.id === s.player || rep.to === s.player)) {
+      const why = nat.overlord ? `${nationName(nat.id)} is now a subject` : 'the two crowns are at war';
+      log(s, 'economy', `${nationName(nat.id)}'s reparations to ${nationName(rep.to)} end early: ${why}.`, { important: true });
+    }
+  }
   for (const nat of Object.values(s.nations)) {
     if (!nat.alive) continue;
     const n = nat.id;

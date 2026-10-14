@@ -19,7 +19,7 @@ export function StormButton({ region }: { region: string }) {
   const o = stormOdds(s, region);
   if (!o || o.by !== s.player || s.regions[region].fort <= 0) return null;
   const pct = Math.round(o.chance * 100);
-  const sub = o.blocked ?? `${pct}% · about ${o.men.toLocaleString()} men`;
+  const sub = o.blocked ?? `${pct}% chance · about ${o.men.toLocaleString()} men`;
   return (
     <View style={{ marginTop: 10 }}>
       <Row gap={8}>

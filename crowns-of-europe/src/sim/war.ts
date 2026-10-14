@@ -63,16 +63,34 @@ export const HUMBLE_RIVAL = 5;
 /** Reparations: the loser pays a tenth of its taxes, trade and exports to the winner for ten years (economy.ts). */
 export { REPARATIONS_SHARE };
 export const REPARATIONS_YEARS = 10;
-/** Leverage reparations cost: the gold rule (1% for every 10 gold) on what they pay over the years, 5% to 25%. */
-export const reparationsCost = (s: GameState, loser: NationId) => clamp(Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS / 10), 5, 25);
+/** The least and most reparations cost in leverage. The floor stays low, so that from a small realm they are never
+ * dearer than the gold they bring. */
+export const REPARATIONS_MIN = 2;
+export const REPARATIONS_MAX = 25;
+/** Leverage reparations cost: the gold rule (1% for every 10 gold) on what they pay over the years, 2% to 25%. */
+export const reparationsCost = (s: GameState, loser: NationId) =>
+  clamp(Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS / 10), REPARATIONS_MIN, REPARATIONS_MAX);
+/** The AI asks reparations only of a loser with at least this much income a month (60 gold over the ten years). */
+const AI_REPARATIONS_INCOME = 5;
 /** Renown a humbled loser gives up (and the winner gains before its own bonus). */
 export const humbleRenown = (s: GameState, winner: NationId, loser: NationId) => HUMBLE_RENOWN + (s.nations[winner]?.rivals.includes(loser) ? HUMBLE_RIVAL : 0);
 /** Renown the winner gains by humbling the loser: humbleRenown with its own bonus to renown gained. */
 export const humbleGain = (s: GameState, winner: NationId, loser: NationId) => Math.round(humbleRenown(s, winner, loser) * (1 + nationMods(s, winner).prestigeGain));
-/** Only a free realm pays reparations: a subject's would end at once (economy.ts reparationsOf). */
-export const canPayReparations = (s: GameState, loser: NationId) => !!s.nations[loser]?.alive && !s.nations[loser].overlord;
+/** Wars in which these two crowns stand on opposite sides. */
+const opposedWars = (s: GameState, a: NationId, b: NationId) => Object.values(s.wars).filter(w => {
+  const sa = sideOf(w, a);
+  const sb = sideOf(w, b);
+  return sa !== null && sb !== null && sa !== sb;
+}).length;
+/**
+ * Only a free realm pays reparations, and only to a crown it is not still fighting in another war: either would end
+ * them at once (economy.ts reparationsOf). Asked while the war being ended is still on, so one war between the two
+ * is that war.
+ */
+export const canPayReparations = (s: GameState, loser: NationId, winner?: NationId) =>
+  !!s.nations[loser]?.alive && !s.nations[loser].overlord && (!winner || opposedWars(s, loser, winner) <= 1);
 /** Reparations count in these terms: asked of a free realm, and not of one made a vassal (it pays tribute instead). */
-const reparationsIn = (s: GameState, t: PeaceTerms) => !!t.reparations && !t.vassalize && canPayReparations(s, t.loser);
+const reparationsIn = (s: GameState, t: PeaceTerms) => !!t.reparations && !t.vassalize && canPayReparations(s, t.loser, t.winner);
 /** Dev-only counters (scripts/dev): AI peaces that are not white, and those that humble or ask reparations. */
 export const COUNTS = { peaces: 0, humbled: 0, reparations: 0 };
 
@@ -589,6 +607,9 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + truce;
   // Everyone in it rests before the next war (the AI's rest counts from here as well as from a declaration).
   for (const n of everyone) if (s.nations[n]) s.nations[n].ai.lastPeace = s.day;
+  // A vassal pays tribute instead; a realm the peace ended pays nothing; nor does one still fighting the winner in
+  // another war (decided while this war is still on: canPayReparations). One at a time: a new one replaces the old.
+  const reparations = !terms.white && !!s.nations[loser] && reparationsIn(s, terms);
   delete s.wars[w.id];
   // A conquest's follow-up card (`onPeace`) is checked today, not at the next monthly pass (events.ts peaceEvents).
   s.flags._peaceToday = 1;
@@ -607,9 +628,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
       W.prestige = clamp(W.prestige + base * (1 + nationMods(s, winner).prestigeGain), 0, 100);
       if (L) L.prestige = clamp(L.prestige - base, 0, 100);
     }
-    // A vassal pays tribute instead; a realm the peace ended pays nothing. One at a time: a new one replaces the old.
-    const reparations = !!L && reparationsIn(s, terms);
-    if (reparations) L.reparations = { to: winner, until: s.day + years(REPARATIONS_YEARS) };
+    if (reparations && L) L.reparations = { to: winner, until: s.day + years(REPARATIONS_YEARS) };
     if (winner !== s.player && loser !== s.player) {
       COUNTS.peaces++;
       if (terms.humble) COUNTS.humbled++;
@@ -631,7 +650,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
   if (!terms.white && terms.humble) parts.push(`${nationName(loser)} is humbled`);
-  if (!terms.white && reparationsIn(s, terms)) parts.push(`${nationName(loser)} pays reparations`);
+  if (reparations) parts.push(`${nationName(loser)} pays reparations`);
   if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
   if (all.includes(s.player)) {
     const mine = winner === s.player || winners.includes(s.player);
@@ -755,7 +774,7 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   if (terms.vassalize || only) return terms;
   left -= Math.round(terms.gold / 10);
   const rc = reparationsCost(s, loser);
-  if (left >= rc && terms.gold < 50 && incomeBase(s, loser) >= 2 && canPayReparations(s, loser)) {
+  if (left >= rc && terms.gold < 50 && incomeBase(s, loser) >= AI_REPARATIONS_INCOME && canPayReparations(s, loser, winner)) {
     terms.reparations = true;
     left -= rc;
   }

@@ -108,6 +108,17 @@ export const GOLDEN = { renown: 40, order: 1, advances: 4, years: 50 };
 export const GOLDEN_MODS: Modifiers = { taxIncome: 0.1, devCost: -0.1, manpower: 0.1, unrest: -1 };
 export const GOLDEN_ID = 'golden_age';
 
+/** How each of GOLDEN_MODS reads on the golden age's card (the Realm tab lists them through ui/describe). */
+const GOLDEN_WORDS: Partial<Record<keyof Modifiers, (v: number) => string>> = {
+  taxIncome: v => `${v > 0 ? '+' : '−'}${Math.round(Math.abs(v) * 100)}% tax income`,
+  devCost: v => `${Math.round(Math.abs(v) * 100)}% ${v < 0 ? 'cheaper' : 'dearer'} to invest`,
+  manpower: v => `${v > 0 ? '+' : '−'}${Math.round(Math.abs(v) * 100)}% levies`,
+  unrest: v => `${v > 0 ? '+' : '−'}${Math.abs(v)} unrest`,
+};
+/** The card's line of bonuses, read from GOLDEN_MODS so the two never drift apart. */
+export const goldenLine = () =>
+  (Object.entries(GOLDEN_MODS) as [keyof Modifiers, number][]).map(([k, v]) => GOLDEN_WORDS[k]?.(v) ?? `${k} ${v}`).join(', ') + '.';
+
 export interface GoldenCheck {
   label: string;
   ok: boolean;
@@ -147,7 +158,7 @@ export function proclaimGoldenAge(s: GameState, n: NationId): boolean {
       card: true,
       tone: 'good',
       title: `A Golden Age for ${nationName(n)}`,
-      lines: ['Fifty years of plenty begin.', '+10% tax income, 10% cheaper to invest, +10% levies, −1 unrest.', `Until ${yearOf(until)}.`],
+      lines: ['Fifty years of plenty begin.', goldenLine(), `Until ${yearOf(until)}.`],
       nation: n,
     });
     log(s, 'ruler', `A golden age begins for ${nationName(n)}, until ${yearOf(until)}.`, { nation: n, important: true });

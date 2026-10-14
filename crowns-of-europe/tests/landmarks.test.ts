@@ -1,5 +1,5 @@
 /** Landmarks (fun batch 2, track L): fifteen famous places, one bonus each for whoever holds the region. */
-import { LANDMARKS, LANDMARK_AT, REGION, type LandmarkDef } from '../src/sim/content';
+import { LANDMARKS, LANDMARK_AT, MAP_REGION, REGION, type LandmarkDef } from '../src/sim/content';
 import { MODIFIER_KEYS } from '../src/sim/dsl';
 import { heldBy, landmarkErrors, landmarksHeld } from '../src/sim/landmarks';
 import { invalidateMods, modifierSources, nationMods } from '../src/sim/queries';
@@ -7,6 +7,10 @@ import { annexNation, releaseNation, setController, transferRegion } from '../sr
 import { declareWar, makePeace } from '../src/sim/war';
 import { newGame } from '../src/sim/state';
 import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
+import { PLAY_K, REGION_NAMES_K, grow } from '../src/ui/map/anchors';
+import { K_MAX } from '../src/ui/map/camera';
+import { regionAt } from '../src/ui/map/geometry';
+import { markSize, markSpot } from '../src/ui/map/landmarkSpot';
 import { emptyGame, forceWar } from './helpers';
 
 /** A fresh 1444 game whose modifiers are read afresh (newGame may read some before it hands out the policies). */
@@ -208,3 +212,23 @@ describe('a new game', () => {
     expect(nationMods(loaded, 'CAS')).toEqual(fresh);
   });
 });
+
+describe('landmarks on the map', () => {
+  test('every mark stands inside its own region, at every zoom it shows at', () => {
+    for (const k of [REGION_NAMES_K, PLAY_K, 2.4, 3, K_MAX]) {
+      const px = (n: number) => n / k;
+      for (const lm of LANDMARKS) {
+        const r = MAP_REGION[lm.region];
+        const size = px(markSize(r.labelRadius, k));
+        // No town, the smallest town picture and the largest (MapView TOWN_ART 19-30 points, at least 10, capped
+        // at 2.2 times the label radius on screen).
+        const towns = [size, ...[19, 30].map(pt => px(Math.min(pt * grow(k), Math.max(10, r.labelRadius * k * 2.2))))];
+        for (const t of towns) {
+          const [x, y] = markSpot(lm.region, k, px, size, t);
+          expect([k, lm.id, regionAt(x + size / 2, y + size * 0.6), regionAt(x + size / 2, y + size * 0.85)]).toEqual([k, lm.id, lm.region, lm.region]);
+        }
+      }
+    }
+  });
+});
+

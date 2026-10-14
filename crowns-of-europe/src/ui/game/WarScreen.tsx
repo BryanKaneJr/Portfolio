@@ -12,6 +12,8 @@ import { REBELS, ownedRegions, sideOf, subjectsOf } from '../../sim/queries';
 import {
   CB_LABEL,
   HUMBLE_COST,
+  REPARATIONS_MAX,
+  REPARATIONS_MIN,
   REPARATIONS_SHARE,
   REPARATIONS_YEARS,
   ULTIMATUM_SCORE,
@@ -107,7 +109,7 @@ export function WarPanel({ warId }: { warId: string }) {
           .sort((a, b) => b.price - a.price || regionName(a.r).localeCompare(regionName(b.r)));
   // Humbling is demanded, never offered; reparations either way, but never from a vassal (it pays tribute instead).
   const humbleOn = mode === 'demand' && humble;
-  const mayReparations = !vassalize && canPayReparations(s, loser);
+  const mayReparations = !vassalize && canPayReparations(s, loser, winner);
   const reparationsOn = reparations && mayReparations;
   const terms: PeaceTerms = {
     regions,
@@ -344,7 +346,7 @@ export function WarPanel({ warId }: { warId: string }) {
             title="Peace"
             help={
               mode === 'demand'
-                ? 'Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years. Humbling them moves renown from them to you. Reparations are priced like the gold they pay over the years, at most 25%.'
+                ? `Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years. Humbling them moves renown from them to you. Reparations are priced like the gold they pay over the years: ${REPARATIONS_MIN}% to ${REPARATIONS_MAX}%.`
                 : `Offer any of your land, or gold. The % beside a region is what it is worth to ${nationName(enemy)}: its full price if it is next to their land, they claim, want or hold it, or it is the war goal; half for land far from them. Gold is 1% for every 10. They accept if it covers their leverage.${limitedNote}`
             }
           >

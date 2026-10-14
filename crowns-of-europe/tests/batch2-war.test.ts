@@ -1,6 +1,6 @@
 /** Fun batch 2, war: storming the walls, humbling the loser, reparations. */
 import { emptyGame, army, forceWar } from './helpers';
-import { STORM_MEN_PER_FORT, STORM_SETBACK, aiStorms, storm, stormOdds } from '../src/sim/siege';
+import { AI_STORM_DAYS_LEFT, STORM_MEN_PER_FORT, STORM_SETBACK, aiStorms, siegeInfo, storm, stormOdds } from '../src/sim/siege';
 import {
   HUMBLE_COST,
   REPARATIONS_SHARE,
@@ -177,10 +177,21 @@ describe('storm the walls: the roll', () => {
     aiStorms(low.s, low.s.nations.FRA);
     expect(low.reg.siege!.stormed).toBeUndefined();
     expect(low.reg.controller).toBe('BUR');
-    const high = siegeAt(1, 8, 5, 0.9); // 5 + 63 + 25 + 10 → 85%
-    forceRoll(high.s, 0.85, true);
+    const high = siegeAt(1, 8, 5, 0.6); // 5 + 42 + 25 + 10 → 82%, with weeks still to run
+    forceRoll(high.s, 0.8, true);
     aiStorms(high.s, high.s.nations.FRA);
     expect(high.reg.controller).toBe('FRA');
+  });
+
+  test('the AI does not storm a siege about to end on its own', () => {
+    const near = siegeAt(1, 8, 5, 0.97); // 85%, a day or two from falling
+    const daily = siegeInfo(near.s, 'burgundy')!.daily;
+    expect((1 - 0.97) / daily).toBeLessThan(AI_STORM_DAYS_LEFT);
+    forceRoll(near.s, 0.85, true);
+    aiStorms(near.s, near.s.nations.FRA);
+    expect(near.reg.controller).toBe('BUR');
+    expect(near.reg.siege!.stormed).toBeUndefined();
+    expect(armyMen(near.a)).toBe(8000 + 5 * 1000);
   });
 });
 
@@ -227,14 +238,14 @@ describe('humble them', () => {
 });
 
 describe('reparations', () => {
-  test('cost: 1.2% per gold of monthly income, 5% to 25%', () => {
+  test('cost: 1.2% per gold of monthly income, 2% to 25%', () => {
     const { s } = warFraBur();
     const base = incomeBase(s, 'BUR');
-    expect(reparationsCost(s, 'BUR')).toBe(Math.min(25, Math.max(5, Math.round(base * 1.2))));
+    expect(reparationsCost(s, 'BUR')).toBe(Math.min(25, Math.max(2, Math.round(base * 1.2))));
     const lands = Object.values(s.regions).filter(r => r.owner === 'BUR');
     for (const r of lands.slice(1)) transferRegion(s, r.id, 'FRA');
     lands[0].dev = 1;
-    expect(reparationsCost(s, 'BUR')).toBe(5);
+    expect(reparationsCost(s, 'BUR')).toBe(2);
     lands[0].dev = 200;
     expect(reparationsCost(s, 'BUR')).toBe(25);
     expect(peaceCost(s, deal({ reparations: true }))).toBe(25);
@@ -295,6 +306,15 @@ describe('reparations', () => {
     s.nations.FRA.rivals = [];
     const t = buildDemands(s, w, 'FRA', reparationsCost(s, 'BUR'));
     expect(t.reparations).toBe(true);
+    // Not of a realm too poor for them to be worth the leverage (under 5 gold a month).
+    const poor = warFraBur();
+    poor.s.nations.BUR.gold = 0;
+    poor.s.nations.FRA.rivals = [];
+    const lands = Object.values(poor.s.regions).filter(r => r.owner === 'BUR');
+    for (const r of lands.slice(1)) transferRegion(poor.s, r.id, 'FRA');
+    lands[0].dev = 1;
+    expect(incomeBase(poor.s, 'BUR')).toBeLessThan(5);
+    expect(buildDemands(poor.s, poor.w, 'FRA', 60).reparations).toBeFalsy();
     // A limited war won by its attackers takes its region and gold, nothing more.
     w.limited = true;
     w.goal = 'burgundy';
@@ -318,6 +338,36 @@ describe('the extras: limits and the shown sums', () => {
     expect(buildDemands(s, w, 'FRA', 60).reparations).toBeFalsy();
     makePeace(s, w, deal({ gold: 10, reparations: true }));
     expect(s.nations.BUR.reparations).toBeUndefined();
+  });
+
+  test('none from a crown still fighting the winner in another war: not priced, not asked, not set', () => {
+    const { s, w } = warFraBur();
+    s.nations.BUR.gold = 0;
+    s.nations.FRA.rivals = [];
+    expect(canPayReparations(s, 'BUR', 'FRA')).toBe(true);
+    // Castile goes to war with France and Burgundy joins it: the two are at war twice over.
+    forceWar(s, 'CAS', 'FRA');
+    const w2 = declareWar(s, 'CAS', 'FRA', 'none')!;
+    expect(joinWar(s, 'BUR', w2.id, 0)).toBe(true);
+    expect(canPayReparations(s, 'BUR', 'FRA')).toBe(false);
+    expect(canPayReparations(s, 'BUR')).toBe(true);
+    expect(peaceCost(s, deal({ gold: 10, reparations: true }))).toBe(peaceCost(s, deal({ gold: 10 })));
+    expect(buildDemands(s, w, 'FRA', 60).reparations).toBeFalsy();
+    makePeace(s, w, deal({ gold: 10, reparations: true }));
+    expect(s.nations.BUR.reparations).toBeUndefined();
+    expect(s.log.some(l => l.text.includes('pays reparations'))).toBe(false);
+  });
+
+  test('the player hears when reparations end early', () => {
+    const s = emptyGame('FRA');
+    forceWar(s, 'FRA', 'BUR');
+    const w = declareWar(s, 'FRA', 'BUR', 'none')!;
+    makePeace(s, w, deal({ reparations: true }));
+    expect(s.nations.BUR.reparations).toBeDefined();
+    s.nations.BUR.overlord = 'HAB';
+    monthlyEconomy(s);
+    expect(s.nations.BUR.reparations).toBeUndefined();
+    expect(s.log[0].text).toBe("Burgundy's reparations to France end early: Burgundy is now a subject.");
   });
 
   test('the renown shown for humbling is the renown gained', () => {

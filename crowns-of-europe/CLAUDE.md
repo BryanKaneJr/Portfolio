@@ -70,9 +70,10 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                names (incl. general names by culture and regnal seeds), events-historical, events-generic,
                events-newworld, events-history-{west,iberia-italy,empire-north,east-balkans,levant-africa-americas}
                (the history cards of fun batch 1), formables (the 28 greater crowns), missions, achievements, advances
-               (science), aims (historical aims and old friendships/enmities), map.json (generated)
+               (science), aims (historical aims and old friendships/enmities), landmarks (the fifteen famous places:
+               region, bonus, picture kind, history line), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols,
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, landmarks + landmarkSpot, reliefTiles, terrain, terrainSymbols,
                terrainLayer + terrainCache + terrainTiles + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe

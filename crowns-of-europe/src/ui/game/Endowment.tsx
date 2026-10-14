@@ -7,7 +7,7 @@ import { FIELDS } from '../../sim/science';
 import { yearOf, years } from '../../sim/util';
 import { useStore } from '../../state/store';
 import { Icon, type IconName } from '../components/Icon';
-import { ConfirmBtn, Row, T } from '../components/kit';
+import { ConfirmBtn, Row, T, useConfirm } from '../components/kit';
 import { C, sans } from '../theme';
 
 const pct = (x: number) => `${Math.round(Math.abs(x) * 100)}%`;
@@ -21,10 +21,12 @@ export function Endowment({ fields }: { fields: Record<Field, { label: string; i
   const until = endowLockedUntil(me);
   const lockedTill = until !== undefined && s.day < until ? yearOf(until) : null;
   const armed = pick && !endowBlocked(s, p, pick) ? pick : null;
+  // Picking a field arms its confirmation at once: the field, then the confirm (two taps).
+  const confirm = useConfirm(armed ?? '');
   return (
     <View style={styles.box}>
       <Text style={styles.name}>Endow</Text>
-      <T v="tiny">{lockedTill ? `Change again in ${lockedTill}` : `Its advances ${pct(ENDOW.own)} cheaper, the others ${pct(ENDOW.others)} dearer`}</T>
+      <T v="tiny">{lockedTill ? `Change again in ${lockedTill}` : `Pick a field: its advances ${pct(ENDOW.own)} cheaper, the others ${pct(ENDOW.others)} dearer`}</T>
       <Row gap={6} style={{ marginTop: 8 }}>
         {FIELDS.map(f => {
           const on = me.endowment?.field === f;
@@ -36,7 +38,15 @@ export function Endowment({ fields }: { fields: Record<Field, { label: string; i
               accessibilityRole="button"
               accessibilityLabel={`Endow ${fields[f].label}`}
               accessibilityState={{ selected: on, disabled: blocked }}
-              onPress={blocked ? undefined : () => setPick(x => (x === f ? null : f))}
+              onPress={
+                blocked
+                  ? undefined
+                  : () => {
+                      const next = pick === f ? null : f;
+                      setPick(next);
+                      if (next) confirm.armFor(next);
+                    }
+              }
               style={[styles.seg, on && styles.segOn, armed === f && styles.segArmed, blocked && !on && { opacity: 0.4 }]}
             >
               <Icon name={fields[f].icon} size={15} color={on ? '#1a1408' : C.goldDark} />
@@ -50,9 +60,11 @@ export function Endowment({ fields }: { fields: Record<Field, { label: string; i
           <ConfirmBtn
             small
             tone="secondary"
+            armedTone="gold"
+            state={confirm}
             armKey={armed}
             label={`Endow ${fields[armed].label}`}
-            confirm="Tap again to endow"
+            confirm={`Tap to endow ${fields[armed].label}`}
             consequences={[`${fields[armed].label} advances ${pct(ENDOW.own)} cheaper, the others ${pct(ENDOW.others)} dearer`]}
             onConfirm={() => {
               setPick(null);

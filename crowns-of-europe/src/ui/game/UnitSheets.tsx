@@ -136,6 +136,8 @@ export function ArmySheet({ id }: { id: string }) {
         <Bar value={a.morale / max} color={C.green} />
       </View>
       {odds ? <OddsLine odds={odds} /> : null}
+      {/* Storming the walls sits up here, in sight when the sheet opens compact (the siege's progress is below). */}
+      {siege?.enough && reg && reg.owner && reg.owner !== a.owner && reg.controller !== a.owner ? <StormButton region={a.node} /> : null}
       {orders}
       <Section title="General" help={`Each star adds ${Math.round(STAR_BONUS * 100)}% to everything the army does: damage in battle, steadiness, march and siege speed. Your ruler can lead in person; if they fall, the heir takes the throne.`}>
         {picking ? null : a.general ? <GeneralRow name={a.general.isRuler ? `${a.general.name} (ruler)` : a.general.name} stars={a.general.stars} /> : <Empty text="No general" />}
@@ -186,7 +188,6 @@ export function ArmySheet({ id }: { id: string }) {
             <>
               <Line label={reg.fort ? `Fort level ${reg.fort}` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}% · ~${Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days`} />
               <Bar value={reg.siege?.progress ?? 0} color={C.red} />
-              <StormButton region={a.node} />
             </>
           ) : siege ? (
             <T v="small">Needs {minSiegeRegs(reg.fort)} regiments.</T>

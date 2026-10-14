@@ -31,7 +31,7 @@ import { modLines } from '../describe';
 
 const minus = (v: number) => `−${Math.abs(v)}`;
 
-/** A two-tap button that shows its price (`sub`) before the first tap and again while armed. */
+/** A two-tap button that shows its price (`sub`) before the first tap and again while armed (in gilt for a gold one). */
 function TwoTap({
   armKey,
   label,
@@ -55,7 +55,7 @@ function TwoTap({
 }) {
   const c = useConfirm(armKey);
   if (disabled || !c.armed) return <Btn small={small} tone={tone} label={label} sub={sub} disabled={disabled} onPress={c.arm} style={{ marginTop: 6 }} testID={testID} />;
-  return <ConfirmBtn small={small} state={c} armKey={armKey} label={label} confirm={confirm} consequences={[sub]} onConfirm={onConfirm} style={{ marginTop: 6 }} testID={testID} />;
+  return <ConfirmBtn small={small} state={c} armKey={armKey} label={label} confirm={confirm} consequences={[sub]} onConfirm={onConfirm} tone={tone} armedTone={tone === 'gold' ? 'gold' : 'bad'} style={{ marginTop: 6 }} testID={testID} />;
 }
 
 /** The Invest section's help sentence on the crackdown's price. */
@@ -141,7 +141,7 @@ export function GoldenAgeSection() {
   if (g && inGoldenAge(s, p))
     return (
       <Section title="Golden age" help={HELP}>
-        <Line label="Golden age" value={`until ${yearOf(g.until)}`} tone="good" />
+        <Line label="Lasts until" value={`${yearOf(g.until)}`} tone="good" />
         {modLines(GOLDEN_MODS).map(m => (
           <Text key={m.text} style={{ fontFamily: sans, fontSize: 13, color: m.good ? G.good : G.bad }}>
             {m.text}
