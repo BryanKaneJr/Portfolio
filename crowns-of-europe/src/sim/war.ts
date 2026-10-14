@@ -566,6 +566,8 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   // Everyone in it rests before the next war (the AI's rest counts from here as well as from a declaration).
   for (const n of everyone) if (s.nations[n]) s.nations[n].ai.lastPeace = s.day;
   delete s.wars[w.id];
+  // A conquest's follow-up card (`onPeace`) is checked today, not at the next monthly pass (events.ts peaceEvents).
+  s.flags._peaceToday = 1;
   // Proposals and an ultimatum still waiting in this war end with it.
   s.offers = s.offers.filter(o => o.kind !== 'peace' || o.war !== w.id);
   bumpWars();

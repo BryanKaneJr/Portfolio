@@ -155,12 +155,22 @@ export function learnAdvance(s: GameState, n: NationId, id: string): void {
   const first = !Object.values(s.nations).some(o => o.id !== n && knows(o, id));
   nat.advances.push(id);
   if (def.armyEra) nat.era = Math.max(nat.era, def.armyEra);
-  if (nat.researching === id) nat.researching = null;
+  const wasStudying = nat.researching === id;
+  if (wasStudying) nat.researching = null;
   invalidateMods();
   markMapDirty(); // the Science map mode
   if (n === s.player) {
     const what = advanceUnlockText(def);
     log(s, 'economy', `Your scholars have mastered ${def.name}${what ? `. ${what}.` : '.'}`, { important: true });
+    // The scholars never sit idle: they go on down the same track, else to the advance an adviser would pick.
+    if (wasStudying) {
+      const open = availableAdvances(s, n);
+      const next = track(def.field).find(a => open.includes(a))?.id ?? chooseResearch(s, n);
+      if (next) {
+        nat.researching = next;
+        log(s, 'economy', `Your scholars turn to ${ADVANCE[next].name}. Change it in Science.`, { important: true });
+      }
+    }
   } else if (first) log(s, 'news', `${nationName(n)} is the first to master ${def.name}.`, { nation: n });
 }
 

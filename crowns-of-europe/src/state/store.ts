@@ -13,6 +13,7 @@ import type { Result } from '../sim/commands';
 import * as commands from '../sim/commands';
 import { MAP_REGION, MAP_SEA, bindDisplay } from '../sim/content';
 import { battleResult, offerTitle } from '../ui/describe';
+import { buzz } from '../ui/haptics';
 
 /** How the map is painted (src/ui/map/styles.ts). A device preference, not part of the saved game. */
 export type MapStyleId = 'illustrated' | 'painted' | 'atlas' | 'parchment' | 'flat';
@@ -106,6 +107,8 @@ class GameStore {
 
   load(s: GameState) {
     this.stop();
+    // A new campaign gets its own id here (the sim never reads the clock), so it keeps its own autosave.
+    s.campaign ??= `${s.player}-${Date.now().toString(36)}`;
     this.state = s;
     bindDisplay(s);
     this.selection = null;
@@ -135,6 +138,7 @@ class GameStore {
   run(cmd: (s: GameState) => Result, opts: { quiet?: boolean; map?: boolean } = {}): Result {
     if (!this.state) return { ok: false, msg: 'No game' };
     const r = cmd(this.state);
+    if (r.ok) buzz();
     if (r.msg && !(opts.quiet && r.ok)) this.toast(r.msg, r.ok ? 'info' : 'bad');
     invalidateMods();
     this.notify();

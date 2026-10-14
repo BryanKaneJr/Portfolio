@@ -23,6 +23,7 @@ export const BANNED: [RegExp, string][] = [
   [/\bcasus belli\b/i, 'reason for war'],
   [/\baggressive expansion\b/i, 'Threat'],
   [/\bmonarch points?\b|\bmana\b/i, '(we have no point currencies)'],
+  [/\bdiplomatic reputation\b/i, 'diplomatic skill'],
   [/\bmaneuvers?\b|\b(fire|shock)( phase| skill|\s+\d)|\bpips?\b/i, 'a general\'s stars; volleys / charges'],
 ];
 
@@ -55,7 +56,7 @@ for (const file of [...walk(path.join(ROOT, 'src/sim')), ...walk(path.join(ROOT,
         for (let k = 0; k < 4; k++) jsx = jsx.replace(/\{[^{}<>]*\}/g, '…');
         for (const m of jsx.matchAll(/>([^<>]*[A-Za-z][^<>]*)</g)) check(`${rel}:${i + 1}`, m[1].trim());
         // Text on its own line between tags (not an object property or a line of code).
-        const t = jsx.trim();
+        const t = jsx.trim().replace(/^(…[\s·,:\-–]*)+/, ''); // a line that opens with an {expression}
         if (/^[A-Za-z][^<>=;]*$/.test(t) && /\s/.test(t) && !/[({,]$/.test(t) && !/^\w+:\s*['"`…]/.test(t)) check(`${rel}:${i + 1}`, t);
       }
     });

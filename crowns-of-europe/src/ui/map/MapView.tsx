@@ -17,6 +17,7 @@ import { C, kmen, sans } from '../theme';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
+import { BANNER_RISE, FEET_Y, MIN_NAME_RADIUS, PLAY_K, REGION_NAMES_K, TROOP_H, UNITS_K, ZOOM_GROW, armyAnchor, grow, nameSize, tokenScale } from './anchors';
 import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
@@ -892,46 +893,7 @@ export interface ChipPos {
   y: number;
 }
 
-/** Region names replace the nation names from this zoom on; a region's name is written if it is at least this many
- * points across (its label radius). */
-export const REGION_NAMES_K = 1.15;
-const MIN_NAME_RADIUS = 13;
-/** Units show from the zoom at which region names do. Further out the map is for the realms and their names, and only
- * a unit you have selected (or a battle) stays on it, so names and tokens never fight. Only the units you would know
- * about are drawn at all (`seesUnit`): yours, your friends', your enemies', and anyone's in your land. */
-export const UNITS_K = REGION_NAMES_K;
-/** The zoom the game opens at and "show on map" goes to: regions are big enough here for a name with an army under it. */
-export const PLAY_K = 1.7;
-/**
- * Names, towns and units keep their size on screen up to play zoom; closer in they grow, though more slowly than the
- * map (about 1.6x at the closest zoom), so they stay easy to read and to find without crowding the land.
- */
-export const ZOOM_GROW = 0.45;
-export const grow = (k: number) => Math.pow(Math.max(1, k / PLAY_K), ZOOM_GROW);
-/** A token's scale: a little smaller between UNITS_K and PLAY_K, where regions are close together; growing past it. */
-export const tokenScale = (k: number) => Math.max(0.82, Math.min(1, 0.82 + ((k - UNITS_K) / (PLAY_K - UNITS_K)) * 0.18)) * grow(k);
-/** A region name's size on screen (points), as StaticLayer writes it. */
-export const nameSize = (labelRadius: number, k: number) => Math.max(9, Math.min(14 * grow(k), labelRadius * k * 0.42));
-
-/** Where a region's armies stand (map units): just under its name when the name is written at this zoom (the name's
- * descenders, a small gap, then the token's top), else on its centre. (An army at sea is on its fleet's route.) */
-export function armyAnchor(id: string, k: number): [number, number] {
-  const [x, y] = regionPoint(id);
-  const r = MAP_REGION[id];
-  if (!r || k < REGION_NAMES_K || r.labelRadius * k < MIN_NAME_RADIUS) return [x, y];
-  const key = `${id}:${k.toFixed(3)}`;
-  const known = anchors.get(key);
-  if (known) return known;
-  const name = nameSize(r.labelRadius, k) * 0.55 + 3;
-  const ts = tokenScale(k);
-  let at: [number, number] = [x, y + (name + TOKEN_TOP * ts) / k];
-  // In a small region the banner's height would put the troops past its edge: there the banner rises beside the name.
-  if (regionAt(x, at[1] + (FEET_Y * ts) / k) !== id) at = [x, y + (name + FIGURE_TOP * ts) / k];
-  if (anchors.size > 4000) anchors.clear();
-  anchors.set(key, at);
-  return at;
-}
-const anchors = new Map<string, [number, number]>();
+export { REGION_NAMES_K, UNITS_K, PLAY_K, ZOOM_GROW, grow, tokenScale, nameSize, armyAnchor };
 /** Where a fleet sits in a sea: just above the sea's name. */
 const fleetAnchor = (id: string, k: number): [number, number] => {
   const [x, y] = regionPoint(id);
@@ -1069,7 +1031,6 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
  * TROOP_H points tall at play zoom, standing on the base; a fleet is a lone ship, or several from FLEET ships
  * (SHIP_H points tall), riding a little low on its base.
  */
-const TROOP_H = 36;
 const SQUAD = 4;
 const HOST = 10;
 const FLEET = 5;
@@ -1118,18 +1079,12 @@ export function townArt(r: Region | undefined): keyof typeof TOWN_ART | null {
 const townKey = (s: GameState) => `${s.discovery ? 1 : 0}${MAP.regions.map(r => townArt(s.regions[r.id]) ?? '').join(',')}`;
 /** A region name's letters' width, as a share of its size (Cinzel capitals, slightly spaced). */
 const NAME_EM = 0.68;
-const FEET_Y = 7; // where a figure stands, below the token's point (points)
 const BADGE_X = 8; // the count badge's left end, right of the token's point (points)
 /** The realm's banner over each unit: its flag (as in the headers) on a pole that tops the figure by BANNER_RISE, the
  * cloth BANNER_W wide, waving and cut in a shallow swallowtail, inked like the drawings and a little faded. */
 const BANNER_W = 15;
-const BANNER_RISE = 7;
 const INK = '#2a1d12';
 const BANNER_D = 'M0 0.5C6 -1.2 11 2.2 17 0.6S26 -0.6 30 0.8L26.5 10.4L30 20C25 18.6 21 21.6 15 20.2S5 19 0 20.5Z'; // in the flag's 30 x 20 box
-/** From the token's point up to the top of the banner (points). */
-const TOKEN_TOP = TROOP_H - FEET_Y + BANNER_RISE + 3;
-/** From the token's point up to the top of the figure, with a little room (points). */
-const FIGURE_TOP = TROOP_H - FEET_Y + 3;
 /** Where a token looks to be, above its point (the middle of the figure): taps are measured from here (points). */
 export const TOKEN_MIDDLE = 12;
 

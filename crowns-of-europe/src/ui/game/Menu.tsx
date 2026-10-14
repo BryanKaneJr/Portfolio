@@ -32,7 +32,7 @@ import { scoreFor } from '../../sim/war';
 import { hreMembers } from '../../sim/religion';
 import { shipCount } from '../../sim/navy';
 import type { CasusBelli, PauseReason } from '../../sim/types';
-import { formatShortDate, yearOf } from '../../sim/util';
+import { formatShortDate, monthYear, yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab, idleColonists } from './ColonySheets';
 import { GeneralRow } from './UnitSheets';
@@ -439,7 +439,7 @@ function DangerSection({ t }: { t: Ties }) {
           <View style={{ flex: 1 }}>
             <Text style={styles.rowTitle}>{nationName(x.nation)}</Text>
             <Text style={styles.rowSub}>
-              {x.waitingUntil !== undefined ? `Waiting out a truce to ${yearOf(x.waitingUntil)}` : x.restingUntil !== undefined ? `Resting to ${yearOf(x.restingUntil)}` : 'Could attack'}
+              {x.waitingUntil !== undefined ? `Waiting out a truce until ${monthYear(x.waitingUntil)}` : x.restingUntil !== undefined ? `Resting until ${monthYear(x.restingUntil)}` : 'Could attack'}
             </Text>
           </View>
           <Text style={[styles.dangerWhy, { color: C.red }]}>{THREAT_WHY[x.reason]}</Text>

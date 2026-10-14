@@ -56,7 +56,7 @@ export default function NewGame() {
           <View>
             <Text style={styles.previewName}>{def.name}</Text>
             <Text style={styles.previewSub}>
-              {regions.length} regions · development {dev}
+              {regions.length} regions · prosperity {dev}
             </Text>
           </View>
         </Glass>

@@ -29,8 +29,11 @@ import { findSeaPath } from './navy';
 import {
   allied,
   armyMen,
+  MAX_MARRIAGES,
   armyRegs,
+  enemyArmyAt,
   invalidateMods,
+  marriageCount,
   maxMorale,
   ownedRegions,
   sideOf,
@@ -193,9 +196,17 @@ export function recruit(s: GameState, region: string, type: UnitType, count = 1)
   return ok(`${count} ${type === 'inf' ? 'infantry' : type === 'cav' ? 'cavalry' : 'artillery'} regiment${count > 1 ? 's' : ''} will be ready in ${RECRUIT_DAYS} days.`);
 }
 
-export function hireMercenaries(s: GameState, region: string, regs: number): Result {
+/** Why mercenaries cannot be hired in this region now (null: they can). */
+export function mercBlocked(s: GameState, region: string): string | null {
   const reg = s.regions[region];
-  if (!reg || reg.controller !== s.player) return no('Mercenaries muster in a region you hold.');
+  if (!reg || reg.controller !== s.player) return 'Mercenaries muster in a region you hold.';
+  if (enemyArmyAt(s, s.player, region)) return `An enemy army stands in ${regionName(region)}: hire mercenaries somewhere safe.`;
+  return null;
+}
+
+export function hireMercenaries(s: GameState, region: string, regs: number): Result {
+  const why = mercBlocked(s, region);
+  if (why) return no(why);
   const cost = mercCost(s, s.player, regs);
   if (!pay(s, cost)) return no(`A company of ${regs} regiments costs ${cost} gold.`);
   const cav = Math.round(regs / 4);
@@ -530,6 +541,8 @@ export function answerOffer(s: GameState, offerId: string, accept: boolean): Res
       return ok('You politely decline.');
     case 'marriage':
       if (accept) {
+        if (marriageCount(s, s.player) >= MAX_MARRIAGES) return no('Your house has no one left to marry: at most four royal marriages.');
+        if (marriageCount(s, o.from) >= MAX_MARRIAGES) return no('Their house already has four royal marriages.');
         s.marriages[[s.player, o.from].sort().join('|')] = s.day;
         return ok(`A royal marriage with ${from}.`);
       }

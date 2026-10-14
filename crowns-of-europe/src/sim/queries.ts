@@ -41,6 +41,14 @@ export function aliveNations(s: GameState): Nation[] {
 
 export const allied = (s: GameState, a: NationId, b: NationId) => pairKey(a, b) in s.alliances;
 export const married = (s: GameState, a: NationId, b: NationId) => pairKey(a, b) in s.marriages;
+/** A house takes no new royal marriage past this many (those of 1444 stand, even if more). */
+export const MAX_MARRIAGES = 4;
+/** How many royal marriages bind this house. */
+export function marriageCount(s: GameState, n: NationId): number {
+  let k = 0;
+  for (const key in s.marriages) if (key.split('|').includes(n)) k++;
+  return k;
+}
 export const hasTruce = (s: GameState, a: NationId, b: NationId) => (s.truces[pairKey(a, b)] ?? -1) > s.day;
 export function alliesOf(s: GameState, n: NationId): NationId[] {
   const out: NationId[] = [];
@@ -120,6 +128,14 @@ export function hostile(s: GameState, a: NationId, b: NationId, rebelOfA?: Natio
   return !!warBetween(s, a, b);
 }
 export const armiesHostile = (s: GameState, x: Army, y: Army) => hostile(s, x.owner, y.owner, x.rebelOf, y.rebelOf);
+/** Does an army hostile to `n` (an enemy's, or rebels against it) stand in `node`? */
+export function enemyArmyAt(s: GameState, n: NationId, node: NodeId): boolean {
+  for (const id in s.armies) {
+    const o = s.armies[id];
+    if (o.node === node && hostile(s, n, o.owner, undefined, o.rebelOf)) return true;
+  }
+  return false;
+}
 
 export function neighborsOf(s: GameState, n: NationId): NationId[] {
   const set = new Set<NationId>();

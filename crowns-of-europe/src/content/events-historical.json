@@ -40,6 +40,7 @@
     "nations": ["TUR"],
     "window": [1444, 1650],
     "mtth": 1,
+    "onPeace": true,
     "news": "Constantinople has fallen to the Ottomans. The last Roman city is gone.",
     "trigger": {"all": [{"owns": "constantinople"}, {"not": {"flag": "constantinople_fell"}}]},
     "choices": [
@@ -227,6 +228,7 @@
     "nations": ["TUR"],
     "window": [1450, 1700],
     "mtth": 1,
+    "onPeace": true,
     "news": "The Knights of St John have surrendered Rhodes to the Ottomans.",
     "trigger": {"owns": "rhodes"},
     "choices": [
@@ -553,6 +555,7 @@
     "nations": ["TUR"],
     "window": [1690, 1760],
     "mtth": 24,
+    "onPeace": true,
     "trigger": {"all": [{"flag": "great_turkish_war"}, {"not": {"atWarWith": "HAB"}}, {"not": {"owns": "austria"}}]},
     "choices": [
       {
@@ -757,6 +760,7 @@
     "nations": ["FRA"],
     "window": [1444, 1550],
     "mtth": 2,
+    "onPeace": true,
     "news": "France has driven the English from Normandy and Gascony. The Hundred Years' War is over.",
     "trigger": {"owns": ["normandy", "gascony"]},
     "choices": [
@@ -1446,6 +1450,7 @@
     "nations": ["CAS", "ARA", "POR"],
     "window": [1444, 1650],
     "mtth": 1,
+    "onPeace": true,
     "news": "Granada has fallen. The last Muslim kingdom in Iberia is no more.",
     "trigger": {"all": [{"faith": "catholic"}, {"owns": "granada"}, {"not": {"flag": "granada_fell"}}]},
     "choices": [
@@ -2390,7 +2395,8 @@
       "all": [
         {"exists": "TEU"},
         {"nationOwns": {"nation": "TEU", "region": "danzig"}},
-        {"not": {"atWarWith": "TEU"}}
+        {"not": {"atWarWith": "TEU"}},
+        {"not": {"flag": "prussian_towns_reconciled"}}
       ]
     },
     "choices": [
@@ -2455,6 +2461,7 @@
     "nations": ["POL"],
     "window": [1455, 1510],
     "mtth": 6,
+    "onPeace": true,
     "news": "Poland and the Teutonic Order have made peace at Thorn.",
     "trigger": {
       "all": [

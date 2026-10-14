@@ -74,6 +74,11 @@ export const formatShortDate = (dayNumber: number): string => {
   const p = dateOf(dayNumber);
   return `${p.day} ${MONTH_NAMES[p.month].slice(0, 3)} ${p.year}`;
 };
+/** "Nov 1445": a month and year, for dates that are not to the day. */
+export const monthYear = (dayNumber: number): string => {
+  const p = dateOf(dayNumber);
+  return `${MONTH_NAMES[p.month].slice(0, 3)} ${p.year}`;
+};
 export const DAYS_PER_YEAR = 365.25;
 export const months = (n: number) => Math.round(n * 30.44);
 export const years = (n: number) => Math.round(n * DAYS_PER_YEAR);

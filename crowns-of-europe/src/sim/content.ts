@@ -275,3 +275,20 @@ export const displayOf = (id: NationId): Display => displayIn(shown, id);
 export const nationName = (id: NationId | null): string => (id === null ? 'Natives' : id === 'REB' ? 'Rebels' : NATION[id] ? displayOf(id).name : id);
 export const nationAdj = (id: NationId): string => displayOf(id).adj;
 export const nationFlag = (id: NationId): FlagDef => displayOf(id).flag;
+
+// ---------------------------------------------------------------- generals and regnal numbers (T1)
+
+const nameTables = namesJson as unknown as {
+  groups: Record<NationId, string>;
+  generals: Record<string, string[]>;
+  regnal: Record<NationId, Record<string, number>>;
+  aliases: Record<string, string[]>;
+};
+/** How a crown's generals are named: templates with `{first}` for a first name from `namePool`. */
+export function generalPool(nation: NationId): string[] {
+  return nameTables.generals[nameTables.groups[nation] ?? 'german'] ?? ['{first}'];
+}
+/** The highest number each featured crown's real rulers reached with a name, before 1444. */
+export const REGNAL: Record<NationId, Record<string, number>> = nameTables.regnal;
+/** Other spellings of a pool name, as the starting rulers' names give them ("Friedrich" ↔ "Frederick"). */
+export const NAME_ALIASES: Record<string, string[]> = nameTables.aliases;

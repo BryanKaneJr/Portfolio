@@ -46,6 +46,8 @@ export function migrateSave(s: GameState): GameState | null {
   s.unseenReports ??= [];
   s.unseenReports = liveUnseenReports(s);
   s.moments ??= [];
+  // Saves from before campaigns had ids share the one old autosave slot.
+  s.campaign ??= 'old';
   return s;
 }
 
@@ -129,6 +131,8 @@ export interface NewGameOptions {
   ironman?: boolean;
   tutorial?: boolean;
   seed?: number;
+  /** The campaign's id, for its own autosave; the store gives one to a new game that has none. */
+  campaign?: string;
 }
 
 export function newGame(opts: NewGameOptions): GameState {
@@ -171,6 +175,7 @@ export function newGame(opts: NewGameOptions): GameState {
     achievements: [],
     seq: 0,
     moments: [],
+    ...(opts.campaign ? { campaign: opts.campaign } : {}),
   };
 
   for (const r of REGIONS) {

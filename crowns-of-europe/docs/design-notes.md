@@ -49,7 +49,7 @@ here.
 7. **Rulers can lead armies** as generals; if one falls in battle the heir succeeds.
 8. **Tutorial:** short first-time hints ("your chancellor advises") and a How to Play page instead of a scripted
    20-minute tutorial. Portugal and Castile are marked "recommended for your first campaign".
-9. **Audio is not in yet** (no assets). Haptics fire on selections and orders.
+9. **Audio is not in yet** (no assets). Haptics (phones only, not the web) on selections and on every successful order.
 10. **Our own words for the numbers.** The doc borrowed the genre's usual names; the game says prosperity,
     levies, order, renown, leverage, army limit, integrated and exports instead (coalition, colonists, war
     exhaustion, policies and missions keep their names), explained in a "Words used in this game" list on the How to Play page. The
@@ -502,3 +502,28 @@ Not yet done:
   colonial race (in AI-only games the coasts are mostly settled by about 1600–1650, faster than history).
 - AI navies: the AI rarely builds transports, so overseas wars are mostly fought by troops raised in the colonies.
 - Store assets, bundle identifier (`com.crownsofeurope.app` is a placeholder) and EAS configuration.
+
+## Fun batch 1: bug fixes
+
+- **Armies march unless the sea is clearly faster.** Routes are ranked with a day at sea counted double and 6 days
+  added for taking ship; the days shown are still the real ones. Islands and lands with no road still sail.
+- **Generals' names** come from houses of the realm's own people that were around in 1444 (or a title where
+  surnames were not used): `names.json` `generals`, one list per name group, `{first}` for the first name.
+- **Regnal numbers** follow each featured crown's real list (`names.json` `regnal`, with `aliases` for the
+  English spellings of the starting rulers): France's next Charles is VIII. No random skips, no cap.
+- **A rising with no region named** breaks out in the realm's most restless region away from the capital with
+  none of its armies in it, not on top of the capital's army. Beating rebels counts as a win but sets no record
+  for the achievements (best ratio, armies annihilated).
+- **A generic card does not come back** to the same realm for 10 years.
+- **An autosave per campaign**, the 3 newest kept. The store gives a new game its campaign id; old saves keep
+  the one old slot.
+- **Conquest follow-ups (`onPeace`)** fire on the day the peace is signed instead of at the next month.
+- **Old friends never become rivals** (a `friends` bond refuses it, for the player and the AI).
+- **At most four royal marriages per house** for new matches (those of 1444 stand); each one a house already has
+  makes another less welcome.
+- **Science never sits idle:** after an advance, your scholars go on down the same track, else to what an adviser
+  would pick, and the log says so.
+- **Mercenaries** can't be hired where an enemy army stands.
+- **Army tokens stand on their own land:** under the region's name, else with the banner beside it, above the name,
+  at the town, or on the name (`ui/map/anchors.ts`).
+

@@ -14,6 +14,8 @@ import {
   borders,
   hasTruce,
   hostile,
+  MAX_MARRIAGES,
+  marriageCount,
   married,
   militaryPower,
   nationMods,
@@ -208,11 +210,15 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
       if (married(s, from, to)) return fail('Already married into their dynasty.');
       if (NATION[from].gov !== 'monarchy' || NATION[to].gov !== 'monarchy') return fail('Only monarchies arrange royal marriages.');
       if (hostile(s, from, to)) return fail('You are at war.');
+      if (marriageCount(s, from) >= MAX_MARRIAGES) return fail('Your house has no one left to marry: at most four royal marriages.');
+      if (marriageCount(s, to) >= MAX_MARRIAGES) return fail('Their house already has four royal marriages.');
       add('Base', 0);
       add('Opinion of you', op / 3);
       add('Diplomatic skill', dip);
       if (A.faith !== B.faith) add('Different faith', A.faith === 'muslim' || B.faith === 'muslim' ? -100 : -20);
       add('Your renown', A.prestige / 10);
+      const ties = marriageCount(s, to);
+      if (ties) add('Ties to other houses', -10 * ties);
       break;
     }
     case 'access': {
@@ -271,6 +277,8 @@ export const GIFT_AMOUNT = (s: GameState, from: NationId) => Math.max(25, Math.r
 export function canRival(s: GameState, from: NationId, to: NationId): string | null {
   if (s.nations[from].rivals.includes(to)) return 'Already your rival.';
   if (s.nations[from].rivals.length >= 3) return 'You can have at most three rivals.';
+  const friends = bondsBetween(s, from, to).find(b => b.kind === 'friends');
+  if (friends) return `An old friend of your house (${friends.label}).`;
   if (proximity(s, from, to) < 0.2) return 'Too far away to be a rival.';
   const r = totalDev(s, to) / Math.max(1, totalDev(s, from));
   if (r < 0.4 || r > 3) return 'Rivals must be roughly your size.';
