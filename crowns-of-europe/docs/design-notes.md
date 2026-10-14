@@ -630,3 +630,57 @@ The first, simple pass at "the fun stuff".
 - **A battle's why.** A battle keeps how the sides stood on its first day (`Battle.opening`). Its report keeps that
   with the ground (`BattleReport.why`). `describe.ts battleWhy` turns it into at most three lines from the player's
   side, under the report. Older reports show nothing.
+
+## Fun batch 2 (L): Landmarks
+Fifteen famous places, each with one fixed bonus for whoever holds its region. The idea is borrowed (great
+buildings that reward the realm holding them); the rule, names, wording and pictures are our own. No building, no
+upkeep, no upgrades, and nothing to manage: take the region and the bonus is yours.
+- **Data.** `content/landmarks.json`: `{ id, region, name, kind, mods, text }`, loaded as `LANDMARKS` and
+  `LANDMARK_AT` (region → landmark) in `content.ts`. Each has exactly one modifier key, sized like a policy's single
+  line, and a history line of at most 90 characters. `npm run validate` checks the region, one landmark per region,
+  one known key, a picture for its `kind` and the text's length (`landmarkErrors` in `sim/landmarks.ts`), and
+  `check-terms.ts` reads the file.
+- **Rule** (`sim/landmarks.ts`). `landmarksHeld(s, n)`: the landmarks whose region `n` owns and controls. An occupied
+  landmark gives nothing to anyone until it is free. `modifierSources` (queries.ts) lists each one under its name,
+  so it shows in the Realm tab's modifier list with no more work. `territory.ts` refreshes the cached modifiers when
+  a landmark's region changes owner (`transferRegion`, annexation, release) or controller (`setController`), and the
+  player gets a banner (a `headline` moment): "Hagia Sophia is ours" or "Hagia Sophia is lost".
+- **The fifteen and their bonuses** (starting holders in brackets; only the Mamluks hold two, neither for war):
+
+  | Landmark | Region | Bonus |
+  |---|---|---|
+  | Hagia Sophia | Constantinople (BYZ) | −1 unrest |
+  | St Peter's | Rome (PAP) | +10 opinion of you |
+  | The Duomo | Tuscany (FLO) | +10% science |
+  | Dome of the Rock | Palestine (MAM) | +15% trade income |
+  | Notre-Dame | Île-de-France (FRA) | −20% cost to raise order |
+  | St Stephen's | Austria (HAB) | +1 diplomatic skill |
+  | Westminster | London (ENG) | +10% tax income |
+  | The Alhambra | Granada (GRA) | −15% cost to invest |
+  | The Kremlin | Moscow (MOS) | +20% fort defense |
+  | The Arsenal | Veneto (VEN) | −25% ship cost |
+  | The Pyramids | Cairo (MAM) | +25% renown gained |
+  | Templo Mayor | Anáhuac (AZT) | +15% levies |
+  | Djinguereber | Timbuktu (MAL) | +10% science |
+  | Charles Bridge | Bohemia (BOH) | +10% movement speed |
+  | The Giralda | Andalusia (CAS) | +20% settler growth |
+- **AI.** No change: a landmark is not a war aim, so the AI's wars do not move. It gains the bonus like anyone by
+  holding the region.
+- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Eleven gold silhouettes in a 24 × 24 box standing
+  on y = 21: dome, cathedral, spire, palace, castle, gate, pyramid, temple, mud mosque, bridge, tower. Each piece is
+  filled and edged dark on its own, so overlapping pieces keep a thin edge.
+- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`). The mark stands
+  at the upper right of its town: its bottom-left corner at the town plus (0.25, −0.55) times the town picture's
+  size. It is 13 points at play zoom, growing like the towns, never under 9 and capped at 1.6 × the region's label
+  radius on screen, so Constantinople gets a small one. Where that box would cover the region's own name (Cairo,
+  whose town sits by its name), it is lifted just above the name. Not a tap target; hidden with the uncharted New
+  World.
+- **Region sheet** (`ui/game/LandmarkLine.tsx`, under the pills, `testID="landmark"`): the pictogram on a raised
+  tile, the name in Cinzel, the bonus in words (`modsText`), "Lost while occupied" when it is, and the history plus
+  "It goes to whoever holds the region." behind its "?". How to play has a Landmarks topic and the glossary a
+  Landmark entry.
+- **Measured** (AI-only soak to 1500, seeds 1 and 2, against the branch point). Nothing in the AI's choices changed,
+  so the games only drift apart as any small change makes them: wars started 53 and 55 (56 and 52 before), realms
+  alive 45 and 46 (46 and 54), the New World found 1491 and 1477 (1487 and 1477). Time per day 2.57 and 2.62 ms
+  (2.54 and 2.91): `landmarksHeld` is fifteen lookups per uncached `nationMods`, too small to see. The lead's §6 runs
+  compare the merged batch with its baseline on more seeds.

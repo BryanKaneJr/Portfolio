@@ -3,6 +3,7 @@
  * Run: npm run validate   (part of npm run check)
  */
 import { CHARGES, FLAG_PATTERNS } from '../src/ui/components/charges';
+import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
 import {
   ACHIEVEMENTS,
   ADVANCE,
@@ -26,6 +27,7 @@ import {
   START_ADVANCES,
   CROWN,
   CROWNS,
+  LANDMARKS,
 } from '../src/sim/content';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -35,6 +37,7 @@ import newWorldEventsJson from '../src/content/events-newworld.json';
 import { newGame } from '../src/sim/state';
 import { GOOD_VALUE } from '../src/sim/colonies';
 import { EVENT_IMAGES, FAITHS, MODIFIER_KEYS, validateCondition, validateEffect } from '../src/sim/dsl';
+import { landmarkErrors } from '../src/sim/landmarks';
 
 const errs: string[] = [];
 const warns: string[] = [];
@@ -282,6 +285,9 @@ for (const n of NATIONS) {
   }
 }
 
+// Landmarks: a real region each (one apiece), one known bonus, a picture we can draw, a short history.
+errs.push(...landmarkErrors(LANDMARKS, Object.keys(LANDMARK_ART)));
+
 for (const w of warns) console.warn('warn:', w);
 if (errs.length) {
   for (const e of errs) console.error('error:', e);
@@ -289,5 +295,5 @@ if (errs.length) {
   process.exit(1);
 }
 console.log(
-  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements, ${AIMS.length} aims, ${ADVANCES.length} advances`,
+  `content ok: ${REGIONS.length} regions, ${NATIONS.length} nations, ${EVENTS.length} events, ${MISSIONS.length} missions, ${ACHIEVEMENTS.length} achievements, ${AIMS.length} aims, ${ADVANCES.length} advances, ${LANDMARKS.length} landmarks`,
 );
