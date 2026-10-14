@@ -157,7 +157,8 @@ export function likelySides(s: GameState, a: NationId, b: NationId): { attackers
   const c = coalitionAgainst(s, a);
   if (c?.members.includes(b)) for (const m of c.members) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
   for (const m of imperialDefenders(s, a, b)) if (!defenders.includes(m) && !attackers.includes(m)) defenders.push(m);
-  for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && answers(al, a, b, false)) join(attackers, al);
+  // Nobody stands by a crown that breaks its truce to attack: its allies stay out.
+  if (!hasTruce(s, a, b)) for (const al of alliesOf(s, a)) if (!defenders.includes(al) && !attackers.includes(al) && answers(al, a, b, false)) join(attackers, al);
   return { attackers, defenders };
 }
 
@@ -520,6 +521,8 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   // Everyone in it, taken before a vassalized loser (and its subjects) leaves the war below.
   const everyone = [...w.attackers, ...w.defenders];
   const winSide = sideOf(w, terms.winner);
+  // The aggressor of a war without a reason pays more Threat for what it takes (not its victim, if the victim wins).
+  const unjust = w.cb === 'none' && winSide === 0;
   const winners = winSide === 1 ? w.defenders : w.attackers;
   const losers = winSide === 1 ? w.attackers : w.defenders;
   const winner = terms.winner;
@@ -531,7 +534,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
       if (!isIn(losers, reg.owner)) continue;
       const claimed = r in s.nations[winner].claims || reg.cores.includes(winner);
       // Europe barely notices land taken from New World peoples.
-      threat += reg.dev * 2.5 * (claimed ? 0.6 : w.cb === 'none' ? UNJUST_LAND : 1) * (isNativeNation(reg.owner!) ? 0.3 : 1);
+      threat += reg.dev * 2.5 * (claimed ? 0.6 : unjust ? UNJUST_LAND : 1) * (isNativeNation(reg.owner!) ? 0.3 : 1);
       transferRegion(s, r, winner, { conquest: true });
       if (winner === s.player) s.stats.regionsConquered++;
     }
@@ -546,7 +549,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
     }
     if (terms.vassalize && s.nations[loser]?.alive) {
       makeSubject(s, winner, loser, 'vassal');
-      threat += totalDev(s, loser) * 0.5;
+      threat += totalDev(s, loser) * 0.5 * (unjust ? UNJUST_LAND : 1);
     }
     if (w.cb === 'independence' && winSide === 0) releaseSubject(s, w.attackers[0]);
   }

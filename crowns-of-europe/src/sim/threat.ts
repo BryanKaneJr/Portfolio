@@ -23,11 +23,15 @@ import { chance, clamp } from './util';
 export const COALITION_JOIN = 40;
 export const COALITION_LEAVE = 28;
 
+/** The Threat `n` would actually gain from `amount` (its modifiers scale a gain, not a loss). */
+export function threatGainOf(s: GameState, n: NationId, amount: number): number {
+  return amount > 0 ? amount * (1 + nationMods(s, n).threatGain) : amount;
+}
+
 export function addThreat(s: GameState, n: NationId, amount: number): void {
   const nat = s.nations[n];
   if (!nat) return;
-  const k = amount > 0 ? 1 + nationMods(s, n).threatGain : 1;
-  nat.threat = clamp(nat.threat + amount * k, 0, 200);
+  nat.threat = clamp(nat.threat + threatGainOf(s, n, amount), 0, 200);
 }
 
 const proxCache = new Map<string, number>();

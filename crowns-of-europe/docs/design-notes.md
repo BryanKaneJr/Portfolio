@@ -407,22 +407,25 @@ here.
       at most 15 (`truceYears`); the peace screens show it. A lesser crown no longer forges claims on a fellow
       member of the Empire or a crown it has a truce with.
     - A crown that holds a claim on a neighbour whose truce with it ends within two years (`TRUCE_WAIT`) waits for
-      that war: no other war, no claim forged elsewhere; its sheet says "Waiting until 1448". Without it, France
+      that war (the war on the land's overlord, a neighbour it is not allied to, and a claim that outlives the
+      truce): no other war, no claim forged elsewhere; its sheet says "Waiting until 1448". Without it, France
       spent the last years of the truce of Tours forging and fighting over Brittany, was resting when the truce ran
       out, and found England allied to Burgundy: England kept Normandy in 5 of 8 games.
     - The price of a war without a reason (owner's request: steep enough to stop a player spamming wars) is 1 order,
       10 renown and 20 Threat, 10 more for each other such war in the last 10 years (`unjustThreat`), every crown
       thinks 25 worse of the attacker (fading 0.5 a month), and land taken in it adds 1.5 times the usual Threat:
-      two in ten years bring a coalition near (40). Breaking a truce costs 3 order, 30 renown and 30 Threat, every
-      crown thinks 40 worse, and no ally answers the call (subjects still follow); a war an event starts is exempt.
-      The war screen shows the exact cost. The AI does neither: it never picks a neighbour under truce, and with no
-      reason it forges a claim.
+      two in ten years bring a coalition near (40); the extra Threat for land is the aggressor's alone (a victim
+      that wins pays the usual). Breaking a truce costs 3 order, 30 renown and 30 Threat, every crown thinks 40
+      worse, and no ally answers the call (subjects still follow; the war screen lists none); a war an event starts
+      is exempt. The war screen shows the exact cost, the crown's own Threat modifiers included. The AI does
+      neither: it never picks a neighbour under truce, a subject never rises in a truce with its overlord, and with
+      no reason the AI forges a claim.
     - `npx tsx scripts/dev/warchance.ts [year] [seed] [--opening]` prints each crown's chance and what makes it up;
       `--opening` models the first years' wars and the Ottoman opening in under a second.
-    - England and Burgundy are old enemies from Arras and the siege of Calais until the Burgundian marriage of
-      1468 (a new bond), and a bond now counts in alliance talks (+25 old friends, −50 old enemies): England had
-      allied with Burgundy by 1447 in AI games, and France, waiting out the truce of Tours, found the English lands
-      out of its reach.
+    - England and Burgundy are old enemies from Arras and the siege of Calais until 1455, past the last of the
+      Hundred Years' War (a new bond; it ends then so England's mission for the Burgundian alliance stays open), and
+      a bond now counts in alliance talks (+25 old friends, −50 old enemies): England had allied with Burgundy by
+      1447 in AI games, and France, waiting out the truce of Tours, found the English lands out of its reach.
     - Measured over 8 AI-only games to 1560 against the same seeds with the code before the claims of 1444 changed
       (`scripts/dev/aiwars.ts 116 1 2 3 4 5 6 7 8`, `scripts/dev/opening.ts 1 48 1450`): wars declared 95.5 → 74 a
       game; in the first two years 13 → 2, in the 1440s 17.5 → 5.5; holy wars 25 → 20.5; wars between members of the

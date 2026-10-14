@@ -7,7 +7,7 @@ import { boostStability, playerDeclareWar } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
 import { liveUnseenReports, modifierSources } from '../../sim/queries';
 import { TRUCE_BREAK, UNJUST_LAND, UNJUST_WAR, casusBelli, likelySides, unjustThreat } from '../../sim/war';
-import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
+import { perceivedThreat, coalitionAgainst, threatGainOf } from '../../sim/threat';
 import { formatShortDate, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
@@ -227,7 +227,7 @@ export function DeclareWarPanel({ target }: { target: string }) {
               {c.why || c.until !== undefined ? <Text style={styles.optionSub}>{claimNote(c.why, c.until)}</Text> : null}
               {c.cb === 'none' ? (
                 <Text style={[styles.optionSub, { color: C.red }]}>
-                  −{UNJUST_WAR.order} order · −{UNJUST_WAR.renown} renown · +{unjustThreat(s, s.player)} Threat · −{-UNJUST_WAR.opinion} opinion
+                  −{UNJUST_WAR.order} order · −{UNJUST_WAR.renown} renown · +{Math.round(threatGainOf(s, s.player, unjustThreat(s, s.player)))} Threat · −{-UNJUST_WAR.opinion} opinion
                 </Text>
               ) : null}
             </Pressable>
@@ -236,7 +236,7 @@ export function DeclareWarPanel({ target }: { target: string }) {
       </Section>
       {truce ? (
         <T v="small" style={{ color: C.red, marginTop: 8 }}>
-          Breaks a truce: −{TRUCE_BREAK.order} order, −{TRUCE_BREAK.renown} renown, +{TRUCE_BREAK.threat} Threat, every crown thinks {-TRUCE_BREAK.opinion} worse of you, and no ally will join you.
+          Breaks a truce: −{TRUCE_BREAK.order} order, −{TRUCE_BREAK.renown} renown, +{Math.round(threatGainOf(s, s.player, TRUCE_BREAK.threat))} Threat, every crown thinks {-TRUCE_BREAK.opinion} worse of you, and no ally will join you.
         </T>
       ) : null}
       <Section title="Likely to fight with you">

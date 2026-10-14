@@ -213,6 +213,24 @@ describe('the war chance', () => {
     expect(warOdds(s, 'FRA').blocked).toBeUndefined();
   });
 
+  test('no waiting for a war it could never declare, nor for a claim that lapses first', () => {
+    const s = game(['FRA']);
+    const fra = s.nations.FRA;
+    delete s.truces[pairKey('ENG', 'FRA')];
+    // A truce with its own vassal, Provence, over a claim on Provence's land: never a war, so no wait.
+    expect(s.nations.PRO.overlord).toBe('FRA');
+    fra.claims.provence = -1;
+    s.truces[pairKey('FRA', 'PRO')] = s.day + years(1);
+    expect(warOdds(s, 'FRA').blocked).toBeUndefined();
+    // A claim on England's land that lapses before the truce with England ends: nothing to wait for.
+    fra.claims = { normandy: s.day + years(0.5) };
+    s.truces[pairKey('ENG', 'FRA')] = s.day + years(1);
+    expect(warOdds(s, 'FRA').blocked).toBeUndefined();
+    // The same claim lasting past the truce: France waits for England.
+    fra.claims = { normandy: s.day + years(5) };
+    expect(warOdds(s, 'FRA').waitingFor).toBe('ENG');
+  });
+
   test('the Emperor’s peace between members of the Empire', () => {
     const s = game(['BRA']);
     const o = warOdds(s, 'BRA');

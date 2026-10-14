@@ -57,8 +57,11 @@ describe('war and peace', () => {
     // Scotland is next door to England: it joins France's attack, Denmark doesn't.
     expect(aiAnswersCall(s, 'SCO', 'FRA', 'ENG', false)).toBe(true);
     expect(aiAnswersCall(s, 'DAN', 'FRA', 'ENG', false)).toBe(false);
-    // A crown planning a war counts only the allies who would come.
+    // A crown planning a war counts only the allies who would come (with the truce of Tours over: nobody joins a
+    // truce-breaker).
     s.alliances[pairKey('DAN', 'FRA')] = s.day;
+    expect(likelySides(s, 'FRA', 'ENG').attackers).not.toContain('SCO');
+    delete s.truces[pairKey('ENG', 'FRA')];
     const sides = likelySides(s, 'FRA', 'ENG');
     expect(sides.attackers).toContain('SCO');
     expect(sides.attackers).not.toContain('DAN');

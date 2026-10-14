@@ -547,7 +547,7 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
     const over = nat.overlord;
     if (!atWar(s, over) || chance(s, 0.1)) {
       const ratio = militaryPower(s, n) / Math.max(1, militaryPower(s, over));
-      if (ratio > 0.9 && opinion(s, n, over) < 0 && chance(s, 0.2) && !canDeclareWar(s, n, over)) declareWar(s, n, over, 'independence', undefined, 'independence');
+      if (ratio > 0.9 && opinion(s, n, over) < 0 && chance(s, 0.2) && !canDeclareWar(s, n, over) && !hasTruce(s, n, over)) declareWar(s, n, over, 'independence', undefined, 'independence');
     }
     return;
   }
@@ -609,6 +609,8 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
 function aiClaims(s: GameState, nat: Nation): void {
   const n = nat.id;
   if (nat.fabricating || nat.overlord || nat.gold < FABRICATE_COST + reserve(s, nat) * 0.5 || !chance(s, 0.25)) return;
+  // A crown waiting out a truce to press a claim forges nothing meanwhile.
+  if (truceToWaitOut(s, n)) return;
   let best: { r: string; score: number } | null = null;
   for (const [r, w] of wantedRegions(s, n)) {
     const o = s.regions[r]?.owner;
@@ -769,11 +771,17 @@ export const TRUCE_WAIT = 2;
 function truceToWaitOut(s: GameState, n: NationId): { holder: NationId; until: number } | undefined {
   const soon = s.day + years(TRUCE_WAIT);
   let best: { holder: NationId; until: number } | undefined;
+  let near: Set<NationId> | undefined;
   for (const [r, lapses] of Object.entries(s.nations[n].claims)) {
     const o = s.regions[r]?.owner;
-    if (!o || o === n || (lapses >= 0 && lapses <= soon)) continue;
-    const until = s.truces[pairKey(n, o)];
-    if (until !== undefined && until > s.day && until <= soon && (!best || until < best.until)) best = { holder: o, until };
+    // The war would be on the land's overlord (a claim on a subject's land is a reason for war on it).
+    const t = o ? (s.nations[o]?.overlord ?? o) : undefined;
+    if (!t || t === n || allied(s, n, t)) continue;
+    const until = s.truces[pairKey(n, t)];
+    // Only a truce ending soon, and a claim that outlives it.
+    if (until === undefined || until <= s.day || until > soon || (lapses >= 0 && lapses <= until)) continue;
+    near ??= new Set(neighborsOf(s, n));
+    if (near.has(t) && (!best || until < best.until)) best = { holder: t, until };
   }
   return best;
 }
