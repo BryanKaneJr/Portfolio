@@ -58,6 +58,11 @@ function TwoTap({
   return <ConfirmBtn small={small} state={c} armKey={armKey} label={label} confirm={confirm} consequences={[sub]} onConfirm={onConfirm} style={{ marginTop: 6 }} testID={testID} />;
 }
 
+/** The Invest section's help sentence on the crackdown's price. */
+export const CRACKDOWN_HELP = `A crackdown costs ${CRACKDOWN.menPerProsperity} levies a point of prosperity (at least ${commas(CRACKDOWN.minMen)}).`;
+/** The Order and renown section's help on seizing the estates. */
+export const SEIZE_HELP = `Seizing the estates takes a year of your taxes at once (not trade or exports); you may do it once every ${SEIZE.cooldownYears} years, with order −1 or better.`;
+
 /** Region sheet, Invest: soldiers keep order for five years, paid in levies. Shown while there is unrest to put down. */
 export function CrackDownBtn({ id }: { id: string }) {
   const st = useStore();

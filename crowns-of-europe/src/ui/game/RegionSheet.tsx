@@ -25,7 +25,7 @@ import { yearOf, years } from '../../sim/util';
 import { claimReason } from '../../sim/war';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { GrowSection, UnchartedSheet, WildSheet } from './ColonySheets';
-import { CrackDownBtn } from './RealmActions';
+import { CRACKDOWN_HELP, CrackDownBtn } from './RealmActions';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
@@ -125,7 +125,7 @@ export function RegionSheet({ id }: { id: string }) {
       {mine ? (
         <Section
           title="Invest"
-          help={`Prosperity raises taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and here science too' : ''}. A fort slows sieges and stops enemy armies marching past (upkeep 0.35 gold a month). Integrated land pays full taxes and levies. A university adds ${UNIVERSITY_SCIENCE} science a month. A crackdown costs 500 levies a point of prosperity (at least 1,000).`}
+          help={`Prosperity raises taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and here science too' : ''}. A fort slows sieges and stops enemy armies marching past (upkeep 0.35 gold a month). Integrated land pays full taxes and levies. A university adds ${UNIVERSITY_SCIENCE} science a month. ${CRACKDOWN_HELP}`}
         >
           <View style={{ gap: 6 }}>
             <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />

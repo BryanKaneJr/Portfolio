@@ -50,7 +50,7 @@ import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
 import { CrownsSection } from './Crowns';
-import { AbdicateRow, GoldenAgeSection, SeizeEstatesBtn } from './RealmActions';
+import { AbdicateRow, GoldenAgeSection, SEIZE_HELP, SeizeEstatesBtn } from './RealmActions';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
@@ -505,7 +505,7 @@ function Realm() {
           <Btn small style={{ flex: 1 }} tone="secondary" label="Details" onPress={() => st.open({ kind: 'breakdown', what: 'gold' })} />
         </Row>
       </Section>
-      <Section title="Order and renown" help="Seizing the estates takes a year of your taxes at once (not trade or exports); you may do it once every 10 years, with order −1 or better.">
+      <Section title="Order and renown" help={SEIZE_HELP}>
         <Line label="Order" value={`${signed(me.stability)} / 3`} tone={me.stability < 0 ? 'bad' : undefined} onPress={() => st.open({ kind: 'breakdown', what: 'stability' })} />
         <Line label="Renown" value={`${fmt(me.prestige)} / 100`} onPress={() => st.open({ kind: 'breakdown', what: 'prestige' })} />
         <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />

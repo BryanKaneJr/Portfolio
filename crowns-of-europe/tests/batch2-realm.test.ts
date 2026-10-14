@@ -1,6 +1,6 @@
 import { emptyGame, army } from './helpers';
 import { ADVANCES } from '../src/sim/content';
-import { maxManpower, monthlyEconomy, regionTax } from '../src/sim/economy';
+import { LOAN_SIZE, maxManpower, monthlyEconomy, regionTax } from '../src/sim/economy';
 import { REBELS, bumpOwnership, bumpWars, invalidateMods, nationMods, ownedRegions } from '../src/sim/queries';
 import { monthlyUnrest, unrestBreakdown } from '../src/sim/rebels';
 import {
@@ -220,6 +220,7 @@ describe('golden age', () => {
   test('not for a New World people, nor at war', () => {
     const s = emptyGame('FRA');
     ready(s, 'AZT');
+    expect(goldenChecks(s, 'AZT').every(c => c.ok)).toBe(true);
     expect(proclaimGoldenAge(s, 'AZT')).toBe(false);
     ready(s, 'ENG');
     s.wars = { w1: { id: 'w1', name: 'Test', attackers: ['ENG'], defenders: ['SCO'], cb: 'none', started: 0, battleScore: 0, goalScore: 0 } };
@@ -260,9 +261,11 @@ describe('aiRealm', () => {
     expect(COUNTS.crackdowns).toBe(before + 1);
   });
 
-  test('seizes the estates at 3 loans with order 0 or better', () => {
+  test('seizes the estates at 3 loans with order 0 or better, when it brings a loan or more, and pays loans off', () => {
     const s = emptyGame('FRA');
-    const nat = quiet(s, 'ARA');
+    const nat = quiet(s, 'CAS');
+    const take = seizeGold(s, 'CAS');
+    expect(take).toBeGreaterThanOrEqual(LOAN_SIZE);
     nat.loans = 2;
     const gold = nat.gold;
     aiRealm(s, nat);
@@ -273,19 +276,53 @@ describe('aiRealm', () => {
     expect(nat.gold).toBe(gold);
     nat.stability = 0;
     aiRealm(s, nat);
-    expect(nat.gold).toBeGreaterThan(gold);
     expect(nat.stability).toBe(-1);
+    expect(COUNTS.seized).toBeGreaterThan(0);
+    // The seized gold goes on the debts, a whole loan at a time.
+    const repaid = Math.min(3, Math.floor(take / LOAN_SIZE));
+    expect(nat.loans).toBe(3 - repaid);
+    expect(nat.gold).toBe(gold + take - repaid * LOAN_SIZE);
   });
 
-  test('a poor ruler steps down for a much better grown heir', () => {
+  test('does not seize when a year of taxes is less than a loan', () => {
+    const s = emptyGame('FRA');
+    const small = (['ULM', 'MAN', 'MOD', 'GEN', 'SAV', 'BYZ', 'MOL'] as NationId[]).find(n => s.nations[n]?.alive && seizeGold(s, n) < LOAN_SIZE)!;
+    expect(small).toBeDefined();
+    const nat = quiet(s, small);
+    nat.loans = 5;
+    aiRealm(s, nat);
+    expect(seizeBlocked(s, small)).toBeNull();
+    expect(nat.loans).toBe(5);
+  });
+
+  test('an old ruler of skill 1 steps down for a grown heir of skill 4 or more', () => {
     const s = emptyGame('FRA');
     s.day = years(11);
     const nat = quiet(s, 'ARA');
-    nat.ruler.skill = 2;
+    nat.ruler.skill = 1;
     nat.heir = { name: 'Ferdinand', born: 1420, skill: 3, traits: [] };
+    // Heir 3: two better than a ruler of skill 1, but not enough.
+    nat.ruler.born = yearOf(s.day) - 50;
+    aiRealm(s, nat);
+    expect(nat.ruler.skill).toBe(1);
+    // A ruler of skill 2 keeps the throne even for an heir of 5.
+    nat.ruler.skill = 2;
+    nat.heir.skill = 5;
     aiRealm(s, nat);
     expect(nat.ruler.skill).toBe(2);
+    nat.ruler.skill = 1;
     nat.heir.skill = 4;
+    // Under 50: the player could step down (10 years' reign), but the AI waits.
+    nat.ruler.born = yearOf(s.day) - 49;
+    expect(canAbdicate(s, 'ARA')).toBeNull();
+    aiRealm(s, nat);
+    expect(nat.ruler.skill).toBe(1);
+    // Order below 0: it waits too.
+    nat.ruler.born = yearOf(s.day) - 50;
+    nat.stability = -1;
+    aiRealm(s, nat);
+    expect(nat.ruler.skill).toBe(1);
+    nat.stability = 0;
     aiRealm(s, nat);
     expect(nat.ruler.name).toBe('Ferdinand');
     expect(nat.ruler.crowned).toBe(s.day);

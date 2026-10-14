@@ -4,7 +4,7 @@
  * before the tap, and nothing to manage afterwards. `aiRealm` is the AI's rule for each.
  */
 import { isNativeNation, nationName } from './content';
-import { maxManpower, regionTax } from './economy';
+import { LOAN_SIZE, maxManpower, regionTax } from './economy';
 import { log, moment, newsworthy } from './log';
 import { atWar, invalidateMods, ownedRegions } from './queries';
 import { unrestBreakdown } from './rebels';
@@ -174,17 +174,28 @@ export function monthlyGolden(s: GameState): void {
 // ---------------------------------------------------------------- AI
 
 /**
- * Monthly, for each AI crown: crack down where unrest is worst (above 6) while levies are over half full; seize the
- * estates at 3 loans or more with order 0 or better; a poor ruler (skill 2 or less) steps down for an heir 2 better;
- * proclaim a golden age as soon as it may.
+ * Monthly, for each AI crown: crack down where unrest is worst (above 6) while levies are over half full; at 3 loans
+ * or more with order 0 or better, seize the estates when that brings at least a loan's worth, and pay loans off with
+ * it; the worst ruler (skill 1), 50 or older, steps down for a grown heir of skill 4 or more; proclaim a golden age
+ * as soon as it may.
  */
 export function aiRealm(s: GameState, nat: Nation): void {
   const n = nat.id;
   let worst: Region | null = null;
   for (const r of ownedRegions(s, n)) if (r.unrest > 6 && (!worst || r.unrest > worst.unrest)) worst = r;
   if (worst && nat.manpower > maxManpower(s, n) * 0.5 && crackDown(s, n, worst.id)) COUNTS.crackdowns++;
-  if (nat.loans >= 3 && nat.stability >= 0 && seizeEstates(s, n) !== null) COUNTS.seized++;
-  if (nat.heir && nat.ruler.skill <= 2 && nat.heir.skill >= nat.ruler.skill + 2 && nat.stability >= 0 && abdicate(s, n)) COUNTS.abdications++;
+  if (nat.loans >= 3 && nat.stability >= 0 && seizeGold(s, n) >= LOAN_SIZE) {
+    const gold = seizeEstates(s, n);
+    if (gold !== null) {
+      COUNTS.seized++;
+      for (let k = Math.floor(gold / LOAN_SIZE); k > 0 && nat.loans > 0; k--) {
+        nat.loans--;
+        nat.gold -= LOAN_SIZE;
+      }
+    }
+  }
+  const old = yearOf(s.day) - nat.ruler.born >= ABDICATE.minAge;
+  if (nat.heir && old && nat.ruler.skill === 1 && nat.heir.skill >= 4 && nat.stability >= 0 && abdicate(s, n)) COUNTS.abdications++;
   if (proclaimGoldenAge(s, n)) COUNTS.golden.push({ n, year: yearOf(s.day) });
 }
 
