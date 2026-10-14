@@ -1,1 +1,2046 @@
-[]
+[
+  {
+    "id": "ara_magnanimous_will",
+    "pool": "historical",
+    "title": "The Magnanimous King's Will",
+    "text": "King Alfonso is dying. His son Ferrante already rules in Naples, but your lawyers say Naples was won with Aragonese blood and belongs to Aragon. Alfonso's brother Juan, who will succeed him, agrees with the lawyers.",
+    "image": "death",
+    "nations": [
+      "ARA"
+    ],
+    "window": [
+      1456,
+      1462
+    ],
+    "mtth": 12,
+    "news": "Alfonso the Magnanimous is dead; his brother Juan is King of Aragon.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "NAP"
+        },
+        {
+          "not": {
+            "overlordOf": "NAP"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Leave Naples to Ferrante, his son",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Juan II",
+              "skill": 3,
+              "traits": [
+                "shrewd"
+              ],
+              "age": 60
+            }
+          },
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Claim Naples for the crown of Aragon",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Juan II",
+              "skill": 3,
+              "traits": [
+                "shrewd"
+              ],
+              "age": 60
+            }
+          },
+          {
+            "addClaim": [
+              "naples",
+              "apulia"
+            ]
+          },
+          {
+            "breakAlliance": "NAP"
+          },
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": -40
+            }
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ara_catalans_renounce",
+    "pool": "historical",
+    "title": "The Catalans Renounce Their King",
+    "text": "Carlos of Viana, heir to the crown, has died in suspicious circumstances months after the Catalans forced his release from prison. Now the Generalitat of Barcelona has renounced you and offers Catalonia to any prince who will take it. The King of France will lend you an army if you pledge him the counties beyond the Pyrenees.",
+    "image": "rebels",
+    "nations": [
+      "ARA"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 18,
+    "news": "Catalonia has risen against the King of Aragon.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "catalonia"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Besiege Barcelona and break the Generalitat",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 7,
+              "region": "catalonia"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Swear again to the Catalan Constitutions",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "catalan_constitutions",
+              "name": "The Catalan Constitutions",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Pledge Roussillon for French troops",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "catalonia"
+            }
+          },
+          {
+            "addRegiments": {
+              "inf": 4,
+              "cav": 2,
+              "region": "aragon"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "modifier": {
+              "id": "roussillon_pledged",
+              "name": "Roussillon Pledged",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.05
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nav_prince_of_viana",
+    "pool": "historical",
+    "title": "The Prince of Viana",
+    "text": "Queen Blanca is dead, and by her will your son Carlos, Prince of Viana, should be king of Navarre. You have kept the crown and taken a new Castilian wife. The Beaumont lords rally to the prince, the Agramonts to you, and Castile arms the prince.",
+    "image": "crown",
+    "nations": [
+      "NAV"
+    ],
+    "window": [
+      1445,
+      1462
+    ],
+    "mtth": 12,
+    "news": "Navarre has split between its king and his son, the Prince of Viana.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Give the crown to Prince Carlos",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Carlos of Viana",
+              "skill": 3,
+              "traits": [
+                "scholar",
+                "just"
+              ],
+              "age": 30
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 3,
+              "region": "navarre"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": -40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 30
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Keep the crown and punish the Beaumonts",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "navarre"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -20
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "nav_between_two_crowns",
+    "pool": "historical",
+    "title": "Between Two Crowns",
+    "text": "The King of Aragon, now master of Castile too, demands passage through Navarre for an army bound for France, and a promise that you will never ally with the French. Your house is French, and your envoys have just signed a treaty with the King of France at Blois. The Pyrenees passes are yours to open or close.",
+    "image": "treaty",
+    "nations": [
+      "NAV"
+    ],
+    "window": [
+      1500,
+      1530
+    ],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "owns": "navarre"
+        },
+        {
+          "exists": "FRA"
+        },
+        {
+          "any": [
+            {
+              "borders": "CAS"
+            },
+            {
+              "borders": "ARA"
+            }
+          ]
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Close the passes and side with France",
+        "effects": [
+          {
+            "ally": "FRA"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 25
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": -40
+            }
+          },
+          {
+            "fortRegion": {
+              "region": "navarre",
+              "amount": 1
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Open the passes to the Spanish army",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -30
+            }
+          },
+          {
+            "stability": -1
+          },
+          {
+            "modifier": {
+              "id": "spanish_garrisons",
+              "name": "Spanish Garrisons",
+              "months": 60,
+              "mods": {
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "gra_lords_of_the_alhambra",
+    "pool": "historical",
+    "title": "The Lords of the Alhambra",
+    "text": "The Abencerraj clan, who have made and unmade sultans for twenty years, are plotting again in the Alhambra. Castile sends a rival prince over the border with Castilian lances, and offers peace if you pay tribute in gold. Morocco is far away, and busy.",
+    "image": "rebels",
+    "nations": [
+      "GRA"
+    ],
+    "window": [
+      1444,
+      1470
+    ],
+    "mtth": 24,
+    "news": "Granada is torn by a struggle for its throne.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "CAS"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Arrest the plotters in the Alhambra",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "granada"
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Pay Castile its tribute in gold",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 30
+            }
+          },
+          {
+            "modifier": {
+              "id": "castilian_tribute",
+              "name": "Tribute to Castile",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Ask the Sultan of Fez for help",
+        "effects": [
+          {
+            "ally": "MOR"
+          },
+          {
+            "opinion": {
+              "nation": "MOR",
+              "amount": 25
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -25
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_the_african",
+    "pool": "historical",
+    "title": "The African Crusade",
+    "text": "Ceuta has been Portuguese since 1415, and you dream of a crusade of your own. The knights want more: the little port of Alcácer Ceguer, then Arzila and Tangier. The merchants of Lisbon would rather spend the money on caravels for Guinea.",
+    "image": "ship",
+    "nations": [
+      "POR"
+    ],
+    "window": [
+      1450,
+      1475
+    ],
+    "mtth": 18,
+    "news": "Portugal has carried the crusade into Morocco.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOR"
+        },
+        {
+          "not": {
+            "atWarWith": "MOR"
+          }
+        },
+        {
+          "not": {
+            "allied": "MOR"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "MOR"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "MOR",
+            "region": "fez"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take the cross and sail for Morocco",
+        "effects": [
+          {
+            "addClaim": "fez"
+          },
+          {
+            "declareWar": {
+              "target": "MOR",
+              "cb": "holy",
+              "region": "fez"
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "papalFavor": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Send the caravels south instead",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "modifier": {
+              "id": "guinea_voyages",
+              "name": "The Guinea Voyages",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1,
+                "science": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_desired_kings_crusade",
+    "pool": "historical",
+    "title": "The Desired King's Crusade",
+    "text": "Your young king Sebastian, unmarried and without an heir, has called every noble in Portugal to a crusade in Morocco on behalf of a deposed sultan. His uncle the King of Spain warns him not to go. The fleet is ready in the Tagus.",
+    "image": "swords",
+    "nations": [
+      "POR"
+    ],
+    "window": [
+      1565,
+      1600
+    ],
+    "mtth": 24,
+    "news": "The King of Portugal has sailed on crusade to Morocco.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOR"
+        },
+        {
+          "not": {
+            "atWarWith": "MOR"
+          }
+        },
+        {
+          "not": {
+            "allied": "MOR"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "MOR"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "MOR",
+            "region": "fez"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Let the king lead the crusade",
+        "effects": [
+          {
+            "addClaim": "fez"
+          },
+          {
+            "declareWar": {
+              "target": "MOR",
+              "cb": "holy",
+              "region": "fez"
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "triggerEvent": {
+              "id": "por_three_kings",
+              "months": 4
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Marry him off and keep him home",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "por_three_kings",
+    "pool": "historical",
+    "title": "The Battle of the Three Kings",
+    "text": "Your army has been destroyed on the banks of the Wadi al-Makhazin, and the king's body has not been found. Half the nobility are prisoners awaiting ransom. The heir is the king's great-uncle, an old cardinal, and after him the King of Spain has the strongest claim.",
+    "image": "death",
+    "nations": [
+      "POR"
+    ],
+    "hidden": true,
+    "news": "The King of Portugal has vanished in battle in Morocco.",
+    "trigger": {
+      "all": [
+        {
+          "atWarWith": "MOR"
+        },
+        {
+          "chance": 0.6
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Crown the old cardinal and pay the ransoms",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Henry the Cardinal-King",
+              "skill": 2,
+              "traits": [
+                "pious"
+              ],
+              "age": 66
+            }
+          },
+          {
+            "goldPerDev": -3
+          },
+          {
+            "prestige": -15
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept the King of Spain as your heir",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Henry the Cardinal-King",
+              "skill": 2,
+              "traits": [
+                "pious"
+              ],
+              "age": 66
+            }
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "triggerEvent": {
+              "id": "cas_portuguese_crown",
+              "months": 18,
+              "nation": "CAS"
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cas_portuguese_crown",
+    "pool": "historical",
+    "title": "The Crown of Portugal",
+    "text": "The old Cardinal-King of Portugal has died without naming an heir. Through your Portuguese mother your claim is the strongest, but the Cortes is divided. Some Portuguese still hail a bastard prior as king, and the common people whisper that their lost king will ride back out of the mist.",
+    "image": "crown",
+    "nations": [
+      "CAS"
+    ],
+    "hidden": true,
+    "news": "The King of Spain has taken the crown of Portugal.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "POR"
+        },
+        {
+          "not": {
+            "overlordOf": "POR"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "POR"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take the crown of Portugal",
+        "effects": [
+          {
+            "personalUnion": "POR"
+          },
+          {
+            "prestige": 15
+          },
+          {
+            "threat": 10
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Leave Portugal to its own princes",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "POR",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sav_queen_in_exile",
+    "pool": "historical",
+    "title": "A Queen in Exile",
+    "text": "Queen Charlotte of Cyprus is to marry your son, but her bastard half-brother James has driven her from Nicosia with Mamluk soldiers. She holds out in the castle of Kyrenia and begs your son to win back her island. The Pope blesses the cause; Venice smiles on James.",
+    "image": "marriage",
+    "nations": [
+      "SAV"
+    ],
+    "window": [
+      1456,
+      1475
+    ],
+    "mtth": 24,
+    "news": "Savoy has taken up the cause of Queen Charlotte of Cyprus.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "CYP"
+        },
+        {
+          "not": {
+            "allied": "CYP"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send your son with ships and men to Kyrenia",
+        "effects": [
+          {
+            "addClaim": "cyprus"
+          },
+          {
+            "gold": -50
+          },
+          {
+            "papalFavor": 5
+          },
+          {
+            "opinion": {
+              "nation": "CYP",
+              "amount": -30
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep your son at home",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "CYP",
+              "amount": 15
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sav_duke_changes_sides",
+    "pool": "historical",
+    "title": "A Duke Changes Sides",
+    "text": "You joined France in the war over the Spanish crown, but the Emperor offers you Montferrat and lands in Lombardy if you change sides, and his allies speak of a king's crown in Sicily. Switching now will bring French armies to the walls of Turin; staying may leave you a satellite of your own ally.",
+    "image": "treaty",
+    "nations": [
+      "SAV"
+    ],
+    "window": [
+      1700,
+      1730
+    ],
+    "mtth": 12,
+    "news": "The Duke of Savoy has changed sides.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "spanish_succession"
+        },
+        {
+          "exists": "FRA"
+        },
+        {
+          "exists": "HAB"
+        },
+        {
+          "not": {
+            "atWarWith": "HAB"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Join the Emperor's alliance",
+        "effects": [
+          {
+            "breakAlliance": "FRA"
+          },
+          {
+            "ally": "HAB"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 30
+            }
+          },
+          {
+            "addClaim": "sicily"
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Stay loyal to France",
+        "effects": [
+          {
+            "ally": "FRA"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "gold": 50
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mlo_the_moors_invitation",
+    "pool": "historical",
+    "title": "The Moor's Invitation",
+    "text": "Ludovico Sforza, called the Moor, rules Milan in his young nephew's name, and the King of Naples, the boy's grandfather by marriage, demands he step aside. Ludovico's answer is to invite the King of France to claim Naples. Once the French are over the Alps, who will send them home?",
+    "image": "crown",
+    "nations": [
+      "MLO"
+    ],
+    "window": [
+      1490,
+      1499
+    ],
+    "mtth": 18,
+    "news": "Ludovico Sforza has invited the King of France into Italy.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "FRA"
+        },
+        {
+          "exists": "NAP"
+        },
+        {
+          "not": {
+            "atWarWith": "FRA"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Make Ludovico duke and invite the French",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Ludovico Sforza",
+              "skill": 4,
+              "traits": [
+                "shrewd",
+                "ambitious"
+              ],
+              "age": 42
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": -40
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_called_into_italy",
+              "months": 3,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Make peace with Naples",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -10
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_called_into_italy",
+    "pool": "historical",
+    "title": "Called into Italy",
+    "text": "The regent of Milan invites you to cross the Alps and take the kingdom of Naples, your inheritance from the House of Anjou. He promises free passage, supplies and Genoese ships. Your captains are eager; your treasurers are not.",
+    "image": "horse",
+    "nations": [
+      "FRA"
+    ],
+    "hidden": true,
+    "news": "The King of France is marching on Naples.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "NAP"
+        },
+        {
+          "not": {
+            "atWarWith": "NAP"
+          }
+        },
+        {
+          "not": {
+            "allied": "NAP"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "NAP",
+            "region": "naples"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Cross the Alps and ride for Naples",
+        "effects": [
+          {
+            "addClaim": "naples"
+          },
+          {
+            "declareWar": {
+              "target": "NAP",
+              "cb": "claim",
+              "region": "naples"
+            }
+          },
+          {
+            "threat": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Thank the Moor and stay at home",
+        "effects": [
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "gen_a_lord_for_the_republic",
+    "pool": "historical",
+    "title": "A Lord for the Republic",
+    "text": "Aragonese galleys blockade the harbour while the Adorno and Fregoso families fight in the streets. The Doge proposes to hand the city's lordship to the King of France in return for protection; others would rather have the Duke of Milan. A few old men say Genoa should trust its own walls.",
+    "image": "treaty",
+    "nations": [
+      "GEN"
+    ],
+    "window": [
+      1450,
+      1470
+    ],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "owns": "liguria"
+        },
+        {
+          "exists": "ARA"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Give the lordship to the King of France",
+        "effects": [
+          {
+            "ally": "FRA"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": -30
+            }
+          },
+          {
+            "modifier": {
+              "id": "french_governor",
+              "name": "A French Governor",
+              "months": 120,
+              "mods": {
+                "fortDefense": 0.2,
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Give the lordship to the Duke of Milan",
+        "effects": [
+          {
+            "ally": "MLO"
+          },
+          {
+            "opinion": {
+              "nation": "MLO",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ARA",
+              "amount": -20
+            }
+          },
+          {
+            "modifier": {
+              "id": "milanese_governor",
+              "name": "A Milanese Governor",
+              "months": 120,
+              "mods": {
+                "fortDefense": 0.1,
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Trust Genoa's own walls",
+        "effects": [
+          {
+            "fortRegion": {
+              "region": "liguria",
+              "amount": 1
+            }
+          },
+          {
+            "gold": -40
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ven_league_of_cambrai",
+    "pool": "historical",
+    "title": "The League of Cambrai",
+    "text": "The Pope, the Emperor and the Kings of France and Aragon have signed a league at Cambrai to carve up your mainland empire. Their armies are gathering on your borders. The Senate must choose: fight them all, buy off the Pope, or give up the mainland cities before they are taken.",
+    "image": "swords",
+    "nations": [
+      "VEN"
+    ],
+    "window": [
+      1500,
+      1515
+    ],
+    "mtth": 12,
+    "news": "The great powers have formed a league against Venice.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "veneto"
+        },
+        {
+          "regionsAtLeast": 3
+        },
+        {
+          "exists": "FRA"
+        },
+        {
+          "not": {
+            "atWarWith": "FRA"
+          }
+        },
+        {
+          "not": {
+            "allied": "FRA"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Hire condottieri and fight them all",
+        "effects": [
+          {
+            "gold": -100
+          },
+          {
+            "addRegiments": {
+              "inf": 6,
+              "cav": 2,
+              "region": "veneto"
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_league_of_cambrai",
+              "months": 2,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Make peace with the Pope first",
+        "effects": [
+          {
+            "goldPerDev": -2
+          },
+          {
+            "ally": "PAP"
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": 40
+            }
+          },
+          {
+            "papalFavor": 10
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_league_of_cambrai",
+              "months": 2,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Release the mainland cities from their oaths",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "veneto",
+              "amount": -1
+            }
+          },
+          {
+            "stability": -1
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "threat": -20
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_league_of_cambrai",
+    "pool": "historical",
+    "title": "Against the Lion of St Mark",
+    "text": "The league is signed and Venice stands alone. The Emperor wants Verona and Friuli, the Pope the Romagna towns, Aragon the Apulian ports, and you the rich lands east of Milan. Someone must lead the first army across the Adda.",
+    "image": "swords",
+    "nations": [
+      "FRA"
+    ],
+    "hidden": true,
+    "news": "The League of Cambrai has gone to war with Venice.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "VEN"
+        },
+        {
+          "not": {
+            "atWarWith": "VEN"
+          }
+        },
+        {
+          "not": {
+            "allied": "VEN"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "VEN",
+            "region": "veneto"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Lead the league across the Adda",
+        "effects": [
+          {
+            "addClaim": "veneto"
+          },
+          {
+            "declareWar": {
+              "target": "VEN",
+              "cb": "claim",
+              "region": "veneto",
+              "with": [
+                "HAB",
+                "PAP",
+                "ARA",
+                "CAS"
+              ]
+            }
+          },
+          {
+            "threat": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let the Pope fight his own wars",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": -20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "flo_murder_in_the_cathedral",
+    "pool": "historical",
+    "title": "Murder in the Cathedral",
+    "text": "At High Mass in the cathedral, assassins of the Pazzi family have stabbed Giuliano de' Medici to death; his brother Lorenzo escaped, wounded, into the sacristy. The Pope's nephew and the Archbishop of Pisa were in the plot, and the city is howling for blood.",
+    "image": "death",
+    "nations": [
+      "FLO"
+    ],
+    "window": [
+      1470,
+      1485
+    ],
+    "mtth": 18,
+    "news": "The Pazzi have tried to murder the Medici in Florence cathedral.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "PAP"
+        },
+        {
+          "not": {
+            "atWarWith": "PAP"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Hang the plotters and stand by Lorenzo",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Lorenzo de' Medici",
+              "skill": 4,
+              "traits": [
+                "diplomat",
+                "scholar"
+              ],
+              "age": 29
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "papalFavor": -25
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": -50
+            }
+          },
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": -30
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Banish the Medici and make peace with Rome",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Jacopo de' Pazzi",
+              "skill": 2,
+              "traits": [
+                "shrewd"
+              ],
+              "age": 55
+            }
+          },
+          {
+            "papalFavor": 15
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": 40
+            }
+          },
+          {
+            "unrestAll": 2
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Ride to Naples and beg for peace",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Lorenzo de' Medici",
+              "skill": 4,
+              "traits": [
+                "diplomat",
+                "scholar"
+              ],
+              "age": 29
+            }
+          },
+          {
+            "gold": -40
+          },
+          {
+            "opinion": {
+              "nation": "NAP",
+              "amount": 40
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pap_congress_of_mantua",
+    "pool": "historical",
+    "title": "The Congress of Mantua",
+    "text": "Constantinople has fallen, and you have summoned the princes of Christendom to Mantua to preach a crusade. Few came and fewer paid. You could take the cross yourself and lead the fleet from Ancona, send the money to those already fighting, or spend the new alum mines' wealth closer to home.",
+    "image": "church",
+    "nations": [
+      "PAP"
+    ],
+    "window": [
+      1455,
+      1470
+    ],
+    "mtth": 18,
+    "news": "The Pope has called Christendom to a crusade.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "rome"
+        },
+        {
+          "exists": "TUR"
+        },
+        {
+          "nationOwns": {
+            "nation": "TUR",
+            "region": "constantinople"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "TUR"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "TUR"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take the cross and call a crusade",
+        "effects": [
+          {
+            "declareWar": {
+              "target": "TUR",
+              "cb": "holy",
+              "with": [
+                "VEN",
+                "HUN",
+                "ALB",
+                "BUR"
+              ]
+            }
+          },
+          {
+            "prestige": 15
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Send gold to Skanderbeg and the Hungarians",
+        "effects": [
+          {
+            "gold": -80
+          },
+          {
+            "opinion": {
+              "nation": "ALB",
+              "amount": 40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HUN",
+              "amount": 30
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Spend the alum money on Rome",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "rome",
+              "amount": 1
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pap_the_popes_son",
+    "pool": "historical",
+    "title": "The Pope's Son",
+    "text": "Your son Cesare, captain-general of the Church, asks for an army to bring the petty tyrants of the Romagna to heel, with French lances lent by King Louis. He would make the Papal States a real power, or a Borgia kingdom. The cardinals fear both.",
+    "image": "swords",
+    "nations": [
+      "PAP"
+    ],
+    "window": [
+      1492,
+      1510
+    ],
+    "mtth": 18,
+    "news": "Cesare Borgia is carving out a state in central Italy.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "rome"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Unleash Cesare on the Romagna",
+        "effects": [
+          {
+            "hireGeneral": {
+              "stars": 4,
+              "name": "Cesare Borgia"
+            }
+          },
+          {
+            "addClaim": "tuscany"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 25
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FLO",
+              "amount": -30
+            }
+          },
+          {
+            "threat": 10
+          },
+          {
+            "modifier": {
+              "id": "borgia_ambition",
+              "name": "Borgia Ambition",
+              "months": 60,
+              "mods": {
+                "morale": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the Church out of family wars",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "lor_a_crown_in_naples",
+    "pool": "historical",
+    "title": "A Crown in Naples",
+    "text": "Your duke, John of Calabria, is the son of King René and, by Angevin reckoning, heir to the kingdom of Naples. The Neapolitan barons, tired of the bastard Ferrante, invite him south, and Genoa offers galleys. The venture could win a kingdom or empty your treasury.",
+    "image": "ship",
+    "nations": [
+      "LOR"
+    ],
+    "window": [
+      1455,
+      1465
+    ],
+    "mtth": 18,
+    "news": "John of Anjou has sailed to claim the kingdom of Naples.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "NAP"
+        },
+        {
+          "not": {
+            "atWarWith": "NAP"
+          }
+        },
+        {
+          "not": {
+            "allied": "NAP"
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "NAP",
+            "region": "naples"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Sail for Naples with the Genoese galleys",
+        "effects": [
+          {
+            "addClaim": "naples"
+          },
+          {
+            "declareWar": {
+              "target": "NAP",
+              "cb": "claim",
+              "region": "naples"
+            }
+          },
+          {
+            "gold": -40
+          },
+          {
+            "opinion": {
+              "nation": "GEN",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Leave Italy to the Italians",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "nap_barons_call_for_anjou",
+    "pool": "historical",
+    "title": "The Barons Call for Anjou",
+    "text": "The Prince of Taranto and half the great barons have declared for John of Anjou, son of King René, the Angevin claimant, and call you a bastard usurper. Your few loyal captains hold the towns of Campania. Across the Adriatic, Skanderbeg remembers your father's friendship.",
+    "image": "rebels",
+    "nations": [
+      "NAP"
+    ],
+    "window": [
+      1458,
+      1466
+    ],
+    "mtth": 18,
+    "news": "The barons of Naples have risen for the House of Anjou.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Call on Skanderbeg and fight",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "apulia"
+            }
+          },
+          {
+            "gold": -40
+          },
+          {
+            "addRegiments": {
+              "inf": 3,
+              "cav": 1,
+              "region": "apulia"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ALB",
+              "amount": 25
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Buy the barons back with privileges",
+        "effects": [
+          {
+            "gold": -80
+          },
+          {
+            "stability": -1
+          },
+          {
+            "modifier": {
+              "id": "baronial_privileges",
+              "name": "Baronial Privileges",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nap_wedding_at_castel_nuovo",
+    "pool": "historical",
+    "title": "The Wedding at Castel Nuovo",
+    "text": "The great barons, led by the Prince of Salerno and backed by the Pope, are plotting against your heavy taxes and your son's arrogance. They have written to a French prince about the crown. Your son suggests inviting them all to a wedding feast at Castel Nuovo, and locking the doors.",
+    "image": "castle",
+    "nations": [
+      "NAP"
+    ],
+    "window": [
+      1480,
+      1495
+    ],
+    "mtth": 24,
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Arrest them at the wedding feast",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "apulia"
+            }
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": -30
+            }
+          },
+          {
+            "modifier": {
+              "id": "confiscated_baronies",
+              "name": "Confiscated Baronies",
+              "months": 240,
+              "mods": {
+                "taxIncome": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Grant the barons their privileges",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "modifier": {
+              "id": "barons_charter",
+              "name": "The Barons' Charter",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.15,
+                "manpower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "nap_fishmongers_revolt",
+    "pool": "historical",
+    "title": "The Fishmonger's Revolt",
+    "text": "A new tax on fruit has set the market of Naples alight. A young fishmonger called Masaniello leads a hundred thousand people through the streets, and a French duke offers to protect a free Neapolitan republic. Your foreign viceroy has fled into the castle.",
+    "image": "rebels",
+    "nations": [
+      "NAP"
+    ],
+    "window": [
+      1640,
+      1660
+    ],
+    "mtth": 24,
+    "news": "Naples has risen against its foreign overlord.",
+    "trigger": {
+      "subjectOf": "CAS"
+    },
+    "choices": [
+      {
+        "text": "Proclaim a free republic under French protection",
+        "effects": [
+          {
+            "ally": "FRA"
+          },
+          {
+            "declareWar": {
+              "target": "CAS",
+              "cb": "independence",
+              "with": [
+                "FRA"
+              ]
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "unrestAll": 2
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Hang the ringleaders and keep the peace",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  }
+]
