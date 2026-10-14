@@ -19,7 +19,7 @@ import { Shield } from '../components/Flag';
 import { Glass } from '../components/Glass';
 import { Btn, Line, Row, T } from '../components/kit';
 import { C, G, R, book, fmt, kmen, sans, serif } from '../theme';
-import { effectsLines } from '../describe';
+import { effectsLines, lapseMeans } from '../describe';
 
 export function CardShell({ children, wide, head }: { children: ReactNode; wide?: boolean; head?: ReactNode }) {
   return (
@@ -65,7 +65,7 @@ export function EventCard() {
       <Text style={styles.story}>{e.text}</Text>
       <View style={{ gap: 8, marginTop: 16 }}>
         {e.choices.map((c, i) => (
-          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects, { s, n: pe.nation })} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
+          <Choice key={i} first={i === 0} text={c.text} lines={effectsLines(c.effects, { s, n: pe.nation, version: st.version })} onPress={() => store.run(x => playerAnswerEvent(x, 0, i), { quiet: true })} testID={`choice-${i}`} />
         ))}
       </View>
     </CardShell>
@@ -78,6 +78,7 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
   const s = st.state!;
   const from = nationName(o.from);
   const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined && !!s.wars[o.war];
+  const lapse = lapseMeans(s, o);
   let title = '';
   let body: ReactNode = null;
   let icon: IconName = 'scroll';
@@ -157,9 +158,10 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
           label="Offer other terms"
           testID="offer-counter"
           onPress={() => {
-            // The ultimatum stands while you choose what to offer instead.
-            store.run(x => answerOffer(x, o.id, false), { quiet: true });
+            // The ultimatum stands while you choose what to offer instead. The peace screen opens first, so an offer
+            // waiting its turn comes up when it closes rather than under it.
             store.open({ kind: 'peace', war: o.war });
+            store.run(x => answerOffer(x, o.id, false), { quiet: true });
           }}
         />
       ) : null}
@@ -167,7 +169,7 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
         style={{ marginTop: 8 }}
         tone="ghost"
         label="Later"
-        sub={`${ultimatum ? 'Under the bell; takes effect' : 'Under the bell until'} ${formatShortDate(offerLapses(o))}`}
+        sub={ultimatum ? `Under the bell; takes effect ${formatShortDate(offerLapses(o))}` : `Under the bell until ${formatShortDate(offerLapses(o))}${lapse ? `, then lapses ${lapse}` : ''}`}
         onPress={onLater}
         testID="offer-later"
       />

@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NATION, REGION, nationName, regionName } from '../../sim/content';
 import { boostStability, playerDeclareWar } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
-import { modifierSources } from '../../sim/queries';
+import { liveUnseenReports, modifierSources } from '../../sim/queries';
 import { casusBelli, likelySides } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
 import { formatShortDate } from '../../sim/util';
@@ -15,7 +15,8 @@ import { Icon } from '../components/Icon';
 import { Btn, Empty, HelpButton, HelpNote, Line, Row, Section, T } from '../components/kit';
 import Svg, { Defs, LinearGradient as SvgGradient, Rect, Stop } from 'react-native-svg';
 import { C, G, R, fmt, sans, serif, signed } from '../theme';
-import { modLines, offerTitle } from '../describe';
+import { lapseMeans, modLines, offerTitle } from '../describe';
+import { defensiveCall } from '../../sim/log';
 import { offerLapses } from '../../sim/tick';
 import { regionPoint } from '../map/geometry';
 
@@ -248,20 +249,23 @@ export function LogPanel() {
   const s = st.state!;
   const [tab, setTab] = useState<'all' | 'battles'>('all');
   const reports = s.reports;
-  const unseen = new Set(s.unseenReports);
+  const unseen = new Set(liveUnseenReports(s));
   return (
     <Panel title="Messages" onClose={() => st.close()}>
       {s.offers.length ? (
         <Section title="Waiting for your answer" help="Offers from other rulers wait here until you answer them or they lapse. An ultimatum takes effect on its day whatever you do.">
           {s.offers.map(o => {
             const ultimatum = o.kind === 'peace' && o.ultimatum !== undefined;
+            const lapse = lapseMeans(s, o);
+            const grave = ultimatum || defensiveCall(s, o);
             return (
               <Pressable key={o.id} testID="message-offer" accessibilityRole="button" onPress={() => st.open({ kind: 'offer', id: o.id, back: { kind: 'log' } })} style={({ pressed }) => [styles.offerRow, pressed && { opacity: 0.7 }]}>
                 <Flag nation={o.from} size={24} />
                 <View style={{ flex: 1 }}>
                   <Text style={styles.offerText}>{offerTitle(o)}</Text>
-                  <Text style={[styles.logDate, ultimatum && { color: G.bad }]}>
+                  <Text style={[styles.logDate, grave && { color: G.bad }]}>
                     {ultimatum ? 'Takes effect' : 'Lapses'} {formatShortDate(offerLapses(o))}
+                    {lapse ? ` ${lapse}` : ''}
                   </Text>
                 </View>
                 <Icon name="chevron" size={16} color={G.gold} />

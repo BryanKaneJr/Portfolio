@@ -627,6 +627,7 @@ export type PauseReason =
   | 'armyArrived'
   | 'peaceOffer'
   | 'ultimatum'
+  | 'allyAttacked'
   | 'offer'
   | 'gameOver';
 

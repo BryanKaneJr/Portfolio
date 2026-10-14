@@ -1,7 +1,7 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
 import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
 import { startingAdvances } from './science';
-import { forceLimit, maxMorale, totalDev } from './queries';
+import { forceLimit, liveUnseenReports, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
@@ -27,12 +27,16 @@ export function migrateSave(s: GameState): GameState | null {
     s.version = 5;
   }
   migrateSettings(s.settings);
+  // Unread reports of battles that have since dropped out of the list can never be opened: forget them.
+  s.unseenReports ??= [];
+  s.unseenReports = liveUnseenReports(s);
   return s;
 }
 
 /**
  * What stops the clock in a new game: what needs a decision (events) and the great turns of fortune (a war on you,
- * an ultimatum, the end). The rest (offers, battles, sieges, arrivals) drops in as a notice instead.
+ * an ally attacked and calling you to arms, an ultimatum, the end). The rest (other offers, battles, sieges, arrivals)
+ * drops in as a notice instead.
  */
 export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   warDeclaredOnYou: true,
@@ -42,6 +46,7 @@ export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
   armyArrived: false,
   peaceOffer: false,
   ultimatum: true,
+  allyAttacked: true,
   offer: false,
   gameOver: true,
 };
@@ -50,9 +55,9 @@ export const DEFAULT_AUTOPAUSE: Record<PauseReason, boolean> = {
 export const PAUSE_SETTINGS_VERSION = 1;
 
 /**
- * A saved game keeps its pause settings, with two one-time changes: a setting it has never seen (the ultimatum) takes
- * its default, and offers (peace proposals and the rest), which used to stop the clock, become notices. Toggled back
- * on after that, they stay on.
+ * A saved game keeps its pause settings, with two one-time changes: a setting it has never seen (the ultimatum, an
+ * ally's call to arms) takes its default, and offers (peace proposals and the rest), which used to stop the clock,
+ * become notices. Toggled back on after that, they stay on.
  */
 export function migrateSettings(set: GameSettings): GameSettings {
   set.autoPause = { ...DEFAULT_AUTOPAUSE, ...(set.autoPause ?? {}) };

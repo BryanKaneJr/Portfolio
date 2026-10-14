@@ -109,6 +109,51 @@ await coe(() => window.__coe.store.open({ kind: 'breakdown', what: 'gold' }));
 await shot('gold-breakdown');
 await coe(() => window.__coe.store.open({ kind: 'help' }));
 await shot('help');
+await coe(() => window.__coe.store.close());
+// Two crowns at peace with us, to send test offers.
+const senders = await coe(() => {
+  const s = window.__coe.store.state;
+  const foe = n => Object.values(s.wars).some(w => (w.attackers.includes(s.player) && w.defenders.includes(n)) || (w.defenders.includes(s.player) && w.attackers.includes(n)));
+  return Object.values(s.nations).filter(n => n.alive && n.id !== s.player && !foe(n.id)).slice(0, 2).map(n => n.id);
+});
+// A notice goes when its offer does (answered from the messages, withdrawn); one tapped too late only says so.
+const stale = await coe(([a]) => {
+  const { store } = window.__coe;
+  const s = store.state;
+  s.settings.autoPause.offer = false;
+  s.offers.push({ id: 'oStale', kind: 'alliance', from: a, day: s.day });
+  store.notify();
+  const t = store.toasts.find(x => x.offer === 'oStale');
+  s.offers = s.offers.filter(o => o.id !== 'oStale');
+  store.notify();
+  const kept = store.toasts.some(x => x.offer === 'oStale');
+  t?.action?.();
+  return { announced: !!t, kept, overlay: store.overlay, said: store.toasts.at(-1)?.text };
+}, senders);
+if (!stale.announced || stale.kept || stale.overlay) throw new Error('A notice outlived its offer: ' + JSON.stringify(stale));
+await shot('notice-too-late');
+// Two offers that stop the clock at once: the second comes up when the first is set aside.
+await coe(([a, b]) => {
+  const { store } = window.__coe;
+  const s = store.state;
+  s.settings.autoPause.offer = true;
+  s.offers.push({ id: 'oQ1', kind: 'alliance', from: a, day: s.day }, { id: 'oQ2', kind: 'marriage', from: b, day: s.day });
+  store.notify();
+  store.emit();
+}, senders);
+if ((await coe(() => window.__coe.store.overlay?.id)) !== 'oQ1') throw new Error('The first offer that pauses did not open its card');
+await tapId('offer-later');
+if ((await coe(() => window.__coe.store.overlay?.id)) !== 'oQ2') throw new Error('The second offer did not come up after the first');
+await shot('offer-next-in-turn');
+await tapId('offer-decline');
+if (await coe(() => window.__coe.store.overlay)) throw new Error('A card stayed up after the last offer was answered');
+await coe(() => {
+  const { store } = window.__coe;
+  store.state.offers = store.state.offers.filter(o => o.id !== 'oQ1');
+  store.state.settings.autoPause.offer = false;
+  store.notify();
+  store.emit();
+});
 console.log(errors.length ? errors.join('\n') : 'no errors', [...seen]);
 await browser.close();
 server.close();

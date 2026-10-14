@@ -47,6 +47,9 @@ export interface Toast {
   tone: 'info' | 'good' | 'bad';
   /** Where tapping the notice leads (an offer's card, a battle report). */
   action?: () => void;
+  /** The offer or battle report it announces: the notice goes when that does. */
+  offer?: string;
+  report?: string;
 }
 
 class GameStore {
@@ -75,6 +78,8 @@ class GameStore {
   private knownReports = new Set<string>();
   /** A card opened from a notice while time ran: closing it lets time run on. */
   private resumeOnClose = false;
+  /** Offers the settings pause for that arrived while another offer's card was up: shown next, in turn. */
+  private queuedOffers: string[] = [];
 
   constructor() {
     loadPrefs()
@@ -106,6 +111,10 @@ class GameStore {
     this.overlay = null;
     this.paused = true;
     this.mapMode = 'political';
+    // The last game's notices and waiting cards are not this one's.
+    this.toasts = [];
+    this.queuedOffers = [];
+    this.resumeOnClose = false;
     this.lastSavedYear = dateOf(s.day).year;
     // What was already waiting in the save is under the bell; only what arrives from now on is announced.
     this.knownOffers = new Set(s.offers.map(o => o.id));
@@ -132,8 +141,8 @@ class GameStore {
   }
 
   /** A notice under the top bar (at most three at once). With an action, tapping it goes there. */
-  toast(text: string, tone: Toast['tone'] = 'info', action?: () => void) {
-    const t: Toast = { id: ++this.toastSeq, text, tone, ...(action ? { action } : {}) };
+  toast(text: string, tone: Toast['tone'] = 'info', action?: () => void, about?: { offer?: string; report?: string }) {
+    const t: Toast = { id: ++this.toastSeq, text, tone, ...(action ? { action } : {}), ...about };
     this.toasts = [...this.toasts.slice(-2), t];
     this.emit();
     setTimeout(() => this.dismissToast(t.id), action ? 5000 : 3200);
@@ -146,8 +155,10 @@ class GameStore {
 
   /**
    * Announce what arrived since the last look. An offer the player pauses for (its setting, as requestPause saw it)
-   * opens its card and stops the clock; any other offer, and each of the player's battles, drops in as a notice that
-   * opens it when tapped, and waits under the bell until answered or read. Also closes a card whose offer is gone.
+   * opens its card and stops the clock (one at a time: those that come while a card is up are queued, and open in turn
+   * as each is answered or set aside); any other offer, and each of the player's battles, drops in as a notice that
+   * opens it when tapped, and waits under the bell until answered or read. Also closes a card, and drops a notice,
+   * whose offer or report is gone.
    */
   notify() {
     const s = this.state;
@@ -157,23 +168,40 @@ class GameStore {
     for (const o of s.offers) {
       if (this.knownOffers.has(o.id)) continue;
       fresh = true;
-      const why = offerPause(o);
+      const why = offerPause(s, o);
       if (s.settings.autoPause[why]) {
         if (this.overlay?.kind !== 'offer') this.open({ kind: 'offer', id: o.id });
+        else this.queuedOffers.push(o.id);
         this.paused = true;
-      } else this.toast(offerTitle(o), why === 'ultimatum' ? 'bad' : 'info', () => this.openFromNotice({ kind: 'offer', id: o.id }));
+      } else
+        this.toast(offerTitle(o), why === 'ultimatum' || why === 'allyAttacked' ? 'bad' : 'info', () => this.openFromNotice({ kind: 'offer', id: o.id }), { offer: o.id });
     }
-    if (fresh || this.knownOffers.size !== s.offers.length) this.knownOffers = new Set(s.offers.map(o => o.id));
+    const offersChanged = fresh || this.knownOffers.size !== s.offers.length;
+    if (offersChanged) this.knownOffers = new Set(s.offers.map(o => o.id));
     fresh = false;
     for (const r of s.reports) {
       if (this.knownReports.has(r.id)) continue;
       fresh = true;
       if (r.playerSide === null) continue;
-      this.toast(battleResult(r), r.winner === r.playerSide ? 'good' : 'bad', () => this.openFromNotice({ kind: 'report', id: r.id }));
+      this.toast(battleResult(r), r.winner === r.playerSide ? 'good' : 'bad', () => this.openFromNotice({ kind: 'report', id: r.id }), { report: r.id });
     }
-    if (fresh || this.knownReports.size !== s.reports.length) this.knownReports = new Set(s.reports.map(r => r.id));
+    const reportsChanged = fresh || this.knownReports.size !== s.reports.length;
+    if (reportsChanged) this.knownReports = new Set(s.reports.map(r => r.id));
+    // A notice for an offer answered or withdrawn (or a report that has dropped out of the list) goes with it.
+    if ((offersChanged || reportsChanged) && this.toasts.some(t => (t.offer && !this.knownOffers.has(t.offer)) || (t.report && !this.knownReports.has(t.report)))) {
+      this.toasts = this.toasts.filter(t => !(t.offer && !this.knownOffers.has(t.offer)) && !(t.report && !this.knownReports.has(t.report)));
+    }
+    if (this.cardGone()) this.leaveCard();
+  }
+
+  /** The offer or report card up is for something no longer there (answered, withdrawn, lapsed, dropped from the list). */
+  cardGone(): boolean {
+    const s = this.state;
     const ov = this.overlay;
-    if (ov?.kind === 'offer' && !s.offers.some(o => o.id === ov.id)) this.leaveCard();
+    if (!s) return false;
+    if (ov?.kind === 'offer') return !s.offers.some(o => o.id === ov.id);
+    if (ov?.kind === 'report') return !s.reports.some(r => r.id === ov.id);
+    return false;
   }
 
   /** The player has read a battle report. */
@@ -201,27 +229,54 @@ class GameStore {
   open(o: Overlay) {
     this.resumeOnClose = false;
     this.overlay = o;
+    if (o?.kind === 'offer' && this.queuedOffers.includes(o.id)) this.queuedOffers = this.queuedOffers.filter(id => id !== o.id);
     if (o && o.kind !== 'breakdown') this.setPaused(true);
     this.emit();
   }
   close() {
+    if (this.openQueued()) return;
     const resume = this.resumeOnClose;
     this.resumeOnClose = false;
     this.overlay = null;
     if (resume) this.setPaused(false);
     this.emit();
   }
-  /** Open a card from its notice: time stops while it is read, and runs on afterwards if it was running. */
+  /**
+   * Open a card from its notice: time stops while it is read, and runs on afterwards if it was running. A notice can
+   * outlive what it announced (answered from the messages, withdrawn, lapsed): then it only says so.
+   */
   openFromNotice(o: Overlay) {
+    const s = this.state;
+    if (!s) return;
+    if ((o?.kind === 'offer' && !s.offers.some(x => x.id === o.id)) || (o?.kind === 'report' && !s.reports.some(x => x.id === o.id))) {
+      this.toast('That has already passed.');
+      return;
+    }
     const running = !this.paused;
     this.open(o);
     this.resumeOnClose = running;
   }
-  /** Close an offer or report card: back to the page it was opened from (the messages, a war), else to the map. */
+  /**
+   * Close an offer or report card: on to the next offer waiting its turn, else back to the page it was opened from
+   * (the messages, a war), else to the map.
+   */
   leaveCard() {
     const ov = this.overlay;
-    if ((ov?.kind === 'offer' || ov?.kind === 'report') && ov.back) this.open(ov.back);
+    const back = ov?.kind === 'offer' || ov?.kind === 'report' ? ov.back : undefined;
+    if (this.openQueued(back)) return;
+    if (back) this.open(back);
     else this.close();
+  }
+  /** Open the next queued offer still waiting (it keeps the clock stopped, as its setting asks). */
+  private openQueued(back?: Overlay): boolean {
+    const s = this.state;
+    while (s && this.queuedOffers.length) {
+      const id = this.queuedOffers.shift()!;
+      if (!s.offers.some(o => o.id === id)) continue;
+      this.open({ kind: 'offer', id, ...(back ? { back } : {}) });
+      return true;
+    }
+    return false;
   }
   focusOn(x: number, y: number, zoom?: number) {
     this.focus = { x, y, zoom, seq: (this.focus?.seq ?? 0) + 1 };

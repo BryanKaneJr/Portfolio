@@ -1,7 +1,8 @@
 /** Plain-English descriptions of effects, goals and modifiers ("every number explained"). */
 import { ADVANCE, ERA, EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
 import { GOOD_NAME, coloniesOf } from '../sim/colonies';
-import { effectDelta, effectRegion } from '../sim/events';
+import { defensiveCall } from '../sim/log';
+import { effectDelta, effectRegion, walkEffects } from '../sim/events';
 import type { BattleReport, Condition, Effect, GameState, Modifiers, NationId, Offer } from '../sim/types';
 
 const reg = (r: string) => REGION[r]?.name ?? r;
@@ -204,8 +205,23 @@ export function effectLines(e: Effect, ctx?: EffectContext): ModLine[] {
       return [];
   }
 }
-export const effectsLines = (effects: Effect[], ctx?: EffectContext) =>
-  effects.flatMap(e => effectLines(e, ctx)).filter(l => !/flag/i.test(l.text));
+const linesMemo = new WeakMap<Effect[], { s: GameState; n: NationId; version: number; lines: ModLine[] }>();
+
+/**
+ * A list of effects in plain words. Given the game, each amount is what it changes after the effects before it, as they
+ * are applied in order (walkEffects: a new ruler's traits raise the Threat that follows). With `ctx.version` (the
+ * store's), the lines are kept until the game changes, so a card can show them on every render.
+ */
+export function effectsLines(effects: Effect[], ctx?: EffectContext & { version?: number }): ModLine[] {
+  if (!ctx) return effects.flatMap(e => effectLines(e)).filter(l => !/flag/i.test(l.text));
+  const hit = ctx.version !== undefined ? linesMemo.get(effects) : undefined;
+  if (hit && hit.s === ctx.s && hit.n === ctx.n && hit.version === ctx.version) return hit.lines;
+  const lines: ModLine[] = [];
+  walkEffects(ctx.s, ctx.n, effects, (s, e) => lines.push(...effectLines(e, { s, n: ctx.n })));
+  const out = lines.filter(l => !/flag/i.test(l.text));
+  if (ctx.version !== undefined) linesMemo.set(effects, { s: ctx.s, n: ctx.n, version: ctx.version, lines: out });
+  return out;
+}
 
 export function conditionText(c: Condition): string {
   const k = Object.keys(c)[0];
@@ -347,6 +363,15 @@ export function offerTitle(o: Offer): string {
     case 'access':
       return `${from} asks to march through your lands`;
   }
+}
+
+/**
+ * What letting an offer lapse does, when it does something: an unanswered call to arms counts as refusing it, and
+ * refusing an ally under attack breaks the alliance. Read after "Lapses 1 Mar 1445".
+ */
+export function lapseMeans(s: GameState, o: Offer): string | null {
+  if (o.kind !== 'callToArms') return null;
+  return defensiveCall(s, o) ? 'as a refusal: the alliance breaks' : 'as a refusal';
 }
 
 /** A battle and how it went, for its notice: "Battle of Granada: victory". */

@@ -87,6 +87,13 @@ function warPairs(s: GameState): Map<string, War> {
   warCache = { state: s, version: warVersion, day: s.day, pairs };
   return pairs;
 }
+/** The player's unread battle reports that can still be opened (the list keeps only the latest battles). */
+export function liveUnseenReports(s: GameState): string[] {
+  if (!s.unseenReports.length) return s.unseenReports;
+  const live = new Set(s.reports.map(r => r.id));
+  return s.unseenReports.filter(id => live.has(id));
+}
+
 export function warBetween(s: GameState, a: NationId, b: NationId): War | undefined {
   return warPairs(s).get(a < b ? `${a}|${b}` : `${b}|${a}`);
 }

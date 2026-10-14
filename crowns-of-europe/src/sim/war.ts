@@ -195,7 +195,19 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
   }
   callAllies(s, war, 'defenders');
   callAllies(s, war, 'attackers');
+  withdrawEnemyOffers(s, war);
   return war;
+}
+
+/**
+ * Everyone now fighting the player in `war` withdraws what it had offered them (an alliance, a match, passage, a call
+ * to arms): nobody allies with a crown it is at war with. Peace offers stay; they have their own checks.
+ */
+export function withdrawEnemyOffers(s: GameState, war: War): void {
+  const side = sideOf(war, s.player);
+  if (side === null || !s.offers.length) return;
+  const enemies = side === 0 ? war.defenders : war.attackers;
+  s.offers = s.offers.filter(o => o.kind === 'peace' || !enemies.includes(o.from));
 }
 
 function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): void {
@@ -207,7 +219,8 @@ function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): vo
     if (hasTruce(s, al, enemy)) continue; // a truce binds: it stays out, and nobody holds it against it
     if (al === s.player) {
       s.offers.push({ id: `o${++s.seq}`, kind: 'callToArms', from: leader, war: war.id, day: s.day });
-      requestPause(s, 'offer');
+      // An ally under attack is one of the great turns: refusing, or letting the call lapse, breaks the alliance.
+      requestPause(s, side === 'defenders' ? 'allyAttacked' : 'offer');
       continue;
     }
     if (aiAnswersCall(s, al, leader, enemy, side === 'defenders')) {
@@ -259,6 +272,7 @@ export function joinWar(s: GameState, n: NationId, warId: string, side: 0 | 1): 
   (side === 0 ? war.attackers : war.defenders).push(n);
   bumpWars();
   for (const sub of subjectsOf(s, n)) if (sideOf(war, sub) === null) (side === 0 ? war.attackers : war.defenders).push(sub);
+  withdrawEnemyOffers(s, war);
   return true;
 }
 

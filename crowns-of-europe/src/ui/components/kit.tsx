@@ -74,7 +74,7 @@ export function Btn({
           {label}
         </Text>
         {sub ? (
-          <Text style={[styles.btnSub, { color: look.fg }]} numberOfLines={1}>
+          <Text style={[styles.btnSub, { color: look.fg }]} numberOfLines={2}>
             {sub}
           </Text>
         ) : null}
@@ -338,7 +338,7 @@ export const styles = StyleSheet.create({
   btn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48, paddingHorizontal: 20, borderRadius: R.pill, borderWidth: 1 },
   btnSmall: { minHeight: 36, paddingHorizontal: 14 },
   btnText: { fontFamily: sans, fontSize: 16, fontWeight: '700', letterSpacing: 0.1 },
-  btnSub: { fontFamily: sans, fontSize: 11, opacity: 0.75, marginTop: 1 },
+  btnSub: { fontFamily: sans, fontSize: 11, opacity: 0.75, marginTop: 1, textAlign: 'center' },
   confirm: { width: '100%', alignItems: 'center', justifyContent: 'center', minHeight: 48, paddingHorizontal: 16, paddingVertical: 9, borderRadius: R.lg, borderWidth: 1, backgroundColor: 'rgba(236,122,104,0.16)', borderColor: 'rgba(236,122,104,0.55)' },
   confirmSmall: { minHeight: 36, paddingVertical: 7 },
   confirmLine: { fontFamily: sans, fontSize: 12, color: G.text2, marginTop: 2, textAlign: 'center' },

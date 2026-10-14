@@ -120,6 +120,73 @@ describe('effects show what they would really do', () => {
     expect(where({ addRegiments: { inf: 2 } })).toBe('No free army: your capital is not in your hands');
   });
 
+  test('every event choice shows what applying its effects in order changes', () => {
+    // [the number an effect changes, how finely its line shows it]
+    const READ: Record<string, [(s: GameState, n: string, v: any, capital: string) => number, number]> = {
+      gold: [(s, n) => s.nations[n].gold, 1],
+      goldPerDev: [(s, n) => s.nations[n].gold, 1],
+      manpower: [(s, n) => s.nations[n].manpower, 1],
+      stability: [(s, n) => s.nations[n].stability, 1],
+      prestige: [(s, n) => s.nations[n].prestige, 1],
+      science: [(s, n) => s.nations[n].science, 1],
+      threat: [(s, n) => s.nations[n].threat, 0.1],
+      papalFavor: [(s, n) => s.nations[n].papalFavor, 1],
+      warExhaustion: [(s, n) => s.nations[n].warExhaustion, 0.1],
+      devRegion: [(s, n, v) => s.regions[v.region]?.dev ?? 0, 1],
+      devCapital: [(s, n, v, cap) => s.regions[cap]?.dev ?? 0, 1],
+      fortRegion: [(s, n, v) => s.regions[v.region]?.fort ?? 0, 1],
+      rulerSkill: [(s, n) => s.nations[n].ruler.skill, 1],
+    };
+    const base = emptyGame('FRA');
+    const threatShown: Record<string, string> = {};
+    let checked = 0;
+    for (const ev of EVENTS) {
+      const n = ev.nations?.[0] ?? 'FRA';
+      if (!base.nations[n]?.alive) continue;
+      ev.choices.forEach((c, ci) => {
+        const lines = effectsLines(c.effects, { s: base, n });
+        // Answer it on a copy, effect by effect as answerEvent does, and compare each amount with its line.
+        const s: GameState = JSON.parse(JSON.stringify(base));
+        invalidateMods();
+        let at = 0;
+        for (const e of c.effects) {
+          const mine = lines.slice(at, (at += effectLines(e).filter(l => !/flag/i.test(l.text)).length));
+          const k = Object.keys(e)[0];
+          const v = (e as any)[k];
+          const read = READ[k];
+          const cap = s.nations[n].capital;
+          const before = read ? read[0](s, n, v, cap) : 0;
+          applyEffect(s, n, e);
+          invalidateMods();
+          if (!read) continue;
+          const real = read[0](s, n, v, cap) - before;
+          expect([ev.id, ci, mine[0].text, Math.abs(shown(mine[0].text) - real) <= read[1] / 2 + 1e-9]).toEqual([ev.id, ci, mine[0].text, true]);
+          if (k === 'threat') threatShown[`${ev.id}#${ci}`] = mine[0].text;
+          checked++;
+        }
+        expect([ev.id, ci, at]).toEqual([ev.id, ci, lines.length]);
+      });
+    }
+    expect(checked).toBeGreaterThan(200);
+    // A new ruler's traits come first, then the Threat they raise (shown as written before, +15, +20, +10 and +5).
+    for (const [key, nominal] of [['fra_sun_king#1', 15], ['hab_charles_v#0', 20], ['tur_suleiman#1', 10], ['tur_mehmed_ii#0', 5]] as const) {
+      expect([key, threatShown[key]]).not.toEqual([key, `Threat +${nominal}`]);
+      expect(shown(threatShown[key])).toBeGreaterThan(nominal);
+    }
+  });
+
+  test('a card can show its lines on every render: the same lines until the game changes', () => {
+    const s = emptyGame('FRA');
+    const ev = EVENTS.find(e => e.id === 'fra_sun_king')!;
+    const a = effectsLines(ev.choices[1].effects, { s, n: 'FRA', version: 1 });
+    expect(effectsLines(ev.choices[1].effects, { s, n: 'FRA', version: 1 })).toBe(a);
+    expect(effectsLines(ev.choices[1].effects, { s, n: 'FRA', version: 2 })).not.toBe(a);
+    // Looking ahead leaves the game as it was.
+    const before = JSON.stringify(s);
+    effectsLines(ev.choices[1].effects, { s, n: 'FRA' });
+    expect(JSON.stringify(s)).toBe(before);
+  });
+
   test('every event choice in the game reads without a formula', () => {
     const s = emptyGame('FRA');
     for (const e of EVENTS) for (const c of e.choices) for (const l of effectsLines(c.effects, { s, n: 'FRA' })) expect(l.text).not.toMatch(/×|per point|NaN|undefined/);

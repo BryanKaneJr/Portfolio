@@ -4,7 +4,7 @@ import { dailyBattles } from './battle';
 import { monthlyDiplomacy } from './diplomacy';
 import { monthlyEconomy } from './economy';
 import { checkAchievements, monthlyEvents } from './events';
-import { drainPauses, log, requestPause } from './log';
+import { defensiveCall, drainPauses, log, requestPause } from './log';
 import {
   cleanupArmies,
   dailyEngagements,
@@ -114,7 +114,7 @@ function expireOffers(s: GameState): void {
   const old = s.offers.filter(o => s.day - o.day > OFFER_DAYS);
   if (!old.length) return;
   s.offers = s.offers.filter(o => s.day - o.day <= OFFER_DAYS);
-  for (const o of old) if (o.kind === 'callToArms') refuseCall(s, s.player, o.from, s.wars[o.war]?.defenders[0] === o.from);
+  for (const o of old) if (o.kind === 'callToArms') refuseCall(s, s.player, o.from, defensiveCall(s, o));
 }
 
 /** Advance several days (tests, fast-forward). Stops early on a pause if `stopOnPause`. */

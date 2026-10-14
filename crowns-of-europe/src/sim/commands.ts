@@ -34,6 +34,7 @@ import {
   maxMorale,
   ownedRegions,
   sideOf,
+  warBetween,
 } from './queries';
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
@@ -460,12 +461,15 @@ export function answerOffer(s: GameState, offerId: string, accept: boolean): Res
   if (!o) return no('That offer has lapsed.');
   s.offers = s.offers.filter(x => x.id !== offerId);
   const from = nationName(o.from);
+  // Offers wait while time runs: one from a crown now at war with you has lapsed (a peace offer keeps its own checks).
+  if (o.kind !== 'peace' && warBetween(s, s.player, o.from)) return no(`You are at war with ${from}: the offer has lapsed.`);
   switch (o.kind) {
     case 'callToArms': {
       const w = s.wars[o.war];
       if (!w) return no('That war is already over.');
       const side = sideOf(w, o.from);
       if (side === null) return no('They are no longer in that war.');
+      if (sideOf(w, s.player) !== null) return no('You are already in that war.');
       if (accept) {
         joinWar(s, s.player, o.war, side);
         if (me(s).armyMode === 'peace') me(s).armyMode = 'war';

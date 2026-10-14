@@ -416,7 +416,7 @@ function Missions() {
             {state === 'locked' && m.requires.length ? <T v="tiny" style={{ marginTop: 4 }}>After: {m.requires.map(r => list.find(x => x.id === r)?.title ?? r).join(', ')}</T> : null}
             <View style={styles.reward}>
               <Text style={styles.blockLabel}>Reward</Text>
-              {effectsLines(m.reward, { s, n: s.player }).map((l, i) => (
+              {effectsLines(m.reward, { s, n: s.player, version: st.version }).map((l, i) => (
                 <Text key={i} style={{ fontFamily: sans, fontSize: 12, color: C.goldDark, fontWeight: '600' }}>
                   • {l.text}
                 </Text>
@@ -473,8 +473,9 @@ const PAUSE_LABEL: Record<PauseReason, string> = {
   event: 'An event needs your decision',
   warDeclaredOnYou: 'War is declared on you',
   ultimatum: 'An enemy sends you an ultimatum',
+  allyAttacked: 'An ally is attacked and calls you to arms',
   peaceOffer: 'An enemy proposes peace',
-  offer: 'An alliance, a call to arms or another proposal',
+  offer: 'An alliance, a call to join an attack or another proposal',
   battleStarted: 'A battle begins',
   siegeWon: 'A fortress falls',
   armyArrived: 'Your army arrives',

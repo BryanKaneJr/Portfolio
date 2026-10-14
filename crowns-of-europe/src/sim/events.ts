@@ -1,6 +1,6 @@
 /** Evaluates conditions, applies effects, and fires events each month (see docs/content-guide.md). */
 import { ACHIEVEMENTS, EVENT, EVENTS, MAP_REGION, NATION, REGION, nationName, regionName } from './content';
-import { log, involvesPlayer, requestPause } from './log';
+import { log, involvesPlayer, requestPause, withoutPauses } from './log';
 import {
   alliesOf,
   atWar,
@@ -438,6 +438,41 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
 }
 
 export const applyEffects = (s: GameState, n: NationId, effects: Effect[]) => effects.forEach(e => applyEffect(s, n, e));
+
+/** Effects whose amount (or place) depends on the game: what an earlier effect in the same list can change. */
+const READS = new Set(['goldPerDev', 'manpower', 'stability', 'prestige', 'science', 'threat', 'papalFavor', 'warExhaustion', 'devRegion', 'devCapital', 'fortRegion', 'rulerSkill', 'rebels', 'addRegiments', 'settlers']);
+/** Effects that change nothing another effect reads (gold is added as written, whatever the treasury holds). */
+const INERT = new Set(['gold', 'loans', 'addClaim', 'setFlag', 'clearFlag', 'setNationFlag', 'opinion', 'triggerEvent', 'hireGeneral', 'newHeir', 'unrestAll', 'unrestRegion', 'ally', 'breakAlliance']);
+const kindOf = (e: Effect) => Object.keys(e)[0];
+
+/**
+ * Effects apply in order, each to what those before it left (a new ruler's traits raise the Threat that follows):
+ * `visit` sees each effect with the game as it will stand just before it is applied. When an earlier effect can change
+ * what a later one reads, that is a copy of the game with the earlier ones applied; the game itself is untouched, and
+ * nothing done to the copy asks for a pause.
+ */
+export function walkEffects(s: GameState, n: NationId, effects: Effect[], visit: (s: GameState, e: Effect) => void): void {
+  const sequential = effects.some((e, i) => READS.has(kindOf(e)) && effects.slice(0, i).some(p => !INERT.has(kindOf(p))));
+  if (!sequential) {
+    for (const e of effects) visit(s, e);
+    return;
+  }
+  withoutPauses(() => {
+    const c = JSON.parse(JSON.stringify(s)) as GameState;
+    invalidateMods();
+    try {
+      effects.forEach((e, i) => {
+        visit(c, e);
+        if (i < effects.length - 1) {
+          applyEffect(c, n, e);
+          invalidateMods();
+        }
+      });
+    } finally {
+      invalidateMods();
+    }
+  });
+}
 
 // ---------------------------------------------------------------- firing
 

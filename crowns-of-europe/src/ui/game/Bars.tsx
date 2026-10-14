@@ -10,6 +10,7 @@ import { readyMissionCount } from '../../sim/missions';
 import { availableAdvances, scienceRate } from '../../sim/science';
 import { charted, freeColonists } from '../../sim/colonies';
 import { ledger } from '../../sim/economy';
+import { liveUnseenReports } from '../../sim/queries';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
 import { SPEEDS, store, useStore, type MapMode, type MenuTab } from '../../state/store';
@@ -49,7 +50,7 @@ export function TopBar() {
   const n = s.nations[s.player];
   const bal = ledger(s, s.player).balance;
   const open = (what: 'gold' | 'manpower' | 'stability' | 'threat') => st.open({ kind: 'breakdown', what });
-  const important = s.unseenReports.length + s.offers.length;
+  const important = liveUnseenReports(s).length + s.offers.length;
   return (
     <View style={[styles.topWrap, { top: insets.top + 6 }]} pointerEvents="box-none">
       <Glass gilt radius={R.lg} style={styles.top}>

@@ -23,10 +23,26 @@ export function drainPauses(): PauseReason[] {
   pending = [];
   return out;
 }
+/** Run `fn` (a look ahead on a copy of the game) without letting it ask for a pause. */
+export function withoutPauses<T>(fn: () => T): T {
+  const held = pending;
+  pending = [];
+  try {
+    return fn();
+  } finally {
+    pending = held;
+  }
+}
 
-/** The setting that decides whether an offer to the player stops the clock (and pops its card) or is only announced. */
-export const offerPause = (o: Pick<Offer, 'kind'> & { ultimatum?: number }): PauseReason =>
-  o.kind === 'peace' ? (o.ultimatum !== undefined ? 'ultimatum' : 'peaceOffer') : 'offer';
+/** A call to arms from an ally under attack (its war's defender): refusing it, or letting it lapse, breaks the alliance. */
+export const defensiveCall = (s: GameState, o: Offer): boolean => o.kind === 'callToArms' && s.wars[o.war]?.defenders[0] === o.from;
+
+/**
+ * The setting that decides whether an offer to the player stops the clock (and pops its card) or is only announced.
+ * An ally under attack calling for help is one of the great turns, with its own setting.
+ */
+export const offerPause = (s: GameState, o: Offer): PauseReason =>
+  o.kind === 'peace' ? (o.ultimatum !== undefined ? 'ultimatum' : 'peaceOffer') : defensiveCall(s, o) ? 'allyAttacked' : 'offer';
 
 /** True if the player's nation (or its subjects/allies at war beside it) is involved. */
 export const involvesPlayer = (s: GameState, ...nations: (NationId | undefined)[]) => nations.includes(s.player);

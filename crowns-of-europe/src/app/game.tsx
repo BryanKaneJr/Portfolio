@@ -35,6 +35,12 @@ export default function GameScreen() {
     return () => sub.remove();
   }, []);
 
+  // A card whose offer or report is gone (answered elsewhere, withdrawn, lapsed) closes rather than leave an empty page.
+  const gone = st.cardGone();
+  useEffect(() => {
+    if (gone) store.leaveCard();
+  }, [gone]);
+
   if (!s) return <Redirect href="/" />;
 
   const sel = st.selection;
