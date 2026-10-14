@@ -3,7 +3,8 @@
  * Prints, per seed: wars declared per decade (by reason), battles the attacker lost, wars that ran into the 20-year
  * cap, the share of AI armies of 10+ regiments with a general at milestone years, and the great powers' size at the
  * end; then wars by origin (who started them), the top 10 attackers, wars in the first two years, wars between members
- * of the Empire, holy wars, the median years between two wars of the same pair, and the truces' lengths. The
+ * of the Empire, holy wars, the median years between two wars of the same pair, the truces' lengths, the year
+ * Constantinople fell and who holds Granada, Normandy, Gascony, Calais and Novgorod at the end. The
  * spectated player answers peace offers as the AI would (otherwise nobody does, and its wars never end).
  */
 import { newGame } from '../../src/sim/state';
@@ -37,6 +38,7 @@ for (const seed of seeds.length ? seeds : [1, 2, 3]) {
   let battles = 0;
   let attackerLost = 0;
   const generals: string[] = [];
+  let cityFell = 0; // the year the Ottomans took Constantinople
   const start = s.day;
   const origins = new Map<string, number>();
   const attackers = new Map<NationId, number>();
@@ -50,6 +52,7 @@ for (const seed of seeds.length ? seeds : [1, 2, 3]) {
   for (let d = 0; d < Math.round(span * 365.25); d++) {
     advanceDay(s);
     for (const o of [...s.offers]) if (o.kind === 'peace') answerOffer(s, o.id, !!s.wars[o.war] && peaceAcceptance(s, s.wars[o.war], o.terms, s.player).accept);
+    if (!cityFell && s.regions.constantinople.owner === 'TUR') cityFell = yearOf(s.day);
     for (const w of Object.values(s.wars)) {
       if (wars.has(w.id)) continue;
       wars.set(w.id, { started: w.started, player: w.attackers[0] === s.player || w.defenders[0] === s.player });
@@ -107,4 +110,6 @@ for (const seed of seeds.length ? seeds : [1, 2, 3]) {
   console.log(`  median years between two wars of the same pair: ${median(gaps).toFixed(1)} (${gaps.length} repeats)`);
   console.log(`  truces (years: count): ${[...truceYears].sort((a, b) => a[0] - b[0]).map(([y, n]) => `${y}: ${n}`).join(', ')}`);
   console.log(`  ${yearOf(s.day)}: ${['FRA', 'HAB', 'ENG', 'CAS', 'TUR', 'POL', 'MOS'].map(n => `${n} ${size(n)}`).join(', ')}; ${Object.values(s.nations).filter(n => n.alive).length} realms`);
+  const holder = (r: string) => s.regions[r]?.owner ?? '-';
+  console.log(`  Constantinople Ottoman from ${cityFell || 'never'}; held: ${['granada', 'normandy', 'gascony', 'calais', 'novgorod'].map(r => `${r} ${holder(r)}`).join(', ')}`);
 }

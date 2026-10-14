@@ -418,9 +418,18 @@ here.
       reason it forges a claim.
     - `npx tsx scripts/dev/warchance.ts [year] [seed] [--opening]` prints each crown's chance and what makes it up;
       `--opening` models the first years' wars and the Ottoman opening in under a second.
-    - Measurements pending: wars per game, Constantinople by 1450, crowns alive and the great powers' size have not
-      yet been measured against the old rule (`aiwars.ts` on seeds 1-8 before and after); the constants are the
-      design's, not yet calibrated.
+    - England and Burgundy are old enemies from Arras and the siege of Calais until the Burgundian marriage of
+      1468 (a new bond), and a bond now counts in alliance talks (+25 old friends, −50 old enemies): England had
+      allied with Burgundy by 1447 in AI games, and France, waiting out the truce of Tours, found the English lands
+      out of its reach.
+    - Measured over 8 AI-only games to 1560 against the same seeds with the code before the claims of 1444 changed
+      (`scripts/dev/aiwars.ts 116 1 2 3 4 5 6 7 8`, `scripts/dev/opening.ts 1 48 1450`): wars declared 95.5 → 74 a
+      game; in the first two years 13 → 2, in the 1440s 17.5 → 5.5; holy wars 25 → 20.5; wars between members of the
+      Empire 4 → 1; realms alive in 1560 33.5 → 37.5; Constantinople Ottoman by 1446-1452 (median 1446.5; 1445
+      before) and by 1450 in most of 48 games (count pending); France holds Normandy in 6 of 8 and Gascony in 6 (7 and 4
+      before); France 24.5 regions (18), England 11.5 (12), Castile 27 (22.5), the Ottomans 23.5 (21.5); the
+      Ottomans start 17 wars to 1560 (17.5), France 19.5 (12.5), the Habsburgs 1 (3.5). The Habsburgs and Hungary
+      stay small (4 and 0 regions; 6.5 and 2.5 before).
 
 ## Key numbers (all in `src/sim/`)
 
