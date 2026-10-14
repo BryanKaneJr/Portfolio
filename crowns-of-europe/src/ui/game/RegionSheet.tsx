@@ -25,6 +25,7 @@ import { yearOf, years } from '../../sim/util';
 import { claimReason } from '../../sim/war';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { GrowSection, UnchartedSheet, WildSheet } from './ColonySheets';
+import { CrackDownBtn } from './RealmActions';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
@@ -124,7 +125,7 @@ export function RegionSheet({ id }: { id: string }) {
       {mine ? (
         <Section
           title="Invest"
-          help={`Prosperity raises taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and here science too' : ''}. A fort slows sieges and stops enemy armies marching past (upkeep 0.35 gold a month). Integrated land pays full taxes and levies. A university adds ${UNIVERSITY_SCIENCE} science a month.`}
+          help={`Prosperity raises taxes, levies and supply${prosperityAddsScience(s, s.player, id) ? ', and here science too' : ''}. A fort slows sieges and stops enemy armies marching past (upkeep 0.35 gold a month). Integrated land pays full taxes and levies. A university adds ${UNIVERSITY_SCIENCE} science a month. A crackdown costs 500 levies a point of prosperity (at least 1,000).`}
         >
           <View style={{ gap: 6 }}>
             <Btn tone="secondary" icon="coins" label={r.dev >= 10 ? 'As prosperous as it can be' : `Raise prosperity to ${r.dev + 1}`} sub={r.dev >= 10 ? undefined : `${devCost(s, r)} gold`} disabled={r.dev >= 10 || me.gold < devCost(s, r)} onPress={() => st.run(x => develop(x, id))} testID="develop" />
@@ -134,6 +135,7 @@ export function RegionSheet({ id }: { id: string }) {
             {!r.university ? (
               <Btn tone="secondary" icon="book" label="Found a university" sub={r.dev >= UNIVERSITY_MIN_DEV ? `${universityCost(s, s.player)} gold` : `needs prosperity ${UNIVERSITY_MIN_DEV}`} disabled={r.dev < UNIVERSITY_MIN_DEV || me.gold < universityCost(s, s.player)} onPress={() => st.run(x => foundUniversity(x, id))} testID="university" />
             ) : null}
+            <CrackDownBtn id={id} />
             {me.capital !== id && isCored(r) ? <Btn small tone="ghost" label="Move capital here (100 gold)" onPress={() => st.run(x => moveCapital(x, id))} /> : null}
           </View>
         </Section>

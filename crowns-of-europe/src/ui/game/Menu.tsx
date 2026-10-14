@@ -50,6 +50,7 @@ import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
 import { CrownsSection } from './Crowns';
+import { AbdicateRow, GoldenAgeSection, SeizeEstatesBtn } from './RealmActions';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
@@ -483,8 +484,10 @@ function Realm() {
         </Row>
         <Line label="Skill" value={`${me.ruler.skill} / 5`} help="Above 3, each point raises taxes 5%; below 3, each lowers them. Rulers age and die, and the heir takes over; with no heir, a death means a succession crisis." />
         {me.heir ? <Line label="Heir" value={`${me.heir.name} · skill ${me.heir.skill} · age ${Math.max(0, yearOf(s.day) - me.heir.born)}`} /> : def.gov === 'monarchy' ? <Line label="Heir" value="none" tone="bad" /> : null}
+        <AbdicateRow />
       </Card>
       <CrownsSection />
+      <GoldenAgeSection />
       <Section title={`National trait: ${traits[0]?.name}`}>
         <T v="small">{traits[0]?.desc}</T>
         {modLines(traits[0]?.mods ?? {}).map(m => (
@@ -502,10 +505,11 @@ function Realm() {
           <Btn small style={{ flex: 1 }} tone="secondary" label="Details" onPress={() => st.open({ kind: 'breakdown', what: 'gold' })} />
         </Row>
       </Section>
-      <Section title="Order and renown">
+      <Section title="Order and renown" help="Seizing the estates takes a year of your taxes at once (not trade or exports); you may do it once every 10 years, with order −1 or better.">
         <Line label="Order" value={`${signed(me.stability)} / 3`} tone={me.stability < 0 ? 'bad' : undefined} onPress={() => st.open({ kind: 'breakdown', what: 'stability' })} />
         <Line label="Renown" value={`${fmt(me.prestige)} / 100`} onPress={() => st.open({ kind: 'breakdown', what: 'prestige' })} />
         <Btn small tone="secondary" style={{ marginTop: 6 }} disabled={me.stability >= 3} label={me.stability >= 3 ? 'At its peak' : `Raise order (${stabilityCost(s, p)} gold)`} onPress={() => st.run(boostStability)} />
+        <SeizeEstatesBtn />
       </Section>
       <Section title={`Policies (${me.policies.length}/${slots})`} help="One slot, and one more for every three advances. Swapping one out costs 1 order (once per slot).">
         {me.policies.map(id => (

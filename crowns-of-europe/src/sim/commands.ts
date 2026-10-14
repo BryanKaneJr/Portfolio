@@ -42,6 +42,7 @@ import {
   warBetween,
 } from './queries';
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
+import { CRACKDOWN, abdicate, canAbdicate, canProclaimGolden, commas, crackDown, crackdownBlocked, crackdownCost, proclaimGoldenAge, seizeBlocked, seizeEstates } from './realm';
 import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
 import { releaseSubject } from './territory';
@@ -301,6 +302,36 @@ export function boostStability(s: GameState): Result {
   if (!pay(s, cost)) return no(`It costs ${cost} gold to win over the estates.`);
   nat.stability++;
   return ok(`Order rises to ${nat.stability > 0 ? '+' : ''}${nat.stability}.`);
+}
+
+export function crackDownOn(s: GameState, region: string): Result {
+  const why = crackdownBlocked(s, s.player, region);
+  if (why) return no(`${why}.`);
+  const cost = crackdownCost(s.regions[region]);
+  crackDown(s, s.player, region);
+  return ok(`Soldiers keep order in ${regionName(region)}: unrest −${-CRACKDOWN.unrest} for ${CRACKDOWN.years} years (−${commas(cost)} levies).`);
+}
+
+export function seizeTheEstates(s: GameState): Result {
+  const why = seizeBlocked(s, s.player);
+  if (why) return no(`${why}.`);
+  const gold = seizeEstates(s, s.player) ?? 0;
+  return ok(`Your officers seize the estates: +${commas(gold)} gold.`);
+}
+
+export function abdicateRuler(s: GameState): Result {
+  const why = canAbdicate(s, s.player);
+  if (why) return no(`${why}.`);
+  const old = me(s).ruler.name;
+  abdicate(s, s.player);
+  return ok(`${old} steps down for ${me(s).ruler.name}.`);
+}
+
+export function proclaimGolden(s: GameState): Result {
+  if (me(s).golden) return no('A golden age comes once a game.');
+  if (!canProclaimGolden(s, s.player)) return no('Not yet: see what a golden age needs.');
+  proclaimGoldenAge(s, s.player);
+  return ok('A golden age begins.');
 }
 
 // ---------------------------------------------------------------- science

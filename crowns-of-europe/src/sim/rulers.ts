@@ -108,7 +108,7 @@ function holdElection(s: GameState, n: NationId): void {
   const nat = s.nations[n];
   const next = newPerson(s, n, 40, 65);
   next.skill = Math.max(2, next.skill);
-  nat.ruler = next;
+  nat.ruler = { ...next, crowned: s.day };
   nat.electionDay = s.day + years(n === 'VEN' ? 8 : 5);
   invalidateMods();
   if (involvesPlayer(s, n)) log(s, 'ruler', `${next.name} is elected to lead the republic (skill ${next.skill}).`, { nation: n, important: true });
@@ -137,14 +137,14 @@ function succession(s: GameState, n: NationId, cause: string): void {
     return;
   }
   if (def.gov === 'theocracy') {
-    nat.ruler = newPerson(s, n, 45, 70);
+    nat.ruler = { ...newPerson(s, n, 45, 70), crowned: s.day };
     if (involvesPlayer(s, n)) log(s, 'ruler', `${old.name} has died (${cause}). ${nat.ruler.name} now leads (skill ${nat.ruler.skill}).`, { nation: n, important: true });
     invalidateMods();
     return;
   }
   if (nat.heir) {
     const heir = nat.heir;
-    nat.ruler = { ...heir, regency: yearOf(s.day) - heir.born < 16 };
+    nat.ruler = { ...heir, regency: yearOf(s.day) - heir.born < 16, crowned: s.day };
     nat.heir = undefined;
     nat.prestige = Math.max(0, nat.prestige - 5);
     if (involvesPlayer(s, n))
@@ -170,7 +170,7 @@ function succession(s: GameState, n: NationId, cause: string): void {
   const claimant = claimants.sort((a, b) => b.prestige - a.prestige)[0];
   if (claimant && chance(s, 0.15) && !nat.overlord && n !== s.player) {
     makeSubject(s, claimant.id, n, 'union');
-    nat.ruler = { ...claimant.ruler };
+    nat.ruler = { ...claimant.ruler, crowned: s.day };
     log(s, 'news', `${nationName(n)}'s line has died out. ${nationName(claimant.id)} inherits the crown in a personal union.`, {
       nation: n,
       important: involvesPlayer(s, n, claimant.id),
@@ -178,7 +178,7 @@ function succession(s: GameState, n: NationId, cause: string): void {
     invalidateMods();
     return;
   }
-  nat.ruler = newPerson(s, n, 18, 50);
+  nat.ruler = { ...newPerson(s, n, 18, 50), crowned: s.day };
   nat.stability = Math.max(-3, nat.stability - 2);
   nat.prestige = Math.max(0, nat.prestige - 10);
   if (involvesPlayer(s, n))
@@ -187,6 +187,39 @@ function succession(s: GameState, n: NationId, cause: string): void {
       important: true,
     });
   invalidateMods();
+}
+
+// ---------------------------------------------------------------- abdication
+
+/** A monarch stepping down for a grown heir: what it costs, and who may. */
+export const ABDICATE = { order: -1, renown: -10, minAge: 50, minReign: 10, heirAge: 16 };
+
+/** Why this crown's ruler may not step down now, or null if they may. */
+export function canAbdicate(s: GameState, n: NationId): string | null {
+  const nat = s.nations[n];
+  if (!nat?.alive || NATION[n]?.gov !== 'monarchy') return 'Only a crowned monarch can step down';
+  if (!nat.heir) return 'No heir';
+  const year = yearOf(s.day);
+  if (year - nat.heir.born < ABDICATE.heirAge) return 'Your heir is a child';
+  if (nat.ruler.regency) return 'A regent rules';
+  if (s.day - (nat.ruler.crowned ?? 0) < years(ABDICATE.minReign) && year - nat.ruler.born < ABDICATE.minAge) return `Reigned under ${ABDICATE.minReign} years`;
+  return null;
+}
+
+/** The ruler steps down and the heir takes the throne: order −1 and renown −10 (and no more: no death, no crisis). */
+export function abdicate(s: GameState, n: NationId): boolean {
+  if (canAbdicate(s, n)) return false;
+  const nat = s.nations[n];
+  const old = nat.ruler;
+  for (const a of Object.values(s.armies)) if (a.owner === n && a.general?.isRuler) a.general = undefined;
+  nat.ruler = { ...nat.heir!, crowned: s.day };
+  nat.heir = undefined;
+  nat.stability = Math.max(-3, nat.stability + ABDICATE.order);
+  nat.prestige = Math.max(0, nat.prestige + ABDICATE.renown);
+  invalidateMods();
+  if (involvesPlayer(s, n)) log(s, 'ruler', `${old.name} steps down. Long live ${nat.ruler.name} (skill ${nat.ruler.skill}).`, { nation: n, important: true });
+  newRulerMoment(s, n);
+  return true;
 }
 
 // ---------------------------------------------------------------- generals

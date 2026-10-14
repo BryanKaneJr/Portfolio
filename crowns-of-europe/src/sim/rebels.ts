@@ -4,9 +4,9 @@
  */
 import { NATION, regionName, nationName } from './content';
 import { log, involvesPlayer, moment, newsworthy } from './log';
-import { REBELS, armyRegs, isCored, nationMods } from './queries';
+import { REBELS, armyRegs, isCored, nationMods, ownedRegions } from './queries';
 import { makeArmy } from './state';
-import { setController, releaseNation } from './territory';
+import { killNation, setController, releaseNation } from './territory';
 import type { GameState, NationId, Region, RegionId } from './types';
 import { chance, clamp, months, years } from './util';
 import { newGeneral } from './rulers';
@@ -21,7 +21,13 @@ export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
   const nat = s.nations[r.owner];
   if (!nat) return [];
   const out: UnrestPart[] = [];
-  const add = (label: string, value: number) => value && out.push({ label, value: Math.round(value * 10) / 10 });
+  const add = (label: string, value: number) => {
+    if (!value) return;
+    // One line per cause: two timed lines with the same name (two events, two seizures) add up.
+    const same = out.find(p => p.label === label);
+    if (same) same.value = Math.round((same.value + value) * 10) / 10;
+    else out.push({ label, value: Math.round(value * 10) / 10 });
+  };
   if (r.faith !== nat.faith) {
     const tolerant = nat.flags.tolerance ? 1 : 0;
     add('Different faith', 3 - tolerant);
@@ -31,8 +37,8 @@ export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
   add('Order', -nat.stability * 0.75);
   add('Modifiers', nationMods(s, r.owner).unrest);
   if (r.converting) add('Conversion under way', 2);
-  for (const m of r.unrestMods) if (m.until > s.day) add('Recent events', m.amount);
-  return out;
+  for (const m of r.unrestMods) if (m.until > s.day) add(m.why ?? 'Recent events', m.amount);
+  return out.filter(p => p.value);
 }
 
 export function monthlyUnrest(s: GameState): void {
@@ -93,10 +99,14 @@ function rebelOutcomes(s: GameState): void {
     const breakaway = reg.cores.find(c => c !== owner && s.nations[c] && !s.nations[c].alive && NATION[c]);
     if (breakaway && releaseNation(s, owner, breakaway)) {
       log(s, 'rebels', `Rebels in ${regionName(reg.id)} win: ${nationName(breakaway)} is restored!`, { node: reg.id, important: true });
+      // The crown that lost the land: gone if that was all it had, else a new capital if it lost its old one.
+      const left = ownedRegions(s, owner);
+      if (!left.length) killNation(s, owner, breakaway);
+      else if (s.regions[nat.capital]?.owner !== owner) nat.capital = [...left].sort((a, b) => b.dev - a.dev)[0].id;
     } else {
       setController(s, reg.id, owner);
       nat.stability = clamp(nat.stability - 1, -3, 3);
-      for (const r of Object.values(s.regions)) if (r.owner === owner) r.unrestMods.push({ amount: -3, until: s.day + years(5) });
+      for (const r of Object.values(s.regions)) if (r.owner === owner) r.unrestMods.push({ amount: -3, until: s.day + years(5), why: 'Rebels appeased' });
       if (owner === s.player) log(s, 'rebels', `You give in to the rebels of ${regionName(reg.id)}. Order −1, but the land calms down.`, { node: reg.id, important: true });
     }
     for (const id of Object.keys(s.armies)) {

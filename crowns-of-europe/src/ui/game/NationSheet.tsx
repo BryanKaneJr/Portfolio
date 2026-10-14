@@ -10,6 +10,7 @@ import { EXCOMMUNICATE_COST } from '../../sim/religion';
 import { perceivedThreat } from '../../sim/threat';
 import { canDeclareWar } from '../../sim/war';
 import { MAX_MONTHLY, warOdds, type WarBlock } from '../../sim/ai';
+import { inGoldenAge } from '../../sim/realm';
 import { monthYear, pairKey, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
@@ -104,6 +105,7 @@ export function NationSheet({ id }: { id: string }) {
         {n.rivals.includes(s.player) ? <Pill text="Rivals you" color={C.redSoft} textColor={C.red} /> : null}
         {s.hre.emperor === id ? <Pill text="Emperor" color={C.gold} textColor="#1a1408" /> : null}
         {s.hre.electors.includes(id) ? <Pill text="Elector" color={C.parchment2} /> : null}
+        {inGoldenAge(s, id) ? <Pill text="Golden age" color={C.gold} textColor="#1a1408" /> : null}
       </Row>
       <Row gap={6}>
         <Stat label="Opinion of you" value={signed(Math.round(op))} tone={op >= 50 ? 'good' : op < -25 ? 'bad' : undefined} onPress={() => setWhyOpinion(w => !w)} icon="eye" />

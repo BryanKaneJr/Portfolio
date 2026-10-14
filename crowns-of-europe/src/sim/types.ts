@@ -436,6 +436,8 @@ export interface Ruler {
   skill: number; // 1..5
   traits: string[];
   regency?: boolean;
+  /** The day they took the throne (missing for the rulers of 1444 and older saves: read as day 0). */
+  crowned?: number;
 }
 
 export interface General {
@@ -566,7 +568,8 @@ export interface Region {
   fort: number;
   faith: Faith;
   unrest: number;
-  unrestMods: { amount: number; until: number }[];
+  /** Timed unrest (`why`: the breakdown's label, else "Recent events"). */
+  unrestMods: { amount: number; until: number; why?: string }[];
   cores: NationId[];
   conquered?: number; // day it changed hands (cores itself after 20 years)
   siege?: Siege;
@@ -652,6 +655,8 @@ export interface Nation {
   unjustWars?: number[];
   /** The latest greater crown it proclaimed (a CrownDef id): its name, arms and colour show instead of its own. */
   crown?: string;
+  /** Its golden age (once a game, realm.ts): fifty years of plenty from `since`; `over` once its end is told. */
+  golden?: { since: number; until: number; over?: boolean };
 }
 
 export interface Coalition {
@@ -765,7 +770,7 @@ export interface GameState {
   campaign?: string;
 }
 
-export type MomentKind = 'peace' | 'mission' | 'achievement' | 'crown' | 'union' | 'ruler' | 'capital' | 'fortress' | 'rebels' | 'invaded' | 'headline';
+export type MomentKind = 'golden' | 'peace' | 'mission' | 'achievement' | 'crown' | 'union' | 'ruler' | 'capital' | 'fortress' | 'rebels' | 'invaded' | 'headline';
 
 /** A great turn of the game: a card when the player caused it or is a principal in it, otherwise a banner. */
 export interface Moment {
