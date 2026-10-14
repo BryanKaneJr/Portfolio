@@ -632,6 +632,8 @@ export interface Nation {
   science: number; // banked toward the next advance
   researching: string | null;
   scienceFunding: number; // 0-3, see FUNDING in science.ts
+  /** The field of learning the crown endows (endowment.ts): its advances cheaper, the others dearer. */
+  endowment?: { field: AdvanceDef['field']; since: number };
   armyMode: 'peace' | 'war';
   modifiers: TimedModifier[];
   flags: Record<string, number>;

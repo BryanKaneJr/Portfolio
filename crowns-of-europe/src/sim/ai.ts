@@ -28,6 +28,7 @@ import {
 } from './colonies';
 import { log, requestPause } from './log';
 import { FUNDING_SHARE, UNIVERSITY_MIN_DEV, policySlots, universityCost, unlocked } from './science';
+import { aiEndowment } from './endowment';
 import { wantedRegions, wantsFrom } from './aims';
 import {
   REBELS,
@@ -103,6 +104,7 @@ export function monthlyAI(s: GameState): void {
     aiColonies(s, nat);
     aiDiplomacy(s, nat);
     aiClaims(s, nat);
+    aiEndowment(s, nat);
     // (Wars are weighed on each crown's own day of the month: dailyWarRolls.)
   }
   coalitionWarCheck(s, (attacker, target) => {

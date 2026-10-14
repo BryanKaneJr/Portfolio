@@ -44,6 +44,7 @@ import {
 import { excommunicate, sanctionTargets, SANCTION_COST } from './religion';
 import { newGeneral, rulerAsGeneral, starBonus } from './rulers';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, availableAdvances, policySlots, universityCost, unlocked } from './science';
+import { ENDOW, FIELD_NAME, endow, endowBlocked, type Field } from './endowment';
 import { releaseSubject } from './territory';
 import type { Army, GameState, NativePolicy, NodeId, PeaceTerms, ShipType, UnitType } from './types';
 import { clamp, formatDate, months } from './util';
@@ -319,6 +320,13 @@ export function setResearch(s: GameState, id: string | null): Result {
 export function setScienceFunding(s: GameState, on: boolean): Result {
   me(s).scienceFunding = on ? 1 : 0;
   return ok(on ? 'You fund your scholars: a tenth of your income for a quarter more science.' : 'You stop funding your scholars.');
+}
+
+export function setEndowment(s: GameState, field: Field): Result {
+  const why = endowBlocked(s, s.player, field);
+  if (why) return no(`${why}.`);
+  endow(s, s.player, field);
+  return ok(`Your scholars are endowed for ${FIELD_NAME[field]}: its advances cost ${Math.round(-ENDOW.own * 100)}% less.`);
 }
 
 export function foundUniversity(s: GameState, region: string): Result {

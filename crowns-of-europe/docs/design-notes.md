@@ -630,3 +630,33 @@ The first, simple pass at "the fun stuff".
 - **A battle's why.** A battle keeps how the sides stood on its first day (`Battle.opening`). Its report keeps that
   with the ground (`BattleReport.why`). `describe.ts battleWhy` turns it into at most three lines from the player's
   side, under the report. Older reports show nothing.
+
+## Fun batch 2 (P): Endowment
+
+The crown endows one field of learning; one tap in the Science tab, nothing to keep up. The rule is in
+`sim/endowment.ts` (one factor in `science.ts advanceCost`), the row in `ui/game/Endowment.tsx`. It is not called
+Patronage: that is already the policy "Patronage of the Arts".
+
+| What | Number |
+|---|---|
+| The endowed field's advances | ×0.8 ("Endowed: Sea" in the cost's why) |
+| The other two fields | ×1.1 ("Endowed elsewhere") |
+| First choice | free, any time |
+| Changing it | once 25 years have passed since the last choice ("Change again in 1490"); never to the same field |
+| Who | every crown that studies (not New World peoples) |
+
+- **UI.** Science tab, under Fund your scholars: "Endow" with War · Sea · Statecraft (the tab's own labels and
+  icons). Tapping a field arms it; "Endow Sea" then asks for a second tap ("Tap again to endow") and says how long
+  it is locked. While locked, the other fields are dim and the row says when it can change.
+- **AI** (`aiEndowment`, monthly, never changes it): Portugal, Castile and England endow Sea; otherwise
+  expansionist and opportunist crowns War, defensive ones Statecraft, traders Sea if coastal, else Statecraft.
+  `researchScore` divides by cost, so the AI's (and the player's scholars') next pick leans to the endowed field
+  with no other change.
+- **Measured** (AI-only, seeds 1–3 to 1500, against the branch point). 69 crowns endow: about 25 War, 9 Sea,
+  35 Statecraft. Ocean Navigation comes 0–2 years earlier for Portugal (1477–78 vs 1479), England and Castile;
+  speed is unchanged (2.7–3.4 ms a day either way). The War crowns take Pike and Shot before 1500: the Ottomans in
+  1492–94 in every seed (on the branch point they took Ocean Navigation about 1480 and no Pike and Shot by 1500),
+  Hungary and Poland too. With the Ottomans endowing Statecraft instead (the §5 safeguard, tried on the same seeds)
+  their advances match the branch point (Ocean Navigation 1479–84, Banking 1493–98, no Pike and Shot by 1500).
+  The safeguard's trigger (Musket or Bayonet more than 5 years early) needs `ottomans.ts 260` after the merge; if
+  it fires, one line in `aiEndowment` sends TUR to `state`.
