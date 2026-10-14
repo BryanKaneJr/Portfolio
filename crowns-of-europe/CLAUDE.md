@@ -71,7 +71,7 @@ src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, re
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
-               dev/ (soak, trace, ottomans, powers, aiwars, opening, pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
+               dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
                amounts (effects as shown), soak (Jest, node)
@@ -92,6 +92,7 @@ npx tsx scripts/dev/trace.ts TUR 10 1   # follow one nation through an AI game
 npx tsx scripts/dev/ottomans.ts 260 1 2 # Ottoman wars, size, troops' age vs Europe's, per seed
 npx tsx scripts/dev/powers.ts 256 FRA,HAB 1 2  # who takes a crown's land; great powers' size and age
 npx tsx scripts/dev/aiwars.ts 256 1 2     # AI wars per decade, battles attackers lost, generals in the field
+npx tsx scripts/dev/colonies.ts 306 1 2   # the colonial race: free land left, first colonies, colonists busy, raids
 npx tsx scripts/dev/opening.ts 1 24 1450   # does Constantinople fall in the opening war, seed by seed
 npx tsx scripts/dev/nation-colors.ts      # the realms' map colours: closest pairs (--write picks new ones)
 npm run map:build           # after editing regions.json / seas.json

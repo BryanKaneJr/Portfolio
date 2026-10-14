@@ -315,6 +315,47 @@ here.
     every owned region shows its town, capped in a small one to about the region's own size (2.2 times its label
     radius on screen, at least 10 points), so an island gets a small mark that leaves the land showing.
 
+29. **Colonization reworked (on request).** An audit found one land rush that ended around 1600 and left colonists
+    idle for 150 years, England and France shut out until about 1550 (the only base colonist needed Galleons and 30
+    prosperity at home), natives as a chore with a cliff (unguarded colonies wiped out; one parked regiment made them
+    perfectly safe), colonies being settled that no war could touch while founded ones fell in 15 days for little
+    leverage, and no list of where to settle. Now:
+    - Every Christian crown with an ocean coast gets a colonist with Ocean Navigation; Galleons and a great realm
+      give a second. Policies, being first to the New World, events and missions add more.
+    - Starting a colony where natives live is a choice: trade with them (settlers lose 15% of their pace; no attacks
+      unless they are fierce, then half as often; at founding they join, +1 prosperity per 2,000 of them, without
+      resentment) or take the land (slower the more of them there are, attacks unless guarded, they dwindle and the
+      few left resent it). A trading colony may take the land later, never the reverse.
+    - Paid guards (0.5 gold a month) keep a colony safe from natives without parking an army there.
+    - The Colonies tab lists where to settle: each site's settlers a month (the quicker way), years to found, export
+      and its gold at founding, and a mark where even trading settlers would be attacked.
+    - With no land left, a colonist grows one of your New World colonies: +1 prosperity per 500 settlers up to 8. The
+      newest is called back if you lose colonists (a charter ends). An AI with colonists leaves its colonies below 8
+      to them instead of buying their prosperity.
+    - Colonial wars: an enemy army standing in a colony being settled kills 20 settlers a month per regiment (200 at
+      most) unless troops of the founder's or a friend's are there; AI armies raid colonies on their own shore, and
+      the AI never settles beside hostile troops nor, for five years, where raiders wiped out a colony of its. A
+      founded colony holds out 60 days. At war, the AI raises a couple of regiments where they can march to a
+      threatened colony (never past its army limit, nor when its troops there already match the enemy), and armies
+      across the ocean with enemies on that shore stay to fight; at peace, troops stranded overseas keep a small
+      garrison and the rest sail home or disband.
+    - Settler events (a hurricane, fever, a harvest) hit one colony, not all of them.
+    - Measured over 8 AI-only games to 1750 against the same seeds before: England's and France's first colonies
+      1555 → 1493 (Portugal and Castile about 1493 as before); the free land gone by 1575 (from about 1600);
+      colonists busy (settling, then growing) until about 1620, where before they idled from 1600; a median of 5
+      colonies a game lost to raids, almost none to natives; exports in 1700 about 22% of Portugal's income, 6–18% of
+      England's and France's (as before).
+
+30. **Time stops only for what matters; real sums; disbanding asks first (on request).** The owner, playing on a
+    phone, found every little thing pausing the game. As in the genre's best-known games, the clock now stops by
+    default only for events (they need a choice), a war declared on you, an ally attacked and calling you to arms,
+    an ultimatum, and the end. Peace proposals and other offers, battles, sieges and arrivals arrive as a notice
+    (tap to open) and wait under the bell, each with the day it lapses (a lapsed call to arms counts as a refusal,
+    and says so); every kind can be set to pause in Settings, and old saves have offer pausing switched off once.
+    Only waiting events hold up time. Event and mission choices show what they will do in your realm, worked out
+    by applying their effects in order on a copy of the game ('Pay 31 gold', not '1.5 × your prosperity'). Disband
+    takes a second tap, and says what comes back (levies, the general) and what is lost (mercenaries).
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
