@@ -156,13 +156,12 @@ export const START_ADVANCES = advancesData.start;
 export const MISSION: Record<string, MissionDef> = Object.fromEntries(MISSIONS.map(m => [m.id, m]));
 export const ACHIEVEMENTS = achievementsJson as unknown as AchievementDef[];
 
-/** A famous place (landmarks.json): whoever holds its region has its one bonus. Nothing to build, nothing to pay. */
+/** A famous place (landmarks.json): whoever holds its region has its one bonus. Nothing to build, nothing to pay. Its
+ * picture is the owner's painting, art/landmarks/<id>.png (baked by npm run landmarks:build). */
 export interface LandmarkDef {
   id: string;
   region: RegionId;
   name: string;
-  /** Which pictogram draws it (ui/components/landmarkArt.ts). */
-  kind: string;
   mods: Modifiers;
   /** Its history, one line. */
   text: string;

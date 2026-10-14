@@ -78,8 +78,8 @@ bundled and works in airplane mode.
   the earlier it is taken than its historical year and less once neighbours know it, so the most learned crowns
   reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward. Endow one
   field to make its advances a fifth cheaper (the others a tenth dearer; change it every 25 years).
-- **Landmarks:** 15 famous places (Hagia Sophia, St Peter's, the Alhambra, the Kremlin, Westminster...), each drawn
-  on the map and giving one bonus to whoever holds its region.
+- **Landmarks:** 15 famous places (Hagia Sophia, St Peter's, the Alhambra, the Kremlin, Westminster...), each
+  painted for the game, standing on the map beside its town and giving one bonus to whoever holds its region.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
 - **Greater crowns:** 28 crowns to proclaim from the Realm tab once you hold their lands, such as Spain, Italy or
@@ -166,7 +166,8 @@ domain). Map lettering: [Cinzel](https://fonts.google.com/specimen/Cinzel) and
 dates, nations and rulers are public domain; all game text is original. Flags are simplified heraldry drawn in
 code. The towns on the map are rendered from free 3D models (CC0) by
 [Kay Lousberg (KayKit)](https://kaylousberg.itch.io/) with `npm run models:build` (`assets/units/CREDITS.md`). The
-troop, ship and mountain drawings were made for the game (`art/troops`, `art/ships`, `art/mountains`). Icons (coins, helmet,
+troop, ship and mountain drawings and the landmark paintings were made for the game (`art/troops`, `art/ships`,
+`art/mountains`, `art/landmarks`). Icons (coins, helmet,
 scales, laurels, crowns, the fire behind an enemy's arms and the rest of the emblems) by [Lorc](https://lorcblog.blogspot.com/) and
 [Delapouite](https://delapouite.com/) from [game-icons.net](https://game-icons.net/), under
 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/); `npm run icons:build` copies them in

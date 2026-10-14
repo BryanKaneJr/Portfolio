@@ -3,7 +3,6 @@
  * Run: npm run validate   (part of npm run check)
  */
 import { CHARGES, FLAG_PATTERNS } from '../src/ui/components/charges';
-import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
 import {
   ACHIEVEMENTS,
   ADVANCE,
@@ -285,8 +284,26 @@ for (const n of NATIONS) {
   }
 }
 
-// Landmarks: a real region each (one apiece), one known bonus, a picture we can draw, a short history.
-errs.push(...landmarkErrors(LANDMARKS, Object.keys(LANDMARK_ART)));
+// Landmarks: a real region each (one apiece), one known bonus, a picture, a short history. A landmark has a picture
+// when the owner's painting is in art/landmarks and npm run landmarks:build has baked it: assets/landmarks/<id>.png,
+// listed at its size in src/ui/map/landmarkArt.ts (read as text: it requires the pictures, which node cannot load).
+{
+  const root = path.join(__dirname, '..');
+  const listed = fs.readFileSync(path.join(root, 'src/ui/map/landmarkArt.ts'), 'utf8');
+  const pictures: string[] = [];
+  for (const m of listed.matchAll(/^ {2}'([a-z_]+)': \{ src: require\('\.\.\/\.\.\/\.\.\/assets\/landmarks\/\1\.png'\), w: (\d+), h: (\d+),/gm)) {
+    const [, id, w, h] = m;
+    const baked = path.join(root, 'assets/landmarks', `${id}.png`);
+    if (!fs.existsSync(path.join(root, 'art/landmarks', `${id}.png`))) errs.push(`landmark ${id}: no painting in art/landmarks`);
+    else if (!fs.existsSync(baked)) errs.push(`landmark ${id}: not baked (npm run landmarks:build)`);
+    else {
+      const head = fs.readFileSync(baked).subarray(16, 24);
+      if (head.readUInt32BE(0) !== +w || head.readUInt32BE(4) !== +h) errs.push(`landmark ${id}: picture size differs from landmarkArt.ts (npm run landmarks:build)`);
+      else pictures.push(id);
+    }
+  }
+  errs.push(...landmarkErrors(LANDMARKS, pictures));
+}
 
 for (const w of warns) console.warn('warn:', w);
 if (errs.length) {

@@ -31,10 +31,10 @@ export const LANDMARK_TEXT_MAX = 90;
 
 /**
  * What is wrong with a list of landmarks (empty when nothing): an unknown region, two in one region, other than
- * exactly one known modifier, a picture we cannot draw (`kinds`: the pictograms there are), a missing name or a
- * history line too long. Used by scripts/validate-content.ts and the tests.
+ * exactly one known modifier, no picture (`pictures`: the landmark ids that have a baked painting), a missing name or
+ * a history line too long. Used by scripts/validate-content.ts and the tests.
  */
-export function landmarkErrors(list: LandmarkDef[], kinds?: string[]): string[] {
+export function landmarkErrors(list: LandmarkDef[], pictures?: string[]): string[] {
   const errs: string[] = [];
   const ids = new Set<string>();
   const regions = new Set<string>();
@@ -48,7 +48,7 @@ export function landmarkErrors(list: LandmarkDef[], kinds?: string[]): string[] 
     const keys = Object.keys(lm.mods ?? {});
     if (keys.length !== 1) errs.push(`${at}: needs exactly one bonus (has ${keys.length})`);
     for (const k of keys) if (!MODIFIER_KEYS.includes(k)) errs.push(`${at}: unknown modifier ${k}`);
-    if (kinds && !kinds.includes(lm.kind)) errs.push(`${at}: no picture for kind ${lm.kind}`);
+    if (pictures && !pictures.includes(lm.id)) errs.push(`${at}: no picture (art/landmarks/${lm.id}.png, then npm run landmarks:build)`);
     if (!lm.name?.trim()) errs.push(`${at}: needs a name`);
     if (!lm.text?.trim()) errs.push(`${at}: needs its history ('text')`);
     else if (lm.text.length > LANDMARK_TEXT_MAX) errs.push(`${at}: text is over ${LANDMARK_TEXT_MAX} characters`);

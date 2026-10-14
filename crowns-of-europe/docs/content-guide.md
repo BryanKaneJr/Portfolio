@@ -320,19 +320,21 @@ Checked for the player each month; `nations` limits one to specific starting nat
 ## Landmarks (`landmarks.json`)
 
 ```json
-{ "id": "st_peters", "region": "rome", "name": "St Peter's", "kind": "st_peters", "mods": { "opinion": 10 },
+{ "id": "st_peters", "region": "rome", "name": "St Peter's", "mods": { "opinion": 10 },
   "text": "Pilgrims from every Christian land come to the Apostle's tomb." }
 ```
 
 - A famous place that gives its one bonus to whoever holds the region (not while it is occupied). Nothing to build
   or pay. At most one landmark per region.
 - `mods`: exactly one modifier key (as in effects), about the size of one policy's bonus.
-- `kind`: its picture in `src/ui/components/landmarkArt.ts`, today one per landmark (the landmark's own id). A new
-  picture is a gold silhouette in a 24 x 24 box standing on y = 21, 3-7 path pieces, simple enough to read at 20
-  points on the map; check it beside the others at map size before adding it.
+- Its picture is the owner's painting `art/landmarks/<id>.png` (named by the landmark's `id`): the building alone on a
+  transparent ground, in the same warm gold and sepia as the others, any size (they are 1024 x 1024). Run
+  `npm run landmarks:build`: it cuts it to what is painted, makes it 192 px on its longer side into
+  `assets/landmarks/<id>.png` and lists it in `src/ui/map/landmarkArt.ts` (generated; never edit it). The map sizes
+  it by its own proportions, so a tall tower or a wide temple both work; there is no path data to draw.
 - `text`: one line of real history, at most 90 characters; the region sheet adds "It goes to whoever holds the
   region."
-- The validator checks the region, one landmark per region, one known modifier, a picture for the kind, a name and
-  the text's length. `tests/landmarks.test.ts` checks that every mark stands inside its own region on the map, clear
-  of its name and its army, at every zoom.
+- The validator checks the region, one landmark per region, one known modifier, a baked picture for its id, a name
+  and the text's length. `tests/landmarks.test.ts` checks that every picture stands inside its own region on the map,
+  clear of its name and its army, at every zoom, at its own proportions.
 

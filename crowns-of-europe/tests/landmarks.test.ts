@@ -6,11 +6,13 @@ import { invalidateMods, modifierSources, nationMods } from '../src/sim/queries'
 import { annexNation, releaseNation, setController, transferRegion } from '../src/sim/territory';
 import { declareWar, makePeace } from '../src/sim/war';
 import { newGame } from '../src/sim/state';
-import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
+import fs from 'node:fs';
+import path from 'node:path';
 import { PLAY_K, REGION_NAMES_K, armyBox, grow } from '../src/ui/map/anchors';
 import { K_MAX } from '../src/ui/map/camera';
 import { regionAt } from '../src/ui/map/geometry';
-import { MARK_MIN, markPlace, nameBox, type TownSize } from '../src/ui/map/landmarkSpot';
+import { LANDMARK_ART } from '../src/ui/map/landmarkArt';
+import { FOOT_Y, MARK_MIN, MARK_PT, MIDDLE_Y, markPlace, markSize, nameBox, type TownSize } from '../src/ui/map/landmarkSpot';
 import type { RegionId } from '../src/sim/types';
 import { emptyGame, forceWar } from './helpers';
 
@@ -21,34 +23,6 @@ function game() {
   return s;
 }
 
-/** How many numbers each SVG path command takes (absolute commands only: the art uses no others). */
-const ARGS: Record<string, number> = { M: 2, L: 2, H: 1, V: 1, A: 7, C: 6, Q: 4, Z: 0 };
-
-/** Parse a path into its commands; throws on anything we do not draw with. Returns every end point it reaches. */
-function endPoints(d: string): [number, number][] {
-  const tokens = d.match(/[A-Za-z]|-?(?:\d+\.?\d*|\.\d+)/g) ?? [];
-  const pts: [number, number][] = [];
-  let x = 0;
-  let y = 0;
-  let i = 0;
-  if (tokens[0] !== 'M') throw new Error(`${d}: must start with M`);
-  while (i < tokens.length) {
-    const cmd = tokens[i++];
-    if (!(cmd in ARGS)) throw new Error(`${d}: unknown command ${cmd}`);
-    const n = ARGS[cmd];
-    do {
-      const args = tokens.slice(i, i + n).map(Number);
-      if (args.length !== n || args.some(v => Number.isNaN(v))) throw new Error(`${d}: ${cmd} needs ${n} numbers`);
-      i += n;
-      if (cmd === 'H') x = args[0];
-      else if (cmd === 'V') y = args[0];
-      else if (n >= 2) [x, y] = args.slice(n - 2);
-      if (n) pts.push([x, y]);
-    } while (n && i < tokens.length && !/[A-Za-z]/.test(tokens[i]));
-  }
-  return pts;
-}
-
 describe('the landmarks content', () => {
   test('fifteen, each in a real region of its own with one known bonus and a picture', () => {
     expect(LANDMARKS).toHaveLength(15);
@@ -57,24 +31,28 @@ describe('the landmarks content', () => {
       expect(REGION[lm.region]).toBeDefined();
       expect(Object.keys(lm.mods)).toHaveLength(1);
       expect(MODIFIER_KEYS).toContain(Object.keys(lm.mods)[0]);
-      expect(LANDMARK_ART[lm.kind]).toBeDefined();
+      expect(LANDMARK_ART[lm.id]).toBeDefined();
       expect(LANDMARK_AT[lm.region]).toBe(lm);
     }
     expect(landmarkErrors(LANDMARKS, Object.keys(LANDMARK_ART))).toEqual([]);
   });
 
-  test('every pictogram is plain path data inside its 24 x 24 box', () => {
-    for (const [kind, paths] of Object.entries(LANDMARK_ART)) {
-      expect(paths.length).toBeGreaterThan(0);
-      for (const p of paths) {
-        expect(p.d.length).toBeGreaterThan(0);
-        const pts = endPoints(p.d);
-        expect(pts.length).toBeGreaterThanOrEqual(2);
-        for (const [x, y] of pts) {
-          if (!(x >= 0 && x <= 24 && y >= 0 && y <= 24)) throw new Error(`${kind}: point ${x},${y} outside the box`);
-        }
-      }
+  test("every picture is the owner's painting, baked at the size its listing gives", () => {
+    const root = path.join(__dirname, '..');
+    expect(Object.keys(LANDMARK_ART).sort()).toEqual(LANDMARKS.map(l => l.id).sort());
+    let bytes = 0;
+    for (const lm of LANDMARKS) {
+      const art = LANDMARK_ART[lm.id];
+      expect(fs.existsSync(path.join(root, 'art/landmarks', `${lm.id}.png`))).toBe(true);
+      const baked = fs.readFileSync(path.join(root, 'assets/landmarks', `${lm.id}.png`));
+      bytes += baked.length;
+      // The PNG's own header: width and height as listed; its longer side 192 px (sharp at 64 points on a 3x screen).
+      expect([lm.id, baked.readUInt32BE(16), baked.readUInt32BE(20)]).toEqual([lm.id, art.w, art.h]);
+      expect([lm.id, Math.max(art.w, art.h)]).toEqual([lm.id, 192]);
+      expect(art.ground).toBeGreaterThan(0.85);
+      expect(art.ground).toBeLessThanOrEqual(1);
     }
+    expect(bytes).toBeLessThan(400 * 1024); // the fifteen together stay small
   });
 
   test('the checker catches a bad entry', () => {
@@ -85,7 +63,7 @@ describe('the landmarks content', () => {
       { ...good, id: 'second_here' }, // a second landmark in Constantinople
       { ...good, id: 'odd_bonus', region: 'rome_x', mods: { luck: 1 } as any },
       { ...good, id: 'two_bonuses', region: 'brandenburg', mods: { taxIncome: 0.1, manpower: 0.1 } },
-      { ...good, id: 'no_picture', region: 'holland', kind: 'volcano' },
+      { ...good, id: 'no_picture', region: 'holland' },
       { ...good, id: 'long_story', region: 'saxony', text: 'x'.repeat(91) },
     ];
     const errs = landmarkErrors(bad, kinds).join('\n');
@@ -93,7 +71,7 @@ describe('the landmarks content', () => {
     expect(errs).toMatch(/odd_bonus: unknown region rome_x/);
     expect(errs).toMatch(/odd_bonus: unknown modifier luck/);
     expect(errs).toMatch(/two_bonuses: needs exactly one bonus/);
-    expect(errs).toMatch(/no_picture: no picture for kind volcano/);
+    expect(errs).toMatch(/no_picture: no picture \(art\/landmarks\/no_picture.png/);
     expect(errs).toMatch(/long_story: text is over 90/);
   });
 });
@@ -215,7 +193,7 @@ describe('a new game', () => {
 });
 
 describe('landmarks on the map', () => {
-  /** Every mark's box (map units) at zoom `k`, with no towns, every town the smallest picture and every town the
+  /** Every picture's box (map units) at zoom `k`, with no towns, every town the smallest picture and every town the
    * largest (MapView TOWN_ART 19-30 points, at least 10, capped at 2.2 times the label radius on screen). */
   function marks(k: number) {
     const px = (n: number) => n / k;
@@ -225,8 +203,8 @@ describe('landmarks on the map', () => {
     ];
     return towns.flatMap(town =>
       LANDMARKS.map(lm => {
-        const [x, y, size] = markPlace(lm.region, k, px, town);
-        return { lm, size, box: [x, y, x + size, y + size] };
+        const [x, y, w, h] = markPlace(lm.region, k, px, town);
+        return { lm, w, h, box: [x, y, x + w, y + h] };
       }),
     );
   }
@@ -238,13 +216,58 @@ describe('landmarks on the map', () => {
     ...Array.from({ length: Math.round((K_MAX - REGION_NAMES_K) / 0.1) + 1 }, (_, i) => +(REGION_NAMES_K + i * 0.1).toFixed(2)),
   ];
 
-  test('every mark stands inside its own region, at every zoom it shows at, never under MARK_MIN', () => {
+  test('every picture stands inside its own region, at every zoom it shows at, never under MARK_MIN', () => {
     for (const k of zooms)
-      for (const { lm, size, box } of marks(k)) {
+      for (const { lm, w, h, box } of marks(k)) {
         const [x, y] = box;
-        expect([k, lm.id, regionAt(x + size / 2, y + size * 0.6), regionAt(x + size / 2, y + size * 0.85)]).toEqual([k, lm.id, lm.region, lm.region]);
-        expect(size * k).toBeGreaterThanOrEqual(MARK_MIN - 1e-6);
+        const mx = x + w / 2;
+        expect([k, lm.id, regionAt(mx, y + h * MIDDLE_Y), regionAt(mx, y + h * FOOT_Y)]).toEqual([k, lm.id, lm.region, lm.region]);
+        expect(Math.max(w, h) * k).toBeGreaterThanOrEqual(MARK_MIN - 1e-6);
+        // Its own proportions, whatever its size.
+        expect(w / h).toBeCloseTo(LANDMARK_ART[lm.id].w / LANDMARK_ART[lm.id].h, 6);
       }
+  });
+
+  test('big enough to tell the building, none outweighing the others, sharp at the closest zoom', () => {
+    for (const lm of LANDMARKS) {
+      // A large region at play zoom: no cap from the region's size.
+      const [w, h] = markSize(lm.id, 100, PLAY_K);
+      expect([lm.id, h >= 22 && h <= 40]).toEqual([lm.id, true]);
+      expect([lm.id, w >= 9 && w <= 36]).toEqual([lm.id, true]);
+      // About the same weight on the map: within a sixth of MARK_PT squared, or the tall or wide one held in.
+      expect([lm.id, w * h <= MARK_PT * MARK_PT * 1.001]).toEqual([lm.id, true]);
+      // At the closest zoom on a 3x screen the baked picture is not stretched (a few per cent at most).
+      const [cw, ch] = markSize(lm.id, 100, K_MAX);
+      expect([lm.id, Math.max(cw, ch) * 3 <= Math.max(LANDMARK_ART[lm.id].w, LANDMARK_ART[lm.id].h) * 1.02]).toEqual([lm.id, true]);
+    }
+    // The tall tower stays a tower, not a sliver; the wide pyramids stay low.
+    expect(markSize('giralda', 100, PLAY_K)[0]).toBeGreaterThanOrEqual(9);
+    expect(markSize('pyramids', 100, PLAY_K)[1]).toBeLessThan(markSize('pyramids', 100, PLAY_K)[0]);
+  });
+
+  test('the pictures stand where most of them is in their own region, and off each other', () => {
+    for (const k of [REGION_NAMES_K, PLAY_K, 2.5, K_MAX]) {
+      const all = marks(k);
+      for (const { lm, w, h, box } of all) {
+        // Most of its lower half in its region: four-fifths from play zoom on, three-fifths where names first show (the
+        // smallest regions are a few points across there) and in Constantinople and Île-de-France.
+        let n = 0;
+        let inside = 0;
+        for (const fx of [0.1, 0.3, 0.5, 0.7, 0.9])
+          for (const fy of [0.55, 0.7, 0.85, 0.95]) {
+            n++;
+            if (regionAt(box[0] + w * fx, box[1] + h * fy) === lm.region) inside++;
+          }
+        const need = k < PLAY_K || lm.id === 'hagia_sophia' || lm.id === 'notre_dame' ? 0.6 : 0.8;
+        if (inside / n < need) expect([k, lm.id, inside / n]).toEqual([k, lm.id, `at least ${need}`]);
+      }
+      // Two landmarks' pictures never overlap (with the same towns).
+      for (let t = 0; t < 3; t++) {
+        const set = all.slice(t * LANDMARKS.length, (t + 1) * LANDMARKS.length);
+        for (let i = 0; i < set.length; i++)
+          for (let j = i + 1; j < set.length; j++) expect([k, set[i].lm.id, set[j].lm.id, overlap(set[i].box, set[j].box)]).toEqual([k, set[i].lm.id, set[j].lm.id, 0]);
+      }
+    }
   });
 
   test("no mark stands where its region's army stands", () => {
@@ -261,9 +284,9 @@ describe('landmarks on the map', () => {
     for (const k of zooms) {
       const px = (n: number) => n / k;
       const names = MAP.regions.map(r => ({ id: r.id, b: nameBox(r.id, k, px) }));
-      for (const { lm, size, box } of marks(k))
+      for (const { lm, w, h, box } of marks(k))
         for (const { id, b } of names) {
-          const f = overlap(b, box) / (size * size);
+          const f = overlap(b, box) / (w * h);
           if (id === lm.region) expect([k, lm.id, id, f]).toEqual([k, lm.id, id, 0]);
           else if (f > share(lm.id, k)) expect([k, lm.id, id, f]).toEqual([k, lm.id, id, `under ${share(lm.id, k)}`]);
         }
