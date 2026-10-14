@@ -5,7 +5,7 @@ Handoff notes for Claude Code. Read this first, then `README.md`, `AGENTS.md` (E
 
 ## What this is
 A portrait-only, offline, pay-once grand strategy game (Europe, the Middle East, West Africa and the eastern
-Americas, 1444–1750) for iOS and
+Americas, 1444–1750; every one of its 73 nations playable, and 28 greater crowns to proclaim) for iOS and
 Android: Expo SDK 57, React Native 0.86, TypeScript, Expo Router. The original design doc is the spec except where
 `docs/design-notes.md` says otherwise (Expo instead of Godot, 211 regions including the New World and colonization,
 a Mercator map, light tutorial, no audio yet).
@@ -56,22 +56,31 @@ a Mercator map, light tutorial, no audio yet).
 src/sim/       types, content (JSON loaders + movement graph), state (new game), tick (daily/monthly), commands,
                military (paths, convoys, movement, supply), battle, forecast (how a battle would go, for the AI), siege,
                navy, war (war score, peace, ultimatums), diplomacy
-               (opinion, actions), threat (coalitions), economy, colonies (discovery, colonists, settlers, natives,
+               (opinion, actions), ties (everything between a crown and the others, for the Diplomacy tab), crowns
+               (greater crowns: who may proclaim, proclaiming, the AI's every January), goals (the next goals strip),
+               threat (coalitions), economy, colonies (discovery, colonists, settlers, natives,
                trade goods), science (science a month, advances, costs, research), events (DSL eval), dsl (schema),
                missions, aims (what each AI crown wants: historical aims, mission goals, bonds), rulers, religion
-               (Reformation, Papal Favor, HRE), rebels, territory, ai, queries, util, log
+               (Reformation, Papal Favor, HRE), rebels, territory, ai (incl. the war chance, `warOdds`), queries, util,
+               log (incl. `moment()`: the triumph cards and banners). A proclaimed crown keeps its nation id and changes
+               only how it shows: always read names, adjectives, colours and arms through `nationName`, `nationAdj`,
+               `nationFlag`, `displayOf` (content.ts), never `NATION[x].name/.adj/.color/.flag`
 src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, scenario1444, traits, policies, units,
-               names, events-historical, events-generic, events-newworld, missions, achievements, advances (science),
-               aims (historical aims and old friendships/enmities), map.json (generated)
+               names (incl. general names by culture and regnal seeds), events-historical, events-generic,
+               events-newworld, events-history-{west,iberia-italy,empire-north,east-balkans,levant-africa-americas}
+               (the history cards of fun batch 1), formables (the 28 greater crowns), missions, achievements, advances
+               (science), aims (historical aims and old friendships/enmities), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
 src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, reliefTiles, terrain, terrainSymbols,
                terrainLayer + terrainCache + terrainTiles + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
-src/state/     store (game loop, selection, overlays, toasts, play-test hook on window.__coe), storage (saves)
+src/state/     store (game loop, selection, overlays, toasts, moments, play-test hook on window.__coe), speed (1x-8x;
+               8x only at peace), storage (saves; one autosave per campaign)
 scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
-               dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
+               dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, crowns, warchance, playall, pan-layers,
+               nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
                amounts (effects as shown), soak (Jest, node)
@@ -209,10 +218,13 @@ The game screen: the map fills the screen; the top bar (arms, resources, message
 lens; their panels open beside it), the war rail on the left (each enemy's arms on fire, `BurningShield`; tap for
 the war screen, `game/WarScreen.tsx`), the dock (time, and the realm's pages as a tab bar) float over it; sheets
 (`game/Sheet.tsx`: inset glass, grab handle, drag to resize or dismiss) rest just above the dock so time stays in
-reach (armies and fleets open compact, and the map glides whatever you select into the clear space above its
-sheet: `ui/layout.ts` holds the shared sizes; keep the land around a selected army tappable); full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
-controls; cards (events, offers, battles) sit on glass over the dimmed map. Only event cards come up on their own
-(and block time until answered); the clock stops for what `settings.autoPause` asks (by default events, a war on you,
+reach (armies and fleets open compact so the land around a selected army stays tappable; selecting never moves the
+map, at the owner's request: only a drag, a pinch, "Show on map" or the outliner does; `ui/layout.ts` holds the
+shared sizes); full-screen pages use `Panel` (close button, title in capitals, a gilt rule) and hide the floating
+controls; cards (events, offers, battles, moments) sit on glass over the dimmed map. Event cards come up on their own
+(and block time until answered), and so do triumph cards for what the player caused or leads (a peace, a mission
+claimed, an achievement, a crown proclaimed, a union), grouped into one card per batch (`MomentCard`); every other
+moment is a non-pausing banner; the clock stops for what `settings.autoPause` asks (by default events, a war on you,
 an ally under attack calling you to arms, an ultimatum, the end: `DEFAULT_AUTOPAUSE`; `offerPause` sorts the offers).
 An offer the player pauses for opens its card (more than one at a time wait their turn, `queuedOffers`); other offers
 and battle results drop in as notices (a toast with an `action`, `store.notify`; a notice goes when its offer does,
