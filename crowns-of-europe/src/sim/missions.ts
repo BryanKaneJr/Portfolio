@@ -6,21 +6,24 @@ import type { GameState, MissionDef, NationId } from './types';
 
 export type MissionState = 'done' | 'ready' | 'active' | 'locked';
 
+const GENERIC = MISSIONS.filter(m => m.nation === 'generic');
+/** Generic missions a New World people cannot finish (it makes no treaties and plants no colonies). */
+const NOT_NATIVE = new Set([
+  'gen_friends_abroad',
+  'gen_the_western_sea',
+  'gen_a_colony_overseas',
+  'gen_riches_of_the_indies',
+]);
+/** The rest, with no lock pointing at a dropped one (A Name Abroad no longer waits on Friends Abroad). */
+const NATIVE_GENERIC = GENERIC.filter(m => !NOT_NATIVE.has(m.id)).map(m => ({
+  ...m,
+  requires: m.requires.filter(r => !NOT_NATIVE.has(r)),
+}));
+
 export function missionsFor(n: NationId): MissionDef[] {
   const own = MISSIONS.filter(m => m.nation === n);
   if (own.length) return own;
-  return isNativeNation(n) ? nativeMissions() : MISSIONS.filter(m => m.nation === 'generic');
-}
-
-/** The generic missions a New World people can complete: none that needs allies or colonies, and none locked
- * behind one that does. */
-let natives: MissionDef[] | null = null;
-function nativeMissions(): MissionDef[] {
-  if (natives) return natives;
-  const out = (m: MissionDef) => /"native":false|"alliesAtLeast"|"coloniesAtLeast"/.test(JSON.stringify(m.goal));
-  const dropped = new Set(MISSIONS.filter(m => m.nation === 'generic' && out(m)).map(m => m.id));
-  natives = MISSIONS.filter(m => m.nation === 'generic' && !dropped.has(m.id)).map(m => (m.requires.some(r => dropped.has(r)) ? { ...m, requires: m.requires.filter(r => !dropped.has(r)) } : m));
-  return natives;
+  return isNativeNation(n) ? NATIVE_GENERIC : GENERIC;
 }
 
 export function missionState(s: GameState, n: NationId, m: MissionDef): MissionState {

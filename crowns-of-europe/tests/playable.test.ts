@@ -66,6 +66,11 @@ describe('New World peoples', () => {
     expect(ids).not.toContain('gen_the_western_sea');
     expect(ids).toContain('gen_a_name_abroad');
     expect(missionsFor('HAU').find(m => m.id === 'gen_a_name_abroad')!.requires).toEqual([]);
+    // None left that shuts natives out, and no lock on a mission they no longer have.
+    for (const m of missionsFor('HAU')) {
+      expect(JSON.stringify(m.goal)).not.toMatch(/"native":false|alliesAtLeast|coloniesAtLeast/);
+      for (const r of m.requires) expect(ids).toContain(r);
+    }
     // Europeans keep the full generic list.
     expect(missionsFor('PRO').map(m => m.id)).toContain('gen_friends_abroad');
   });
