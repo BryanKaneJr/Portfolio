@@ -1,1 +1,1887 @@
-[]
+[
+  {
+    "id": "boh_a_king_from_among_us",
+    "pool": "historical",
+    "title": "A King from Among Us",
+    "text": "Young King Ladislaus has died suddenly in Prague, not yet eighteen. The Estates gather to choose his successor. Your regent, George of Poděbrady, is a Utraquist lord who has kept the peace for ten years; the Habsburgs and the Saxons want the crown for their own princes.",
+    "image": "crown",
+    "nations": [
+      "BOH"
+    ],
+    "window": [
+      1456,
+      1462
+    ],
+    "mtth": 12,
+    "news": "The Bohemian estates have chosen a new king.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Elect George of Poděbrady king",
+        "effects": [
+          {
+            "prestige": 10
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -25
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Offer the crown to the Habsburgs",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "triggerEvent": {
+              "id": "hab_crown_of_wenceslas",
+              "months": 1,
+              "nation": "HAB"
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hab_crown_of_wenceslas",
+    "pool": "historical",
+    "title": "The Crown of St Wenceslas",
+    "text": "The Bohemian estates offer you their crown, with Moravia and Silesia. Half of them are heretics, and they will want their chalice and their privileges confirmed. But the crown carries an electoral vote and the richest silver mines in the Empire.",
+    "image": "crown",
+    "nations": [
+      "HAB"
+    ],
+    "hidden": true,
+    "news": "The Habsburgs have taken the crown of Bohemia.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "BOH"
+        },
+        {
+          "not": {
+            "overlordOf": "BOH"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "BOH"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the crown of St Wenceslas",
+        "effects": [
+          {
+            "personalUnion": "BOH"
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Refuse a crown offered by heretics",
+        "effects": [
+          {
+            "papalFavor": 10
+          },
+          {
+            "opinion": {
+              "nation": "BOH",
+              "amount": -20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "boh_compacts_torn_up",
+    "pool": "historical",
+    "title": "The Pope Tears Up the Compacts",
+    "text": "The Pope has annulled the Compacts that let your people take communion in both kinds, and orders you to bring Bohemia back to obedience. Refuse, and he will preach a crusade against you; the King of Hungary is said to be eager to take the cross.",
+    "image": "church",
+    "nations": [
+      "BOH"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 24,
+    "news": "The Pope has turned against the King of Bohemia.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "PAP"
+        },
+        {
+          "faith": "catholic"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Defend the chalice and the Compacts",
+        "effects": [
+          {
+            "papalFavor": -30
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "triggerEvent": {
+              "id": "hun_crusade_against_bohemia",
+              "months": 6,
+              "nation": "HUN"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Submit to Rome",
+        "effects": [
+          {
+            "papalFavor": 20
+          },
+          {
+            "stability": -2
+          },
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "bohemia"
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hun_crusade_against_bohemia",
+    "pool": "historical",
+    "title": "A Crusade against Prague",
+    "text": "The Pope has excommunicated the King of Bohemia and calls on Catholic princes to depose him. The Bohemian Catholic lords offer you the crown if you march. Your soldiers would rather fight the Turks, but Moravia and Silesia are rich and close.",
+    "image": "swords",
+    "nations": [
+      "HUN"
+    ],
+    "hidden": true,
+    "news": "The King of Hungary has taken the cross against Bohemia.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "BOH"
+        },
+        {
+          "not": {
+            "atWarWith": "BOH"
+          }
+        },
+        {
+          "not": {
+            "allied": "BOH"
+          }
+        },
+        {
+          "faith": "catholic"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "BOH",
+            "region": "moravia"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take the cross against the heretic king",
+        "effects": [
+          {
+            "addClaim": [
+              "moravia",
+              "silesia"
+            ]
+          },
+          {
+            "declareWar": {
+              "target": "BOH",
+              "cb": "claim",
+              "region": "moravia"
+            }
+          },
+          {
+            "papalFavor": 10
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Leave Bohemia to the Bohemians",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "papalFavor": -5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bra_indignation_of_berlin",
+    "pool": "historical",
+    "title": "The Indignation of Berlin",
+    "text": "The twin towns of Berlin and Cölln have flooded the foundations of your new castle on the Spree, broken open your archives and locked out your officials. They want their old Hanseatic freedoms; you want a capital that obeys.",
+    "image": "rebels",
+    "nations": [
+      "BRA"
+    ],
+    "window": [
+      1444,
+      1455
+    ],
+    "mtth": 18,
+    "trigger": {
+      "owns": "brandenburg"
+    },
+    "choices": [
+      {
+        "text": "Take the towns by force",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 3,
+              "region": "brandenburg"
+            }
+          },
+          {
+            "devCapital": 1
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "modifier": {
+              "id": "berlin_bridled",
+              "name": "Berlin Bridled",
+              "months": 240,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Confirm the towns' charters",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "hanseatic_berlin",
+              "name": "Hanseatic Berlin",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1,
+                "taxIncome": -0.05
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bra_stettin_inheritance",
+    "pool": "historical",
+    "title": "The Stettin Inheritance",
+    "text": "The last Duke of Stettin has died without an heir, and by old treaties his duchy should fall to you. His cousins of Wolgast have seized it anyway, and the Pomeranian estates have sworn to them. The Emperor has not yet made up his mind.",
+    "image": "map",
+    "nations": [
+      "BRA"
+    ],
+    "window": [
+      1464,
+      1480
+    ],
+    "mtth": 18,
+    "news": "Brandenburg claims the duchy of Stettin.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "POM"
+        },
+        {
+          "not": {
+            "atWarWith": "POM"
+          }
+        },
+        {
+          "not": {
+            "allied": "POM"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "POM"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "POM",
+            "region": "pomerania"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Claim Stettin and march",
+        "effects": [
+          {
+            "addClaim": "pomerania"
+          },
+          {
+            "declareWar": {
+              "target": "POM",
+              "cb": "claim",
+              "region": "pomerania"
+            }
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Take their homage and a right to inherit",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "POM",
+              "amount": 20
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pom_one_duke_for_pomerania",
+    "pool": "historical",
+    "title": "One Duke for All Pomerania",
+    "text": "The last of your cousins has died, and for the first time in nearly two hundred years one duke rules all Pomerania. Brandenburg demands that you kneel as its vassal. Your young duke Bogislaw would rather build a state of his own, with its own courts, coins and tolls.",
+    "image": "crown",
+    "nations": [
+      "POM"
+    ],
+    "window": [
+      1474,
+      1500
+    ],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "exists": "BRA"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Refuse homage and fortify Stettin",
+        "effects": [
+          {
+            "fortRegion": {
+              "region": "pomerania",
+              "amount": 1
+            }
+          },
+          {
+            "opinion": {
+              "nation": "BRA",
+              "amount": -30
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "bogislaws_reforms",
+              "name": "Bogislaw's Reforms",
+              "months": 240,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Grant Brandenburg the right to inherit",
+        "effects": [
+          {
+            "ally": "BRA"
+          },
+          {
+            "opinion": {
+              "nation": "BRA",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "teu_the_emperors_verdict",
+    "pool": "historical",
+    "title": "The Emperor's Verdict",
+    "text": "The Prussian towns and knights have bound themselves in a league against your taxes and your judges. You can ask the Emperor to declare their league unlawful, which he is ready to do, or meet the burghers halfway and give them seats on your council.",
+    "image": "scroll",
+    "nations": [
+      "TEU"
+    ],
+    "window": [
+      1446,
+      1456
+    ],
+    "mtth": 18,
+    "trigger": {
+      "all": [
+        {
+          "owns": "danzig"
+        },
+        {
+          "not": {
+            "flag": "thirteen_years_war"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Have the Emperor ban their league",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 20
+            }
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "unrestRegion": {
+              "region": "danzig",
+              "amount": 3
+            }
+          },
+          {
+            "modifier": {
+              "id": "league_outlawed",
+              "name": "League Outlawed",
+              "months": 60,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Give the towns seats on your council",
+        "effects": [
+          {
+            "setFlag": "prussian_towns_reconciled"
+          },
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "towns_council",
+              "name": "The Towns' Council",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "teu_the_mercenaries_price",
+    "pool": "historical",
+    "title": "The Mercenaries' Price",
+    "text": "Your Bohemian mercenaries have not been paid in a year, and they hold your castles as security, Marienburg among them. The King of Poland has offered them the gold you owe. You could raise the money by selling the Neumark to Brandenburg, or let the castles go.",
+    "image": "coins",
+    "nations": [
+      "TEU"
+    ],
+    "window": [
+      1454,
+      1470
+    ],
+    "mtth": 12,
+    "news": "The Teutonic Order's unpaid mercenaries are selling its castles.",
+    "trigger": {
+      "all": [
+        {
+          "atWarWith": "POL"
+        },
+        {
+          "owns": "danzig"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Sell the Neumark to Brandenburg",
+        "effects": [
+          {
+            "gold": 100
+          },
+          {
+            "opinion": {
+              "nation": "BRA",
+              "amount": 30
+            }
+          },
+          {
+            "modifier": {
+              "id": "neumark_sold",
+              "name": "The Neumark Sold",
+              "months": 240,
+              "mods": {
+                "manpower": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let them sell Marienburg to Poland",
+        "effects": [
+          {
+            "transferRegion": {
+              "region": "danzig",
+              "to": "POL"
+            }
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "stability": -1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "liv_the_last_master",
+    "pool": "historical",
+    "title": "The Last Master",
+    "text": "Muscovite armies have taken Dorpat and Narva, and the Order's castles fall one by one. The Master, Gotthard Kettler, proposes to dissolve the Order, become a Lutheran duke and put Livonia under the King of Poland and Lithuania. Reval would rather have the Swedes.",
+    "image": "church",
+    "nations": [
+      "LIV"
+    ],
+    "window": [
+      1555,
+      1570
+    ],
+    "mtth": 6,
+    "news": "The Livonian Order is breaking apart under Muscovite attack.",
+    "trigger": {
+      "atWarWith": "MOS"
+    },
+    "choices": [
+      {
+        "text": "Secularise and seek Polish protection",
+        "effects": [
+          {
+            "changeFaith": "protestant"
+          },
+          {
+            "newRuler": {
+              "name": "Gotthard Kettler",
+              "skill": 3,
+              "traits": [
+                "administrator"
+              ],
+              "age": 44
+            }
+          },
+          {
+            "ally": "POL"
+          },
+          {
+            "ally": "LIT"
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Turn to the King of Sweden",
+        "effects": [
+          {
+            "ally": "SWE"
+          },
+          {
+            "opinion": {
+              "nation": "SWE",
+              "amount": 30
+            }
+          },
+          {
+            "gold": -30
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Fight on as a crusading order",
+        "effects": [
+          {
+            "papalFavor": 10
+          },
+          {
+            "modifier": {
+              "id": "last_crusaders",
+              "name": "The Last Crusaders",
+              "months": 60,
+              "mods": {
+                "morale": 0.15,
+                "fortDefense": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "dan_forever_undivided",
+    "pool": "historical",
+    "title": "Forever Undivided",
+    "text": "The Count of Holstein, last of his line, is dead. The nobles of Schleswig and Holstein offer to elect you their lord, if you swear the two lands will stay forever undivided and pay off the count's other heirs. Holstein runs to the walls of Lübeck, and its burghers want no Danish king on their doorstep.",
+    "image": "treaty",
+    "nations": [
+      "DAN"
+    ],
+    "window": [
+      1459,
+      1465
+    ],
+    "mtth": 12,
+    "news": "The King of Denmark has been chosen lord of Schleswig and Holstein.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Swear the oath and buy out the other heirs",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "addClaim": "holstein"
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "opinion": {
+              "nation": "HSA",
+              "amount": -30
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Leave Holstein to the count's cousins",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "HSA",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "dan_lower_saxon_war",
+    "pool": "historical",
+    "title": "Captain of the Lower Saxon Circle",
+    "text": "As Duke of Holstein you are a prince of the Empire, and the Protestant princes of Lower Saxony beg you to lead them against the Emperor's armies marching north. England and the Dutch promise subsidies. Your treasury is full from the Sound tolls; your army is untested.",
+    "image": "swords",
+    "nations": [
+      "DAN"
+    ],
+    "window": [
+      1620,
+      1635
+    ],
+    "mtth": 12,
+    "news": "The King of Denmark has entered the war in Germany.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "thirty_years_war"
+        },
+        {
+          "faith": "protestant"
+        },
+        {
+          "exists": "HAB"
+        },
+        {
+          "nationFaith": {
+            "nation": "HAB",
+            "faith": "catholic"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "HAB"
+          }
+        },
+        {
+          "not": {
+            "allied": "HAB"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "HAB"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Lead the Protestant princes against the Emperor",
+        "effects": [
+          {
+            "declareWar": {
+              "target": "HAB",
+              "cb": "holy",
+              "with": [
+                "SAX",
+                "BRA",
+                "LUN",
+                "HSA",
+                "POM"
+              ]
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep out and collect the Sound tolls",
+        "effects": [
+          {
+            "gold": 100
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 20
+            }
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hsa_the_counts_feud",
+    "pool": "historical",
+    "title": "The Count's Feud",
+    "text": "Denmark's king is dead and its nobles cannot agree on a successor. Your mayor, Jürgen Wullenwever, proposes to put the captive old king back on the throne with Lübeck's money and Count Christoph's mercenaries, and make the Sound a Hanseatic toll-gate again. Copenhagen and Malmö would rise for you.",
+    "image": "ship",
+    "nations": [
+      "HSA"
+    ],
+    "window": [
+      1530,
+      1540
+    ],
+    "mtth": 12,
+    "news": "Lübeck has gone to war over the Danish crown.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "DAN"
+        },
+        {
+          "not": {
+            "atWarWith": "DAN"
+          }
+        },
+        {
+          "not": {
+            "allied": "DAN"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "DAN"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "DAN",
+            "region": "zealand"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Hire Count Christoph and invade Denmark",
+        "effects": [
+          {
+            "addClaim": [
+              "zealand",
+              "scania"
+            ]
+          },
+          {
+            "declareWar": {
+              "target": "DAN",
+              "cb": "claim",
+              "region": "zealand"
+            }
+          },
+          {
+            "gold": -60
+          },
+          {
+            "hireGeneral": {
+              "stars": 3,
+              "name": "Count Christoph"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Keep the League out of Danish quarrels",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "DAN",
+              "amount": 20
+            }
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "bav_seizure_of_donauworth",
+    "pool": "historical",
+    "title": "The Seizure of Donauwörth",
+    "text": "Your cousin of Bavaria-Landshut has seized the free imperial city of Donauwörth, and the Emperor has declared war on him. Albrecht Achilles of Brandenburg-Ansbach leads the imperial army. Your Wittelsbach cousins ask you to stand with the family.",
+    "image": "swords",
+    "nations": [
+      "BAV"
+    ],
+    "window": [
+      1455,
+      1465
+    ],
+    "mtth": 18,
+    "trigger": {
+      "all": [
+        {
+          "exists": "HAB"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Stand with the Wittelsbachs",
+        "effects": [
+          {
+            "addClaim": "swabia"
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "BRA",
+              "amount": -30
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "wittelsbach_front",
+              "name": "The Wittelsbach Front",
+              "months": 60,
+              "mods": {
+                "morale": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Side with the Emperor",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bav_landshut_inheritance",
+    "pool": "historical",
+    "title": "The Landshut Inheritance",
+    "text": "Your cousin of Landshut has died and, against the house law of the Wittelsbachs, left his rich duchy to his daughter and her husband, a Palatine prince. The Emperor says the inheritance is yours, and the Palatines are already garrisoning the castles.",
+    "image": "crown",
+    "nations": [
+      "BAV"
+    ],
+    "window": [
+      1500,
+      1510
+    ],
+    "mtth": 12,
+    "news": "War has broken out over the Landshut inheritance.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "PAL"
+        },
+        {
+          "not": {
+            "atWarWith": "PAL"
+          }
+        },
+        {
+          "not": {
+            "allied": "PAL"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "PAL"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "PAL",
+            "region": "palatinate"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Enforce the house law by war",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "bavaria",
+              "amount": 1
+            }
+          },
+          {
+            "addClaim": "palatinate"
+          },
+          {
+            "declareWar": {
+              "target": "PAL",
+              "cb": "claim",
+              "region": "palatinate"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Share the lands with the Palatines",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "PAL",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "gold": 50
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pal_the_winter_king",
+    "pool": "historical",
+    "title": "The Crown of Bohemia Offered",
+    "text": "The rebel estates of Bohemia have deposed their Habsburg king and offer the crown of St Wenceslas to you, the leader of the Protestant princes. Your wife, a king's daughter, urges you to take it. Your councillors warn that the Emperor and all Spain will come for the Rhine.",
+    "image": "crown",
+    "nations": [
+      "PAL"
+    ],
+    "window": [
+      1610,
+      1635
+    ],
+    "mtth": 6,
+    "news": "The Elector Palatine has sided with the rebel estates of Bohemia.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "thirty_years_war"
+        },
+        {
+          "exists": "BOH"
+        },
+        {
+          "not": {
+            "atWarWith": "BOH"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "allied": "BOH"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the crown of Bohemia",
+        "effects": [
+          {
+            "ally": "BOH"
+          },
+          {
+            "setFlag": "winter_king"
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -60
+            }
+          },
+          {
+            "prestige": 15
+          },
+          {
+            "threat": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Refuse the crown",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 20
+            }
+          },
+          {
+            "opinion": {
+              "nation": "BOH",
+              "amount": -20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sax_brother_against_brother",
+    "pool": "historical",
+    "title": "Brother against Brother",
+    "text": "You and your brother William were to share the Wettin lands, but neither likes his half. William has taken Thuringia, hired Bohemian mercenaries and allied with your enemies. The Saxon knights are choosing sides.",
+    "image": "swords",
+    "nations": [
+      "SAX"
+    ],
+    "window": [
+      1444,
+      1452
+    ],
+    "mtth": 18,
+    "trigger": {
+      "owns": "saxony"
+    },
+    "choices": [
+      {
+        "text": "Fight William for all of Thuringia",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "saxony"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let William keep Thuringia",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "thuringia_divided",
+              "name": "Thuringia Divided",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.05,
+                "manpower": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "kol_the_archbishops_bride",
+    "pool": "historical",
+    "title": "The Archbishop's Bride",
+    "text": "Your archbishop has fallen in love with a canoness, embraced the reformed faith and announced that he will marry her and keep the electorate as a Protestant prince. The cathedral chapter wants to depose him and elect a Bavarian prince. Spain and the Dutch are both watching the Rhine.",
+    "image": "church",
+    "nations": [
+      "KOL"
+    ],
+    "window": [
+      1578,
+      1592
+    ],
+    "mtth": 12,
+    "news": "The Archbishop of Cologne has turned Protestant.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "reformation"
+        },
+        {
+          "faith": "catholic"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Follow your archbishop into the new faith",
+        "effects": [
+          {
+            "changeFaith": "protestant"
+          },
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "cologne"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "BAV",
+              "amount": -30
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Depose him and elect the Bavarian prince",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "ally": "BAV"
+          },
+          {
+            "opinion": {
+              "nation": "BAV",
+              "amount": 40
+            }
+          },
+          {
+            "papalFavor": 15
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mai_two_archbishops",
+    "pool": "historical",
+    "title": "The Feud of the Two Archbishops",
+    "text": "The Pope has deposed your archbishop Diether for refusing his taxes and named Adolf of Nassau in his place. Diether will not go quietly: the Elector Palatine's army and the city's burghers are behind him. Adolf has the Pope, the Emperor and a night assault in mind.",
+    "image": "siege",
+    "nations": [
+      "MAI"
+    ],
+    "window": [
+      1459,
+      1465
+    ],
+    "mtth": 12,
+    "news": "Two archbishops are fighting over Mainz.",
+    "trigger": {
+      "exists": "PAP"
+    },
+    "choices": [
+      {
+        "text": "Stand by Diether and the Palatine",
+        "effects": [
+          {
+            "ally": "PAL"
+          },
+          {
+            "papalFavor": -20
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": -30
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "mainz"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Open the gates to the Pope's man",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Adolf of Nassau",
+              "skill": 3,
+              "traits": [
+                "ambitious"
+              ],
+              "age": 37
+            }
+          },
+          {
+            "papalFavor": 15
+          },
+          {
+            "devCapital": -1
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "tri_knights_at_the_gates",
+    "pool": "historical",
+    "title": "The Knights at the Gates",
+    "text": "Franz von Sickingen, the boldest of the imperial knights, has declared a feud against you in the name of the new Gospel and the knights' old freedoms. His knights and landsknechts are before the walls of Trier. The Elector Palatine and the Landgrave of Hesse offer help, at a price.",
+    "image": "siege",
+    "nations": [
+      "TRI"
+    ],
+    "window": [
+      1518,
+      1530
+    ],
+    "mtth": 12,
+    "news": "Franz von Sickingen has laid siege to Trier.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Hold the walls and call on the Palatine",
+        "effects": [
+          {
+            "ally": "PAL"
+          },
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "trier"
+            }
+          },
+          {
+            "fortRegion": {
+              "region": "trier",
+              "amount": 1
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Pay Sickingen to go away",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "prestige": -15
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "wur_the_duke_in_debt",
+    "pool": "historical",
+    "title": "A Duke Drowning in Debt",
+    "text": "Your duke has drowned the country in debt, killed a knight whose wife he coveted and now seized the free city of Reutlingen. The Swabian League is marching to throw him out, and Austria offers to run the duchy once he is gone. The peasants still remember his last tax.",
+    "image": "rebels",
+    "nations": [
+      "WUR"
+    ],
+    "window": [
+      1510,
+      1525
+    ],
+    "mtth": 18,
+    "news": "The Swabian League is marching on the Duke of Württemberg.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "HAB"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Defend the duke with hired Swiss",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "addRegiments": {
+              "inf": 4,
+              "region": "swabia"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -40
+            }
+          },
+          {
+            "unrestAll": 1
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Let the League depose him",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 30
+            }
+          },
+          {
+            "modifier": {
+              "id": "austrian_administration",
+              "name": "Austrian Administration",
+              "months": 180,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "hre_the_twelve_articles",
+    "pool": "historical",
+    "title": "The Twelve Articles",
+    "text": "Peasants in their thousands have gathered under the banner of the laced boot and written twelve articles: their own pastors, an end to serfdom, the woods and streams free to all. Monasteries are burning. Some preachers bless them; Luther tells the princes to strike them down.",
+    "image": "rebels",
+    "nations": [
+      "WUR",
+      "BAV",
+      "PAL",
+      "SAX",
+      "MAI",
+      "TRI",
+      "KOL",
+      "LUN",
+      "BRA",
+      "HAB",
+      "BOH",
+      "POM",
+      "HSA"
+    ],
+    "window": [
+      1520,
+      1535
+    ],
+    "mtth": 24,
+    "once": false,
+    "news": "The peasants of Germany have risen.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "reformation"
+        },
+        {
+          "hreMember": true
+        },
+        {
+          "not": {
+            "nationFlag": "peasants_war"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Join the princes and crush them",
+        "effects": [
+          {
+            "setNationFlag": "peasants_war"
+          },
+          {
+            "rebels": {
+              "regiments": 6
+            }
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "modifier": {
+              "id": "peasants_crushed",
+              "name": "The Peasants Crushed",
+              "months": 60,
+              "mods": {
+                "manpower": -0.1,
+                "taxIncome": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Hear the Twelve Articles",
+        "effects": [
+          {
+            "setNationFlag": "peasants_war"
+          },
+          {
+            "stability": -1
+          },
+          {
+            "modifier": {
+              "id": "twelve_articles",
+              "name": "The Twelve Articles",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.1,
+                "unrest": -1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "lun_the_protestant_succession",
+    "pool": "historical",
+    "title": "The Protestant Succession",
+    "text": "England's Parliament has passed over the Catholic Stuarts and named your duke's mother, the Electress Sophia, and her heirs as the next sovereigns of England. One day your house may wear two crowns, if it will learn English politics and live in London.",
+    "image": "crown",
+    "nations": [
+      "LUN"
+    ],
+    "window": [
+      1695,
+      1720
+    ],
+    "mtth": 12,
+    "news": "The House of Hanover has been named heir to the English throne.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "ENG"
+        },
+        {
+          "nationFaith": {
+            "nation": "ENG",
+            "faith": "protestant"
+          }
+        },
+        {
+          "faith": "protestant"
+        },
+        {
+          "not": {
+            "atWarWith": "ENG"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the English succession",
+        "effects": [
+          {
+            "ally": "ENG"
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": 40
+            }
+          },
+          {
+            "prestige": 20
+          },
+          {
+            "modifier": {
+              "id": "heirs_of_england",
+              "name": "Heirs of England",
+              "months": 0,
+              "mods": {
+                "diplomacy": 1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep your house German",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hre_the_deposed_electors",
+    "pool": "historical",
+    "title": "The Pope Deposes Two Electors",
+    "text": "The Pope has deposed the Archbishops of Cologne and Trier for siding with the Council of Basel against him, and the Emperor seems ready to accept it. The electors have sworn a league at Frankfurt to stand together, and threaten to back the Council openly unless the sentence is lifted.",
+    "image": "church",
+    "nations": [
+      "KOL",
+      "TRI",
+      "MAI",
+      "PAL"
+    ],
+    "window": [
+      1444,
+      1449
+    ],
+    "mtth": 6,
+    "once": false,
+    "trigger": {
+      "all": [
+        {
+          "exists": "PAP"
+        },
+        {
+          "not": {
+            "nationFlag": "deposed_electors"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Stand with the electors' league",
+        "effects": [
+          {
+            "setNationFlag": "deposed_electors"
+          },
+          {
+            "papalFavor": -20
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": -30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": -20
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "electors_league",
+              "name": "The Electors' League",
+              "months": 120,
+              "mods": {
+                "diplomacy": 1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Make your peace with Rome",
+        "effects": [
+          {
+            "setNationFlag": "deposed_electors"
+          },
+          {
+            "papalFavor": 20
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": 30
+            }
+          },
+          {
+            "stability": -1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  }
+]
