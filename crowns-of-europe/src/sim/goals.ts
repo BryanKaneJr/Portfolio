@@ -42,7 +42,7 @@ export function nextGoals(s: GameState, n: NationId, max = 3): Goal[] {
   const ready = missions.find(x => x.state === 'ready');
   if (ready) out.push({ key: `mission-ready`, text: `${ready.m.title}: ready`, ready: true, go: { tab: 'missions' } });
   // A crown ready to proclaim is as pressing as a mission ready to claim; one still out of reach comes last.
-  const crown = crownProgress(s, n).sort(
+  const crown = [...crownProgress(s, n)].sort(
     (a, b) => Number(b.ready) - Number(a.ready) || b.held / b.need - a.held / a.need,
   )[0];
   const crownGoal: Goal | null =
@@ -73,8 +73,9 @@ export function nextGoals(s: GameState, n: NationId, max = 3): Goal[] {
       go: { region: open.r },
     });
   else {
+    // Only a claim that outlasts the truce: one that lapses first is no goal.
     const waiting = claims
-      .filter(c => hasTruce(s, n, c.owner))
+      .filter(c => hasTruce(s, n, c.owner) && (nat.claims[c.r] === -1 || nat.claims[c.r] > truceEnd(s, n, c.owner)))
       .sort((a, b) => truceEnd(s, n, a.owner) - truceEnd(s, n, b.owner))[0];
     if (waiting)
       out.push({

@@ -109,6 +109,17 @@ describe('next goals', () => {
     expect(goals.length).toBeLessThanOrEqual(3);
     expect(goals.some(g => g.text.includes('Granada'))).toBe(true);
   });
+
+  test('a claim behind a truce is a goal only if it outlasts the truce', () => {
+    const s = quiet('FRA');
+    const owner = s.regions.normandy.owner!;
+    expect(owner).not.toBe('FRA');
+    s.truces[[owner, 'FRA'].sort().join('|')] = s.day + 400;
+    s.nations.FRA.claims = { normandy: s.day + 100 };
+    expect(nextGoals(s, 'FRA').some(g => g.key === 'claim-normandy')).toBe(false);
+    s.nations.FRA.claims = { normandy: -1 };
+    expect(nextGoals(s, 'FRA').find(g => g.key === 'claim-normandy')?.text).toMatch(/truce ends/);
+  });
 });
 
 describe('speed', () => {

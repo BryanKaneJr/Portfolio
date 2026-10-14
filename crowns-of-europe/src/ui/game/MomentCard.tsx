@@ -99,7 +99,8 @@ export function MomentCard({ ids, onClose }: { ids: string[]; onClose: () => voi
               tone="secondary"
               label="Show on map"
               onPress={() => {
-                onClose();
+                // Straight to the map, not back to the page the card came over (a menu would hide the place).
+                st.close();
                 st.focusOn(at[0], at[1]);
               }}
             />
