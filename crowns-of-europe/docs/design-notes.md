@@ -696,18 +696,36 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
   | The Giralda | Andalusia (CAS) | +20% settler growth |
 - **AI.** No change: a landmark is not a war aim, so the AI's wars do not move. It gains the bonus like anyone by
   holding the region.
-- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Eleven gold silhouettes in a 24 × 24 box standing
-  on y = 21: dome, cathedral, spire, palace, castle, gate, pyramid, temple, mud mosque, bridge, tower. Each piece is
-  filled and edged dark on its own, so overlapping pieces keep a thin edge.
-- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the spot in
-  `landmarkSpot.ts`). The mark stands at the upper right of its town: its bottom-left corner at the town plus
-  (0.25, −0.55) times the town picture's size. It is 13 points at play zoom, growing like the towns, never under 9
-  and capped at 1.6 × the region's label radius on screen, so Constantinople gets a small one. Where that box would
-  cover the region's own name (Cairo, whose town sits by its name), it is lifted just above the name. Where the
-  upper right falls outside the region (a town by a border or the sea), it tries the upper left, right above, the
-  three spots below, then level with the town on either side, and takes the first whose middle and foot are in its
-  own region; failing all (Constantinople at play zoom), it stands on the region's label point. A test checks every
-  landmark at five zooms. Not a tap target; hidden with the uncharted New World.
+- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Fifteen gold silhouettes, one per landmark (its
+  `kind` is its id), in a 24 × 24 box standing on y = 21, each the outline a player knows the place by: Hagia Sophia's
+  broad block with half-domes stepping down either side of its shallow dome, and four minarets, St Peter's ribbed dome over its columned front, the Duomo's pointed dome beside Giotto's
+  tower, the Dome of the Rock's round dome on its octagon, Notre-Dame's twin flat towers and rose, St Stephen's zigzag
+  roof and tall spire, Westminster's Gothic gable between pinnacled turrets, the Alhambra's walls and Comares tower on
+  their hill, the Kremlin's tent-roofed gate tower and onion domes, the Arsenal's twin-towered water gate, the three
+  pyramids, Templo Mayor's twin shrines and stairs, Djinguereber's earthen tower and timbers, Charles Bridge's arches
+  and gate tower, the Giralda's slim tower over cathedral roofs. Nothing after 1750 (no Big Ben, no 1859 Notre-Dame
+  spire). 3–7 pieces each, parts kept to about 1.2 box units or more and holes and gaps to about 1.4 (or the pieces
+  touch), so they hold at map size;
+  each piece is filled and edged dark on its own, so overlapping pieces keep a thin edge (dome ribs, pyramid faces).
+- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the place in
+  `landmarkSpot.ts`, `markPlace`). 20 points at play zoom (13 read as a speck), growing like the towns, never under 12
+  and capped at 2.2 × the region's label radius on screen, on a soft dark halo so the gold lifts off the painting. It
+  tries the eight spots round the town first (upper right, upper left, right above, the three below, level either
+  side; lifted above or dropped below the region's name where they would cover it), then a grid round the town a third
+  of the mark apart, out to 4 × the mark's (or town's) size, nearest first. A spot must have its middle and foot in its
+  own region and stay off the region's own name and town; it scores the share of its lower part in the region (below
+  nine-tenths costing three times over), less a whole picture for standing where the region's own army stands
+  (`armyBox`/`armyParts` in `anchors.ts`: the figure, the banner and the count badge; more the more of it they hide),
+  a neighbour's name (more the more of it the letters cover), a neighbour's town, a landmark placed before it (within
+  its own size) and, a little, a neighbour's army, and a little for each step farther from the town. The best spot
+  wins; where none is clear of the army and the names with nine-tenths in, the mark is tried at 0.8 × and then at
+  12 points. Tests check, at every zoom from `REGION_NAMES_K` to `K_MAX` in steps of 0.1 and with no towns, the
+  smallest and the largest town pictures: the middle and foot in the region and never under 12 points; never on the
+  region's army (Hagia Sophia excepted below 2.2: Constantinople is smaller than its army there, so the mark stands
+  where the troops hide least of it, at play zoom just below the figure, beside the badge); never on its own name and
+  at most a fifth of the mark under a neighbour's (Notre-Dame excepted below 1.5: Champagne's name runs into tiny
+  Île-de-France). Placing all fifteen takes 2–4 ms on a laptop when the zoom changes (about 1 ms before; cached after). Not a tap
+  target; hidden with the uncharted New World. The region sheet's tile shows it at 32 points.
 - **Region sheet** (`ui/game/LandmarkLine.tsx`, under the pills, `testID="landmark"`): the pictogram on a raised
   tile, the name in Cinzel, the bonus in words (`modsText`), "Lost while occupied" when it is, and the history plus
   "It goes to whoever holds the region." behind its "?". How to play has a Landmarks topic and the glossary a
