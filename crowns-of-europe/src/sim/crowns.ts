@@ -32,11 +32,19 @@ const THE = new Set(['SIC', 'ROM', 'NED', 'GHO', 'PLC', 'SRB', 'RUM', 'ARB', 'MA
 export const crownTitle = (id: string): string => (THE.has(id) ? `the ${CROWN[id].name}` : CROWN[id].name);
 
 /** Who proclaimed crown `id` this game, and when (undefined: nobody yet). */
-export function proclaimedBy(s: GameState, id: string): { by: NationId; day: number } | undefined {
+export function proclaimedBy(s: GameState, id: string): { by: NationId; day: number; was: string } | undefined {
   const day = s.flags['crown_' + id];
   if (day === undefined) return undefined;
   const by = Object.keys(s.nations).find(k => s.nations[k].flags['crown_' + id] !== undefined);
-  return by ? { by, day } : undefined;
+  if (!by) return undefined;
+  // What the realm was called when it proclaimed: the crown it held then (a former of this one), or its own name.
+  const flags = s.nations[by].flags;
+  let prev: string | undefined;
+  for (const f of CROWN[id]?.formers ?? []) {
+    const d = flags['crown_' + f];
+    if (CROWN[f] && d !== undefined && d <= day && (!prev || d >= flags['crown_' + prev])) prev = f;
+  }
+  return { by, day, was: prev ? CROWN[prev].name : (NATION[by]?.name ?? by) };
 }
 
 /** Is `n` the player (and not a spectated game, where the computer plays everyone)? */
@@ -61,7 +69,7 @@ export function canProclaim(s: GameState, n: NationId, id: string): string | nul
   const nat = s.nations[n];
   if (!c || !nat?.alive) return 'No such crown';
   const taken = proclaimedBy(s, id);
-  if (taken) return taken.by === n ? 'You already hold it' : `Proclaimed by ${NATION[taken.by]?.name ?? taken.by}`;
+  if (taken) return taken.by === n ? 'You already hold it' : `Proclaimed by ${taken.was}`;
   if (c.playerOnly && !human(s, n)) return 'Only for players';
   if (!mayAim(s, n, c)) return `Not open to ${displayIn(s, n).name}`;
   return readiness(s, n, c).why ?? null;
@@ -95,7 +103,10 @@ export function proclaim(s: GameState, n: NationId, id: string): void {
   const c = CROWN[id];
   const nat = s.nations[n];
   const was = displayIn(s, n).name;
+  const wasFleet = `${displayIn(s, n).adj} Fleet`;
   nat.crown = id;
+  // The realm's first fleet takes the crown's name with it.
+  for (const f of Object.values(s.fleets)) if (f.owner === n && f.name === wasFleet) f.name = `${c.adj} Fleet`;
   s.flags['crown_' + id] = s.day;
   nat.flags['crown_' + id] = s.day;
   // A lasting bonus; a chain's bonuses stack.

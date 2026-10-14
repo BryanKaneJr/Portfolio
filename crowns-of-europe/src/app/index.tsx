@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ACHIEVEMENTS, NATION } from '../sim/content';
+import { ACHIEVEMENTS, CROWN, NATION, bindDisplay } from '../sim/content';
 import { store } from '../state/store';
 import { deleteSave, isAutoSlot, latestSave, listSaves, loadAchievements, loadGame, type SaveMeta } from '../state/storage';
 import { MiniMap } from '../ui/map/MiniMap';
@@ -14,6 +14,9 @@ import { Btn, T } from '../ui/components/kit';
 import { C, G, R, sans, serif } from '../ui/theme';
 import { GiltRule } from '../ui/game/Panels';
 
+/** The arms of the crown a save's realm had proclaimed, if any. */
+const crownFlag = (m: SaveMeta) => (m.crown ? CROWN[m.crown]?.flag : undefined);
+
 export default function Title() {
   const { width, height } = useWindowDimensions();
   const [latest, setLatest] = useState<SaveMeta | null>(null);
@@ -23,6 +26,8 @@ export default function Title() {
 
   useFocusEffect(
     useCallback(() => {
+      // Back on the title (also by the back button, which skips the store's unload): realms show as in 1444.
+      bindDisplay(null);
       latestSave().then(setLatest);
       listSaves().then(setSaves);
       loadAchievements().then(setAch);
@@ -58,7 +63,7 @@ export default function Title() {
               {latest ? (
                 <Pressable onPress={() => open(latest)} testID="continue">
                   <Glass gilt radius={R.lg} style={styles.continue}>
-                    <Shield nation={latest.nation} size={38} />
+                    <Shield nation={latest.nation} size={38} flagDef={crownFlag(latest)} />
                     <View style={{ flex: 1 }}>
                       <Text style={styles.contTitle}>Continue</Text>
                       <Text style={styles.contSub}>
@@ -84,7 +89,7 @@ export default function Title() {
                 .map(m => (
                   <View key={m.slot} style={styles.save}>
                     <Pressable onPress={() => open(m)} style={{ flexDirection: 'row', alignItems: 'center', gap: 10, flex: 1 }}>
-                      <Shield nation={m.nation} size={30} />
+                      <Shield nation={m.nation} size={30} flagDef={crownFlag(m)} />
                       <View style={{ flex: 1 }}>
                         <Text style={styles.saveTitle}>
                           {m.nationName}

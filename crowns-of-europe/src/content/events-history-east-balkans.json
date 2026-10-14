@@ -697,7 +697,7 @@
       "GOL"
     ],
     "window": [
-      1444,
+      1449,
       1470
     ],
     "mtth": 24,
@@ -753,7 +753,7 @@
             "prestige": 5
           }
         ],
-        "ai": 2
+        "ai": 1
       },
       {
         "text": "Accept a free khan in Crimea",
@@ -771,7 +771,7 @@
             }
           }
         ],
-        "ai": 1
+        "ai": 2
       }
     ]
   },
@@ -785,7 +785,7 @@
       "CRI"
     ],
     "window": [
-      1460,
+      1474,
       1490
     ],
     "mtth": 18,
@@ -1400,12 +1400,24 @@
     "mtth": 12,
     "news": "Skanderbeg is dead.",
     "trigger": {
-      "exists": "TUR"
+      "all": [
+        {
+          "exists": "TUR"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
     },
     "choices": [
       {
         "text": "Entrust Krujë to Venice",
         "effects": [
+          {
+            "setNationFlag": "accepts_union_VEN"
+          },
           {
             "newRuler": {
               "name": "John Kastrioti",

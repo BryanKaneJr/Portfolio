@@ -209,9 +209,12 @@ function rollStars(s: GameState): number {
   return 1;
 }
 
+/** Rebel captains take the names of the age's famous rebels, so two risings can be told apart. */
+const REBEL_NAMES = ['Cade', 'Kett', 'Dózsa', 'Müntzer', 'Padilla', 'Bolotnikov', 'Razin', 'Masaniello', 'Žižka', 'Gaismair'];
+
 export function newGeneral(s: GameState, n: NationId, known?: { stars: number; name?: string }): General {
   // A noble house of the realm's own people (or a title, where surnames were not used), and a full first name.
-  const name = n === REBELS ? 'Captain' : pick(s, generalPool(n)).replace('{first}', pick(s, namePool(n)));
+  const name = n === REBELS ? `Captain ${pick(s, REBEL_NAMES)}` : pick(s, generalPool(n)).replace('{first}', pick(s, namePool(n)));
   return {
     id: nextId(s, 'g'),
     name: known?.name ?? name,

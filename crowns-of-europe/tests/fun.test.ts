@@ -56,7 +56,9 @@ describe('moments', () => {
     expect(m[0].tone).toBe('good');
     expect(m[0].gained).toEqual(['granada']);
     expect(m[0].title).toBe('Granada Is Ours');
-    expect(m[0].lines!.some(l => l.startsWith('Truce until'))).toBe(true);
+    // Granada's only land was taken: no truce with a realm that is gone.
+    expect(m[0].lines).toContain('Granada is no more.');
+    expect(m[0].lines!.some(l => l.startsWith('Truce until'))).toBe(false);
   });
 
   test("a peace among the computer's realms pushes no moment", () => {
@@ -223,6 +225,20 @@ describe('the store shows moments', () => {
     expect(store.overlay?.kind).toBe('peace');
     store.close();
     expect(store.overlay?.kind).toBe('moment');
+    store.unload();
+  });
+
+  test('8× refused at war leaves the clock where it was', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { store } = require('../src/state/store') as typeof import('../src/state/store');
+    const s = quiet('FRA');
+    store.load(s);
+    war(s, 'FRA', 'BUR');
+    store.setSpeed(1);
+    store.setSpeed(FAST);
+    expect(store.speed).toBe(1);
+    expect(store.toasts.some(t => t.text.startsWith('At war'))).toBe(true);
+    store.stop();
     store.unload();
   });
 });

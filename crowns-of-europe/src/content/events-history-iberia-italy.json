@@ -679,6 +679,11 @@
           "atWarWith": "MOR"
         },
         {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
           "chance": 0.6
         }
       ]
@@ -709,6 +714,9 @@
       {
         "text": "Accept the King of Spain as your heir",
         "effects": [
+          {
+            "setNationFlag": "accepts_union_CAS"
+          },
           {
             "newRuler": {
               "name": "Henry the Cardinal-King",
@@ -1447,7 +1455,7 @@
       "FLO"
     ],
     "window": [
-      1470,
+      1477,
       1485
     ],
     "mtth": 18,
@@ -1703,7 +1711,7 @@
     },
     "choices": [
       {
-        "text": "Unleash Cesare on the Romagna",
+        "text": "Unleash Cesare on the Romagna and Tuscany",
         "effects": [
           {
             "hireGeneral": {

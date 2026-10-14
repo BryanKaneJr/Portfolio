@@ -57,7 +57,7 @@ export function CrownsSection() {
             <View style={{ flex: 1 }}>
               <Text style={styles.title}>{c.name}</Text>
               <Text style={styles.sub}>
-                Proclaimed by {NATION[t.by]?.name ?? t.by}, {yearOf(t.day)}
+                Proclaimed by {t.was}, {yearOf(t.day)}
               </Text>
             </View>
           </View>

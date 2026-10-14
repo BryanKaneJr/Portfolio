@@ -1,5 +1,5 @@
-/** Nation picker: the great powers in a strip, then every nation by area; options for difficulty and ironman. */
-import { useMemo, useState } from 'react';
+/** Nation picker: suggested starts in a strip, then every nation by area; options for difficulty and ironman. */
+import { useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -35,7 +35,7 @@ const AREA_LABEL: Record<string, string> = {
   new_world: 'The New World',
 };
 const byDifficulty = (a: NationDef, b: NationDef) => ORDER.indexOf(a.difficulty!) - ORDER.indexOf(b.difficulty!) || a.name.localeCompare(b.name);
-const GREAT_POWERS = NATIONS.filter(n => n.playable).sort(byDifficulty);
+const SUGGESTED = NATIONS.filter(n => n.playable).sort(byDifficulty);
 const BY_AREA = Object.keys(AREA_LABEL).map(area => ({ area, list: NATIONS.filter(n => n.area === area).sort(byDifficulty) }));
 
 /** One line on how the nation starts, where it matters: someone's subject, or a New World people. */
@@ -72,6 +72,12 @@ export default function NewGame() {
   const trait = TRAITS.national[def.trait];
   const stand = useMemo(() => standing(pick), [pick]);
   const crowns = useMemo(() => crownsLine(pick), [pick]);
+  // Picking a nation from further down brings its description (and the crowns it can proclaim) into view.
+  const list = useRef<ScrollView>(null);
+  const choose = (id: string) => {
+    setPick(id);
+    list.current?.scrollTo({ y: 0, animated: true });
+  };
 
   const start = async () => {
     const s = newGame({ player: pick, difficulty, ironman, tutorial: pick === 'POR' || pick === 'CAS' });
@@ -102,7 +108,7 @@ export default function NewGame() {
           </View>
         </Glass>
       </View>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 12, paddingBottom: 20 }}>
+      <ScrollView ref={list} style={{ flex: 1 }} contentContainerStyle={{ padding: 12, paddingBottom: 20 }}>
         <View style={styles.detail}>
           <Row style={{ justifyContent: 'space-between' }}>
             <Text style={styles.detailTitle}>{def.name}</Text>
@@ -120,19 +126,27 @@ export default function NewGame() {
           {pick === 'POR' || pick === 'CAS' ? <T v="tiny" style={{ marginTop: 6, color: C.green }}>Recommended for your first campaign.</T> : null}
         </View>
 
-        <Text style={[styles.group, { marginTop: 14 }]}>Great powers</Text>
+        <Text style={[styles.group, { marginTop: 14 }]}>Suggested starts</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
-          {GREAT_POWERS.map(n => (
-            <NationCard key={n.id} n={n} on={n.id === pick} onPress={() => setPick(n.id)} strip />
+          {SUGGESTED.map(n => (
+            <NationCard key={n.id} n={n} on={n.id === pick} onPress={() => choose(n.id)} strip />
           ))}
         </ScrollView>
+        <Row gap={12} style={{ marginTop: 10, flexWrap: 'wrap' }}>
+          {ORDER.map(d => (
+            <Row key={d} gap={5}>
+              <View style={[styles.dot, styles.dotKey, { backgroundColor: DIFF_COLOR[d] }]} />
+              <T v="tiny">{DIFF_LABEL[d]}</T>
+            </Row>
+          ))}
+        </Row>
 
         {BY_AREA.map(({ area, list }) => (
           <View key={area} style={{ marginTop: 14 }}>
             <Text style={styles.group}>{AREA_LABEL[area]}</Text>
             <View style={styles.grid}>
               {list.map(n => (
-                <NationCard key={n.id} n={n} on={n.id === pick} onPress={() => setPick(n.id)} />
+                <NationCard key={n.id} n={n} on={n.id === pick} onPress={() => choose(n.id)} />
               ))}
             </View>
           </View>
@@ -190,6 +204,7 @@ const styles = StyleSheet.create({
   card: { width: '31.5%', alignItems: 'center', gap: 6, paddingVertical: 9, borderRadius: R.md, backgroundColor: G.group, borderWidth: 1, borderColor: 'transparent' },
   cardStrip: { width: 104 },
   dot: { position: 'absolute', top: 7, right: 7, width: 7, height: 7, borderRadius: 4 },
+  dotKey: { position: 'relative', top: 0, right: 0 },
   cardOn: { borderColor: G.gilt, backgroundColor: 'rgba(214,178,110,0.14)' },
   cardName: { fontFamily: sans, fontSize: 13, fontWeight: '600', color: G.text, paddingHorizontal: 4 },
   footer: { padding: 12, paddingBottom: 14, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: G.line },

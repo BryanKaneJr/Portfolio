@@ -331,11 +331,11 @@ export const SHIELD = 'M1.6 1.6H28.4V15.2C28.4 25.6 21.4 31.6 15 34.6C8.6 31.6 1
  * The nation's arms on a shield with a gilded rim and a little light and shade, for headers and the top bar
  * (`size` is the width; the shield is 1.2 times as tall).
  */
-export function Shield({ nation, size = 32, rim = '#d6b26e' }: { nation: string; size?: number; rim?: string }) {
-  return <ShieldArms nation={nation} size={size} rim={rim} look={displayOf(nation).look} />;
+export function Shield({ nation, size = 32, rim = '#d6b26e', flagDef }: { nation: string; size?: number; rim?: string; flagDef?: FlagDef }) {
+  return <ShieldArms nation={nation} size={size} rim={rim} flagDef={flagDef} look={flagDef ? `def_${nation}` : displayOf(nation).look} />;
 }
 
-const ShieldArms = memo(function ShieldArms({ nation, size, rim }: { nation: string; size: number; rim: string; look: string }) {
+const ShieldArms = memo(function ShieldArms({ nation, size, rim, flagDef }: { nation: string; size: number; rim: string; flagDef?: FlagDef; look: string }) {
   const id = `sh_${nation}_${size}`;
   return (
     <Svg width={size} height={size * 1.2} viewBox="0 0 30 36">
@@ -350,7 +350,7 @@ const ShieldArms = memo(function ShieldArms({ nation, size, rim }: { nation: str
         </LinearGradient>
       </Defs>
       <G clipPath={`url(#${id})`}>
-        <G transform="translate(-12 0) scale(1.8)">{flagBody(nation)}</G>
+        <G transform="translate(-12 0) scale(1.8)">{flagBody(nation, flagDef)}</G>
         <Rect width={30} height={36} fill={`url(#${id}_l)`} />
       </G>
       <Path d={SHIELD} fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth={2.6} />

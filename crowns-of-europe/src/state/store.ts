@@ -359,8 +359,9 @@ class GameStore {
 
   setSpeed(i: number) {
     const want = Math.max(0, Math.min(SPEEDS.length - 1, i));
-    this.speed = allowedSpeed(this.state, want);
-    if (this.speed !== want) this.toast('At war: 8× waits for peace');
+    // Refused at war: the clock stays where it was (the drop from 8× when a war starts is in frame()).
+    if (allowedSpeed(this.state, want) !== want) this.toast('At war: 8× waits for peace');
+    else this.speed = want;
     this.emit();
   }
 

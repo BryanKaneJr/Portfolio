@@ -42,7 +42,11 @@ export function GoalStrip() {
       style={[styles.wrap, { top: insets.top + 6 + TOP_BAR_H + 4, left: atWar(s, s.player) ? 68 : 12 }]}
       pointerEvents="box-none"
     >
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 6 }}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ gap: 6, paddingRight: 16 }}
+      >
         {goals.map((g, i) => (
           <Pressable
             key={g.key}
@@ -52,7 +56,7 @@ export function GoalStrip() {
             accessibilityLabel={g.text}
             style={({ pressed }) => [pressed && { opacity: 0.7 }]}
           >
-            <Glass radius={R.pill} gilt={g.ready} style={[styles.chip, g.ready && styles.ready]}>
+            <Glass radius={R.pill} gilt={g.ready} shadow={false} style={[styles.chip, g.ready && styles.ready]}>
               <Text style={[styles.text, g.ready && { color: G.goldBright }]} numberOfLines={1}>
                 {g.text}
               </Text>
@@ -65,7 +69,8 @@ export function GoalStrip() {
 }
 
 const styles = StyleSheet.create({
-  wrap: { position: 'absolute', right: 58, height: GOAL_STRIP_H, zIndex: 10 },
+  // Clear of the round outliner button at the top right; a chip shadow would be cut square by the scroller, so none.
+  wrap: { position: 'absolute', right: 66, height: GOAL_STRIP_H, zIndex: 10 },
   chip: { height: GOAL_STRIP_H - 2, paddingHorizontal: 11, justifyContent: 'center' },
   ready: { backgroundColor: 'rgba(214,178,110,0.22)' },
   text: { color: G.text, fontFamily: sans, fontSize: 12.5, fontWeight: '600' },

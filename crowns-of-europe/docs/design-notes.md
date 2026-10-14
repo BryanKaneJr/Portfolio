@@ -557,13 +557,16 @@ Not yet done:
 ## Every nation playable
 
 All 73 nations can be picked. Each has a `difficulty` and an `area` in `nations.json` (the validator requires both,
-from a fixed list of areas). `playable` now only means "featured": those 22 sit in the picker's Great powers strip,
+from a fixed list of areas). `playable` now only means "featured": those 22 sit in the picker's Suggested starts strip,
 and below it every nation is listed by area, easiest first. A dot on each card gives its difficulty. The detail
 panel says when a nation starts as someone's vassal or junior partner, or as a New World people, and which greater
 crowns it can proclaim (read from `formables.json`, following a crown on to the crowns it leads to).
 
 - **The player keeps their crown.** A `personalUnion` or `inherit` effect aimed at the player does nothing; the
-  log says "<Nation> claims your crown; your lords refuse." Spectated games (`__spectate`) are unchanged.
+  log says "<Nation> claims your crown; your lords refuse." Spectated games (`__spectate`) are unchanged. The one
+  exception is a shared crown the player chose on a card (Brittany's heiress, Portugal's heir, Krujë to Venice):
+  that choice sets the nation flag `accepts_union_<who>`, and that realm's union then goes through. A union never
+  takes a realm that is already someone else's subject (the claim lapses; the log tells the player if it was theirs).
 - **New World peoples** (Aztecs, Maya, K'iche', Haudenosaunee) see their own lands from the start: the map, the
   region and sea sheets and the picker's small map draw the Americas instead of parchment. They study nothing
   (`availableAdvances` is empty; the Science tab says "Your people follow their own ways"), colonizing does not
@@ -604,7 +607,7 @@ The first, simple pass at "the fun stuff".
   - A ready chip is gold. Tapping one opens Missions, Learning or the Realm, or shows the region.
   - The strip is hidden while a sheet or card is open, and recomputed each day and after each command.
 - **8× for quiet years.** Speeds are 1×, 2×, 4× and 8× (`state/speed.ts`). 8× is refused while the player is at
-  war, and drops to 4× when a war starts.
+  war (the clock stays at the speed it had), and drops to 4× when a war starts.
 - **Odds before an attack** (`forecast.ts attackOdds`). These cover the first fight on an army's road, where enemies
   it can see stand. Every army of the owner bound for that place is counted with it.
   - **Verdict:** favoured (the forecast's hold-out ratio is 1.25 or more), outmatched (0.8 or less), or even.

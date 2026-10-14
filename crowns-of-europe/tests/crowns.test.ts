@@ -1,7 +1,7 @@
 import { CROWN, CROWNS, NATION, bindDisplay, displayIn, nationAdj, nationName } from '../src/sim/content';
 import { proclaimCrown } from '../src/sim/commands';
 import { canProclaim, crownProgress, monthlyCrowns, proclaim } from '../src/sim/crowns';
-import { walkEffects } from '../src/sim/events';
+import { applyEffect, walkEffects } from '../src/sim/events';
 import { newGame } from '../src/sim/state';
 import { makeSubject, transferRegion } from '../src/sim/territory';
 import { advanceDay } from '../src/sim/tick';
@@ -176,5 +176,44 @@ describe("the computer's crowns", () => {
     expect(a.seen).toContain('1445 NAP SIC'); // the computer's Naples proclaims it on 1 January
     expect(a).toEqual(run());
     bindDisplay(null);
+  });
+});
+
+describe('fixes from the fun batch 1 review', () => {
+  test('Burgundy may go on from the Kingdom of Burgundy (or the Netherlands) to Francia', () => {
+    const s = calm('BUR', 1470);
+    proclaim(s, 'BUR', 'BRG');
+    expect(canProclaim(s, 'BUR', 'FRK')).not.toMatch(/Not open/);
+    expect(crownProgress(s, 'BUR').map(p => p.id)).toContain('FRK');
+  });
+
+  test('a taken crown names the realm as it was called when it proclaimed', () => {
+    const s = calm('MLO');
+    proclaim(s, 'NAP', 'SIC');
+    proclaim(s, 'NAP', 'ITA');
+    expect(canProclaim(s, 'MLO', 'ITA')).toBe('Proclaimed by Two Sicilies');
+    expect(canProclaim(s, 'MLO', 'SIC')).toBe('Proclaimed by Naples');
+  });
+
+  test("a shared crown never takes another realm's subject, and the player's own choice of one is kept", () => {
+    const s = calm('TUR');
+    makeSubject(s, 'TUR', 'ALB', 'vassal');
+    applyEffect(s, 'VEN', { personalUnion: 'ALB' });
+    expect(s.nations.ALB.overlord).toBe('TUR');
+    // The player (Brittany) refuses a crown forced on it, but takes one it asked for.
+    const b = calm('BRI');
+    applyEffect(b, 'FRA', { personalUnion: 'BRI' });
+    expect(b.nations.BRI.overlord).toBeUndefined();
+    b.nations.BRI.flags.accepts_union_FRA = b.day;
+    applyEffect(b, 'FRA', { personalUnion: 'BRI' });
+    expect(b.nations.BRI.overlord).toBe('FRA');
+  });
+
+  test("the realm's first fleet takes the crown's name", () => {
+    const s = newGame({ player: 'NAP', seed: 1 });
+    const f = Object.values(s.fleets).find(x => x.owner === 'NAP')!;
+    expect(f.name).toBe(`${NATION.NAP.adj} Fleet`);
+    proclaim(s, 'NAP', 'SIC');
+    expect(f.name).toBe(`${CROWN.SIC.adj} Fleet`);
   });
 });

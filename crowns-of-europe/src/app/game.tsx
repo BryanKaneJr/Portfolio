@@ -2,9 +2,10 @@
  * The game screen: the map fills the screen, edge to edge; glass controls float over it (the top bar, the dock in
  * the thumb zone, the map lens, the outliner); sheets rise over the dock; cards and panels over everything.
  */
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { AppState, StyleSheet, View } from 'react-native';
-import { Redirect } from 'expo-router';
+import { Redirect, useFocusEffect } from 'expo-router';
+import { bindDisplay } from '../sim/content';
 import { MapView } from '../ui/map/MapView';
 import { BottomBar, Toasts, TopBar, WarRail } from '../ui/game/Bars';
 import { SideRail } from '../ui/game/Outliner';
@@ -25,6 +26,13 @@ import { C } from '../ui/theme';
 export default function GameScreen() {
   const st = useStore();
   const s = st.state;
+
+  // The title screen unbinds the display; coming forward to the game again binds it back.
+  useFocusEffect(
+    useCallback(() => {
+      if (store.state) bindDisplay(store.state);
+    }, []),
+  );
 
   // Save when the app goes to the background; stop the clock.
   useEffect(() => {

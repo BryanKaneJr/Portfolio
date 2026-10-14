@@ -595,7 +595,10 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
   if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
-  if (all.includes(s.player)) peaceMoment(s, w, terms, was, truce);
+  if (all.includes(s.player)) {
+    const mine = winner === s.player || winners.includes(s.player);
+    peaceMoment(s, w, terms, was, truce, mine ? [loser, ...losers] : [winner, ...winners]);
+  }
 }
 
 /** What the player had before a peace, to tell what it changed. */
@@ -608,7 +611,7 @@ const playerBefore = (s: GameState, terms: PeaceTerms) => {
  * The player's peace as a moment: a card when they led a side or land of theirs changed hands, a banner when they
  * only fought alongside.
  */
-function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<typeof playerBefore>, truce: number): void {
+function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<typeof playerBefore>, truce: number, foes: NationId[]): void {
   const p = s.player;
   const me = s.nations[p];
   const gained = terms.white ? [] : terms.regions.filter(r => s.regions[r]?.owner === p && !was.regions.includes(r));
@@ -628,7 +631,9 @@ function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<ty
   if (renown) lines.push(`Renown ${renown > 0 ? '+' : '−'}${Math.abs(renown)}.`);
   const threat = Math.round((me?.threat ?? 0) - was.threat);
   if (threat > 0) lines.push(`Threat +${threat}.`);
-  lines.push(`Truce until ${formatDate(s.day + truce)}.`);
+  // A truce only with someone still standing; a realm the peace ended is simply gone.
+  if (foes.some(n => s.nations[n]?.alive)) lines.push(`Truce until ${formatDate(s.day + truce)}.`);
+  else lines.push(`${nationName(foes[0])} is no more.`);
   const title = gained.length ? `${regionName(gained[0])} Is Ours` : `The Treaty of ${regionName(s.nations[terms.winner].capital)}`;
   moment(s, { kind: 'peace', card: true, tone, title, lines, gained, lost, nation: terms.winner === p ? terms.loser : terms.winner });
 }

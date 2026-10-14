@@ -383,13 +383,20 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       break;
     case 'personalUnion':
     case 'inherit':
-      // The player's realm is never joined to another crown by an event: the claim is made and refused.
-      if (v === s.player && v !== n && !('__spectate' in s.flags)) {
+    {
+      // The player's realm is never joined to another crown by an event, unless the player chose a shared crown
+      // (a card offering it sets `accepts_union_<who>`): otherwise the claim is made and refused.
+      const chose = k === 'personalUnion' && `accepts_union_${n}` in (s.nations[v]?.flags ?? {});
+      if (v === s.player && v !== n && !('__spectate' in s.flags) && !chose) {
         if (s.nations[v]?.alive) log(s, 'diplomacy', `${nationName(n)} claims your crown; your lords refuse.`, { important: true, nation: n });
       } else if (k === 'inherit') {
         if (s.nations[v]?.alive && v !== n) annexNation(s, n, v);
+      } else if (s.nations[v]?.overlord && s.nations[v].overlord !== n) {
+        // Already another realm's subject: the claim lapses rather than taking a subject without a war.
+        if (s.nations[v].overlord === s.player) log(s, 'diplomacy', `${nationName(n)} claims the crown of ${nationName(v)}; it stays yours.`, { important: true, nation: n });
       } else if (s.nations[v]?.alive && v !== n && !nat.overlord) makeSubject(s, n, v, 'union');
       break;
+    }
     case 'independence':
       if (nat.overlord) releaseSubject(s, n);
       break;

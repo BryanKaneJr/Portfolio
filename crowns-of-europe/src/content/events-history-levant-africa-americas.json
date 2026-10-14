@@ -9,8 +9,8 @@
       "KNI"
     ],
     "window": [
-      1460,
-      1530
+      1476,
+      1503
     ],
     "mtth": 6,
     "news": "The Knights of Rhodes are under siege.",
@@ -237,7 +237,7 @@
       "GEO"
     ],
     "window": [
-      1455,
+      1462,
       1495
     ],
     "mtth": 24,
@@ -461,7 +461,7 @@
       "MAM"
     ],
     "window": [
-      1460,
+      1467,
       1475
     ],
     "mtth": 18,
@@ -1117,7 +1117,7 @@
       "JOL"
     ],
     "window": [
-      1470,
+      1485,
       1495
     ],
     "mtth": 24,
@@ -1257,11 +1257,11 @@
       "SON"
     ],
     "window": [
-      1460,
+      1464,
       1475
     ],
     "mtth": 18,
-    "news": "Songhai has marched on Timbuktu.",
+    "news": "Songhai's horsemen gather against Mali.",
     "trigger": {
       "all": [
         {
@@ -1297,7 +1297,7 @@
     },
     "choices": [
       {
-        "text": "Ride for Timbuktu",
+        "text": "Claim Timbuktu and drill the horsemen",
         "effects": [
           {
             "addClaim": [
@@ -1306,10 +1306,14 @@
             ]
           },
           {
-            "declareWar": {
-              "target": "MAL",
-              "cb": "claim",
-              "region": "timbuktu"
+            "modifier": {
+              "id": "sunni_ali_horsemen",
+              "name": "Sunni Ali's Horsemen",
+              "months": 120,
+              "mods": {
+                "morale": 0.1,
+                "movement": 0.1
+              }
             }
           },
           {

@@ -97,12 +97,13 @@ describe('the New World before discovery', () => {
 });
 
 describe('scenario 1444', () => {
-  test('old friends are not rivals; the Horde and Crimea are; Naples claims Sicily', () => {
+  test('old friends are not rivals; the Horde and Crimea are neither allies nor rivals; Naples claims Sicily', () => {
     const s = newGame({ player: 'FRA', seed: 1 });
     expect(s.nations.CAS.rivals).not.toContain('ARA');
     expect(s.nations.ARA.rivals).not.toContain('CAS');
-    expect(s.nations.GOL.rivals).toContain('CRI');
-    expect(s.nations.CRI.rivals).toContain('GOL');
+    // Rivals from 1444, the Horde fell to Crimea within a few years in nearly every game (review of fun batch 1).
+    expect(s.nations.GOL.rivals).not.toContain('CRI');
+    expect(s.nations.CRI.rivals).not.toContain('GOL');
     expect(s.alliances['CRI|GOL']).toBeUndefined();
     expect(s.nations.NAP.claims.sicily).toBeGreaterThan(s.day);
   });

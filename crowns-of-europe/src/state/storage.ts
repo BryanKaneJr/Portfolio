@@ -19,6 +19,8 @@ export interface SaveMeta {
   slot: SlotId;
   nation: string;
   nationName: string;
+  /** The greater crown the player had proclaimed, for its arms on the title screen. */
+  crown?: string;
   date: string;
   day: number;
   savedAt: number;
@@ -38,6 +40,7 @@ export async function saveGame(given: SlotId, s: GameState): Promise<void> {
     slot,
     nation: s.player,
     nationName: displayIn(s, s.player).name,
+    crown: s.nations[s.player]?.crown,
     date: formatShortDate(s.day),
     day: s.day,
     savedAt: Date.now(),

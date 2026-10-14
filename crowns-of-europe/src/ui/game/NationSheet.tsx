@@ -1,7 +1,7 @@
 /** Another nation: who they are, what they think of you (and why), and the diplomatic actions. */
 import { useMemo, useState } from 'react';
 import { View } from 'react-native';
-import { NATION, TRAITS, nationName, regionName } from '../../sim/content';
+import { NATION, TRAITS, nationFlag, nationName, regionName } from '../../sim/content';
 import { activeAims, bondsOf, holds } from '../../sim/aims';
 import { diplomacy, freeSubject, playerExcommunicate } from '../../sim/commands';
 import { acceptance, annexCost, canRival, cooldownLeft, GIFT_AMOUNT, opinionBreakdown, type DiploAction } from '../../sim/diplomacy';
@@ -92,7 +92,7 @@ export function NationSheet({ id }: { id: string }) {
       subtitle={`${GOV[def.gov]} · ${def.faith === 'native' ? 'Native beliefs' : def.faith[0].toUpperCase() + def.faith.slice(1)} · ${PERS[def.personality]}${n.overlord ? ` · Subject of ${nationName(n.overlord)}` : ''}`}
       left={<Shield nation={id} size={30} />}
       onClose={() => st.select(null)}
-      help={`Tap Opinion for what makes it up.${def.native ? ' A New World people makes no treaties and fields weaker armies.' : ''} Army vs yours compares the strength of their regiments with yours.${def.flag.stylised ? ' Their banner is a stylisation: no flag or arms of theirs survive from this time, so it is drawn from their own symbols.' : ''}`}
+      help={`Tap Opinion for what makes it up.${def.native ? ' A New World people makes no treaties and fields weaker armies.' : ''} Army vs yours compares the strength of their regiments with yours.${nationFlag(id).stylised ? ' Their banner is a stylisation: no flag or arms of theirs survive from this time, so it is drawn from their own symbols.' : ''}`}
     >
       <Row gap={6} style={{ marginBottom: 6, flexWrap: 'wrap' }}>
         {def.native ? <Pill text="New World people" color={C.parchment2} /> : null}
