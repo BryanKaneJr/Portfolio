@@ -7,7 +7,7 @@ import { warOdds } from './ai';
 import { bondsOf, holds } from './aims';
 import { aliveNations, allied, alliesOf, married, neighborsOf, subjectsOf } from './queries';
 import { coalitionAgainst, coalitionOf } from './threat';
-import type { Coalition, GameState, NationId, RegionId } from './types';
+import type { CasusBelli, Coalition, GameState, NationId, RegionId } from './types';
 import { claimReason } from './war';
 import { years } from './util';
 
@@ -35,7 +35,11 @@ export interface BondTie {
 }
 export interface ThreatTie {
   nation: NationId;
-  /** The chance it declares on its roll day this month (0 while it waits). */
+  /** Its reason for war on you: a claim (always, while it waits or rests), lost land, faith, a rivalry...; 'none'
+   * means it would forge a claim first. */
+  reason: CasusBelli;
+  /** The chance it declares on its roll day this month (0 while it waits): it orders the list, the screen shows the
+   * reason instead. */
   monthly: number;
   /** It waits out a truce with you, holding a claim on your land, until this day. */
   waitingUntil?: number;
@@ -135,10 +139,10 @@ export function diplomaticTies(s: GameState, n: NationId): Ties {
   for (const o of neighborsOf(s, n).sort()) {
     if (!alive(o)) continue;
     const odds = warOdds(s, o);
-    if (odds.blocked === 'waiting' && odds.waitingFor === n) couldAttack.push({ nation: o, monthly: 0, waitingUntil: odds.restUntil });
+    if (odds.blocked === 'waiting' && odds.waitingFor === n) couldAttack.push({ nation: o, reason: 'claim', monthly: 0, waitingUntil: odds.restUntil });
     else if (odds.blocked === 'rest' && odds.restUntil !== undefined && claimants.has(o) && !allied(s, n, o))
-      couldAttack.push({ nation: o, monthly: 0, restingUntil: odds.restUntil });
-    else if (odds.best?.target === n && odds.monthly > 0) couldAttack.push({ nation: o, monthly: odds.monthly });
+      couldAttack.push({ nation: o, reason: 'claim', monthly: 0, restingUntil: odds.restUntil });
+    else if (odds.best?.target === n && odds.monthly > 0) couldAttack.push({ nation: o, reason: odds.best.cb.cb, monthly: odds.monthly });
   }
   const when = (x: ThreatTie) => x.waitingUntil ?? x.restingUntil ?? Infinity;
   couldAttack.sort((a, b) => when(a) - when(b) || b.monthly - a.monthly || byName(a.nation, b.nation));

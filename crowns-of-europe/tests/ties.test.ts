@@ -87,6 +87,7 @@ describe('the ties between crowns, for the Diplomacy tab', () => {
     expect(cas).toBeDefined();
     expect(cas.monthly).toBe(odds.monthly);
     expect(cas.monthly).toBeGreaterThan(0);
+    expect(cas.reason).toBe('claim'); // the Reconquista
     expect(gra.claimsOnYou).toContainEqual(expect.objectContaining({ by: 'CAS', region: 'granada', why: 'The Reconquista' }));
 
     const e = newGame({ player: 'ENG', seed: 1 });
@@ -104,7 +105,7 @@ describe('the ties between crowns, for the Diplomacy tab', () => {
     const odds = warOdds(s, 'TUR');
     expect(odds.blocked).toBe('rest');
     const tur = diplomaticTies(s, 'BYZ').couldAttack.find(t => t.nation === 'TUR')!;
-    expect(tur).toEqual({ nation: 'TUR', monthly: 0, restingUntil: odds.restUntil });
+    expect(tur).toEqual({ nation: 'TUR', reason: 'claim', monthly: 0, restingUntil: odds.restUntil });
   });
 
   test('pure: no draws', () => {

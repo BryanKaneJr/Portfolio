@@ -430,7 +430,7 @@ here.
       (`scripts/dev/aiwars.ts 116 1 2 3 4 5 6 7 8`, `scripts/dev/opening.ts 1 48 1450`): wars declared 95.5 → 75 a
       game; in the first two years 13 → 2, in the 1440s 17.5 → 5.5; holy wars 25 (as before); wars between members
       of the Empire 4 → 0; realms alive in 1560 33.5 → 39; Constantinople Ottoman by 1446-1448 (median 1446.5; 1445
-      before) and by 1450 in 20 of the first 21 of 48 games (count running); France holds Normandy in 5 of 8 and Gascony in 5 (7 and 4
+      before) and by 1450 in 47 of 48 games (the other by 1453); France holds Normandy in 5 of 8 and Gascony in 5 (7 and 4
       before); France 25 regions (18), England 13 (12), Castile 22.5 (22.5), the Ottomans 23.5 (21.5); the Ottomans
       start 17.5 wars to 1560 (17.5), France 11.5 (12.5), the Habsburgs 0 (3.5). The Habsburgs and Hungary stay
       small (3 and 0 regions; 6.5 and 2.5 before). Carried on to 1700 (8 games, just before the review's last
@@ -440,8 +440,8 @@ here.
 33. **Everything between you and the others, in one place (on request).** The owner asked for the Diplomacy tab to
     say what claims they hold and other ties with other crowns. Under Wars it now has, each section hidden when
     empty and every crown or region a tap away: Danger (a coalition against you; neighbours whose war chance is
-    aimed at you, a month's chance shown; one waiting out a truce with a claim on you, or resting with one, and
-    until when), Claims (yours, with who holds the land, its 1444 story and the year it lapses; the one your clerks
+    aimed at you, with their reason in words, such as "Claims on you" or "Holy war", not a percentage, which is
+    on their sheet; one waiting out a truce with a claim on you, or resting with one, and until when), Claims (yours, with who holds the land, its 1444 story and the year it lapses; the one your clerks
     are forging and when it is ready; claims on your land and your subjects', and by whom), and Ties (overlord,
     allies, subjects, royal marriages, who lets your armies through and whom you let through and until when,
     truces and their end, rivals both ways, old friends and old foes with the bond's name, the coalition you are

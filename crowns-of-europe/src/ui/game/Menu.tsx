@@ -31,7 +31,7 @@ import { diplomaticTies, type Ties } from '../../sim/ties';
 import { scoreFor } from '../../sim/war';
 import { hreMembers } from '../../sim/religion';
 import { shipCount } from '../../sim/navy';
-import type { PauseReason } from '../../sim/types';
+import type { CasusBelli, PauseReason } from '../../sim/types';
 import { formatShortDate, yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab, idleColonists } from './ColonySheets';
@@ -49,7 +49,6 @@ import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
-import { pc } from './NationSheet';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
@@ -406,12 +405,23 @@ function ClaimsSection({ t }: { t: Ties }) {
 }
 
 /** Crowns that could attack you this month, or wait out a truce to, and a coalition against you. */
+/** Why a neighbour could attack you, in a few words. */
+const THREAT_WHY: Record<CasusBelli, string> = {
+  claim: 'Claims on you',
+  reconquest: 'Lost land',
+  holy: 'Holy war',
+  rival: 'Rival',
+  coalition: 'Coalition',
+  independence: 'Independence',
+  none: 'Wants your land',
+};
+
 function DangerSection({ t }: { t: Ties }) {
   if (!t.couldAttack.length && !t.coalitionAgainst) return null;
   return (
     <Section
       title="Danger"
-      help="Each neighbour run by the computer weighs war once a month: its chance this month. One with a claim on your land shows the year its truce with you ends, or its rest from its last war. Tap one for what makes it up. A coalition joins any war you start on a member, and may attack you."
+      help="Neighbours that could go to war on you, and why. One with a claim on your land that is waiting out a truce with you, or resting from its last war, shows the year that ends. Tap one for its chance of war and what makes it up. A coalition joins any war you start on a member, and may attack you."
     >
       {t.coalitionAgainst ? (
         <Card style={{ borderColor: C.red, borderWidth: 1, marginBottom: 6 }}>
@@ -428,12 +438,11 @@ function DangerSection({ t }: { t: Ties }) {
           <Flag nation={x.nation} size={22} />
           <View style={{ flex: 1 }}>
             <Text style={styles.rowTitle}>{nationName(x.nation)}</Text>
-            <Text style={styles.rowSub}>{x.waitingUntil !== undefined ? 'Waiting out a truce' : x.restingUntil !== undefined ? 'Resting · claims your land' : 'Could attack'}</Text>
+            <Text style={styles.rowSub}>
+              {x.waitingUntil !== undefined ? `Waiting out a truce to ${yearOf(x.waitingUntil)}` : x.restingUntil !== undefined ? `Resting to ${yearOf(x.restingUntil)}` : 'Could attack'}
+            </Text>
           </View>
-          <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[styles.rowNum, { color: C.red }]}>{x.waitingUntil !== undefined ? yearOf(x.waitingUntil) : x.restingUntil !== undefined ? yearOf(x.restingUntil) : pc(x.monthly)}</Text>
-            <Text style={styles.rowSub}>{x.waitingUntil !== undefined ? 'truce ends' : x.restingUntil !== undefined ? 'rest ends' : 'a month'}</Text>
-          </View>
+          <Text style={[styles.dangerWhy, { color: C.red }]}>{THREAT_WHY[x.reason]}</Text>
         </Pressable>
       ))}
     </Section>
@@ -732,6 +741,7 @@ const styles = StyleSheet.create({
   blockLabel: { fontFamily: sans, fontSize: 10, fontWeight: '800', color: C.muted, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 2 },
   reward: { marginTop: 8, paddingTop: 6, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.parchmentLine },
   rowNum: { fontFamily: sans, fontSize: 14, fontWeight: '800', color: C.ink, fontVariant: ['tabular-nums'] },
+  dangerWhy: { fontFamily: sans, fontSize: 13, fontWeight: '700', textAlign: 'right', maxWidth: 130 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   chip: { flexDirection: 'row', alignItems: 'center', gap: 6, maxWidth: '100%', paddingVertical: 5, paddingLeft: 6, paddingRight: 10, borderRadius: 999, backgroundColor: C.parchment2, borderWidth: StyleSheet.hairlineWidth, borderColor: C.parchmentLine },
   chipText: { flexShrink: 1, fontFamily: sans, fontSize: 13, fontWeight: '600', color: C.ink },
