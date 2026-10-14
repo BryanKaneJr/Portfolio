@@ -427,14 +427,15 @@ here.
       a bond now counts in alliance talks (+25 old friends, −50 old enemies): England had allied with Burgundy by
       1447 in AI games, and France, waiting out the truce of Tours, found the English lands out of its reach.
     - Measured over 8 AI-only games to 1560 against the same seeds with the code before the claims of 1444 changed
-      (`scripts/dev/aiwars.ts 116 1 2 3 4 5 6 7 8`, `scripts/dev/opening.ts 1 48 1450`): wars declared 95.5 → 74 a
-      game; in the first two years 13 → 2, in the 1440s 17.5 → 5.5; holy wars 25 → 20.5; wars between members of the
-      Empire 4 → 1; realms alive in 1560 33.5 → 37.5; Constantinople Ottoman by 1446-1452 (median 1446.5; 1445
-      before) and by 1450 in 46 of 48 games (the other two by 1453, as in history); France holds Normandy in 6 of 8 and Gascony in 6 (7 and 4
-      before); France 24.5 regions (18), England 11.5 (12), Castile 27 (22.5), the Ottomans 23.5 (21.5); the
-      Ottomans start 17 wars to 1560 (17.5), France 19.5 (12.5), the Habsburgs 1 (3.5). The Habsburgs and Hungary
-      stay small (4 and 0 regions; 6.5 and 2.5 before). Carried on to 1700 (8 games): 28.5 realms alive, and
-      England, France and Austria alive in all eight (England in 14 and France in 11 of 16 before).
+      (`scripts/dev/aiwars.ts 116 1 2 3 4 5 6 7 8`, `scripts/dev/opening.ts 1 48 1450`): wars declared 95.5 → 75 a
+      game; in the first two years 13 → 2, in the 1440s 17.5 → 5.5; holy wars 25 (as before); wars between members
+      of the Empire 4 → 0; realms alive in 1560 33.5 → 39; Constantinople Ottoman by 1446-1448 (median 1446.5; 1445
+      before) and by 1450 in 20 of the first 21 of 48 games (count running); France holds Normandy in 5 of 8 and Gascony in 5 (7 and 4
+      before); France 25 regions (18), England 13 (12), Castile 22.5 (22.5), the Ottomans 23.5 (21.5); the Ottomans
+      start 17.5 wars to 1560 (17.5), France 11.5 (12.5), the Habsburgs 0 (3.5). The Habsburgs and Hungary stay
+      small (3 and 0 regions; 6.5 and 2.5 before). Carried on to 1700 (8 games, just before the review's last
+      fixes): 28.5 realms alive, and England, France and Austria alive in all eight (England in 14 and France in 11
+      of 16 before).
 
 33. **Everything between you and the others, in one place (on request).** The owner asked for the Diplomacy tab to
     say what claims they hold and other ties with other crowns. Under Wars it now has, each section hidden when
