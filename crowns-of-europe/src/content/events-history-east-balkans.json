@@ -1,1 +1,1704 @@
-[]
+[
+  {
+    "id": "lit_a_crown_in_krakow",
+    "pool": "historical",
+    "title": "A Crown in Kraków",
+    "text": "The Polish lords offer you the crown of Poland, empty since your brother fell at Varna. Your Lithuanian council fears that a king in Kraków will treat Lithuania as a province. They ask you to swear that Lithuanian lands and offices stay in Lithuanian hands.",
+    "image": "treaty",
+    "nations": [
+      "LIT"
+    ],
+    "window": [
+      1444,
+      1450
+    ],
+    "mtth": 4,
+    "news": "The Grand Duke of Lithuania has answered the Polish offer of a crown.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "POL"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Accept the crown on Lithuania's terms",
+        "effects": [
+          {
+            "ally": "POL"
+          },
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": 20
+            }
+          },
+          {
+            "modifier": {
+              "id": "privilege_of_vilnius",
+              "name": "Privilege of Vilnius",
+              "months": 240,
+              "mods": {
+                "manpower": 0.1,
+                "taxIncome": -0.05
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Refuse Poland and rule Lithuania alone",
+        "effects": [
+          {
+            "breakAlliance": "POL"
+          },
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": -30
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "lit_lands_of_svitrigaila",
+    "pool": "historical",
+    "title": "The Lands of Švitrigaila",
+    "text": "Old Prince Švitrigaila has died in Lutsk, and both your Lithuanian lords and the Polish crown claim his Volhynian lands. The Poles have already sent officials. Giving way would please Kraków; holding firm would please every lord in Vilnius.",
+    "image": "map",
+    "nations": [
+      "LIT"
+    ],
+    "window": [
+      1452,
+      1460
+    ],
+    "mtth": 18,
+    "trigger": {
+      "all": [
+        {
+          "owns": "volhynia"
+        },
+        {
+          "exists": "POL"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Keep Volhynia in Lithuania",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": -30
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "volhynian_levies",
+              "name": "Volhynian Levies",
+              "months": 120,
+              "mods": {
+                "manpower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let the Poles have Lutsk",
+        "effects": [
+          {
+            "transferRegion": {
+              "region": "volhynia",
+              "to": "POL"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "psk_take_down_the_bell",
+    "pool": "historical",
+    "title": "Take Down the Bell",
+    "text": "The Grand Prince of Moscow treats Pskov as his own city, and when your envoys complained, he arrested them. Now he demands that the veche bell be taken down, the city council dissolved and three hundred families sent east.",
+    "image": "church",
+    "nations": [
+      "PSK"
+    ],
+    "window": [
+      1500,
+      1515
+    ],
+    "mtth": 18,
+    "news": "Moscow has demanded that Pskov take down its veche bell.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "borders": "MOS"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ring the bell and refuse",
+        "effects": [
+          {
+            "fortRegion": {
+              "region": "pskov",
+              "amount": 1
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": -50
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "mos_pskov_defies",
+              "months": 2,
+              "nation": "MOS"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Take down the bell and submit",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": 50
+            }
+          },
+          {
+            "modifier": {
+              "id": "moscows_governor",
+              "name": "Moscow's Governor",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.2
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mos_pskov_defies",
+    "pool": "historical",
+    "title": "Pskov Defies You",
+    "text": "The men of Pskov have rung their veche bell against your governor and thrown his servants out. Your boyars say the city must be taken before Lithuania or the Livonian knights come to its aid.",
+    "image": "swords",
+    "nations": [
+      "MOS"
+    ],
+    "hidden": true,
+    "news": "Pskov has rung its bell against Moscow.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "PSK"
+        },
+        {
+          "not": {
+            "atWarWith": "PSK"
+          }
+        },
+        {
+          "not": {
+            "allied": "PSK"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "PSK",
+            "region": "pskov"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take Pskov by force",
+        "effects": [
+          {
+            "addClaim": "pskov"
+          },
+          {
+            "declareWar": {
+              "target": "PSK",
+              "cb": "claim",
+              "region": "pskov"
+            }
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Let them keep their bell for now",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tve_the_lithuanian_match",
+    "pool": "historical",
+    "title": "The Lithuanian Match",
+    "text": "Ivan of Moscow is gathering the Russian lands and now looks at you. You are Ivan's own brother-in-law, but you have secretly asked for the hand of a granddaughter of the King of Poland. If the match is made, Lithuania will defend Tver; if it is discovered first, Moscow will march.",
+    "image": "marriage",
+    "nations": [
+      "TVE"
+    ],
+    "window": [
+      1480,
+      1490
+    ],
+    "mtth": 18,
+    "news": "The Grand Prince of Tver has been courting Lithuania.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "exists": "LIT"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Seal the Lithuanian match",
+        "effects": [
+          {
+            "breakAlliance": "MOS"
+          },
+          {
+            "ally": "LIT"
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": -50
+            }
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "triggerEvent": {
+              "id": "mos_treason_in_tver",
+              "months": 3,
+              "nation": "MOS"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Bow to Moscow as a younger brother",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mos_treason_in_tver",
+    "pool": "historical",
+    "title": "Treason in Tver",
+    "text": "Your riders have caught letters between the Grand Prince of Tver and the King of Poland. He has broken his oath to you and made a Catholic alliance. Many of Tver's boyars are already riding to Moscow to offer you their service.",
+    "image": "scroll",
+    "nations": [
+      "MOS"
+    ],
+    "hidden": true,
+    "news": "Moscow has seized Tver's letters to the King of Poland.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "TVE"
+        },
+        {
+          "not": {
+            "atWarWith": "TVE"
+          }
+        },
+        {
+          "not": {
+            "allied": "TVE"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "TVE",
+            "region": "tver"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "March on Tver",
+        "effects": [
+          {
+            "addClaim": "tver"
+          },
+          {
+            "declareWar": {
+              "target": "TVE",
+              "cb": "claim",
+              "region": "tver"
+            }
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Shame him with the letters and wait",
+        "effects": [
+          {
+            "prestige": 5
+          },
+          {
+            "opinion": {
+              "nation": "TVE",
+              "amount": -20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "rya_the_khans_daughter",
+    "pool": "historical",
+    "title": "The Khan's Daughter",
+    "text": "Your mother ruled Ryazan as Moscow's faithful cousin, but now that you are grown you chafe at the Grand Prince's orders. The Khan of Crimea offers you his daughter and his horsemen if you break with Moscow. The boyars warn that the Grand Prince does not forgive cousins who stray.",
+    "image": "marriage",
+    "nations": [
+      "RYA"
+    ],
+    "window": [
+      1500,
+      1522
+    ],
+    "mtth": 24,
+    "news": "The Prince of Ryazan is courting the Khan of Crimea.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "exists": "CRI"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Marry the khan's daughter and break with Moscow",
+        "effects": [
+          {
+            "ally": "CRI"
+          },
+          {
+            "opinion": {
+              "nation": "CRI",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": -50
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Remain Moscow's loyal cousin",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mos_no_more_tribute",
+    "pool": "historical",
+    "title": "No More Tribute",
+    "text": "The khan of the Great Horde has sent envoys with his seal to collect the tribute your fathers paid for two hundred years. Your wife, a Byzantine princess, says a Christian prince should pay no Tatar. The Khan of Crimea is the Horde's enemy, and might be your friend.",
+    "image": "horse",
+    "nations": [
+      "MOS"
+    ],
+    "window": [
+      1470,
+      1490
+    ],
+    "mtth": 18,
+    "news": "The Great Horde has sent for Moscow's tribute.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "GOL"
+        },
+        {
+          "not": {
+            "atWarWith": "GOL"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Refuse the tribute and tear up the letter",
+        "effects": [
+          {
+            "prestige": 15
+          },
+          {
+            "opinion": {
+              "nation": "GOL",
+              "amount": -50
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "gol_the_river_ugra",
+              "months": 6,
+              "nation": "GOL"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Pay as your fathers did",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "GOL",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "gol_the_river_ugra",
+    "pool": "historical",
+    "title": "The River Ugra",
+    "text": "The Prince of Moscow refuses your tribute and has insulted your envoys. Casimir of Lithuania promises to join you if you ride north. Your horsemen are gathering, but Moscow's guns line the far bank of the Ugra, and the Crimeans may strike your camps while you are away.",
+    "image": "horse",
+    "nations": [
+      "GOL"
+    ],
+    "hidden": true,
+    "news": "The Great Horde has gathered its horsemen against Moscow.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "not": {
+            "atWarWith": "MOS"
+          }
+        },
+        {
+          "not": {
+            "allied": "MOS"
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "MOS",
+            "region": "moscow"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Cross the Ugra and punish Moscow",
+        "effects": [
+          {
+            "addClaim": "moscow"
+          },
+          {
+            "declareWar": {
+              "target": "MOS",
+              "cb": "claim",
+              "region": "moscow",
+              "with": [
+                "LIT"
+              ]
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept the loss of the tribute",
+        "effects": [
+          {
+            "prestige": -20
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "gol_the_khan_in_crimea",
+    "pool": "historical",
+    "title": "The Khan in Crimea",
+    "text": "Hacı Giray has made himself khan in Crimea and no longer answers to Sarai. He keeps the Genoese tribute and the trade of the peninsula for himself, and the King of Poland calls him friend. Your beys want him punished, but Moscow and Lithuania would gladly watch you bleed.",
+    "image": "horse",
+    "nations": [
+      "GOL"
+    ],
+    "window": [
+      1444,
+      1470
+    ],
+    "mtth": 24,
+    "news": "The beys of the Great Horde call for war on Crimea.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "CRI"
+        },
+        {
+          "nationOwns": {
+            "nation": "CRI",
+            "region": "crimea"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "CRI"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "CRI"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "allied": "CRI"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ride against the Crimean upstart",
+        "effects": [
+          {
+            "addClaim": "crimea"
+          },
+          {
+            "declareWar": {
+              "target": "CRI",
+              "cb": "claim",
+              "region": "crimea"
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept a free khan in Crimea",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "opinion": {
+              "nation": "CRI",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cri_khan_and_grand_prince",
+    "pool": "historical",
+    "title": "The Khan and the Grand Prince",
+    "text": "The Great Horde still claims to be your master, and the King of Poland shelters its friends. Ivan of Moscow proposes an oath of brotherhood: his enemies yours, yours his. With his help you could finish the Horde for good; without it, you may need Lithuania.",
+    "image": "treaty",
+    "nations": [
+      "CRI"
+    ],
+    "window": [
+      1460,
+      1490
+    ],
+    "mtth": 18,
+    "news": "Moscow has offered the Khan of Crimea an oath of brotherhood.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "exists": "GOL"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Swear brotherhood with Moscow against the Horde",
+        "effects": [
+          {
+            "ally": "MOS"
+          },
+          {
+            "breakAlliance": "GOL"
+          },
+          {
+            "addClaim": "don"
+          },
+          {
+            "opinion": {
+              "nation": "GOL",
+              "amount": -40
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Stand with Lithuania and the Horde",
+        "effects": [
+          {
+            "ally": "LIT"
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": -30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "GOL",
+              "amount": 20
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "wal_the_night_attack",
+    "pool": "historical",
+    "title": "The Night Attack",
+    "text": "The Sultan has crossed the Danube with the largest army seen since Constantinople, and yours is a tenth its size. Your captains propose to ride into his camp by night and kill him in his tent. Others say burn the land and poison the wells, and a few say pay the tribute and live.",
+    "image": "swords",
+    "nations": [
+      "WAL"
+    ],
+    "window": [
+      1458,
+      1480
+    ],
+    "mtth": 12,
+    "news": "The Sultan's army has crossed the Danube into Wallachia.",
+    "trigger": {
+      "atWarWith": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Strike the Sultan's camp by night",
+        "effects": [
+          {
+            "manpower": -2000
+          },
+          {
+            "prestige": 15
+          },
+          {
+            "modifier": {
+              "id": "the_night_attack",
+              "name": "The Night Attack",
+              "months": 24,
+              "mods": {
+                "morale": 0.2
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Burn the land before them",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "wallachia",
+              "amount": -1
+            }
+          },
+          {
+            "modifier": {
+              "id": "scorched_earth",
+              "name": "Scorched Earth",
+              "months": 24,
+              "mods": {
+                "fortDefense": 0.25
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Submit and pay the tribute",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 40
+            }
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "wal_michael_the_brave",
+    "pool": "historical",
+    "title": "Michael the Brave",
+    "text": "Your prince Michael has killed the Sultan's creditors in Bucharest and thrown off the Turkish yoke. Now he looks over the mountains to Transylvania and Moldavia, whose princes plot with Poland and the Turks against him. For a moment, all three lands could have one master.",
+    "image": "crown",
+    "nations": [
+      "WAL"
+    ],
+    "window": [
+      1590,
+      1610
+    ],
+    "mtth": 24,
+    "news": "Wallachia's captains talk of uniting the three principalities.",
+    "trigger": {
+      "exists": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Unite the three principalities",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Michael the Brave",
+              "skill": 5,
+              "traits": [
+                "warrior",
+                "ambitious"
+              ],
+              "age": 37
+            }
+          },
+          {
+            "independence": true
+          },
+          {
+            "addClaim": [
+              "transylvania",
+              "moldavia"
+            ]
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -50
+            }
+          },
+          {
+            "threat": 15
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the Sultan's peace",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mol_fog_at_vaslui",
+    "pool": "historical",
+    "title": "Fog at Vaslui",
+    "text": "The Sultan's army has come north to punish you for refusing tribute. Your scouts report thick fog in the marshy valley at Vaslui, where the bridge over the Bârlad is narrow. Your peasants and boyars are outnumbered three to one, but they know the ground.",
+    "image": "swords",
+    "nations": [
+      "MOL"
+    ],
+    "window": [
+      1470,
+      1485
+    ],
+    "mtth": 12,
+    "news": "An Ottoman army has marched north into Moldavia.",
+    "trigger": {
+      "atWarWith": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Lure them into the fog and strike",
+        "effects": [
+          {
+            "prestige": 20
+          },
+          {
+            "opinion": {
+              "nation": "HUN",
+              "amount": 20
+            }
+          },
+          {
+            "modifier": {
+              "id": "athlete_of_christ",
+              "name": "Athlete of Christ",
+              "months": 120,
+              "mods": {
+                "morale": 0.1,
+                "fortDefense": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Burn the crops and fall back to the forts",
+        "effects": [
+          {
+            "devRegion": {
+              "region": "moldavia",
+              "amount": -1
+            }
+          },
+          {
+            "fortRegion": {
+              "region": "moldavia",
+              "amount": 1
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mol_forest_of_cosmin",
+    "pool": "historical",
+    "title": "The Forest of Cosmin",
+    "text": "The King of Poland, who calls himself your overlord, has marched into Moldavia, saying he comes to fight the Turks. His real aim, your spies say, is to put his brother on your throne. His army must go home through the beech forests of Cosmin, where the road is narrow and the trees can be cut to fall.",
+    "image": "swords",
+    "nations": [
+      "MOL"
+    ],
+    "window": [
+      1490,
+      1505
+    ],
+    "mtth": 18,
+    "news": "A Polish army has marched into Moldavia.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "POL"
+        },
+        {
+          "any": [
+            {
+              "subjectOf": "POL"
+            },
+            {
+              "borders": "POL"
+            }
+          ]
+        },
+        {
+          "not": {
+            "atWarWith": "POL"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ambush the Poles in the forest",
+        "effects": [
+          {
+            "independence": true
+          },
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": -50
+            }
+          },
+          {
+            "prestige": 15
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Swear loyalty to the King again",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "POL",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ser_the_old_despot_dies",
+    "pool": "historical",
+    "title": "The Old Despot Dies",
+    "text": "Old Despot Đurađ, who has bargained with sultans and kings for forty years, is dying in Smederevo. His son Lazar is ambitious and hated; his daughter Mara lives at the Sultan's court. One faction would give Smederevo to Hungary and the Pope, the other would stay the Sultan's loyal vassal.",
+    "image": "death",
+    "nations": [
+      "SER"
+    ],
+    "window": [
+      1454,
+      1460
+    ],
+    "mtth": 12,
+    "news": "The Despot of Serbia is dead.",
+    "trigger": {
+      "exists": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Turn to Hungary and the Pope",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Lazar Branković",
+              "skill": 2,
+              "traits": [
+                "ambitious"
+              ],
+              "age": 35
+            }
+          },
+          {
+            "ally": "HUN"
+          },
+          {
+            "declareWar": {
+              "target": "TUR",
+              "cb": "independence",
+              "with": [
+                "HUN"
+              ]
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -50
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Stay the Sultan's vassal",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Lazar Branković",
+              "skill": 2,
+              "traits": [
+                "ambitious"
+              ],
+              "age": 35
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "bos_elders_of_the_church",
+    "pool": "historical",
+    "title": "The Elders of the Bosnian Church",
+    "text": "The Bosnian Church, which Rome calls heretic, has the loyalty of many of your great lords. The Pope's legate promises a crown and Hungarian help against the Turks if you drive its elders out of the kingdom. The elders say the Turks would treat them better than you.",
+    "image": "church",
+    "nations": [
+      "BOS"
+    ],
+    "window": [
+      1444,
+      1460
+    ],
+    "mtth": 24,
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Expel the elders of the Bosnian Church",
+        "effects": [
+          {
+            "papalFavor": 20
+          },
+          {
+            "opinion": {
+              "nation": "HUN",
+              "amount": 25
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 3,
+              "region": "bosnia"
+            }
+          },
+          {
+            "unrestAll": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Protect the old church",
+        "effects": [
+          {
+            "papalFavor": -20
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 10
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bos_the_popes_crown",
+    "pool": "historical",
+    "title": "The Pope's Crown",
+    "text": "Your new king has been crowned with a crown sent by the Pope, and he has stopped paying the Sultan's tribute, trusting Hungary and Venice to help. The Sultan's envoy has come for the tribute one last time. Behind him, they say, comes the army that took Constantinople.",
+    "image": "crown",
+    "nations": [
+      "BOS"
+    ],
+    "window": [
+      1458,
+      1468
+    ],
+    "mtth": 18,
+    "news": "The Sultan's envoy has come to Bosnia for the tribute.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "TUR"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Refuse the tribute and trust the Pope",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -50
+            }
+          },
+          {
+            "ally": "HUN"
+          },
+          {
+            "papalFavor": 15
+          },
+          {
+            "fortRegion": {
+              "region": "bosnia",
+              "amount": 1
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Pay the tribute and bow to the Sultan",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "alb_the_dragon_dies",
+    "pool": "historical",
+    "title": "The Dragon of Albania Dies",
+    "text": "Skanderbeg lies dying of fever in Lezhë. His son is barely twelve, and the Sultan is building a fortress at Elbasan, in the heart of your mountains. Venice offers to take Krujë and the boy under its protection; Lekë Dukagjini will fight on in the hills; the Sultan offers terms.",
+    "image": "death",
+    "nations": [
+      "ALB"
+    ],
+    "window": [
+      1465,
+      1475
+    ],
+    "mtth": 12,
+    "news": "Skanderbeg is dead.",
+    "trigger": {
+      "exists": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Entrust Krujë to Venice",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "John Kastrioti",
+              "skill": 1,
+              "age": 12
+            }
+          },
+          {
+            "ally": "VEN"
+          },
+          {
+            "triggerEvent": {
+              "id": "ven_kruje_in_trust",
+              "months": 1,
+              "nation": "VEN"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Fight on under Lekë Dukagjini",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Lekë Dukagjini",
+              "skill": 3,
+              "traits": [
+                "warrior"
+              ],
+              "age": 52
+            }
+          },
+          {
+            "manpower": 3000
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -30
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Make peace with the Sultan",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "John Kastrioti",
+              "skill": 1,
+              "age": 12
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -15
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ven_kruje_in_trust",
+    "pool": "historical",
+    "title": "Krujë in Trust",
+    "text": "Skanderbeg's widow has placed her son and the fortress of Krujë under the protection of St Mark. Holding the Albanian coast keeps the Turk out of the Adriatic, but it means war with the Sultan sooner or later.",
+    "image": "castle",
+    "nations": [
+      "VEN"
+    ],
+    "hidden": true,
+    "news": "Venice has sent a garrison to Krujë.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "ALB"
+        },
+        {
+          "not": {
+            "overlordOf": "ALB"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "ALB"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take Albania under St Mark's protection",
+        "effects": [
+          {
+            "personalUnion": "ALB"
+          },
+          {
+            "threat": 5
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -20
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Garrison Krujë but leave the boy free",
+        "effects": [
+          {
+            "ally": "ALB"
+          },
+          {
+            "opinion": {
+              "nation": "ALB",
+              "amount": 30
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tve_the_blind_grand_prince",
+    "pool": "historical",
+    "title": "The Blind Grand Prince",
+    "text": "Dmitry Shemyaka has seized Moscow and blinded his cousin, Grand Prince Vasily. The blind prince has fled to you and offers to marry his son Ivan to your daughter Maria if you help him home. Shemyaka promises to leave Tver alone if you stay out of it.",
+    "image": "marriage",
+    "nations": [
+      "TVE"
+    ],
+    "window": [
+      1446,
+      1452
+    ],
+    "mtth": 8,
+    "news": "The Grand Prince of Tver has taken sides in Moscow's civil war.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MOS"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Marry Maria to Ivan and restore Vasily",
+        "effects": [
+          {
+            "ally": "MOS"
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": 40
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "manpower": -2000
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Make your own terms with Shemyaka",
+        "effects": [
+          {
+            "breakAlliance": "MOS"
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": -30
+            }
+          },
+          {
+            "gold": 50
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "psk_lake_peipus",
+    "pool": "historical",
+    "title": "The Fisheries of Lake Peipus",
+    "text": "The Livonian knights have burned your fishing villages on the western shore of Lake Peipus and claim the waters for the Bishop of Dorpat. Your veche can ask the Grand Prince of Moscow for a governor and an army, or fight the knights with Pskov's own men.",
+    "image": "swords",
+    "nations": [
+      "PSK"
+    ],
+    "window": [
+      1458,
+      1470
+    ],
+    "mtth": 12,
+    "news": "Pskov and the Livonian knights are fighting over Lake Peipus.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "LIV"
+        },
+        {
+          "not": {
+            "atWarWith": "LIV"
+          }
+        },
+        {
+          "not": {
+            "allied": "LIV"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "LIV"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "LIV",
+            "region": "livonia"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ask Moscow for a governor and an army",
+        "effects": [
+          {
+            "ally": "MOS"
+          },
+          {
+            "opinion": {
+              "nation": "MOS",
+              "amount": 30
+            }
+          },
+          {
+            "addRegiments": {
+              "inf": 3,
+              "cav": 1,
+              "region": "pskov"
+            }
+          },
+          {
+            "modifier": {
+              "id": "moscow_voevoda",
+              "name": "A Governor from Moscow",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Fight the knights with Pskov's own men",
+        "effects": [
+          {
+            "addClaim": "livonia"
+          },
+          {
+            "declareWar": {
+              "target": "LIV",
+              "cb": "claim",
+              "region": "livonia"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  }
+]
