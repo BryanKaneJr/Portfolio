@@ -190,6 +190,8 @@ export function acceptance(s: GameState, from: NationId, to: NationId, action: D
       add('Diplomatic skill', dip);
       const sharedRival = A.rivals.some(r => B.rivals.includes(r));
       if (sharedRival) add('Shared rival', 30);
+      // Old friends ally readily; old enemies hardly at all (England and Burgundy after Arras, until 1468).
+      for (const bond of bondsBetween(s, from, to)) add(bond.kind === 'friends' ? `Old friends: ${bond.label}` : `Old enemies: ${bond.label}`, bond.kind === 'friends' ? 25 : -50);
       if (A.faith !== B.faith) add('Different faith', A.faith === 'muslim' || B.faith === 'muslim' ? -40 : -10);
       const st = relStrength(s, from, to);
       add(st >= 1 ? 'You are strong' : 'You are weak', clamp((st - 1) * 15, -25, 25));
