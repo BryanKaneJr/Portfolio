@@ -558,6 +558,8 @@ export interface War {
   /** Who started it: the AI's own decision, a coalition, an event, a subject breaking free or the player (absent on
    * wars from older saves). */
   origin?: 'ai' | 'coalition' | 'event' | 'independence' | 'player';
+  /** Declared in breach of a truce: no ally answers its leader's call. */
+  brokeTruce?: boolean;
 }
 
 export interface Relation {
@@ -606,6 +608,8 @@ export interface Nation {
   lastMonthExpenses: number;
   record: { battlesWon: number; battlesLost: number; warsWon: number; warsLost: number; stackWipes: number; bestRatio: number; regionsTaken: number };
   ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number; colonyLevy?: number; warRoll?: number };
+  /** Days it declared wars without a reason (the last 10 years count: each makes the next one cost more Threat). */
+  unjustWars?: number[];
 }
 
 export interface Coalition {

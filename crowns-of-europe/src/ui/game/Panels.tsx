@@ -6,7 +6,7 @@ import { NATION, REGION, nationName, regionName } from '../../sim/content';
 import { boostStability, playerDeclareWar } from '../../sim/commands';
 import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } from '../../sim/economy';
 import { liveUnseenReports, modifierSources } from '../../sim/queries';
-import { casusBelli, likelySides } from '../../sim/war';
+import { TRUCE_BREAK, UNJUST_LAND, UNJUST_WAR, casusBelli, likelySides, unjustThreat } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
 import { formatShortDate, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
@@ -215,19 +215,30 @@ export function DeclareWarPanel({ target }: { target: string }) {
         />
       }
     >
-      <Section title="Reason for war" help="Holding the war goal adds leverage every month. A war without a reason costs 1 order and 8 Threat, and every crown thinks less of you.">
+      <Section
+        title="Reason for war"
+        help={`Holding the war goal adds leverage every month. A war without a reason costs ${UNJUST_WAR.order} order, ${UNJUST_WAR.renown} renown and ${UNJUST_WAR.threat} Threat (${UNJUST_WAR.repeat} more for each other one in the last 10 years); every crown thinks ${-UNJUST_WAR.opinion} worse of you, and land you take in it adds ${UNJUST_LAND}× the usual Threat.`}
+      >
         <View style={{ gap: 6 }}>
           {cbs.map((c, i) => (
             <Pressable key={i} onPress={() => setPick(i)} style={[styles.option, pick === i && styles.optionOn]}>
               <Text style={styles.optionText}>{c.label}</Text>
               {c.goal ? <Text style={styles.optionSub}>War goal: {regionName(c.goal)}</Text> : null}
               {c.why || c.until !== undefined ? <Text style={styles.optionSub}>{claimNote(c.why, c.until)}</Text> : null}
-              {c.cb === 'none' ? <Text style={[styles.optionSub, { color: C.red }]}>−1 order · +8 Threat · −opinion</Text> : null}
+              {c.cb === 'none' ? (
+                <Text style={[styles.optionSub, { color: C.red }]}>
+                  −{UNJUST_WAR.order} order · −{UNJUST_WAR.renown} renown · +{unjustThreat(s, s.player)} Threat · {UNJUST_WAR.opinion} opinion
+                </Text>
+              ) : null}
             </Pressable>
           ))}
         </View>
       </Section>
-      {truce ? <T v="small" style={{ color: C.red, marginTop: 8 }}>Breaks a truce: −2 order, −20 renown, +10 Threat.</T> : null}
+      {truce ? (
+        <T v="small" style={{ color: C.red, marginTop: 8 }}>
+          Breaks a truce: −{TRUCE_BREAK.order} order, −{TRUCE_BREAK.renown} renown, +{TRUCE_BREAK.threat} Threat, every crown thinks {-TRUCE_BREAK.opinion} worse of you, and no ally will join you.
+        </T>
+      ) : null}
       <Section title="Likely to fight with you">
         {sides.attackers.map(n => (
           <Row key={n} style={{ marginBottom: 4 }}>

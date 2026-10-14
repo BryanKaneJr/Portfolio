@@ -193,6 +193,26 @@ describe('the war chance', () => {
     expect(warOdds(s, 'CAS').best?.target).not.toBe('GRA');
   });
 
+  test('a crown with a claim on a neighbour whose truce ends within two years waits for that war', () => {
+    const s = game(['FRA']);
+    const truce = s.truces[pairKey('ENG', 'FRA')];
+    expect('normandy' in s.nations.FRA.claims).toBe(true);
+    // Four years to go: France weighs other wars.
+    expect(warOdds(s, 'FRA').blocked).toBeUndefined();
+    // Under two: it keeps its powder dry for England, and draws nothing.
+    s.day = truce - years(1.5);
+    const o = warOdds(s, 'FRA');
+    expect(o.blocked).toBe('waiting');
+    expect(o.waitingFor).toBe('ENG');
+    expect(o.restUntil).toBe(truce);
+    const r0 = s.rng;
+    debugAI.aiWar(s, s.nations.FRA);
+    expect(s.rng).toBe(r0);
+    // Once the truce is over, England is a target like any other.
+    s.day = truce + 1;
+    expect(warOdds(s, 'FRA').blocked).toBeUndefined();
+  });
+
   test('the Emperor’s peace between members of the Empire', () => {
     const s = game(['BRA']);
     const o = warOdds(s, 'BRA');

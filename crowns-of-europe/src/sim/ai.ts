@@ -83,7 +83,7 @@ import { forecast, type Forecast } from './forecast';
 import { GENERAL_COST } from './commands';
 import { newGeneral, rulerAsGeneral } from './rulers';
 import type { Army, CasusBelli, GameState, Nation, NationId, NativePolicy, NodeId, PeaceTerms, Personality, Region, RegionId, Tier, UnitType, War } from './types';
-import { DAYS_PER_YEAR, chance, clamp, isIn, months, pick, rand, randomDayOfNextMonth, yearOf, years } from './util';
+import { DAYS_PER_YEAR, chance, clamp, isIn, months, pairKey, pick, rand, randomDayOfNextMonth, yearOf, years } from './util';
 
 /** The player's nation is run by the AI only in spectator mode (dev tools, title-screen demo). */
 export const isHuman = (s: GameState, n: NationId) => n === s.player && !('__spectate' in s.flags);
@@ -714,7 +714,7 @@ const EMPIRE_UNLAWFUL = 0.3;
 export const MAX_TARGET = EDGE_MAX * Math.max(...Object.values(REASON_WAR)) * (1 + 4 * WANT_STEP);
 
 /** Why a crown weighs no war at all. */
-export type WarBlock = 'dead' | 'human' | 'native' | 'subject' | 'war' | 'rest' | 'order' | 'weariness' | 'debt';
+export type WarBlock = 'dead' | 'human' | 'native' | 'subject' | 'war' | 'rest' | 'waiting' | 'order' | 'weariness' | 'debt';
 /** One part of a war chance: `x` multiplies it (the bent's base is in % a year). */
 export interface WarFactor {
   key: string;
@@ -736,8 +736,10 @@ export interface WarTarget {
 }
 export interface WarMood {
   blocked?: WarBlock;
-  /** While blocked by its rest: the day it ends. */
+  /** While blocked by its rest, or waiting for a truce to end: the day it ends. */
   restUntil?: number;
+  /** While waiting: the crown whose truce it waits out (it holds a claim on its land). */
+  waitingFor?: NationId;
   /** The crown's own chance (% a year) before its target's factors. */
   crown: number;
   factors: WarFactor[];
@@ -760,6 +762,22 @@ const REASON_LABEL: Record<CasusBelli, string> = {
   none: 'none yet',
 };
 
+/** Years before a truce ends in which a crown with a claim on the other side waits for that war instead of another. */
+export const TRUCE_WAIT = 2;
+
+/** The neighbour whose truce `n` waits out, holding a claim on its land, and the day it ends (the soonest). */
+function truceToWaitOut(s: GameState, n: NationId): { holder: NationId; until: number } | undefined {
+  const soon = s.day + years(TRUCE_WAIT);
+  let best: { holder: NationId; until: number } | undefined;
+  for (const [r, lapses] of Object.entries(s.nations[n].claims)) {
+    const o = s.regions[r]?.owner;
+    if (!o || o === n || (lapses >= 0 && lapses <= soon)) continue;
+    const until = s.truces[pairKey(n, o)];
+    if (until !== undefined && until > s.day && until <= soon && (!best || until < best.until)) best = { holder: o, until };
+  }
+  return best;
+}
+
 /** The gates and the crown's own factors (its bent, size, rest, treasury...). Pure: no draws. */
 function warMood(s: GameState, nat: Nation): WarMood {
   const n = nat.id;
@@ -776,6 +794,10 @@ function warMood(s: GameState, nat: Nation): WarMood {
   if (nat.stability < 0) return stop('order');
   if (nat.warExhaustion > 5) return stop('weariness');
   if (nat.loans > 3) return stop('debt');
+  // A crown that holds a claim on a neighbour whose truce with it ends within TRUCE_WAIT years keeps its powder dry
+  // for that war (France in 1447, with Tours running out on the English): no other war, no claim forged elsewhere.
+  const wait = truceToWaitOut(s, n);
+  if (wait) return { blocked: 'waiting', restUntil: wait.until, waitingFor: wait.holder, crown: 0, factors: [] };
   const def = NATION[n];
   const pers = def.personality;
   const traits = nat.ruler.traits.filter(t => t in RULER_WAR);

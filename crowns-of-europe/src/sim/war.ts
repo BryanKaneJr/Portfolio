@@ -37,6 +37,18 @@ export const TRUCE_MAX = 15;
 export const TRUCE_COST_PER_YEAR = 5;
 /** 5 years after a white peace, 1 more for every 5% of leverage the deal is worth (rounded), at most 15. */
 export const truceYears = (cost: number) => Math.min(TRUCE_MAX, TRUCE_MIN + Math.round(Math.max(0, cost) / TRUCE_COST_PER_YEAR));
+
+/** The price of breaking a truce: order, renown, Threat, and every crown's opinion ("Broke a truce", fading 0.5 a
+ * month); no ally answers the call. Not for a war an event starts (history's doing). */
+export const TRUCE_BREAK = { order: 3, renown: 30, threat: 30, opinion: -40 };
+/** The price of a war without a reason; each other one declared in the last UNJUST_YEARS adds `repeat` Threat. Land
+ * taken in it adds UNJUST_LAND times the usual Threat at the peace. */
+export const UNJUST_WAR = { order: 1, renown: 10, threat: 20, repeat: 10, opinion: -25 };
+export const UNJUST_YEARS = 10;
+export const UNJUST_LAND = 1.5;
+/** The Threat `n` would gain now by declaring a war without a reason. */
+export const unjustThreat = (s: GameState, n: NationId) =>
+  UNJUST_WAR.threat + UNJUST_WAR.repeat * (s.nations[n]?.unjustWars ?? []).filter(d => d > s.day - years(UNJUST_YEARS)).length;
 /** Leverage at which an AI war leader stops proposing peace to the player and sends an ultimatum. */
 export const ULTIMATUM_SCORE = 99;
 /** Days the player has before an ultimatum's terms are imposed. */
@@ -161,17 +173,21 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
   const A = s.nations[a];
   // However it came about, a crown that declares a war rests before it weighs the next (ai.ts, warMood).
   A.ai.lastWarDeclared = s.day;
-  // Breaking a truce or attacking without a reason has a price.
-  if (hasTruce(s, a, b)) {
-    A.stability = clamp(A.stability - 2, -3, 3);
-    A.prestige = clamp(A.prestige - 20, 0, 100);
-    addThreat(s, a, 10);
-    delete s.truces[pairKey(a, b)];
+  // Breaking a truce or attacking without a reason has a steep price, steeper for a crown that makes a habit of it.
+  const brokeTruce = hasTruce(s, a, b) && origin !== 'event';
+  if (hasTruce(s, a, b)) delete s.truces[pairKey(a, b)];
+  if (brokeTruce) {
+    A.stability = clamp(A.stability - TRUCE_BREAK.order, -3, 3);
+    A.prestige = clamp(A.prestige - TRUCE_BREAK.renown, 0, 100);
+    addThreat(s, a, TRUCE_BREAK.threat);
+    for (const o of Object.values(s.nations)) if (o.alive && o.id !== a) addOpinion(s, o.id, a, 'oathbreaker', 'Broke a truce', TRUCE_BREAK.opinion, 0.5);
   }
   if (cb === 'none') {
-    A.stability = clamp(A.stability - 1, -3, 3);
-    addThreat(s, a, 8);
-    for (const o of Object.values(s.nations)) if (o.alive && o.id !== a && o.id !== b) addOpinion(s, o.id, a, 'warmonger', 'Unjust war', -15, 0.5);
+    A.stability = clamp(A.stability - UNJUST_WAR.order, -3, 3);
+    A.prestige = clamp(A.prestige - UNJUST_WAR.renown, 0, 100);
+    addThreat(s, a, unjustThreat(s, a));
+    A.unjustWars = [...(A.unjustWars ?? []).filter(d => d > s.day - years(UNJUST_YEARS)), s.day];
+    for (const o of Object.values(s.nations)) if (o.alive && o.id !== a && o.id !== b) addOpinion(s, o.id, a, 'warmonger', 'Unjust war', UNJUST_WAR.opinion, 0.5);
   }
   const war: War = {
     id: `w${++s.seq}`,
@@ -185,6 +201,7 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
     goalScore: 0,
   };
   if (origin) war.origin = origin;
+  if (brokeTruce) war.brokeTruce = true;
   s.wars[war.id] = war;
   bumpWars();
   const join = (side: 'attackers' | 'defenders', n: NationId) => {
@@ -233,6 +250,8 @@ export function withdrawEnemyOffers(s: GameState, war: War): void {
 }
 
 function callAllies(s: GameState, war: War, side: 'attackers' | 'defenders'): void {
+  // Nobody stands by a crown that broke its word: its allies are not called.
+  if (side === 'attackers' && war.brokeTruce) return;
   const leader = war[side][0];
   const enemy = side === 'attackers' ? war.defenders[0] : war.attackers[0];
   for (const al of alliesOf(s, leader)) {
@@ -512,7 +531,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
       if (!isIn(losers, reg.owner)) continue;
       const claimed = r in s.nations[winner].claims || reg.cores.includes(winner);
       // Europe barely notices land taken from New World peoples.
-      threat += reg.dev * 2.5 * (claimed ? 0.6 : 1) * (isNativeNation(reg.owner!) ? 0.3 : 1);
+      threat += reg.dev * 2.5 * (claimed ? 0.6 : w.cb === 'none' ? UNJUST_LAND : 1) * (isNativeNation(reg.owner!) ? 0.3 : 1);
       transferRegion(s, r, winner, { conquest: true });
       if (winner === s.player) s.stats.regionsConquered++;
     }

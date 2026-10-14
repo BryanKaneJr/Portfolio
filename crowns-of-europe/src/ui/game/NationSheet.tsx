@@ -208,10 +208,23 @@ export function NationSheet({ id }: { id: string }) {
 /** An AI crown's chance of war this month; tap for what makes it up. */
 function WarChance({ odds, player, open, onPress }: { odds: ReturnType<typeof warOdds>; player: string; open: boolean; onPress: () => void }) {
   const help = 'Once a month, on a day of its own, a crown run by the computer weighs war on the neighbour it most wants to fight.';
-  const reason = odds.blocked ? NO_WAR[odds.blocked] : odds.best ? undefined : 'No neighbour worth a war';
+  const waiting = odds.blocked === 'waiting' && odds.waitingFor && odds.restUntil !== undefined;
+  const reason = waiting
+    ? `Its truce with ${odds.waitingFor === player ? 'you' : nationName(odds.waitingFor!)} ends then, and it holds a claim there`
+    : odds.blocked
+      ? NO_WAR[odds.blocked]
+      : odds.best
+        ? undefined
+        : 'No neighbour worth a war';
   const value =
-    odds.blocked === 'war' ? 'At war' : odds.blocked === 'rest' && odds.restUntil !== undefined ? `Resting until ${yearOf(odds.restUntil)}` : reason ? 'None' : `${pc(odds.monthly)} a month`;
-  const you = odds.best?.target === player;
+    odds.blocked === 'war'
+      ? 'At war'
+      : (odds.blocked === 'rest' || waiting) && odds.restUntil !== undefined
+        ? `${waiting ? 'Waiting' : 'Resting'} until ${yearOf(odds.restUntil)}`
+        : reason
+          ? 'None'
+          : `${pc(odds.monthly)} a month`;
+  const you = odds.best?.target === player || odds.waitingFor === player;
   const tappable = !odds.blocked && !!odds.best;
   const shown = odds.factors.filter(f => f.key === 'base' || Math.abs(f.x - 1) > 1e-9);
   const withinYear = 1 - Math.pow(1 - odds.monthly, 12);
