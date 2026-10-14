@@ -9,7 +9,7 @@ import { PixelRatio, Platform, StyleSheet, Text, View, type LayoutChangeEvent } 
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
-import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld, nationName } from '../../sim/content';
+import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNativeNation, isNewWorld, nationName } from '../../sim/content';
 import { REBELS, armyRegs, armyMen, seesUnit } from '../../sim/queries';
 import type { Army, GameState, Region } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
@@ -269,9 +269,12 @@ const WEB_LAYER = Platform.OS === 'web' ? ({ willChange: 'transform' } as object
 
 // ---------------------------------------------------------------- static layer (land, borders, labels)
 
+/** Is the New World drawn? Once it is discovered, and from the start for a New World people. */
+const seesNewWorld = (s: GameState) => !!s.discovery || isNativeNation(s.player);
+
 /** The lines that only change when land changes hands: one path each, so they cost one draw call apiece. */
 function borderLines(s: GameState) {
-  const charted = !!s.discovery;
+  const charted = seesNewWorld(s);
   let nation = '';
   let province = '';
   let river = '';
@@ -318,7 +321,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
   const selRegion = selection?.kind === 'region' ? selection.id : null;
   const selSea = selection?.kind === 'sea' ? selection.id : null;
   const selNation = selection?.kind === 'nation' ? selection.id : null;
-  const charted = !!s.discovery;
+  const charted = seesNewWorld(s);
   // Before the New World is found it is blank parchment like the rest of the unknown: no borders, names or units.
   const hidden = (id: string) => !charted && isNewWorld(id);
   const striped = [
@@ -952,7 +955,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
     out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
   }
   for (const a of Object.values(s.armies)) {
-    if (a.battle || (!s.discovery && isNewWorld(a.node)) || hidden(a.id)) continue;
+    if (a.battle || (!seesNewWorld(s) && isNewWorld(a.node)) || hidden(a.id)) continue;
     if (!sees(a.owner, a.node, a.rebelOf)) continue;
     let [x, y] = armyAnchor(a.node, k);
     if (a.path.length && a.edgeDays > 0) {
@@ -1115,7 +1118,7 @@ export function townArt(r: Region | undefined): keyof typeof TOWN_ART | null {
   return r.fort >= 1 ? `${size}-walled` : size;
 }
 /** Every region's settlement in one string: the map's towns are redrawn only when one of them changes. */
-const townKey = (s: GameState) => `${s.discovery ? 1 : 0}${MAP.regions.map(r => townArt(s.regions[r.id]) ?? '').join(',')}`;
+const townKey = (s: GameState) => `${seesNewWorld(s) ? 1 : 0}${MAP.regions.map(r => townArt(s.regions[r.id]) ?? '').join(',')}`;
 /** A region name's letters' width, as a share of its size (Cinzel capitals, slightly spaced). */
 const NAME_EM = 0.68;
 const FEET_Y = 7; // where a figure stands, below the token's point (points)

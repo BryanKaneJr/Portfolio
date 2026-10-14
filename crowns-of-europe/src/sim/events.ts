@@ -363,10 +363,13 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
       delete s.alliances[[n, v].sort().join('|')];
       break;
     case 'personalUnion':
-      if (s.nations[v]?.alive && v !== n && !nat.overlord) makeSubject(s, n, v, 'union');
-      break;
     case 'inherit':
-      if (s.nations[v]?.alive && v !== n) annexNation(s, n, v);
+      // The player's realm is never joined to another crown by an event: the claim is made and refused.
+      if (v === s.player && v !== n && !('__spectate' in s.flags)) {
+        if (s.nations[v]?.alive) log(s, 'diplomacy', `${nationName(n)} claims your crown; your lords refuse.`, { important: true, nation: n });
+      } else if (k === 'inherit') {
+        if (s.nations[v]?.alive && v !== n) annexNation(s, n, v);
+      } else if (s.nations[v]?.alive && v !== n && !nat.overlord) makeSubject(s, n, v, 'union');
       break;
     case 'independence':
       if (nat.overlord) releaseSubject(s, n);

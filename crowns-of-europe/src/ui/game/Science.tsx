@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { ADVANCE, ERA } from '../../sim/content';
 import { setResearch, setScienceFunding } from '../../sim/commands';
 import { ledger } from '../../sim/economy';
-import { FIELDS, FUNDING_BOOST, FUNDING_SHARE, UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceCost, advanceUnlockText, availableAdvances, knows, scienceRate, track } from '../../sim/science';
+import { FIELDS, FUNDING_BOOST, FUNDING_SHARE, UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceCost, advanceUnlockText, availableAdvances, knows, scienceRate, studies, track } from '../../sim/science';
 import type { AdvanceDef } from '../../sim/types';
 import { useStore } from '../../state/store';
 import { Icon, type IconName } from '../components/Icon';
@@ -42,6 +42,7 @@ export function ScienceTab() {
   const rate = scienceRate(s, p);
   const [why, setWhy] = useState(false);
   const [whyCost, setWhyCost] = useState(false);
+  if (!studies(s, p)) return <T v="small">Your people follow their own ways.</T>;
   const open = new Set(availableAdvances(s, p).map(a => a.id));
   const current = me.researching ? ADVANCE[me.researching] : undefined;
   const cost = current ? advanceCost(s, p, current.id) : undefined;

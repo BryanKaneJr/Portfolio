@@ -51,6 +51,7 @@ export function TopBar() {
   const bal = ledger(s, s.player).balance;
   const open = (what: 'gold' | 'manpower' | 'stability' | 'threat') => st.open({ kind: 'breakdown', what });
   const important = liveUnseenReports(s).length + s.offers.length;
+  const idle = !n.researching && availableAdvances(s, s.player).length > 0; // nothing being studied, and something to study
   return (
     <View style={[styles.topWrap, { top: insets.top + 6 }]} pointerEvents="box-none">
       <Glass gilt radius={R.lg} style={styles.top}>
@@ -60,7 +61,7 @@ export function TopBar() {
         <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)}/mo`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
         <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />
         <Res icon="stability" label="Order" value={signed(n.stability)} tone={n.stability < 0 ? 'bad' : undefined} onPress={() => open('stability')} />
-        <Res icon="book" label="Science" value={fmt(scienceRate(s, s.player).total, 1)} sub={n.researching ? undefined : 'Pick one'} subTone={n.researching ? undefined : 'bad'} onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
+        <Res icon="book" label="Science" value={fmt(scienceRate(s, s.player).total, 1)} sub={idle ? 'Pick one' : undefined} subTone={idle ? 'bad' : undefined} onPress={() => st.open({ kind: 'menu', tab: 'science' })} />
         <Res icon="threat" label="Threat" value={fmt(n.threat)} tone={n.threat >= 40 ? 'bad' : undefined} onPress={() => open('threat')} />
         <Pressable onPress={() => st.open({ kind: 'log' })} style={({ pressed }) => [styles.bell, pressed && { opacity: 0.6 }]} accessibilityLabel="Messages" hitSlop={6} testID="messages">
           <Icon name="bell" size={19} color={G.text} />

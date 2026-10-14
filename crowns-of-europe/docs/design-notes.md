@@ -502,3 +502,26 @@ Not yet done:
   colonial race (in AI-only games the coasts are mostly settled by about 1600–1650, faster than history).
 - AI navies: the AI rarely builds transports, so overseas wars are mostly fought by troops raised in the colonies.
 - Store assets, bundle identifier (`com.crownsofeurope.app` is a placeholder) and EAS configuration.
+
+## Every nation playable
+
+All 73 nations can be picked. Each has a `difficulty` and an `area` in `nations.json` (the validator requires both,
+from a fixed list of areas). `playable` now only means "featured": those 22 sit in the picker's Great powers strip,
+and below it every nation is listed by area, easiest first. A dot on each card gives its difficulty. The detail
+panel says when a nation starts as someone's vassal or junior partner, or as a New World people, and which greater
+crowns it can proclaim (read from `formables.json`, following a crown on to the crowns it leads to).
+
+- **The player keeps their crown.** A `personalUnion` or `inherit` effect aimed at the player does nothing; the
+  log says "<Nation> claims your crown; your lords refuse." Spectated games (`__spectate`) are unchanged.
+- **New World peoples** (Aztecs, Maya, K'iche', Haudenosaunee) see their own lands from the start: the map, the
+  region and sea sheets and the picker's small map draw the Americas instead of parchment. They study nothing
+  (`availableAdvances` is empty; the Science tab says "Your people follow their own ways"), colonizing does not
+  concern them (`colonialCrown` is false), European-flavoured era cards and `gen_university`/`gen_tournament` pass
+  them by (`"native": false`), and the discovery brings them "Strangers from the Sea" instead of "A New World".
+  Their generic missions leave out those that need allies or colonies, and "A Name Abroad" is no longer locked
+  behind "Friends Abroad".
+- **Checks.** `tests/playable.test.ts` starts every nation and plays 60 days with a passive player: no crash, no
+  game over and no union with the player; each New World people can order a one-step march (the Maya, hemmed in,
+  after declaring war). `npx tsx scripts/dev/playall.ts [years] [ids...]` does the same for longer and prints one
+  line per nation. Over 3 years (seed 1) a passive Genoa, Bosnia or Granada is annexed; that is balance, not a
+  fault.

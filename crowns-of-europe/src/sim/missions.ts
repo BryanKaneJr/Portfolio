@@ -1,5 +1,5 @@
 /** Mission trees: concrete goals per nation with rewards. The player claims rewards; the AI does it automatically. */
-import { MISSIONS } from './content';
+import { MISSIONS, isNativeNation } from './content';
 import { log } from './log';
 import { applyEffects, evalCondition } from './events';
 import type { GameState, MissionDef, NationId } from './types';
@@ -8,7 +8,19 @@ export type MissionState = 'done' | 'ready' | 'active' | 'locked';
 
 export function missionsFor(n: NationId): MissionDef[] {
   const own = MISSIONS.filter(m => m.nation === n);
-  return own.length ? own : MISSIONS.filter(m => m.nation === 'generic');
+  if (own.length) return own;
+  return isNativeNation(n) ? nativeMissions() : MISSIONS.filter(m => m.nation === 'generic');
+}
+
+/** The generic missions a New World people can complete: none that needs allies or colonies, and none locked
+ * behind one that does. */
+let natives: MissionDef[] | null = null;
+function nativeMissions(): MissionDef[] {
+  if (natives) return natives;
+  const out = (m: MissionDef) => /"native":false|"alliesAtLeast"|"coloniesAtLeast"/.test(JSON.stringify(m.goal));
+  const dropped = new Set(MISSIONS.filter(m => m.nation === 'generic' && out(m)).map(m => m.id));
+  natives = MISSIONS.filter(m => m.nation === 'generic' && !dropped.has(m.id)).map(m => (m.requires.some(r => dropped.has(r)) ? { ...m, requires: m.requires.filter(r => !dropped.has(r)) } : m));
+  return natives;
 }
 
 export function missionState(s: GameState, n: NationId, m: MissionDef): MissionState {

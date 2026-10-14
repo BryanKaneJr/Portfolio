@@ -10,6 +10,8 @@ import { PAINTING } from './paintingTiles';
 
 /** The unknown in 1444 (the screens before a game starts): the wastes, the closed seas and the New World. */
 const UNKNOWN = MAP.wastelands.map(w => w.path).join('') + MAP.unknownWater + MAP.uncharted;
+/** The same for a New World people, who know their own lands. */
+const UNKNOWN_CHARTED = MAP.wastelands.map(w => w.path).join('') + MAP.unknownWater;
 const PAST = `M-2000 -2000h${MAP.width + 4000}v${MAP.height + 4000}h${-MAP.width - 4000}Z M1 1v${MAP.height - 2}h${MAP.width - 2}v${-(MAP.height - 2)}Z`;
 
 /** The Old World's frame: the title screen shows Europe, not the middle of the Atlantic. */
@@ -28,12 +30,14 @@ export const MiniMap = memo(function MiniMap({
   focus,
   dim = 0,
   owners,
+  charted = false,
 }: {
   width: number;
   height: number;
   focus?: string; // nation to frame and highlight
   dim?: number; // 0..1 darkening for backgrounds
   owners?: Record<string, string>;
+  charted?: boolean; // draw the New World (for a New World people) instead of blank parchment
 }) {
   const own = (id: string) => owners?.[id] ?? REGION[id].owner;
   const st = MAP_STYLES[store.mapStyle];
@@ -83,8 +87,8 @@ export const MiniMap = memo(function MiniMap({
       })}
       {st.relief > 0 ? <SvgImage x={R.x} y={R.y} width={R.w} height={R.h} href={R.src} preserveAspectRatio="none" opacity={st.relief} /> : null}
       <Path d={PAST} fill={st.unknown.fill} fillRule="evenodd" />
-      <Path d={UNKNOWN} fill={st.unknown.fill} />
-      {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP.width} height={MAP.height} href={SHADOWS.uncharted.src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
+      <Path d={charted ? UNKNOWN_CHARTED : UNKNOWN} fill={st.unknown.fill} />
+      {st.unknown.shadow > 0 ? <SvgImage x={0} y={0} width={MAP.width} height={MAP.height} href={SHADOWS[charted ? 'charted' : 'uncharted'].src} preserveAspectRatio="none" opacity={st.unknown.shadow} /> : null}
       <Path d={MAP.coast} fill="none" stroke={st.coast.color} strokeWidth={0.6} />
       {dim > 0 ? <Rect x={-500} y={-500} width={MAP.width + 1000} height={MAP.height + 1000} fill="#120c06" opacity={dim} /> : null}
     </Svg>

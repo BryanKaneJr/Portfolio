@@ -75,7 +75,6 @@ for (const n of NATIONS) {
 for (const n of NATIONS) {
   if (!REGION[n.capital] || REGION[n.capital].owner !== n.id) errs.push(`nation ${n.id}: capital must be a region it owns`);
   if (!!n.native !== (n.faith === 'native')) errs.push(`nation ${n.id}: native nations (and only they) follow the native faith`);
-  if (n.native && n.playable) errs.push(`nation ${n.id}: native nations are not playable`);
   if (!TRAITS.national[n.trait]) errs.push(`nation ${n.id}: unknown trait ${n.trait}`);
   for (const t of [...n.ruler.traits, ...(n.heir?.traits ?? [])]) if (!TRAITS.ruler[t]) errs.push(`nation ${n.id}: unknown ruler trait ${t}`);
 }
@@ -204,7 +203,12 @@ for (const a of ACHIEVEMENTS) {
 
 
 // --- T2 checks ---
-
+// Every nation is playable: the picker needs its difficulty and the area it is listed under.
+const PICKER_AREAS = ['british_isles', 'france', 'iberia', 'italy', 'empire', 'north', 'east', 'balkans', 'middle_east', 'africa', 'new_world'];
+for (const n of NATIONS) {
+  if (!n.difficulty || !['easy', 'normal', 'hard', 'very_hard'].includes(n.difficulty)) errs.push(`nation ${n.id}: needs a difficulty (easy, normal, hard or very_hard)`);
+  if (!n.area || !PICKER_AREAS.includes(n.area)) errs.push(`nation ${n.id}: needs a picker area (${PICKER_AREAS.join(', ')})`);
+}
 
 // --- T3 checks ---
 
