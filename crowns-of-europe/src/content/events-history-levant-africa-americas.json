@@ -1,1 +1,1732 @@
-[]
+[
+  {
+    "id": "kni_tower_of_st_nicholas",
+    "pool": "historical",
+    "title": "The Tower of St Nicholas",
+    "text": "The Sultan's fleet has landed an army on Rhodes, and his guns are battering the Tower of St Nicholas that guards the harbour. Grand Master d'Aubusson asks whether to spend everything on the walls, or to send knights to beg the Pope and the kings of the West for a crusade.",
+    "image": "siege",
+    "nations": [
+      "KNI"
+    ],
+    "window": [
+      1460,
+      1530
+    ],
+    "mtth": 6,
+    "news": "The Knights of Rhodes are under siege.",
+    "trigger": {
+      "all": [
+        {
+          "atWarWith": "TUR"
+        },
+        {
+          "owns": "rhodes"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Spend everything on the walls",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "fortRegion": {
+              "region": "rhodes",
+              "amount": 1
+            }
+          },
+          {
+            "hireGeneral": {
+              "stars": 4,
+              "name": "Pierre d'Aubusson"
+            }
+          },
+          {
+            "prestige": 15
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Beg the Pope for a crusade",
+        "effects": [
+          {
+            "papalFavor": 15
+          },
+          {
+            "gold": 60
+          },
+          {
+            "opinion": {
+              "nation": "PAP",
+              "amount": 30
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "kar_seven_sons_of_ibrahim",
+    "pool": "historical",
+    "title": "The Seven Sons of Ibrahim",
+    "text": "Old Ibrahim Bey is dying, and his seven sons are already fighting over Konya. The eldest, Ishak, is backed by Uzun Hasan of the White Sheep; Pir Ahmed has gone to ask the Ottoman Sultan to make him bey. Whoever wins may find he has a master.",
+    "image": "crown",
+    "nations": [
+      "KAR"
+    ],
+    "window": [
+      1462,
+      1470
+    ],
+    "mtth": 12,
+    "news": "The sons of Ibrahim are fighting over Karaman.",
+    "trigger": {
+      "exists": "TUR"
+    },
+    "choices": [
+      {
+        "text": "Back Ishak and the White Sheep",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Ishak Bey",
+              "skill": 3,
+              "traits": [
+                "warrior"
+              ],
+              "age": 40
+            }
+          },
+          {
+            "ally": "AKK"
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -40
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "karaman"
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Back Pir Ahmed and the Sultan",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Pir Ahmed",
+              "skill": 2,
+              "traits": [
+                "shrewd"
+              ],
+              "age": 35
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "AKK",
+              "amount": -30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "tre_bride_for_the_white_sheep",
+    "pool": "historical",
+    "title": "A Bride for the White Sheep",
+    "text": "Uzun Hasan, lord of the White Sheep Turkomans, asks for the hand of your daughter Theodora, said to be the most beautiful woman of her age. In return he promises to defend Trebizond against the Ottomans. The Sultan's envoys are already asking why you need such a friend.",
+    "image": "marriage",
+    "nations": [
+      "TRE"
+    ],
+    "window": [
+      1450,
+      1461
+    ],
+    "mtth": 12,
+    "news": "The Emperor of Trebizond has married his daughter to Uzun Hasan.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "AKK"
+        },
+        {
+          "exists": "TUR"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send Theodora to Uzun Hasan",
+        "effects": [
+          {
+            "ally": "AKK"
+          },
+          {
+            "opinion": {
+              "nation": "AKK",
+              "amount": 40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -20
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Pay the Sultan's tribute instead",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "geo_king_of_the_west",
+    "pool": "historical",
+    "title": "The King of the West",
+    "text": "Prince Bagrat of Imereti has beaten your army at Chikhori and had himself crowned king in Kutaisi. The lords of Kakheti and Samtskhe are watching to see whether the crown of all Georgia still means anything. Turkoman raiders from the south make every quarrel more dangerous.",
+    "image": "rebels",
+    "nations": [
+      "GEO"
+    ],
+    "window": [
+      1455,
+      1495
+    ],
+    "mtth": 24,
+    "news": "Georgia has split between rival kings.",
+    "trigger": {
+      "owns": "imereti"
+    },
+    "choices": [
+      {
+        "text": "March on Kutaisi and crush the upstart",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 6,
+              "region": "imereti"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Recognise Bagrat as king of the west",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "unrestRegion": {
+              "region": "imereti",
+              "amount": 4
+            }
+          },
+          {
+            "modifier": {
+              "id": "divided_georgia",
+              "name": "A Divided Kingdom",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.15,
+                "manpower": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "akk_the_tall_one",
+    "pool": "historical",
+    "title": "The Tall One",
+    "text": "Your brother Uzun Hasan, 'the Tall', has taken Amid in a night raid, and the tribes are riding to his tent. He is the better soldier and everyone knows it. Give him the leadership and the White Sheep may rule from the Euphrates to the Caspian; fight him, and the Black Sheep will feast on the quarrel.",
+    "image": "horse",
+    "nations": [
+      "AKK"
+    ],
+    "window": [
+      1450,
+      1460
+    ],
+    "mtth": 12,
+    "news": "Uzun Hasan has taken the leadership of the White Sheep.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Yield the leadership to Uzun Hasan",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Uzun Hasan",
+              "skill": 5,
+              "traits": [
+                "warrior",
+                "ambitious"
+              ],
+              "age": 34
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "addClaim": [
+              "tabriz",
+              "van"
+            ]
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Fight your brother",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 6,
+              "region": "diyarbakir"
+            }
+          },
+          {
+            "stability": -1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "qar_a_winter_campaign",
+    "pool": "historical",
+    "title": "A Winter Campaign",
+    "text": "Your army is the largest in Iran, and the upstart Uzun Hasan has defied you once too often. Your generals want to march at once, through the snows of Armenia, and catch the White Sheep in their winter pastures. The old campaigners say no army has crossed those passes in winter and come back whole.",
+    "image": "horse",
+    "nations": [
+      "QAR"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 12,
+    "news": "Jahan Shah has marched against Uzun Hasan.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "AKK"
+        },
+        {
+          "not": {
+            "atWarWith": "AKK"
+          }
+        },
+        {
+          "not": {
+            "allied": "AKK"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "AKK"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "AKK",
+            "region": "diyarbakir"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "March against the White Sheep this winter",
+        "effects": [
+          {
+            "addClaim": [
+              "diyarbakir",
+              "erzurum"
+            ]
+          },
+          {
+            "declareWar": {
+              "target": "AKK",
+              "cb": "claim",
+              "region": "diyarbakir"
+            }
+          },
+          {
+            "modifier": {
+              "id": "winter_march",
+              "name": "A Winter March",
+              "months": 12,
+              "mods": {
+                "attrition": 0.25
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Make peace with Uzun Hasan",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "AKK",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mam_the_emirs_choose",
+    "pool": "historical",
+    "title": "The Emirs Choose a Sultan",
+    "text": "After five sultans in seven years, the Mamluk emirs gather to choose again. Qaitbay, a Circassian once bought as a slave for fifty dinars, is the strongest and the most capable among them. A weaker choice would leave the emirs richer and the treasury poorer.",
+    "image": "crown",
+    "nations": [
+      "MAM"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 18,
+    "news": "Qaitbay has become Sultan of Egypt.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Raise Qaitbay to the throne",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Qaitbay",
+              "skill": 5,
+              "traits": [
+                "builder",
+                "administrator"
+              ],
+              "age": 52
+            }
+          },
+          {
+            "gold": -80
+          },
+          {
+            "devCapital": 1
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Choose a pliable emir",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Yalbay",
+              "skill": 1,
+              "traits": [
+                "feeble"
+              ],
+              "age": 60
+            }
+          },
+          {
+            "gold": 100
+          },
+          {
+            "stability": -1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "mam_ships_in_the_indian_sea",
+    "pool": "historical",
+    "title": "Christian Ships in the Indian Sea",
+    "text": "The Portuguese have sailed round Africa and are burning Muslim spice ships off India. The pepper that paid for your army no longer reaches Alexandria. Venice, which also loses by it, offers timber and gunners if you build a fleet at Suez.",
+    "image": "ship",
+    "nations": [
+      "MAM"
+    ],
+    "window": [
+      1498,
+      1515
+    ],
+    "mtth": 18,
+    "trigger": {
+      "all": [
+        {
+          "exists": "POR"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Build a fleet at Suez with Venetian timber",
+        "effects": [
+          {
+            "goldPerDev": -2
+          },
+          {
+            "ally": "VEN"
+          },
+          {
+            "opinion": {
+              "nation": "POR",
+              "amount": -50
+            }
+          },
+          {
+            "modifier": {
+              "id": "red_sea_fleet",
+              "name": "Red Sea Fleet",
+              "months": 120,
+              "mods": {
+                "navalPower": 0.2,
+                "tradeIncome": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept the loss of the spice trade",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "spice_trade_diverted",
+              "name": "Spice Trade Diverted",
+              "months": 240,
+              "mods": {
+                "tradeIncome": -0.2
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "cyp_the_bastard_and_the_queen",
+    "pool": "historical",
+    "title": "The Bastard and the Queen",
+    "text": "King John is dead. His daughter Charlotte is queen by law, but his bastard son James has gone to Cairo to ask the Mamluk Sultan, your overlord in all but name, for the crown. Charlotte's betrothed is a prince of Savoy; James promises the Sultan a larger tribute.",
+    "image": "crown",
+    "nations": [
+      "CYP"
+    ],
+    "window": [
+      1457,
+      1465
+    ],
+    "mtth": 12,
+    "news": "Cyprus is divided between Queen Charlotte and her half-brother James.",
+    "trigger": {
+      "exists": "MAM"
+    },
+    "choices": [
+      {
+        "text": "Crown Charlotte and trust in Savoy",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Charlotte",
+              "skill": 2,
+              "traits": [
+                "pious"
+              ],
+              "age": 14
+            }
+          },
+          {
+            "ally": "SAV"
+          },
+          {
+            "opinion": {
+              "nation": "SAV",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "MAM",
+              "amount": -40
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Crown James with the Sultan's blessing",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "James II",
+              "skill": 4,
+              "traits": [
+                "ambitious",
+                "warrior"
+              ],
+              "age": 20
+            }
+          },
+          {
+            "opinion": {
+              "nation": "MAM",
+              "amount": 40
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 3,
+              "region": "cyprus"
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mor_shrine_of_moulay_idris",
+    "pool": "historical",
+    "title": "The Shrine of Moulay Idris",
+    "text": "Your sultan has thrown off his Wattasid regents and given power to a vizier from the Jewish quarter of Fez, and the preachers call it an outrage. A crowd is gathering at the shrine of Moulay Idris. The Wattasid cousins wait in Asilah, ready to take Fez if the sultan falls.",
+    "image": "rebels",
+    "nations": [
+      "MOR"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 18,
+    "news": "Fez has risen against the last Marinid sultan.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Stand by the sultan and his vizier",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 6,
+              "region": "fez"
+            }
+          },
+          {
+            "stability": -1
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Let the Wattasids take power",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Muhammad al-Shaykh",
+              "skill": 3,
+              "traits": [
+                "shrewd"
+              ],
+              "age": 30
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mor_across_the_sahara",
+    "pool": "historical",
+    "title": "Across the Sahara",
+    "text": "Your treasury is full of Portuguese ransoms, and your musketeers are the best in Africa. Songhai, the richest kingdom beyond the desert, refuses to share its salt mines. A Spanish-born captain, Judar Pasha, offers to take four thousand musketeers across the Sahara.",
+    "image": "horse",
+    "nations": [
+      "MOR"
+    ],
+    "window": [
+      1585,
+      1600
+    ],
+    "mtth": 24,
+    "news": "Morocco has armed musketeers to carry its claims across the Sahara.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "SON"
+        },
+        {
+          "not": {
+            "atWarWith": "SON"
+          }
+        },
+        {
+          "not": {
+            "allied": "SON"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "SON"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "SON",
+            "region": "gao"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Arm Judar Pasha's musketeers for the Sahara",
+        "effects": [
+          {
+            "addClaim": [
+              "gao",
+              "timbuktu"
+            ]
+          },
+          {
+            "modifier": {
+              "id": "judar_pasha",
+              "name": "Judar Pasha's Musketeers",
+              "months": 120,
+              "mods": {
+                "morale": 0.1
+              }
+            }
+          },
+          {
+            "hireGeneral": {
+              "stars": 4,
+              "name": "Judar Pasha"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the guns at home",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "gold": 50
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tun_master_of_the_maghreb",
+    "pool": "historical",
+    "title": "Master of the Maghreb",
+    "text": "Your sultan has ruled Tunis for twenty years and made it the strongest state in the Maghreb. Tlemcen, torn between rival Zayyanid princes, could be made to say the Friday prayer in your name. One prince there has asked for your help against his cousin.",
+    "image": "swords",
+    "nations": [
+      "TUN"
+    ],
+    "window": [
+      1455,
+      1475
+    ],
+    "mtth": 24,
+    "news": "The Hafsid sultan has marched on Tlemcen.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "TLE"
+        },
+        {
+          "not": {
+            "atWarWith": "TLE"
+          }
+        },
+        {
+          "not": {
+            "allied": "TLE"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "TLE"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "TLE",
+            "region": "tlemcen"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "March on Tlemcen",
+        "effects": [
+          {
+            "addClaim": "tlemcen"
+          },
+          {
+            "declareWar": {
+              "target": "TLE",
+              "cb": "claim",
+              "region": "tlemcen"
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept gifts and an oath of loyalty",
+        "effects": [
+          {
+            "gold": 60
+          },
+          {
+            "opinion": {
+              "nation": "TLE",
+              "amount": 20
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tle_the_prayer_in_his_name",
+    "pool": "historical",
+    "title": "The Prayer in the Hafsid's Name",
+    "text": "The Hafsid sultan of Tunis demands that the Friday sermon in Tlemcen be said in his name, as a sign that you are his vassal. Your rival cousin waits in his camp. The heirs of the Marinids in Fez would gladly help you refuse, for a price.",
+    "image": "church",
+    "nations": [
+      "TLE"
+    ],
+    "window": [
+      1450,
+      1475
+    ],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "exists": "TUN"
+        },
+        {
+          "not": {
+            "atWarWith": "TUN"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "owns": "tlemcen"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Say the prayer for the Hafsid sultan",
+        "effects": [
+          {
+            "ally": "TUN"
+          },
+          {
+            "opinion": {
+              "nation": "TUN",
+              "amount": 40
+            }
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Refuse and ask Fez for help",
+        "effects": [
+          {
+            "ally": "MOR"
+          },
+          {
+            "opinion": {
+              "nation": "TUN",
+              "amount": -40
+            }
+          },
+          {
+            "fortRegion": {
+              "region": "tlemcen",
+              "amount": 1
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "tun_corsair_and_emperor",
+    "pool": "historical",
+    "title": "The Corsair and the Emperor",
+    "text": "Barbarossa, the Sultan's admiral, has seized Tunis and driven your sultan into the hills. The Emperor is gathering a great fleet to take the city back, and offers to restore your sultan as his vassal. Barbarossa offers janissaries and a place in the Ottoman world.",
+    "image": "ship",
+    "nations": [
+      "TUN"
+    ],
+    "window": [
+      1530,
+      1545
+    ],
+    "mtth": 18,
+    "news": "Tunis is caught between Barbarossa and the Emperor.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "TUR"
+        },
+        {
+          "any": [
+            {
+              "exists": "CAS"
+            },
+            {
+              "exists": "HAB"
+            }
+          ]
+        },
+        {
+          "owns": "tunis"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Throw in your lot with Barbarossa",
+        "effects": [
+          {
+            "ally": "TUR"
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": 40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": -50
+            }
+          },
+          {
+            "addRegiments": {
+              "inf": 4,
+              "region": "tunis"
+            }
+          },
+          {
+            "hireGeneral": {
+              "stars": 5,
+              "name": "Hayreddin Barbarossa"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Call on the Emperor's fleet",
+        "effects": [
+          {
+            "ally": "CAS"
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 40
+            }
+          },
+          {
+            "opinion": {
+              "nation": "TUR",
+              "amount": -40
+            }
+          },
+          {
+            "modifier": {
+              "id": "la_goletta",
+              "name": "Spanish Garrison at La Goletta",
+              "months": 240,
+              "mods": {
+                "fortDefense": 0.2,
+                "taxIncome": -0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "jol_a_prince_in_lisbon",
+    "pool": "historical",
+    "title": "A Prince Sails to Lisbon",
+    "text": "Prince Jeléen, driven from court by his brothers, has sailed to Lisbon and asked the King of Portugal for soldiers. He offers to be baptised and let the Portuguese build a fort at the mouth of the Senegal. His party at home asks you to take him back, with his new friends.",
+    "image": "ship",
+    "nations": [
+      "JOL"
+    ],
+    "window": [
+      1470,
+      1495
+    ],
+    "mtth": 24,
+    "news": "A Jolof prince has been baptised in Lisbon.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "POR"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Welcome Jeléen and the Portuguese",
+        "effects": [
+          {
+            "changeFaith": "catholic"
+          },
+          {
+            "ally": "POR"
+          },
+          {
+            "opinion": {
+              "nation": "POR",
+              "amount": 40
+            }
+          },
+          {
+            "unrestAll": 3
+          },
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "senegal"
+            }
+          },
+          {
+            "modifier": {
+              "id": "portuguese_fort",
+              "name": "A Portuguese Fort",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Disown Jeléen and his foreign friends",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "POR",
+              "amount": -30
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "mal_tuareg_at_timbuktu",
+    "pool": "historical",
+    "title": "The Tuareg at Timbuktu",
+    "text": "Akil's Tuareg horsemen have ridden into Timbuktu and demand its tolls and tribute for themselves. The scholars of Sankore have shut their doors, and the city's governor sends word that he cannot hold it. Mali's armies are far to the south.",
+    "image": "horse",
+    "nations": [
+      "MAL"
+    ],
+    "window": [
+      1444,
+      1470
+    ],
+    "mtth": 18,
+    "news": "The Tuareg have seized the tolls of Timbuktu.",
+    "trigger": {
+      "owns": "timbuktu"
+    },
+    "choices": [
+      {
+        "text": "Send the army north to Timbuktu",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "timbuktu"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let the Tuareg collect the tolls",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "tuareg_timbuktu",
+              "name": "Tuareg Masters of Timbuktu",
+              "months": 240,
+              "mods": {
+                "tradeIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "son_the_horseman_king",
+    "pool": "historical",
+    "title": "The Horseman King",
+    "text": "Your king Sunni Ali rides with his cavalry and his war canoes, and he has never lost a battle. The merchants of Timbuktu send secret word that they will open the gates if he frees them from the Tuareg and from Mali's governors. Djenné, behind its walls and floods, will be harder.",
+    "image": "horse",
+    "nations": [
+      "SON"
+    ],
+    "window": [
+      1460,
+      1475
+    ],
+    "mtth": 18,
+    "news": "Songhai has marched on Timbuktu.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "MAL"
+        },
+        {
+          "nationOwns": {
+            "nation": "MAL",
+            "region": "timbuktu"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "MAL"
+          }
+        },
+        {
+          "not": {
+            "allied": "MAL"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "MAL"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Ride for Timbuktu",
+        "effects": [
+          {
+            "addClaim": [
+              "timbuktu",
+              "mali"
+            ]
+          },
+          {
+            "declareWar": {
+              "target": "MAL",
+              "cb": "claim",
+              "region": "timbuktu"
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Build up the river fleet first",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "niger_war_canoes",
+              "name": "Niger War Canoes",
+              "months": 120,
+              "mods": {
+                "movement": 0.1,
+                "morale": 0.05
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "son_the_general_and_the_scholars",
+    "pool": "historical",
+    "title": "The General and the Scholars",
+    "text": "Sunni Ali has drowned crossing a river, and his son Baru refuses to pray as a Muslim before the scholars. Muhammad Ture, the old king's best general, has the scholars and the army behind him and offers Baru one last chance to submit.",
+    "image": "crown",
+    "nations": [
+      "SON"
+    ],
+    "window": [
+      1490,
+      1500
+    ],
+    "mtth": 12,
+    "news": "Askia Muhammad has seized the throne of Songhai.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Back the general's coup",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Askia Muhammad",
+              "skill": 5,
+              "traits": [
+                "pious",
+                "administrator"
+              ],
+              "age": 50
+            }
+          },
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "gao"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Stand by Sunni Baru",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Sunni Baru",
+              "skill": 2,
+              "traits": [
+                "warrior"
+              ],
+              "age": 25
+            }
+          },
+          {
+            "unrestAll": 2
+          },
+          {
+            "stability": -1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "azt_famine_of_one_rabbit",
+    "pool": "historical",
+    "title": "The Famine of One Rabbit",
+    "text": "Frost and drought have ruined the maize for three years running, and families are leaving the valley to sell their labour to the coast peoples for food. Your adviser Tlacaelel says the gods are hungry too, and proposes a ritual war with Tlaxcala to feed them. The stewards want the granaries opened.",
+    "image": "harvest",
+    "nations": [
+      "AZT"
+    ],
+    "window": [
+      1450,
+      1460
+    ],
+    "mtth": 12,
+    "trigger": {
+      "native": true
+    },
+    "choices": [
+      {
+        "text": "Open the granaries to the people",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Begin the Flower Wars with Tlaxcala",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "flower_wars",
+              "name": "The Flower Wars",
+              "months": 240,
+              "mods": {
+                "manpower": 0.1,
+                "morale": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "azt_the_great_temple",
+    "pool": "historical",
+    "title": "The Great Temple",
+    "text": "Your new ruler Ahuitzotl is young, restless and hungry for glory. The Great Temple's new stage is ready for a dedication greater than any before it. Merchants report rich cacao lands in the south, on the K'iche' borders, ripe for conquest.",
+    "image": "swords",
+    "nations": [
+      "AZT"
+    ],
+    "window": [
+      1486,
+      1502
+    ],
+    "mtth": 18,
+    "news": "Ahuitzotl has become ruler of the Mexica.",
+    "trigger": {
+      "all": [
+        {
+          "native": true
+        },
+        {
+          "exists": "KIC"
+        },
+        {
+          "nationOwns": {
+            "nation": "KIC",
+            "region": "guatemala"
+          }
+        },
+        {
+          "not": {
+            "allied": "KIC"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "KIC"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Carry the war to the south",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Ahuitzotl",
+              "skill": 5,
+              "traits": [
+                "warrior",
+                "ambitious"
+              ],
+              "age": 35
+            }
+          },
+          {
+            "addClaim": "guatemala"
+          },
+          {
+            "declareWar": {
+              "target": "KIC",
+              "cb": "claim",
+              "region": "guatemala"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Dedicate the Great Temple",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Ahuitzotl",
+              "skill": 5,
+              "traits": [
+                "builder",
+                "warrior"
+              ],
+              "age": 35
+            }
+          },
+          {
+            "devCapital": 1
+          },
+          {
+            "prestige": 15
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "may_ashes_of_mayapan",
+    "pool": "historical",
+    "title": "The Ashes of Mayapan",
+    "text": "Mayapan, the league city that ruled Yucatán for two centuries, lies burned and empty since your Xiu lords destroyed its Cocom rulers. The last Cocom prince has gathered followers at Sotuta. The other lords are building little kingdoms of their own.",
+    "image": "rebels",
+    "nations": [
+      "MAY"
+    ],
+    "window": [
+      1444,
+      1470
+    ],
+    "mtth": 24,
+    "trigger": {
+      "native": true
+    },
+    "choices": [
+      {
+        "text": "Hunt down the Cocom survivors",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 4,
+              "region": "yucatan"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Let each lord rule his own province",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "maya_provinces",
+              "name": "Sixteen Provinces",
+              "months": 240,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 2
+      }
+    ]
+  },
+  {
+    "id": "kic_the_kaqchikel_leave",
+    "pool": "historical",
+    "title": "The Kaqchikel Leave",
+    "text": "Old K'iq'ab's sons have rebelled against him, and the Kaqchikel lords who stood by the king want their reward: a city and a kingdom of their own. If you refuse, they will take it; if you agree, the K'iche' lose half their warriors.",
+    "image": "rebels",
+    "nations": [
+      "KIC"
+    ],
+    "window": [
+      1465,
+      1495
+    ],
+    "mtth": 24,
+    "news": "The Kaqchikel have broken away from the K'iche'.",
+    "trigger": {
+      "native": true
+    },
+    "choices": [
+      {
+        "text": "Crush the Kaqchikel at Iximche",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "guatemala"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Let them go in peace",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "kaqchikel_gone",
+              "name": "The Kaqchikel Gone",
+              "months": 240,
+              "mods": {
+                "manpower": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "hau_tree_of_great_peace",
+    "pool": "historical",
+    "title": "The Tree of Great Peace",
+    "text": "A stranger called the Peacemaker and the grieving chief Hiawatha have walked from nation to nation with a message: bury your weapons under a great white pine and govern together in one council. Four nations have agreed. Only you, Tadodaho of the Onondaga, the fiercest chief of all, still refuse.",
+    "image": "treaty",
+    "nations": [
+      "HAU"
+    ],
+    "window": [
+      1444,
+      1500
+    ],
+    "mtth": 36,
+    "trigger": {
+      "native": true
+    },
+    "choices": [
+      {
+        "text": "Accept the Great Law and keep the council fire",
+        "effects": [
+          {
+            "stability": 2
+          },
+          {
+            "modifier": {
+              "id": "great_law_of_peace",
+              "name": "The Great Law of Peace",
+              "months": 0,
+              "mods": {
+                "unrest": -1,
+                "diplomacy": 1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Keep the old blood feuds",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "modifier": {
+              "id": "mourning_wars",
+              "name": "Mourning Wars",
+              "months": 120,
+              "mods": {
+                "morale": 0.1,
+                "manpower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  }
+]

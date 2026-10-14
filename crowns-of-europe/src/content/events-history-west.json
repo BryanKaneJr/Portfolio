@@ -1,1 +1,1379 @@
-[]
+[
+  {
+    "id": "sco_black_douglas",
+    "pool": "historical",
+    "title": "The Black Douglas",
+    "text": "The Earl of Douglas rules the Border like a second king, and he has sworn a secret bond with the earls of Crawford and Ross. You invited him to Stirling under your safe-conduct and asked him to break the bond. He refuses to your face, and your hand is on your dagger.",
+    "image": "castle",
+    "nations": [
+      "SCO"
+    ],
+    "window": [
+      1448,
+      1460
+    ],
+    "mtth": 18,
+    "news": "The King of Scots has struck down the Earl of Douglas at Stirling.",
+    "trigger": {
+      "not": {
+        "subjectOf": true
+      }
+    },
+    "choices": [
+      {
+        "text": "Strike him down and seize the Douglas lands",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "rebels": {
+              "regiments": 5,
+              "region": "lowlands"
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "douglas_lands",
+              "name": "The Douglas Lands",
+              "months": 240,
+              "mods": {
+                "taxIncome": 0.1,
+                "manpower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Honour the safe-conduct and share power",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "modifier": {
+              "id": "overmighty_earl",
+              "name": "An Over-Mighty Earl",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sco_guns_at_roxburgh",
+    "pool": "historical",
+    "title": "The Guns at Roxburgh",
+    "text": "England is tearing itself apart over its crown. The English still hold Roxburgh and Berwick on your side of the Border, and the fleeing Lancastrian queen offers Berwick in return for shelter. Your new Flemish bombards wait in Edinburgh.",
+    "image": "cannon",
+    "nations": [
+      "SCO"
+    ],
+    "window": [
+      1455,
+      1475
+    ],
+    "mtth": 12,
+    "news": "The Scots are taking advantage of England's civil war on the Border.",
+    "trigger": {
+      "all": [
+        {
+          "flag": "wars_of_the_roses"
+        },
+        {
+          "exists": "ENG"
+        },
+        {
+          "not": {
+            "atWarWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "allied": "ENG"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "ENG",
+            "region": "yorkshire"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Bring the great guns to the Border",
+        "effects": [
+          {
+            "addClaim": "yorkshire"
+          },
+          {
+            "declareWar": {
+              "target": "ENG",
+              "cb": "claim",
+              "region": "yorkshire"
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Shelter the queen and take Berwick",
+        "effects": [
+          {
+            "gold": -40
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": -25
+            }
+          },
+          {
+            "addClaim": "yorkshire"
+          },
+          {
+            "modifier": {
+              "id": "berwick_regained",
+              "name": "Berwick Regained",
+              "months": 120,
+              "mods": {
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Leave the English to their quarrel",
+        "effects": [
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sco_flodden",
+    "pool": "historical",
+    "title": "A Ring from the Queen of France",
+    "text": "France is at war, and England has joined her enemies. The Queen of France sends you a ring and begs you to strike south for her honour. The English army is across the Channel, and your guns are the finest Scotland has ever cast.",
+    "image": "swords",
+    "nations": [
+      "SCO"
+    ],
+    "window": [
+      1500,
+      1545
+    ],
+    "mtth": 24,
+    "trigger": {
+      "all": [
+        {
+          "allied": "FRA"
+        },
+        {
+          "exists": "ENG"
+        },
+        {
+          "not": {
+            "atWarWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "allied": "ENG"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "ENG",
+            "region": "yorkshire"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Cross the Tweed with the whole host",
+        "effects": [
+          {
+            "addClaim": "yorkshire"
+          },
+          {
+            "declareWar": {
+              "target": "ENG",
+              "cb": "claim",
+              "region": "yorkshire"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 25
+            }
+          },
+          {
+            "triggerEvent": {
+              "id": "sco_flodden_field",
+              "months": 5
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Send ships and gold to France instead",
+        "effects": [
+          {
+            "gold": -50
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 20
+            }
+          },
+          {
+            "modifier": {
+              "id": "great_michael",
+              "name": "The Great Michael",
+              "months": 120,
+              "mods": {
+                "navalPower": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Renew the Perpetual Peace with England",
+        "effects": [
+          {
+            "breakAlliance": "FRA"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "sco_flodden_field",
+    "pool": "historical",
+    "title": "The Flowers of the Forest",
+    "text": "Your army met the English on Branxton Hill. Your pikes bogged down in the mud, their bills cut the ranks apart, and the king fell among his earls. The kingdom has an infant king and a widowed queen, and every family in the Lowlands is in mourning.",
+    "image": "death",
+    "nations": [
+      "SCO"
+    ],
+    "hidden": true,
+    "news": "The King of Scots has fallen in battle against the English.",
+    "trigger": {
+      "all": [
+        {
+          "atWarWith": "ENG"
+        },
+        {
+          "owns": "lowlands"
+        },
+        {
+          "chance": 0.5
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Crown the infant prince and hold the Border",
+        "effects": [
+          {
+            "killRuler": true
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "fortRegion": {
+              "region": "lowlands",
+              "amount": 1
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Seek peace and an English marriage",
+        "effects": [
+          {
+            "killRuler": true
+          },
+          {
+            "prestige": -20
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": 30
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ire_the_pale_is_weak",
+    "pool": "historical",
+    "title": "The Pale Is Weak",
+    "text": "The English lords of Dublin have sent their best men to fight in France and to quarrel at home. The ditch around the Pale is unmanned, and its farmers already pay your chiefs 'black rent' to be left alone. Your clansmen want cattle, and some want more.",
+    "image": "coins",
+    "nations": [
+      "IRE"
+    ],
+    "window": [
+      1449,
+      1475
+    ],
+    "mtth": 12,
+    "trigger": {
+      "all": [
+        {
+          "exists": "ENG"
+        },
+        {
+          "nationOwns": {
+            "nation": "ENG",
+            "region": "pale"
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "allied": "ENG"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Raid the Pale and demand black rent",
+        "effects": [
+          {
+            "gold": 60
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": -30
+            }
+          },
+          {
+            "modifier": {
+              "id": "black_rent",
+              "name": "Black Rent",
+              "months": 120,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Take the Pale for good",
+        "effects": [
+          {
+            "addClaim": "pale"
+          },
+          {
+            "declareWar": {
+              "target": "ENG",
+              "cb": "claim",
+              "region": "pale"
+            }
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Leave the Pale in peace",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": 15
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "ire_tyrone_rises",
+    "pool": "historical",
+    "title": "The Earl of Tyrone Rises",
+    "text": "Hugh O'Neill was raised at the English court and made an earl, but he has armed his people with muskets and pikes and taken the old title of The O'Neill. The northern clans will follow him against the Queen's officers, and Spain promises a fleet.",
+    "image": "swords",
+    "nations": [
+      "IRE"
+    ],
+    "window": [
+      1585,
+      1610
+    ],
+    "mtth": 24,
+    "news": "The Irish clans have risen against the English crown.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "ENG"
+        },
+        {
+          "any": [
+            {
+              "borders": "ENG"
+            },
+            {
+              "nationOwns": {
+                "nation": "ENG",
+                "region": "pale"
+              }
+            }
+          ]
+        },
+        {
+          "not": {
+            "atWarWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "allied": "ENG"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "ENG"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Raise the clans and call on Spain",
+        "effects": [
+          {
+            "addClaim": "pale"
+          },
+          {
+            "declareWar": {
+              "target": "ENG",
+              "cb": "claim",
+              "region": "pale"
+            }
+          },
+          {
+            "hireGeneral": {
+              "stars": 4,
+              "name": "Hugh O'Neill"
+            }
+          },
+          {
+            "opinion": {
+              "nation": "CAS",
+              "amount": 25
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Accept English law and keep the earldom",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "gold": 50
+          },
+          {
+            "opinion": {
+              "nation": "ENG",
+              "amount": 30
+            }
+          },
+          {
+            "modifier": {
+              "id": "surrender_and_regrant",
+              "name": "Surrender and Regrant",
+              "months": 240,
+              "mods": {
+                "taxIncome": 0.1,
+                "manpower": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bri_princes_league",
+    "pool": "historical",
+    "title": "The Princes' League",
+    "text": "The great lords of France have risen against their king and fled to your court at Nantes. They swear that if Brittany fights beside them, no French king will meddle in the duchy again. The royal army is already gathering on the Loire.",
+    "image": "rebels",
+    "nations": [
+      "BRI"
+    ],
+    "window": [
+      1465,
+      1490
+    ],
+    "mtth": 24,
+    "news": "The Duke of Brittany has sheltered the rebel lords of France.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "FRA"
+        },
+        {
+          "not": {
+            "atWarWith": "FRA"
+          }
+        },
+        {
+          "not": {
+            "allied": "FRA"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Join the rebel lords against the king",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -40
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_princes_revolt",
+              "months": 1,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Hand the rebels over to the king",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 30
+            }
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_princes_revolt",
+    "pool": "historical",
+    "title": "The League of the Public Weal",
+    "text": "The great princes of the realm, the Duke of Brittany at their head, have taken up arms 'for the public good', which means their own pensions and offices. They demand a share of the council and the return of their old rights. Their army is marching on Paris.",
+    "image": "rebels",
+    "nations": [
+      "FRA"
+    ],
+    "hidden": true,
+    "news": "The princes of France have risen against their king.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "BRI"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Meet the princes in the field",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 6,
+              "region": "anjou"
+            }
+          },
+          {
+            "prestige": 5
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Buy off the princes one by one",
+        "effects": [
+          {
+            "goldPerDev": -2
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "BRI",
+              "amount": 30
+            }
+          },
+          {
+            "prestige": -10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bri_heiress",
+    "pool": "historical",
+    "title": "The Heiress of Brittany",
+    "text": "The old duke is dead, and his daughter Anne, not yet twelve, is duchess. The King of France demands her hand and camps outside Rennes; the Archduke of Austria offers to marry her by proxy; the Lord of Albret says he was promised her first. Whoever marries Anne takes Brittany.",
+    "image": "marriage",
+    "nations": [
+      "BRI"
+    ],
+    "news": "The young Duchess of Brittany has chosen a husband.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "FRA"
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Marry Anne to the Archduke of Austria",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Anne",
+              "skill": 3,
+              "traits": [
+                "diplomat"
+              ],
+              "age": 11
+            }
+          },
+          {
+            "ally": "HAB"
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 30
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -40
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      },
+      {
+        "text": "Marry Anne to the King of France",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Anne",
+              "skill": 3,
+              "traits": [
+                "diplomat"
+              ],
+              "age": 11
+            }
+          },
+          {
+            "stability": 1
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_breton_marriage",
+              "months": 1,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Wed her to the Lord of Albret and stand alone",
+        "effects": [
+          {
+            "newRuler": {
+              "name": "Anne",
+              "skill": 3,
+              "traits": [
+                "diplomat"
+              ],
+              "age": 11
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -20
+            }
+          },
+          {
+            "modifier": {
+              "id": "breton_defiance",
+              "name": "Breton Defiance",
+              "months": 120,
+              "mods": {
+                "fortDefense": 0.2,
+                "morale": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ],
+    "window": [
+      1486,
+      1495
+    ],
+    "mtth": 12
+  },
+  {
+    "id": "fra_breton_marriage",
+    "pool": "historical",
+    "title": "The Duchess Comes to Langeais",
+    "text": "The Duchess of Brittany has agreed to marry you at the castle of Langeais. The contract would make Brittany yours in all but name, though the Breton estates want their own laws and taxes guaranteed.",
+    "image": "marriage",
+    "nations": [
+      "FRA"
+    ],
+    "hidden": true,
+    "news": "The King of France has married the Duchess of Brittany.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "BRI"
+        },
+        {
+          "not": {
+            "overlordOf": "BRI"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "not": {
+            "atWarWith": "BRI"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take Brittany under the crown",
+        "effects": [
+          {
+            "personalUnion": "BRI"
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "threat": 5
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Leave the duchy its freedom",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "BRI",
+              "amount": 40
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "pro_good_king_rene",
+    "pool": "historical",
+    "title": "Good King René's Will",
+    "text": "Old King René, poet, painter and king of Naples in name only, is writing his will. His grandson René of Lorraine is the heir of his blood, but his nephew the King of France expects the land. Your estates in Aix beg you not to make Provence a French province.",
+    "image": "scroll",
+    "nations": [
+      "PRO"
+    ],
+    "window": [
+      1474,
+      1484
+    ],
+    "mtth": 24,
+    "news": "King René of Provence has made his will.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "FRA"
+        },
+        {
+          "isPlayer": false
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Bequeath Provence to the King of France",
+        "effects": [
+          {
+            "stability": 1
+          },
+          {
+            "triggerEvent": {
+              "id": "fra_provence_bequest",
+              "months": 12,
+              "nation": "FRA"
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Name René of Lorraine your heir",
+        "effects": [
+          {
+            "ally": "LOR"
+          },
+          {
+            "declareWar": {
+              "target": "FRA",
+              "cb": "independence",
+              "with": [
+                "LOR"
+              ]
+            }
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": -40
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "fra_provence_bequest",
+    "pool": "historical",
+    "title": "The Inheritance of Provence",
+    "text": "King René is dead, and his will leaves Provence, Marseille and its harbour to the French crown. The Provençal estates ask that their old laws be kept. The Duke of Lorraine says the will was forged.",
+    "image": "crown",
+    "nations": [
+      "FRA"
+    ],
+    "hidden": true,
+    "news": "Provence has passed to the French crown.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "PRO"
+        },
+        {
+          "overlordOf": "PRO"
+        },
+        {
+          "not": {
+            "atWarWith": "PRO"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Take Provence into the royal domain",
+        "effects": [
+          {
+            "inherit": "PRO"
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "threat": 5
+          },
+          {
+            "opinion": {
+              "nation": "LOR",
+              "amount": -30
+            }
+          }
+        ],
+        "ai": 3
+      },
+      {
+        "text": "Leave the county its own count",
+        "effects": [
+          {
+            "opinion": {
+              "nation": "PRO",
+              "amount": 30
+            }
+          },
+          {
+            "stability": 1
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "lor_nancy_in_the_snow",
+    "pool": "historical",
+    "title": "The Relief of Nancy",
+    "text": "The Duke of Burgundy wants your duchy to join his lands into one kingdom, and his army is before Nancy in the snow. The Swiss cantons will march for you if you pay them, and the King of France will pay you if you hold out.",
+    "image": "siege",
+    "nations": [
+      "LOR"
+    ],
+    "window": [
+      1473,
+      1480
+    ],
+    "mtth": 6,
+    "news": "The Duke of Lorraine has hired Swiss pikemen to save Nancy.",
+    "trigger": {
+      "atWarWith": "BUR"
+    },
+    "choices": [
+      {
+        "text": "Hire the Swiss and march to relieve Nancy",
+        "effects": [
+          {
+            "gold": -60
+          },
+          {
+            "addRegiments": {
+              "inf": 5,
+              "region": "lorraine"
+            }
+          },
+          {
+            "hireGeneral": {
+              "stars": 3
+            }
+          },
+          {
+            "opinion": {
+              "nation": "SWI",
+              "amount": 25
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Take the King of France's gold",
+        "effects": [
+          {
+            "gold": 60
+          },
+          {
+            "ally": "FRA"
+          },
+          {
+            "opinion": {
+              "nation": "FRA",
+              "amount": 25
+            }
+          },
+          {
+            "prestige": -5
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "bur_ghent_salt_tax",
+    "pool": "historical",
+    "title": "Ghent Refuses the Salt Tax",
+    "text": "Ghent, the proudest city in Flanders, refuses your new tax on salt and has thrown out your bailiffs. Its militia holds the countryside down to the sea. The other Flemish towns are watching to see who wins.",
+    "image": "rebels",
+    "nations": [
+      "BUR"
+    ],
+    "window": [
+      1449,
+      1460
+    ],
+    "mtth": 18,
+    "news": "Ghent has risen against the Duke of Burgundy.",
+    "trigger": {
+      "owns": "flanders"
+    },
+    "choices": [
+      {
+        "text": "Crush Ghent in the field",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 6,
+              "region": "flanders"
+            }
+          },
+          {
+            "prestige": 10
+          },
+          {
+            "modifier": {
+              "id": "ghent_humbled",
+              "name": "Ghent Humbled",
+              "months": 180,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Withdraw the salt tax",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "prestige": -10
+          },
+          {
+            "modifier": {
+              "id": "flemish_liberties",
+              "name": "Flemish Liberties",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.1,
+                "tradeIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "low_beggars_of_the_sea",
+    "pool": "historical",
+    "title": "The Beggars of the Sea",
+    "text": "In Holland, preachers of the new faith hold sermons in the fields, and mobs have smashed the images in the churches. The nobles who protested call themselves Beggars, and their privateers have seized Brill. The northern towns want their old charters and freedom of conscience.",
+    "image": "rebels",
+    "window": [
+      1555,
+      1650
+    ],
+    "mtth": 24,
+    "news": "The northern Low Countries have risen against their lord.",
+    "trigger": {
+      "all": [
+        {
+          "owns": "holland"
+        },
+        {
+          "faith": "catholic"
+        },
+        {
+          "regionFaith": {
+            "region": "holland",
+            "faith": "protestant"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Send an iron duke to crush them",
+        "effects": [
+          {
+            "rebels": {
+              "regiments": 8,
+              "region": "holland"
+            }
+          },
+          {
+            "papalFavor": 10
+          },
+          {
+            "prestige": 5
+          },
+          {
+            "modifier": {
+              "id": "council_of_troubles",
+              "name": "Council of Troubles",
+              "months": 120,
+              "mods": {
+                "taxIncome": 0.1
+              }
+            }
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Grant freedom of conscience",
+        "effects": [
+          {
+            "stability": -1
+          },
+          {
+            "papalFavor": -15
+          },
+          {
+            "modifier": {
+              "id": "pacification",
+              "name": "Pacification of the Provinces",
+              "months": 120,
+              "mods": {
+                "taxIncome": -0.15
+              }
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  },
+  {
+    "id": "swi_common_penny",
+    "pool": "historical",
+    "title": "The Emperor's Common Penny",
+    "text": "The Emperor's reforms demand a common tax and a supreme court for the whole Empire, and the cantons will pay neither. Swabian knights mock your herdsmen across the Rhine, and the Tyrol garrisons are arming. The Diet must answer.",
+    "image": "swords",
+    "nations": [
+      "SWI"
+    ],
+    "window": [
+      1490,
+      1510
+    ],
+    "mtth": 24,
+    "news": "The Swiss cantons have refused the Emperor's tax.",
+    "trigger": {
+      "all": [
+        {
+          "exists": "HAB"
+        },
+        {
+          "not": {
+            "atWarWith": "HAB"
+          }
+        },
+        {
+          "not": {
+            "allied": "HAB"
+          }
+        },
+        {
+          "not": {
+            "truceWith": "HAB"
+          }
+        },
+        {
+          "not": {
+            "subjectOf": true
+          }
+        },
+        {
+          "nationOwns": {
+            "nation": "HAB",
+            "region": "tyrol"
+          }
+        }
+      ]
+    },
+    "choices": [
+      {
+        "text": "Refuse the tax and fight for the Tyrol passes",
+        "effects": [
+          {
+            "addClaim": "tyrol"
+          },
+          {
+            "declareWar": {
+              "target": "HAB",
+              "cb": "claim",
+              "region": "tyrol"
+            }
+          },
+          {
+            "prestige": 10
+          }
+        ],
+        "ai": 2
+      },
+      {
+        "text": "Pay the Common Penny and keep the peace",
+        "effects": [
+          {
+            "goldPerDev": -2
+          },
+          {
+            "stability": 1
+          },
+          {
+            "opinion": {
+              "nation": "HAB",
+              "amount": 25
+            }
+          }
+        ],
+        "ai": 1
+      }
+    ]
+  }
+]
