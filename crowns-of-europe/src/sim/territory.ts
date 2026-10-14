@@ -69,7 +69,14 @@ export function killNation(s: GameState, n: NationId, by?: NationId): void {
   for (const w of Object.values(s.wars)) {
     w.attackers = w.attackers.filter(x => x !== n);
     w.defenders = w.defenders.filter(x => x !== n);
-    if (!w.attackers.length || !w.defenders.length) delete s.wars[w.id];
+    if (!w.attackers.length || !w.defenders.length) {
+      // A war that ends without a peace still sends its crowns home to rest (inline: war.ts imports this file).
+      for (const x of [...w.attackers, ...w.defenders]) {
+        const o = s.nations[x];
+        if (o) o.ai.lastPeace = s.day;
+      }
+      delete s.wars[w.id];
+    }
   }
   bumpWars();
   for (const c of s.coalitions) c.members = c.members.filter(x => x !== n);
@@ -103,9 +110,16 @@ export function makeSubject(s: GameState, overlord: NationId, subject: NationId,
     const a = w.attackers.includes(overlord) && w.defenders.includes(subject);
     const b = w.defenders.includes(overlord) && w.attackers.includes(subject);
     if (a || b) {
+      sub.ai.lastPeace = s.day; // it leaves the war, and rests like everyone who does
       w.attackers = w.attackers.filter(x => x !== subject);
       w.defenders = w.defenders.filter(x => x !== subject);
-      if (!w.attackers.length || !w.defenders.length) delete s.wars[w.id];
+      if (!w.attackers.length || !w.defenders.length) {
+        for (const x of [...w.attackers, ...w.defenders]) {
+          const o = s.nations[x];
+          if (o) o.ai.lastPeace = s.day;
+        }
+        delete s.wars[w.id];
+      }
     }
   }
   bumpWars();

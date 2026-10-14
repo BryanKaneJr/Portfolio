@@ -1,5 +1,5 @@
 /** Another nation: who they are, what they think of you (and why), and the diplomatic actions. */
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { NATION, TRAITS, nationName, regionName } from '../../sim/content';
 import { activeAims, bondsOf, holds } from '../../sim/aims';
@@ -9,6 +9,8 @@ import { REBELS, allied, alliesOf, hasTruce, married, militaryPower, ownedRegion
 import { EXCOMMUNICATE_COST } from '../../sim/religion';
 import { perceivedThreat } from '../../sim/threat';
 import { canDeclareWar } from '../../sim/war';
+import { MAX_MONTHLY, warOdds, type WarBlock } from '../../sim/ai';
+import { pairKey, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
@@ -21,6 +23,13 @@ const GOV: Record<string, string> = { monarchy: 'Monarchy', republic: 'Republic'
 /** Shown at once; the rest (access, gifts, rivals, vassalage, insults...) wait behind "More options". */
 const MAIN_ACTIONS: DiploAction[] = ['improve', 'alliance', 'marriage', 'annex'];
 const PERS: Record<string, string> = { expansionist: 'Expansionist', defensive: 'Defensive', trader: 'Trader', opportunist: 'Opportunist' };
+/** Why a crown weighs no war (the gates with no value of their own). */
+const NO_WAR: Partial<Record<WarBlock, string>> = { order: 'Order too low', weariness: 'Too war-weary', debt: 'Too deep in debt', subject: 'A subject' };
+/** A chance as a percentage: one decimal below 10%. */
+const pc = (p: number) => {
+  const v = p * 100;
+  return `${v > 0 && v < 10 ? v.toFixed(1) : Math.round(v)}%`;
+};
 
 export function NationSheet({ id }: { id: string }) {
   const st = useStore();
@@ -30,6 +39,12 @@ export function NationSheet({ id }: { id: string }) {
   const [whyOpinion, setWhyOpinion] = useState(false);
   const [expanded, setExpanded] = useState<DiploAction | null>(null);
   const [more, setMore] = useState(false);
+  const [whyWar, setWhyWar] = useState(false);
+  // A crown run by the computer weighs war once a month: its chance this month and what makes it up. Recomputed on
+  // every new day and every command (the store's version), as the state changes in place.
+  const version = st.getVersion();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const odds = useMemo(() => (n && def && !def.native && id !== s.player && id !== REBELS ? warOdds(s, id) : null), [version, id]);
   if (!n || !def) return null;
   if (id === s.player) {
     return (
@@ -84,7 +99,7 @@ export function NationSheet({ id }: { id: string }) {
         {war ? <Pill text="At war with you" color={C.redSoft} textColor={C.red} /> : null}
         {allied(s, s.player, id) ? <Pill text="Ally" color={C.blueSoft} textColor={C.blue} /> : null}
         {married(s, s.player, id) ? <Pill text="Royal marriage" color={C.parchment2} /> : null}
-        {hasTruce(s, s.player, id) ? <Pill text="Truce" color={C.parchment2} /> : null}
+        {hasTruce(s, s.player, id) ? <Pill text={`Truce to ${yearOf(s.truces[pairKey(s.player, id)])}`} color={C.parchment2} /> : null}
         {me.rivals.includes(id) ? <Pill text="Your rival" color={C.redSoft} textColor={C.red} /> : null}
         {n.rivals.includes(s.player) ? <Pill text="Rivals you" color={C.redSoft} textColor={C.red} /> : null}
         {s.hre.emperor === id ? <Pill text="Emperor" color={C.gold} textColor="#1a1408" /> : null}
@@ -110,6 +125,7 @@ export function NationSheet({ id }: { id: string }) {
         {subjectsOf(s, id).length ? <Line label="Subjects" value={subjectsOf(s, id).map(nationName).join(', ')} /> : null}
         {onMine.length ? <Line label="Their claims on you" value={claimsText(s, id, onMine)} tone="bad" help={claimHelp(id, onMine)} /> : null}
         {onTheirs.length ? <Line label="Your claims on them" value={claimsText(s, s.player, onTheirs)} tone="good" help={claimHelp(s.player, onTheirs)} /> : null}
+        {odds && n.alive ? <WarChance odds={odds} player={s.player} open={whyWar} onPress={() => setWhyWar(w => !w)} /> : null}
       </Section>
       {aims.length || bonds.length ? (
         <Section title="What they want" help="Crowns follow their history: they forge claims on the land they want, go to war for it and dislike whoever holds it.">
@@ -186,5 +202,31 @@ export function NationSheet({ id }: { id: string }) {
         </View>
       </Section>
     </Sheet>
+  );
+}
+
+/** An AI crown's chance of war this month; tap for what makes it up. */
+function WarChance({ odds, player, open, onPress }: { odds: ReturnType<typeof warOdds>; player: string; open: boolean; onPress: () => void }) {
+  const help = 'Once a month, on a day of its own, a crown run by the computer weighs war on the neighbour it most wants to fight.';
+  const reason = odds.blocked ? NO_WAR[odds.blocked] : odds.best ? undefined : 'No neighbour worth a war';
+  const value =
+    odds.blocked === 'war' ? 'At war' : odds.blocked === 'rest' && odds.restUntil !== undefined ? `Resting until ${yearOf(odds.restUntil)}` : reason ? 'None' : `${pc(odds.monthly)} a month`;
+  const you = odds.best?.target === player;
+  const tappable = !odds.blocked && !!odds.best;
+  const shown = odds.factors.filter(f => f.key === 'base' || Math.abs(f.x - 1) > 1e-9);
+  const withinYear = 1 - Math.pow(1 - odds.monthly, 12);
+  return (
+    <View>
+      <Line label={you ? 'Could attack you' : 'War chance'} value={value} tone={you ? 'bad' : undefined} help={help} onPress={tappable ? onPress : undefined} />
+      {reason ? <T v="tiny">{reason}</T> : null}
+      {open && tappable ? (
+        <View style={{ paddingHorizontal: 6, paddingTop: 4 }}>
+          {shown.map(f => (
+            <Line key={f.key} label={f.label} value={f.key === 'base' ? `${f.x}% a year` : `×${f.x.toFixed(2)}`} tone="muted" />
+          ))}
+          <T v="tiny">{`→ ${Math.round(odds.yearly)}% a year ÷ 12 = ${pc(odds.monthly)} a month (never more than ${Math.round(MAX_MONTHLY * 100)}%), about ${Math.round(withinYear * 100)}% within a year`}</T>
+        </View>
+      ) : null}
+    </View>
   );
 }

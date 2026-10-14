@@ -71,18 +71,19 @@ import {
   stabilityCost,
   unitCost,
   LOAN_SIZE,
+  maxManpower,
 } from './economy';
-import { acceptance, canRival, doDiplomacy, opinion } from './diplomacy';
-import { ULTIMATUM_SCORE, buildDemands, casusBelli, declareWar, fitTerms, imperialDefenders, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, sendUltimatum, canDeclareWar } from './war';
-import { COALITION_JOIN, coalitionWarCheck, proximity } from './threat';
+import { acceptance, canRival, doDiplomacy, isHreMember, opinion } from './diplomacy';
+import { ULTIMATUM_SCORE, buildDemands, casusBelli, declareWar, fitTerms, imperialDefenders, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, sendUltimatum, canDeclareWar, type CbOption } from './war';
+import { COALITION_JOIN, coalitionAgainst, coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
 import { minSiegeRegs } from './siege';
 import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy';
 import { forecast, type Forecast } from './forecast';
 import { GENERAL_COST } from './commands';
 import { newGeneral, rulerAsGeneral } from './rulers';
-import type { Army, GameState, Nation, NationId, NativePolicy, NodeId, PeaceTerms, Region, UnitType, War } from './types';
-import { chance, isIn, months, pick, yearOf, years } from './util';
+import type { Army, CasusBelli, GameState, Nation, NationId, NativePolicy, NodeId, PeaceTerms, Personality, Region, RegionId, Tier, UnitType, War } from './types';
+import { DAYS_PER_YEAR, chance, clamp, isIn, months, pick, rand, randomDayOfNextMonth, yearOf, years } from './util';
 
 /** The player's nation is run by the AI only in spectator mode (dev tools, title-screen demo). */
 export const isHuman = (s: GameState, n: NationId) => n === s.player && !('__spectate' in s.flags);
@@ -102,12 +103,12 @@ export function monthlyAI(s: GameState): void {
     aiColonies(s, nat);
     aiDiplomacy(s, nat);
     aiClaims(s, nat);
-    aiWar(s, nat);
+    // (Wars are weighed on each crown's own day of the month: dailyWarRolls.)
   }
   coalitionWarCheck(s, (attacker, target) => {
     const cbs = casusBelli(s, attacker, target);
     const cb = cbs.find(c => c.cb === 'coalition') ?? cbs[0];
-    declareWar(s, attacker, target, cb.cb, cb.goal);
+    declareWar(s, attacker, target, cb.cb, cb.goal, 'coalition');
   });
 }
 
@@ -546,7 +547,7 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
     const over = nat.overlord;
     if (!atWar(s, over) || chance(s, 0.1)) {
       const ratio = militaryPower(s, n) / Math.max(1, militaryPower(s, over));
-      if (ratio > 0.9 && opinion(s, n, over) < 0 && chance(s, 0.2) && !canDeclareWar(s, n, over)) declareWar(s, n, over, 'independence');
+      if (ratio > 0.9 && opinion(s, n, over) < 0 && chance(s, 0.2) && !canDeclareWar(s, n, over)) declareWar(s, n, over, 'independence', undefined, 'independence');
     }
     return;
   }
@@ -622,7 +623,9 @@ function aiClaims(s: GameState, nat: Nation): void {
     const mine = militaryPower(s, n);
     for (const r of Object.values(s.regions)) {
       const o = r.owner;
-      if (!o || o === n || r.id in nat.claims || NATION[o]?.tier === 'major' || canDeclareWar(s, n, o)) continue;
+      // Not a fellow prince of the Empire (the Emperor keeps the peace inside it), nor a crown under truce (the
+      // claim could not be pressed).
+      if (!o || o === n || r.id in nat.claims || NATION[o]?.tier === 'major' || canDeclareWar(s, n, o) || (isHreMember(s, n) && isHreMember(s, o)) || hasTruce(s, n, o)) continue;
       if (militaryPower(s, o) * (WEAKER_NEIGHBOUR[NATION[n].personality] ?? 2) > mine || !bordersOwn(s, n, r.id)) continue;
       if (!best || r.dev > best.score) best = { r: r.id, score: r.dev };
     }
@@ -660,25 +663,153 @@ export function sideStrength(s: GameState, nations: NationId[], leader?: NationI
   }, 0);
 }
 
-/** Years a crown lets pass after declaring a war (or making peace in one it led) before it declares another. */
-const WAR_COOLDOWN: Record<string, number> = { expansionist: 3, opportunist: 3, trader: 4, defensive: 5 };
 /** A limited war, for one region on the border (a claim, a lost core, land it wants), needs this much less might
  * (nobody fights to the last man over one region), but still a clear edge: a war at even odds is lost half the time. */
 const LIMITED_WAR = 0.75;
 const LIMITED_WAR_FLOOR = 1.15;
 
-function aiWar(s: GameState, nat: Nation): void {
+// War chance. Once a month, on a day of its own (dailyWarRolls), each AI crown weighs a war on the neighbour it most
+// wants to fight (bestWarTarget: the ranking and the might it needs are unchanged). Its chance is a yearly figure in
+// %: its bent's base times its crown factors (warMood) times the factors of that target (targetFactors), divided by
+// 12 for the month and capped at MAX_MONTHLY.
+
+/** Yearly war chance (%) of a fully rested crown with every other factor at 1. (The old order: 0.3/0.2/0.1.) */
+export const WAR_BASE: Record<Personality, number> = { expansionist: 40, opportunist: 25, trader: 12, defensive: 8 };
+/** Great crowns have the reach and treasury for regular wars; small expansionists (Crimea, the Golden Horde) are tamed. */
+export const WAR_SIZE: Record<Tier, number> = { major: 1, hard: 0.85, minor: 0.7 };
+/** Years with no war at all after a war it declared or any peace it signed (armies come home). */
+export const REST_MIN = 1.5;
+/** Years by which the appetite is fully back: the old fixed rest, so no crown has full appetite sooner than before. */
+export const REST_FULL: Record<Personality, number> = { expansionist: 3, opportunist: 3, trader: 4, defensive: 5 };
+/** At most 15% a month (86% within a year): the cap on the eager crowns, and the main lever for the Ottoman opening. */
+export const MAX_MONTHLY = 0.15;
+/** Each loan ×(1 − 0.15); more than 3 loans stays a hard gate. */
+const LOAN_DRAG = 0.15;
+/** Order 0 → ×0.9 … 3 → ×1.2 (below 0 stays a hard gate); the starting order of 1 → ×1. */
+const ORDER_STEP = 0.1;
+/** War exhaustion 0 → ×1, 5 → ×0.5 (above 5 stays a hard gate). */
+const WEARY_DIV = 10;
+/** The ruler sets the pace (Charles the Bold, Mehmed II). */
+const RULER_WAR: Record<string, number> = { warrior: 1.25, ambitious: 1.25, craven: 0.6 };
+/** A council of regents starts few wars. */
+const REGENCY_WAR = 0.6;
+/** A coalition is formed against it: it holds back (the Threat brake on the might it needs stays as well). */
+const FEARED = 0.5;
+/** Exactly the might it needs: a coin-flip war, half the appetite. */
+const EDGE_AT_NEED = 0.5;
+/** 1.5× the might needed → ×1.0. */
+const EDGE_SLOPE = 1;
+/** 2.5× or more → ×2.0: overwhelming odds double it. */
+const EDGE_MAX = 2;
+/** A named region to press counts most; a faith difference alone least (holy wars were 25-30 of ~100 a game); none:
+ * it would only forge a claim. */
+const REASON_WAR: Record<CasusBelli, number> = { reconquest: 1, claim: 1, independence: 1, coalition: 0.8, rival: 0.7, holy: 0.6, none: 0.5 };
+/** Desire 0..4 (aims 2, missions 1) → ×1..×2: crowns follow their history. */
+const WANT_STEP = 0.25;
+/** Two members of the Empire, the war for a claim or lost land: the Emperor tolerates it. */
+const EMPIRE_LAWFUL = 0.6;
+/** Two members of the Empire, any other reason: the Emperor's peace. */
+const EMPIRE_UNLAWFUL = 0.3;
+/** The most any target can multiply a crown's chance by (4): what the decision draw is checked against first. */
+export const MAX_TARGET = EDGE_MAX * Math.max(...Object.values(REASON_WAR)) * (1 + 4 * WANT_STEP);
+
+/** Why a crown weighs no war at all. */
+export type WarBlock = 'dead' | 'human' | 'native' | 'subject' | 'war' | 'rest' | 'order' | 'weariness' | 'debt';
+/** One part of a war chance: `x` multiplies it (the bent's base is in % a year). */
+export interface WarFactor {
+  key: string;
+  label: string;
+  x: number;
+}
+/** The neighbour a crown most wants to fight, and why it may. */
+export interface WarTarget {
+  target: NationId;
+  cb: CbOption;
+  goal?: RegionId;
+  limited: boolean;
+  /** Its might against the defenders', and the ratio it needs. */
+  ratio: number;
+  need: number;
+  /** How much it wants the target's land (0-4). */
+  desire: number;
+  score: number;
+}
+export interface WarMood {
+  blocked?: WarBlock;
+  /** While blocked by its rest: the day it ends. */
+  restUntil?: number;
+  /** The crown's own chance (% a year) before its target's factors. */
+  crown: number;
+  factors: WarFactor[];
+}
+export interface WarOdds extends WarMood {
+  best?: WarTarget & { edge: number; reason: number; want: number; empire: number };
+  /** % a year (may read above 100: the figure before it is divided by 12). */
+  yearly: number;
+  /** The chance on its roll day this month (0-MAX_MONTHLY). */
+  monthly: number;
+}
+
+const REASON_LABEL: Record<CasusBelli, string> = {
+  claim: 'a claim',
+  reconquest: 'lost land',
+  holy: 'faith',
+  rival: 'a rival',
+  independence: 'independence',
+  coalition: 'a coalition',
+  none: 'none yet',
+};
+
+/** The gates and the crown's own factors (its bent, size, rest, treasury...). Pure: no draws. */
+function warMood(s: GameState, nat: Nation): WarMood {
   const n = nat.id;
-  if (atWar(s, n) || nat.overlord) return;
+  const stop = (blocked: WarBlock, restUntil?: number): WarMood => ({ blocked, restUntil, crown: 0, factors: [] });
+  if (!nat.alive) return stop('dead');
+  if (isHuman(s, n)) return stop('human');
+  if (isNativeNation(n)) return stop('native');
+  if (nat.overlord) return stop('subject');
+  if (atWar(s, n)) return stop('war');
+  // A crown rests after it declared a war or made peace: no war at all for REST_MIN years, then its appetite returns.
+  const last = Math.max(nat.ai.lastWarDeclared ?? -Infinity, nat.ai.lastPeace ?? -Infinity);
+  const since = (s.day - last) / DAYS_PER_YEAR;
+  if (since < REST_MIN) return stop('rest', last + years(REST_MIN));
+  if (nat.stability < 0) return stop('order');
+  if (nat.warExhaustion > 5) return stop('weariness');
+  if (nat.loans > 3) return stop('debt');
+  const def = NATION[n];
+  const pers = def.personality;
+  const traits = nat.ruler.traits.filter(t => t in RULER_WAR);
+  let ruler = traits.reduce((x, t) => x * RULER_WAR[t], 1);
+  if (nat.ruler.regency) ruler *= REGENCY_WAR;
+  const rulerWhy = [...traits, ...(nat.ruler.regency ? ['regency'] : [])].join(', ');
+  // The reserve the economy keeps (40 + 4 months' income). Before the first month's books are in (a new game, until
+  // 1 December 1444) it uses what that month will record, as the first roll will see it.
+  const income = nat.lastMonthIncome || ledger(s, n).totalIncome;
+  const res = 40 + Math.max(0, income) * 4;
+  const factors: WarFactor[] = [
+    { key: 'base', label: `Bent (${pers})`, x: WAR_BASE[pers] },
+    { key: 'size', label: 'Size', x: WAR_SIZE[def.tier] },
+    { key: 'rest', label: 'Still resting from its last war', x: clamp((since - REST_MIN) / (REST_FULL[pers] - REST_MIN), 0, 1) },
+    { key: 'treasury', label: 'Treasury', x: clamp(0.5 + (0.5 * nat.gold) / res, 0.5, 1.5) },
+    { key: 'debt', label: 'Debts', x: 1 - LOAN_DRAG * nat.loans },
+    { key: 'order', label: 'Order', x: 1 + ORDER_STEP * (nat.stability - 1) },
+    { key: 'weariness', label: 'War exhaustion', x: 1 - nat.warExhaustion / WEARY_DIV },
+    { key: 'levies', label: 'Levies', x: clamp(0.4 + (0.8 * nat.manpower) / Math.max(1, maxManpower(s, n)), 0.4, 1.2) },
+    { key: 'ruler', label: rulerWhy ? `Ruler (${rulerWhy})` : 'Ruler', x: ruler },
+    { key: 'feared', label: 'A coalition against it', x: coalitionAgainst(s, n) ? FEARED : 1 },
+  ];
+  return { crown: factors.reduce((p, f) => p * f.x, 1), factors };
+}
+
+/**
+ * The neighbour `nat` most wants to fight among those it has the might for, or null. Pure: no draws. A target with no
+ * reason for war counts only for an expansionist (it would forge a claim first).
+ */
+function bestWarTarget(s: GameState, nat: Nation): WarTarget | null {
+  const n = nat.id;
   const pers = NATION[n].personality;
-  // A crown rests between wars: so many years after it last declared one, or made peace in one it led.
-  const lastWar = Math.max(nat.ai.lastWarDeclared ?? -Infinity, nat.ai.lastPeace ?? -Infinity);
-  if (s.day - lastWar < years(WAR_COOLDOWN[pers] ?? 3)) return;
-  if (nat.stability < 0 || nat.warExhaustion > 5 || nat.loans > 3) return;
   const aggression = s.settings.difficulty === 'hard' ? 0.85 : s.settings.difficulty === 'easy' ? 1.2 : 1;
-  const evalChance = pers === 'expansionist' ? 0.3 : pers === 'opportunist' ? 0.2 : 0.1;
-  if (!chance(s, evalChance)) return;
-  let best: { target: NationId; cb: ReturnType<typeof casusBelli>[number]; goal?: string; score: number; limited: boolean } | null = null;
+  let best: WarTarget | null = null;
   const wanted = wantedRegions(s, n);
   const targets = new Set(neighborsOf(s, n));
   for (const t of targets) {
@@ -713,9 +844,62 @@ function aiWar(s: GameState, nat: Nation): void {
     if (ratio < need) continue;
     // Past three to one, better odds add nothing: the land a crown wants decides which war it picks.
     const score = Math.min(3, ratio) + (goal ? s.regions[goal].dev / 5 : 0) + (nat.rivals.includes(t) ? 1 : 0) + desire * 0.75;
-    if (!best || score > best.score) best = { target: t, cb, goal, score, limited };
+    if (!best || score > best.score) best = { target: t, cb, goal, limited, ratio, need, desire, score };
   }
+  return best;
+}
+
+/** What the chosen target multiplies the crown's chance by: the edge in might, the reason, the land it wants, the
+ * Empire. Pure: no draws. */
+function targetFactors(s: GameState, n: NationId, best: WarTarget) {
+  const x = best.ratio / best.need; // at least 1: bestWarTarget skips a target it lacks the might for
+  const edge = Math.min(EDGE_MAX, EDGE_AT_NEED + EDGE_SLOPE * (x - 1));
+  const reason = REASON_WAR[best.cb.cb];
+  const want = 1 + WANT_STEP * best.desire;
+  const lawful = best.cb.cb === 'claim' || best.cb.cb === 'reconquest';
+  const empire = isHreMember(s, n) && isHreMember(s, best.target) ? (lawful ? EMPIRE_LAWFUL : EMPIRE_UNLAWFUL) : 1;
+  const factors: WarFactor[] = [
+    { key: 'edge', label: 'Might against theirs', x: edge },
+    { key: 'reason', label: `Reason for war: ${REASON_LABEL[best.cb.cb]}`, x: reason },
+    { key: 'want', label: 'Land it wants there', x: want },
+    { key: 'empire', label: 'The Emperor’s peace', x: empire },
+  ];
+  return { edge, reason, want, empire, product: edge * reason * want * empire, factors };
+}
+
+/** A crown's chance of war this month and what makes it up (for its sheet and the tests). Pure: no draws. */
+export function warOdds(s: GameState, n: NationId): WarOdds {
+  const nat = s.nations[n];
+  if (!nat) return { blocked: 'dead', crown: 0, factors: [], yearly: 0, monthly: 0 };
+  const mood = warMood(s, nat);
+  if (mood.blocked) return { ...mood, yearly: 0, monthly: 0 };
+  const best = bestWarTarget(s, nat);
+  if (!best) return { ...mood, yearly: 0, monthly: 0 };
+  const tf = targetFactors(s, n, best);
+  const yearly = mood.crown * tf.product;
+  return {
+    ...mood,
+    factors: [...mood.factors, ...tf.factors],
+    best: { ...best, edge: tf.edge, reason: tf.reason, want: tf.want, empire: tf.empire },
+    yearly,
+    monthly: Math.min(MAX_MONTHLY, yearly / 1200),
+  };
+}
+
+/**
+ * On its roll day a crown weighs war on the neighbour it most wants to fight. One draw, and only when it is past
+ * every gate (`forced` stands in for it in tests). The draw is first checked against the most any target could give
+ * (MAX_TARGET), so the neighbours are scanned only when a war is possible: the result is the same as scanning first.
+ */
+function aiWar(s: GameState, nat: Nation, forced?: number): void {
+  const n = nat.id;
+  const mood = warMood(s, nat);
+  if (mood.blocked || mood.crown <= 0) return;
+  const r = forced ?? rand(s);
+  if (r >= Math.min(MAX_MONTHLY, (mood.crown * MAX_TARGET) / 1200)) return;
+  const best = bestWarTarget(s, nat);
   if (!best) return;
+  if (r >= Math.min(MAX_MONTHLY, (mood.crown * targetFactors(s, n, best).product) / 1200)) return;
   // No crown marches without a reason: an ambitious one has its clerks forge one first (a year's work) on the land it
   // wants there, or the richest region on the border, and goes to war for it next year if the odds still hold.
   if (best.cb.cb === 'none') {
@@ -725,10 +909,26 @@ function aiWar(s: GameState, nat: Nation): void {
     nat.fabricating = { region: forge, done: s.day + FABRICATE_DAYS };
     return;
   }
-  const war = declareWar(s, n, best.target, best.cb.cb, best.goal);
-  if (!war) return;
-  nat.ai.lastWarDeclared = s.day;
-  if (best.limited) war.limited = true;
+  const war = declareWar(s, n, best.target, best.cb.cb, best.goal, 'ai');
+  if (war && best.limited) war.limited = true;
+}
+
+/**
+ * Every AI crown weighs war once a calendar month, on a day of its own drawn the month before (`ai.warRoll`; drawn
+ * the first time it is missing, in a new game or an older save). Runs daily, after the monthly systems.
+ */
+export function dailyWarRolls(s: GameState): void {
+  if ('__noAI' in s.flags) return;
+  for (const nat of Object.values(s.nations)) {
+    if (!nat.alive || isHuman(s, nat.id) || isNativeNation(nat.id)) continue;
+    if (nat.ai.warRoll === undefined) {
+      nat.ai.warRoll = randomDayOfNextMonth(s, s.day);
+      continue;
+    }
+    if (s.day < nat.ai.warRoll) continue;
+    nat.ai.warRoll = randomDayOfNextMonth(s, s.day); // the next one first (one draw)
+    aiWar(s, nat); // at most one more draw
+  }
 }
 
 /** The most prosperous region of `t` touching `n`'s land. */
@@ -1246,4 +1446,4 @@ export function monthlyFleetAI(s: GameState): void {
 }
 
 
-export const debugAI = { armyAI, aiWar, aiEconomy, aiPeace, aiGenerals, aiColonies };
+export const debugAI = { armyAI, aiWar, warOdds, aiEconomy, aiPeace, aiGenerals, aiColonies };

@@ -56,7 +56,7 @@ bundled and works in airplane mode.
 - **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms (allies join
   an attack only from nearby and with a stake in it), war score from battles, occupation, blockades and the war
   goal, and peace deals that spend it on regions (a capital costs double), gold, vassals or freeing nations.
-  Ten-year truces that bind allies too.
+  Truces of 5 to 15 years (5, and a year more for every 5% of leverage the deal is worth) that bind allies too.
 - **Threat and coalitions:** taking land alarms your neighbours; three or more frightened nations form a
   defensive coalition.
 - **Diplomacy:** opinion from −200 to +200 with a breakdown, alliances, royal marriages (inheritance and personal

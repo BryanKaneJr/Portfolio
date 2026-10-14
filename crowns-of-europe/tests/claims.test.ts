@@ -1,5 +1,5 @@
 import { army, emptyGame } from './helpers';
-import { debugAI } from '../src/sim/ai';
+import { debugAI, warOdds } from '../src/sim/ai';
 import { SCENARIO, startingClaim } from '../src/sim/content';
 import { migrateSave, SAVE_VERSION } from '../src/sim/state';
 import { advanceDays } from '../src/sim/tick';
@@ -86,17 +86,22 @@ describe('the claims of 1444', () => {
     fra.gold = 1000;
     fra.ai.lastPeace = s.day - years(10);
     army(s, 'FRA', fra.capital, 60, 20, 10);
-    for (let i = 0; i < 100 && !fra.fabricating; i++) debugAI.aiWar(s, fra);
+    const o = warOdds(s, 'FRA');
+    expect(o.best?.cb.cb).toBe('none');
+    expect(o.monthly).toBeGreaterThan(0);
+    debugAI.aiWar(s, fra, 0); // a roll that hits
     expect(Object.values(s.wars).some(w => w.attackers.includes('FRA'))).toBe(false);
     expect(fra.fabricating).toBeTruthy();
-    const target = s.regions[fra.fabricating!.region].owner!;
-    expect(target).not.toBe('FRA');
+    expect(s.regions[fra.fabricating!.region].owner).not.toBe('FRA');
     // A year on, with its claim, it goes to war for that region.
     fra.claims[fra.fabricating!.region] = s.day + years(25);
     fra.fabricating = undefined;
-    for (let i = 0; i < 100 && !Object.keys(s.wars).length; i++) debugAI.aiWar(s, fra);
+    expect(warOdds(s, 'FRA').best?.cb.cb).toBe('claim');
+    debugAI.aiWar(s, fra, 0);
     const w = Object.values(s.wars).find(x => x.attackers[0] === 'FRA');
     expect(w?.cb).toBe('claim');
+    expect(w?.origin).toBe('ai');
+    expect(fra.ai.lastWarDeclared).toBe(s.day);
   });
 
   test('the list stays short: no crown starts with more than four', () => {

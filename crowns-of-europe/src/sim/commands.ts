@@ -444,7 +444,7 @@ export function playerDeclareWar(s: GameState, target: string, cbIndex = 0): Res
   if (why) return no(why);
   const cbs = casusBelli(s, s.player, target);
   const cb = cbs[cbIndex] ?? cbs[0];
-  const war = declareWar(s, s.player, target, cb.cb, cb.goal);
+  const war = declareWar(s, s.player, target, cb.cb, cb.goal, 'player');
   if (!war) return no('War could not be declared.');
   if (me(s).armyMode === 'peace') me(s).armyMode = 'war';
   return ok(`War! ${war.attackers.length > 1 ? `Allies with you: ${war.attackers.slice(1).map(nationName).join(', ')}. ` : ''}${war.defenders.length > 1 ? `Against you: ${war.defenders.map(nationName).join(', ')}.` : ''}`);

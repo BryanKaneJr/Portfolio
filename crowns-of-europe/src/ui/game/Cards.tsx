@@ -8,7 +8,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
-import { ULTIMATUM_SCORE, peaceCost, scoreFor, ultimatumTerms } from '../../sim/war';
+import { ULTIMATUM_SCORE, peaceCost, scoreFor, truceYears, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate, formatShortDate } from '../../sim/util';
@@ -120,6 +120,7 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
           {w?.cb === 'independence' && !t.white && t.winner === w.attackers[0] ? <Line label={`${nationName(t.winner)} goes free`} value="independence" tone={youWin ? 'good' : 'bad'} /> : null}
           {w ? <Line label="Your leverage now" value={`${scoreFor(s, w, s.player)}%`} /> : null}
           {w && !t.white ? <Line label="Value of the deal" value={`${peaceCost(s, t)}%`} tone="muted" /> : null}
+          {w ? <Line label="Truce" value={`${truceYears(t.white ? 0 : peaceCost(s, t))} years`} tone="muted" /> : null}
           {due !== undefined ? (
             <Line
               label="Takes effect"

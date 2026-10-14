@@ -1,7 +1,7 @@
 import { emptyGame, army, forceWar } from './helpers';
 import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
 import { advanceDays } from '../src/sim/tick';
-import { pairKey } from '../src/sim/util';
+import { pairKey, years } from '../src/sim/util';
 import { REBELS, seesUnit } from '../src/sim/queries';
 import * as peace from '../src/sim/war';
 import { answerOffer, proposePeace } from '../src/sim/commands';
@@ -72,6 +72,24 @@ describe('war and peace', () => {
     makePeace(s, w, { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: 'FRA', loser: 'BUR' });
     for (const r of Object.values(s.regions)) expect(r.owner).toBe(owners[r.id]);
     expect(s.truces[pairKey('FRA', 'BUR')]).toBeGreaterThan(s.day);
+    expect(s.truces[pairKey('FRA', 'BUR')]).toBe(s.day + years(5));
+  });
+
+  test('a truce lasts 5 years, a year more for every 5% of leverage the deal is worth, up to 15', () => {
+    for (const [cost, y] of [[0, 5], [8, 7], [13, 8], [26, 10], [47, 14], [48, 15], [200, 15]]) expect(peace.truceYears(cost)).toBe(y);
+  });
+
+  test('the truce is reckoned from the deal before the land moves', () => {
+    const s = emptyGame('POR');
+    s.nations.FRA.claims.normandy = -1;
+    forceWar(s, 'FRA', 'ENG');
+    const w = declareWar(s, 'FRA', 'ENG', 'claim', 'normandy')!;
+    const terms: PeaceTerms = { regions: ['normandy'], gold: 0, vassalize: false, release: [], winner: 'FRA', loser: 'ENG' };
+    expect(peaceCost(s, terms)).toBe(13);
+    makePeace(s, w, terms);
+    expect(s.regions.normandy.owner).toBe('FRA');
+    // 13% → 8 years; reckoned after the land changed hands (no longer claimed) it would be 9.
+    expect(s.truces[pairKey('FRA', 'ENG')]).toBe(s.day + years(8));
   });
 });
 

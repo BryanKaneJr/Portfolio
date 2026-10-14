@@ -31,7 +31,7 @@ const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 export const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const isLeap = (y: number) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 const yearDays = (y: number) => (isLeap(y) ? 366 : 365);
-const monthDays = (y: number, m: number) => (m === 1 && isLeap(y) ? 29 : MONTH_DAYS[m]);
+export const monthDays = (y: number, m: number) => (m === 1 && isLeap(y) ? 29 : MONTH_DAYS[m]);
 
 export interface DateParts {
   year: number;
@@ -59,6 +59,13 @@ export function dayOf(year: number, month: number, day: number): number {
   return d + day - 1;
 }
 export const yearOf = (dayNumber: number) => dateOf(dayNumber).year;
+/** A random day of the calendar month after `day`'s month (one draw). */
+export function randomDayOfNextMonth(s: GameState, day: number): number {
+  const { year, month } = dateOf(day);
+  const y = month === 11 ? year + 1 : year;
+  const m = (month + 1) % 12;
+  return dayOf(y, m, 1) + randInt(s, 0, monthDays(y, m) - 1);
+}
 export const formatDate = (dayNumber: number): string => {
   const p = dateOf(dayNumber);
   return `${p.day} ${MONTH_NAMES[p.month]} ${p.year}`;

@@ -30,7 +30,13 @@ import { sendHomeAfterPeace } from './military';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
 import { clamp, dayOf, formatDate, isIn, months, pairKey, yearOf, years } from './util';
 
-export const TRUCE_YEARS = 10;
+/** Every peace brings a truce: TRUCE_MIN years after a white peace, a year more for every TRUCE_COST_PER_YEAR% of
+ * leverage the deal is worth, at most TRUCE_MAX. Leaving a war alone brings TRUCE_MIN. */
+export const TRUCE_MIN = 5;
+export const TRUCE_MAX = 15;
+export const TRUCE_COST_PER_YEAR = 5;
+/** 5 years after a white peace, 1 more for every 5% of leverage the deal is worth (rounded), at most 15. */
+export const truceYears = (cost: number) => Math.min(TRUCE_MAX, TRUCE_MIN + Math.round(Math.max(0, cost) / TRUCE_COST_PER_YEAR));
 /** Leverage at which an AI war leader stops proposing peace to the player and sends an ultimatum. */
 export const ULTIMATUM_SCORE = 99;
 /** Days the player has before an ultimatum's terms are imposed. */
@@ -150,9 +156,11 @@ const warName = (a: NationId, b: NationId, cb: CasusBelli) => {
   return `${NATION[a].adj}–${NATION[b].adj} War`;
 };
 
-export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBelli, goal?: RegionId): War | null {
+export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBelli, goal?: RegionId, origin?: War['origin']): War | null {
   if (canDeclareWar(s, a, b)) return null;
   const A = s.nations[a];
+  // However it came about, a crown that declares a war rests before it weighs the next (ai.ts, warMood).
+  A.ai.lastWarDeclared = s.day;
   // Breaking a truce or attacking without a reason has a price.
   if (hasTruce(s, a, b)) {
     A.stability = clamp(A.stability - 2, -3, 3);
@@ -176,6 +184,7 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
     battleScore: 0,
     goalScore: 0,
   };
+  if (origin) war.origin = origin;
   s.wars[war.id] = war;
   bumpWars();
   const join = (side: 'attackers' | 'defenders', n: NationId) => {
@@ -487,6 +496,10 @@ export const offersOwnLand = (s: GameState, w: War, terms: PeaceTerms) =>
 
 export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (!s.wars[w.id]) return;
+  // Worked out before any land moves: a region's cost reads claims and capitals, which change as it changes hands.
+  const truce = years(truceYears(peaceCost(s, terms)));
+  // Everyone in it, taken before a vassalized loser (and its subjects) leaves the war below.
+  const everyone = [...w.attackers, ...w.defenders];
   const winSide = sideOf(w, terms.winner);
   const winners = winSide === 1 ? w.defenders : w.attackers;
   const losers = winSide === 1 ? w.attackers : w.defenders;
@@ -527,9 +540,9 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
       r.siege = undefined;
     }
   }
-  for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + years(TRUCE_YEARS);
-  // Its leaders rest before the next war (the AI's war cooldown counts from here as well as from a declaration).
-  for (const n of [w.attackers[0], w.defenders[0]]) if (s.nations[n]) s.nations[n].ai.lastPeace = s.day;
+  for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + truce;
+  // Everyone in it rests before the next war (the AI's rest counts from here as well as from a declaration).
+  for (const n of everyone) if (s.nations[n]) s.nations[n].ai.lastPeace = s.day;
   delete s.wars[w.id];
   // Proposals and an ultimatum still waiting in this war end with it.
   s.offers = s.offers.filter(o => o.kind !== 'peace' || o.war !== w.id);
@@ -576,7 +589,8 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
       r.siege = undefined;
     }
   }
-  for (const e of enemies) s.truces[pairKey(n, e)] = s.day + years(5);
+  for (const e of enemies) s.truces[pairKey(n, e)] = s.day + years(TRUCE_MIN);
+  for (const x of [n, ...subjectsOf(s, n)]) s.nations[x].ai.lastPeace = s.day;
   if (!w.attackers.length || !w.defenders.length) delete s.wars[w.id];
   bumpWars();
   sendHomeAfterPeace(s, [n, ...subjectsOf(s, n), ...enemies]);

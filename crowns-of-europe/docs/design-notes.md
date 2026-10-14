@@ -279,8 +279,9 @@ here.
     - Wars that stay in proportion. A crown counts its allies for no more than its own might when it weighs a war
       (Scotland, on France's back, was taking England's heartland a region a war, and England died in 10 of 16 AI
       games). An AI war for one border region is a limited war: won by its attackers, it takes that region and gold,
-      nothing more. Only a loser's last region, not its capital, may be taken from afar. A crown rests three years
-      (four or five if it is a trader or defensive) after declaring a war or making peace in one it led; past the
+      nothing more. Only a loser's last region, not its capital, may be taken from afar. A crown rests after
+      declaring a war or making peace in one (note 32): a year and a half with no war, then appetite returning by
+      3/3/4/5 years (expansionist, opportunist, trader, defensive); past the
       Threat at which coalitions form, each 10 Threat asks a tenth more might; and a great crown without a reason
       for war needs 2.5 times the might (others 1.8).
     - The AI never marches down a road through an enemy stack it would not clearly beat, its forecast counts the
@@ -378,6 +379,38 @@ here.
       have forges a claim first (a year and 40 gold, on the land it wants there or the richest region on the border)
       and fights for that region a year later if the odds still hold.
 
+32. **War chance: a monthly roll on a day of its own (on request).** The AI used to weigh war on the 1st of each
+    month (none in March) with a flat 0.3/0.2/0.1 chance by its bent, once a fixed rest of 3/3/4/5 years was over.
+    The owner asked for a percentage a year, divided by 12, with no set schedule. Which neighbour a crown picks, the
+    might it needs for it (with the Threat brake), and the hard gates (order below 0, war exhaustion above 5, more
+    than 3 loans) are unchanged; only when it declares changes.
+    - The schedule: each AI crown draws a day of the next calendar month (`ai.warRoll`, `randomDayOfNextMonth`) and
+      on that day weighs a war (`dailyWarRolls`, after the monthly systems): every month, March included, a day that
+      differs between crowns and from month to month. One draw for the day, and one decision draw only past every
+      gate.
+    - The formula (`warOdds` in ai.ts, shown on a crown's sheet as "War chance"): % a year = base by bent
+      (expansionist 40, opportunist 25, trader 12, defensive 8) × size (great 1, middle rank 0.85, minor 0.7: small
+      expansionists are tamed) × rest (0 at 1.5 years after its last war or peace, rising to 1 at 3/3/4/5) ×
+      treasury (0.5 + 0.5 × gold / reserve, 0.5–1.5; the reserve is 40 + 4 months' income, before the first
+      month's books the income that month will record) × debts (1 − 0.15 a loan) × order (1 + 0.1 × (order − 1)) ×
+      war exhaustion (1 − exhaustion / 10) × levies (0.4 + 0.8 × levies / maximum, 0.4–1.2) × ruler (warrior or
+      ambitious 1.25, craven 0.6, a regency 0.6) × a coalition against it 0.5, then times the target's factors:
+      might (0.5 at exactly the might it needs, +1 per 1× more, 2 at most), reason (claim, lost land, independence
+      1; coalition 0.8; rival 0.7; faith 0.6; none 0.5, which only forges a claim), land it wants (1 + 0.25 per
+      point of desire, 2 at most) and the Emperor's peace (two members of the Empire: 0.6 for a claim or lost land,
+      0.3 otherwise). The month's chance is that ÷ 1200, at most 15% (86% within a year).
+    - A declaration rests the crown that declares it (any declaration: AI, coalition, event, independence); every
+      peace, separate peace or war ending without one rests everyone in it, a crown made a vassal in it too. Wars
+      record who started them (`War.origin`).
+    - Truces: 5 years after a white peace or leaving a war, a year more for every 5% of leverage the deal is worth,
+      at most 15 (`truceYears`); the peace screens show it. A lesser crown no longer forges claims on a fellow
+      member of the Empire or a crown it has a truce with.
+    - `npx tsx scripts/dev/warchance.ts [year] [seed] [--opening]` prints each crown's chance and what makes it up;
+      `--opening` models the first years' wars and the Ottoman opening in under a second.
+    - Measurements pending: wars per game, Constantinople by 1450, crowns alive and the great powers' size have not
+      yet been measured against the old rule (`aiwars.ts` on seeds 1-8 before and after); the constants are the
+      design's, not yet calibrated.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
@@ -395,7 +428,9 @@ here.
 | Sieges | 15 days without a fort (60 for a founded New World colony of a crown its owner still holds: the settlers hold out); 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
 | Supply | 10/7/7/5/5 by terrain + 0.8 × development (+3 in friendly land), × 0.6 in northern/eastern winters |
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
-| Claims | Forged: a year and 40 gold, lasting 25 years. Of 1444: 22, each until 1 January of its year (1454-1500). The AI rests 3 years between wars (4 a trader, 5 defensive), the first rest begun 0-3 years before the start; with no reason for war it forges one instead of marching |
+| Claims | Forged: a year and 40 gold, lasting 25 years. Of 1444: 22, each until 1 January of its year (1454-1500). With no reason for war the AI forges one instead of marching |
+| War chance | Bases 40/25/12/8% a year (expansionist, opportunist, trader, defensive) × the crown's and its target's factors, ÷ 12 a month, at most 15% a month; none for 1.5 years after a war or peace, full again by 3/3/4/5 years (the first rest begun 0-3 years before the start) |
+| Truces | 5 years + 1 per 5% of the deal's value, up to 15; leaving a war 5 |
 | Peace cost | 3% per development per region (× 0.7 if claimed, × 2 for the capital of a realm of 3+ regions), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Science a month | (1 + 0.6 × average prosperity of your 5 richest regions (all of them if fewer) + 0.15 × √total prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |

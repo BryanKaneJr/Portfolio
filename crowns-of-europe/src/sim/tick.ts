@@ -1,5 +1,5 @@
 /** One simulated day. Monthly systems run on the 1st. The UI calls advanceDay() on a timer. */
-import { monthlyAI, dailyArmyAI, monthlyFleetAI } from './ai';
+import { monthlyAI, dailyArmyAI, dailyWarRolls, monthlyFleetAI } from './ai';
 import { dailyBattles } from './battle';
 import { monthlyDiplomacy } from './diplomacy';
 import { monthlyEconomy } from './economy';
@@ -49,6 +49,7 @@ export function advanceDay(s: GameState): TickResult {
   cleanupArmies(s);
   checkUltimatums(s);
   if (d.day === 1) monthly(s);
+  dailyWarRolls(s);
   if (d.year >= END_YEAR && !s.gameOver) {
     s.gameOver = { reason: 'end', day: s.day };
     log(s, 'news', `The year ${END_YEAR} dawns. Your reign over history is complete.`, { important: true });

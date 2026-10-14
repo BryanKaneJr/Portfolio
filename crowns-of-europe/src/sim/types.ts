@@ -555,6 +555,9 @@ export interface War {
   /** Declared (by the AI) for the war goal alone, a region on its border: if the attackers win, the goal is all the
    * land they take (buildDemands). */
   limited?: boolean;
+  /** Who started it: the AI's own decision, a coalition, an event, a subject breaking free or the player (absent on
+   * wars from older saves). */
+  origin?: 'ai' | 'coalition' | 'event' | 'independence' | 'player';
 }
 
 export interface Relation {
@@ -602,7 +605,7 @@ export interface Nation {
   lastMonthIncome: number;
   lastMonthExpenses: number;
   record: { battlesWon: number; battlesLost: number; warsWon: number; warsLost: number; stackWipes: number; bestRatio: number; regionsTaken: number };
-  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number; colonyLevy?: number };
+  ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number; colonyLevy?: number; warRoll?: number };
 }
 
 export interface Coalition {

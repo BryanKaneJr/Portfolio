@@ -409,7 +409,7 @@ export function applyEffect(s: GameState, n: NationId, e: Effect): void {
     }
     case 'declareWar': {
       if (!s.nations[v.target]?.alive) break;
-      const war = declareWar(s, n, v.target, v.cb ?? 'claim', v.region);
+      const war = declareWar(s, n, v.target, v.cb ?? 'claim', v.region, 'event');
       // A league: the named crowns join the attack if they are free to (independent, no truce, not allied to the
       // enemy). The player is asked like any ally would be.
       for (const m of war && v.with ? ([] as NationId[]).concat(v.with) : []) {

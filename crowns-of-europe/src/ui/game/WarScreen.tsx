@@ -9,7 +9,7 @@ import Svg, { Defs, LinearGradient, RadialGradient, Rect, Stop } from 'react-nat
 import { NATION, nationName, regionName } from '../../sim/content';
 import { proposePeace, separatePeace } from '../../sim/commands';
 import { REBELS, ownedRegions, sideOf, subjectsOf } from '../../sim/queries';
-import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, ultimatumTerms, warScore } from '../../sim/war';
+import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, truceYears, ultimatumTerms, warScore } from '../../sim/war';
 import type { NationId, PeaceTerms, War } from '../../sim/types';
 import { DAYS_PER_YEAR, formatDate, formatShortDate, isIn } from '../../sim/util';
 import { useStore } from '../../state/store';
@@ -122,6 +122,7 @@ export function WarPanel({ warId }: { warId: string }) {
         <View style={{ flex: 1 }}>
           <Text style={styles.dealLabel}>{anyTerms ? (mode === 'demand' ? `Terms ${cost}%` : `Worth ${cost}% to them`) : `${mode === 'demand' ? 'Leverage' : 'Their leverage'} ${signed(budget)}%`}</Text>
           {anyTerms ? <Text style={styles.dealSub}>{mode === 'demand' ? 'Leverage' : 'Their leverage'} {signed(budget)}%</Text> : null}
+          <Text style={styles.dealSub}>{`Truce after this peace: ${truceYears(peaceCost(s, terms))} years`}</Text>
         </View>
         {anyTerms ? (
           <View style={[styles.verdict, { borderColor: answer.accept ? G.good : G.bad }]}>
