@@ -46,6 +46,18 @@ describe('history events: the east and the Balkans', () => {
     }
   });
 
+  test('a card that builds up, burns or fortifies a named region only fires while you own it', () => {
+    // devRegion and fortRegion act on the region whoever owns it.
+    for (const e of events) {
+      const guards = e.trigger && 'all' in e.trigger ? e.trigger.all : [e.trigger];
+      for (const c of e.choices)
+        for (const ef of flat(c.effects)) {
+          const region = ef.devRegion?.region ?? ef.fortRegion?.region;
+          if (region) expect([e.id, guards.some(g => g && 'owns' in g && g.owns === region)]).toEqual([e.id, true]);
+        }
+    }
+  });
+
   test('every hidden event is reached from a choice in this file, and fires when it arrives', () => {
     const chains = events.flatMap(e => chainsOf(e).map(c => ({ ...c, from: e })));
     for (const e of events.filter(x => x.hidden)) expect(chains.map(c => c.id)).toContain(e.id);

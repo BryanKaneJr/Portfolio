@@ -176,6 +176,9 @@
           "not": {
             "subjectOf": true
           }
+        },
+        {
+          "owns": "pskov"
         }
       ]
     },
@@ -480,7 +483,7 @@
       1522
     ],
     "mtth": 24,
-    "news": "The Prince of Ryazan is courting the Khan of Crimea.",
+    "news": "The Khan of Crimea is courting the Prince of Ryazan.",
     "trigger": {
       "all": [
         {
@@ -863,7 +866,14 @@
     "mtth": 12,
     "news": "The Sultan's army has crossed the Danube into Wallachia.",
     "trigger": {
-      "atWarWith": "TUR"
+      "all": [
+        {
+          "atWarWith": "TUR"
+        },
+        {
+          "owns": "wallachia"
+        }
+      ]
     },
     "choices": [
       {
@@ -934,7 +944,7 @@
     "id": "wal_michael_the_brave",
     "pool": "historical",
     "title": "Michael the Brave",
-    "text": "Your prince Michael has killed the Sultan's creditors in Bucharest and thrown off the Turkish yoke. Now he looks over the mountains to Transylvania and Moldavia, whose princes plot with Poland and the Turks against him. For a moment, all three lands could have one master.",
+    "text": "Michael of Craiova, the boldest of your lords, has killed the Sultan's creditors in Bucharest and called the land to arms against the Turks. Now he looks over the mountains to Transylvania and Moldavia, whose princes plot with Poland and the Turks against him. For a moment, all three lands could have one master.",
     "image": "crown",
     "nations": [
       "WAL"
@@ -1017,7 +1027,14 @@
     "mtth": 12,
     "news": "An Ottoman army has marched north into Moldavia.",
     "trigger": {
-      "atWarWith": "TUR"
+      "all": [
+        {
+          "atWarWith": "TUR"
+        },
+        {
+          "owns": "moldavia"
+        }
+      ]
     },
     "choices": [
       {
@@ -1290,7 +1307,7 @@
     "id": "bos_the_popes_crown",
     "pool": "historical",
     "title": "The Pope's Crown",
-    "text": "Your new king has been crowned with a crown sent by the Pope, and he has stopped paying the Sultan's tribute, trusting Hungary and Venice to help. The Sultan's envoy has come for the tribute one last time. Behind him, they say, comes the army that took Constantinople.",
+    "text": "You have been crowned with a crown sent by the Pope, and you have stopped paying the Sultan's tribute, trusting Hungary and Venice to help. The Sultan's envoy has come for the tribute one last time. Behind him, they say, comes the army that took Constantinople.",
     "image": "crown",
     "nations": [
       "BOS"
@@ -1310,6 +1327,9 @@
           "not": {
             "subjectOf": true
           }
+        },
+        {
+          "owns": "bosnia"
         }
       ]
     },
