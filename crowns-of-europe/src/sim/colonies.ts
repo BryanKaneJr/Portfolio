@@ -7,7 +7,7 @@
  * the natives (slower, safe unless they are fierce, and they join the colony) or take the land by force (natives
  * slow them and may attack unless troops or paid guards are there). Enemy armies at war raid colonies being
  * settled. A colonist with no land left to settle can grow a founded New World region of yours instead (+1
- * prosperity per 1,000 settlers, up to 8). Every New World region trades in a good (silver, sugar, furs...) that
+ * prosperity per 500 settlers, up to 8). Every New World region trades in a good (silver, sugar, furs...) that
  * pays its owner on top of taxes.
  */
 import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, nationName, regionName } from './content';
@@ -22,7 +22,7 @@ export const COLONY_COST = 30;
 export const COLONY_UPKEEP = 1; // gold per month for each colony still growing (and each colonist growing a region)
 export const COLONY_GUARD_UPKEEP = 0.5; // gold per month for a colony's paid guards
 export const SETTLERS_NEEDED = 1000;
-export const GROW_SETTLERS = 1000; // settlers that raise a founded colony's prosperity by 1
+export const GROW_SETTLERS = 500; // settlers that raise a founded colony's prosperity by 1
 export const MAX_GROWN_DEV = 8; // settlers grow a founded colony up to this prosperity
 export const NATURAL_GROWTH_DEV = 5; // founded colonies grow on their own (slowly) up to this prosperity
 export const TRADE_SLOWDOWN = 0.15; // settler growth lost by trading with the natives instead of taking their land

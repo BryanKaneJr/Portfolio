@@ -8,6 +8,7 @@ import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeN
 import {
   COLONY_COST,
   COLONY_GUARD_UPKEEP,
+  MAX_GROWN_DEV,
   EXPEDITION_COST,
   EXPEDITION_YEAR,
   GOOD_VALUE,
@@ -16,6 +17,7 @@ import {
   canSendExpedition,
   charted,
   coloniesOf,
+  colonistsOf,
   freeColonists,
   newWorldRegions,
   riskWithoutGuards,
@@ -197,7 +199,9 @@ function aiEconomy(s: GameState, nat: Nation): void {
     convert.converting = { to: nat.faith, done: s.day + 365 };
     return;
   }
-  const dev = regions.filter(r => r.dev < 10 && r.controller === n).sort((a, b) => devCost(s, a) / (a.cores.includes(n) ? 1 : 0.5) - devCost(s, b) / (b.cores.includes(n) ? 1 : 0.5))[0];
+  // A crown with colonists leaves its New World land below MAX_GROWN_DEV to its settlers (aiColonies grows it).
+  const settlersGrow = colonistsOf(s, n) > 0;
+  const dev = regions.filter(r => r.dev < 10 && r.controller === n && !(settlersGrow && REGION[r.id].nw && r.dev < MAX_GROWN_DEV)).sort((a, b) => devCost(s, a) / (a.cores.includes(n) ? 1 : 0.5) - devCost(s, b) / (b.cores.includes(n) ? 1 : 0.5))[0];
   if (dev && nat.gold > devCost(s, dev) + res * 1.3) {
     nat.gold -= devCost(s, dev);
     dev.dev++;
@@ -964,16 +968,16 @@ function armyAI(s: GameState, a: Army): void {
     const goal = goals.has(r.id) ? 30 : 0;
     sieges.push({ node: r.id, score: (r.dev * 2 + ownLand + goal + (r.fort === 0 ? 6 : 0) - r.fort * 4) / (d + 8) });
   }
-  // Raids: an enemy's colony being settled with nobody of theirs (or their friends') there to defend it; the army
-  // stands in it and the settlers die month by month (colonies.ts).
+  // Raids: an enemy's colony being settled on this shore (no army sails off just to raid), with nobody of theirs
+  // (or their friends') there to defend it; the army stands in it and the settlers die month by month (colonies.ts).
   if (n !== REBELS) {
     for (const r of Object.values(s.regions)) {
       const c = r.colony;
-      if (!c || !hostile(s, n, c.by)) continue;
+      if (!c || !hostile(s, n, c.by) || hops(a.node, r.id) >= 99) continue;
       const d = tree.dist.get(r.id);
       if (d === undefined || (takenBy.has(r.id) && r.id !== a.node)) continue;
       if (Object.values(s.armies).some(o => o.node === r.id && o.owner !== REBELS && (o.owner === c.by || friendlyTo(s, c.by, o.owner)))) continue;
-      sieges.push({ node: r.id, score: (6 + c.settlers / 200) / (d + 8) });
+      sieges.push({ node: r.id, score: (3 + c.settlers / 250) / (d + 8) });
     }
   }
   // The best siege whose road is open.

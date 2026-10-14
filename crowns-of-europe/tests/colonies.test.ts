@@ -218,7 +218,7 @@ describe('colonization', () => {
     expect(colonistsOf(s, 'MOR')).toBe(0);
   });
 
-  test('a free colonist grows a founded colony: +1 prosperity per 1,000 settlers, up to 8', () => {
+  test('a free colonist grows a founded colony: +1 prosperity per 500 settlers, up to 8', () => {
     const s = portugal();
     give(s, 'bahia', 'POR', 5); // natural growth stops at 5, so only settlers raise it here
     give(s, 'pernambuco', 'POR', 7);

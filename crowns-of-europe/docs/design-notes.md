@@ -327,7 +327,7 @@ here.
 | Natives | By force: attack chance a month = natives × hostility × 0.25% (20% at most), killing 50 + 25 × natives settlers; they dwindle 0.02k a month (and 0.5k at 5% a month with a guard); at founding +1 prosperity per 3k, their faith stays at 3k+, +2 unrest for 5 years at 2k+. Trading: no attacks (half the chance if fierce), no dwindling, at founding +1 prosperity per 2k there at the start, no unrest (their faith stays at 3k+ too). A trading colony may turn to force, never back |
 | Guards | Your troops in the region (free) or paid guards (0.5 gold/month): no native attacks |
 | Raids | An enemy army in a colony being settled, with none of the founder's or a friend's there: 20 settlers per regiment a month (200 at most); at 0 the colony is lost |
-| Growing a colony | A free colonist in a founded New World region of yours: 1 gold/month, settlers as a colony (no natives, no neighbour bonus), +1 prosperity per 1,000 up to 8; ends if the region is lost or occupied. Unaided, colonies grow +1 every ~15 years up to 5 |
+| Growing a colony | A free colonist in a founded New World region of yours: 1 gold/month, settlers as a colony (no natives, no neighbour bonus), +1 prosperity per 500 up to 8; ends if the region is lost or occupied, or if the nation has fewer colonists (the newest first). An AI with colonists leaves its colonies below 8 to them rather than buy prosperity there. Unaided, colonies grow +1 every ~15 years up to 5 |
 | Trade goods | value × (0.5 + 0.1 × development): silver 2.0, gold 1.8, sugar 1.1, tobacco/cocoa 0.9, dyes 0.8, furs 0.7, fish 0.6, grain 0.4 |
 
 ## Status
