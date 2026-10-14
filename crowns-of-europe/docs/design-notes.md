@@ -429,7 +429,8 @@ here.
       before) and by 1450 in 46 of 48 games (the other two by 1453, as in history); France holds Normandy in 6 of 8 and Gascony in 6 (7 and 4
       before); France 24.5 regions (18), England 11.5 (12), Castile 27 (22.5), the Ottomans 23.5 (21.5); the
       Ottomans start 17 wars to 1560 (17.5), France 19.5 (12.5), the Habsburgs 1 (3.5). The Habsburgs and Hungary
-      stay small (4 and 0 regions; 6.5 and 2.5 before).
+      stay small (4 and 0 regions; 6.5 and 2.5 before). Carried on to 1700 (8 games): 28.5 realms alive, and
+      England, France and Austria alive in all eight (England in 14 and France in 11 of 16 before).
 
 ## Key numbers (all in `src/sim/`)
 
