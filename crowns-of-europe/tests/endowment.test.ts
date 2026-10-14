@@ -49,7 +49,7 @@ describe('endowment', () => {
     for (const n of ['POR', 'CAS', 'TUR', 'HAB', 'VEN', 'HUN', 'AZT']) aiEndowment(s, s.nations[n]);
     expect(s.nations.POR.endowment?.field).toBe('sea'); // a trader, and a seafarer
     expect(s.nations.CAS.endowment?.field).toBe('sea'); // expansionist, but the sea calls
-    expect(s.nations.TUR.endowment?.field).toBe('war'); // expansionist
+    expect(s.nations.TUR.endowment?.field).toBe('state'); // expansionist, but kept from closing the gap with Europe
     expect(s.nations.HAB.endowment?.field).toBe('state'); // defensive
     expect(s.nations.VEN.endowment?.field).toBe('sea'); // a coastal trader
     expect(s.nations.HUN.endowment?.field).toBe('war'); // opportunist
@@ -58,7 +58,7 @@ describe('endowment', () => {
     s.day += years(30);
     for (const n of ['POR', 'TUR', 'HAB']) aiEndowment(s, s.nations[n]);
     expect(s.nations.POR.endowment).toEqual({ field: 'sea', since: s.day - years(30) });
-    expect(s.nations.TUR.endowment?.field).toBe('war');
+    expect(s.nations.TUR.endowment?.field).toBe('state');
     expect(s.nations.HAB.endowment?.field).toBe('state');
   });
 

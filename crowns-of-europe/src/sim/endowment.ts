@@ -15,6 +15,12 @@ export const ENDOW = { own: -0.2, others: 0.1, years: 25 };
 export const FIELD_NAME: Record<Field, string> = { war: 'War', sea: 'Sea', state: 'Statecraft' };
 /** The crowns that look to the sea whatever their temper: the first colonial powers. */
 const SEAFARERS = ['POR', 'CAS', 'ENG'];
+/**
+ * The crowns that endow statecraft whatever their temper. The Ottomans: endowing war, their troops reached the age of
+ * the musket about 1590 instead of about 1635 (`scripts/dev/ottomans.ts 260 1 2`), closing the gap with Europe the
+ * science is tuned to open by 1600 (design notes, "Europe's science answer").
+ */
+const STATESMEN = ['TUR'];
 
 /** Dev-only tallies for scripts/dev (the game never reads them). */
 export const COUNTS = { byField: { war: 0, sea: 0, state: 0 } as Record<Field, number> };
@@ -44,11 +50,11 @@ export function endowFactor(nat: Nation, field: Field): { label: string; value: 
   return e.field === field ? { label: `Endowed: ${FIELD_NAME[field]}`, value: 1 + ENDOW.own } : { label: 'Endowed elsewhere', value: 1 + ENDOW.others };
 }
 
-/** The AI endows once, by its temper (the first colonial powers look to the sea), and never changes. */
+/** The AI endows once, by its temper (the first colonial powers look to the sea, the Ottomans to statecraft), and never changes. */
 export function aiEndowment(s: GameState, nat: Nation): void {
   if (nat.endowment || isNativeNation(nat.id)) return;
   const pers = NATION[nat.id]?.personality;
-  const field: Field = SEAFARERS.includes(nat.id) ? 'sea' : pers === 'trader' ? (isCoastal(s, nat.id) ? 'sea' : 'state') : pers === 'defensive' ? 'state' : 'war';
+  const field: Field = SEAFARERS.includes(nat.id) ? 'sea' : STATESMEN.includes(nat.id) ? 'state' : pers === 'trader' ? (isCoastal(s, nat.id) ? 'sea' : 'state') : pers === 'defensive' ? 'state' : 'war';
   endow(s, nat.id, field);
   if (nat.endowment) COUNTS.byField[field]++;
 }
