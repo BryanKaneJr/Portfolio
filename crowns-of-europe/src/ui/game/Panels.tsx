@@ -227,7 +227,7 @@ export function DeclareWarPanel({ target }: { target: string }) {
               {c.why || c.until !== undefined ? <Text style={styles.optionSub}>{claimNote(c.why, c.until)}</Text> : null}
               {c.cb === 'none' ? (
                 <Text style={[styles.optionSub, { color: C.red }]}>
-                  −{UNJUST_WAR.order} order · −{UNJUST_WAR.renown} renown · +{unjustThreat(s, s.player)} Threat · {UNJUST_WAR.opinion} opinion
+                  −{UNJUST_WAR.order} order · −{UNJUST_WAR.renown} renown · +{unjustThreat(s, s.player)} Threat · −{-UNJUST_WAR.opinion} opinion
                 </Text>
               ) : null}
             </Pressable>
