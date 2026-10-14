@@ -83,6 +83,15 @@ function field(f: FlagDef): ReactElement {
           <Rect y={13.3} width={W} height={6.7} fill={c} />
         </>
       );
+    case 'tiercedPale':
+      // Three upright bands, as a tricolour.
+      return (
+        <>
+          <Rect width={10.1} height={H} fill={a} />
+          <Rect x={10} width={10} height={H} fill={b} />
+          <Rect x={19.9} width={10.1} height={H} fill={c} />
+        </>
+      );
     case 'chevron':
       return (
         <>
@@ -260,9 +269,9 @@ function field(f: FlagDef): ReactElement {
   }
 }
 
-/** The flag's field and charges, drawn in a W x H box (a proclaimed crown's arms, if it has one). */
-export function flagBody(nation: string): ReactElement {
-  if (!NATION[nation])
+/** The flag's field and charges, drawn in a W x H box (a proclaimed crown's arms, if it has one; `def`: these arms). */
+export function flagBody(nation: string, def?: FlagDef): ReactElement {
+  if (!def && !NATION[nation])
     // Rebels: a black banner with a pitchfork-ish mark.
     return (
       <>
@@ -270,7 +279,7 @@ export function flagBody(nation: string): ReactElement {
         <Path d="M15 4v12M12 4v4h6V4" stroke="#d8d8d8" strokeWidth={1.4} fill="none" />
       </>
     );
-  const f = nationFlag(nation);
+  const f = def ?? nationFlag(nation);
   const color = f.chargeColor ?? f.colors[1];
   if (f.pattern === 'quarterly' && f.charge)
     // Quartered arms: the charge in quarters 1 and 4, the second charge (if any) in 2 and 3.
@@ -291,16 +300,17 @@ export function flagBody(nation: string): ReactElement {
   );
 }
 
-/** A realm's flag. Redrawn when its arms change (`look`: a proclaimed crown's id). */
-export function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
-  return <FlagArms nation={nation} size={size} rounded={rounded} look={displayOf(nation).look} />;
+/** A realm's flag. Redrawn when its arms change (`look`: a proclaimed crown's id). `flagDef` draws other arms (a
+ * greater crown's; `nation` is then the crown's id). */
+export function Flag({ nation, size = 28, rounded = true, flagDef }: { nation: string; size?: number; rounded?: boolean; flagDef?: FlagDef }) {
+  return <FlagArms nation={nation} size={size} rounded={rounded} flagDef={flagDef} look={flagDef ? `def_${nation}` : displayOf(nation).look} />;
 }
 
-const FlagArms = memo(function FlagArms({ nation, size, rounded }: { nation: string; size: number; rounded: boolean; look: string }) {
+const FlagArms = memo(function FlagArms({ nation, size, rounded, flagDef }: { nation: string; size: number; rounded: boolean; flagDef?: FlagDef; look: string }) {
   const w = size;
   const h = (size * H) / W;
   const id = `clip_${nation}_${size}`;
-  const body = flagBody(nation);
+  const body = flagBody(nation, flagDef);
   return (
     <Svg width={w} height={h} viewBox={`0 0 ${W} ${H}`}>
       <Defs>

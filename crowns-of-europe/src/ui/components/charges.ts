@@ -139,4 +139,4 @@ export const CHARGES: Record<string, { d: string; evenOdd?: boolean }[]> = {
 
 /** The field patterns Flag.tsx draws (nations.json `flag.pattern`); `npm run validate` checks every flag against these
  * and CHARGES. */
-export const FLAG_PATTERNS = ['plain', 'perPale', 'perFess', 'chief', 'canton', 'tierced', 'chevron', 'bordure', 'cross', 'crossPatty', 'crossCantoned', 'crossBetas', 'nordic', 'saltire', 'quarterly', 'pales', 'barry', 'fess', 'bend', 'bendy', 'lozengy', 'ermine', 'lis', 'semeLis'];
+export const FLAG_PATTERNS = ['plain', 'perPale', 'perFess', 'chief', 'canton', 'tierced', 'tiercedPale', 'chevron', 'bordure', 'cross', 'crossPatty', 'crossCantoned', 'crossBetas', 'nordic', 'saltire', 'quarterly', 'pales', 'barry', 'fess', 'bend', 'bendy', 'lozengy', 'ermine', 'lis', 'semeLis'];

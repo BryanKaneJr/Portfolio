@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { MAP, NATION, REGION } from '../src/sim/content';
+import { CROWNS, MAP, NATION, NATIONS, REGION } from '../src/sim/content';
 import { newGame } from '../src/sim/state';
 import { K_MAX, clampView, rubber, rubberZoom } from '../src/ui/map/camera';
 import { COAST_CELLS, MAP_H, MAP_W, lineCells, nationArcs, regionAt } from '../src/ui/map/geometry';
@@ -256,5 +256,17 @@ describe('the realms\' colours', () => {
     expect(close).toEqual([]);
     expect(neighbours.size).toBeGreaterThan(100);
     for (const id of ids) expect({ id, paper: colorDistance(shown(id), PARCHMENT) > 0.05 }).toEqual({ id, paper: true });
+  });
+
+  test('a greater crown\'s colour stands apart from every realm but the one it takes after', () => {
+    const shown = (c: string) => mix(c, PARCHMENT, 0.12);
+    const close: string[] = [];
+    for (const c of CROWNS)
+      if (c.color)
+        for (const n of NATIONS) {
+          const d = colorDistance(shown(c.color), shown(n.color));
+          if (n.id !== c.inherits && d < 0.045) close.push(`${c.id}|${n.id} ${d.toFixed(3)}`);
+        }
+    expect(close).toEqual([]);
   });
 });

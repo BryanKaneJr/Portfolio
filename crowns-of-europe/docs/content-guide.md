@@ -282,3 +282,29 @@ nation sheet shows a crown's aims and bonds under "What they want". Titles at mo
 ```
 
 Checked for the player each month; `nations` limits one to specific starting nations.
+
+## Greater crowns (`formables.json`)
+
+```json
+{ "id": "SIC", "name": "Two Sicilies", "adj": "Sicilian", "color": "#4fa799", "inherits": "NAP",
+  "flag": { "pattern": "quarterly", "colors": ["#2a4c9c", "#e8c547"], "charge": "lis", "charge2": "eagle", "stylised": true },
+  "regions": ["naples", "apulia", "sicily"], "key": ["naples", "sicily"], "need": 3, "formers": ["NAP"],
+  "claims": ["sardinia", "romagna"], "mods": { "tradeIncome": 0.15 },
+  "bonus": "grain, silk and the Strait of Messina pay the crown.", "blurb": "…", "history": "…" }
+```
+
+- `id`: three capitals, never a nation tag. `name` drops a leading "the" (log lines start with it); `crowns.ts`
+  `THE` lists the crowns that read with "the" mid-sentence.
+- `color` (optional): its map colour; leave it out to keep the proclaimer's own. `inherits` (optional): the realm
+  whose colour it takes after; the crown's colour shows only if that realm proclaimed it or is gone. A crown colour
+  must be at least 0.045 (OKLab) from every realm's but its `inherits` (`tests/map.test.ts`).
+- `flag`: as a nation's (any pattern in `charges.ts`, including `tiercedPale`, three upright bands).
+- `regions`: its lands; `key`: those it cannot be proclaimed without; `need`: how many lands (at least the keys).
+- `formers`: who may proclaim it: nation tags, or smaller crowns (fewer lands) that lead on to it.
+- `from` (optional): the first year. `playerOnly` (optional): never proclaimed by the computer.
+- `claims` (optional): extra 25-year claims on proclaiming, beyond its own lands.
+- `mods`: one lasting bonus (modifier keys as in effects). `bonus`: the line shown after it, lower case.
+  `blurb`: what it is, in a sentence. `history`: the real story, in small print.
+- Achievements see a proclaimed crown as the nation flag `crown_<ID>` (`{ "nationFlag": "crown_SIC" }`).
+- The validator checks that lands, keys and claims exist, `need` is in range, formers are realms or smaller
+  crowns, the arms exist, and no crown without `from` can be proclaimed by a former on the first day.

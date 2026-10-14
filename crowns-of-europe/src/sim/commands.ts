@@ -22,6 +22,7 @@ import {
 } from './economy';
 import { doDiplomacy, type DiploAction, addOpinion } from './diplomacy';
 import { answerEvent } from './events';
+import { canProclaim, crownTitle, proclaim } from './crowns';
 import { log } from './log';
 import { addRegiments, findPath, mergeArmies, orderMove, splitArmy } from './military';
 import { completeMission } from './missions';
@@ -572,3 +573,11 @@ export function freeSubject(s: GameState, subject: string): Result {
 
 export const playerRegions = (s: GameState) => ownedRegions(s, s.player);
 export { allied };
+
+/** Proclaim a greater crown (crowns.ts): its name, arms and lasting bonus. */
+export function proclaimCrown(s: GameState, id: string): Result {
+  const why = canProclaim(s, s.player, id);
+  if (why) return no(why);
+  proclaim(s, s.player, id);
+  return ok(`Long live ${crownTitle(id)}!`);
+}

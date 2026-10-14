@@ -447,6 +447,33 @@ here.
     truces and their end, rivals both ways, old friends and old foes with the bond's name, the coalition you are
     in). The figures come from one pure function, `diplomaticTies` (src/sim/ties.ts), tested on the 1444 start.
 
+## Greater crowns (`formables.json`, `sim/crowns.ts`)
+
+The owner's favourite thing in this kind of game: Naples becomes the Two Sicilies, then Italy, then, with luck, the
+Roman Empire. There are 28 greater crowns, by region (Spain for the Iberians, Russia for the Rus', Romania for
+Wallachia and Moldavia, Mexico for the Aztecs and their neighbours, and so on), so every realm but the Haudenosaunee
+has one to aim at.
+
+- **Who may proclaim:** each crown lists its formers: nation tags, or smaller crowns that lead on to it. Before any
+  crown, a realm uses its own tag; after one, only its crown counts. So a crown leads on only to a bigger crown that
+  names it (Naples → Two Sicilies → Italy → Roman Empire), and the Ottomans can never proclaim Greece.
+- **When:** at peace, no one's subject, order 0 or better, the year at least the crown's `from`, holding every key
+  region and `need` of its lands. Lands held by junior partners in a shared crown count (never the player's lands for
+  a computer realm). Each crown is proclaimed once a game.
+- **What it does:** the realm takes the crown's name, adjective and arms, and usually its colour (a crown with
+  `inherits: X` shows its own colour only when X proclaimed it or is gone, so two living realms never share one). It
+  gains a permanent modifier (a chain's bonuses stack), +20 renown, 25-year claims on the lands it still lacks plus
+  the crown's extra `claims` (the Two Sicilies: Sardinia and the Romagna; Italy: Constantinople), and its junior
+  partners holding the crown's lands are joined to it (never a player). Ruler, treasury and capital stay. Nothing
+  else changes: the tag, its missions, aims and events are the realm's own.
+- **The computer** proclaims every January, realms in id order, the first crown in file order it may: no randomness,
+  at most one a year. The Roman Empire and Francia are for players only. The player is told once, as important news,
+  when a crown comes within reach, and proclaims it from Realm → Greater crowns.
+- **Measured** (`scripts/dev/crowns.ts 56 1`, before the history events): Golden Horde (Crimea) 1467, Russia 1471,
+  Spain (Castile) 1476, the Two Sicilies (Naples) 1481, Scandinavia and Persia 1500: six by 1500.
+- **Shown** through the display layer (`displayIn`/`nationName`/`nationAdj`/`nationFlag` in `content.ts`), so log
+  lines, war names, map labels, colours and arms all follow the crown; nothing stores the old name.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
