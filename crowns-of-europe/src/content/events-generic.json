@@ -535,7 +535,7 @@
     "text": "Knights from across the land, and a few famous champions from abroad, ask you to proclaim a great tournament. There would be jousts, melees and feasting for a week, and every noble house would want a seat in the stands.",
     "image": "horse",
     "mtth": 150,
-    "trigger": { "all": [{ "gov": "monarchy" }, { "not": { "atWar": true } }, { "year": [1444, 1620] }] },
+    "trigger": { "all": [{ "native": false }, { "gov": "monarchy" }, { "not": { "atWar": true } }, { "year": [1444, 1620] }] },
     "choices": [
       { "text": "Proclaim a tournament worthy of legend", "effects": [{ "goldPerDev": -1.5 }, { "prestige": 10 }, { "unrestAll": -1 }] },
       {
@@ -1017,7 +1017,7 @@
     "text": "Scholars and doctors of law petition you to found a university in your capital. They promise lawyers for your courts, physicians for your household and learned clerks for your chancery. They need buildings, salaries and a charter under your seal.",
     "image": "book",
     "mtth": 240,
-    "trigger": { "all": [{ "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "gen_university_founded" } }] },
+    "trigger": { "all": [{ "native": false }, { "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "gen_university_founded" } }] },
     "choices": [
       {
         "text": "Endow it generously",
@@ -1312,7 +1312,7 @@
     "window": [1455, 1560],
     "mtth": 72,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_printing_press" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_printing_press" } }] },
     "choices": [
       {
         "text": "Grant the printers your privilege",
@@ -1350,7 +1350,7 @@
     "window": [1444, 1520],
     "mtth": 72,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_gunfounders" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_gunfounders" } }] },
     "choices": [
       {
         "text": "Cast a train of siege bombards",
@@ -1387,7 +1387,7 @@
     "window": [1444, 1530],
     "mtth": 72,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_plate_armour" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_plate_armour" } }] },
     "choices": [
       {
         "text": "Subsidise armour for your knights",
@@ -1416,7 +1416,7 @@
     "window": [1444, 1530],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "gov": "monarchy" }, { "not": { "nationFlag": "era_chivalric_order" } }] },
+    "trigger": { "all": [{ "native": false }, { "gov": "monarchy" }, { "not": { "nationFlag": "era_chivalric_order" } }] },
     "choices": [
       {
         "text": "Found an order of royal knights",
@@ -1448,7 +1448,7 @@
     "window": [1450, 1540],
     "mtth": 84,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_humanists" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_humanists" } }] },
     "choices": [
       {
         "text": "Hire them for your chancery",
@@ -1479,7 +1479,7 @@
     "window": [1460, 1560],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_new_painters" } }] },
+    "trigger": { "all": [{ "native": false }, { "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_new_painters" } }] },
     "choices": [
       { "text": "Commission a great fresco cycle", "effects": [{ "goldPerDev": -2 }, { "prestige": 15 }, { "setNationFlag": "era_new_painters" }] },
       {
@@ -1502,7 +1502,7 @@
     "window": [1470, 1530],
     "mtth": 84,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_walls_against_cannon" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_walls_against_cannon" } }] },
     "choices": [
       {
         "text": "Fund a trial bastion",
@@ -1532,7 +1532,7 @@
     "window": [1444, 1510],
     "mtth": 84,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_free_companies" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_free_companies" } }] },
     "choices": [
       {
         "text": "Take them into permanent service",
@@ -1562,7 +1562,7 @@
     "window": [1444, 1530],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_caravel" } }] },
+    "trigger": { "all": [{ "native": false }, { "coastal": true }, { "not": { "nationFlag": "era_caravel" } }] },
     "choices": [
       {
         "text": "Fund voyages of exploration",
@@ -1592,7 +1592,7 @@
     "window": [1444, 1530],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "faith": "catholic" }, { "not": { "isNation": "PAP" } }, { "exists": "TUR" }, { "not": { "nationFlag": "era_crusade_call" } }] },
+    "trigger": { "all": [{ "native": false }, { "faith": "catholic" }, { "not": { "isNation": "PAP" } }, { "exists": "TUR" }, { "not": { "nationFlag": "era_crusade_call" } }] },
     "choices": [
       {
         "text": "Take the cross",
@@ -1626,7 +1626,7 @@
     "mtth": 3,
     "once": true,
     "news": "Word spreads of a realm whose pike squares are the most modern army in Europe.",
-    "trigger": { "eraAtLeast": 2 },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 2 }] },
     "choices": [
       { "text": "Show them off in a grand review", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
       { "text": "Hire out your drillmasters", "effects": [{ "goldPerDev": 1.5 }, { "prestige": 5 }] }
@@ -1641,7 +1641,7 @@
     "window": [1520, 1630],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_price_revolution" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_price_revolution" } }] },
     "choices": [
       {
         "text": "Reassess every tax in coin",
@@ -1678,7 +1678,7 @@
     "window": [1500, 1640],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "nationFlag": "era_trace_italienne" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 2 }, { "not": { "nationFlag": "era_trace_italienne" } }] },
     "choices": [
       {
         "text": "Ring your frontier with star forts",
@@ -1708,7 +1708,7 @@
     "window": [1500, 1620],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "hasPolicy": "standing_army" } }, { "not": { "nationFlag": "era_soldiers_who_stay" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 2 }, { "not": { "hasPolicy": "standing_army" } }, { "not": { "nationFlag": "era_soldiers_who_stay" } }] },
     "choices": [
       {
         "text": "Raise permanent companies",
@@ -1730,7 +1730,7 @@
     "window": [1500, 1620],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_navigation" } }] },
+    "trigger": { "all": [{ "native": false }, { "coastal": true }, { "not": { "nationFlag": "era_navigation" } }] },
     "choices": [
       {
         "text": "Found a school for pilots",
@@ -1759,7 +1759,7 @@
     "window": [1517, 1650],
     "mtth": 60,
     "once": false,
-    "trigger": { "all": [{ "faith": "catholic" }, { "flag": "reformation" }, { "any": [{ "hreMember": true }, { "ownsAny": ["london", "wessex", "midlands", "yorkshire", "wales", "lowlands", "highlands", "jutland", "zealand", "scania", "norway", "svealand", "gotaland", "finland", "prussia", "livonia", "danzig", "pomerania", "holstein", "brandenburg", "saxony", "bohemia", "moravia", "silesia"] }] }, { "not": { "nationFlag": "era_reformers_in_pulpits" } }] },
+    "trigger": { "all": [{ "native": false }, { "faith": "catholic" }, { "flag": "reformation" }, { "any": [{ "hreMember": true }, { "ownsAny": ["london", "wessex", "midlands", "yorkshire", "wales", "lowlands", "highlands", "jutland", "zealand", "scania", "norway", "svealand", "gotaland", "finland", "prussia", "livonia", "danzig", "pomerania", "holstein", "brandenburg", "saxony", "bohemia", "moravia", "silesia"] }] }, { "not": { "nationFlag": "era_reformers_in_pulpits" } }] },
     "choices": [
       {
         "text": "Burn their books and silence them",
@@ -1801,7 +1801,7 @@
     "window": [1540, 1680],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "faith": "catholic" }, { "not": { "nationFlag": "era_jesuit_colleges" } }] },
+    "trigger": { "all": [{ "native": false }, { "faith": "catholic" }, { "not": { "nationFlag": "era_jesuit_colleges" } }] },
     "choices": [
       {
         "text": "Invite them to found colleges",
@@ -1833,7 +1833,7 @@
     "window": [1563, 1640],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "faith": "catholic" }, { "flag": "reformation" }, { "not": { "nationFlag": "era_council_decrees" } }] },
+    "trigger": { "all": [{ "native": false }, { "faith": "catholic" }, { "flag": "reformation" }, { "not": { "nationFlag": "era_council_decrees" } }] },
     "choices": [
       {
         "text": "Publish and enforce the decrees",
@@ -1864,7 +1864,7 @@
     "window": [1530, 1640],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 2 }, { "not": { "nationFlag": "era_military_revolution" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 2 }, { "not": { "nationFlag": "era_military_revolution" } }] },
     "choices": [
       {
         "text": "Expand recruitment everywhere",
@@ -1900,7 +1900,7 @@
     "window": [1500, 1620],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_palace_architects" } }] },
+    "trigger": { "all": [{ "native": false }, { "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_palace_architects" } }] },
     "choices": [
       {
         "text": "Build a palace in the new style",
@@ -1924,7 +1924,7 @@
     "window": [1500, 1620],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_postal_service" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_postal_service" } }] },
     "choices": [
       {
         "text": "Grant the couriers a monopoly",
@@ -1955,7 +1955,7 @@
     "mtth": 3,
     "once": true,
     "news": "Word spreads of a realm whose musketeers and field guns have rewritten the art of war.",
-    "trigger": { "eraAtLeast": 3 },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 3 }] },
     "choices": [
       { "text": "Hold a great review for the envoys", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
       {
@@ -1975,7 +1975,7 @@
     "window": [1575, 1690],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 3 }, { "not": { "nationFlag": "era_volley_drill" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 3 }, { "not": { "nationFlag": "era_volley_drill" } }] },
     "choices": [
       {
         "text": "Drill the whole army the new way",
@@ -2003,7 +2003,7 @@
     "window": [1580, 1670],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "not": { "nationFlag": "era_witch_craze" } }] },
+    "trigger": { "all": [{ "native": false }, { "not": { "faith": "muslim" } }, { "not": { "nationFlag": "era_witch_craze" } }] },
     "choices": [
       {
         "text": "Let the courts root out the witches",
@@ -2048,7 +2048,7 @@
     "window": [1590, 1700],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_exchange_bank" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_exchange_bank" } }] },
     "choices": [
       {
         "text": "Charter a public bank",
@@ -2100,7 +2100,7 @@
     "window": [1575, 1700],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 3 }, { "not": { "nationFlag": "era_secretaries_of_state" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 3 }, { "not": { "nationFlag": "era_secretaries_of_state" } }] },
     "choices": [
       {
         "text": "Create permanent ministries",
@@ -2130,7 +2130,7 @@
     "window": [1600, 1720],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_music_drama" } }] },
+    "trigger": { "all": [{ "native": false }, { "not": { "faith": "muslim" } }, { "capitalDevAtLeast": 5 }, { "not": { "nationFlag": "era_music_drama" } }] },
     "choices": [
       {
         "text": "Build a court theatre",
@@ -2162,7 +2162,7 @@
     "window": [1590, 1680],
     "mtth": 60,
     "once": false,
-    "trigger": { "all": [{ "atWar": true }, { "eraAtLeast": 3 }, { "not": { "nationFlag": "era_war_contractor" } }] },
+    "trigger": { "all": [{ "native": false }, { "atWar": true }, { "eraAtLeast": 3 }, { "not": { "nationFlag": "era_war_contractor" } }] },
     "choices": [
       {
         "text": "Accept his offer",
@@ -2194,7 +2194,7 @@
     "window": [1560, 1660],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "any": [{ "faith": "catholic" }, { "faith": "protestant" }] }, { "flag": "reformation" }, { "faithRegionsAtLeast": { "faith": "protestant", "count": 10 } }, { "not": { "nationFlag": "era_divided_by_faith" } }] },
+    "trigger": { "all": [{ "native": false }, { "any": [{ "faith": "catholic" }, { "faith": "protestant" }] }, { "flag": "reformation" }, { "faithRegionsAtLeast": { "faith": "protestant", "count": 10 } }, { "not": { "nationFlag": "era_divided_by_faith" } }] },
     "choices": [
       {
         "text": "Proclaim a peace of religion",
@@ -2224,7 +2224,7 @@
     "window": [1630, 1680],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_peace_congress" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_peace_congress" } }] },
     "choices": [
       {
         "text": "Send a grand embassy",
@@ -2253,7 +2253,7 @@
     "window": [1610, 1700],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_telescope" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_telescope" } }] },
     "choices": [
       {
         "text": "Fund an observatory",
@@ -2276,7 +2276,7 @@
     "mtth": 3,
     "once": true,
     "news": "One European realm has fielded the first army of line infantry, and the rest of the continent hurries to follow.",
-    "trigger": { "eraAtLeast": 4 },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 4 }] },
     "choices": [
       { "text": "Parade it before the ambassadors", "effects": [{ "prestige": 15 }, { "threat": 5 }] },
       {
@@ -2297,7 +2297,7 @@
     "window": [1660, 1750],
     "mtth": 96,
     "once": false,
-    "trigger": { "all": [{ "gov": "monarchy" }, { "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_great_palace" } }] },
+    "trigger": { "all": [{ "native": false }, { "gov": "monarchy" }, { "capitalDevAtLeast": 6 }, { "not": { "nationFlag": "era_great_palace" } }] },
     "choices": [
       {
         "text": "Build it and summon the nobles to court",
@@ -2321,7 +2321,7 @@
     "window": [1650, 1750],
     "mtth": 84,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_coffee_houses" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_coffee_houses" } }] },
     "choices": [
       {
         "text": "Let them flourish",
@@ -2344,7 +2344,7 @@
     "window": [1690, 1750],
     "mtth": 84,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_salons" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_salons" } }] },
     "choices": [
       {
         "text": "Become their patron",
@@ -2368,7 +2368,7 @@
     "window": [1660, 1750],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_academy_of_sciences" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_academy_of_sciences" } }] },
     "choices": [
       {
         "text": "Found and fund the academy",
@@ -2397,7 +2397,7 @@
     "window": [1660, 1750],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_great_canal" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_great_canal" } }] },
     "choices": [
       {
         "text": "Dig the canal",
@@ -2428,7 +2428,7 @@
     "window": [1650, 1750],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "coastal": true }, { "not": { "nationFlag": "era_chartered_company" } }] },
+    "trigger": { "all": [{ "native": false }, { "coastal": true }, { "not": { "nationFlag": "era_chartered_company" } }] },
     "choices": [
       {
         "text": "Grant the charter",
@@ -2464,7 +2464,7 @@
     "image": "coins",
     "once": false,
     "hidden": true,
-    "trigger": { "chance": 0.7 },
+    "trigger": { "all": [{ "native": false }, { "chance": 0.7 }] },
     "choices": [
       { "text": "Take the profits", "effects": [{ "goldPerDev": 4 }] },
       {
@@ -2485,7 +2485,7 @@
     "window": [1650, 1750],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 4 }, { "not": { "nationFlag": "era_officer_school" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 4 }, { "not": { "nationFlag": "era_officer_school" } }] },
     "choices": [
       {
         "text": "Found a cadet academy",
@@ -2514,7 +2514,7 @@
     "window": [1680, 1750],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_census" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_census" } }] },
     "choices": [
       {
         "text": "Order a full census",
@@ -2543,7 +2543,7 @@
     "window": [1650, 1750],
     "mtth": 96,
     "once": false,
-    "trigger": { "not": { "nationFlag": "era_manufactories" } },
+    "trigger": { "all": [{ "native": false }, { "not": { "nationFlag": "era_manufactories" } }] },
     "choices": [
       {
         "text": "Found state manufactories",
@@ -2571,7 +2571,7 @@
     "window": [1680, 1750],
     "mtth": 84,
     "once": false,
-    "trigger": { "all": [{ "eraAtLeast": 4 }, { "not": { "nationFlag": "era_socket_bayonet" } }] },
+    "trigger": { "all": [{ "native": false }, { "eraAtLeast": 4 }, { "not": { "nationFlag": "era_socket_bayonet" } }] },
     "choices": [
       {
         "text": "Re-arm the entire army at once",

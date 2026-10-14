@@ -242,7 +242,7 @@ export function SeaSheet({ id }: { id: string }) {
   const st = useStore();
   const s = st.state!;
   const fleets = Object.values(s.fleets).filter(f => f.sea === id && seesUnit(s, s.player, f.owner, id));
-  if (!charted(s, id)) return <UnchartedSheet />;
+  if (!charted(s, id, s.player)) return <UnchartedSheet />;
   const def = SEA[id];
   return (
     <Sheet

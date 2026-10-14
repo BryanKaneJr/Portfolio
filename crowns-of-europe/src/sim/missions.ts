@@ -1,14 +1,29 @@
 /** Mission trees: concrete goals per nation with rewards. The player claims rewards; the AI does it automatically. */
-import { MISSIONS } from './content';
+import { MISSIONS, isNativeNation } from './content';
 import { log } from './log';
 import { applyEffects, evalCondition } from './events';
 import type { GameState, MissionDef, NationId } from './types';
 
 export type MissionState = 'done' | 'ready' | 'active' | 'locked';
 
+const GENERIC = MISSIONS.filter(m => m.nation === 'generic');
+/** Generic missions a New World people cannot finish (it makes no treaties and plants no colonies). */
+const NOT_NATIVE = new Set([
+  'gen_friends_abroad',
+  'gen_the_western_sea',
+  'gen_a_colony_overseas',
+  'gen_riches_of_the_indies',
+]);
+/** The rest, with no lock pointing at a dropped one (A Name Abroad no longer waits on Friends Abroad). */
+const NATIVE_GENERIC = GENERIC.filter(m => !NOT_NATIVE.has(m.id)).map(m => ({
+  ...m,
+  requires: m.requires.filter(r => !NOT_NATIVE.has(r)),
+}));
+
 export function missionsFor(n: NationId): MissionDef[] {
   const own = MISSIONS.filter(m => m.nation === n);
-  return own.length ? own : MISSIONS.filter(m => m.nation === 'generic');
+  if (own.length) return own;
+  return isNativeNation(n) ? NATIVE_GENERIC : GENERIC;
 }
 
 export function missionState(s: GameState, n: NationId, m: MissionDef): MissionState {

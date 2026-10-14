@@ -127,6 +127,7 @@ export const FIELDS: AdvanceDef['field'][] = ['war', 'sea', 'state'];
 export const track = (field: AdvanceDef['field']) => ADVANCES.filter(a => a.field === field).sort((a, b) => a.year - b.year);
 
 export function availableAdvances(s: GameState, n: NationId): AdvanceDef[] {
+  if (!studies(s, n)) return [];
   const nat = s.nations[n];
   return ADVANCES.filter(a => !knows(nat, a.id) && a.requires.every(r => knows(nat, r)));
 }

@@ -111,7 +111,10 @@ export function discoverNewWorld(s: GameState, by: NationId | null): void {
   }
   const who = by ? `${nationName(by)}’s expedition has` : 'Pilots and fishermen have';
   log(s, 'colony', `${who} found land across the Atlantic: a New World! Colonists can now sail west.`, { important: true, nation: by ?? undefined });
-  if (!s.pendingEvents.some(e => e.event === 'new_world')) s.pendingEvents.push({ event: 'new_world', nation: s.player, day: s.day });
+  // A New World people hears of the strangers instead of counting colonists.
+  const card = isNativeNation(s.player) ? 'nw_strangers_from_the_sea' : 'new_world';
+  if (card !== 'new_world') s.nations[s.player].flags.nw_strangers_seen = s.day;
+  if (!s.pendingEvents.some(e => e.event === card)) s.pendingEvents.push({ event: card, nation: s.player, day: s.day });
   requestPause(s, 'event');
 }
 
@@ -141,7 +144,8 @@ export const homeDev = (s: GameState, n: NationId) => ownedRegions(s, n).reduce(
 export const colonistsOf = (s: GameState, n: NationId) => colonistSources(s, n).reduce((t, p) => t + p.value, 0);
 /** Does colonizing concern `n` at all: colonists, colonies or New World land, or an ocean coast and Caravels? */
 export const colonialCrown = (s: GameState, n: NationId) =>
-  colonistsOf(s, n) > 0 || coloniesOf(s, n).length > 0 || newWorldRegions(s, n).length > 0 || (hasOceanCoast(s, n) && unlocked(s, n, 'coastColonies'));
+  !isNativeNation(n) &&
+  (colonistsOf(s, n) > 0 || coloniesOf(s, n).length > 0 || newWorldRegions(s, n).length > 0 || (hasOceanCoast(s, n) && unlocked(s, n, 'coastColonies')));
 /** A nation's colonies being settled. */
 export const coloniesOf = (s: GameState, n: NationId): Region[] => Object.values(s.regions).filter(r => r.colony?.by === n);
 /** A nation's founded New World regions its colonists are growing (one lost in a peace frees its colonist at once). */

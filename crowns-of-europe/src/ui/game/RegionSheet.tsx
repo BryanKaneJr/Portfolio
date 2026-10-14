@@ -41,7 +41,7 @@ export function RegionSheet({ id }: { id: string }) {
   const me = s.nations[s.player];
   const mine = r.owner === s.player;
   const [why, setWhy] = useState<null | 'unrest' | 'income'>(null);
-  if (!charted(s, id)) return <UnchartedSheet />;
+  if (!charted(s, id, s.player)) return <UnchartedSheet />;
   if (!r.owner) return <WildSheet id={id} />;
   const owner = r.owner;
   const tax = regionTax(s, r);
