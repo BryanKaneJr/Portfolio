@@ -8,7 +8,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
-import { REPARATIONS_YEARS, ULTIMATUM_SCORE, humbleRenown, peaceCost, scoreFor, truceYears, ultimatumTerms } from '../../sim/war';
+import { REPARATIONS_YEARS, ULTIMATUM_SCORE, humbleGain, humbleRenown, peaceCost, scoreFor, truceYears, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate, formatShortDate } from '../../sim/util';
@@ -119,7 +119,7 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
           ))}
           {t.gold ? <Line label={youWin ? 'They pay you' : 'You pay'} value={`${t.gold} gold`} tone={youWin ? 'good' : 'bad'} /> : null}
           {!t.white && t.vassalize ? <Line label={youWin ? `${nationName(t.loser)} becomes` : 'You become'} value={youWin ? 'your vassal' : `${nationName(t.winner)}’s vassal`} tone={youWin ? 'good' : 'bad'} /> : null}
-          {!t.white && t.humble ? <Line label={youWin ? 'They are humbled' : 'You are humbled'} value={`renown ${youWin ? '+' : '−'}${humbleRenown(s, t.winner, t.loser)}`} tone={youWin ? 'good' : 'bad'} /> : null}
+          {!t.white && t.humble ? <Line label={youWin ? 'They are humbled' : 'You are humbled'} value={youWin ? `renown +${humbleGain(s, t.winner, t.loser)}` : `renown −${humbleRenown(s, t.winner, t.loser)}`} tone={youWin ? 'good' : 'bad'} /> : null}
           {!t.white && t.reparations && !t.vassalize ? (
             <Line label={youWin ? 'They pay you a tenth of their income' : 'You pay a tenth of your income'} value={`${REPARATIONS_YEARS} years`} tone={youWin ? 'good' : 'bad'} />
           ) : null}

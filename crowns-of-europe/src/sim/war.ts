@@ -67,6 +67,12 @@ export const REPARATIONS_YEARS = 10;
 export const reparationsCost = (s: GameState, loser: NationId) => clamp(Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS / 10), 5, 25);
 /** Renown a humbled loser gives up (and the winner gains before its own bonus). */
 export const humbleRenown = (s: GameState, winner: NationId, loser: NationId) => HUMBLE_RENOWN + (s.nations[winner]?.rivals.includes(loser) ? HUMBLE_RIVAL : 0);
+/** Renown the winner gains by humbling the loser: humbleRenown with its own bonus to renown gained. */
+export const humbleGain = (s: GameState, winner: NationId, loser: NationId) => Math.round(humbleRenown(s, winner, loser) * (1 + nationMods(s, winner).prestigeGain));
+/** Only a free realm pays reparations: a subject's would end at once (economy.ts reparationsOf). */
+export const canPayReparations = (s: GameState, loser: NationId) => !!s.nations[loser]?.alive && !s.nations[loser].overlord;
+/** Reparations count in these terms: asked of a free realm, and not of one made a vassal (it pays tribute instead). */
+const reparationsIn = (s: GameState, t: PeaceTerms) => !!t.reparations && !t.vassalize && canPayReparations(s, t.loser);
 /** Dev-only counters (scripts/dev): AI peaces that are not white, and those that humble or ask reparations. */
 export const COUNTS = { peaces: 0, humbled: 0, reparations: 0 };
 
@@ -416,7 +422,7 @@ export function peaceCost(s: GameState, terms: PeaceTerms): number {
   }
   c += Math.round(terms.gold / 10);
   if (terms.humble) c += HUMBLE_COST;
-  if (terms.reparations && !terms.vassalize) c += reparationsCost(s, terms.loser);
+  if (reparationsIn(s, terms)) c += reparationsCost(s, terms.loser);
   for (const n of terms.release) {
     if (s.nations[n]?.overlord === terms.loser) c += 25;
     else c += 10 + Object.values(s.regions).filter(r => r.owner === terms.loser && r.cores.includes(n)).reduce((t, r) => t + r.dev * 1.5, 0);
@@ -466,7 +472,7 @@ function worthwhile(s: GameState, w: War, winner: NationId, r: RegionId): string
 export function offerValue(s: GameState, w: War, terms: PeaceTerms): number {
   let v = 0;
   for (const r of terms.regions) if (s.regions[r]?.owner === terms.loser) v += concessionValue(s, w, terms.winner, r).value;
-  if (terms.reparations && !terms.vassalize) v += reparationsCost(s, terms.loser);
+  if (reparationsIn(s, terms)) v += reparationsCost(s, terms.loser);
   return Math.round(v + Math.min(terms.gold, Math.max(0, s.nations[terms.loser]?.gold ?? 0)) / 10);
 }
 
@@ -605,11 +611,12 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
       if (L) L.prestige = clamp(L.prestige - base, 0, 100);
     }
     // A vassal pays tribute instead; a realm the peace ended pays nothing. One at a time: a new one replaces the old.
-    if (terms.reparations && !terms.vassalize && L?.alive) L.reparations = { to: winner, until: s.day + years(REPARATIONS_YEARS) };
+    const reparations = !!L && reparationsIn(s, terms);
+    if (reparations) L.reparations = { to: winner, until: s.day + years(REPARATIONS_YEARS) };
     if (winner !== s.player && loser !== s.player) {
       COUNTS.peaces++;
       if (terms.humble) COUNTS.humbled++;
-      if (terms.reparations && !terms.vassalize) COUNTS.reparations++;
+      if (reparations) COUNTS.reparations++;
     }
     W.record.warsWon++;
     if (L) L.record.warsLost++;
@@ -627,7 +634,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
   if (!terms.white && terms.humble) parts.push(`${nationName(loser)} is humbled`);
-  if (!terms.white && terms.reparations && !terms.vassalize) parts.push(`${nationName(loser)} pays reparations`);
+  if (!terms.white && reparationsIn(s, terms)) parts.push(`${nationName(loser)} pays reparations`);
   if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
   if (all.includes(s.player)) {
     const mine = winner === s.player || winners.includes(s.player);
@@ -662,8 +669,8 @@ function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<ty
   if (!terms.white && terms.vassalize) lines.push(terms.winner === p ? `${nationName(terms.loser)} becomes our vassal.` : `${nationName(terms.loser)} becomes a vassal.`);
   for (const n of terms.white ? [] : terms.release) lines.push(`${nationName(n)} is freed.`);
   if (!terms.white && terms.humble) lines.push(terms.winner === p ? 'They are humbled.' : terms.loser === p ? 'We are humbled.' : `${nationName(terms.loser)} is humbled.`);
-  const rep = !terms.white && terms.reparations && !terms.vassalize ? s.nations[terms.loser]?.reparations : undefined;
-  if (rep) {
+  const rep = !terms.white && terms.reparations ? s.nations[terms.loser]?.reparations : undefined;
+  if (rep && rep.to === terms.winner && rep.until === s.day + years(REPARATIONS_YEARS)) {
     const until = yearOf(rep.until);
     lines.push(terms.winner === p ? `They pay us a tenth of their income until ${until}.` : terms.loser === p ? `We pay a tenth of our income until ${until}.` : `${nationName(terms.loser)} pays a tenth of its income until ${until}.`);
   }
@@ -752,7 +759,7 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   if (terms.vassalize || only) return terms;
   left -= Math.round(terms.gold / 10);
   const rc = reparationsCost(s, loser);
-  if (left >= rc && terms.gold < 50 && incomeBase(s, loser) >= 2) {
+  if (left >= rc && terms.gold < 50 && incomeBase(s, loser) >= 2 && canPayReparations(s, loser)) {
     terms.reparations = true;
     left -= rc;
   }

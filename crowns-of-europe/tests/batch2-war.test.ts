@@ -5,10 +5,14 @@ import {
   HUMBLE_COST,
   REPARATIONS_SHARE,
   buildDemands,
+  canPayReparations,
   declareWar,
   fitTerms,
+  humbleGain,
   humbleRenown,
+  joinWar,
   makePeace,
+  offerValue,
   peaceAcceptance,
   peaceCost,
   reparationsCost,
@@ -138,6 +142,29 @@ describe('storm the walls: the roll', () => {
     expect(s.stats.menLost - lost).toBe(1500);
     expect(reg.siege!.stormed).toBe(s.day);
     expect(stormWalls(s, 'burgundy').ok).toBe(false);
+  });
+
+  test('the toast counts the men who fell, fewer when the regiments are short of men', () => {
+    const { s, a } = siegeAt(2, 8, 0, 0.5, 40, 'FRA');
+    a.regs.inf.men = 1000; // eight regiments with 1,000 men between them
+    forceRoll(s, stormOdds(s, 'burgundy')!.chance, false);
+    expect(stormWalls(s, 'burgundy').msg).toBe('Thrown back from the walls (−1,000 men).');
+    expect(armyMen(a)).toBe(0);
+  });
+
+  test('an ally leading the storm tells the player of the men it cost them', () => {
+    const { s, reg } = siegeAt(2, 6, 0, 0.5, 40, 'SCO');
+    // Scotland, France's ally, fights beside it.
+    s.alliances['FRA|SCO'] = 0;
+    expect(joinWar(s, 'SCO', Object.keys(s.wars)[0], 0)).toBe(true);
+    const mine = army(s, 'SCO', 'burgundy', 2);
+    expect(stormOdds(s, 'burgundy')!.by).toBe('FRA');
+    forceRoll(s, stormOdds(s, 'burgundy')!.chance, false);
+    expect(storm(s, 'burgundy')).toBe('lost');
+    expect(reg.siege!.stormed).toBe(s.day);
+    expect(armyMen(mine)).toBe(2000 - 375);
+    expect(s.log[0].text).toBe('France storms the walls of Burgundy and is thrown back (−375 of your men).');
+    expect(s.log[0].important).toBe(true);
   });
 
   test('the player may not storm a siege someone else leads', () => {
@@ -275,6 +302,36 @@ describe('reparations', () => {
     const lim = buildDemands(s, w, 'FRA', 60);
     expect(lim.reparations).toBeFalsy();
     expect(lim.humble).toBeFalsy();
+  });
+});
+
+describe('the extras: limits and the shown sums', () => {
+  test('a subject pays no reparations: not priced, not asked, not offered, not set', () => {
+    const { s, w } = warFraBur();
+    s.nations.BUR.gold = 0;
+    s.nations.FRA.rivals = [];
+    expect(canPayReparations(s, 'BUR')).toBe(true);
+    s.nations.BUR.overlord = 'HAB';
+    expect(canPayReparations(s, 'BUR')).toBe(false);
+    expect(peaceCost(s, deal({ gold: 10, reparations: true }))).toBe(peaceCost(s, deal({ gold: 10 })));
+    expect(offerValue(s, w, deal({ reparations: true }))).toBe(0);
+    expect(buildDemands(s, w, 'FRA', 60).reparations).toBeFalsy();
+    makePeace(s, w, deal({ gold: 10, reparations: true }));
+    expect(s.nations.BUR.reparations).toBeUndefined();
+  });
+
+  test('the renown shown for humbling is the renown gained', () => {
+    const { s, w } = warFraBur();
+    s.nations.FRA.prestige = 0;
+    s.nations.FRA.rivals = [];
+    const shown = humbleGain(s, 'FRA', 'BUR');
+    makePeace(s, w, deal({ gold: 10 }));
+    const plain = s.nations.FRA.prestige;
+    const again = warFraBur();
+    again.s.nations.FRA.prestige = 0;
+    again.s.nations.FRA.rivals = [];
+    makePeace(again.s, again.w, deal({ gold: 10, humble: true }));
+    expect(Math.round(again.s.nations.FRA.prestige - plain)).toBe(shown);
   });
 });
 

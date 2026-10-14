@@ -647,14 +647,18 @@ Three war ideas, each one button or one checkbox with its price shown before the
   - **AI:** monthly, on each fort it besieges, when the odds reach 75% (`AI_STORM_CHANCE`). With no guns that needs
     spare regiments or a general and a siege nearly done; with five guns about half done.
 - **Humble them** (`war.ts HUMBLE_COST` 15%, `HUMBLE_RENOWN` 15, +5 against a rival). A checkbox at the peace table
-  (demand only). The winner gains it times `1 + prestigeGain`, the loser loses it, on top of a won war's +10/−10.
+  (demand only). The winner gains it times `1 + prestigeGain` (`humbleGain`, the figure the table and the offer card
+  show), the loser loses it, on top of a won war's +10/−10.
 - **Reparations** (`war.ts reparationsCost`, `economy.ts REPARATIONS_SHARE`, `reparationsOf`). A checkbox at the peace
   table, demanded or offered ("Pay reparations"), hidden while "Make them your vassal" is ticked (a vassal pays
   tribute). The loser pays a tenth of its taxes, trade and exports to the winner for 10 years (`Nation.reparations`):
   an expense line for the payer, an income line for the receiver. Its price is the gold rule on what it pays
   (1.2% per gold of monthly income), 5% to 25%. One at a time: a new one replaces the old. It ends on its day, when
   either crown is gone, when the payer becomes anyone's subject, or in a war between the two (checked monthly, and
-  by the ledger).
+  by the ledger). A subject pays none (`canPayReparations`): it is not priced, offered, asked or set, since it would
+  end at once.
+- **An ally's storm.** The siege's leader decides; men fall from every besieging army, so when an ally's storm costs
+  the player men, the log says how many. The player's own toast counts the men who actually fell.
 - **AI peace terms** (`buildDemands`): vassals are decided first, as before. Then, with leverage left after land and
   gold, reparations (loser's income 2 or more, under 50 gold asked), then humbling a rival. **Never in a limited war**
   won by its attackers: Help promises the player such a war takes "only that region (and gold)". An ultimatum

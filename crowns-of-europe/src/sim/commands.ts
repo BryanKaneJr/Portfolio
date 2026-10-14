@@ -28,7 +28,7 @@ import { addRegiments, findPath, mergeArmies, orderMove, splitArmy } from './mil
 import { completeMission } from './missions';
 import { findSeaPath } from './navy';
 import { attackOdds } from './forecast';
-import { storm, stormOdds } from './siege';
+import { siegeInfo, storm, stormOdds } from './siege';
 import {
   allied,
   armyMen,
@@ -505,10 +505,13 @@ export function stormWalls(s: GameState, region: string): Result {
   const o = stormOdds(s, region);
   if (!o || o.by !== s.player) return no('You are not besieging it.');
   if (o.blocked) return no(`${o.blocked}.`);
-  const men = o.men.toLocaleString();
   const name = regionName(region);
+  // The men who fell: stormOdds' figure, or fewer when the besiegers' regiments are short of men.
+  const armies = siegeInfo(s, region)?.besiegers ?? [];
+  const before = armies.reduce((t, a) => t + armyMen(a), 0);
   const result = storm(s, region);
   if (!result) return no('The walls can’t be stormed now.');
+  const men = (before - armies.reduce((t, a) => t + armyMen(a), 0)).toLocaleString();
   return result === 'won' ? ok(`The walls are stormed! ${name} falls (−${men} men).`) : ok(`Thrown back from the walls (−${men} men).`);
 }
 

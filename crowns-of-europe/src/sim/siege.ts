@@ -199,18 +199,22 @@ export function storm(s: GameState, r: RegionId): 'won' | 'lost' | null {
   COUNTS.men += total;
   const name = REGION[r].name;
   const by = info.by;
+  // An ally leading the siege spends the player's men beside its own: say so.
+  const mine = by !== s.player ? (lost.get(s.player) ?? 0) : 0;
+  const yours = mine ? ` (−${mine.toLocaleString()} of your men)` : '';
+  const theirs = [reg.owner, reg.controller].includes(s.player);
   if (won) {
     COUNTS.won++;
     COUNTS.wonAt[r] = s.day;
-    if (by !== s.player && [reg.owner, reg.controller].includes(s.player)) log(s, 'siege', `${nationName(by)} storms the walls of ${name}.`, { node: r, important: true });
+    if (by !== s.player && (theirs || mine)) log(s, 'siege', `${nationName(by)} storms the walls of ${name}${yours}.`, { node: r, important: true });
     completeSiege(s, r, by);
     return 'won';
   }
   reg.siege.progress = Math.max(0, reg.siege.progress - STORM_SETBACK);
   reg.siege.stormed = s.day;
   if (by === s.player) log(s, 'siege', `The assault on ${name} is thrown back (−${total.toLocaleString()} men).`, { node: r, important: true });
-  else if (involvesPlayer(s, reg.owner ?? undefined, reg.controller ?? undefined) || newsworthy(s, by, reg.owner ?? undefined))
-    log(s, 'siege', `${nationName(by)} storms the walls of ${name} and is thrown back.`, { node: r, important: [reg.owner, reg.controller].includes(s.player) });
+  else if (mine || involvesPlayer(s, reg.owner ?? undefined, reg.controller ?? undefined) || newsworthy(s, by, reg.owner ?? undefined))
+    log(s, 'siege', `${nationName(by)} storms the walls of ${name} and is thrown back${yours}.`, { node: r, important: theirs || !!mine });
   return 'lost';
 }
 

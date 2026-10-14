@@ -15,8 +15,10 @@ import {
   REPARATIONS_SHARE,
   REPARATIONS_YEARS,
   ULTIMATUM_SCORE,
+  canPayReparations,
   concessionValue,
   demandableRegions,
+  humbleGain,
   humbleRenown,
   isCapitalAtStake,
   offerValue,
@@ -105,7 +107,8 @@ export function WarPanel({ warId }: { warId: string }) {
           .sort((a, b) => b.price - a.price || regionName(a.r).localeCompare(regionName(b.r)));
   // Humbling is demanded, never offered; reparations either way, but never from a vassal (it pays tribute instead).
   const humbleOn = mode === 'demand' && humble;
-  const reparationsOn = reparations && !vassalize;
+  const mayReparations = !vassalize && canPayReparations(s, loser);
+  const reparationsOn = reparations && mayReparations;
   const terms: PeaceTerms = {
     regions,
     gold,
@@ -126,7 +129,7 @@ export function WarPanel({ warId }: { warId: string }) {
   // Its terms as they stand today: what accepting signs, and what its day would impose.
   const ultTerms = ult ? ultimatumTerms(s, w) : null;
   const anyTerms = regions.length > 0 || gold > 0 || vassalize || release.length > 0 || humbleOn || reparationsOn;
-  const renownMoved = humbleRenown(s, s.player, enemy);
+  const renownLost = humbleRenown(s, s.player, enemy);
   const repGold = Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS);
   const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
   const reset = (m: 'demand' | 'offer') => {
@@ -398,11 +401,11 @@ export function WarPanel({ warId }: { warId: string }) {
                 on={humble}
                 onPress={() => setHumble(v => !v)}
                 title="Humble them"
-                sub={`Renown +${renownMoved} to you, −${renownMoved} to them`}
+                sub={`Renown +${humbleGain(s, s.player, enemy)} to you, −${renownLost} to them`}
                 cost={HUMBLE_COST}
               />
             ) : null}
-            {!vassalize ? (
+            {mayReparations ? (
               <Option
                 testID="reparations"
                 icon="coins"
