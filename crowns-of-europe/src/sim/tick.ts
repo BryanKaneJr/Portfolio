@@ -22,6 +22,7 @@ import { monthlyScience } from './science';
 import { dailyFleets, dailyShipyards, monthlyNavy } from './navy';
 import { invalidateMods, ownedRegions } from './queries';
 import { monthlyUnrest } from './rebels';
+import { monthlyGolden } from './realm';
 import { monthlyReligion } from './religion';
 import { monthlyGenerals, monthlyRulers } from './rulers';
 import { dailySieges } from './siege';
@@ -69,6 +70,7 @@ function monthly(s: GameState): void {
   monthlyAttrition(s);
   monthlyUnrest(s);
   monthlyRulers(s);
+  monthlyGolden(s);
   monthlyGenerals(s);
   monthlyDiplomacy(s);
   monthlyThreat(s);

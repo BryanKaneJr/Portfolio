@@ -1,5 +1,6 @@
 /**
- * The card for the great turns the player caused or leads (a peace, a mission, an achievement, a crown, a union):
+ * The card for the great turns the player caused or leads (a peace, a mission, an achievement, a crown, a union, a
+ * golden age):
  * the weightiest in full, any others of the same moment one line each under "Also".
  */
 import { StyleSheet, Text, View } from 'react-native';
@@ -13,11 +14,12 @@ import { Btn, Row } from '../components/kit';
 import { G, book, sans, serif } from '../theme';
 import { CardShell } from './Cards';
 
-const RANK: MomentKind[] = ['crown', 'peace', 'union', 'mission', 'achievement'];
+const RANK: MomentKind[] = ['crown', 'golden', 'peace', 'union', 'mission', 'achievement'];
 const rank = (m: Moment) => (RANK.includes(m.kind) ? RANK.indexOf(m.kind) : RANK.length);
 
 const PICTURE: Record<MomentKind, IconName> = {
   crown: 'crown',
+  golden: 'prestige',
   peace: 'treaty',
   union: 'marriage',
   mission: 'target',

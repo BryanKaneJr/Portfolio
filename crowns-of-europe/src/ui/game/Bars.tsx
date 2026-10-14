@@ -25,6 +25,7 @@ import { MAP_STYLE_LIST } from '../map/styles';
 import { DOCK_H, GOAL_STRIP_H, TOP_BAR_H } from '../layout';
 import { useGoals } from './GoalStrip';
 import { idleColonists as idleColonistsOf } from './ColonySheets';
+import { GoldenMark } from './RealmActions';
 export { DOCK_H, TOP_BAR_H };
 
 /** One number in the top bar, with a caption naming it (or, for gold, the monthly balance). Tap for the breakdown. */
@@ -58,6 +59,7 @@ export function TopBar() {
       <Glass gilt radius={R.lg} style={styles.top}>
         <Pressable onPress={() => st.select({ kind: 'nation', id: s.player })} style={styles.arms} accessibilityLabel="Your nation" hitSlop={4}>
           <Shield nation={s.player} size={30} />
+          <GoldenMark />
         </Pressable>
         <Res icon="gold" label="Gold" value={fmt(n.gold)} sub={`${signed(bal, 1)}/mo`} tone={n.gold < 0 ? 'bad' : undefined} subTone={bal < 0 ? 'bad' : 'good'} onPress={() => open('gold')} />
         <Res icon="manpower" label="Levies" value={kmen(n.manpower)} onPress={() => open('manpower')} />

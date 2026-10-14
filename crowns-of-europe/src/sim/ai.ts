@@ -83,6 +83,7 @@ import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy
 import { forecast, type Forecast } from './forecast';
 import { GENERAL_COST } from './commands';
 import { newGeneral, rulerAsGeneral } from './rulers';
+import { aiRealm } from './realm';
 import type { Army, CasusBelli, GameState, Nation, NationId, NativePolicy, NodeId, PeaceTerms, Personality, Region, RegionId, Tier, UnitType, War } from './types';
 import { DAYS_PER_YEAR, chance, clamp, isIn, months, pairKey, pick, rand, randomDayOfNextMonth, yearOf, years } from './util';
 
@@ -97,6 +98,7 @@ export function monthlyAI(s: GameState): void {
     if (!nat.alive || isHuman(s, nat.id) || s.day < nat.ai.nextEval) continue;
     nat.ai.nextEval = s.day + 30;
     aiEconomy(s, nat);
+    aiRealm(s, nat);
     aiGenerals(s, nat);
     aiPeace(s, nat);
     // New World peoples defend their land but never start wars or court European crowns.
