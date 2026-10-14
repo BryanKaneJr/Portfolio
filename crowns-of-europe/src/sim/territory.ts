@@ -205,6 +205,13 @@ export function releaseNation(s: GameState, from: NationId, n: NationId): boolea
   } else if (!regions.some(r => r.id === nat.capital)) {
     // keep its capital
   }
+  // The crown that let it go: gone if that was all it had, else a new capital if it lost its old one.
+  const old = s.nations[from];
+  if (old?.alive) {
+    const left = ownedRegions(s, from);
+    if (!left.length) killNation(s, from, n);
+    else if (s.regions[old.capital]?.owner !== from) old.capital = [...left].sort((a, b) => b.dev - a.dev)[0].id;
+  }
   markMapDirty();
   return true;
 }

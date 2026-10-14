@@ -49,13 +49,15 @@ bundled and works in airplane mode.
   scaled by the front line (20 wide on plains, 10 in mountains), morale, retreat, cavalry pursuit, and the
   **stack wipe** when the winner has five times the loser's remaining men. River crossings cost the attacker.
 - **Sieges** (15 days for open land; forts need 3 regiments per level and months, faster with artillery; a relief
-  battle pauses a siege rather than undoing it) and
+  battle pauses a siege rather than undoing it; or storm the walls, with the odds and the men it costs shown before
+  you tap) and
   **zone of control**: enemy forts stop your march.
 - **Navy, light:** galleys, transports and ships of the line; fleets carry armies, close straits, blockade
   coasts, and fight in one roll.
 - **War and peace:** reasons for war (claims, holy war, rivals, independence, coalition), calls to arms (allies join
   an attack only from nearby and with a stake in it), war score from battles, occupation, blockades and the war
-  goal, and peace deals that spend it on regions (a capital costs double), gold, vassals or freeing nations.
+  goal, and peace deals that spend it on regions (a capital costs double), gold, vassals, freeing nations,
+  humbling the loser (renown changes hands) or reparations (a tenth of its income for 10 years).
   Truces of 5 to 15 years (5, and a year more for every 5% of leverage the deal is worth) that bind allies too.
 - **Threat and coalitions:** taking land alarms your neighbours; three or more frightened nations form a
   defensive coalition.
@@ -63,7 +65,9 @@ bundled and works in airplane mode.
   unions), military access, rivals, vassalization and annexation, gifts and insults.
 - **Realm:** gold, manpower and stability (no abstract point currencies), loans and bankruptcy, rulers who age
   and die, heirs, republican elections, policies (a slot for every three advances). Army pay switches between
-  peace and war on its own, and the treasury borrows by itself when it runs dry.
+  peace and war on its own, and the treasury borrows by itself when it runs dry. One-tap acts: crack down on a
+  restless region, seize the estates for a year's taxes, an old ruler abdicating for his heir, and once a game a
+  50-year golden age.
 - **Science:** scholars earn science every month, mostly from the prosperity of their richest regions rather than
   from how much land they rule (so a small, rich state keeps up with an empire, which also pays more per advance),
   plus trade centres, universities and a funding switch, and much faster in Italy and the West than on the steppe
@@ -72,7 +76,10 @@ bundled and works in airplane mode.
   and Bayonet for new ages of troops), Sea (Caravels and Ocean Navigation for colonies, Galleons for warships,
   Ships of the Line) and Statecraft (printing, banking, statecraft, bureaucracy). An advance costs more
   the earlier it is taken than its historical year and less once neighbours know it, so the most learned crowns
-  reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward.
+  reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward. Endow one
+  field to make its advances a fifth cheaper (the others a tenth dearer; change it every 25 years).
+- **Landmarks:** 15 famous places (Hagia Sophia, St Peter's, the Alhambra, the Kremlin, Westminster...), each drawn
+  on the map and giving one bonus to whoever holds its region.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
 - **Greater crowns:** 28 crowns to proclaim from the Realm tab once you hold their lands, such as Spain, Italy or
@@ -122,7 +129,7 @@ Everything the game uses is in Expo Go, so no development build is needed to try
 | `src/ui/` | Map view, sheets, menus, cards and components. |
 | `src/state/` | The running game store (game loop, selection, toasts) and saves. |
 | `scripts/` | Map builder, content validator, icon renderer, Playwright walkthroughs, AI soak and trace tools. |
-| `tests/` | Jest: battles, movement, sieges, war and peace, colonies and the New World, the event language, the map (lands beyond the edges, curved names, camera limits), determinism and a 25-year soak. |
+| `tests/` | Jest: battles, movement, sieges, war and peace, colonies and the New World, the event language, the map (lands beyond the edges, curved names, camera limits), the realm's acts, landmarks, determinism and a 25-year soak. |
 | `docs/` | `content-guide.md` (how to write events and missions) and `design-notes.md` (decisions and status). |
 
 ## How the code fits together

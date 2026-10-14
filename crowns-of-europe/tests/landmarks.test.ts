@@ -4,8 +4,10 @@ import { MODIFIER_KEYS } from '../src/sim/dsl';
 import { heldBy, landmarkErrors, landmarksHeld } from '../src/sim/landmarks';
 import { invalidateMods, modifierSources, nationMods } from '../src/sim/queries';
 import { annexNation, releaseNation, setController, transferRegion } from '../src/sim/territory';
+import { declareWar, makePeace } from '../src/sim/war';
+import { newGame } from '../src/sim/state';
 import { LANDMARK_ART } from '../src/ui/components/landmarkArt';
-import { emptyGame } from './helpers';
+import { emptyGame, forceWar } from './helpers';
 
 /** A fresh 1444 game whose modifiers are read afresh (newGame may read some before it hands out the policies). */
 function game() {
@@ -167,5 +169,42 @@ describe('holding a landmark', () => {
     annexNation(s, 'FRA', 'SAV');
     expect(heldBy(s, 'duomo')).toBe('FLO');
     expect(nationMods(s, 'FLO').science).toBeCloseTo(flo);
+  });
+
+  test('a peace that ends an occupation gives the landmark back the same day', () => {
+    const s = game();
+    const before = nationMods(s, 'FRA').stabilityCost;
+    forceWar(s, 'ENG', 'FRA');
+    const w = declareWar(s, 'ENG', 'FRA', 'none')!;
+    setController(s, 'ile_de_france', 'ENG');
+    expect(nationMods(s, 'FRA').stabilityCost).toBeCloseTo(before + 0.2);
+    makePeace(s, w, { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: 'ENG', loser: 'FRA' });
+    expect(heldBy(s, 'notre_dame')).toBe('FRA');
+    expect(nationMods(s, 'FRA').stabilityCost).toBeCloseTo(before);
+  });
+});
+
+describe('releasing a realm', () => {
+  test('the crown that lets go of its last land is gone; one that keeps some gets a new capital', () => {
+    const s = game();
+    annexNation(s, 'NAV', 'GRA');
+    s.nations.NAV.capital = 'granada';
+    releaseNation(s, 'NAV', 'GRA');
+    expect(s.nations.NAV.alive).toBe(true);
+    expect(s.nations.NAV.capital).toBe('navarre');
+    annexNation(s, 'NAV', 'GRA');
+    transferRegion(s, 'navarre', 'CAS', { conquest: true });
+    releaseNation(s, 'NAV', 'GRA');
+    expect(s.regions.granada.owner).toBe('GRA');
+    expect(s.nations.NAV.alive).toBe(false);
+  });
+});
+
+describe('a new game', () => {
+  test('reads its modifiers after the starting policies, as a loaded one does', () => {
+    const s = newGame({ player: 'FRA', seed: 7 });
+    const fresh = nationMods(s, 'CAS');
+    const loaded = JSON.parse(JSON.stringify(s)) as typeof s; // a new state object: nothing cached for it
+    expect(nationMods(loaded, 'CAS')).toEqual(fresh);
   });
 });

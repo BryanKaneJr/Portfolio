@@ -61,7 +61,8 @@ src/sim/       types, content (JSON loaders + movement graph), state (new game),
                threat (coalitions), economy, colonies (discovery, colonists, settlers, natives,
                trade goods), science (science a month, advances, costs, research), events (DSL eval), dsl (schema),
                missions, aims (what each AI crown wants: historical aims, mission goals, bonds), rulers, religion
-               (Reformation, Papal Favor, HRE), rebels, territory, ai (incl. the war chance, `warOdds`), queries, util,
+               (Reformation, Papal Favor, HRE), rebels, realm (crack down, seize estates, golden age), endowment
+               (one field of learning cheaper), landmarks (fifteen famous places, one bonus each), territory, ai (incl. the war chance, `warOdds`), queries, util,
                log (incl. `moment()`: the triumph cards and banners). A proclaimed crown keeps its nation id and changes
                only how it shows: always read names, adjectives, colours and arms through `nationName`, `nationAdj`,
                `nationFlag`, `displayOf` (content.ts), never `NATION[x].name/.adj/.color/.flag`

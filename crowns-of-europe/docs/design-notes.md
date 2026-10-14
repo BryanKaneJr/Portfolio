@@ -740,8 +740,8 @@ rules are in `sim/realm.ts` (abdication in `sim/rulers.ts`), the buttons in `ui/
   50 or older, steps down for a grown heir of skill 4 or more, with order 0 or better. Proclaim a golden age as
   soon as it may. `COUNTS` (dev only) counts each.
 - **A fix on the way.** A crown that lost its last region to rebels restoring a fallen crown stayed alive with no
-  land (`releaseNation` does not kill the crown it takes from). `rebelOutcomes` now ends it, or moves its capital if
-  only the capital went. Seen on soak seed 11 once the acts changed the dice.
+  land. Seen on soak seed 11 once the acts changed the dice. Since the merge `releaseNation` itself ends the crown it
+  takes from, or moves its capital if only the capital went, so a peace that frees a nation does the same.
 
 Measured to 1500, AI only, seeds 1–3. "First rules" are the spec's AI rules as first built; "final" are the rules
 above.
@@ -821,3 +821,20 @@ Three war ideas, each one button or one checkbox with its price shown before the
   | AI peaces (not white) humbling / with reparations | — | 6–15% / about 2% |
 
   Reparations are rare among the AI: most AI wars are limited, and a full war's leverage goes on land first.
+
+## Fun batch 2: the merge
+
+The four tracks were merged in the order P, L, R, W. The only conflicts were the end of this file (each track
+appended its section) and two imports in `RegionSheet.tsx`; both sides were kept. Then the loose ends the reviews
+left between tracks:
+- **Freed landmarks, the same day.** A peace (`makePeace`), a crown leaving a war (`leaveWar`) and rebels whose crown
+  is gone handed occupied regions back by writing the controller; they now go through `setController`, so a freed
+  landmark gives its bonus again that day (as annexation already did).
+- **Releasing a realm** (`releaseNation`) ends the crown it takes from if that was all its land, else gives it a new
+  capital; before, a peace that freed a nation could leave the loser alive with no land.
+- **A new game reads its modifiers afresh** once the AI crowns have their starting policies (`newGame` calls
+  `invalidateMods`), as a loaded game always did, so a fresh game and one saved and loaded on its first day play the
+  same.
+- **Still to watch** (from the track reviews): realms alive in 1500 came out lower on Track L's three seeds (−1, −8,
+  −6) and mixed on R's and W's; AI reparations are rare (about 2% of AI peaces); the Ottomans endowing War take Pike
+  and Shot about 1492–94 (the §5 safeguard, one line in `aiEndowment`, waits on `ottomans.ts 260`).

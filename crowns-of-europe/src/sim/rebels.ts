@@ -4,9 +4,9 @@
  */
 import { NATION, regionName, nationName } from './content';
 import { log, involvesPlayer, moment, newsworthy } from './log';
-import { REBELS, armyRegs, isCored, nationMods, ownedRegions } from './queries';
+import { REBELS, armyRegs, isCored, nationMods } from './queries';
 import { makeArmy } from './state';
-import { killNation, setController, releaseNation } from './territory';
+import { setController, releaseNation } from './territory';
 import type { GameState, NationId, Region, RegionId } from './types';
 import { chance, clamp, months, years } from './util';
 import { newGeneral } from './rulers';
@@ -89,7 +89,7 @@ function rebelOutcomes(s: GameState): void {
     const flagKey = `_rebelheld_${reg.id}`;
     const nat = s.nations[owner];
     if (!nat) {
-      reg.controller = reg.owner;
+      setController(s, reg.id, reg.owner);
       continue;
     }
     nat.flags[flagKey] ??= s.day;
@@ -99,10 +99,7 @@ function rebelOutcomes(s: GameState): void {
     const breakaway = reg.cores.find(c => c !== owner && s.nations[c] && !s.nations[c].alive && NATION[c]);
     if (breakaway && releaseNation(s, owner, breakaway)) {
       log(s, 'rebels', `Rebels in ${regionName(reg.id)} win: ${nationName(breakaway)} is restored!`, { node: reg.id, important: true });
-      // The crown that lost the land: gone if that was all it had, else a new capital if it lost its old one.
-      const left = ownedRegions(s, owner);
-      if (!left.length) killNation(s, owner, breakaway);
-      else if (s.regions[nat.capital]?.owner !== owner) nat.capital = [...left].sort((a, b) => b.dev - a.dev)[0].id;
+      // releaseNation ends the crown that lost the land if that was all it had, or gives it a new capital.
     } else {
       setController(s, reg.id, owner);
       nat.stability = clamp(nat.stability - 1, -3, 3);

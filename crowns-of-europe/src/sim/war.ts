@@ -25,7 +25,7 @@ import {
 import { addOpinion, isHreMember, opinion } from './diplomacy';
 import { wantedRegions, wantsFrom } from './aims';
 import { addThreat, coalitionAgainst, proximity } from './threat';
-import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
+import { makeSubject, releaseNation, releaseSubject, setController, transferRegion } from './territory';
 import { sendHomeAfterPeace } from './military';
 import { REPARATIONS_SHARE, incomeBase } from './economy';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
@@ -584,10 +584,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   // Occupations end and everyone gets a truce.
   const all = [...w.attackers, ...w.defenders];
   for (const r of Object.values(s.regions)) {
-    if (r.controller !== r.owner && isIn(all, r.owner) && isIn(all, r.controller)) {
-      r.controller = r.owner;
-      r.siege = undefined;
-    }
+    if (r.controller !== r.owner && isIn(all, r.owner) && isIn(all, r.controller)) setController(s, r.id, r.owner);
   }
   for (const a of winners) for (const b of losers) s.truces[pairKey(a, b)] = s.day + truce;
   // Everyone in it rests before the next war (the AI's rest counts from here as well as from a declaration).
@@ -698,8 +695,7 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
   }
   for (const r of Object.values(s.regions)) {
     if ((r.owner === n && isIn(enemies, r.controller)) || (isIn(enemies, r.owner) && r.controller === n)) {
-      r.controller = r.owner;
-      r.siege = undefined;
+      setController(s, r.id, r.owner);
     }
   }
   for (const e of enemies) s.truces[pairKey(n, e)] = s.day + years(TRUCE_MIN);
