@@ -10,6 +10,7 @@ import { useStore } from '../../state/store';
 import { Icon, type IconName } from '../components/Icon';
 import { Bar, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { modLines } from '../describe';
+import { Endowment } from './Endowment';
 import { C, fmt, sans } from '../theme';
 
 const FIELD: Record<AdvanceDef['field'], { label: string; icon: IconName }> = {
@@ -75,6 +76,7 @@ export function ScienceTab() {
         </View>
         <Switch value={!!me.scienceFunding} onValueChange={v => void st.run(z => setScienceFunding(z, v))} trackColor={{ true: C.gold, false: C.parchmentLine }} testID="funding" />
       </View>
+      <Endowment fields={FIELD} />
 
       <Section
         title="Studying"

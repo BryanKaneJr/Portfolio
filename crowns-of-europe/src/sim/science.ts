@@ -7,6 +7,7 @@
  * know it, so the most learned crowns reach each one near its real date and knowledge spreads outward from them.
  */
 import { ADVANCE, ADVANCES, LEARNING, NATION, REGION, START_ADVANCES, isNativeNation, nationName } from './content';
+import { endowFactor } from './endowment';
 import { log } from './log';
 import { invalidateMods, isCoastal, nationMods, neighborsOf, ownedRegions, totalDev } from './queries';
 import { markMapDirty } from './territory';
@@ -100,6 +101,8 @@ export function advanceCost(s: GameState, n: NationId, id: string): CostBreakdow
   const mods = nationMods(s, n);
   if (mods.techCost) factors.push({ label: 'Traits and modifiers', value: 1 + mods.techCost });
   if (def.field === 'war' && mods.warTechCost) factors.push({ label: 'War advances: traits and modifiers', value: 1 + mods.warTechCost });
+  const endowed = endowFactor(s.nations[n], def.field);
+  if (endowed) factors.push(endowed);
   const total = Math.max(1, Math.round(def.cost * factors.reduce((t, x) => t * x.value, 1)));
   return { base: def.cost, factors, total };
 }
