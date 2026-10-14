@@ -47,6 +47,17 @@ describe('history events: Iberia and Italy', () => {
     for (const id of sent.keys()) expect(byId.has(id)).toBe(true);
   });
 
+  test('a card that builds up or fortifies a named region only fires while you own it', () => {
+    for (const e of events) {
+      const guards = 'all' in e.trigger ? e.trigger.all : [e.trigger];
+      for (const c of e.choices)
+        for (const ef of c.effects) {
+          const region = 'devRegion' in ef ? ef.devRegion.region : 'fortRegion' in ef ? ef.fortRegion.region : null;
+          if (region) expect([e.id, guards.some(g => 'owns' in g && g.owns === region)]).toEqual([e.id, true]);
+        }
+    }
+  });
+
   test('the Moor invites the French, and the French card can then fire against Naples', () => {
     const s = newGame({ player: 'MLO', seed: 3 });
     const invite = byId.get('mlo_the_moors_invitation')!;
