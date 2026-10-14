@@ -129,8 +129,11 @@ one SVG on top. Each owned region's chief town stands at its real place (`MAP_RE
 `regions.json`, projected by `build-map` and nudged inside the region where the coast is coarse), drawn in the map's
 own SVG just under the names (so under the units too): a village, a town or a city by the region's prosperity (below
 `TOWN_DEV`, below `CITY_DEV`, then cities), inside walls where it has a fort (`townArt`, `TOWN_ART`; `npm run
-models:build`). They show where the region names do (from `REGION_NAMES_K`, in regions whose name is written), stand
-on their point (the middle of the settlement), never move, and are not tap targets. Taps on a unit are
+models:build`). They show from `REGION_NAMES_K`, in every owned region, even one too small for its name to be
+written (Constantinople, Genoa, the Atlantic islands); in a small region the picture is capped to about the region's
+size (`townSize`: `TOWN_FIT` times its label radius on screen, at least `TOWN_MIN` points), so an island gets a small
+mark rather than being buried. They stand on their point (the middle of the settlement), never move, and are not tap
+targets. Taps on a unit are
 measured from the middle of its figure (`TOKEN_MIDDLE`), above its point. Only the units the player would know about are drawn, at any zoom, and listed in region sheets
 (`seesUnit` in `sim/queries.ts`): their own, their allies', overlord's and subjects', their enemies' in a war, and
 anyone's in land they own or hold; rebels risen against them.

@@ -308,7 +308,12 @@ here.
     city by prosperity (below 4, below 6, then cities: about 30/40/30% in 1444), inside walls where the region has a
     fort, so the fort still shows. Rendered from the same CC0 KayKit pack as the forts were (houses, a church, a
     keep, walls and corner towers), in the same inked 3/4 view. They lie under the region and nation names and the
-    units, show where the region names do and grow with the zoom like them, and are not tap targets.
+    units, show from the zoom where the region names do and grow with the zoom like them, and are not tap targets.
+    At first they showed only in regions whose name was written, a rule left over from the forts beside the names, so
+    12 small regions lost their town at play zoom: Constantinople, Genoa, Cyprus and Candia until zoomed in further,
+    and the Azores, Madeira, Cape Verde and the Lesser Antilles never (they needed more than the closest zoom). Now
+    every owned region shows its town, capped in a small one to about the region's own size (2.2 times its label
+    radius on screen, at least 10 points), so an island gets a small mark that leaves the land showing.
 
 ## Key numbers (all in `src/sim/`)
 

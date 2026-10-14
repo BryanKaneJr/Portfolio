@@ -696,14 +696,15 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="rgba(255,255,255,0.25)" stroke="#fff6d8" strokeWidth={px(2.6)} strokeLinejoin="round" /> : null}
       {selRegion ? <Path d={MAP_REGION[selRegion].path} fill="none" stroke={C.goldDark} strokeWidth={px(1.2)} strokeLinejoin="round" /> : null}
       {/* Towns: each region's chief town where it really stands (a village, town or city, walled where there is a
-          fort), where its name is written; over the land and borders, under the names and the units. */}
+          fort), in every owned region once region names show, even where the region is too small for its name;
+          over the land and borders, under the names and the units. */}
       {showRegionNames
         ? MAP.regions.map(r => {
-            if (hidden(r.id) || r.labelRadius * k < MIN_NAME_RADIUS) return null;
+            if (hidden(r.id)) return null;
             const art = townArt(s.regions[r.id]);
             if (!art) return null;
             const pic = TOWN_ART[art];
-            const size = px(pic.size * grow(k));
+            const size = px(townSize(pic.size, r.labelRadius, k));
             const x = r.town[0] - (size * pic.ground[0]) / TOWN_PX;
             const y = r.town[1] - (size * pic.ground[1]) / TOWN_PX;
             if (!visible([x, y, x + size, y + size])) return null;
@@ -1142,6 +1143,12 @@ const TOWN_ART = {
   'city-walled': { src: require('../../../assets/units/town-city-walled.png'), ground: [94.6, 137.2], size: 30 },
 } as const;
 const TOWN_PX = 192; // the pictures' size
+/** A town's size on screen (points): its picture's size, growing with the zoom like the names, but no bigger than
+ * about the region itself (TOWN_FIT times its label radius), so a small island (the Azores, Madeira, Cyprus) or a
+ * narrow coast (Genoa, Constantinople) gets a small mark that leaves its land showing; never under TOWN_MIN. */
+const TOWN_FIT = 2.2;
+const TOWN_MIN = 10;
+export const townSize = (picSize: number, labelRadius: number, k: number) => Math.min(picSize * grow(k), Math.max(TOWN_MIN, labelRadius * k * TOWN_FIT));
 /** The prosperity from which a region's chief town is drawn as a town, and as a city (in 1444: about 30% villages,
  * 40% towns and 30% cities among the regions someone owns). */
 const TOWN_DEV = 4;
