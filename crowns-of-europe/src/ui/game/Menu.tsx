@@ -49,6 +49,7 @@ import { conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
+import { CrownsSection } from './Crowns';
 
 export function MenuPanel({ tab }: { tab: MenuTab }) {
   const st = useStore();
@@ -483,6 +484,7 @@ function Realm() {
         <Line label="Skill" value={`${me.ruler.skill} / 5`} help="Above 3, each point raises taxes 5%; below 3, each lowers them. Rulers age and die, and the heir takes over; with no heir, a death means a succession crisis." />
         {me.heir ? <Line label="Heir" value={`${me.heir.name} · skill ${me.heir.skill} · age ${Math.max(0, yearOf(s.day) - me.heir.born)}`} /> : def.gov === 'monarchy' ? <Line label="Heir" value="none" tone="bad" /> : null}
       </Card>
+      <CrownsSection />
       <Section title={`National trait: ${traits[0]?.name}`}>
         <T v="small">{traits[0]?.desc}</T>
         {modLines(traits[0]?.mods ?? {}).map(m => (

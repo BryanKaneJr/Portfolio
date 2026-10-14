@@ -24,12 +24,15 @@ import {
   UNITS,
   LEARNING,
   START_ADVANCES,
+  CROWN,
+  CROWNS,
 } from '../src/sim/content';
 import fs from 'node:fs';
 import path from 'node:path';
 import namesJson from '../src/content/names.json';
 import genericEventsJson from '../src/content/events-generic.json';
 import newWorldEventsJson from '../src/content/events-newworld.json';
+import { newGame } from '../src/sim/state';
 import { GOOD_VALUE } from '../src/sim/colonies';
 import { EVENT_IMAGES, FAITHS, MODIFIER_KEYS, validateCondition, validateEffect } from '../src/sim/dsl';
 
@@ -246,7 +249,38 @@ for (const n of NATIONS) {
 }
 
 // --- T3 checks ---
-
+// Greater crowns (formables.json): lands, keys and claims exist; formers are realms or smaller crowns; nothing can be
+// proclaimed on the first day unless it waits for a year.
+{
+  const day1 = newGame({ player: NATIONS[0].id, seed: 1 });
+  const holdsOnDay1 = (n: string, r: string) => {
+    const o = day1.regions[r]?.owner;
+    return !!o && (o === n || (day1.nations[o]?.overlord === n && day1.nations[o].subjectType === 'union'));
+  };
+  for (const c of CROWNS) {
+    const at = `crown ${c.id}`;
+    if (NATION[c.id]) errs.push(`${at}: its id is a nation tag`);
+    for (const r of [...c.regions, ...(c.claims ?? [])]) if (!REGION[r]) errs.push(`${at}: unknown region ${r}`);
+    for (const r of c.key) if (!c.regions.includes(r)) errs.push(`${at}: key region ${r} is not one of its lands`);
+    if (!(c.key.length <= c.need && c.need <= c.regions.length)) errs.push(`${at}: need must be between its keys and its lands`);
+    for (const f of c.formers) {
+      if (CROWN[f]) {
+        if (CROWN[f].regions.length >= c.regions.length) errs.push(`${at}: former crown ${f} must be smaller`);
+      } else if (!NATION[f]) errs.push(`${at}: unknown former ${f}`);
+    }
+    if (c.inherits && !NATION[c.inherits]) errs.push(`${at}: inherits unknown nation ${c.inherits}`);
+    for (const k of Object.keys(c.mods)) if (!MODIFIER_KEYS.includes(k)) errs.push(`${at}: unknown modifier ${k}`);
+    if (!FLAG_PATTERNS.includes(c.flag.pattern)) errs.push(`${at}: unknown flag pattern ${c.flag.pattern}`);
+    for (const ch of [c.flag.charge, c.flag.charge2]) if (ch && !CHARGES[ch]) errs.push(`${at}: unknown flag charge ${ch}`);
+    if (!c.name || !c.adj || !c.bonus || !c.blurb || !c.history) errs.push(`${at}: needs a name, adj, bonus, blurb and history`);
+    if (c.from) continue;
+    for (const f of c.formers) {
+      if (!NATION[f]) continue;
+      const held = c.regions.filter(r => holdsOnDay1(f, r)).length;
+      if (held >= c.need && c.key.every(r => holdsOnDay1(f, r))) errs.push(`${at}: ${f} could proclaim it on the first day`);
+    }
+  }
+}
 
 for (const w of warns) console.warn('warn:', w);
 if (errs.length) {
