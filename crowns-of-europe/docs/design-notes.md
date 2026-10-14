@@ -806,8 +806,9 @@ Three war ideas, each one button or one checkbox with its price shown before the
   - **Price, win or lose:** 750 men per fort level, from the besieging armies by their men (and within an army across
     its troops), with a lost battle's war exhaustion (`men / 1000 × 0.1`); counted in the player's men lost.
   - **Won:** the fort falls at once (`completeSiege`). **Thrown back:** the siege loses 10% of its progress.
-  - **AI:** monthly, on each fort it besieges, when the odds reach 75% (`AI_STORM_CHANCE`). With no guns that needs
-    spare regiments or a general and a siege nearly done; with five guns about half done. Not when the siege would
+  - **AI:** monthly, on each fort it besieges, when the odds reach 80% (`AI_STORM_CHANCE`; 75% at first, see "Fun
+    batch 2: measured"). With no guns that needs spare regiments and a general and a siege nearly done; with five guns
+    a little over half done. Not when the siege would
     end within 10 days anyway (`AI_STORM_DAYS_LEFT`): about a third of AI storms came 2–6 days from the fall.
 - **Humble them** (`war.ts HUMBLE_COST` 15%, `HUMBLE_RENOWN` 15, +5 against a rival). A checkbox at the peace table
   (demand only). The winner gains it times `1 + prestigeGain` (`humbleGain`, the figure the table and the offer card

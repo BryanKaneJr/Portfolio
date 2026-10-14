@@ -127,8 +127,10 @@ export const STORM_MEN_PER_FORT = 750;
 export const STORM_SETBACK = 0.1;
 export const STORM_MIN = 0.05;
 export const STORM_MAX = 0.85;
-/** The AI storms only at these odds or better, */
-export const AI_STORM_CHANCE = 0.75;
+/**
+ * The AI storms only at these odds or better. At 75% it stormed 16 times a game and France, storming the English
+ * forts, ended England at 9.9 regions in 1560 (12.2 before storming; 12.8 at 80%, over 16 AI games), */
+export const AI_STORM_CHANCE = 0.8;
 /** and only a siege with at least this many days still to run (sooner, the men are better saved). */
 export const AI_STORM_DAYS_LEFT = 10;
 

@@ -172,11 +172,17 @@ describe('storm the walls: the roll', () => {
     expect(stormWalls(s, 'burgundy').ok).toBe(false);
   });
 
-  test('the AI storms at 75% or better, and not below', () => {
+  test('the AI storms at 80% or better, and not below', () => {
     const low = siegeAt(1, 3, 0, 0.5); // 5 + 35 = 40%
     aiStorms(low.s, low.s.nations.FRA);
     expect(low.reg.siege!.stormed).toBeUndefined();
     expect(low.reg.controller).toBe('BUR');
+    const mid = siegeAt(1, 8, 5, 0.5); // 5 + 35 + 25 + 10 = 75%: worth it for a player, not for the AI
+    expect(stormOdds(mid.s, 'burgundy')!.chance).toBeCloseTo(0.75);
+    forceRoll(mid.s, 0.75, true);
+    aiStorms(mid.s, mid.s.nations.FRA);
+    expect(mid.reg.siege!.stormed).toBeUndefined();
+    expect(mid.reg.controller).toBe('BUR');
     const high = siegeAt(1, 8, 5, 0.6); // 5 + 42 + 25 + 10 → 82%, with weeks still to run
     forceRoll(high.s, 0.8, true);
     aiStorms(high.s, high.s.nations.FRA);
