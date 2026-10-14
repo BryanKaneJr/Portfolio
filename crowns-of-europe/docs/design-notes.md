@@ -405,6 +405,17 @@ here.
     - Truces: 5 years after a white peace or leaving a war, a year more for every 5% of leverage the deal is worth,
       at most 15 (`truceYears`); the peace screens show it. A lesser crown no longer forges claims on a fellow
       member of the Empire or a crown it has a truce with.
+    - A crown that holds a claim on a neighbour whose truce with it ends within two years (`TRUCE_WAIT`) waits for
+      that war: no other war, no claim forged elsewhere; its sheet says "Waiting until 1448". Without it, France
+      spent the last years of the truce of Tours forging and fighting over Brittany, was resting when the truce ran
+      out, and found England allied to Burgundy: England kept Normandy in 5 of 8 games.
+    - The price of a war without a reason (owner's request: steep enough to stop a player spamming wars) is 1 order,
+      10 renown and 20 Threat, 10 more for each other such war in the last 10 years (`unjustThreat`), every crown
+      thinks 25 worse of the attacker (fading 0.5 a month), and land taken in it adds 1.5 times the usual Threat:
+      two in ten years bring a coalition near (40). Breaking a truce costs 3 order, 30 renown and 30 Threat, every
+      crown thinks 40 worse, and no ally answers the call (subjects still follow); a war an event starts is exempt.
+      The war screen shows the exact cost. The AI does neither: it never picks a neighbour under truce, and with no
+      reason it forges a claim.
     - `npx tsx scripts/dev/warchance.ts [year] [seed] [--opening]` prints each crown's chance and what makes it up;
       `--opening` models the first years' wars and the Ottoman opening in under a second.
     - Measurements pending: wars per game, Constantinople by 1450, crowns alive and the great powers' size have not
@@ -430,7 +441,9 @@ here.
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
 | Claims | Forged: a year and 40 gold, lasting 25 years. Of 1444: 22, each until 1 January of its year (1454-1500). With no reason for war the AI forges one instead of marching |
 | War chance | Bases 40/25/12/8% a year (expansionist, opportunist, trader, defensive) × the crown's and its target's factors, ÷ 12 a month, at most 15% a month; none for 1.5 years after a war or peace, full again by 3/3/4/5 years (the first rest begun 0-3 years before the start) |
-| Truces | 5 years + 1 per 5% of the deal's value, up to 15; leaving a war 5 |
+| Truces | 5 years + 1 per 5% of the deal's value, up to 15; leaving a war 5. A crown with a claim on the other side waits out the last 2 years for that war |
+| Unjust war | 1 order, 10 renown, 20 Threat (+10 per other one in 10 years), every crown −25 opinion; land taken in it ×1.5 Threat |
+| Broken truce | 3 order, 30 renown, 30 Threat, every crown −40 opinion, no ally joins (not for an event's war) |
 | Peace cost | 3% per development per region (× 0.7 if claimed, × 2 for the capital of a realm of 3+ regions), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Science a month | (1 + 0.6 × average prosperity of your 5 richest regions (all of them if fewer) + 0.15 × √total prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |
