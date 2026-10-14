@@ -25,6 +25,7 @@ import { yearOf, years } from '../../sim/util';
 import { claimReason } from '../../sim/war';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { GrowSection, UnchartedSheet, WildSheet } from './ColonySheets';
+import { LandmarkLine } from './LandmarkLine';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
 import { useStore } from '../../state/store';
 import { Shield } from '../components/Flag';
@@ -84,6 +85,7 @@ export function RegionSheet({ id }: { id: string }) {
         {r.university ? <Pill text="University" color={C.blueSoft} textColor={C.blue} /> : null}
         {r.fort ? <Pill text={`Fort ${r.fort}`} /> : null}
       </Row>
+      <LandmarkLine id={id} />
       <Row gap={6}>
         <Stat label="Prosperity" value={`${r.dev}/10`} icon="coins" />
         <Stat label="Income" value={`${fmt(tax + trade + goods, 1)}/mo`} onPress={() => setWhy(why === 'income' ? null : 'income')} icon="gold" />

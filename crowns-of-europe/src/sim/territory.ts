@@ -1,5 +1,5 @@
 /** Who owns what: region transfers, subjects, annexation, releasing and the death of nations. */
-import { NATION, REGION, nationName } from './content';
+import { LANDMARK_AT, NATION, REGION, nationName } from './content';
 import { log, involvesPlayer, moment, newsworthy, requestPause } from './log';
 import { bumpOwnership, bumpWars, ownedRegions, invalidateMods } from './queries';
 import type { GameState, NationId, RegionId } from './types';
@@ -21,6 +21,7 @@ export function setController(s: GameState, r: RegionId, n: NationId | null): vo
   if (reg.controller === n) return;
   reg.controller = n;
   reg.siege = undefined;
+  if (LANDMARK_AT[r]) invalidateMods(); // a landmark gives nothing while occupied
   markMapDirty();
 }
 
@@ -38,6 +39,7 @@ export function transferRegion(s: GameState, r: RegionId, to: NationId, opts: { 
   // A claim is used up once you own the region.
   delete s.nations[to]?.claims[r];
   markMapDirty();
+  if (LANDMARK_AT[r]) landmarkChanged(s, r, from, to);
   if (!from) return;
   if (r === 'constantinople') moment(s, { kind: 'headline', card: false, tone: to === s.player ? 'good' : from === s.player ? 'bad' : 'info', title: `Constantinople falls to ${nationName(to)}`, node: r });
   const old = s.nations[from];
@@ -48,6 +50,14 @@ export function transferRegion(s: GameState, r: RegionId, to: NationId, opts: { 
     if (rest.length) old.capital = rest[0].id;
   }
   if (ownedRegions(s, from).length === 0) killNation(s, from, to);
+}
+
+/** A landmark's region changed hands: its bonus moves with it (mods are cached by day), and the player hears of it. */
+function landmarkChanged(s: GameState, r: RegionId, from: NationId | null, to: NationId): void {
+  invalidateMods();
+  const lm = LANDMARK_AT[r];
+  if (to === s.player) moment(s, { kind: 'headline', card: false, tone: 'good', title: `${lm.name} is ours`, node: r });
+  else if (from === s.player) moment(s, { kind: 'headline', card: false, tone: 'bad', title: `${lm.name} is lost`, node: r });
 }
 
 export function killNation(s: GameState, n: NationId, by?: NationId): void {
@@ -160,9 +170,11 @@ export function annexNation(s: GameState, by: NationId, target: NationId): void 
     r.owner = by;
     r.controller = by;
     r.siege = undefined;
+    if (LANDMARK_AT[r.id]) landmarkChanged(s, r.id, target, by);
   }
   bumpOwnership();
-  for (const r of Object.values(s.regions)) if (r.controller === target) r.controller = r.owner;
+  // What it occupied goes back to its owners (setController: a freed landmark gives its bonus again today).
+  for (const r of Object.values(s.regions)) if (r.controller === target) setController(s, r.id, r.owner);
   for (const a of Object.values(s.armies)) if (a.owner === target) a.owner = by;
   for (const f of Object.values(s.fleets)) if (f.owner === target) f.owner = by;
   s.nations[by].gold += Math.max(0, t.gold);
@@ -179,6 +191,7 @@ export function releaseNation(s: GameState, from: NationId, n: NationId): boolea
     r.owner = n;
     r.controller = n;
     r.siege = undefined;
+    if (LANDMARK_AT[r.id]) landmarkChanged(s, r.id, from, n);
   }
   bumpOwnership();
   if (!nat.alive) {

@@ -90,6 +90,7 @@ for (const f of [
   'units',
   'aims',
   'advances',
+  'landmarks',
 ]) {
   prose(JSON.parse(fs.readFileSync(path.join(ROOT, `src/content/${f}.json`), 'utf8')), f);
 }

@@ -29,6 +29,7 @@ import { decodedBytes, famousMountains, neighbours, pickLevel, tilesToDraw, webZ
 import { TERRAIN_LEVELS, TERRAIN_REGION, TERRAIN_SEA_SHADE } from './terrainTiles';
 import { TERRAIN_LAKES, TERRAIN_RIVERS } from './terrainVectors';
 import { mountainsIn, terrainPaths } from './terrain';
+import { landmarkMarks } from './landmarks';
 
 export interface Camera {
   cx: number;
@@ -679,6 +680,13 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
             const y = r.town[1] - (size * pic.ground[1]) / TOWN_PX;
             if (!visible([x, y, x + size, y + size])) return null;
             return <SvgImage key={`t${r.id}`} x={x} y={y} width={size} height={size} href={pic.src} />;
+          })
+        : null}
+      {/* Landmarks: a gold pictogram at the upper right of their town (landmarks.tsx). */}
+      {showRegionNames
+        ? landmarkMarks(k, px, visible, hidden, id => {
+            const art = townArt(s.regions[id]);
+            return art ? px(townSize(TOWN_ART[art].size, MAP_REGION[id].labelRadius, k)) : null;
           })
         : null}
       {/* Names in the unknown */}

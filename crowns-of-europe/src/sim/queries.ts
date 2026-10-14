@@ -1,6 +1,7 @@
 /** Read-only questions about the game state used everywhere: who owns what, who is at war with whom. */
 import { ADVANCE, ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, isNativeNation, isNewWorld, isSea } from './content';
 import type { Army, Fleet, GameState, Modifiers, Nation, NationId, NodeId, Region, RegionId, UnitType, War } from './types';
+import { landmarksHeld } from './landmarks';
 import { setNewsHelpers } from './log';
 import { pairKey, yearOf } from './util';
 
@@ -240,6 +241,7 @@ export function modifierSources(s: GameState, n: NationId): ModSource[] {
   for (const p of nat.policies) if (POLICY[p]) out.push({ name: POLICY[p].name, mods: POLICY[p].mods });
   for (const a of nat.advances) if (ADVANCE[a]?.mods) out.push({ name: ADVANCE[a].name, mods: ADVANCE[a].mods! });
   for (const m of nat.modifiers) if (m.until < 0 || m.until > s.day) out.push({ name: m.name, mods: m.mods });
+  for (const lm of landmarksHeld(s, n)) out.push({ name: lm.name, mods: lm.mods });
   if (s.hre.emperor === n) out.push({ name: 'Holy Roman Emperor', mods: { manpower: 0.2, forceLimit: 0.25, diplomacy: 1, opinion: 10 } });
   // Difficulty: the AI gets a small bonus or malus.
   if (n !== s.player && s.settings.difficulty !== 'normal') {

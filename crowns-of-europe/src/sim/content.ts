@@ -21,6 +21,7 @@ import achievementsJson from '../content/achievements.json';
 import aimsJson from '../content/aims.json';
 import advancesJson from '../content/advances.json';
 import namesJson from '../content/names.json';
+import landmarksJson from '../content/landmarks.json';
 import type {
   AchievementDef,
   AdvanceDef,
@@ -34,6 +35,7 @@ import type {
   MapRegion,
   MapSea,
   MissionDef,
+  Modifiers,
   NationDef,
   NationId,
   NodeId,
@@ -153,6 +155,21 @@ export const LEARNING = advancesData.learning;
 export const START_ADVANCES = advancesData.start;
 export const MISSION: Record<string, MissionDef> = Object.fromEntries(MISSIONS.map(m => [m.id, m]));
 export const ACHIEVEMENTS = achievementsJson as unknown as AchievementDef[];
+
+/** A famous place (landmarks.json): whoever holds its region has its one bonus. Nothing to build, nothing to pay. */
+export interface LandmarkDef {
+  id: string;
+  region: RegionId;
+  name: string;
+  /** Which pictogram draws it (ui/components/landmarkArt.ts). */
+  kind: string;
+  mods: Modifiers;
+  /** Its history, one line. */
+  text: string;
+}
+export const LANDMARKS = landmarksJson as unknown as LandmarkDef[];
+/** The landmark in each region that has one. */
+export const LANDMARK_AT: Record<RegionId, LandmarkDef> = Object.fromEntries(LANDMARKS.map(l => [l.region, l]));
 
 const names = namesJson as unknown as Record<string, string[]> & { groups: Record<NationId, string> };
 export function namePool(nation: NationId): string[] {
