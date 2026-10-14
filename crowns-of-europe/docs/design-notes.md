@@ -696,18 +696,27 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
   | The Giralda | Andalusia (CAS) | +20% settler growth |
 - **AI.** No change: a landmark is not a war aim, so the AI's wars do not move. It gains the bonus like anyone by
   holding the region.
-- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Eleven gold silhouettes in a 24 × 24 box standing
-  on y = 21: dome, cathedral, spire, palace, castle, gate, pyramid, temple, mud mosque, bridge, tower. Each piece is
-  filled and edged dark on its own, so overlapping pieces keep a thin edge.
+- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Fifteen gold silhouettes, one per landmark (its
+  `kind` is its id), in a 24 × 24 box standing on y = 21, each the outline a player knows the place by: Hagia Sophia's
+  low dome and four minarets, St Peter's ribbed dome over its columned front, the Duomo's pointed dome beside Giotto's
+  tower, the Dome of the Rock's round dome on its octagon, Notre-Dame's twin flat towers and rose, St Stephen's zigzag
+  roof and tall spire, Westminster's Gothic gable between pinnacled turrets, the Alhambra's walls and Comares tower on
+  their hill, the Kremlin's tent-roofed gate tower and onion domes, the Arsenal's twin-towered water gate, the three
+  pyramids, Templo Mayor's twin shrines and stairs, Djinguereber's earthen tower and timbers, Charles Bridge's arches
+  and gate tower, the Giralda's slim tower over cathedral roofs. Nothing after 1750 (no Big Ben, no 1859 Notre-Dame
+  spire). 3–7 pieces each, nothing thinner than about 1.2 box units nor any hole under 1.4, so they hold at map size;
+  each piece is filled and edged dark on its own, so overlapping pieces keep a thin edge (dome ribs, pyramid faces).
 - **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the spot in
-  `landmarkSpot.ts`). The mark stands at the upper right of its town: its bottom-left corner at the town plus
-  (0.25, −0.55) times the town picture's size. It is 13 points at play zoom, growing like the towns, never under 9
-  and capped at 1.6 × the region's label radius on screen, so Constantinople gets a small one. Where that box would
-  cover the region's own name (Cairo, whose town sits by its name), it is lifted just above the name. Where the
-  upper right falls outside the region (a town by a border or the sea), it tries the upper left, right above, the
-  three spots below, then level with the town on either side, and takes the first whose middle and foot are in its
-  own region; failing all (Constantinople at play zoom), it stands on the region's label point. A test checks every
-  landmark at five zooms. Not a tap target; hidden with the uncharted New World.
+  `landmarkSpot.ts`). 20 points at play zoom (13 read as a speck), growing like the towns, never under 12 and capped
+  at 2.2 × the region's label radius on screen, on a soft dark halo so the gold lifts off the painting. It tries the
+  town's upper right first (its bottom-left corner at the town plus (0.25, −0.55) times the town picture's size), then
+  the upper left, right above, the three spots below, level with the town on either side, and the region's label point
+  (above the name when one is written). Where a spot would cover the region's own name (Cairo), it is lifted above or
+  dropped below it. It takes the first spot whose middle and foot are in its own region, with nine-tenths of the
+  picture's lower part in it, off the neighbours' names and off where the region's army stands; where none is that
+  good (a narrow region: Constantinople, Île-de-France when zoomed out), the spot with most of the picture in its
+  region, an army counting more against it than a grazed name. A test checks every landmark at five zooms. Not a tap
+  target; hidden with the uncharted New World. The region sheet's tile shows it at 32 points.
 - **Region sheet** (`ui/game/LandmarkLine.tsx`, under the pills, `testID="landmark"`): the pictogram on a raised
   tile, the name in Cinzel, the bonus in words (`modsText`), "Lost while occupied" when it is, and the history plus
   "It goes to whoever holds the region." behind its "?". How to play has a Landmarks topic and the glossary a

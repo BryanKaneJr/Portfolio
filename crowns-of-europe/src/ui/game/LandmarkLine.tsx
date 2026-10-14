@@ -10,7 +10,7 @@ import { modsText } from '../describe';
 import { landmarkPaths } from '../map/landmarks';
 import { G, R, display, sans } from '../theme';
 
-const PIC = 28;
+const PIC = 32;
 
 export function LandmarkLine({ id }: { id: string }) {
   const st = useStore();

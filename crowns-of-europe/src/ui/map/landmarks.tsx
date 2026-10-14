@@ -1,7 +1,8 @@
 /**
- * The landmarks on the map: a small gold pictogram standing beside its region's town, at its upper right where that
- * is inside the region (Hagia Sophia's dome by Constantinople, the Kremlin by Moscow; `landmarkSpot.ts`). Drawn from
- * the zoom where region names show, over the towns and under the names; never a tap target. A landmark never moves, so it needs no redraw key of its own.
+ * The landmarks on the map: a gold pictogram on a soft dark halo, standing beside its region's town, at its upper right
+ * where that is inside the region (Hagia Sophia by Constantinople, the Kremlin by Moscow; `landmarkSpot.ts`). Drawn
+ * from the zoom where region names show, over the towns and under the names; never a tap target. A landmark never
+ * moves, so it needs no redraw key of its own.
  */
 import type { ReactElement } from 'react';
 import { G, Path } from 'react-native-svg';
@@ -13,6 +14,10 @@ import { markSize, markSpot } from './landmarkSpot';
 /** Its ink: the gilt the interface marks things with, edged dark so it reads on any land colour. */
 export const LANDMARK_FILL = '#e3bf5c';
 export const LANDMARK_EDGE = 'rgba(40,28,8,0.85)';
+/** A soft dark halo under the gold on the map, so it lifts off the painting (drawn solid, then faded as a whole). */
+const HALO = '#1e1406';
+const HALO_OPACITY = 0.35;
+const HALO_PT = 2.6;
 
 /** One pictogram in its 24 x 24 box, each piece filled and edged on its own (`edge`: the stroke in box units). */
 export function landmarkPaths(
@@ -58,6 +63,7 @@ export function landmarkMarks(
     const scale = size / 24;
     out.push(
       <G key={`lm${lm.id}`} transform={`translate(${x} ${y}) scale(${scale})`}>
+        <G opacity={HALO_OPACITY}>{landmarkPaths(art, px(HALO_PT) / scale, HALO, HALO)}</G>
         {landmarkPaths(art, px(0.8) / scale)}
       </G>,
     );

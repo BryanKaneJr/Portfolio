@@ -129,6 +129,12 @@ export function regionAt(x: number, y: number): RegionId | null {
   for (const s of regionShapes) if (inside(s, x, y)) return s.id;
   return null;
 }
+const REGION_SHAPE = new Map(regionShapes.map(s => [s.id, s]));
+/** Is this point inside this region (cheaper than regionAt when the region is known)? */
+export function inRegion(id: RegionId, x: number, y: number): boolean {
+  const shape = REGION_SHAPE.get(id);
+  return !!shape && inside(shape, x, y);
+}
 export function wasteAt(x: number, y: number): string | null {
   for (const s of wasteShapes) if (inside(s, x, y)) return s.id;
   return null;

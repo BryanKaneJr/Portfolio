@@ -67,3 +67,11 @@ export function armyAnchor(id: string, k: number): [number, number] {
   return at;
 }
 const anchors = new Map<string, [number, number]>();
+
+/** Roughly what a region's first army covers where it stands (map units: x0, y0, x1, y1): the figure and its banner
+ * above the point, its count badge below and to the right. A landmark's mark keeps clear of it. */
+export function armyBox(id: string, k: number): number[] {
+  const [x, y] = armyAnchor(id, k);
+  const u = tokenScale(k) / k;
+  return [x - 16 * u, y - TOKEN_TOP * u, x + 30 * u, y + 16 * u];
+}
