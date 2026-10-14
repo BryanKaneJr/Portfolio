@@ -12,7 +12,7 @@ import { C, sans } from '../theme';
 import { modLines } from '../describe';
 
 const HELP =
-  'Hold a crown’s lands and its key regions to proclaim it: you take its name, arms and a lasting bonus, and claims on the lands you still lack. You must be at peace, no one’s subject, with order 0 or better. Lands of your junior partners in a shared crown count. Each crown is proclaimed once a game, and one crown leads on only to a greater one that names it.';
+  'Hold a crown’s lands and its key regions to proclaim it: you take its name, arms and a lasting bonus, and claims on the lands you still lack that border yours. You must be at peace, no one’s subject, with order 0 or better. Lands of your junior partners in a shared crown count, and they keep their own crowns. Each crown is proclaimed once a game, and one crown leads on only to a greater one that names it.';
 
 /** A former, as a name: a nation's, or a smaller crown's. */
 const formerName = (f: string) => NATION[f]?.name ?? CROWN[f]?.name ?? f;

@@ -462,10 +462,14 @@ has one to aim at.
   a computer realm). Each crown is proclaimed once a game.
 - **What it does:** the realm takes the crown's name, adjective and arms, and usually its colour (a crown with
   `inherits: X` shows its own colour only when X proclaimed it or is gone, so two living realms never share one). It
-  gains a permanent modifier (a chain's bonuses stack), +20 renown, 25-year claims on the lands it still lacks plus
-  the crown's extra `claims` (the Two Sicilies: Sardinia and the Romagna; Italy: Constantinople), and its junior
-  partners holding the crown's lands are joined to it (never a player). Ruler, treasury and capital stay. Nothing
-  else changes: the tag, its missions, aims and events are the realm's own.
+  gains a permanent modifier (a chain's bonuses stack), +20 renown, and 25-year claims on the crown's lands it still
+  lacks that border it (or a subject) plus the crown's extra `claims` (the Two Sicilies: Sardinia and the Romagna;
+  Italy: Constantinople). Junior partners keep their own crowns. Ruler, treasury and capital stay. Nothing else
+  changes: the tag, its missions, aims and events are the realm's own.
+- **Tuned after measuring the whole batch** (8 AI games to 1560 against the code before it): proclaiming used to
+  absorb junior partners and claim every land of the crown, and Denmark's Scandinavia took Sweden in 7 games of 8,
+  Poland's Commonwealth Lithuania in all, Castile's Spain Aragon; realms alive in 1500 fell from 53.5 to 47.5 and
+  claim wars rose by a quarter. Partners now stay, and claims reach only bordering lands.
 - **The computer** proclaims every January, realms in id order, the first crown in file order it may: no randomness,
   at most one a year. The Roman Empire and Francia are for players only. The player is told once, as important news,
   when a crown comes within reach, and proclaims it from Realm → Greater crowns.

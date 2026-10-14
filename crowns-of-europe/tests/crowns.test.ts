@@ -94,7 +94,7 @@ describe('who may proclaim what', () => {
     expect(canProclaim(s, 'BUR', 'NED')).toBe('Not while a subject');
   });
 
-  test('Castile with Aragon in a shared crown proclaims Spain and joins Aragon to it; never a player Aragon', () => {
+  test('Castile with Aragon in a shared crown proclaims Spain, and Aragon stays its junior partner; never a player Aragon', () => {
     for (const player of ['FRA', 'ARA']) {
       const s = calm(player, 1470);
       makeSubject(s, 'CAS', 'ARA', 'union');
@@ -102,8 +102,12 @@ describe('who may proclaim what', () => {
       if (player === 'FRA') {
         expect(canProclaim(s, 'CAS', 'SPA')).toBeNull();
         proclaim(s, 'CAS', 'SPA');
-        expect(s.nations.ARA.alive).toBe(false);
-        expect(s.regions.aragon.owner).toBe('CAS');
+        expect(s.nations.ARA.alive).toBe(true);
+        expect(s.nations.ARA.overlord).toBe('CAS');
+        expect(s.regions.aragon.owner).toBe('ARA');
+        // Claims only on the lands of the crown that touch the realm: Navarre borders Castile and Aragon, Portugal's
+        // Porto borders Galicia; nothing on lands far from it.
+        expect('navarre' in s.nations.CAS.claims).toBe(true);
       } else {
         // A player's lands never count toward another's crown, and a player is never joined to it.
         expect(canProclaim(s, 'CAS', 'SPA')).toBe('Needs Aragon');

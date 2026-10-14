@@ -3,10 +3,10 @@
  * name, arms, usually its colour, and a lasting bonus. Naples → Two Sicilies → Italy → Roman Empire, Spain for the
  * Iberians, and so on. No randomness: the computer proclaims the first crown it is ready for, every January.
  */
-import { CROWN, CROWNS, NATION, displayIn, regionName } from './content';
+import { CROWN, CROWNS, GRAPH, NATION, displayIn, regionName } from './content';
 import { log, moment } from './log';
 import { invalidateMods, subjectsOf, warsOf } from './queries';
-import { annexNation, markMapDirty } from './territory';
+import { markMapDirty } from './territory';
 import type { CrownDef, GameState, NationId, RegionId } from './types';
 import { dateOf, years } from './util';
 
@@ -113,15 +113,12 @@ export function proclaim(s: GameState, n: NationId, id: string): void {
   nat.modifiers = nat.modifiers.filter(m => m.id !== 'crown_' + id);
   nat.modifiers.push({ id: 'crown_' + id, name: c.name, mods: c.mods, until: -1 });
   invalidateMods();
-  // Junior partners holding the crown's lands are joined to it (never a player).
-  const lands = new Set(c.regions);
-  for (const sub of subjectsOf(s, n)) {
-    if (sub === s.player || s.nations[sub].subjectType !== 'union') continue;
-    if (Object.values(s.regions).some(r => r.owner === sub && lands.has(r.id))) annexNation(s, n, sub);
-  }
-  // Claims on the lands still to win, never shortening a longer one.
+  // Junior partners keep their own crowns (their lands already count toward this one). Claims, never shortening a
+  // longer one, on the crown's lands still to win that touch the realm (or a subject's land), and on its extra claims.
+  const realm = new Set([n, ...subjectsOf(s, n)]);
+  const touches = (r: RegionId) => GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && realm.has(s.regions[e.to]?.owner ?? ''));
   const until = s.day + years(CROWN_CLAIM_YEARS);
-  for (const r of [...c.regions, ...(c.claims ?? [])]) {
+  for (const r of [...c.regions.filter(touches), ...(c.claims ?? [])]) {
     const owner = s.regions[r]?.owner;
     if (!owner || owner === n || s.nations[owner]?.overlord === n) continue;
     const had = nat.claims[r];
