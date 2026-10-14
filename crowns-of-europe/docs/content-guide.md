@@ -272,8 +272,8 @@ it lacks some of the regions. The player's nation ignores aims (it has missions)
 and from open missions (weight 1), makes the AI forge claims on it when it borders it, prefer wars against whoever
 holds it (higher score, 15% less strength needed), demand it first in peace deals, and think less of the holder
 (−12 −8 per region held, at most −40, aims only). A **bond** gives both crowns +25 (friends) or −25 (foes) opinion
-while its years fit, which also steers rivalries and alliances. The nation sheet shows a crown's aims and bonds
-under "What they want". Titles at most 48 characters, labels at most 40.
+while its years fit, which also steers rivalries, and counts again in alliance talks (+25 friends, −50 foes). The
+nation sheet shows a crown's aims and bonds under "What they want". Titles at most 48 characters, labels at most 40.
 
 ## Achievements
 
