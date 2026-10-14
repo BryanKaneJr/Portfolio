@@ -7,7 +7,6 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { PixelRatio, Platform, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
@@ -15,7 +14,6 @@ import { REBELS, armyRegs, armyMen, seesUnit } from '../../sim/queries';
 import type { Army, GameState, Region } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans } from '../theme';
-import { freeBand } from '../layout';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
@@ -117,39 +115,7 @@ export function MapView() {
     const seen = army ? seesUnit(s, s.player, army.owner, army.node, army.rebelOf) : fleet ? seesUnit(s, s.player, fleet.owner, fleet.sea) : true;
     if (!seen) store.select(null);
   }, [st.version, st.selection, s]);
-  // Keep what you select in sight: if its sheet would cover it (or it sits under the top bar), glide the map until
-  // it is in the middle of the clear space, so the land around an army stays free to tap.
-  const insets = useSafeAreaInsets();
-  const selection = st.selection;
-  const selKey = selection ? `${selection.kind}:${selection.id}` : '';
-  const shownSel = useRef('');
-  useEffect(() => {
-    if (selKey === shownSel.current) return;
-    shownSel.current = selKey;
-    if (!cam || !selection || selection.kind === 'nation' || live.get().pan || live.get().pinch) return;
-    const pt = selectionPoint(s, selection, cam.k);
-    if (!pt) return;
-    const band = freeBand(size.h, insets, selection.kind === 'army' || selection.kind === 'fleet' ? 'compact' : 'half');
-    const sx = size.w / 2 + (pt[0] - cam.cx) * cam.k;
-    const sy = size.h / 2 + (pt[1] - cam.cy) * cam.k;
-    // Fine anywhere but the band's lower quarter, where the land beyond it (the next march) is under the sheet.
-    // A unit's token grows past play zoom: keep its banner clear of the top bar and its badge clear of the rail.
-    const unit = selection.kind === 'army' || selection.kind === 'fleet';
-    const grown = unit ? Math.max(1, tokenScale(cam.k)) : 1;
-    const xOk = sx > 40 * grown && sx < size.w - 92 * grown; // clear of the side rail
-    const head = unit ? Math.max(50, TOKEN_TOP * tokenScale(cam.k) * 1.12 + 12) : 50;
-    if (xOk && sy > band.top + head && sy < band.bottom - Math.max(80, (band.bottom - band.top) / 4)) return;
-    const want = clampCam({ k: cam.k, cx: xOk ? cam.cx : pt[0], cy: pt[1] - ((band.top + band.bottom) / 2 - size.h / 2) / cam.k });
-    const dx = (cam.cx - want.cx) * cam.k;
-    const dy = (cam.cy - want.cy) * cam.k;
-    if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
-    ty.set(withTiming(dy, SETTLE));
-    tx.set(
-      withTiming(dx, SETTLE, done => {
-        if (done) runOnJS(commit)(dx, dy, 1);
-      }),
-    );
-  }, [selKey, selection, cam, s, size, insets, clampCam, commit, live, tx, ty]);
+  // Selecting a region, an army or a fleet never moves the map: only your fingers do (or "Show on map").
 
   const half = { w: size.w / 2, h: size.h / 2 };
   const c0 = cam ?? { cx: 0, cy: 0, k: 1 };
@@ -1020,17 +986,6 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
     out.push({ kind: 'fleet', id: f.id, x, y });
   }
   return out;
-}
-
-/** Where a selection sits on the map (map units): a unit's marker, a battle, a region or sea's label. */
-function selectionPoint(s: GameState, sel: NonNullable<Selection>, k: number): [number, number] | null {
-  if (sel.kind === 'army' || sel.kind === 'fleet') {
-    const c = unitPositions(s, k, sel.id).find(u => u.id === sel.id);
-    return c ? [c.x, c.y] : null;
-  }
-  if (sel.kind === 'battle') return s.battles[sel.id] ? regionPoint(s.battles[sel.id].node) : null;
-  if (sel.kind === 'region' || sel.kind === 'sea') return regionPoint(sel.id);
-  return null;
 }
 
 const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Camera; w: number; h: number; s: GameState; selection: Selection; version: number }) {

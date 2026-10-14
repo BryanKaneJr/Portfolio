@@ -159,10 +159,11 @@ here.
     beneath; tapping one opens the war: both sides under their arms, the leverage as a tug of war with its four
     parts, how the fighting has gone (battles, men lost, land held, war exhaustion) and the peace table, with the
     deal and their answer always in reach at the bottom. Armies and fleets are tokens in their owner's colour with
-    a pikeman or a ship drawn on them and the count beneath. Moving an army: its sheet opens low and the map glides
-    so the army sits in the clear space above it, so the land around it can be tapped (a tall sheet used to cover
-    it, which is why armies seemed impossible to move); while you give orders, a near miss on another of your
-    units is a march order, and switching units takes a tap on its token.
+    a pikeman or a ship drawn on them and the count beneath. Moving an army: its sheet opens low, so the land
+    around it can be tapped (a tall sheet used to cover it, which is why armies seemed impossible to move); while
+    you give orders, a near miss on another of your units is a march order, and switching units takes a tap on its
+    token. Selecting something never moves the map (the owner disliked the map gliding to whatever was tapped):
+    only a drag, a pinch, "Show on map" or an outliner entry does.
 19. **Say less; explain on request (on request).** Screens had grown sentences everywhere: under each general
     what their stars add, under the leverage what you could ask for, a rule under most sections. Now a screen
     says what things are and what you can do, in a few words; how a rule works sits behind a small gold "?" in a
