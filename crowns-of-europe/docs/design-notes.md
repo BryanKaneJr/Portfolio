@@ -630,3 +630,46 @@ The first, simple pass at "the fun stuff".
 - **A battle's why.** A battle keeps how the sides stood on its first day (`Battle.opening`). Its report keeps that
   with the ground (`BattleReport.why`). `describe.ts battleWhy` turns it into at most three lines from the player's
   side, under the report. Older reports show nothing.
+
+## Fun batch 2 (R): Crack down, Seize estates, Abdicate, Golden age
+
+Four one-tap acts for the realm, each with its price shown before the tap and nothing to manage afterwards. The
+rules are in `sim/realm.ts` (abdication in `sim/rulers.ts`), the buttons in `ui/game/RealmActions.tsx`.
+
+| Act | Where | Price | Effect | Limit |
+|---|---|---|---|---|
+| Crack down | Region sheet, Invest (while unrest ≥ 1) | 500 levies a point of prosperity, at least 1,000 | −3 unrest there for 5 years ("Crackdown" in the breakdown) | one at a time per region; your own, unoccupied land |
+| Seize estates | Realm → Order and renown | order −1; +2 unrest in every region for 5 years ("Estates seized") | 12 × today's taxes (`regionTax`; trade and exports not included) | order −1 or better; once in 10 years (`cooldowns["X>X:seize"]`) |
+| Abdicate | Realm, under the heir (monarchies only) | order −1, renown −10 (no further −5 from succession) | the heir is crowned today; a ruler-general leaves his army | heir 16 or older, no regency, 10 years on the throne or the ruler 50 or older |
+| Golden age | Realm, after the greater crowns | — | 50 years of +10% tax income, −10% cost to invest, +10% levies, −1 unrest (a timed modifier); a card for the player, a banner for news; a gilt sun on your arms in the top bar; a "Golden age" pill on nation sheets | renown 40, order +1, at peace, 4 advances; once a game; not New World peoples |
+
+- **Timed unrest has a name.** `Region.unrestMods[].why` is the breakdown's label ("Crackdown", "Estates seized",
+  "Rebels appeased"); without one it reads "Recent events". Lines with the same name add up into one.
+- **Crowning day.** `Ruler.crowned` is set wherever a ruler is made (elections, theocracies, heirs, unions, crises,
+  the `newRuler` effect, abdication). The rulers of 1444 and older saves have none: read as day 0.
+- **The end of a golden age** is told once (`monthlyGolden`, `golden.over`); the modifier runs out by itself.
+- **AI (`aiRealm`, monthly after `aiEconomy`).** Crack down in its most restless region when unrest is above 6 and
+  its levies are over half full (one a month); seize the estates at 3 loans or more with order 0 or better; a ruler
+  of skill 2 or less steps down for an heir at least 2 better, with order 0 or better; proclaim a golden age as soon
+  as it may. `COUNTS` (dev only) counts each.
+- **A fix on the way.** A crown that lost its last region to rebels restoring a fallen crown stayed alive with no
+  land (`releaseNation` does not kill the crown it takes from). `rebelOutcomes` now ends it, or moves its capital if
+  only the capital went. Seen on soak seed 11 once the acts changed the dice.
+
+Measured to 1500, AI only, seeds 1–3 (main → this branch):
+
+| Measure | Main | Batch 2 R |
+|---|---|---|
+| Golden ages | — | 3, 5, 0 (seed 1: BUR 1465, TUR 1488, CAS 1496; seed 2: BUR 1465, CAS 1475, FRA 1476, NAP 1480, TUR 1485) |
+| Abdications | — | 10, 8, 8 |
+| Crackdowns | — | 9, 1, 2 |
+| Seizures | — | 14, 16, 22 |
+| Bankruptcies | 3, 3, 3 | 3, 4, 3 |
+| Realms alive in 1500 | 45, 45, 48 | 46, 46, 52 |
+| Rebellions | 49, 41, 49 | 55, 46, 51 |
+| Mean unrest in 1500 | 0.07, 0.06, 0.32 | 0.63, 0.44, 0.33 |
+| ms per day | 2.4–2.6 | 2.4–2.8 |
+
+Abdications run above the spec's 2–6 a game (about 9 by 1500), and seizures do not yet cut bankruptcies (the AI
+seizes at 3 loans; loans held in 1500 are higher, not lower, so the cause is not yet pinned down). If either matters in the full campaign
+numbers, tighten the AI rules first (an heir of skill 4 or more; seize only when the monthly balance is negative).
