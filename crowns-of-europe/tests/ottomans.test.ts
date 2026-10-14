@@ -1,12 +1,12 @@
 import { emptyGame } from './helpers';
 import { newGame } from '../src/sim/state';
-import { advanceDays } from '../src/sim/tick';
+import { advanceDay, advanceDays } from '../src/sim/tick';
 import { EVENT } from '../src/sim/content';
 import { applyEffect } from '../src/sim/events';
 import { forceLimit, ownedRegions, totalDev } from '../src/sim/queries';
 import { rulerDies } from '../src/sim/rulers';
 import { advanceCost, scienceRate } from '../src/sim/science';
-import { pairKey } from '../src/sim/util';
+import { pairKey, yearOf } from '../src/sim/util';
 
 /** The AI's pick for an event: the choice with the highest weight. */
 const aiChoice = (id: string) => [...EVENT[id].choices].sort((a, b) => (b.ai ?? 1) - (a.ai ?? 1))[0];
@@ -16,9 +16,11 @@ describe('the Ottoman threat', () => {
     const s = newGame({ player: 'POR', seed: 1 });
     s.flags.__spectate = 1; // the AI plays everyone
     advanceDays(s, 365 * 3);
-    expect(s.regions.constantinople.owner).toBe('TUR');
     // Hungary is still mourning the dead of Varna.
     expect(s.nations.HUN.modifiers.some(m => m.id === 'dead_of_varna')).toBe(true);
+    // The Sultan's first war comes when his rest runs out (up to three years in); the City falls by 1450.
+    while (yearOf(s.day) < 1450) advanceDay(s);
+    expect(s.regions.constantinople.owner).toBe('TUR');
   }, 60000);
 
   test('the Ottomans raise bigger armies than their prosperity alone allows', () => {

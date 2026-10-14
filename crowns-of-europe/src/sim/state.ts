@@ -3,16 +3,18 @@ import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } 
 import { startingAdvances } from './science';
 import { forceLimit, liveUnseenReports, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
-import { dayOf, years, pairKey } from './util';
+import { dayOf, randInt, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 5;
+export const SAVE_VERSION = 6;
 
 /** Brings a save from an earlier version up to date, or returns null if it is too old to read. */
 export function migrateSave(s: GameState): GameState | null {
   if (s.version !== SAVE_VERSION) {
-    if (s.version !== 4) return null;
+    if (s.version !== 4 && s.version !== 5) return null;
+  }
+  if (s.version === 4) {
     // Version 5: a general has 1-5 stars instead of three separate numbers (their average, rounded).
     const fix = (g: General | undefined) => {
       if (!g) return;
@@ -25,6 +27,18 @@ export function migrateSave(s: GameState): GameState | null {
     for (const a of Object.values(s.armies)) fix(a.general);
     for (const n of Object.values(s.nations)) n.generals.forEach(fix);
     s.version = 5;
+  }
+  if (s.version === 5) {
+    // Version 6: the claims of 1444 lapse in their year, as in a new game, instead of lasting for ever.
+    for (const [n, list] of Object.entries(SCENARIO.claims))
+      for (const c of list) {
+        const claims = s.nations[n]?.claims;
+        if (!claims || claims[c.region] !== -1) continue;
+        const until = dayOf(c.until, 0, 1);
+        if (until > s.day) claims[c.region] = until;
+        else delete claims[c.region];
+      }
+    s.version = 6;
   }
   migrateSettings(s.settings);
   // Unread reports of battles that have since dropped out of the list can never be opened: forget them.
@@ -207,7 +221,8 @@ export function newGame(opts: NewGameOptions): GameState {
   }
 
   // Scenario relations.
-  for (const [n, regions] of Object.entries(SCENARIO.claims)) for (const r of regions) s.nations[n].claims[r] = -1;
+  // The claims of 1444, each lapsing in the year its quarrel was settled (or would have to be pressed by then).
+  for (const [n, list] of Object.entries(SCENARIO.claims)) for (const c of list) s.nations[n].claims[c.region] = dayOf(c.until, 0, 1);
   for (const [a, b] of SCENARIO.alliances) s.alliances[pairKey(a, b)] = start - years(5);
   for (const [a, b] of SCENARIO.marriages) s.marriages[pairKey(a, b)] = start - years(5);
   for (const [a, b] of SCENARIO.rivals) if (!s.nations[a].rivals.includes(b)) s.nations[a].rivals.push(b);
@@ -218,6 +233,9 @@ export function newGame(opts: NewGameOptions): GameState {
     n.subjectType = sub.type;
     n.subjectSince = start - years(sub.type === 'union' ? 0 : 5);
   }
+  // Europe is just out of a round of wars and truces (Arras, Tours, Szeged): each crown made peace at some time in
+  // the last three years, so the AI's first wars come one by one as their rests run out, not all in the first spring.
+  for (const nat of Object.values(s.nations)) nat.ai.lastPeace = start - randInt(s, 0, years(3));
 
   // Starting armies: a share of each nation's force limit, at the capital.
   for (const nat of Object.values(s.nations)) {

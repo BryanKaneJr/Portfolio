@@ -716,10 +716,26 @@ function aiWar(s: GameState, nat: Nation): void {
     if (!best || score > best.score) best = { target: t, cb, goal, score, limited };
   }
   if (!best) return;
+  // No crown marches without a reason: an ambitious one has its clerks forge one first (a year's work) on the land it
+  // wants there, or the richest region on the border, and goes to war for it next year if the odds still hold.
+  if (best.cb.cb === 'none') {
+    const forge = best.goal ?? richestOnBorder(s, n, best.target);
+    if (!forge || nat.fabricating || nat.gold < FABRICATE_COST) return;
+    nat.gold -= FABRICATE_COST;
+    nat.fabricating = { region: forge, done: s.day + FABRICATE_DAYS };
+    return;
+  }
   const war = declareWar(s, n, best.target, best.cb.cb, best.goal);
   if (!war) return;
   nat.ai.lastWarDeclared = s.day;
   if (best.limited) war.limited = true;
+}
+
+/** The most prosperous region of `t` touching `n`'s land. */
+function richestOnBorder(s: GameState, n: NationId, t: NationId): string | undefined {
+  let best: Region | undefined;
+  for (const r of Object.values(s.regions)) if (r.owner === t && bordersOwn(s, n, r.id) && (!best || r.dev > best.dev)) best = r;
+  return best?.id;
 }
 
 // ---------------------------------------------------------------- peace

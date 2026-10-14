@@ -356,6 +356,27 @@ here.
     by applying their effects in order on a copy of the game ('Pay 31 gold', not '1.5 × your prosperity'). Disband
     takes a second tap, and says what comes back (levies, the general) and what is lost (mercenaries).
 
+31. **The claims of 1444, with their stories and end dates; a calmer opening (on request).** The owner asked for
+    crowns to start with the reasons for war they really had, against the realms they had them on, each lapsing,
+    without the AI warring left and right. The 44 old starting claims of 22 crowns lasted for ever, and several were
+    never fought over (Provence, Naples, Bohemia, Finland...). There are now 22 for 15 crowns, each a quarrel of the
+    day that lapses on 1 January of the year it was settled or had to be pressed: France on Normandy, Gascony and
+    Calais (the Hundred Years' War, 1475); Castile on Granada (the Reconquista, 1500); the Ottomans on Constantinople
+    and the Morea (1470), Bosnia (1470) and Albania (1480); Poland on Danzig and Prussia (1466); Milan and Venice on
+    each other (the wars in Lombardy, 1454); the Habsburgs on the Swiss Aargau (1474) and the crown of Hungary
+    (1491); Moscow on Novgorod (1480); Burgundy on Lorraine (1477); Scotland on Berwick (Yorkshire, 1482); Portugal on
+    Fez (1480); Hungary on Serbia (1460); Byzantium on Thessalonica (1460); Karaman on Ankara (1470); Songhai on
+    Timbuktu (1475). The war screen shows a claim's story and the year it lapses, and so do the realm menu, the region
+    sheet ("Your claim to 1500", "Claimed by Castile") and a crown's sheet ("Their claims on you"). Old saves have
+    their everlasting claims of 1444 cut to the same years, once.
+    - So that the AI doesn't press them all in the first spring, every crown starts as if it made peace at some time
+      in the last three years (Arras, Tours and Szeged were all recent), and its first war waits for its rest to run
+      out.
+    - With claims lapsing, the great crowns fell back on wars without any reason: France on Lorraine, Genoa and the
+      Pope, the Ottomans on the Qara Qoyunlu every ten years. The AI no longer declares such wars: a crown that would
+      have forges a claim first (a year and 40 gold, on the land it wants there or the richest region on the border)
+      and fights for that region a year later if the odds still hold.
+
 ## Key numbers (all in `src/sim/`)
 
 | Thing | Value |
@@ -373,6 +394,7 @@ here.
 | Sieges | 15 days without a fort (60 for a founded New World colony of a crown its owner still holds: the settlers hold out); 75 days per fort level, +10% speed per artillery regiment (max +150%); a battle at the walls pauses the siege |
 | Supply | 10/7/7/5/5 by terrain + 0.8 × development (+3 in friendly land), × 0.6 in northern/eastern winters |
 | Threat | +2.5 × development per region taken (× 0.6 if claimed); decays 0.12 + prestige/500 per month; coalitions form at 40 felt Threat with 3+ members |
+| Claims | Forged: a year and 40 gold, lasting 25 years. Of 1444: 22, each until 1 January of its year (1454-1500). The AI rests 3 years between wars (4 a trader, 5 defensive), the first rest begun 0-3 years before the start; with no reason for war it forges one instead of marching |
 | Peace cost | 3% per development per region (× 0.7 if claimed, × 2 for the capital of a realm of 3+ regions), 2% per development to vassalize, 1% per 10 gold |
 | Development cost | 20 + 8 × (dev + 1)^1.5 gold, +5% per level already bought |
 | Science a month | (1 + 0.6 × average prosperity of your 5 richest regions (all of them if fewer) + 0.15 × √total prosperity + 0.4 per trade centre (5 max) + 0.5 per university) × learning (0.6 West Africa … 1.35 Florence) × 1.25 if funding scholars (10% of income) × (1 + 5% per order) × (1 + modifiers) |

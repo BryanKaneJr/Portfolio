@@ -81,9 +81,16 @@ export const INLAND_SEAS = new Set(['west_med', 'tyrrhenian', 'adriatic', 'ionia
 export const NATIONS = nationsJson as unknown as NationDef[];
 export const NATION: Record<NationId, NationDef> = Object.fromEntries(NATIONS.map(n => [n.id, n]));
 
+/** A claim a crown holds when the game starts: its historical reason, lapsing at the start of `until`. */
+export interface StartingClaim {
+  region: RegionId;
+  until: number;
+  why: string;
+}
+
 export interface Scenario {
   start: { year: number; month: number; day: number };
-  claims: Record<NationId, RegionId[]>;
+  claims: Record<NationId, StartingClaim[]>;
   alliances: [NationId, NationId][];
   subjects: { overlord: NationId; subject: NationId; type: 'vassal' | 'union' }[];
   rivals: [NationId, NationId][];
@@ -92,6 +99,8 @@ export interface Scenario {
   hre: { emperor: NationId; electors: NationId[] };
 }
 export const SCENARIO = scenarioJson as unknown as Scenario;
+/** The claim of `n` on region `r` it started the game with, if any (its reason and the year it lapses). */
+export const startingClaim = (n: NationId, r: RegionId): StartingClaim | undefined => SCENARIO.claims[n]?.find(c => c.region === r);
 
 export const TRAITS = traitsJson as unknown as { national: Record<string, TraitDef>; ruler: Record<string, TraitDef> };
 export const POLICIES = policiesJson as unknown as PolicyDef[];

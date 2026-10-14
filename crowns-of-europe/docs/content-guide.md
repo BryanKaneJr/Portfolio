@@ -9,7 +9,7 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 | `regions.json` | 211 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
 | `nations.json` | 73 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
 | `seas.json` | Sea zones (`ocean`, `nw`, `closed`, `charted` for a closed sea still drawn as water, `days` to cross), straits, wildernesses, the Great Lakes, sea links and rivers (all map seeds) |
-| `scenario1444.json` | Starting claims, alliances, subjects, rivals, truces, marriages, HRE emperor and electors |
+| `scenario1444.json` | Starting claims (each with its historical reason and the year it lapses), alliances, subjects, rivals, truces, marriages, HRE emperor and electors |
 | `events-historical.json` | Historical events (fire when conditions match, not on fixed dates) |
 | `events-generic.json` | Generic events (any nation) and era flavour events |
 | `events-newworld.json` | Discovery, colonies, natives and the colonial powers |
@@ -245,6 +245,20 @@ sets each nation's speed (default 1) and `start` the advances crowns know in 144
 in `requires`, and ships in units.json an `advance`. After changing costs, check the timing with an AI game:
 the first crown to learn each advance should do so near its `year`. Use `hasAdvance` in conditions and
 `science` in effects.
+
+## Claims of 1444 (`scenario1444.json`)
+
+```json
+"claims": { "CAS": [{ "region": "granada", "until": 1500, "why": "The Reconquista" }] }
+```
+
+A **starting claim** gives a crown a reason for war on whoever holds the region from the first day until 1 January
+of `until`: the year its quarrel was settled in history, or by which it had to be pressed. The war screen shows
+`why` and the year under the claim, and the realm menu and the region sheet show it too. A claim forged in play
+lasts 25 years and has no story, and a claim of 1444 granted again by an event or the Pope (for ever) loses its
+story. Keep the list short: the AI presses every claim it can win, so each one is a likely war. Only quarrels
+fought over within a generation of 1444, at most four a crown, never on the claimant's own land, `until` after
+1444 and at most 1700, `why` at most 48 characters (all checked by `npm run validate`).
 
 ## Historical aims and bonds (`aims.json`)
 

@@ -14,6 +14,7 @@ import { Shield } from '../components/Flag';
 import { Btn, Line, Pill, Row, Section, Stat, T } from '../components/kit';
 import { C, fmt, signed } from '../theme';
 import { regionPoint } from '../map/geometry';
+import { claimsText, claimsWhy } from '../describe';
 import { Sheet } from './Sheet';
 
 const GOV: Record<string, string> = { monarchy: 'Monarchy', republic: 'Republic', theocracy: 'Theocracy' };
@@ -38,6 +39,10 @@ export function NationSheet({ id }: { id: string }) {
     );
   }
   const aims = activeAims(s, id);
+  // Reasons for war between you and them, each until the year shown.
+  const onMine = id === s.player ? [] : Object.keys(n.claims).filter(r => s.regions[r]?.owner === s.player);
+  const onTheirs = id === s.player ? [] : Object.keys(s.nations[s.player].claims).filter(r => s.regions[r]?.owner === id);
+  const claimHelp = (by: string, regions: string[]) => ['A reason for war, until the year shown.', claimsWhy(s, by, regions)].filter(Boolean).join(' ');
   const bonds = bondsOf(s, id);
   const breakdown = opinionBreakdown(s, id, s.player);
   const op = breakdown.reduce((t, r) => t + r.value, 0);
@@ -98,6 +103,8 @@ export function NationSheet({ id }: { id: string }) {
         <Line label="Regions / prosperity" value={`${ownedRegions(s, id).length} / ${totalDev(s, id)}`} />
         {alliesOf(s, id).length ? <Line label="Allies" value={alliesOf(s, id).map(nationName).join(', ')} /> : null}
         {subjectsOf(s, id).length ? <Line label="Subjects" value={subjectsOf(s, id).map(nationName).join(', ')} /> : null}
+        {onMine.length ? <Line label="Their claims on you" value={claimsText(s, id, onMine)} tone="bad" help={claimHelp(id, onMine)} /> : null}
+        {onTheirs.length ? <Line label="Your claims on them" value={claimsText(s, s.player, onTheirs)} tone="good" help={claimHelp(s.player, onTheirs)} /> : null}
       </Section>
       {aims.length || bonds.length ? (
         <Section title="What they want" help="Crowns follow their history: they forge claims on the land they want, go to war for it and dislike whoever holds it.">

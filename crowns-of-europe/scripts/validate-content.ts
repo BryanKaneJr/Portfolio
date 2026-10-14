@@ -81,7 +81,15 @@ for (const n of NATIONS) {
 }
 for (const [id, list] of Object.entries(SCENARIO.claims)) {
   if (!NATION[id]) errs.push(`scenario claims: unknown nation ${id}`);
-  for (const r of list) if (!REGION[r]) errs.push(`scenario claims ${id}: unknown region ${r}`);
+  if (list.length > 4) errs.push(`scenario claims ${id}: ${list.length} claims; keep it to the quarrels of the day (4 at most)`);
+  for (const c of list) {
+    const r = REGION[c.region];
+    if (!r) errs.push(`scenario claims ${id}: unknown region ${c.region}`);
+    else if (r.owner === id) errs.push(`scenario claims ${id}: ${c.region} is already its own`);
+    if (!(c.until > SCENARIO.start.year && c.until <= 1700)) errs.push(`scenario claims ${id} on ${c.region}: until ${c.until} should be a year after the start`);
+    if (!c.why?.trim()) errs.push(`scenario claims ${id} on ${c.region}: give its historical reason ('why')`);
+    else if (c.why.length > 48) errs.push(`scenario claims ${id} on ${c.region}: 'why' is over 48 characters`);
+  }
 }
 for (const pair of [...SCENARIO.alliances, ...SCENARIO.rivals, ...SCENARIO.marriages])
   for (const n of pair) if (!NATION[n]) errs.push(`scenario: unknown nation ${n}`);

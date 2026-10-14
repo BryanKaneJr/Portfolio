@@ -3,7 +3,7 @@
  * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations; an AI leader at
  * ULTIMATUM_SCORE against the player sends an ultimatum, and the player may offer any land of theirs instead.
  */
-import { GRAPH, NATION, REGION, isNativeNation, nationName, regionName } from './content';
+import { GRAPH, NATION, REGION, isNativeNation, nationName, regionName, startingClaim } from './content';
 import { log, involvesPlayer, newsworthy, requestPause } from './log';
 import {
   REBELS,
@@ -28,7 +28,7 @@ import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import { sendHomeAfterPeace } from './military';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
-import { clamp, formatDate, isIn, months, pairKey, yearOf, years } from './util';
+import { clamp, dayOf, formatDate, isIn, months, pairKey, yearOf, years } from './util';
 
 export const TRUCE_YEARS = 10;
 /** Leverage at which an AI war leader stops proposing peace to the player and sends an ultimatum. */
@@ -40,6 +40,16 @@ export interface CbOption {
   cb: CasusBelli;
   goal?: RegionId;
   label: string;
+  /** A claim's historical reason, while it is still the one held in 1444. */
+  why?: string;
+  /** The day a claim lapses (none: it never does). */
+  until?: number;
+}
+
+/** Why `n` claims region `r`, if the claim is the one it held in 1444 (a claim forged or granted since has no story). */
+export function claimReason(s: GameState, n: NationId, r: RegionId): string | undefined {
+  const c = startingClaim(n, r);
+  return c && s.nations[n]?.claims[r] === dayOf(c.until, 0, 1) ? c.why : undefined;
 }
 
 export const CB_LABEL: Record<CasusBelli, string> = {
@@ -72,7 +82,10 @@ export function casusBelli(s: GameState, a: NationId, b: NationId): CbOption[] {
   const cores = theirRegions.filter(r => r.cores.includes(a)).sort((x, y) => y.dev - x.dev);
   if (cores.length) out.push({ cb: 'reconquest', goal: cores[0].id, label: `${CB_LABEL.reconquest}: ${regionName(cores[0].id)}` });
   const claims = theirRegions.filter(r => r.id in A.claims).sort((x, y) => y.dev - x.dev);
-  for (const c of claims.slice(0, 3)) out.push({ cb: 'claim', goal: c.id, label: `${CB_LABEL.claim}: ${regionName(c.id)}` });
+  for (const c of claims.slice(0, 3)) {
+    const until = A.claims[c.id];
+    out.push({ cb: 'claim', goal: c.id, label: `${CB_LABEL.claim}: ${regionName(c.id)}`, why: claimReason(s, a, c.id), until: until >= 0 ? until : undefined });
+  }
   if (holyWarAllowed(s, a, b)) out.push({ cb: 'holy', label: CB_LABEL.holy });
   if (A.rivals.includes(b)) out.push({ cb: 'rival', label: CB_LABEL.rival });
   const c = s.coalitions.find(x => x.target === b && x.members.includes(a));

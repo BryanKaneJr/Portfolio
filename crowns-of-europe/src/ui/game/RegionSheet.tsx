@@ -20,7 +20,8 @@ import { REBELS, armyRegs, isCored, seesUnit } from '../../sim/queries';
 import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
-import { years } from '../../sim/util';
+import { yearOf, years } from '../../sim/util';
+import { claimReason } from '../../sim/war';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
 import { GrowSection, UnchartedSheet, WildSheet } from './ColonySheets';
 import { UNIVERSITY_MIN_DEV, UNIVERSITY_SCIENCE, advanceFor, prosperityAddsScience, universityCost, unlocked } from '../../sim/science';
@@ -56,6 +57,11 @@ export function RegionSheet({ id }: { id: string }) {
   const integratedBy = NATION[owner] && r.cores.length ? `Integrated by ${r.cores.map(nationName).join(', ')}.` : '';
   const fortNote = r.fort ? `Besieging a level ${r.fort} fort takes ${minSiegeRegs(r.fort)} regiments, and enemy forts stop armies marching past them.` : '';
   const coreIn = r.conquered !== undefined && !isCored(r) ? Math.max(0, Math.ceil((r.conquered + years(20) - s.day) / 365)) : null;
+  const myClaim = id in me.claims && !mine ? me.claims[id] : undefined;
+  const claimWhy = myClaim !== undefined ? claimReason(s, s.player, id) : undefined;
+  const claimNote = claimWhy ? `Your claim: ${claimWhy}.` : '';
+  // Who could go to war for this region of yours.
+  const claimants = mine ? Object.values(s.nations).filter(n => n.alive && n.id !== s.player && id in n.claims) : [];
 
   return (
     <Sheet
@@ -63,12 +69,15 @@ export function RegionSheet({ id }: { id: string }) {
       subtitle={`${def.terrain[0].toUpperCase() + def.terrain.slice(1)} · ${FAITH_NAME[r.faith]}${def.hre ? ' · Holy Roman Empire' : ''}${def.trade ? ' · Trade centre' : ''}${def.good ? ` · ${GOOD_NAME[def.good]}` : ''}`}
       onClose={() => st.select(null)}
       left={<Shield nation={owner} size={30} />}
-      help={[integratedBy, 'Tap Income or Unrest for what makes them up; unrest above 7 can raise rebels.', fortNote].filter(Boolean).join(' ')}
+      help={[integratedBy, claimNote, 'Tap Income or Unrest for what makes them up; unrest above 7 can raise rebels.', fortNote].filter(Boolean).join(' ')}
     >
       <Row style={{ marginBottom: 8 }} gap={6}>
         <Btn small tone="secondary" label={nationName(owner)} onPress={() => st.select({ kind: 'nation', id: owner })} />
         {r.controller !== r.owner ? <Pill text={`Occupied by ${nationName(r.controller)}`} color={C.redSoft} textColor={C.red} /> : null}
-        {id in me.claims && !mine ? <Pill text="Your claim" color={C.greenSoft} textColor={C.green} /> : null}
+        {myClaim !== undefined ? <Pill text={myClaim >= 0 ? `Your claim to ${yearOf(myClaim)}` : 'Your claim'} color={C.greenSoft} textColor={C.green} /> : null}
+        {claimants.length ? (
+          <Pill text={`Claimed by ${nationName(claimants[0].id)}${claimants.length > 1 ? ` +${claimants.length - 1}` : ''}`} color={C.redSoft} textColor={C.red} />
+        ) : null}
         {r.cores.includes(s.player) && !mine ? <Pill text="Integrated by you" color={C.greenSoft} textColor={C.green} /> : null}
         {me.capital === id ? <Pill text="Capital" color={C.gold} textColor="#1a1408" /> : null}
         {r.university ? <Pill text="University" color={C.blueSoft} textColor={C.blue} /> : null}

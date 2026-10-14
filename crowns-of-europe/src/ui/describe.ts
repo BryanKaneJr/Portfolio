@@ -1,5 +1,7 @@
 /** Plain-English descriptions of effects, goals and modifiers ("every number explained"). */
-import { ADVANCE, ERA, EVENT, NATION, POLICY, REGION, TRAITS, nationName } from '../sim/content';
+import { ADVANCE, ERA, EVENT, NATION, POLICY, REGION, TRAITS, nationName, regionName } from '../sim/content';
+import { claimReason } from '../sim/war';
+import { yearOf } from '../sim/util';
 import { GOOD_NAME, coloniesOf } from '../sim/colonies';
 import { defensiveCall } from '../sim/log';
 import { effectDelta, effectRegion, walkEffects } from '../sim/events';
@@ -368,6 +370,26 @@ export function offerTitle(o: Offer): string {
     case 'access':
       return `${from} asks to march through your lands`;
   }
+}
+
+/** The claims of `n` on `regions`, each with the year it lapses: "Normandy (1475), Gascony (1475)". */
+export function claimsText(s: GameState, n: NationId, regions: string[]): string {
+  return regions
+    .map(r => {
+      const until = s.nations[n].claims[r];
+      return until >= 0 ? `${regionName(r)} (${yearOf(until)})` : regionName(r);
+    })
+    .join(', ');
+}
+
+/** The quarrels of 1444 behind those claims, each once: "The Hundred Years’ War: Normandy, Gascony." */
+export function claimsWhy(s: GameState, n: NationId, regions: string[]): string {
+  const by = new Map<string, string[]>();
+  for (const r of regions) {
+    const why = claimReason(s, n, r);
+    if (why) by.set(why, [...(by.get(why) ?? []), regionName(r)]);
+  }
+  return [...by].map(([why, names]) => `${why}: ${names.join(', ')}.`).join(' ');
 }
 
 /**

@@ -8,7 +8,7 @@ import { ledger, maxManpower, manpowerRecovery, stabilityCost, taxMultiplier } f
 import { liveUnseenReports, modifierSources } from '../../sim/queries';
 import { casusBelli, likelySides } from '../../sim/war';
 import { perceivedThreat, coalitionAgainst } from '../../sim/threat';
-import { formatShortDate } from '../../sim/util';
+import { formatShortDate, yearOf } from '../../sim/util';
 import { store, useStore } from '../../state/store';
 import { Flag } from '../components/Flag';
 import { Icon } from '../components/Icon';
@@ -184,6 +184,13 @@ export function ModifiersList({ nation }: { nation: string }) {
 
 // ---------------------------------------------------------------- declare war
 
+/** A claim's story and when it lapses: "The Reconquista · lapses in 1500". */
+export function claimNote(why: string | undefined, until: number | undefined): string {
+  const lapse = until !== undefined ? `lapses in ${yearOf(until)}` : '';
+  if (!why) return lapse ? lapse[0].toUpperCase() + lapse.slice(1) : '';
+  return lapse ? `${why} · ${lapse}` : why;
+}
+
 export function DeclareWarPanel({ target }: { target: string }) {
   const st = useStore();
   const s = st.state!;
@@ -214,6 +221,7 @@ export function DeclareWarPanel({ target }: { target: string }) {
             <Pressable key={i} onPress={() => setPick(i)} style={[styles.option, pick === i && styles.optionOn]}>
               <Text style={styles.optionText}>{c.label}</Text>
               {c.goal ? <Text style={styles.optionSub}>War goal: {regionName(c.goal)}</Text> : null}
+              {c.why || c.until !== undefined ? <Text style={styles.optionSub}>{claimNote(c.why, c.until)}</Text> : null}
               {c.cb === 'none' ? <Text style={[styles.optionSub, { color: C.red }]}>−1 order · +8 Threat · −opinion</Text> : null}
             </Pressable>
           ))}

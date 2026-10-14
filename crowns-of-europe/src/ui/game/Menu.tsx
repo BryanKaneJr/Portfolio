@@ -47,7 +47,7 @@ import { Flag, Shield } from '../components/Flag';
 import { Icon } from '../components/Icon';
 import { Bar, Btn, Card, Empty, IconBtn, Line, Pill, Row, Section, Stat, T, Tabs } from '../components/kit';
 import { C, fmt, kmen, sans, signed } from '../theme';
-import { conditionText, effectsLines, goalParts, modLines } from '../describe';
+import { claimsText, claimsWhy, conditionText, effectsLines, goalParts, modLines } from '../describe';
 import { regionPoint } from '../map/geometry';
 import { MAP_STYLES, MAP_STYLE_LIST } from '../map/styles';
 import { ModifiersList, Panel } from './Panels';
@@ -230,7 +230,13 @@ function Diplomacy() {
         <Line label="Allies" value={alliesOf(s, p).map(nationName).join(', ') || 'none'} />
         {subjectsOf(s, p).length ? <Line label="Subjects" value={subjectsOf(s, p).map(nationName).join(', ')} /> : null}
         {me.rivals.length ? <Line label="Rivals" value={me.rivals.map(nationName).join(', ')} /> : null}
-        {Object.keys(me.claims).length ? <Line label="Claims" value={Object.keys(me.claims).map(regionName).join(', ')} /> : null}
+        {Object.keys(me.claims).length ? (
+          <Line
+            label="Claims"
+            value={claimsText(s, p, Object.keys(me.claims))}
+            help={['A reason for war on whoever holds the region, until the year shown.', claimsWhy(s, p, Object.keys(me.claims))].filter(Boolean).join(' ')}
+          />
+        ) : null}
       </Section>
       {isHreMember(s, p) || s.hre.emperor === p ? (
         <Section title="Holy Roman Empire" help="The Emperor gains levies and renown, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.">
