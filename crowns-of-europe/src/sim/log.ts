@@ -1,5 +1,5 @@
 /** The player's message log and pause requests collected during a tick. */
-import type { GameState, LogEntry, NationId, NodeId, Offer, PauseReason } from './types';
+import type { GameState, LogEntry, Moment, MomentKind, NationId, NodeId, Offer, PauseReason } from './types';
 
 const MAX_LOG = 150;
 
@@ -11,6 +11,20 @@ export function log(
 ): void {
   s.log.unshift({ id: ++s.seq, day: s.day, kind, text, ...opts });
   if (s.log.length > MAX_LOG) s.log.length = MAX_LOG;
+}
+
+const MAX_MOMENTS = 20;
+
+/** Record a great turn of the game, shown as a card or a banner. Never draws on the random numbers. */
+export function moment(s: GameState, m: Omit<Moment, 'id' | 'day'>): void {
+  const list = (s.moments ??= []);
+  list.push({ id: `m${++s.seq}`, day: s.day, ...m });
+  if (list.length > MAX_MOMENTS) list.shift();
+}
+
+/** Was there a moment of this kind (about `nation`, if given) in the last `days` days? */
+export function recentMoment(s: GameState, kind: MomentKind, nation?: NationId, days = 30): boolean {
+  return (s.moments ?? []).some(m => m.kind === kind && (nation === undefined || m.nation === nation) && s.day - m.day < days);
 }
 
 /** Pause reasons raised during the current tick; drained by advanceDay(). Only those the player's settings ask for. */

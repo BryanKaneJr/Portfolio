@@ -3,7 +3,7 @@
  * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations; an AI leader at
  * ULTIMATUM_SCORE against the player sends an ultimatum, and the player may offer any land of theirs instead.
  */
-import { GRAPH, NATION, REGION, isNativeNation, nationName, regionName, startingClaim } from './content';
+import { GRAPH, NATION, REGION, isNativeNation, nationAdj, nationName, regionName, startingClaim } from './content';
 import { log, involvesPlayer, newsworthy, requestPause } from './log';
 import {
   REBELS,
@@ -163,10 +163,10 @@ export function likelySides(s: GameState, a: NationId, b: NationId): { attackers
 }
 
 const warName = (a: NationId, b: NationId, cb: CasusBelli) => {
-  if (cb === 'independence') return `${NATION[a].adj} War of Independence`;
+  if (cb === 'independence') return `${nationAdj(a)} War of Independence`;
   if (cb === 'coalition') return `Coalition War against ${nationName(b)}`;
-  if (cb === 'holy') return `${NATION[a].adj} Holy War on ${nationName(b)}`;
-  return `${NATION[a].adj}–${NATION[b].adj} War`;
+  if (cb === 'holy') return `${nationAdj(a)} Holy War on ${nationName(b)}`;
+  return `${nationAdj(a)}–${nationAdj(b)} War`;
 };
 
 export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBelli, goal?: RegionId, origin?: War['origin']): War | null {

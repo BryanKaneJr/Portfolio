@@ -1,5 +1,5 @@
 /** Gold, manpower, stability and prestige: the monthly economy and the prices of everything. */
-import { NATION, REGION, UNITS } from './content';
+import { REGION, UNITS, nationName } from './content';
 import { log, involvesPlayer } from './log';
 import {
   armiesOf,
@@ -143,7 +143,7 @@ export function ledger(s: GameState, n: NationId): Ledger {
   // Colonies being settled, their paid guards and colonists growing founded regions.
   expenses.push(...colonyExpenses(s, n));
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
-  if (tributeOut > 0) expenses.push({ label: `Tribute to ${NATION[nat.overlord!]?.name}`, value: tributeOut });
+  if (tributeOut > 0) expenses.push({ label: `Tribute to ${nationName(nat.overlord!)}`, value: tributeOut });
   const totalIncome = income.reduce((a, i) => a + i.value, 0);
   const totalExpenses = expenses.reduce((a, i) => a + i.value, 0);
   return { income, expenses, totalIncome, totalExpenses, balance: totalIncome - totalExpenses };
@@ -263,7 +263,7 @@ export function bankruptcy(s: GameState, n: NationId): void {
     const a = s.armies[id];
     if (a.owner === n && a.regs.inf.n + a.regs.cav.n + a.regs.art.n === 0) delete s.armies[id];
   }
-  log(s, 'economy', `${NATION[n].name} declares bankruptcy! Debts are wiped out, but order collapses and the armies lose heart.`, {
+  log(s, 'economy', `${nationName(n)} declares bankruptcy! Debts are wiped out, but order collapses and the armies lose heart.`, {
     nation: n,
     important: involvesPlayer(s, n),
   });

@@ -4,7 +4,7 @@
  * Every few days per army: attack stacks the battle forecast says it beats, besiege enemy land, retreat from
  * fights it would lose, gather before walking out alone, merge.
  */
-import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea, mapDistance } from './content';
+import { GRAPH, MAP_REGION, NATION, POLICIES, REGION, SEA_COAST, hops, isNativeNation, isSea, mapDistance, nationName } from './content';
 import {
   COLONY_COST,
   COLONY_GUARD_UPKEEP,
@@ -1064,7 +1064,7 @@ function offerPeace(s: GameState, nat: Nation, w: War, terms: PeaceTerms, ultima
   if (ultimatum) sendUltimatum(s, w, nat.id, terms);
   else {
     s.offers.push({ id: `o${++s.seq}`, kind: 'peace', from: nat.id, war: w.id, day: s.day, terms });
-    log(s, 'peace', `${NATION[nat.id].name} sends a peace proposal.`, { important: true });
+    log(s, 'peace', `${nationName(nat.id)} sends a peace proposal.`, { important: true });
   }
   requestPause(s, ultimatum ? 'ultimatum' : 'peaceOffer');
 }

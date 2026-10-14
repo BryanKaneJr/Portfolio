@@ -6,7 +6,7 @@
  * universities). An advance costs more the earlier it is taken than its historical year and less once neighbours
  * know it, so the most learned crowns reach each one near its real date and knowledge spreads outward from them.
  */
-import { ADVANCE, ADVANCES, LEARNING, NATION, REGION, START_ADVANCES, isNativeNation } from './content';
+import { ADVANCE, ADVANCES, LEARNING, NATION, REGION, START_ADVANCES, isNativeNation, nationName } from './content';
 import { log } from './log';
 import { invalidateMods, isCoastal, nationMods, neighborsOf, ownedRegions, totalDev } from './queries';
 import { markMapDirty } from './territory';
@@ -161,7 +161,7 @@ export function learnAdvance(s: GameState, n: NationId, id: string): void {
   if (n === s.player) {
     const what = advanceUnlockText(def);
     log(s, 'economy', `Your scholars have mastered ${def.name}${what ? `. ${what}.` : '.'}`, { important: true });
-  } else if (first) log(s, 'news', `${NATION[n].name} is the first to master ${def.name}.`, { nation: n });
+  } else if (first) log(s, 'news', `${nationName(n)} is the first to master ${def.name}.`, { nation: n });
 }
 
 /** How much the AI wants to study an advance now: what it cares about, per point of science it costs. */

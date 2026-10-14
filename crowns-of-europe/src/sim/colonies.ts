@@ -10,7 +10,7 @@
  * prosperity per 500 settlers, up to 8). Every New World region trades in a good (silver, sugar, furs...) that
  * pays its owner on top of taxes.
  */
-import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, nationName, regionName } from './content';
+import { GRAPH, MAP_REGION, NATION, REGION, SEA, isNativeNation, isNewWorld, nationAdj, nationName, regionName } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armyRegs, bumpOwnership, friendlyTo, hostile, invalidateMods, modifierSources, nationMods, ownedRegions } from './queries';
 import { advanceFor, hasAdvance, unlocked } from './science';
@@ -69,8 +69,8 @@ const CHRISTIAN = new Set<Faith>(['catholic', 'orthodox', 'protestant']);
 // ---------------------------------------------------------------- charting
 
 export const discovered = (s: GameState) => !!s.discovery;
-/** Can armies and fleets go here yet? The New World is closed until it is discovered. */
-export const charted = (s: GameState, node: NodeId) => !!s.discovery || !isNewWorld(node);
+/** Can armies and fleets (of `by`, if given) go here yet? The New World is closed until it is discovered, except to its own peoples. */
+export const charted = (s: GameState, node: NodeId, by?: NationId) => !!s.discovery || !isNewWorld(node) || (by !== undefined && isNativeNation(by));
 
 /** Does this nation own a coast on the open ocean? */
 export function hasOceanCoast(s: GameState, n: NationId): boolean {
@@ -109,7 +109,7 @@ export function discoverNewWorld(s: GameState, by: NationId | null): void {
     nat.flags.found_new_world = s.day;
     invalidateMods();
   }
-  const who = by ? `${NATION[by].name}’s expedition has` : 'Pilots and fishermen have';
+  const who = by ? `${nationName(by)}’s expedition has` : 'Pilots and fishermen have';
   log(s, 'colony', `${who} found land across the Atlantic: a New World! Colonists can now sail west.`, { important: true, nation: by ?? undefined });
   if (!s.pendingEvents.some(e => e.event === 'new_world')) s.pendingEvents.push({ event: 'new_world', nation: s.player, day: s.day });
   requestPause(s, 'event');
@@ -157,7 +157,7 @@ export function canColonize(s: GameState, n: NationId, r: RegionId): string | nu
   const reg = s.regions[r];
   if (!reg || reg.owner) return 'Only uncolonized land can be settled.';
   if (!charted(s, r)) return 'These lands are uncharted.';
-  if (reg.colony) return reg.colony.by === n ? 'Your settlers are already here.' : `${NATION[reg.colony.by]?.name ?? 'Someone'} is already settling here.`;
+  if (reg.colony) return reg.colony.by === n ? 'Your settlers are already here.' : `${nationName(reg.colony.by)} is already settling here.`;
   if (isNativeNation(n)) return 'Your people do not send colonists.';
   const needs = REGION[r].nw ? advanceFor('oceanColonies') : advanceFor('coastColonies');
   if (!hasAdvance(s, n, needs.id)) return `Settling here needs ${needs.name} (see Science).`;
@@ -500,7 +500,7 @@ function raidColony(s: GameState, r: Region): boolean {
   const who = nationName(raiders[0].owner);
   const name = regionName(r.id);
   const playerRaids = raiders.some(a => a.owner === s.player);
-  const adj = NATION[c.by]?.adj ?? nationName(c.by);
+  const adj = NATION[c.by] ? nationAdj(c.by) : nationName(c.by);
   if (c.settlers <= 0) {
     r.colony = undefined;
     markMapDirty();

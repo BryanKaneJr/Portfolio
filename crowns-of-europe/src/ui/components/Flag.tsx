@@ -1,7 +1,7 @@
 /** Simple public-domain-style heraldry drawn from each nation's flag spec (nations.json `flag`). */
 import { memo, type ReactElement } from 'react';
 import Svg, { Circle, ClipPath, Defs, G, LinearGradient, Path, Polygon, Rect, Stop } from 'react-native-svg';
-import { NATION } from '../../sim/content';
+import { NATION, displayOf, nationFlag } from '../../sim/content';
 import type { FlagDef } from '../../sim/types';
 import { CHARGES } from './charges';
 
@@ -260,10 +260,9 @@ function field(f: FlagDef): ReactElement {
   }
 }
 
-/** The flag's field and charges, drawn in a W x H box. */
+/** The flag's field and charges, drawn in a W x H box (a proclaimed crown's arms, if it has one). */
 export function flagBody(nation: string): ReactElement {
-  const def = NATION[nation];
-  if (!def)
+  if (!NATION[nation])
     // Rebels: a black banner with a pitchfork-ish mark.
     return (
       <>
@@ -271,7 +270,7 @@ export function flagBody(nation: string): ReactElement {
         <Path d="M15 4v12M12 4v4h6V4" stroke="#d8d8d8" strokeWidth={1.4} fill="none" />
       </>
     );
-  const f = def.flag;
+  const f = nationFlag(nation);
   const color = f.chargeColor ?? f.colors[1];
   if (f.pattern === 'quarterly' && f.charge)
     // Quartered arms: the charge in quarters 1 and 4, the second charge (if any) in 2 and 3.
@@ -292,7 +291,12 @@ export function flagBody(nation: string): ReactElement {
   );
 }
 
-export const Flag = memo(function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
+/** A realm's flag. Redrawn when its arms change (`look`: a proclaimed crown's id). */
+export function Flag({ nation, size = 28, rounded = true }: { nation: string; size?: number; rounded?: boolean }) {
+  return <FlagArms nation={nation} size={size} rounded={rounded} look={displayOf(nation).look} />;
+}
+
+const FlagArms = memo(function FlagArms({ nation, size, rounded }: { nation: string; size: number; rounded: boolean; look: string }) {
   const w = size;
   const h = (size * H) / W;
   const id = `clip_${nation}_${size}`;
@@ -317,7 +321,11 @@ export const SHIELD = 'M1.6 1.6H28.4V15.2C28.4 25.6 21.4 31.6 15 34.6C8.6 31.6 1
  * The nation's arms on a shield with a gilded rim and a little light and shade, for headers and the top bar
  * (`size` is the width; the shield is 1.2 times as tall).
  */
-export const Shield = memo(function Shield({ nation, size = 32, rim = '#d6b26e' }: { nation: string; size?: number; rim?: string }) {
+export function Shield({ nation, size = 32, rim = '#d6b26e' }: { nation: string; size?: number; rim?: string }) {
+  return <ShieldArms nation={nation} size={size} rim={rim} look={displayOf(nation).look} />;
+}
+
+const ShieldArms = memo(function ShieldArms({ nation, size, rim }: { nation: string; size: number; rim: string; look: string }) {
   const id = `sh_${nation}_${size}`;
   return (
     <Svg width={size} height={size * 1.2} viewBox="0 0 30 36">

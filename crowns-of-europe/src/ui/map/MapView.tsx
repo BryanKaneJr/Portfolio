@@ -9,7 +9,7 @@ import { PixelRatio, Platform, StyleSheet, Text, View, type LayoutChangeEvent } 
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Circle, ClipPath, Defs, Ellipse, G, Image as SvgImage, LinearGradient, Path, Pattern, RadialGradient, Rect, Stop, Text as SvgText, TextPath } from 'react-native-svg';
-import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld } from '../../sim/content';
+import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA_NAMES, WASTELANDS, isNewWorld, nationName } from '../../sim/content';
 import { REBELS, armyRegs, armyMen, seesUnit } from '../../sim/queries';
 import type { Army, GameState, Region } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
@@ -772,7 +772,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
               if (!visible([l.x, l.y, l.x, l.y])) return null;
               return (
                 <Inked key={`nl${l.nation}`} ink={nl} x={l.x} y={l.y} fs={px(l.fs)} family={st.font.nation} weight={st.font.nationWeight} spacing={px(l.fs * nl.spacing)} outline={px(2.6)}>
-                  {def.name.toUpperCase()}
+                  {nationName(l.nation).toUpperCase()}
                 </Inked>
               );
             })}
@@ -824,7 +824,7 @@ function placeNames(arcs: NationArc[], k: number, st: MapStyle, charted: boolean
   for (const a of [...arcs].sort((p, q) => q.area - p.area)) {
     const def = NATION[a.nation];
     if (!def || (def.native && !charted)) continue;
-    const text = def.name.toUpperCase();
+    const text = nationName(a.nation).toUpperCase();
     const fs = Math.min(a.thickness * 0.6, (a.length * 0.95) / (text.length * (em + baseSpacing)), 30 / k);
     if (fs * k < 8) continue;
     // Spread a short name along a long country (at most a letter's width between letters).
@@ -873,7 +873,7 @@ function placeLabels(labels: ReturnType<typeof nationLabels>, k: number, st: Map
     if (!def) continue;
     const fs = Math.max(8, Math.min(18, l.size * k * 0.8));
     if (l.size * k < 7) continue;
-    const w = (def.name.length * fs * (st.nationLabel.em + st.nationLabel.spacing) + 6) / k;
+    const w = (nationName(l.nation).length * fs * (st.nationLabel.em + st.nationLabel.spacing) + 6) / k;
     const h = (fs * 1.2) / k;
     const box = { x0: l.x - w / 2, y0: l.y - h, x1: l.x + w / 2, y1: l.y + h * 0.2 };
     if (placed.some(p => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0)) continue;

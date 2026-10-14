@@ -8,6 +8,7 @@ import { memo, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { Easing, cancelAnimation, useAnimatedStyle, useReducedMotion, useSharedValue, withDelay, withRepeat, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, Ellipse, G, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
+import { displayOf } from '../../sim/content';
 import { SHIELD, Shield } from './Flag';
 import { GLYPHS } from './gameIcons';
 
@@ -89,13 +90,18 @@ function Arms({ nation, size, seed, fire }: { nation: string; size: number; seed
 }
 
 /** A nation's arms in a fire: an enemy at war with you. `seed` staggers the flicker so neighbours don't pulse in step. */
-export const BurningShield = memo(function BurningShield({ nation, size = 26, seed = 0 }: { nation: string; size?: number; seed?: number }) {
-  return <Arms nation={nation} size={size} seed={seed} fire />;
-});
+export function BurningShield({ nation, size = 26, seed = 0 }: { nation: string; size?: number; seed?: number }) {
+  return <ArmsMemo nation={nation} size={size} seed={seed} fire look={displayOf(nation).look} />;
+}
 
 /** The same, in a gold glow instead of a fire: your own side, facing a burning one. */
-export const ShieldMedallion = memo(function ShieldMedallion({ nation, size = 26 }: { nation: string; size?: number }) {
-  return <Arms nation={nation} size={size} seed={0} fire={false} />;
+export function ShieldMedallion({ nation, size = 26 }: { nation: string; size?: number }) {
+  return <ArmsMemo nation={nation} size={size} seed={0} fire={false} look={displayOf(nation).look} />;
+}
+
+/** Redrawn only when the realm, the size or its arms (`look`: a proclaimed crown's id) change. */
+const ArmsMemo = memo(function ArmsMemo({ nation, size, seed, fire }: { nation: string; size: number; seed: number; fire: boolean; look: string }) {
+  return <Arms nation={nation} size={size} seed={seed} fire={fire} />;
 });
 
 const styles = StyleSheet.create({

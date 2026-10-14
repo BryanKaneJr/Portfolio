@@ -62,7 +62,7 @@ for (const file of [...walk(path.join(ROOT, 'src/sim')), ...walk(path.join(ROOT,
 }
 
 // Content: every field a player reads.
-const PROSE = new Set(['title', 'text', 'desc', 'name', 'news', 'label']);
+const PROSE = new Set(['title', 'text', 'desc', 'name', 'news', 'label', 'blurb', 'bonus']);
 function prose(o: unknown, where: string): void {
   if (Array.isArray(o)) o.forEach((v, i) => prose(v, `${where}[${i}]`));
   else if (o && typeof o === 'object')
@@ -71,7 +71,25 @@ function prose(o: unknown, where: string): void {
       else prose(v, `${where}.${k}`);
     }
 }
-for (const f of ['events-historical', 'events-generic', 'events-newworld', 'missions', 'achievements', 'policies', 'traits', 'nations', 'units', 'aims', 'advances']) {
+for (const f of [
+  'events-historical',
+  'events-generic',
+  'events-newworld',
+  'events-history-west',
+  'events-history-iberia-italy',
+  'events-history-empire-north',
+  'events-history-east-balkans',
+  'events-history-levant-africa-americas',
+  'formables',
+  'missions',
+  'achievements',
+  'policies',
+  'traits',
+  'nations',
+  'units',
+  'aims',
+  'advances',
+]) {
   prose(JSON.parse(fs.readFileSync(path.join(ROOT, `src/content/${f}.json`), 'utf8')), f);
 }
 

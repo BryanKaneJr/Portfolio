@@ -10,6 +10,12 @@ import unitsJson from '../content/units.json';
 import historicalEventsJson from '../content/events-historical.json';
 import genericEventsJson from '../content/events-generic.json';
 import newWorldEventsJson from '../content/events-newworld.json';
+import historyWestJson from '../content/events-history-west.json';
+import historyIberiaItalyJson from '../content/events-history-iberia-italy.json';
+import historyEmpireNorthJson from '../content/events-history-empire-north.json';
+import historyEastBalkansJson from '../content/events-history-east-balkans.json';
+import historyLevantAfricaAmericasJson from '../content/events-history-levant-africa-americas.json';
+import formablesJson from '../content/formables.json';
 import missionsJson from '../content/missions.json';
 import achievementsJson from '../content/achievements.json';
 import aimsJson from '../content/aims.json';
@@ -20,7 +26,10 @@ import type {
   AdvanceDef,
   AimDef,
   BondDef,
+  CrownDef,
   EventDef,
+  FlagDef,
+  GameState,
   MapData,
   MapRegion,
   MapSea,
@@ -122,7 +131,16 @@ export const UNITS = unitsJson as unknown as {
 };
 export const ERA = (n: number): UnitEra => UNITS.eras[Math.max(0, Math.min(UNITS.eras.length - 1, n - 1))];
 
-export const EVENTS = [...(historicalEventsJson as unknown[]), ...(genericEventsJson as unknown[]), ...(newWorldEventsJson as unknown[])] as EventDef[];
+export const EVENTS = [
+  ...(historicalEventsJson as unknown[]),
+  ...(genericEventsJson as unknown[]),
+  ...(newWorldEventsJson as unknown[]),
+  ...(historyWestJson as unknown[]),
+  ...(historyIberiaItalyJson as unknown[]),
+  ...(historyEmpireNorthJson as unknown[]),
+  ...(historyEastBalkansJson as unknown[]),
+  ...(historyLevantAfricaAmericasJson as unknown[]),
+] as EventDef[];
 export const EVENT: Record<string, EventDef> = Object.fromEntries(EVENTS.map(e => [e.id, e]));
 export const MISSIONS = missionsJson as unknown as MissionDef[];
 export const AIMS = (aimsJson as unknown as { aims: AimDef[] }).aims;
@@ -217,4 +235,43 @@ export const isNewWorld = (node: NodeId): boolean => !!(REGION[node]?.nw ?? SEA[
 export const isNativeNation = (n: NationId): boolean => !!NATION[n]?.native;
 
 export const regionName = (id: NodeId): string => REGION[id]?.name ?? SEA[id]?.name ?? id;
-export const nationName = (id: NationId | null): string => (id === null ? 'Natives' : id === 'REB' ? 'Rebels' : (NATION[id]?.name ?? id));
+
+// ---------------------------------------------------------------- greater crowns and how a realm is shown
+
+/** The greater crowns a realm may proclaim (content/formables.json; crowns.ts). */
+export const CROWNS = formablesJson as unknown as CrownDef[];
+export const CROWN: Record<string, CrownDef> = Object.fromEntries(CROWNS.map(c => [c.id, c]));
+
+/** How a realm is shown: its own name, arms and colour, or those of the greater crown it has proclaimed. */
+export interface Display {
+  name: string;
+  adj: string;
+  color: string;
+  flag: FlagDef;
+  /** What the arms look like (the crown's id, or the nation's): drawn arms are redrawn when it changes. */
+  look: string;
+}
+
+const NO_FLAG: FlagDef = { pattern: 'plain', colors: ['#2b2b2b', '#d8d8d8'] };
+
+/** How realm `id` is shown in game `s` (null: as in 1444). */
+export function displayIn(s: GameState | null, id: NationId): Display {
+  const def = NATION[id];
+  if (!def) return { name: id, adj: id, color: '#3a3a3a', flag: NO_FLAG, look: id };
+  const crownId = s?.nations[id]?.crown;
+  const crown = crownId ? CROWN[crownId] : undefined;
+  if (!crown) return { name: def.name, adj: def.adj, color: def.color, flag: def.flag, look: id };
+  // A crown that takes after a living realm's colour keeps the proclaimer's own, so two realms never share one.
+  const own = !crown.color || (crown.inherits && crown.inherits !== id && s?.nations[crown.inherits]?.alive);
+  return { name: crown.name, adj: crown.adj, color: own ? def.color : crown.color!, flag: crown.flag, look: crown.id };
+}
+
+/** The game being shown (bound by the store on load and by advanceDay), for the helpers below. */
+let shown: GameState | null = null;
+export function bindDisplay(s: GameState | null): void {
+  shown = s;
+}
+export const displayOf = (id: NationId): Display => displayIn(shown, id);
+export const nationName = (id: NationId | null): string => (id === null ? 'Natives' : id === 'REB' ? 'Rebels' : NATION[id] ? displayOf(id).name : id);
+export const nationAdj = (id: NationId): string => displayOf(id).adj;
+export const nationFlag = (id: NationId): FlagDef => displayOf(id).flag;

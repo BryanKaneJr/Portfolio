@@ -1,5 +1,5 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
-import { EVENTS, MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
+import { EVENTS, MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, bindDisplay, regionName } from './content';
 import { startingAdvances } from './science';
 import { forceLimit, liveUnseenReports, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
@@ -45,6 +45,7 @@ export function migrateSave(s: GameState): GameState | null {
   // Unread reports of battles that have since dropped out of the list can never be opened: forget them.
   s.unseenReports ??= [];
   s.unseenReports = liveUnseenReports(s);
+  s.moments ??= [];
   return s;
 }
 
@@ -169,6 +170,7 @@ export function newGame(opts: NewGameOptions): GameState {
     stats: { battlesWon: 0, battlesLost: 0, stackWipes: 0, bestWinRatio: 0, warsWon: 0, warsLost: 0, regionsConquered: 0, peakRegions: 0, menLost: 0, enemiesKilled: 0 },
     achievements: [],
     seq: 0,
+    moments: [],
   };
 
   for (const r of REGIONS) {
@@ -302,6 +304,7 @@ export function newGame(opts: NewGameOptions): GameState {
 
   for (const a of Object.values(s.armies)) a.morale = maxMorale(s, a.owner);
   s.stats.peakRegions = Object.values(s.regions).filter(r => r.owner === opts.player).length;
+  bindDisplay(s);
   return s;
 }
 

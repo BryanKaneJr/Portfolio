@@ -1,5 +1,5 @@
 /** Who owns what: region transfers, subjects, annexation, releasing and the death of nations. */
-import { NATION, REGION } from './content';
+import { NATION, REGION, nationName } from './content';
 import { log, involvesPlayer, newsworthy, requestPause } from './log';
 import { bumpOwnership, bumpWars, ownedRegions, invalidateMods } from './queries';
 import type { GameState, NationId, RegionId } from './types';
@@ -86,7 +86,7 @@ export function killNation(s: GameState, n: NationId, by?: NationId): void {
   if (s.hre.emperor === n) s.hre.emperor = null;
   s.hre.electors = s.hre.electors.filter(x => x !== n);
   if (newsworthy(s, n, by) || NATION[n].tier !== 'minor')
-    log(s, 'news', `${NATION[n].name} has ceased to exist${by ? `, absorbed by ${NATION[by]?.name ?? 'rebels'}` : ''}.`, {
+    log(s, 'news', `${nationName(n)} has ceased to exist${by ? `, absorbed by ${NATION[by] ? nationName(by) : 'rebels'}` : ''}.`, {
       nation: n,
       important: involvesPlayer(s, n, by),
     });

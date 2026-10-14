@@ -1,5 +1,5 @@
 /** Rulers age and die, heirs take over, republics elect, theocracies choose. Generals are hired and retire. */
-import { NATION, TRAITS, namePool } from './content';
+import { NATION, TRAITS, namePool, nationName } from './content';
 import { log, involvesPlayer } from './log';
 import { invalidateMods, married, REBELS, totalDev } from './queries';
 import type { GameState, General, NationId, Ruler } from './types';
@@ -126,7 +126,7 @@ export function rulerDies(s: GameState, n: NationId, cause: string): void {
   if (claimant && chance(s, 0.15) && !nat.overlord && n !== s.player) {
     makeSubject(s, claimant.id, n, 'union');
     nat.ruler = { ...claimant.ruler };
-    log(s, 'news', `${def.name}'s line has died out. ${NATION[claimant.id].name} inherits the crown in a personal union.`, {
+    log(s, 'news', `${nationName(n)}'s line has died out. ${nationName(claimant.id)} inherits the crown in a personal union.`, {
       nation: n,
       important: involvesPlayer(s, n, claimant.id),
     });

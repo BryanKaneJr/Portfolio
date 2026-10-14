@@ -11,7 +11,7 @@ import { dateOf } from '../sim/util';
 import { loadPrefs, recordAchievements, saveGame, savePrefs } from './storage';
 import type { Result } from '../sim/commands';
 import * as commands from '../sim/commands';
-import { MAP_REGION, MAP_SEA } from '../sim/content';
+import { MAP_REGION, MAP_SEA, bindDisplay } from '../sim/content';
 import { battleResult, offerTitle } from '../ui/describe';
 
 /** How the map is painted (src/ui/map/styles.ts). A device preference, not part of the saved game. */
@@ -107,6 +107,7 @@ class GameStore {
   load(s: GameState) {
     this.stop();
     this.state = s;
+    bindDisplay(s);
     this.selection = null;
     this.overlay = null;
     this.paused = true;
@@ -126,6 +127,7 @@ class GameStore {
   unload() {
     this.stop();
     this.state = null;
+    bindDisplay(null);
     this.emit(true);
   }
 

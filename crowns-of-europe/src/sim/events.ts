@@ -526,6 +526,9 @@ export function answerEvent(s: GameState, index: number, choice: number): boolea
   return true;
 }
 
+/** Events marked `onPeace`, checked on the day a peace is signed rather than at the next monthly pass. */
+export function peaceEvents(_s: GameState): void {}
+
 export function monthlyEvents(s: GameState): void {
   if ('__noEvents' in s.flags) return;
   const year = yearOf(s.day);

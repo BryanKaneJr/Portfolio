@@ -4,7 +4,7 @@
  * enemy men and morale (a general's stars also soften the morale their own side loses). A side at 0 morale retreats
  * (or, with nowhere to go, scatters); if the winner has five times the loser's remaining men, the loser is annihilated.
  */
-import { NATION, REGION, regionName, nationName, riverBetween } from './content';
+import { NATION, REGION, regionName, nationAdj, nationName, riverBetween } from './content';
 import { log, requestPause } from './log';
 import { REBELS, armiesHostile, armyMen, armyRegs, liveUnseenReports, maxMorale, nationMods, sideOf, unitPower } from './queries';
 import { FRONT_WIDTH, retreat } from './military';
@@ -347,13 +347,13 @@ function endBattle(s: GameState, b: Battle, winner: 0 | 1, st: readonly [SideSta
       { node: b.node, important: true },
     );
     for (const a of scattered) {
-      const whose = a.owner === s.player || a.owner === REBELS ? 'The' : `The ${NATION[a.owner]?.adj ?? nationName(a.owner)}`;
+      const whose = a.owner === s.player || a.owner === REBELS ? 'The' : `The ${NATION[a.owner] ? nationAdj(a.owner) : nationName(a.owner)}`;
       log(s, 'battle', `${whose} ${a.name} has nowhere to retreat from ${regionName(b.node)} and scatters: ${armyMen(a).toLocaleString()} men lost.`, { node: b.node, important: true });
     }
   } else if (wiped && ratio > 0) {
     const big = b.sides[loser].startMen >= 15000;
     if (big)
-      log(s, 'news', `${NATION[b.sides[winner].nations[0]]?.name ?? 'Rebels'} annihilate a ${NATION[b.sides[loser].nations[0]]?.adj ?? 'rebel'} army at ${regionName(b.node)}.`, {
+      log(s, 'news', `${NATION[b.sides[winner].nations[0]] ? nationName(b.sides[winner].nations[0]) : 'Rebels'} annihilate a ${NATION[b.sides[loser].nations[0]] ? nationAdj(b.sides[loser].nations[0]) : 'rebel'} army at ${regionName(b.node)}.`, {
         node: b.node,
       });
   }

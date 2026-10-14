@@ -267,7 +267,7 @@ export function rulerAge(s: GameState, n: NationId): number {
 
 /** May army owner `n` enter region `r`? */
 export function canEnter(s: GameState, n: NationId, node: NodeId, rebelOf?: NationId): boolean {
-  if (!s.discovery && isNewWorld(node)) return false;
+  if (!s.discovery && isNewWorld(node) && !isNativeNation(n)) return false; // closed until discovered, except to its own peoples
   if (isSea(node)) return true;
   const r = s.regions[node];
   if (!r) return false;

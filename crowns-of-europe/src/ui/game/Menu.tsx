@@ -2,7 +2,7 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { router } from 'expo-router';
-import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, nationName, regionName } from '../../sim/content';
+import { ADVANCE, ERA, NATION, POLICIES, POLICY, TRAITS, displayOf, nationName, regionName } from '../../sim/content';
 import { choosePolicy, GENERAL_COST, hireGeneral, repayLoan, boostStability, playerCompleteMission } from '../../sim/commands';
 import { ledger, stabilityCost } from '../../sim/economy';
 import { availableAdvances, policySlots } from '../../sim/science';
@@ -67,7 +67,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
   ];
   return (
     <Panel
-      title={NATION[p].name}
+      title={nationName(p)}
       onClose={() => st.close()}
       right={
         <Row gap={8}>
@@ -632,7 +632,7 @@ function Ledger() {
           <Flag nation={r.id} size={24} />
           <View style={{ flex: 1 }}>
             <Text style={styles.rowTitle}>{nationName(r.id)}</Text>
-            <Bar value={r[sort] / max} color={NATION[r.id].color} />
+            <Bar value={r[sort] / max} color={displayOf(r.id).color} />
           </View>
           <View style={{ alignItems: 'flex-end', minWidth: 70 }}>
             <Text style={styles.rowNum}>{sort === 'income' ? `${fmt(r.income, 1)}/mo` : sort === 'army' ? fmt(r.army) : `${r.dev}`}</Text>

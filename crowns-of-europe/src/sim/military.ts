@@ -162,7 +162,7 @@ export function pathTree(
     if (cur !== from && !isSea(cur) && !opts.retreat && hostileFort(s, n, cur)) continue;
     for (const e of GRAPH[cur]) {
       if (done.has(e.to)) continue;
-      if (!charted(s, e.to)) continue;
+      if (!charted(s, e.to, n)) continue;
       if (isSea(e.to)) {
         if (opts.land) continue;
         // Boarding needs transports here; once aboard, the fleet comes along unless an enemy bars the way.

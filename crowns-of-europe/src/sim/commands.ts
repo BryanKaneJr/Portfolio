@@ -81,7 +81,7 @@ export function moveArmy(s: GameState, armyId: string, to: NodeId): Result {
   if (a.battle) return no('The army is in battle.');
   if (a.retreating) return no('The army is retreating.');
   if (isSea(to)) return no('Armies need a destination on land.');
-  if (!charted(s, to)) return no('These lands are uncharted. Send an expedition west first (Realm menu, Colonies).');
+  if (!charted(s, to, s.player)) return no('These lands are uncharted. Send an expedition west first (Realm menu, Colonies).');
   const res = orderMove(s, a, to);
   if (!res) return no(`No route to ${regionName(to)}. You may need military access, transports, or to besiege a fort first.`);
   return ok(res.days ? `Marching to ${regionName(to)}: ${res.days} days.` : 'Holding position.');

@@ -3,7 +3,8 @@ import { monthlyAI, dailyArmyAI, dailyWarRolls, monthlyFleetAI } from './ai';
 import { dailyBattles } from './battle';
 import { monthlyDiplomacy } from './diplomacy';
 import { monthlyEconomy } from './economy';
-import { checkAchievements, monthlyEvents } from './events';
+import { checkAchievements, monthlyEvents, peaceEvents } from './events';
+import { monthlyCrowns } from './crowns';
 import { defensiveCall, drainPauses, log, requestPause } from './log';
 import {
   cleanupArmies,
@@ -29,11 +30,12 @@ import { monthlyThreat } from './threat';
 import type { GameState, Offer, TickResult } from './types';
 import { dateOf, months, years } from './util';
 import { checkUltimatums, monthlyWars, refuseCall } from './war';
-import { regionName } from './content';
+import { bindDisplay, regionName } from './content';
 
 export const END_YEAR = 1750;
 
 export function advanceDay(s: GameState): TickResult {
+  bindDisplay(s);
   if (s.gameOver) return { pause: ['gameOver'], mapChanged: false };
   s.day++;
   const d = dateOf(s.day);
@@ -48,6 +50,7 @@ export function advanceDay(s: GameState): TickResult {
   dailyMorale(s);
   cleanupArmies(s);
   checkUltimatums(s);
+  peaceEvents(s);
   if (d.day === 1) monthly(s);
   dailyWarRolls(s);
   if (d.year >= END_YEAR && !s.gameOver) {
@@ -83,6 +86,7 @@ function monthly(s: GameState): void {
   checkAchievements(s);
   const regions = ownedRegions(s, s.player).length;
   if (regions > s.stats.peakRegions) s.stats.peakRegions = regions;
+  monthlyCrowns(s);
 }
 
 function fabrication(s: GameState): void {

@@ -4,7 +4,7 @@
  */
 import { useEffect, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { ADVANCE, NATION, POLICY, REGION, nationName } from '../../sim/content';
+import { ADVANCE, NATION, POLICY, REGION, displayOf, nationName } from '../../sim/content';
 import {
   BASE_COLONIST_DEV,
   COLONY_COST,
@@ -242,7 +242,7 @@ function ColonySection({ id }: { id: string }) {
       right={<T v="tiny">{fmt(c.settlers)} / {fmt(SETTLERS_NEEDED)} settlers</T>}
       help={`At ${fmt(SETTLERS_NEEDED)} settlers the colony becomes a region of its founder's; until then it costs ${COLONY_UPKEEP} gold a month. If every settler dies, it is lost.`}
     >
-      <Bar value={c.settlers / SETTLERS_NEEDED} color={NATION[c.by]?.color ?? C.gold} height={8} />
+      <Bar value={c.settlers / SETTLERS_NEEDED} color={NATION[c.by] ? displayOf(c.by).color : C.gold} height={8} />
       <View style={{ marginTop: 8 }}>
         <Line label="Settlers per month" value={plus(per)} help={<Parts parts={settlerGrowth(s, r)} format={settlerFmt} bad={v => v < 0} />} />
         <Line label="Founded in" value={eta(SETTLERS_NEEDED - c.settlers, per)} />

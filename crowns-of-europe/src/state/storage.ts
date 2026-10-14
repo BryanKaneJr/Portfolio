@@ -1,6 +1,6 @@
 /** Saves (autosave + 3 manual slots), settings and lifetime achievements in AsyncStorage. */
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NATION } from '../sim/content';
+import { displayIn } from '../sim/content';
 import { migrateSave } from '../sim/state';
 import type { GameState } from '../sim/types';
 import { formatShortDate } from '../sim/util';
@@ -29,7 +29,7 @@ export async function saveGame(slot: SlotId, s: GameState): Promise<void> {
   const meta: SaveMeta = {
     slot,
     nation: s.player,
-    nationName: NATION[s.player]?.name ?? s.player,
+    nationName: displayIn(s, s.player).name,
     date: formatShortDate(s.day),
     day: s.day,
     savedAt: Date.now(),

@@ -227,7 +227,7 @@ export function GameOverCard() {
       <View style={{ alignItems: 'center', marginHorizontal: -18, marginTop: -18, marginBottom: 6 }}>
         <Engraving name={s.gameOver.reason === 'end' ? 'crown' : 'death'} width={460} height={128} />
       </View>
-      <Text style={[styles.eventTitle, { textAlign: 'center', marginTop: 10 }]}>{s.gameOver.reason === 'end' ? 'The Age Ends' : `The End of ${NATION[s.player].name}`}</Text>
+      <Text style={[styles.eventTitle, { textAlign: 'center', marginTop: 10 }]}>{s.gameOver.reason === 'end' ? 'The Age Ends' : `The End of ${nationName(s.player)}`}</Text>
       <T style={{ textAlign: 'center', marginTop: 6 }}>
         {s.gameOver.reason === 'end' ? `It is ${formatDate(s.day)}. History will remember your reign.` : 'Your last region has fallen. Your dynasty passes into the history books.'}
       </T>

@@ -48,7 +48,7 @@ export function NationSheet({ id }: { id: string }) {
   if (!n || !def) return null;
   if (id === s.player) {
     return (
-      <Sheet title={def.name} subtitle="Your nation" left={<Shield nation={id} size={30} />} onClose={() => st.select(null)}>
+      <Sheet title={nationName(id)} subtitle="Your nation" left={<Shield nation={id} size={30} />} onClose={() => st.select(null)}>
         <Btn label="Open the realm" onPress={() => st.open({ kind: 'menu', tab: 'economy' })} />
       </Sheet>
     );
@@ -88,7 +88,7 @@ export function NationSheet({ id }: { id: string }) {
 
   return (
     <Sheet
-      title={def.name}
+      title={nationName(id)}
       subtitle={`${GOV[def.gov]} · ${def.faith === 'native' ? 'Native beliefs' : def.faith[0].toUpperCase() + def.faith.slice(1)} · ${PERS[def.personality]}${n.overlord ? ` · Subject of ${nationName(n.overlord)}` : ''}`}
       left={<Shield nation={id} size={30} />}
       onClose={() => st.select(null)}

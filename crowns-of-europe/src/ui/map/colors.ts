@@ -1,5 +1,5 @@
 /** Fill colours for each map mode. */
-import { NATION, REGION, isNativeNation } from '../../sim/content';
+import { NATION, REGION, displayOf, isNativeNation } from '../../sim/content';
 import { opinion } from '../../sim/diplomacy';
 import { allied, hasTruce, topOverlord, warBetween } from '../../sim/queries';
 import { perceivedThreat } from '../../sim/threat';
@@ -10,7 +10,7 @@ import { PARCHMENT, colorDistance, mix, oklab } from './colorMath';
 
 export { PARCHMENT, colorDistance, mix, oklab };
 
-export const nationColor = (n: string | null) => (n && NATION[n] ? mix(NATION[n].color, PARCHMENT, 0.12) : '#3a3a3a');
+export const nationColor = (n: string | null) => (n && NATION[n] ? mix(displayOf(n).color, PARCHMENT, 0.12) : '#3a3a3a');
 /** Uncolonized land: pale and unclaimed, so it reads as "up for grabs". */
 export const WILD = '#f1e8cf';
 export const GOOD_COLOR: Record<Good, string> = {

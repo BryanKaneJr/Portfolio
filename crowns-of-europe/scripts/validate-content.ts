@@ -120,7 +120,7 @@ for (const e of EVENTS) {
       if (!Array.isArray(c.effects)) errs.push(`${w}.choices[${i}]: effects must be a list`);
       else c.effects.forEach((ef, j) => validateEffect(ef, `${w}.choices[${i}].effects[${j}]`, errs));
     });
-  for (const k of Object.keys(e)) if (!['id', 'pool', 'title', 'text', 'image', 'nations', 'window', 'mtth', 'once', 'news', 'hidden', 'trigger', 'choices'].includes(k)) errs.push(`${w}: unknown field ${k}`);
+  for (const k of Object.keys(e)) if (!['id', 'pool', 'title', 'text', 'image', 'nations', 'window', 'mtth', 'once', 'news', 'hidden', 'onPeace', 'trigger', 'choices'].includes(k)) errs.push(`${w}: unknown field ${k}`);
 }
 
 // Missions
@@ -199,6 +199,15 @@ for (const a of ACHIEVEMENTS) {
   validateCondition(a.goal, `achievement ${a.id}.goal`, errs);
   if (a.nations) for (const n of a.nations) if (!NATION[n]) errs.push(`achievement ${a.id}: unknown nation ${n}`);
 }
+
+// --- T1 checks ---
+
+
+// --- T2 checks ---
+
+
+// --- T3 checks ---
+
 
 for (const w of warns) console.warn('warn:', w);
 if (errs.length) {

@@ -165,6 +165,40 @@ export interface NationDef {
   ruler: RulerDef;
   heir?: RulerDef;
   desc: string;
+  /** Where the nation picker lists it (a key of the picker's area labels). */
+  area?: string;
+}
+
+/**
+ * A greater crown (content/formables.json) a realm may proclaim once it holds enough of its lands: it takes the
+ * crown's name, arms and (usually) colour, and gains its lasting bonus (crowns.ts).
+ */
+export interface CrownDef {
+  id: string;
+  name: string;
+  adj: string;
+  /** Its own map colour; missing: the proclaimer keeps its own. */
+  color?: string;
+  /** The nation whose colour this crown takes after: the crown's colour shows only if that nation proclaimed it or is gone. */
+  inherits?: NationId;
+  flag: FlagDef;
+  regions: RegionId[];
+  /** Regions it cannot be proclaimed without. */
+  key: RegionId[];
+  /** How many of `regions` must be held. */
+  need: number;
+  /** Who may proclaim it: nation tags, or the ids of smaller crowns that lead on to it. */
+  formers: string[];
+  /** The first year it may be proclaimed. */
+  from?: number;
+  /** Never proclaimed by the computer. */
+  playerOnly?: boolean;
+  /** Extra claims gained on proclaiming, beyond its own lands. */
+  claims?: RegionId[];
+  mods: Modifiers;
+  bonus: string;
+  blurb: string;
+  history: string;
 }
 
 export interface TraitDef {
@@ -351,6 +385,7 @@ export interface EventDef {
   once?: boolean; // fires at most once per game (historical events default true)
   news?: string; // shown to the player when an AI nation gets this event
   hidden?: boolean; // only fired by triggerEvent, never on its own
+  onPeace?: boolean; // also checked on the day a peace is signed, not only at the monthly pass
   trigger: Condition;
   choices: EventChoice[];
 }
@@ -471,6 +506,8 @@ export interface Battle {
   river: boolean;
   pitched?: boolean; // both sides were already standing there (a war declared, rebels rising): no attacker penalty
   log: { day: number; rolls: [number, number]; losses: [number, number] }[];
+  /** The two sides as the battle opened (for the report's "why"). */
+  opening?: { morale: [number, number]; stars: [number, number]; era: [number, number]; regs: [number, number] };
 }
 
 export interface BattleReport {
@@ -484,10 +521,13 @@ export interface BattleReport {
   losses: [number, number];
   wiped: boolean;
   scattered?: boolean; // the beaten army had nowhere to retreat and scattered (its men count as losses)
+  scatteredMen?: number; // how many of the losses were men of the armies that scattered
   days: number;
   generals: [string | null, string | null];
   warScore: number; // points gained by the winner's side
   playerSide: 0 | 1 | null;
+  /** What decided it, from the sides as they opened: shown under the report. */
+  why?: { terrain: Terrain; penalty: number; river: boolean; pitched: boolean; morale: [number, number]; stars: [number, number]; era: [number, number]; regs: [number, number] };
 }
 
 export interface Siege {
@@ -610,6 +650,8 @@ export interface Nation {
   ai: { nextEval: number; warTarget?: NationId; saving?: number; lastWarDeclared?: number; lastPeace?: number; colonyLevy?: number; warRoll?: number };
   /** Days it declared wars without a reason (the last 10 years count: each makes the next one cost more Threat). */
   unjustWars?: number[];
+  /** The latest greater crown it proclaimed (a CrownDef id): its name, arms and colour show instead of its own. */
+  crown?: string;
 }
 
 export interface Coalition {
@@ -717,6 +759,27 @@ export interface GameState {
   achievements: string[]; // unlocked in this campaign
   seq: number; // id counter
   gameOver?: { reason: 'annexed' | 'end'; day: number };
+  /** The great turns of the game, newest last, shown as a card or a banner (log.ts moment()). */
+  moments?: Moment[];
+  /** Which campaign this game is (set by the app when it starts one): one autosave per campaign. */
+  campaign?: string;
+}
+
+export type MomentKind = 'peace' | 'mission' | 'achievement' | 'crown' | 'union' | 'ruler' | 'capital' | 'fortress' | 'rebels' | 'invaded' | 'headline';
+
+/** A great turn of the game: a card when the player caused it or is a principal in it, otherwise a banner. */
+export interface Moment {
+  id: string;
+  day: number;
+  kind: MomentKind;
+  card: boolean;
+  tone: 'good' | 'bad' | 'info';
+  title: string;
+  lines?: string[];
+  gained?: RegionId[];
+  lost?: RegionId[];
+  node?: NodeId;
+  nation?: NationId;
 }
 
 export interface TickResult {

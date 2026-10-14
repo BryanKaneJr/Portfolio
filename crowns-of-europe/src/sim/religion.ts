@@ -60,7 +60,7 @@ export function excommunicate(s: GameState, by: NationId, target: NationId): str
   T.stability = clamp(T.stability - 1, -3, 3);
   T.prestige = clamp(T.prestige - 15, 0, 100);
   for (const o of aliveNations(s)) if (o.faith === 'catholic' && o.id !== target) addOpinion(s, o.id, target, 'excommunicated', 'Excommunicated', -30, 0.3);
-  log(s, 'news', `The Pope excommunicates ${NATION[target].name}'s ruler at ${NATION[by].name}'s urging.`, { important: involvesPlayer(s, by, target) });
+  log(s, 'news', `The Pope excommunicates ${nationName(target)}'s ruler at ${nationName(by)}'s urging.`, { important: involvesPlayer(s, by, target) });
   return null;
 }
 

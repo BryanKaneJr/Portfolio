@@ -353,7 +353,8 @@ export function goalParts(c: Condition): Condition[] {
   return 'all' in c ? c.all : [c];
 }
 
-export const nationAdj = (n: string) => NATION[n]?.adj ?? n;
+/** A realm's adjective as shown (a proclaimed crown's): moved to sim/content.ts. */
+export { nationAdj } from '../sim/content';
 
 /** An offer in a few words, for its notice and the messages: "Castile proposes peace". */
 export function offerTitle(o: Offer): string {
