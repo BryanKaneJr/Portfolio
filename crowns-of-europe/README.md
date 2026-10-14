@@ -27,8 +27,8 @@ bundled and works in airplane mode.
 - **The interface:** dark and gilded, built like a phone app: the map fills the screen and glass controls float
   over it (your arms and resources on top, time and the realm's pages in a dock at the bottom, an outliner and the
   map lenses at the side), sheets you drag up and down, and event windows with each choice's effects spelled out.
-- **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
-  national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
+- **73 nations** at 11 November 1444, every one playable, each marked easy to very hard in the picker. 14 majors
+  and 8 harder picks are featured, each with a real ruler, a national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
 - **The New World:** uncharted until an expedition finds it (it needs Ocean Navigation) or 1500 arrives.
   Colonists (from Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters
@@ -75,6 +75,12 @@ bundled and works in airplane mode.
   reach each one near its real date (AI games land within about 15 years) and knowledge spreads outward.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
+- **Greater crowns:** 28 crowns to proclaim from the Realm tab once you hold their lands, such as Spain, Italy or
+  Russia; some lead on to the next (Naples to the Two Sicilies, then Italy, then the Roman Empire). The AI
+  proclaims them too.
+- **Moments and goals:** the great turns of a game open as a card or drop in as a banner, and up to three next
+  goals sit under the top bar. Before an attack the army sheet gives the odds, and a battle report says why it went
+  as it did.
 - **Story:** 359 events (217 historical, 69 generic, 45 era, 28 New World), 274 missions, 47 achievements, unrest and rebels.
 - **AI** that recruits, invests, forms alliances, declares wars it can win, chases beatable stacks, besieges,
   retreats from bigger ones and negotiates peace. Crowns follow their history loosely: France wants the English
