@@ -534,6 +534,8 @@ export interface Siege {
   by: NationId;
   progress: number; // 0..1
   started: number;
+  /** The day its besiegers last stormed the walls and were thrown back (siege.ts storm). */
+  stormed?: number;
 }
 
 /** How a colony's settlers deal with the natives: trade with them, or take the land by force (colonies.ts). */
@@ -615,6 +617,8 @@ export interface Nation {
   prestige: number;
   threat: number;
   loans: number;
+  /** Reparations this realm pays after a lost war: a tenth of its income to `to` until the day `until` (economy.ts). */
+  reparations?: { to: NationId; until: number };
   ruler: Ruler;
   heir?: Ruler;
   faith: Faith;
@@ -677,6 +681,10 @@ export interface PeaceTerms {
   vassalize: boolean;
   release: NationId[];
   white?: boolean;
+  /** The loser is humbled: renown moves from it to the winner (war.ts HUMBLE_RENOWN). */
+  humble?: boolean;
+  /** The loser pays a tenth of its income to the winner for ten years (war.ts REPARATIONS_SHARE). */
+  reparations?: boolean;
   /** whose demands: the side that receives the regions/gold */
   winner: NationId;
   loser: NationId;

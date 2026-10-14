@@ -11,16 +11,19 @@ import {
   ownedRegions,
   subjectsOf,
   totalDev,
+  warBetween,
 } from './queries';
 import type { GameState, NationId, Region, ShipType } from './types';
 import { colonyExpenses, goodsIncome } from './colonies';
 import { FUNDING_SHARE } from './science';
-import { chance, clamp, years } from './util';
+import { chance, clamp, yearOf, years } from './util';
 
 export const TAX_PER_DEV = 0.3;
 export const LOAN_SIZE = 100;
 export const LOAN_INTEREST = 0.05; // per year
 export const MAX_LOANS = 10;
+/** Reparations: the share of the payer's taxes, trade and exports it pays the winner each month (war.ts). */
+export const REPARATIONS_SHARE = 0.1;
 
 export interface LineItem {
   label: string;
@@ -71,6 +74,24 @@ function grossIncome(s: GameState, n: NationId): { tax: number; trade: number; g
     goods += goodsIncome(s, r);
   }
   return { tax, trade, goods };
+}
+
+/** What reparations are reckoned on: a realm's taxes, trade and exports a month (no tribute). */
+export function incomeBase(s: GameState, n: NationId): number {
+  const g = grossIncome(s, n);
+  return g.tax + g.trade + g.goods;
+}
+
+/**
+ * The reparations realm `n` pays, while they run: they end on their day, when either crown is gone, when the payer
+ * becomes anyone's subject, or when the two go to war with each other.
+ */
+export function reparationsOf(s: GameState, n: NationId): { to: NationId; until: number } | null {
+  const nat = s.nations[n];
+  const rep = nat?.reparations;
+  if (!rep) return null;
+  if (rep.until <= s.day || !nat.alive || !s.nations[rep.to]?.alive || nat.overlord || warBetween(s, n, rep.to)) return null;
+  return rep;
 }
 
 export function tributeRate(s: GameState, n: NationId): number {
@@ -129,6 +150,10 @@ export function ledger(s: GameState, n: NationId): Ledger {
   ];
   if (goods > 0) income.push({ label: 'Colonial goods', value: goods });
   if (tributeIn > 0) income.push({ label: 'Tribute from subjects', value: tributeIn });
+  for (const payer of Object.values(s.nations)) {
+    if (payer.reparations?.to !== n || !reparationsOf(s, payer.id)) continue;
+    income.push({ label: `Reparations from ${nationName(payer.id)}`, value: incomeBase(s, payer.id) * REPARATIONS_SHARE });
+  }
   const generals = (armiesOf(s, n).filter(a => a.general && !a.general.isRuler).length + nat.generals.length) * 0.25;
   const expenses: LineItem[] = [
     { label: nat.armyMode === 'war' ? 'Army (wartime pay)' : 'Army (peacetime pay)', value: army.regular },
@@ -144,6 +169,8 @@ export function ledger(s: GameState, n: NationId): Ledger {
   expenses.push(...colonyExpenses(s, n));
   if (nat.loans > 0) expenses.push({ label: `Interest on ${nat.loans} loan${nat.loans > 1 ? 's' : ''}`, value: (nat.loans * LOAN_SIZE * LOAN_INTEREST) / 12 });
   if (tributeOut > 0) expenses.push({ label: `Tribute to ${nationName(nat.overlord!)}`, value: tributeOut });
+  const rep = reparationsOf(s, n);
+  if (rep) expenses.push({ label: `Reparations to ${nationName(rep.to)} (until ${yearOf(rep.until)})`, value: (tax + trade + goods) * REPARATIONS_SHARE });
   const totalIncome = income.reduce((a, i) => a + i.value, 0);
   const totalExpenses = expenses.reduce((a, i) => a + i.value, 0);
   return { income, expenses, totalIncome, totalExpenses, balance: totalIncome - totalExpenses };
@@ -196,6 +223,8 @@ export const SHIP_DAYS = 60;
 // ---------------------------------------------------------------- monthly
 
 export function monthlyEconomy(s: GameState): void {
+  // Reparations that have run their course, or lost their reason, end.
+  for (const nat of Object.values(s.nations)) if (nat.reparations && !reparationsOf(s, nat.id)) delete nat.reparations;
   for (const nat of Object.values(s.nations)) {
     if (!nat.alive) continue;
     const n = nat.id;

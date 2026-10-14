@@ -28,6 +28,7 @@ import { addRegiments, findPath, mergeArmies, orderMove, splitArmy } from './mil
 import { completeMission } from './missions';
 import { findSeaPath } from './navy';
 import { attackOdds } from './forecast';
+import { storm, stormOdds } from './siege';
 import {
   allied,
   armyMen,
@@ -497,6 +498,18 @@ export function separatePeace(s: GameState, warId: string): Result {
   leaveWar(s, w, s.player);
   addOpinion(s, leader, s.player, 'separate_peace', 'Left us in the war', -30, 0.5);
   return ok('You make a separate peace.');
+}
+
+/** Storm the walls of a fort your armies besiege: the odds and the men it costs are stormOdds'. */
+export function stormWalls(s: GameState, region: string): Result {
+  const o = stormOdds(s, region);
+  if (!o || o.by !== s.player) return no('You are not besieging it.');
+  if (o.blocked) return no(`${o.blocked}.`);
+  const men = o.men.toLocaleString();
+  const name = regionName(region);
+  const result = storm(s, region);
+  if (!result) return no('The walls can’t be stormed now.');
+  return result === 'won' ? ok(`The walls are stormed! ${name} falls (−${men} men).`) : ok(`Thrown back from the walls (−${men} men).`);
 }
 
 export function answerOffer(s: GameState, offerId: string, accept: boolean): Result {

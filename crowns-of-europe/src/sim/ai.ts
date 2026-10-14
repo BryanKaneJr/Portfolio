@@ -77,7 +77,7 @@ import { acceptance, canRival, doDiplomacy, isHreMember, opinion } from './diplo
 import { ULTIMATUM_SCORE, buildDemands, casusBelli, declareWar, fitTerms, imperialDefenders, leaveWar, likelySides, makePeace, peaceAcceptance, scoreFor, sendUltimatum, canDeclareWar, type CbOption } from './war';
 import { COALITION_JOIN, coalitionAgainst, coalitionWarCheck, proximity } from './threat';
 import { addRegiments, findPath, mergeArmies, orderMove, pathFromTree, pathTree, splitArmy, supplyLimit } from './military';
-import { minSiegeRegs } from './siege';
+import { aiStorms, minSiegeRegs } from './siege';
 import { fleetPower, findSeaPath, seaDistances, transportCapacity } from './navy';
 import { forecast, type Forecast } from './forecast';
 import { GENERAL_COST } from './commands';
@@ -98,6 +98,7 @@ export function monthlyAI(s: GameState): void {
     aiEconomy(s, nat);
     aiGenerals(s, nat);
     aiPeace(s, nat);
+    aiStorms(s, nat);
     // New World peoples defend their land but never start wars or court European crowns.
     if (isNativeNation(nat.id)) continue;
     aiColonies(s, nat);
@@ -1003,6 +1004,7 @@ function aiPeace(s: GameState, nat: Nation): void {
         const terms = buildDemands(s, w, s.player, Math.round(-sc * 0.7));
         terms.winner = s.player;
         terms.loser = n;
+        delete terms.humble; // it may offer reparations, never to be humbled
         if (terms.regions.length || terms.gold) offerPeace(s, nat, w, terms);
       } else if (Math.abs(sc) < 10 && years_ > 3 && nat.warExhaustion > 6) {
         offerPeace(s, nat, w, { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: n, loser: s.player });
@@ -1024,18 +1026,41 @@ function aiPeace(s: GameState, nat: Nation): void {
       // A subject winning its war of independence asks for its freedom (a peace that is not white frees it).
       const freedom = w.cb === 'independence' && side === 0;
       const any = terms.regions.length > 0 || terms.gold > 0 || terms.vassalize || freedom;
-      if (any && peaceAcceptance(s, w, terms, enemyLeader).accept) makePeace(s, w, terms);
+      const extras = !!(terms.humble || terms.reparations);
+      const plain = withoutExtras(terms);
+      const agreed = any ? acceptedTerms(s, w, terms, enemyLeader) : null;
+      if (agreed) makePeace(s, w, agreed);
       else if (sc >= 60 && (terms.regions.length || terms.vassalize || freedom)) makePeace(s, w, terms); // forced
       else if (!any && years_ >= 1) {
-        // Winning with nothing in reach to ask for: whatever gold the loser can spare, or a white peace.
+        // Winning with nothing in reach to ask for: whatever gold the loser can spare (and reparations, a rival
+        // humbled), or a white peace.
         const gold = Math.min(sc * 10, Math.floor(s.nations[enemyLeader].gold / 2));
-        const settle = gold >= 10 ? { ...terms, gold } : white;
-        if (peaceAcceptance(s, w, settle, enemyLeader).accept) makePeace(s, w, settle);
+        const settle = gold >= 10 ? { ...plain, gold } : white;
+        const more = extras ? { ...terms, gold: gold >= 10 ? gold : 0 } : null;
+        if (more && peaceAcceptance(s, w, more, enemyLeader).accept) makePeace(s, w, more);
+        else if (peaceAcceptance(s, w, settle, enemyLeader).accept) makePeace(s, w, settle);
       }
     } else if (Math.abs(sc) < 15 && years_ > 4) {
       if (peaceAcceptance(s, w, white, enemyLeader).accept && peaceAcceptance(s, w, white, n).accept) makePeace(s, w, white);
     }
   }
+}
+
+/** Terms without humbling or reparations. */
+export const withoutExtras = (t: PeaceTerms): PeaceTerms => {
+  const { humble: _h, reparations: _r, ...rest } = t;
+  return rest;
+};
+
+/**
+ * The terms an AI loser signs: these, or, refused with humbling or reparations, the same without them. The extras
+ * never keep a war going that would have ended. Null when it refuses both.
+ */
+export function acceptedTerms(s: GameState, w: War, terms: PeaceTerms, decider: NationId): PeaceTerms | null {
+  if (peaceAcceptance(s, w, terms, decider).accept) return terms;
+  if (!terms.humble && !terms.reparations) return null;
+  const plain = withoutExtras(terms);
+  return peaceAcceptance(s, w, plain, decider).accept ? plain : null;
 }
 
 /**
