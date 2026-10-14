@@ -172,6 +172,8 @@ describe("a battle's why", () => {
 });
 
 // The store, without the device's storage.
+// The store buzzes the phone on each order; expo-haptics does not load under Jest.
+jest.mock('../src/ui/haptics', () => ({ buzz: () => {} }));
 jest.mock('../src/state/storage', () => ({
   loadPrefs: () => Promise.resolve({}),
   savePrefs: () => Promise.resolve(),
