@@ -45,25 +45,38 @@ describe('history events: Empire and north', () => {
     }
   });
 
-  test('a war choice really starts its war when the card can fire', () => {
-    let checked = 0;
+  test('every war choice really starts its war once the card can fire', () => {
+    /** Late cards wait on world flags; set those up so their war choice is tested too. */
+    const setup: Record<string, (s: GameState) => void> = {
+      dan_lower_saxon_war: s => {
+        s.flags.thirty_years_war = 1;
+        s.nations.DAN.faith = 'protestant';
+      },
+    };
+    const started: string[] = [];
     for (const e of CARDS) {
       const n = e.nations![0];
       const base = fresh(n);
-      if (!evalCondition(base, n, e.trigger)) continue; // e.g. waits on a flag set later in the game
+      setup[e.id]?.(base);
       e.choices.forEach((c, i) => {
         const dw = c.effects.find(ef => 'declareWar' in ef) as { declareWar: { target: NationId } } | undefined;
         if (!dw) return;
+        expect({ card: e.id, canFire: evalCondition(base, n, e.trigger) }).toEqual({ card: e.id, canFire: true });
         const s = structuredClone(base);
         play(s, n, e, i);
         const war = Object.values(s.wars).find(
           w => w.attackers.includes(n) && w.defenders.includes(dw.declareWar.target),
         );
-        expect({ card: e.id, war: !!war }).toEqual({ card: e.id, war: true });
-        checked++;
+        if (war) started.push(`${e.id}:${n}-${dw.declareWar.target}`);
       });
     }
-    expect(checked).toBeGreaterThanOrEqual(4);
+    expect(started.sort()).toEqual([
+      'bav_landshut_inheritance:BAV-PAL',
+      'bra_stettin_inheritance:BRA-POM',
+      'dan_lower_saxon_war:DAN-HAB',
+      'hsa_the_counts_feud:HSA-DAN',
+      'hun_crusade_against_bohemia:HUN-BOH',
+    ]);
   });
 
   test('hidden cards are reached from a choice in this file, and every follow-up exists', () => {
