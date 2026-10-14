@@ -86,7 +86,7 @@ function CrownRow({
   const s = st.state!;
   const c = CROWN[a.id];
   // "6 of 8 lands · needs Rome · from 1469", or what else stands in the way.
-  const parts = [`${a.held} of ${a.need} lands`];
+  const parts = [`${Math.min(a.held, a.need)} of ${a.need} lands`];
   if (a.keysMissing.length) parts.push(`needs ${a.keysMissing.map(regionName).join(' and ')}`);
   if (c.from && year < c.from) parts.push(`from ${c.from}`);
   const blocker =

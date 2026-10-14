@@ -6,7 +6,7 @@ import { newGame } from '../src/sim/state';
 import { makeSubject, transferRegion } from '../src/sim/territory';
 import { advanceDay } from '../src/sim/tick';
 import type { GameState, NationId } from '../src/sim/types';
-import { dayOf, yearOf } from '../src/sim/util';
+import { dateOf, dayOf, yearOf } from '../src/sim/util';
 import { declareWar } from '../src/sim/war';
 import { emptyGame } from './helpers';
 
@@ -121,6 +121,11 @@ describe('who may proclaim what', () => {
     give(s, 'NAP', ['sicily']);
     s.nations.NAP.stability = -1;
     expect(canProclaim(s, 'NAP', 'SIC')).toBe('Needs order 0 or better');
+    s.nations.NAP.stability = 1;
+    let war = null;
+    for (const n of ['VEN', 'FLO', 'MLO', 'HUN']) if ((war = declareWar(s, 'NAP', n, 'claim'))) break;
+    expect(war).toBeTruthy();
+    expect(canProclaim(s, 'NAP', 'SIC')).toBe('Not while at war');
   });
 });
 
@@ -133,9 +138,13 @@ describe('a crown in the saved game', () => {
     expect(back.nations.NAP.crown).toBe('SIC');
     expect(displayIn(back, 'NAP').name).toBe('Two Sicilies');
     // Two effects where the second reads what the first left: walkEffects works on a copy.
+    let copied = false;
     walkEffects(s, 'NAP', [{ prestige: 5 }, { prestige: 5 }], c => {
-      if (c !== s) c.nations.NAP.crown = undefined;
+      if (c === s) return;
+      copied = true;
+      c.nations.NAP.crown = undefined;
     });
+    expect(copied).toBe(true);
     expect(nationName('NAP')).toBe('Two Sicilies');
     expect(s.nations.NAP.crown).toBe('SIC');
   });
@@ -158,7 +167,7 @@ describe("the computer's crowns", () => {
           expect(c.playerOnly).toBeFalsy();
           expect(yearOf(s.day)).toBeGreaterThanOrEqual(c.from ?? 0);
           expect(s.nations[by].overlord).toBeUndefined();
-          expect(by).not.toBe(s.player);
+          expect(dateOf(s.day).month).toBe(0); // the computer proclaims in January only
         }
       }
       return { seen, rng: s.rng };

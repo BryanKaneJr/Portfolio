@@ -39,12 +39,15 @@ export function proclaimedBy(s: GameState, id: string): { by: NationId; day: num
   return by ? { by, day } : undefined;
 }
 
+/** Is `n` the player (and not a spectated game, where the computer plays everyone)? */
+const human = (s: GameState, n: NationId): boolean => n === s.player && !('__spectate' in s.flags);
+
 /** Does `n` hold region `r`, itself or through a junior partner in a shared crown (never through the player)? */
 function holds(s: GameState, n: NationId, r: RegionId): boolean {
   const owner = s.regions[r]?.owner;
   if (!owner) return false;
   if (owner === n) return true;
-  if (owner === s.player) return false;
+  if (human(s, owner)) return false;
   const o = s.nations[owner];
   return o?.overlord === n && o.subjectType === 'union';
 }
@@ -59,7 +62,7 @@ export function canProclaim(s: GameState, n: NationId, id: string): string | nul
   if (!c || !nat?.alive) return 'No such crown';
   const taken = proclaimedBy(s, id);
   if (taken) return taken.by === n ? 'You already hold it' : `Proclaimed by ${NATION[taken.by]?.name ?? taken.by}`;
-  if (c.playerOnly && n !== s.player) return 'Only for players';
+  if (c.playerOnly && !human(s, n)) return 'Only for players';
   if (!mayAim(s, n, c)) return `Not open to ${displayIn(s, n).name}`;
   return readiness(s, n, c).why ?? null;
 }
@@ -82,7 +85,7 @@ function readiness(s: GameState, n: NationId, c: CrownDef): CrownProgress {
 /** The crowns `n` may aim at (its crown may lead on to them, and nobody has proclaimed them), and how near it is. */
 export function crownProgress(s: GameState, n: NationId): CrownProgress[] {
   if (!s.nations[n]?.alive) return [];
-  return CROWNS.filter(c => mayAim(s, n, c) && !proclaimedBy(s, c.id) && (!c.playerOnly || n === s.player)).map(c =>
+  return CROWNS.filter(c => mayAim(s, n, c) && !proclaimedBy(s, c.id) && (!c.playerOnly || human(s, n))).map(c =>
     readiness(s, n, c),
   );
 }
@@ -115,7 +118,7 @@ export function proclaim(s: GameState, n: NationId, id: string): void {
     nat.claims[r] = until;
   }
   nat.prestige = Math.min(100, nat.prestige + CROWN_RENOWN);
-  const mine = n === s.player;
+  const mine = human(s, n);
   log(s, 'news', `${mine ? 'You proclaim' : `${was} proclaims`} ${crownTitle(id)}.`, {
     nation: n,
     node: nat.capital,
@@ -136,7 +139,7 @@ export function proclaim(s: GameState, n: NationId, id: string): void {
 /** Every month: the player hears of a crown newly within reach; every January the computer's realms proclaim theirs. */
 export function monthlyCrowns(s: GameState): void {
   const me = s.nations[s.player];
-  if (me?.alive)
+  if (me?.alive && human(s, s.player))
     for (const p of crownProgress(s, s.player)) {
       if (!p.ready || me.flags['crown_ready_' + p.id] !== undefined) continue;
       me.flags['crown_ready_' + p.id] = s.day;
@@ -144,7 +147,7 @@ export function monthlyCrowns(s: GameState): void {
     }
   if (dateOf(s.day).month !== 0 || '__noAI' in s.flags) return;
   for (const n of Object.keys(s.nations).sort()) {
-    if (n === s.player || !s.nations[n].alive) continue;
+    if (human(s, n) || !s.nations[n].alive) continue;
     const c = CROWNS.find(x => canProclaim(s, n, x.id) === null);
     if (c) proclaim(s, n, c.id);
   }
