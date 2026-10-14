@@ -40,6 +40,17 @@ describe.each(FILES)('events-history-%s', (_key, events) => {
     for (const t of targets) expect(ids).toContain(t);
     for (const e of events.filter(x => x.hidden)) expect(targets).toContain(e.id);
   });
+
+  // fortRegion and unrestRegion act on any owner's region, so a card must hold the region it names.
+  test('cards that fortify or stir a region require owning it', () => {
+    for (const e of events)
+      for (const c of e.choices)
+        for (const ef of c.effects) {
+          const region =
+            'fortRegion' in ef ? ef.fortRegion.region : 'unrestRegion' in ef ? ef.unrestRegion.region : null;
+          if (region) expect([e.id, JSON.stringify(e.trigger).includes(`{"owns":"${region}"}`)]).toEqual([e.id, true]);
+        }
+  });
 });
 
 test('Morocco cannot march to Gao overland, so the Sahara card arms musketeers instead of declaring war', () => {
