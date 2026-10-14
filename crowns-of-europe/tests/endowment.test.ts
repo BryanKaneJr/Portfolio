@@ -2,6 +2,7 @@ import { emptyGame } from './helpers';
 import { setEndowment } from '../src/sim/commands';
 import { COUNTS, ENDOW, aiEndowment, endow, endowBlocked } from '../src/sim/endowment';
 import { advanceCost } from '../src/sim/science';
+import { SAVE_VERSION, migrateSave } from '../src/sim/state';
 import { advanceDays } from '../src/sim/tick';
 import { yearOf, years } from '../src/sim/util';
 
@@ -79,11 +80,20 @@ describe('endowment', () => {
     expect(endowed.factors.length).toBe(plain.factors.length + 1);
   });
 
-  test('an endowment survives a save and load', () => {
+  test('an endowment survives a save and load; a save from before it loads with no endowment', () => {
     const s = emptyGame('HUN');
+    const plain = advanceCost(s, 'HUN', 'banking').total;
     setEndowment(s, 'state');
-    const back = JSON.parse(JSON.stringify(s));
+    const back = migrateSave(JSON.parse(JSON.stringify(s)))!;
+    expect(back.version).toBe(SAVE_VERSION);
     expect(back.nations.HUN.endowment).toEqual(s.nations.HUN.endowment);
     expect(endowBlocked(back, 'HUN', 'war')).toBe(endowBlocked(s, 'HUN', 'war'));
+    expect(advanceCost(back, 'HUN', 'banking').total).toBe(advanceCost(s, 'HUN', 'banking').total);
+    const old = JSON.parse(JSON.stringify(s));
+    delete old.nations.HUN.endowment;
+    const loaded = migrateSave(old)!;
+    expect(loaded.nations.HUN.endowment).toBeUndefined();
+    expect(advanceCost(loaded, 'HUN', 'banking').total).toBe(plain);
+    expect(endowBlocked(loaded, 'HUN', 'war')).toBeNull();
   });
 });
