@@ -21,6 +21,7 @@ import { REBELS, armyRegs, isCored, seesUnit } from '../../sim/queries';
 import { unrestBreakdown } from '../../sim/rebels';
 import { sanctionTargets, SANCTION_COST } from '../../sim/religion';
 import { minSiegeRegs, siegeInfo } from '../../sim/siege';
+import { StormButton } from './StormButton';
 import { yearOf, years } from '../../sim/util';
 import { claimReason } from '../../sim/war';
 import { GOOD_NAME, charted, goodsIncome } from '../../sim/colonies';
@@ -115,6 +116,7 @@ export function RegionSheet({ id }: { id: string }) {
           tone="bad"
         />
       ) : null}
+      <StormButton region={id} />
       {armiesHere.length ? (
         <Section title="Armies here">
           {armiesHere.map(a => (

@@ -27,6 +27,7 @@ import { wantedRegions, wantsFrom } from './aims';
 import { addThreat, coalitionAgainst, proximity } from './threat';
 import { makeSubject, releaseNation, releaseSubject, transferRegion } from './territory';
 import { sendHomeAfterPeace } from './military';
+import { REPARATIONS_SHARE, incomeBase } from './economy';
 import type { CasusBelli, GameState, NationId, Offer, PeaceTerms, RegionId, War } from './types';
 import { clamp, dayOf, formatDate, isIn, months, pairKey, yearOf, years } from './util';
 
@@ -53,6 +54,27 @@ export const unjustThreat = (s: GameState, n: NationId) =>
 export const ULTIMATUM_SCORE = 99;
 /** Days the player has before an ultimatum's terms are imposed. */
 export const ULTIMATUM_DAYS = 30;
+
+/** Humbling the loser at the peace table: what it costs in leverage, and the renown that moves from it to the winner
+ * (HUMBLE_RIVAL more against a rival), on top of a won war's own. */
+export const HUMBLE_COST = 15;
+export const HUMBLE_RENOWN = 15;
+export const HUMBLE_RIVAL = 5;
+/** Reparations: the loser pays a tenth of its taxes, trade and exports to the winner for ten years (economy.ts). */
+export { REPARATIONS_SHARE };
+export const REPARATIONS_YEARS = 10;
+/** Leverage reparations cost: the gold rule (1% for every 10 gold) on what they pay over the years, 5% to 25%. */
+export const reparationsCost = (s: GameState, loser: NationId) => clamp(Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS / 10), 5, 25);
+/** Renown a humbled loser gives up (and the winner gains before its own bonus). */
+export const humbleRenown = (s: GameState, winner: NationId, loser: NationId) => HUMBLE_RENOWN + (s.nations[winner]?.rivals.includes(loser) ? HUMBLE_RIVAL : 0);
+/** Renown the winner gains by humbling the loser: humbleRenown with its own bonus to renown gained. */
+export const humbleGain = (s: GameState, winner: NationId, loser: NationId) => Math.round(humbleRenown(s, winner, loser) * (1 + nationMods(s, winner).prestigeGain));
+/** Only a free realm pays reparations: a subject's would end at once (economy.ts reparationsOf). */
+export const canPayReparations = (s: GameState, loser: NationId) => !!s.nations[loser]?.alive && !s.nations[loser].overlord;
+/** Reparations count in these terms: asked of a free realm, and not of one made a vassal (it pays tribute instead). */
+const reparationsIn = (s: GameState, t: PeaceTerms) => !!t.reparations && !t.vassalize && canPayReparations(s, t.loser);
+/** Dev-only counters (scripts/dev): AI peaces that are not white, and those that humble or ask reparations. */
+export const COUNTS = { peaces: 0, humbled: 0, reparations: 0 };
 
 export interface CbOption {
   cb: CasusBelli;
@@ -399,6 +421,8 @@ export function peaceCost(s: GameState, terms: PeaceTerms): number {
     c += Math.round(keep.reduce((t, r) => t + r.dev, 0) * 2);
   }
   c += Math.round(terms.gold / 10);
+  if (terms.humble) c += HUMBLE_COST;
+  if (reparationsIn(s, terms)) c += reparationsCost(s, terms.loser);
   for (const n of terms.release) {
     if (s.nations[n]?.overlord === terms.loser) c += 25;
     else c += 10 + Object.values(s.regions).filter(r => r.owner === terms.loser && r.cores.includes(n)).reduce((t, r) => t + r.dev * 1.5, 0);
@@ -443,10 +467,12 @@ function worthwhile(s: GameState, w: War, winner: NationId, r: RegionId): string
   return null;
 }
 
-/** What a loser's offer is worth to the winner: its own regions by concessionValue, 1% for every 10 gold it has. */
+/** What a loser's offer is worth to the winner: its own regions by concessionValue, 1% for every 10 gold it has,
+ * and reparations at their price. */
 export function offerValue(s: GameState, w: War, terms: PeaceTerms): number {
   let v = 0;
   for (const r of terms.regions) if (s.regions[r]?.owner === terms.loser) v += concessionValue(s, w, terms.winner, r).value;
+  if (reparationsIn(s, terms)) v += reparationsCost(s, terms.loser);
   return Math.round(v + Math.min(terms.gold, Math.max(0, s.nations[terms.loser]?.gold ?? 0)) / 10);
 }
 
@@ -579,6 +605,19 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
     const rivalBonus = W.rivals.includes(loser) ? 10 : 0;
     W.prestige = clamp(W.prestige + (10 + rivalBonus) * (1 + nationMods(s, winner).prestigeGain), 0, 100);
     if (L) L.prestige = clamp(L.prestige - 10, 0, 100);
+    if (terms.humble) {
+      const base = humbleRenown(s, winner, loser);
+      W.prestige = clamp(W.prestige + base * (1 + nationMods(s, winner).prestigeGain), 0, 100);
+      if (L) L.prestige = clamp(L.prestige - base, 0, 100);
+    }
+    // A vassal pays tribute instead; a realm the peace ended pays nothing. One at a time: a new one replaces the old.
+    const reparations = !!L && reparationsIn(s, terms);
+    if (reparations) L.reparations = { to: winner, until: s.day + years(REPARATIONS_YEARS) };
+    if (winner !== s.player && loser !== s.player) {
+      COUNTS.peaces++;
+      if (terms.humble) COUNTS.humbled++;
+      if (reparations) COUNTS.reparations++;
+    }
     W.record.warsWon++;
     if (L) L.record.warsLost++;
     if (winners.includes(s.player)) s.stats.warsWon++;
@@ -594,6 +633,8 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.gold) parts.push(`${terms.gold} gold`);
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
+  if (!terms.white && terms.humble) parts.push(`${nationName(loser)} is humbled`);
+  if (!terms.white && reparationsIn(s, terms)) parts.push(`${nationName(loser)} pays reparations`);
   if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
   if (all.includes(s.player)) {
     const mine = winner === s.player || winners.includes(s.player);
@@ -627,6 +668,12 @@ function peaceMoment(s: GameState, w: War, terms: PeaceTerms, was: ReturnType<ty
   if (!terms.white && terms.gold) lines.push(terms.winner === p ? `They pay ${terms.gold} gold.` : terms.loser === p ? `We pay ${terms.gold} gold.` : `${nationName(terms.loser)} pays ${terms.gold} gold.`);
   if (!terms.white && terms.vassalize) lines.push(terms.winner === p ? `${nationName(terms.loser)} becomes our vassal.` : `${nationName(terms.loser)} becomes a vassal.`);
   for (const n of terms.white ? [] : terms.release) lines.push(`${nationName(n)} is freed.`);
+  if (!terms.white && terms.humble) lines.push(terms.winner === p ? 'They are humbled.' : terms.loser === p ? 'We are humbled.' : `${nationName(terms.loser)} is humbled.`);
+  const rep = !terms.white && terms.reparations ? s.nations[terms.loser]?.reparations : undefined;
+  if (rep && rep.to === terms.winner && rep.until === s.day + years(REPARATIONS_YEARS)) {
+    const until = yearOf(rep.until);
+    lines.push(terms.winner === p ? `They pay us a tenth of their income until ${until}.` : terms.loser === p ? `We pay a tenth of our income until ${until}.` : `${nationName(terms.loser)} pays a tenth of its income until ${until}.`);
+  }
   const renown = Math.round((me?.prestige ?? 0) - was.renown);
   if (renown) lines.push(`Renown ${renown > 0 ? '+' : '−'}${Math.abs(renown)}.`);
   const threat = Math.round((me?.threat ?? 0) - was.threat);
@@ -668,7 +715,8 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
  * next to their own (or the loser's last region, wherever it lies), then gold; a limited war won by its attackers
  * only the war goal, and gold. A great crown down to its heartland (four regions or fewer) gives up one region a
  * peace. With nothing of that in reach, a small realm (never the Emperor or a great crown) is made a vassal if the
- * leverage covers it.
+ * leverage covers it. Otherwise, with leverage left over and unless the war is a limited one: reparations, then
+ * humbling a rival.
  */
 export function buildDemands(s: GameState, w: War, winner: NationId, budget: number): PeaceTerms {
   const winSide = sideOf(w, winner)!;
@@ -706,6 +754,16 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
   const mayVassalize =
     !only && !terms.regions.length && !terms.gold && loser !== s.player && NATION[loser]?.tier !== 'major' && !isNativeNation(loser) && !s.nations[loser]?.overlord && !s.nations[winner].overlord && s.hre.emperor !== loser;
   if (mayVassalize && peaceCost(s, { ...terms, vassalize: true }) <= budget) terms.vassalize = true;
+  // A limited war takes its region and gold, nothing more; a vassal pays tribute instead. With leverage to spare:
+  // reparations from a loser with an income worth having (not on top of much gold), then humbling a rival.
+  if (terms.vassalize || only) return terms;
+  left -= Math.round(terms.gold / 10);
+  const rc = reparationsCost(s, loser);
+  if (left >= rc && terms.gold < 50 && incomeBase(s, loser) >= 2 && canPayReparations(s, loser)) {
+    terms.reparations = true;
+    left -= rc;
+  }
+  if (s.nations[winner].rivals.includes(loser) && left >= HUMBLE_COST) terms.humble = true;
   return terms;
 }
 

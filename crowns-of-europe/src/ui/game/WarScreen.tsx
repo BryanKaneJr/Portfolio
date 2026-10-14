@@ -9,7 +9,29 @@ import Svg, { Defs, LinearGradient, RadialGradient, Rect, Stop } from 'react-nat
 import { NATION, nationName, regionName } from '../../sim/content';
 import { proposePeace, separatePeace } from '../../sim/commands';
 import { REBELS, ownedRegions, sideOf, subjectsOf } from '../../sim/queries';
-import { CB_LABEL, ULTIMATUM_SCORE, concessionValue, demandableRegions, isCapitalAtStake, offerValue, peaceCost, proposalAnswer, regionPeaceCost, scoreFor, truceYears, ultimatumTerms, warScore } from '../../sim/war';
+import {
+  CB_LABEL,
+  HUMBLE_COST,
+  REPARATIONS_SHARE,
+  REPARATIONS_YEARS,
+  ULTIMATUM_SCORE,
+  canPayReparations,
+  concessionValue,
+  demandableRegions,
+  humbleGain,
+  humbleRenown,
+  isCapitalAtStake,
+  offerValue,
+  peaceCost,
+  proposalAnswer,
+  regionPeaceCost,
+  reparationsCost,
+  scoreFor,
+  truceYears,
+  ultimatumTerms,
+  warScore,
+} from '../../sim/war';
+import { incomeBase } from '../../sim/economy';
 import type { NationId, PeaceTerms, War } from '../../sim/types';
 import { DAYS_PER_YEAR, formatDate, formatShortDate, isIn } from '../../sim/util';
 import { useStore } from '../../state/store';
@@ -47,6 +69,8 @@ export function WarPanel({ warId }: { warId: string }) {
   const [gold, setGold] = useState(0);
   const [vassalize, setVassalize] = useState(false);
   const [release, setRelease] = useState<string[]>([]);
+  const [humble, setHumble] = useState(false);
+  const [reparations, setReparations] = useState(false);
   // Losing, you'll want to offer something rather than demand.
   const [mode, setMode] = useState<'demand' | 'offer'>(() => (w && sideOf(w, s.player) !== null && scoreFor(s, w, s.player) < 0 ? 'offer' : 'demand'));
   const [levHelp, setLevHelp] = useState(false);
@@ -81,7 +105,20 @@ export function WarPanel({ warId }: { warId: string }) {
             return { r: reg.id, price: v.value, why: v.why };
           })
           .sort((a, b) => b.price - a.price || regionName(a.r).localeCompare(regionName(b.r)));
-  const terms: PeaceTerms = { regions, gold, vassalize, release: mode === 'demand' ? release : [], winner, loser };
+  // Humbling is demanded, never offered; reparations either way, but never from a vassal (it pays tribute instead).
+  const humbleOn = mode === 'demand' && humble;
+  const mayReparations = !vassalize && canPayReparations(s, loser);
+  const reparationsOn = reparations && mayReparations;
+  const terms: PeaceTerms = {
+    regions,
+    gold,
+    vassalize,
+    release: mode === 'demand' ? release : [],
+    winner,
+    loser,
+    ...(humbleOn ? { humble: true } : {}),
+    ...(reparationsOn ? { reparations: true } : {}),
+  };
   const white: PeaceTerms = { regions: [], gold: 0, vassalize: false, release: [], white: true, winner: s.player, loser: enemy };
   const cost = mode === 'demand' ? peaceCost(s, terms) : offerValue(s, w, terms);
   // The same verdict proposePeace acts on.
@@ -91,7 +128,9 @@ export function WarPanel({ warId }: { warId: string }) {
   const ult = w.ultimatum?.from === enemy ? w.ultimatum : undefined;
   // Its terms as they stand today: what accepting signs, and what its day would impose.
   const ultTerms = ult ? ultimatumTerms(s, w) : null;
-  const anyTerms = regions.length > 0 || gold > 0 || vassalize || release.length > 0;
+  const anyTerms = regions.length > 0 || gold > 0 || vassalize || release.length > 0 || humbleOn || reparationsOn;
+  const renownLost = humbleRenown(s, s.player, enemy);
+  const repGold = Math.round(incomeBase(s, loser) * REPARATIONS_SHARE * 12 * REPARATIONS_YEARS);
   const toggle = (r: string) => setRegions(rs => (rs.includes(r) ? rs.filter(x => x !== r) : [...rs, r]));
   const reset = (m: 'demand' | 'offer') => {
     setMode(m);
@@ -99,6 +138,8 @@ export function WarPanel({ warId }: { warId: string }) {
     setGold(0);
     setVassalize(false);
     setRelease([]);
+    setHumble(false);
+    setReparations(false);
   };
   const canVassalize = mode === 'demand' && !s.nations[enemy].overlord && subjectsOf(s, enemy).length === 0;
   // Nations the enemy could be made to free: its subjects, and fallen peoples whose old lands it holds.
@@ -303,7 +344,7 @@ export function WarPanel({ warId }: { warId: string }) {
             title="Peace"
             help={
               mode === 'demand'
-                ? 'Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years.'
+                ? 'Each term costs leverage: the % beside a region (less if you claim it, double for a capital), 1% for every 10 gold. Ask for more than your leverage and they refuse. A vassal pays you tribute and fights your wars, and can be annexed after 15 years. Humbling them moves renown from them to you. Reparations are priced like the gold they pay over the years, at most 25%.'
                 : `Offer any of your land, or gold. The % beside a region is what it is worth to ${nationName(enemy)}: its full price if it is next to their land, they claim, want or hold it, or it is the war goal; half for land far from them. Gold is 1% for every 10. They accept if it covers their leverage.${limitedNote}`
             }
           >
@@ -341,7 +382,7 @@ export function WarPanel({ warId }: { warId: string }) {
             ) : (
               <Empty text={mode === 'demand' ? 'Occupy or claim their regions to demand them.' : 'You have no land to offer.'} />
             )}
-            <Text style={styles.sub}>{mode === 'demand' ? 'Gold reparations' : 'Pay gold'}</Text>
+            <Text style={styles.sub}>{mode === 'demand' ? 'Gold' : 'Pay gold'}</Text>
             <View style={styles.seg}>
               {[0, 50, 100, 200, 400].map(g => {
                 // You can't offer gold you don't have.
@@ -353,6 +394,28 @@ export function WarPanel({ warId }: { warId: string }) {
                 );
               })}
             </View>
+            {mode === 'demand' ? (
+              <Option
+                testID="humble"
+                icon="prestige"
+                on={humble}
+                onPress={() => setHumble(v => !v)}
+                title="Humble them"
+                sub={`Renown +${humbleGain(s, s.player, enemy)} to you, −${renownLost} to them`}
+                cost={HUMBLE_COST}
+              />
+            ) : null}
+            {mayReparations ? (
+              <Option
+                testID="reparations"
+                icon="coins"
+                on={reparations}
+                onPress={() => setReparations(v => !v)}
+                title={mode === 'demand' ? 'Reparations' : 'Pay reparations'}
+                sub={`${Math.round(REPARATIONS_SHARE * 100)}% of ${mode === 'demand' ? 'their' : 'your'} income for ${REPARATIONS_YEARS} years (about ${repGold} gold)`}
+                cost={reparationsCost(s, loser)}
+              />
+            ) : null}
             {releasable.length ? (
               <>
                 <Text style={styles.sub}>Free a nation</Text>
@@ -389,6 +452,22 @@ export function WarPanel({ warId }: { warId: string }) {
         </>
       )}
     </Panel>
+  );
+}
+
+/** A term to tick at the peace table, with what it does and its price in leverage. */
+function Option({ testID, icon, on, onPress, title, sub, cost }: { testID: string; icon: IconName; on: boolean; onPress: () => void; title: string; sub: string; cost: number }) {
+  return (
+    <Pressable testID={testID} onPress={onPress} style={[styles.option, on && styles.optionOn, { marginTop: 6 }]} accessibilityRole="checkbox" accessibilityState={{ checked: on }}>
+      <Icon name={icon} size={18} color={G.gold} />
+      <View style={{ flex: 1 }}>
+        <Text style={styles.optionText}>{title}</Text>
+        <Text style={styles.optionSub}>{sub}</Text>
+      </View>
+      <View style={[styles.cost, on && styles.costOn]}>
+        <Text style={[styles.costText, on && { color: '#1a1408' }]}>{cost}%</Text>
+      </View>
+    </Pressable>
   );
 }
 

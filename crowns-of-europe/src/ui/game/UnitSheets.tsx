@@ -20,6 +20,7 @@ import { Sheet } from './Sheet';
 import { RAID_MAX, RAID_PER_REG, charted } from '../../sim/colonies';
 import { STAR_BONUS, rulerAsGeneral } from '../../sim/rulers';
 import { UnchartedSheet } from './ColonySheets';
+import { StormButton } from './StormButton';
 
 const TYPE_NAME: Record<UnitType, string> = { inf: 'Infantry', cav: 'Cavalry', art: 'Artillery' };
 
@@ -180,11 +181,12 @@ export function ArmySheet({ id }: { id: string }) {
         </Section>
       ) : null}
       {reg && reg.owner && reg.owner !== a.owner && reg.controller !== a.owner ? (
-        <Section title="Siege" help={`A fort needs 3 regiments per level to besiege; land without one falls in ${CONTROL_DAYS} days (a colony across the ocean holds out for ${COLONY_HOLD_DAYS}). Artillery (+10% each) and a general’s stars speed a siege up.`}>
+        <Section title="Siege" help={`A fort needs 3 regiments per level to besiege; land without one falls in ${CONTROL_DAYS} days (a colony across the ocean holds out for ${COLONY_HOLD_DAYS}). Artillery (+10% each) and a general’s stars speed a siege up. Storm the walls to take it sooner: the odds grow with the siege, guns and generals.`}>
           {siege?.enough ? (
             <>
               <Line label={reg.fort ? `Fort level ${reg.fort}` : 'Taking control'} value={`${Math.round((reg.siege?.progress ?? 0) * 100)}% · ~${Math.ceil((1 - (reg.siege?.progress ?? 0)) / Math.max(0.0001, siege.daily))} days`} />
               <Bar value={reg.siege?.progress ?? 0} color={C.red} />
+              <StormButton region={a.node} />
             </>
           ) : siege ? (
             <T v="small">Needs {minSiegeRegs(reg.fort)} regiments.</T>

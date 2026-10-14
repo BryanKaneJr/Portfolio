@@ -770,3 +770,54 @@ above.
 - **The rest is noise.** Golden ages come as the spec measured (2–3 by 1500, the first 1456–1478, all great
   powers). Realms alive, rebellions, loans, mean unrest (a snapshot of one day) and speed move both ways from seed
   to seed, within what one war more or less makes.
+
+## Fun batch 2 (W): Storm the walls, Humble them, Reparations
+
+Three war ideas, each one button or one checkbox with its price shown before the tap.
+
+- **Storm the walls** (`siege.ts stormOdds`, `storm`, `aiStorms`; `commands.ts stormWalls`; `ui/game/StormButton.tsx`
+  on the army sheet's Siege section and on the region sheet under "Besieged by", for the siege's leader only).
+  - **Odds:** 5%, plus 70% of the siege's progress, 5% a gun (+25% at most), 2% a regiment over the minimum (+10% at
+    most), 3% a star of the best general there; 5% to 85%. The "?" beside the button lists the parts. The odds shown
+    are the odds rolled (one `chance()`).
+  - **Not yet:** no fort; short of regiments; a siege under 30 days old; stormed in the last 30 days; a battle there.
+  - **Price, win or lose:** 750 men per fort level, from the besieging armies by their men (and within an army across
+    its troops), with a lost battle's war exhaustion (`men / 1000 × 0.1`); counted in the player's men lost.
+  - **Won:** the fort falls at once (`completeSiege`). **Thrown back:** the siege loses 10% of its progress.
+  - **AI:** monthly, on each fort it besieges, when the odds reach 75% (`AI_STORM_CHANCE`). With no guns that needs
+    spare regiments or a general and a siege nearly done; with five guns about half done.
+- **Humble them** (`war.ts HUMBLE_COST` 15%, `HUMBLE_RENOWN` 15, +5 against a rival). A checkbox at the peace table
+  (demand only). The winner gains it times `1 + prestigeGain` (`humbleGain`, the figure the table and the offer card
+  show), the loser loses it, on top of a won war's +10/−10.
+- **Reparations** (`war.ts reparationsCost`, `economy.ts REPARATIONS_SHARE`, `reparationsOf`). A checkbox at the peace
+  table, demanded or offered ("Pay reparations"), hidden while "Make them your vassal" is ticked (a vassal pays
+  tribute). The loser pays a tenth of its taxes, trade and exports to the winner for 10 years (`Nation.reparations`):
+  an expense line for the payer, an income line for the receiver. Its price is the gold rule on what it pays
+  (1.2% per gold of monthly income), 5% to 25%. One at a time: a new one replaces the old. It ends on its day, when
+  either crown is gone, when the payer becomes anyone's subject, or in a war between the two (checked monthly, and
+  by the ledger). A subject pays none (`canPayReparations`): it is not priced, offered, asked or set, since it would
+  end at once.
+- **An ally's storm.** The siege's leader decides; men fall from every besieging army, so when an ally's storm costs
+  the player men, the log says how many. The player's own toast counts the men who actually fell.
+- **AI peace terms** (`buildDemands`): vassals are decided first, as before. Then, with leverage left after land and
+  gold, reparations (loser's income 2 or more, under 50 gold asked), then humbling a rival. **Never in a limited war**
+  won by its attackers: Help promises the player such a war takes "only that region (and gold)". An ultimatum
+  (`fitTerms`) carries land and gold only. AI against AI, terms refused with the extras are signed without them
+  (`ai.ts acceptedTerms`), so the extras never keep a war going. An AI's offer of concessions to the player may carry
+  reparations, never humbling.
+- **Truces.** The extras count in the deal's leverage, so a peace with them brings a longer truce (`truceYears`).
+- **Measured** (AI-only, seeds 1–3 to 1500, `scripts/dev/sieges.ts 56`, `aiwars.ts 56`; before → after):
+
+  | | before | after |
+  |---|---|---|
+  | fort 1: mean days to fall | 53 / 48 / 48 | 49 / 44 / 43 |
+  | fort 2: mean days to fall | 74 / 83 / 83 | 69 / 71 / 103 (8 sieges) |
+  | fort 3 (1–2 sieges a seed) | 197 / 109 / 117 | 137 / 99 / 109 |
+  | forts taken by storm | 0 | 11 of 49, 14 of 47, 14 of 41 |
+  | AI storms won | — | 69%, 78%, 82% |
+  | AI wars ended (seeds 1, 2) | 50, 48 | 53, 43 |
+  | Constantinople Ottoman from | 1447, 1448 | 1447, 1447 |
+  | realms alive in 1500 | 45, 45 | 44, 46 |
+  | AI peaces (not white) humbling / with reparations | — | 6–15% / about 2% |
+
+  Reparations are rare among the AI: most AI wars are limited, and a full war's leverage goes on land first.

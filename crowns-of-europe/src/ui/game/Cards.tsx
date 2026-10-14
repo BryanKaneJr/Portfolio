@@ -8,7 +8,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { EVENT, NATION, nationName, regionName } from '../../sim/content';
 import { answerOffer, playerAnswerEvent } from '../../sim/commands';
-import { ULTIMATUM_SCORE, peaceCost, scoreFor, truceYears, ultimatumTerms } from '../../sim/war';
+import { REPARATIONS_YEARS, ULTIMATUM_SCORE, humbleGain, humbleRenown, peaceCost, scoreFor, truceYears, ultimatumTerms } from '../../sim/war';
 import { ownedRegions } from '../../sim/queries';
 import type { BattleReport, Offer } from '../../sim/types';
 import { formatDate, formatShortDate } from '../../sim/util';
@@ -118,6 +118,11 @@ export function OfferCard({ offer: o, onLater }: { offer: Offer; onLater: () => 
             <Line key={r} label={`${regionName(r)} goes to`} value={nationName(t.winner)} tone={youWin ? 'good' : 'bad'} />
           ))}
           {t.gold ? <Line label={youWin ? 'They pay you' : 'You pay'} value={`${t.gold} gold`} tone={youWin ? 'good' : 'bad'} /> : null}
+          {!t.white && t.vassalize ? <Line label={youWin ? `${nationName(t.loser)} becomes` : 'You become'} value={youWin ? 'your vassal' : `${nationName(t.winner)}’s vassal`} tone={youWin ? 'good' : 'bad'} /> : null}
+          {!t.white && t.humble ? <Line label={youWin ? 'They are humbled' : 'You are humbled'} value={youWin ? `renown +${humbleGain(s, t.winner, t.loser)}` : `renown −${humbleRenown(s, t.winner, t.loser)}`} tone={youWin ? 'good' : 'bad'} /> : null}
+          {!t.white && t.reparations && !t.vassalize ? (
+            <Line label={youWin ? 'They pay you a tenth of their income' : 'You pay a tenth of your income'} value={`${REPARATIONS_YEARS} years`} tone={youWin ? 'good' : 'bad'} />
+          ) : null}
           {w?.cb === 'independence' && !t.white && t.winner === w.attackers[0] ? <Line label={`${nationName(t.winner)} goes free`} value="independence" tone={youWin ? 'good' : 'bad'} /> : null}
           {w ? <Line label="Your leverage now" value={`${scoreFor(s, w, s.player)}%`} /> : null}
           {w && !t.white ? <Line label="Value of the deal" value={`${peaceCost(s, t)}%`} tone="muted" /> : null}
