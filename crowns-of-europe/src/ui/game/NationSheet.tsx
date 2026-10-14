@@ -40,8 +40,13 @@ export function NationSheet({ id }: { id: string }) {
   }
   const aims = activeAims(s, id);
   // Reasons for war between you and them, each until the year shown.
-  const onMine = id === s.player ? [] : Object.keys(n.claims).filter(r => s.regions[r]?.owner === s.player);
-  const onTheirs = id === s.player ? [] : Object.keys(s.nations[s.player].claims).filter(r => s.regions[r]?.owner === id);
+  // (A claim on a subject's land is a reason for war on its overlord.)
+  const heldBy = (r: string, by: string) => {
+    const o = s.regions[r]?.owner;
+    return !!o && (o === by || s.nations[o]?.overlord === by);
+  };
+  const onMine = id === s.player ? [] : Object.keys(n.claims).filter(r => heldBy(r, s.player));
+  const onTheirs = id === s.player ? [] : Object.keys(s.nations[s.player].claims).filter(r => heldBy(r, id));
   const claimHelp = (by: string, regions: string[]) => ['A reason for war, until the year shown.', claimsWhy(s, by, regions)].filter(Boolean).join(' ');
   const bonds = bondsOf(s, id);
   const breakdown = opinionBreakdown(s, id, s.player);

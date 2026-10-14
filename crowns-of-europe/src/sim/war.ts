@@ -81,7 +81,7 @@ export function casusBelli(s: GameState, a: NationId, b: NationId): CbOption[] {
   const theirRegions = Object.values(s.regions).filter(r => isIn(camp, r.owner));
   const cores = theirRegions.filter(r => r.cores.includes(a)).sort((x, y) => y.dev - x.dev);
   if (cores.length) out.push({ cb: 'reconquest', goal: cores[0].id, label: `${CB_LABEL.reconquest}: ${regionName(cores[0].id)}` });
-  const claims = theirRegions.filter(r => r.id in A.claims).sort((x, y) => y.dev - x.dev);
+  const claims = theirRegions.filter(r => r.id in A.claims && (A.claims[r.id] < 0 || A.claims[r.id] > s.day)).sort((x, y) => y.dev - x.dev);
   for (const c of claims.slice(0, 3)) {
     const until = A.claims[c.id];
     out.push({ cb: 'claim', goal: c.id, label: `${CB_LABEL.claim}: ${regionName(c.id)}`, why: claimReason(s, a, c.id), until: until >= 0 ? until : undefined });

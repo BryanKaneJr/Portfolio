@@ -367,8 +367,9 @@ here.
     (1491); Moscow on Novgorod (1480); Burgundy on Lorraine (1477); Scotland on Berwick (Yorkshire, 1482); Portugal on
     Fez (1480); Hungary on Serbia (1460); Byzantium on Thessalonica (1460); Karaman on Ankara (1470); Songhai on
     Timbuktu (1475). The war screen shows a claim's story and the year it lapses, and so do the realm menu, the region
-    sheet ("Your claim to 1500", "Claimed by Castile") and a crown's sheet ("Their claims on you"). Old saves have
-    their everlasting claims of 1444 cut to the same years, once.
+    sheet ("Your claim to 1500", "Claimed by Castile") and a crown's sheet ("Their claims on you"). In old saves the
+    claims of 1444 still on the list are cut to the same years, once, unless an event has since granted the same
+    claim again; the dropped ones stay as they were.
     - So that the AI doesn't press them all in the first spring, every crown starts as if it made peace at some time
       in the last three years (Arras, Tours and Szeged were all recent), and its first war waits for its rest to run
       out.

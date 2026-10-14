@@ -1,5 +1,5 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
-import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
+import { EVENTS, MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
 import { startingAdvances } from './science';
 import { forceLimit, liveUnseenReports, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
@@ -29,11 +29,12 @@ export function migrateSave(s: GameState): GameState | null {
     s.version = 5;
   }
   if (s.version === 5) {
-    // Version 6: the claims of 1444 lapse in their year, as in a new game, instead of lasting for ever.
+    // Version 6: the claims of 1444 lapse in their year, as in a new game, instead of lasting for ever (unless an
+    // event that has since fired granted the same claim for ever: then it is that one, and stays).
     for (const [n, list] of Object.entries(SCENARIO.claims))
       for (const c of list) {
         const claims = s.nations[n]?.claims;
-        if (!claims || claims[c.region] !== -1) continue;
+        if (!claims || claims[c.region] !== -1 || grantedByEvent(s, n, c.region)) continue;
         const until = dayOf(c.until, 0, 1);
         if (until > s.day) claims[c.region] = until;
         else delete claims[c.region];
@@ -81,6 +82,20 @@ export function migrateSettings(set: GameSettings): GameSettings {
   }
   set.pauseVersion = PAUSE_SETTINGS_VERSION;
   return set;
+}
+
+/** Has an event that already fired given `n` a lasting claim (or integration) on region `r`? */
+function grantedByEvent(s: GameState, n: NationId, r: string): boolean {
+  const grants = (x: unknown): boolean => {
+    if (!x || typeof x !== 'object') return false;
+    const o = x as Record<string, unknown>;
+    for (const k of ['addClaim', 'addCore']) {
+      const v = o[k];
+      if (v === r || (Array.isArray(v) && v.includes(r))) return true;
+    }
+    return Object.values(o).some(grants);
+  };
+  return EVENTS.some(e => (s.firedEvents[e.id] ?? 0) > 0 && (!e.nations || e.nations.includes(n)) && grants(e.choices));
 }
 
 /** Starting fleets: [sea, galleys, transports]. */

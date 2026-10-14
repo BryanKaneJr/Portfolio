@@ -38,6 +38,9 @@ describe('the claims of 1444', () => {
     advanceDays(s, 45);
     expect('granada' in s.nations.CAS.claims).toBe(false);
     expect(casusBelli(s, 'CAS', 'GRA').some(c => c.cb === 'claim')).toBe(false);
+    // On its very day it is no reason any more, even before the monthly reckoning removes it.
+    s.nations.CAS.claims.granada = s.day;
+    expect(casusBelli(s, 'CAS', 'GRA').some(c => c.cb === 'claim')).toBe(false);
   });
 
   test('an older save’s everlasting claims of 1444 lapse in their year, once', () => {
@@ -56,6 +59,16 @@ describe('the claims of 1444', () => {
     // A claim granted for ever after the update is not cut short on the next load.
     m.nations.CAS.claims.granada = -1;
     expect(migrateSave(JSON.parse(JSON.stringify(m)))!.nations.CAS.claims.granada).toBe(-1);
+  });
+
+  test('an older save keeps a lasting claim an event has since granted on the same land', () => {
+    const s = emptyGame('POL');
+    const old = JSON.parse(JSON.stringify(s));
+    old.version = 5;
+    old.day = dayOf(1470, 5, 1);
+    old.nations.POL.claims.danzig = -1;
+    old.firedEvents.pol_thirteen_years_war = 1; // grants Danzig and Prussia for ever
+    expect(migrateSave(old)!.nations.POL.claims.danzig).toBe(-1);
   });
 
   test('the first wars come one by one: each crown made peace at some time in the three years before', () => {

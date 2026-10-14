@@ -222,8 +222,8 @@ export function monthlyEconomy(s: GameState): void {
     // Prestige fades; war exhaustion builds at war and heals in peace.
     nat.prestige = clamp(nat.prestige * 0.99, 0, 100);
     nat.warExhaustion = clamp(nat.warExhaustion + (atWar(s, n) ? 0.08 : -0.2), 0, 20);
-    // Fabricated claims expire after 25 years.
-    for (const [r, until] of Object.entries(nat.claims)) if (until >= 0 && until < s.day) delete nat.claims[r];
+    // Claims lapse on their day (a forged one after 25 years, one of 1444 on 1 January of its year).
+    for (const [r, until] of Object.entries(nat.claims)) if (until >= 0 && until <= s.day) delete nat.claims[r];
     // Timed modifiers run out.
     if (nat.modifiers.some(m => m.until >= 0 && m.until <= s.day)) nat.modifiers = nat.modifiers.filter(m => m.until < 0 || m.until > s.day);
   }
