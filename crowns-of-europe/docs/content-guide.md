@@ -6,8 +6,8 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 
 | File | What |
 | --- | --- |
-| `regions.json` | 211 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
-| `nations.json` | 73 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
+| `regions.json` | 224 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
+| `nations.json` | 76 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
 | `seas.json` | Sea zones (`ocean`, `nw`, `closed`, `charted` for a closed sea still drawn as water, `days` to cross), straits, wildernesses, the Great Lakes, sea links and rivers (all map seeds) |
 | `scenario1444.json` | Starting claims (each with its historical reason and the year it lapses), alliances, subjects, rivals, truces, marriages, HRE emperor and electors |
 | `events-historical.json` | Historical events (fire when conditions match, not on fixed dates) |
@@ -296,7 +296,7 @@ Checked for the player each month; `nations` limits one to specific starting nat
 ```json
 { "id": "SIC", "name": "Two Sicilies", "adj": "Sicilian", "color": "#4fa799", "inherits": "NAP",
   "flag": { "pattern": "quarterly", "colors": ["#2a4c9c", "#e8c547"], "charge": "lis", "charge2": "eagle", "stylised": true },
-  "regions": ["naples", "apulia", "sicily"], "key": ["naples", "sicily"], "need": 3, "formers": ["NAP"],
+  "regions": ["naples", "abruzzo", "apulia", "calabria", "sicily", "messina"], "key": ["naples", "sicily"], "need": 5, "formers": ["NAP"],
   "claims": ["sardinia", "romagna"], "mods": { "tradeIncome": 0.15 },
   "bonus": "grain, silk and the Strait of Messina pay the crown.", "blurb": "…", "history": "…" }
 ```

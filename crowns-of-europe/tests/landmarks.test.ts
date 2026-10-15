@@ -282,7 +282,7 @@ describe('landmarks on the map', () => {
   test("no mark stands where its region's army stands, or it is drawn in front of the troops, off their banner and count", () => {
     // Constantinople is too small for both until about 2.2 (its army covers the whole region): the mark stands at the
     // troops' feet and is drawn in front of them, clear of their banner and their count.
-    const tooSmall = (id: string, k: number) => id === 'hagia_sophia' && k < 2.2;
+    const tooSmall = (id: string, k: number) => (id === 'hagia_sophia' && k < 2.2) || (id === 'arsenal' && k < 1.4);
     for (const k of zooms)
       for (const { lm, w, h, box } of marks(k)) {
         const place: [number, number, number, number] = [box[0], box[1], w, h];

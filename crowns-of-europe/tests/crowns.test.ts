@@ -47,7 +47,8 @@ describe('the Naples chain: Two Sicilies, Italy, the Roman Empire', () => {
     s.wars = {};
     s.nations.NAP.stability = 1;
 
-    give(s, 'NAP', ['lombardy', 'tuscany', 'romagna', 'rome', 'liguria']);
+    // Naples holds 5 of Italy's lands as the Two Sicilies; Italy needs 16.
+    give(s, 'NAP', ['lombardy', 'tuscany', 'romagna', 'rome', 'liguria', 'messina', 'marche', 'umbria', 'siena', 'veneto', 'verona']);
     expect(proclaimCrown(s, 'ITA').ok).toBe(true);
     expect(nationName('NAP')).toBe('Italy');
     expect(displayIn(s, 'NAP').flag.pattern).toBe('tiercedPale');

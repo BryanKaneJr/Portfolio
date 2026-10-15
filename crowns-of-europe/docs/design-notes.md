@@ -568,7 +568,7 @@ Not yet done:
 
 ## Every nation playable
 
-All 73 nations can be picked. Each has a `difficulty` and an `area` in `nations.json` (the validator requires both,
+All 76 nations can be picked. Each has a `difficulty` and an `area` in `nations.json` (the validator requires both,
 from a fixed list of areas). `playable` now only means "featured": those 22 sit in the picker's Suggested starts strip,
 and below it every nation is listed by area, easiest first. A dot on each card gives its difficulty. The detail
 panel says when a nation starts as someone's vassal or junior partner, or as a New World people, and which greater
@@ -997,3 +997,41 @@ handled like the owner's troop and ship drawings.
   like the units' would widen each picture's footprint in regions that are already crowded.
 - **Region sheet** (`LandmarkLine`): the painting in a 64-point well (was a 32-point pictogram on a gilt-rimmed
   40-point tile), standing on its floor, sized by its proportions, no frame; the row stays one row (name, bonus, "?").
+
+## Italy, 1444: twenty-four regions
+
+The owner asked for an Italy as dense as its history, with Naples and the Papal States in at least three regions
+each. Italy goes from 11 regions to 24. The Kingdom of Naples is Naples, Abruzzo (with Molise), Apulia (with Matera and
+the heel, so Otranto) and Calabria; the Papal States are Rome, Umbria (with Norcia), the Marche (with Pesaro) and
+Romagna; Venice's mainland is the Veneto, Verona (Brescia, Bergamo and Mantua) and Friuli. Savoy proper (Chambéry, now
+its chief town) and Piedmont split; Milan gains Parma and Piacenza; Genoa gains Corsica; Siena (with Chiusi and the
+Maremma) leaves Tuscany; Sicily splits into the Val di Mazara round Palermo and Messina's east. Mantua is not a crown:
+at its real size it would be under half of Constantinople, too small to tap, so it lies in `verona`. Three crowns
+independent in 1444 join, each pickable and none a vassal (a tie would let Savoy or Milan absorb them in years): Siena,
+a republic under its priors; Ferrara under Leonello d'Este; Montferrat under the Paleologi. Ferrara, Montferrat, Parma
+and Piedmont join Savoy and Lombardy in the Empire (so the Emperor defends the Este and the Paleologi, as he did) and in
+the Reformation zone. Corsica and Sardinia now need ships (the Strait of Bonifacio joins them to each other only), and
+the Strait of Messina links Messina and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–Verona.
+
+- **Prosperity** in Italy goes from 68 to 113; the capitals keep theirs (Milan 9, Venice 8, Naples 7, Rome 6), so
+  every capital-prosperity event reads as before. Science counts a crown's richest regions, so splitting a city-state
+  lowered it; `learning` rises for Genoa (1.55), Milan (1.45), the Pope (1.3) and Naples (1.25) to bring each back
+  within 3% of its day-1 science.
+- **Map.** Every region is at least 326 square units (Montferrat; Constantinople is 388) and holds its chief town. At
+  play zoom 20 of the 24 names are written (the old map: 10 of 11); Montferrat, Liguria (a strip, as before), Corsica
+  and the Marche (a strip between the Apennines and the sea) show their towns, and their names from about 1.7–1.9
+  (Liguria 2.7). Seeds were chosen so no two Italian names touch at play zoom: Messina's name sits in the Val di Noto
+  below Sicily's, and Umbria's east of Siena's. Montferrat's name meets Piedmont's from zoom 2.0, like Altmark and
+  Brandenburg. Regions this small stand their army above the name, so at play zoom an army's count badge sits on the
+  end of its region's name.
+- **Old saves** are refused (version 7): the message on the title says the save is from before Italy was redrawn. The
+  game has not shipped; a migration would have had to invent owners for the land that moved.
+- **Not rebuilt:** the Illustrated style's tiles (`npm run tiles:build`, Python and GDAL); their coast is off by at most
+  0.26 units in Italy and a few drawn peaks may sit under the new names. The relief and the drawn mountains were rebuilt
+  (the 387 drawings came out the same).
+- **AI games, to 1500** (spectating Portugal; before = the 11-region map, seeds 1–8; after = 24 regions). Constantinople
+  falls in the opening war in every game (24 of 24 before and after; 12 of 12 again on the final map). Naples and the
+  Papal States are alive in 1500 in every seed, no Ottoman holds Italian land, foreigners hold at most one Italian
+  region (France in two seeds of eight), and no Italian crown doubles. Wars touching Italy, 1444–1500: 9.4 a game
+  before, 8.6 after (7–10 in seeds 1–3 on the final map). Siena often falls before its time (1555): to the Pope or
+  Florence in 3 of 8 trial seeds, and in each of seeds 1–3 on the final map.

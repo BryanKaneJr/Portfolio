@@ -1,46 +1,21 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
-import { EVENTS, MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, bindDisplay, regionName } from './content';
+import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, bindDisplay, regionName } from './content';
 import { startingAdvances } from './science';
 import { forceLimit, invalidateMods, liveUnseenReports, maxMorale, totalDev } from './queries';
-import type { Army, Fleet, GameSettings, GameState, General, Nation, NationId, PauseReason, Region } from './types';
+import type { Army, Fleet, GameSettings, GameState, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, randInt, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-export const SAVE_VERSION = 6;
+/** Version 7 redrew Italy (24 regions and three new crowns): saves from before it cannot be read. */
+export const SAVE_VERSION = 7;
 
-/** Brings a save from an earlier version up to date, or returns null if it is too old to read. */
+/** A save made by an older version, which this one cannot load (rather than one that is damaged). */
+export const saveTooOld = (s: { version?: unknown }): boolean => typeof s.version === 'number' && s.version < SAVE_VERSION;
+
+/** Brings a save up to date, or returns null if it is from an older version (`saveTooOld` says which). */
 export function migrateSave(s: GameState): GameState | null {
-  if (s.version !== SAVE_VERSION) {
-    if (s.version !== 4 && s.version !== 5) return null;
-  }
-  if (s.version === 4) {
-    // Version 5: a general has 1-5 stars instead of three separate numbers (their average, rounded).
-    const fix = (g: General | undefined) => {
-      if (!g) return;
-      const old = g as General & { fire?: number; shock?: number; maneuver?: number };
-      if (typeof old.stars !== 'number') old.stars = Math.max(1, Math.min(5, Math.round(((old.fire ?? 1) + (old.shock ?? 1) + (old.maneuver ?? 1)) / 3)));
-      delete old.fire;
-      delete old.shock;
-      delete old.maneuver;
-    };
-    for (const a of Object.values(s.armies)) fix(a.general);
-    for (const n of Object.values(s.nations)) n.generals.forEach(fix);
-    s.version = 5;
-  }
-  if (s.version === 5) {
-    // Version 6: the claims of 1444 lapse in their year, as in a new game, instead of lasting for ever (unless an
-    // event that has since fired granted the same claim for ever: then it is that one, and stays).
-    for (const [n, list] of Object.entries(SCENARIO.claims))
-      for (const c of list) {
-        const claims = s.nations[n]?.claims;
-        if (!claims || claims[c.region] !== -1 || grantedByEvent(s, n, c.region)) continue;
-        const until = dayOf(c.until, 0, 1);
-        if (until > s.day) claims[c.region] = until;
-        else delete claims[c.region];
-      }
-    s.version = 6;
-  }
+  if (s.version !== SAVE_VERSION) return null;
   migrateSettings(s.settings);
   // Unread reports of battles that have since dropped out of the list can never be opened: forget them.
   s.unseenReports ??= [];
@@ -88,20 +63,6 @@ export function migrateSettings(set: GameSettings): GameSettings {
   }
   set.pauseVersion = PAUSE_SETTINGS_VERSION;
   return set;
-}
-
-/** Has an event that already fired given `n` a lasting claim (or integration) on region `r`? */
-function grantedByEvent(s: GameState, n: NationId, r: string): boolean {
-  const grants = (x: unknown): boolean => {
-    if (!x || typeof x !== 'object') return false;
-    const o = x as Record<string, unknown>;
-    for (const k of ['addClaim', 'addCore']) {
-      const v = o[k];
-      if (v === r || (Array.isArray(v) && v.includes(r))) return true;
-    }
-    return Object.values(o).some(grants);
-  };
-  return EVENTS.some(e => (s.firedEvents[e.id] ?? 0) > 0 && (!e.nations || e.nations.includes(n)) && grants(e.choices));
 }
 
 /** Starting fleets: [sea, galleys, transports]. */

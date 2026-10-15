@@ -5,7 +5,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ACHIEVEMENTS, CROWN, NATION, bindDisplay } from '../sim/content';
 import { store } from '../state/store';
-import { deleteSave, isAutoSlot, latestSave, listSaves, loadAchievements, loadGame, type SaveMeta } from '../state/storage';
+import { deleteSave, isAutoSlot, latestSave, listSaves, loadAchievements, loadGame, saveIsOld, type SaveMeta } from '../state/storage';
 import { MiniMap } from '../ui/map/MiniMap';
 import { Shield } from '../ui/components/Flag';
 import { Glass } from '../ui/components/Glass';
@@ -23,6 +23,8 @@ export default function Title() {
   const [saves, setSaves] = useState<SaveMeta[]>([]);
   const [ach, setAch] = useState<string[]>([]);
   const [view, setView] = useState<'main' | 'load' | 'achievements'>('main');
+  // Why a save would not open. Toasts belong to the game screen, so the title says it here.
+  const [notice, setNotice] = useState<string | null>(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -35,9 +37,10 @@ export default function Title() {
   );
 
   const open = async (m: SaveMeta) => {
+    setNotice(null);
     const s = await loadGame(m.slot);
     if (!s) {
-      store.toast('That save could not be loaded.', 'bad');
+      setNotice((await saveIsOld(m.slot)) ? 'That save is from before Italy was redrawn and can no longer be loaded.' : 'That save could not be loaded.');
       return;
     }
     store.load(s);
@@ -57,6 +60,11 @@ export default function Title() {
           <Text style={styles.title}>Crowns of Europe</Text>
           <GiltRule style={{ maxWidth: 280, marginTop: 10 }} />
           <Text style={styles.tag}>Grand strategy in your pocket · 1444–1750</Text>
+          {notice ? (
+            <Text style={styles.notice} testID="title-notice">
+              {notice}
+            </Text>
+          ) : null}
 
           {view === 'main' ? (
             <View style={styles.menu}>
@@ -153,6 +161,7 @@ const styles = StyleSheet.create({
   title: { fontFamily: serif, fontSize: 36, color: G.text, textAlign: 'center', letterSpacing: 1.5 },
   tag: { fontFamily: sans, fontSize: 14, color: G.text2, marginTop: 8, textAlign: 'center', letterSpacing: 0.3 },
   menu: { width: '100%', maxWidth: 380, gap: 10, marginTop: 34 },
+  notice: { fontFamily: sans, fontSize: 13, lineHeight: 18, color: G.bad, textAlign: 'center', marginTop: 14, maxWidth: 320 },
   continue: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
   contTitle: { fontFamily: serif, fontSize: 19, color: G.text, letterSpacing: 0.5 },
   contSub: { fontFamily: sans, fontSize: 13, color: G.text2, marginTop: 2 },
