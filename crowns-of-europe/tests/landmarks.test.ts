@@ -238,8 +238,11 @@ describe('landmarks on the map', () => {
     for (const lm of LANDMARKS) {
       // A large region at play zoom: no cap from the region's size.
       const [w, h] = markSize(lm.id, 100, PLAY_K);
-      expect([lm.id, h >= 22 && h <= 40]).toEqual([lm.id, true]);
-      expect([lm.id, w >= 9 && w <= 36]).toEqual([lm.id, true]);
+      expect([lm.id, h >= 15 && h <= 25]).toEqual([lm.id, true]);
+      expect([lm.id, w >= 5.5 && w <= 24]).toEqual([lm.id, true]);
+      // Never bigger than a city's picture (28 points at play zoom, TOWN_ART in MapView; both grow alike with the zoom),
+      // at the owner's request: a landmark stands beside its town, it does not outweigh it.
+      expect([lm.id, Math.max(w, h) < 28]).toEqual([lm.id, true]);
       // None outweighs the others: never more than MARK_PT squared (the tall and the wide one held in to less).
       expect([lm.id, w * h <= MARK_PT * MARK_PT * 1.001]).toEqual([lm.id, true]);
       // At the closest zoom on a 3x screen the baked picture is not stretched (a few per cent at most).
@@ -247,7 +250,7 @@ describe('landmarks on the map', () => {
       expect([lm.id, Math.max(cw, ch) * 3 <= Math.max(LANDMARK_ART[lm.id].w, LANDMARK_ART[lm.id].h) * 1.02]).toEqual([lm.id, true]);
     }
     // The tall tower stays a tower, not a sliver; the wide pyramids stay low.
-    expect(markSize('giralda', 100, PLAY_K)[0]).toBeGreaterThanOrEqual(9);
+    expect(markSize('giralda', 100, PLAY_K)[0]).toBeGreaterThanOrEqual(5.5);
     expect(markSize('pyramids', 100, PLAY_K)[1]).toBeLessThan(markSize('pyramids', 100, PLAY_K)[0]);
   });
 

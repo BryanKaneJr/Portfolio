@@ -155,7 +155,7 @@ mark rather than being buried. They stand on their point (the middle of the sett
 targets. Each landmark is the owner's painting of it (`art/landmarks`, baked by `npm run landmarks:build` into
 `ui/map/landmarkArt.ts`), shown as painted, standing beside its region's town from `REGION_NAMES_K`, over the towns and
 under the names, not a tap target (`ui/map/landmarks.tsx`); `landmarkSpot.ts` sizes it by its own proportions (`MARK_PT`
-28 points of equal area at play zoom, growing like the towns) and keeps it inside its region, off its name, town and
+19 points of equal area at play zoom, about a village's picture and never bigger than a city's, growing like the towns) and keeps it inside its region, off its name, town and
 army, off the other landmarks, light on the neighbours' names and by its own town rather than a neighbour's; where the
 region is too small for it and its army (Constantinople, zoomed out) it stands at the troops' feet and the units' layer
 draws it in front of them (`markInFront`) (`tests/landmarks.test.ts`). Taps on a unit are

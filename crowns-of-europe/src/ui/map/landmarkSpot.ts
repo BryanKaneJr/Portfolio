@@ -12,15 +12,16 @@ import { LANDMARK_ART } from './landmarkArt';
 /**
  * A painting's size on screen at play zoom, growing with the zoom like the towns: the side (points) of a square of
  * the same area, so each keeps its own proportions and none outweighs the others (the Pyramids wide and low, the
- * Giralda tall and slim). About a town's size: big enough to tell which building it is.
+ * Giralda tall and slim). About a village's picture (19-22 points): a landmark stands beside its town, never bigger
+ * than a city (28-30), at the owner's request.
  */
-export const MARK_PT = 28;
+export const MARK_PT = 19;
 /** A tall one is never taller than this times MARK_PT (the Giralda would tower over its town), a wide one never wider
  * than MARK_WIDE times it. */
-const MARK_TALL = 1.4;
+const MARK_TALL = 1.3;
 const MARK_WIDE = 1.25;
 /** Its longer side is never under this (points), however small the region. */
-export const MARK_MIN = 16;
+export const MARK_MIN = 12;
 /** In a small region the picture is capped to about the region's size: its longer side at most this times its label
  * radius on screen. */
 const MARK_FIT = 2.2;

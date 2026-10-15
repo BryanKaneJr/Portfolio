@@ -948,15 +948,14 @@ handled like the owner's troop and ship drawings.
   ground, a share of its height). `kind` is gone from `landmarks.json`: each landmark uses its own picture, and
   `validate-content` checks that each has one (painted, baked, listed at its baked size).
 - **Size on the map** (`landmarkSpot.ts`, `markSize`). By its real proportions at equal area: the side of a square of
-  the same area is `MARK_PT` = 28 points at play zoom (the pictograms were 20; at 20 a painting's detail is lost, and
-  28 is about a city's picture, 28-30), growing with the zoom like the towns (`grow`, about 1.6x at the closest). A
-  tall one is held to 1.4 x 28 = 39 points high (`MARK_TALL`: the Giralda, 9.6 x 39, stays a slim tower rather than a
-  57-point spire towering over Seville), a wide one to 1.25 x 28 = 35 wide (`MARK_WIDE`: the Pyramids, 34 x 23, low
-  beside Cairo). Most come out 26-30 points either way; Westminster 23 x 34. In a small region the longer side is
-  capped at 2.2 x the region's label radius on screen, never under 16 points (`MARK_MIN`; 18 or 20 put Notre-Dame on
-  its army or St Peter's mostly outside Rome where names first show). Where no spot is clear at full size it now
-  shrinks in steps (0.9, 0.8, 0.7, 0.6, then the least) instead of jumping from 0.8 to the least, so it shrinks only as
-  far as it must.
+  the same area is `MARK_PT` = 19 points at play zoom, about a village's picture (19-22), growing with the zoom like the
+  towns (`grow`, about 1.6x at the closest). It was 28 at first, a city's size, and the owner found the landmarks
+  bigger than the cities: a landmark stands beside its town and never outweighs it (a test holds every one under a
+  city's 28 points). A tall one is held to 1.3 x 19 = 25 points high (`MARK_TALL`: the Giralda, 6 x 25, a slim tower),
+  a wide one to 1.25 x 19 = 24 wide (`MARK_WIDE`: the Pyramids, 23 x 16, low beside Cairo). Most come out 17-21
+  points either way; Westminster 16 x 23. In a small region the longer side is capped at 2.2 x the region's label
+  radius on screen, never under 12 points (`MARK_MIN`). Where no spot is clear at full size it shrinks in steps (0.9,
+  0.8, 0.7, 0.6, then the least), so it shrinks only as far as it must.
 - **Placement** keeps every rule it had, on each picture's own box: its middle (0.6 of its height) and foot (0.9) in
   its region, off its own name and town, off its army, light on the neighbours' names, apart from the landmarks
   before it. The share in the region is now sampled down to the painting's foot (0.97 of its height; a pictogram
