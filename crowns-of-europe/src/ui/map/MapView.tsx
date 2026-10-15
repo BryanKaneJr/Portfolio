@@ -683,13 +683,9 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
           })
         : null}
       {/* Landmarks: the owner's painting of each, beside its town, clear of its army and its neighbours' names
-          (landmarks.tsx); over the towns, under the names. */}
-      {showRegionNames
-        ? landmarkMarks(k, px, visible, hidden, id => {
-            const art = townArt(s.regions[id]);
-            return art ? px(townSize(TOWN_ART[art].size, MAP_REGION[id].labelRadius, k)) : null;
-          })
-        : null}
+          (landmarks.tsx); over the towns, under the names. (One standing at its troops' feet is drawn in front of
+          them, with the units: UnitLayer.) */}
+      {showRegionNames ? landmarkMarks(k, px, visible, hidden, townSizeOn(s, k)) : null}
       {/* Names in the unknown */}
       {MAP.farLabels.map(l => {
         if (!visible([l.x, l.y, l.x, l.y])) return null;
@@ -1018,6 +1014,18 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
           const regs = armyRegs(a);
           return <Token key={c.id} x={X} y={Y} figure={troopArt(a.id, regs)} nation={a.owner} n={regs} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
         })}
+        {/* A landmark standing at its troops' feet where its region is too small for both: in front of them. */}
+        {k >= REGION_NAMES_K
+          ? landmarkMarks(
+              k,
+              n => n / k,
+              b => inView(toX(b[0]), toY(b[1])) || inView(toX(b[2]), toY(b[3])),
+              id => !seesNewWorld(s) && isNewWorld(id),
+              townSizeOn(s, k),
+              true,
+              (x, y) => [toX(x), toY(y)],
+            )
+          : null}
       </Svg>
       {chips.map(c => {
         if (c.kind !== 'battle') return null;
@@ -1077,6 +1085,11 @@ const TOWN_PX = 192; // the pictures' size
 const TOWN_FIT = 2.2;
 const TOWN_MIN = 10;
 export const townSize = (picSize: number, labelRadius: number, k: number) => Math.min(picSize * grow(k), Math.max(TOWN_MIN, labelRadius * k * TOWN_FIT));
+/** Each region's town picture's size in map units at zoom `k` (null where it has none): where the landmarks stand. */
+const townSizeOn = (s: GameState, k: number) => (id: string) => {
+  const art = townArt(s.regions[id]);
+  return art ? townSize(TOWN_ART[art].size, MAP_REGION[id].labelRadius, k) / k : null;
+};
 /** The prosperity from which a region's chief town is drawn as a town, and as a city (in 1444: about 30% villages,
  * 40% towns and 30% cities among the regions someone owns). */
 const TOWN_DEV = 4;

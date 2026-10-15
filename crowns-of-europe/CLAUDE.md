@@ -156,7 +156,9 @@ targets. Each landmark is the owner's painting of it (`art/landmarks`, baked by 
 `ui/map/landmarkArt.ts`), shown as painted, standing beside its region's town from `REGION_NAMES_K`, over the towns and
 under the names, not a tap target (`ui/map/landmarks.tsx`); `landmarkSpot.ts` sizes it by its own proportions (`MARK_PT`
 28 points of equal area at play zoom, growing like the towns) and keeps it inside its region, off its name, town and
-army and light on the neighbours' names (`tests/landmarks.test.ts`). Taps on a unit are
+army, off the other landmarks, light on the neighbours' names and by its own town rather than a neighbour's; where the
+region is too small for it and its army (Constantinople, zoomed out) it stands at the troops' feet and the units' layer
+draws it in front of them (`markInFront`) (`tests/landmarks.test.ts`). Taps on a unit are
 measured from the middle of its figure (`TOKEN_MIDDLE`), above its point. Only the units the player would know about are drawn, at any zoom, and listed in region sheets
 (`seesUnit` in `sim/queries.ts`): their own, their allies', overlord's and subjects', their enemies' in a war, and
 anyone's in land they own or hold; rebels risen against them.

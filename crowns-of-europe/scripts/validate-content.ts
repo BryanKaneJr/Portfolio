@@ -291,7 +291,7 @@ for (const n of NATIONS) {
   const root = path.join(__dirname, '..');
   const listed = fs.readFileSync(path.join(root, 'src/ui/map/landmarkArt.ts'), 'utf8');
   const pictures: string[] = [];
-  for (const m of listed.matchAll(/^ {2}'([a-z_]+)': \{ src: require\('\.\.\/\.\.\/\.\.\/assets\/landmarks\/\1\.png'\), w: (\d+), h: (\d+),/gm)) {
+  for (const m of listed.matchAll(/^ {2}'([^']+)': \{ src: require\('\.\.\/\.\.\/\.\.\/assets\/landmarks\/\1\.png'\), w: (\d+), h: (\d+),/gm)) {
     const [, id, w, h] = m;
     const baked = path.join(root, 'assets/landmarks', `${id}.png`);
     if (!fs.existsSync(path.join(root, 'art/landmarks', `${id}.png`))) errs.push(`landmark ${id}: no painting in art/landmarks`);

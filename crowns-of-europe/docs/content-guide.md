@@ -336,5 +336,6 @@ Checked for the player each month; `nations` limits one to specific starting nat
   region."
 - The validator checks the region, one landmark per region, one known modifier, a baked picture for its id, a name
   and the text's length. `tests/landmarks.test.ts` checks that every picture stands inside its own region on the map,
-  clear of its name and its army, at every zoom, at its own proportions.
+  clear of its name, its army and the other landmarks, by its own town rather than a neighbour's, at every zoom, at
+  its own proportions. A new landmark in a crowded corner may need its region's spot checked in the app.
 

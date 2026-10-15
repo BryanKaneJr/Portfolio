@@ -961,15 +961,38 @@ handled like the owner's troop and ship drawings.
   its region, off its own name and town, off its army, light on the neighbours' names, apart from the landmarks
   before it. The share in the region is now sampled down to the painting's foot (0.97 of its height; a pictogram
   stood at 0.875). The two spots tried first are beside the town on the same ground, right then left, so a painting
-  stands with its town like a second building; then the six above and below as before. The tests check the
-  proportions at every zoom, the sizes (22-40 points high at play zoom, at most 28 x 28 points of area, never
-  stretched past 2% at the closest zoom on a 3x screen), four-fifths of the lower half in the region from play zoom on
-  (three-fifths where names first show and in Constantinople and Île-de-France) and no two paintings overlapping.
-- **At play zoom** (390 x 844 screenshots, each as the landmark's owner with an army in the region): eleven stand at
-  full size; St Peter's, Notre-Dame and Hagia Sophia are 16 points and the Alhambra and the Pyramids 19 x 15 and
-  24 x 16, their regions being small and crowded by the army and the neighbours' names. Hagia Sophia is still mostly
-  under the Byzantine army below 2.2 (Constantinople is smaller than the army there, the old exception); from 2.2 on
-  it stands clear.
+  stands with its town like a second building; then the six above and below as before.
+- **By its own town, not a neighbour's.** The bigger paintings first stood where only a cheap distance cost
+  (`FAR_COST`) held them, and at play zoom two read as a neighbour's: the Giralda 70 points from Seville but 34 above
+  Granada's town (the Alhambra, placed first, takes the spot beside Seville), St Stephen's 89 points from Vienna on
+  the Styria border. Now, unless a picture stands right beside its town (within `BESIDE` = 20 points of its point), a
+  foot not clearly nearer its own town than any neighbour's (by `ASTRAY_MARGIN`, about 1.14 times the distance)
+  costs `ASTRAY_COST`, and one nearer the neighbour's is not a good spot at all, so the picture shrinks rather than
+  stand there. At play zoom the Giralda (shrunk to 7 x 27) stands just above Seville, 21 points from it, and St
+  Stephen's (18 x 22) just below Vienna. A picture never stands on another landmark's picture (a hard rule; the
+  margin of its own size round it stays a cost) nor with less than half of it in its region (`LEAST_FIT`: Hagia
+  Sophia once jumped to a speck of islet off Constantinople), and a smaller size must do better by `SHRINK_GAIN` to
+  win over a bigger one, so ties don't shrink it. Being on its own army costs 1.5 (was 1), so the new costs never make
+  a spot on the troops win.
+- **In front of the troops where the region is too small for both.** At play zoom Constantinople is smaller than the
+  Byzantine army standing in it, and the painting, drawn under the units, was mostly hidden behind the count badge in
+  the opening view of every Byzantine game (the 12-point pictogram had stood at the troops' feet). Now a picture that
+  stands on its own army's box (`markInFront`: only Hagia Sophia, below 2.2) is drawn in the units' layer, in front
+  of them; it never covers their banner or count (a hard rule), costs twice the share of the figure it covers (so it
+  stands at their feet, its foot below theirs, where being in front reads right), and twice as much on a neighbour's
+  name (which it is then drawn over). At play zoom it stands whole at the troops' feet left of the count; where names
+  first show, in front of their legs.
+- **Tests.** The proportions at every zoom, the sizes (22-40 points high at play zoom, at most 28 x 28 points of
+  area, never stretched past 2% at the closest zoom on a 3x screen), four-fifths of the lower half in the region from
+  play zoom on (three-fifths where names first show and in Constantinople and Île-de-France), and now at every zoom
+  checked (0.1 apart from where names show to the closest, and play zoom) and with every town size (19-30 points, and
+  a mix): no two paintings overlapping (a sweep 0.004 apart found none), each beside its town or nearer it than any
+  other region's town (Hagia Sophia below 2.5 excepted), and one on its own army drawn in front, off the banner and
+  count.
+- **At play zoom** (390 x 844 screenshots, each as the landmark's owner with an army in the region): ten stand at
+  full size; St Peter's, Notre-Dame and Hagia Sophia are 16 points, the Alhambra 19 x 15, the Pyramids 24 x 16, St
+  Stephen's 18 x 22 and the Giralda 7 x 27, their regions being small or crowded by the army, the neighbours' names
+  and towns.
 - **No baked shadow.** Most paintings carry their own painted ground (a soft wash at the foot: Hagia Sophia, the
   Pyramids, Charles Bridge, St Stephen's), and on the map they sit on the land well enough without one; a cast shadow
   like the units' would widen each picture's footprint in regions that are already crowded.
