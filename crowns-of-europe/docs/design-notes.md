@@ -1054,3 +1054,10 @@ and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–
   region (France in two seeds of eight), and no Italian crown doubles. Wars touching Italy, 1444–1500: 9.4 a game
   before, 8.6 after (7–10 in seeds 1–3 on the final map). Siena often falls before its time (1555): to the Pope or
   Florence in 3 of 8 trial seeds, and in each of seeds 1–3 on the final map.
+- **AI games to 1560** (16 games, seeds 1-16, the merged code against the 11-region map just before it): wars
+  declared 79.2 → 82.2 a game; realms alive in 1500 46.2 → 50.4 and in 1560 35.3 → 38.1 (the three new crowns, and the
+  Italians living longer); Constantinople Ottoman by 1446 as before; France 26.4 → 24.8 regions, England 12.0 → 11.1,
+  the Ottomans 24.3 → 23.8. Italy holds together better: alive in 1560, Milan 5 → 12 games of 16, Naples 14 → 16, the
+  Papal States 13 → 16, Genoa 7 → 10, Savoy 9 → 13, Ferrara 13, Montferrat 10; Siena 10 in 1480, 9 in 1500, 3 in 1560
+  (it fell in 1555). France holds 13% of the Italian regions in 1560 (30% on the old map); the Pope 19%, Naples 16%,
+  Aragon 12%, Venice 11%.
