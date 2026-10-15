@@ -15,7 +15,7 @@ import { monthlyScience } from '../src/sim/science';
 import { migrateSave, newGame } from '../src/sim/state';
 import { dayOf, monthYear, years, yearOf } from '../src/sim/util';
 import { effectLines } from '../src/ui/describe';
-import { FEET_Y, armyAnchor, tokenScale } from '../src/ui/map/anchors';
+import { FEET_Y, PLAY_K, TROOP_MIN_FIT, armyAnchor, armyParts, armyScale, nameBox, tokenScale, troopFit } from '../src/ui/map/anchors';
 import { regionAt } from '../src/ui/map/geometry';
 import { autoSlot, listSaves, saveGame } from '../src/state/storage';
 import type { Fleet, GameState } from '../src/sim/types';
@@ -326,7 +326,31 @@ describe('10. army tokens stand on their own land', () => {
     for (const id of ['granada', 'fez'])
       for (const k of [1.3, 1.5, 1.7, 2.5, 4]) {
         const [x, y] = armyAnchor(id, k);
-        expect(regionAt(x, y + (FEET_Y * tokenScale(k)) / k)).toBe(id);
+        expect(regionAt(x, y + (FEET_Y * armyScale(id, k)) / k)).toBe(id);
       }
+  });
+
+  test("troops are smaller in a small region, as its town is, and full size in a big one", () => {
+    expect(troopFit('castile', PLAY_K)).toBe(1);
+    expect(armyScale('castile', PLAY_K)).toBe(tokenScale(PLAY_K));
+    for (const id of ['rome', 'ferrara', 'siena', 'tuscany', 'constantinople']) {
+      expect(troopFit(id, PLAY_K)).toBeLessThan(0.8);
+      expect(troopFit(id, PLAY_K)).toBeGreaterThanOrEqual(TROOP_MIN_FIT);
+      // Never smaller as you zoom out; full size close in.
+      expect(troopFit(id, 1.2)).toBe(troopFit(id, PLAY_K));
+      expect(troopFit(id, 8)).toBe(1);
+    }
+  });
+
+  test("in the opening view the Pope's and Ferrara's troops keep off Umbria's and the Veneto's names", () => {
+    // They stood over most of them, rising above their own small regions' names; now a banner's tip at most, under the letters.
+    const px = (n: number) => n / PLAY_K;
+    const area = (a: number[], b: number[]) =>
+      Math.max(0, Math.min(a[2], b[2]) - Math.max(a[0], b[0])) * Math.max(0, Math.min(a[3], b[3]) - Math.max(a[1], b[1]));
+    for (const [id, other] of [['rome', 'umbria'], ['ferrara', 'veneto']]) {
+      const name = nameBox(other, PLAY_K, px)!;
+      const covered = armyParts(id, PLAY_K).reduce((t, b) => t + area(b, name), 0) / area(name, name);
+      expect([id, other, covered < 0.15]).toEqual([id, other, true]);
+    }
   });
 });

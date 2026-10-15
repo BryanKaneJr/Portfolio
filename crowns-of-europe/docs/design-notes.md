@@ -1009,9 +1009,13 @@ Maremma) leaves Tuscany; Sicily splits into the Val di Mazara round Palermo and 
 at its real size it would be under half of Constantinople, too small to tap, so it lies in `verona`. Three crowns
 independent in 1444 join, each pickable and none a vassal (a tie would let Savoy or Milan absorb them in years): Siena,
 a republic under its priors; Ferrara under Leonello d'Este; Montferrat under the Paleologi. Ferrara, Montferrat, Parma
-and Piedmont join Savoy and Lombardy in the Empire (so the Emperor defends the Este and the Paleologi, as he did) and in
-the Reformation zone. Corsica and Sardinia now need ships (the Strait of Bonifacio joins them to each other only), and
-the Strait of Messina links Messina and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–Verona.
+and Piedmont join Savoy and Lombardy in the Empire and in the Reformation zone. The Emperor defends the Paleologi, as he
+did, and the Este: Modena and Reggio, most of the `ferrara` region, were imperial fiefs, though Ferrara itself was the
+Pope's, and the capital decides membership. So the Pope's `pap_ferrara` aim (the Devolution of 1598) runs into the
+Emperor where Rudolf II in fact stood aside; measured on seeds 1, 3 and 4 to 1620 with the flag cleared from 1590, the AI
+Pope still never attacked Ferrara, so the flag costs nothing in play and keeps the Este alive as they were. Corsica and
+Sardinia now need ships (the Strait of Bonifacio joins them to each other only), and the Strait of Messina links Messina
+and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–Verona.
 
 - **Prosperity** in Italy goes from 68 to 113; the capitals keep theirs (Milan 9, Venice 8, Naples 7, Rome 6), so
   every capital-prosperity event reads as before. Science counts a crown's richest regions, so splitting a city-state
@@ -1022,8 +1026,23 @@ the Strait of Messina links Messina and Calabria. The Po runs Montferrat–Lomba
   and the Marche (a strip between the Apennines and the sea) show their towns, and their names from about 1.7–1.9
   (Liguria 2.7). Seeds were chosen so no two Italian names touch at play zoom: Messina's name sits in the Val di Noto
   below Sicily's, and Umbria's east of Siena's. Montferrat's name meets Piedmont's from zoom 2.0, like Altmark and
-  Brandenburg. Regions this small stand their army above the name, so at play zoom an army's count badge sits on the
-  end of its region's name.
+  Brandenburg. Accepted misses: Amatrice and Accumoli (Neapolitan in 1444) fall in papal Umbria with its Norcia seed;
+  every Abruzzo seed that wins them back pulls Umbria's name west onto Siena's at play zoom.
+- **Armies.** At play zoom Rome, Tuscany, Siena and Ferrara are about 28 points across, and a 36-point soldier with
+  his banner cannot stand in them with their name: under the name is the next region or the sea, so the army stood
+  above it, over the neighbour (the Pope's over Umbria, Ferrara's over the Veneto, Florence's flag on Ferrara). No spot
+  in these regions is clear of every neighbour (searched on a grid round each name). So troops in a small region are
+  drawn smaller, like its town (`troopFit`: 0.7 of their size in Rome, Tuscany, Siena, Ferrara and Naples at play zoom,
+  0.85 in Lombardy; full size by about zoom 2.5), which affects 51 small regions map-wide at play zoom (Italy, the
+  islands, Constantinople, Calais, Zealand, Flanders); and where they would still rise over a neighbour's name or
+  town, they stand on or beside their own town if that hides clearly less (Rome, Ferrara; Granada, Lisbon and the
+  Palatinate outside Italy). The share of the opening army's figure outside its region: the Pope 0.69 to 0.21,
+  Ferrara 0.77 to 0.27, Florence 0.70 to 0.53, Siena 0.64 to 0.47, Naples 0.70 to 0.61; Florence's and Siena's still
+  rise over Romagna and Tuscany (every other spot hides more). A tap on a neighbour's name or town now goes to that
+  region (or marches the selected army there) even where the army next door rises over it.
+- **The Duomo** stood by Siena's walls: Siena's town is 18 points south of Florence's at play zoom, and a landmark
+  within 20 points of its own town was let stand nearer a neighbour's. It now keeps clearly nearer its own (east of
+  Florence from play zoom on).
 - **Old saves** are refused (version 7): the message on the title says the save is from before Italy was redrawn. The
   game has not shipped; a migration would have had to invent owners for the land that moved.
 - **Not rebuilt:** the Illustrated style's tiles (`npm run tiles:build`, Python and GDAL); their coast is off by at most

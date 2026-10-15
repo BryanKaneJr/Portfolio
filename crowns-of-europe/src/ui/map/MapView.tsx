@@ -17,7 +17,7 @@ import { C, kmen, sans } from '../theme';
 import { WILD, nationColor, regionFills } from './colors';
 import { K_MAX, clampCentre, clampView, rubber, rubberZoom } from './camera';
 import { COAST_CELLS, FAR_COAST_CELLS, MAP_H, MAP_W, WASTE_BBOX, nationArcs, nationLabels, regionAt, regionPoint, seaAt, type NationArc } from './geometry';
-import { BANNER_RISE, FEET_Y, MIN_NAME_RADIUS, PLAY_K, REGION_NAMES_K, TROOP_H, UNITS_K, ZOOM_GROW, armyAnchor, grow, nameSize, tokenScale } from './anchors';
+import { BANNER_RISE, FEET_Y, MIN_NAME_RADIUS, PLAY_K, REGION_NAMES_K, TROOP_H, UNITS_K, ZOOM_GROW, armyAnchor, armyScale, grow, nameSize, tokenScale, townSize } from './anchors';
 import { GRAIN, LAND_COLOUR, RELIEF, SHADOWS, WATER_LINES } from './reliefTiles';
 import { MAP_STYLES, type Ink, type MapStyle, type MapStyleId } from './styles';
 import { onMapTap } from './tap';
@@ -899,6 +899,8 @@ export interface ChipPos {
   id: string;
   x: number; // map units
   y: number;
+  /** The token's scale: tokenScale, smaller for troops in a small region (armyScale). */
+  scale: number;
 }
 
 export { REGION_NAMES_K, UNITS_K, PLAY_K, ZOOM_GROW, grow, tokenScale, nameSize, armyAnchor };
@@ -919,24 +921,26 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
     if (hidden(b.id)) continue;
     if (!b.sides.some(side => side.armies.some(id => s.armies[id] && sees(s.armies[id].owner, b.node, s.armies[id].rebelOf)))) continue;
     const [x, y] = regionPoint(b.node);
-    out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
+    out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9, scale: tokenScale(k) });
   }
   for (const a of Object.values(s.armies)) {
     if (a.battle || (!seesNewWorld(s) && isNewWorld(a.node)) || hidden(a.id)) continue;
     if (!sees(a.owner, a.node, a.rebelOf)) continue;
     let [x, y] = armyAnchor(a.node, k);
+    let scale = armyScale(a.node, k);
     if (a.path.length && a.edgeDays > 0) {
       const [nx, ny] = armyAnchor(a.path[0], k);
       const t = Math.min(1, a.progress / a.edgeDays);
       x += (nx - x) * t;
       y += (ny - y) * t;
+      scale += (armyScale(a.path[0], k) - scale) * t;
     } else {
       // Side by side under the name, the first in the middle.
       const n = stacks.get(a.node) ?? 0;
       stacks.set(a.node, n + 1);
-      x += (n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * step * 1.6; // room for each one's count badge
+      x += (((n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * 26 * scale) / k) * 1.6; // room for each one's count badge
     }
-    out.push({ kind: 'army', id: a.id, x, y });
+    out.push({ kind: 'army', id: a.id, x, y, scale });
   }
   const fleetStacks = new Map<string, number>();
   for (const f of Object.values(s.fleets)) {
@@ -953,7 +957,7 @@ export function unitPositions(s: GameState, k: number, selected?: string): ChipP
       fleetStacks.set(f.sea, n + 1);
       x += n * step * 1.9;
     }
-    out.push({ kind: 'fleet', id: f.id, x, y });
+    out.push({ kind: 'fleet', id: f.id, x, y, scale: tokenScale(k) });
   }
   return out;
 }
@@ -972,7 +976,6 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
       .map(([x, y]) => `${toX(x)},${toY(y)}`)
       .join(' ');
   const inView = (x: number, y: number) => x > -40 && y > -40 && x < w + 40 && y < h + 40;
-  const ts = tokenScale(k);
   return (
     <View style={StyleSheet.absoluteFill} pointerEvents="none">
       {/* Sieges: a bar under the besiegers' tokens. */}
@@ -980,7 +983,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
         if (!r.siege || k < UNITS_K || !seesUnit(s, s.player, r.siege.by, r.id)) return null;
         const [x, y] = armyAnchor(r.id, k);
         const X = toX(x);
-        const Y = toY(y) + 18 * ts;
+        const Y = toY(y) + 18 * armyScale(r.id, k);
         if (!inView(X, Y)) return null;
         return (
           <View key={`sg${r.id}`} style={[styles.siege, { left: X - 22, top: Y }]}>
@@ -1007,12 +1010,12 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
             const f = s.fleets[c.id];
             if (!f) return null;
             const ships = f.ships.galley + f.ships.warship + f.ships.transport;
-            return <Token key={c.id} x={X} y={Y} figure={shipArt(ships)} nation={f.owner} n={ships} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={ts} />;
+            return <Token key={c.id} x={X} y={Y} figure={shipArt(ships)} nation={f.owner} n={ships} mine={f.owner === s.player} sel={selFleet?.id === f.id} moving={f.path.length > 0} scale={c.scale} />;
           }
           const a = s.armies[c.id] as Army | undefined;
           if (!a) return null;
           const regs = armyRegs(a);
-          return <Token key={c.id} x={X} y={Y} figure={troopArt(a.id, regs)} nation={a.owner} n={regs} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={ts} />;
+          return <Token key={c.id} x={X} y={Y} figure={troopArt(a.id, regs)} nation={a.owner} n={regs} mine={a.owner === s.player} sel={selArmy?.id === a.id} moving={a.path.length > 0} faded={a.retreating} scale={c.scale} />;
         })}
         {/* A landmark standing at its troops' feet where its region is too small for both: in front of them. */}
         {k >= REGION_NAMES_K
@@ -1079,12 +1082,7 @@ const TOWN_ART = {
   'city-walled': { src: require('../../../assets/units/town-city-walled.png'), ground: [94.6, 137.2], size: 30 },
 } as const;
 const TOWN_PX = 192; // the pictures' size
-/** A town's size on screen (points): its picture's size, growing with the zoom like the names, but no bigger than
- * about the region itself (TOWN_FIT times its label radius), so a small island (the Azores, Madeira, Cyprus) or a
- * narrow coast (Genoa, Constantinople) gets a small mark that leaves its land showing; never under TOWN_MIN. */
-const TOWN_FIT = 2.2;
-const TOWN_MIN = 10;
-export const townSize = (picSize: number, labelRadius: number, k: number) => Math.min(picSize * grow(k), Math.max(TOWN_MIN, labelRadius * k * TOWN_FIT));
+export { townSize };
 /** Each region's town picture's size in map units at zoom `k` (null where it has none): where the landmarks stand. */
 const townSizeOn = (s: GameState, k: number) => (id: string) => {
   const art = townArt(s.regions[id]);
