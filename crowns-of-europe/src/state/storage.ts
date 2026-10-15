@@ -1,7 +1,7 @@
 /** Saves (an autosave per campaign, the 3 newest kept, + 3 manual slots), settings and lifetime achievements in AsyncStorage. */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { displayIn } from '../sim/content';
-import { migrateSave } from '../sim/state';
+import { migrateSave, saveTooOld } from '../sim/state';
 import type { GameState } from '../sim/types';
 import { formatShortDate } from '../sim/util';
 
@@ -66,6 +66,16 @@ export async function loadGame(slot: SlotId): Promise<GameState | null> {
     return migrateSave(JSON.parse(raw) as GameState);
   } catch {
     return null;
+  }
+}
+
+/** Was the save in this slot made by an older version of the game (which cannot load here)? */
+export async function saveIsOld(slot: SlotId): Promise<boolean> {
+  try {
+    const raw = await AsyncStorage.getItem(key(slot));
+    return !!raw && saveTooOld(JSON.parse(raw) as { version?: unknown });
+  } catch {
+    return false;
   }
 }
 

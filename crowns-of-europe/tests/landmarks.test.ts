@@ -267,7 +267,8 @@ describe('landmarks on the map', () => {
             n++;
             if (regionAt(box[0] + w * fx, box[1] + h * fy) === lm.region) inside++;
           }
-        const need = k < PLAY_K || lm.id === 'hagia_sophia' || lm.id === 'notre_dame' ? 0.6 : 0.8;
+        // (Venice's Arsenal, out of its small army's way at the town's foot, stands half in the lagoon there.)
+        const need = k < PLAY_K && lm.id === 'arsenal' ? 0.45 : k < PLAY_K || lm.id === 'hagia_sophia' || lm.id === 'notre_dame' ? 0.6 : 0.8;
         if (inside / n < need) expect([k, lm.id, inside / n]).toEqual([k, lm.id, `at least ${need}`]);
       }
       // Two landmarks' pictures never overlap (with the same towns).
@@ -282,7 +283,7 @@ describe('landmarks on the map', () => {
   test("no mark stands where its region's army stands, or it is drawn in front of the troops, off their banner and count", () => {
     // Constantinople is too small for both until about 2.2 (its army covers the whole region): the mark stands at the
     // troops' feet and is drawn in front of them, clear of their banner and their count.
-    const tooSmall = (id: string, k: number) => id === 'hagia_sophia' && k < 2.2;
+    const tooSmall = (id: string, k: number) => (id === 'hagia_sophia' && k < 2.2) || (id === 'arsenal' && k < 1.4);
     for (const k of zooms)
       for (const { lm, w, h, box } of marks(k)) {
         const place: [number, number, number, number] = [box[0], box[1], w, h];
@@ -296,20 +297,23 @@ describe('landmarks on the map', () => {
       }
   });
 
-  test("each stands by its own town: right beside it, or its foot nearer it than any other region's town", () => {
-    // Right beside it: within BESIDE points of its town's point. Constantinople's town stands at the far end of its
+  test("each stands by its own town: its foot nearer it than any other region's town, or right beside it", () => {
+    // Right beside it: within BESIDE points of its town's point, and even there not clearly nearer another town (the
+    // Duomo, with Siena's walls close south of Florence: ASTRAY_MARGIN in landmarkSpot). Constantinople's town stands at the far end of its
     // small region, on the strait, and its troops fill the rest until about 2.5: the mark stands where it can.
     for (const k of zooms)
       for (const { lm, w, h, box } of marks(k, true)) {
         if (lm.id === 'hagia_sophia' && k < 2.5) continue;
         const own = MAP_REGION[lm.region].town;
         const gap = Math.hypot(Math.max(0, box[0] - own[0], own[0] - box[2]), Math.max(0, box[1] - own[1], own[1] - box[3])) * k;
-        if (gap <= BESIDE) continue;
         const fx = box[0] + w / 2;
         const fy = box[1] + h * FOOT_Y;
         const d = Math.hypot(fx - own[0], fy - own[1]) * k;
+        // (Beside it before play zoom, where the towns are packed closest, any town may be nearer: the Duomo by Perugia.)
+        if (gap <= BESIDE && k < PLAY_K) continue;
+        const margin = gap <= BESIDE ? Math.sqrt(1.3) : 1;
         for (const r of MAP.regions)
-          if (r.id !== lm.region && Math.hypot(fx - r.town[0], fy - r.town[1]) * k < d)
+          if (r.id !== lm.region && Math.hypot(fx - r.town[0], fy - r.town[1]) * k * margin < d)
             expect([k, lm.id, r.id, Math.round(d)]).toEqual([k, lm.id, 'its own town nearest', 0]);
       }
   });

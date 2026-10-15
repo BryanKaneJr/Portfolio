@@ -1,4 +1,4 @@
-/** Every nation playable: picker data, the player's crown kept from unions, New World peoples, and a short smoke run of all 73. */
+/** Every nation playable: picker data, the player's crown kept from unions, New World peoples, and a short smoke run of all 76. */
 import { EVENT, GRAPH, NATIONS, isSea } from '../src/sim/content';
 import { answerOffer, moveArmy, playerAnswerEvent, playerDeclareWar } from '../src/sim/commands';
 import { colonialCrown, discoverNewWorld } from '../src/sim/colonies';

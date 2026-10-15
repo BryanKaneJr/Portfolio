@@ -13,7 +13,7 @@ bundled and works in airplane mode.
 
 ## What's in the game
 
-- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 165 regions in Europe, North Africa,
+- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 178 regions in Europe, North Africa,
   Egypt, the Levant, the Caucasus, Mesopotamia and West Africa (with an uncolonized Guinea coast), 46 coarse
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),
@@ -27,8 +27,8 @@ bundled and works in airplane mode.
 - **The interface:** dark and gilded, built like a phone app: the map fills the screen and glass controls float
   over it (your arms and resources on top, time and the realm's pages in a dock at the bottom, an outliner and the
   map lenses at the side), sheets you drag up and down, and event windows with each choice's effects spelled out.
-- **73 nations** at 11 November 1444, every one playable, each marked easy to very hard in the picker. 14 majors
-  and 8 harder picks are featured, each with a real ruler, a national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
+- **76 nations** at 11 November 1444, every one playable, each marked easy to very hard in the picker. 14 majors
+  and 8 harder picks are featured, each with a real ruler, a national trait, an AI personality and a mission tree. The Mamluk Sultanate and 49 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
 - **The New World:** uncharted until an expedition finds it (it needs Ocean Navigation) or 1500 arrives.
   Colonists (from Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters

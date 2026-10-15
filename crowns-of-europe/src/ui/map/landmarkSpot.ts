@@ -3,9 +3,9 @@
  * own region and clear of what else is drawn there (landmarks.tsx draws it). Plain TypeScript, so the tests can check
  * every landmark.
  */
-import { LANDMARKS, LANDMARK_AT, MAP, MAP_REGION, REGION } from '../../sim/content';
+import { LANDMARKS, LANDMARK_AT, MAP, MAP_REGION } from '../../sim/content';
 import type { RegionId } from '../../sim/types';
-import { MIN_NAME_RADIUS, armyBox, armyParts, grow, nameSize } from './anchors';
+import { armyBox, armyParts, grow, nameBox } from './anchors';
 import { inRegion, regionBounds } from './geometry';
 import { LANDMARK_ART } from './landmarkArt';
 
@@ -48,7 +48,8 @@ export const FOOT_Y = 0.9;
  * the neighbour's or hide it. Unless it stands right beside its town (within BESIDE points), a foot not clearly nearer
  * its own town than any neighbour's (nearer it by less than ASTRAY_MARGIN, in squared distance) costs ASTRAY_COST: it
  * would read as that town's landmark (the Giralda by Granada, St Stephen's by Styria); one nearer the neighbour's is
- * not good at all, so the picture would rather shrink and stand by its own. Each step of its size farther from the
+ * not good at all, so the picture would rather shrink and stand by its own. Right beside its town a foot clearly
+ * nearer a neighbour's town (by the same margin) costs the same: the Duomo by Siena's walls, close south of Florence. Each step of its size farther from the
  * town than the nearest spots costs FAR_COST, so it stands by its town when it can.
  */
 const ARMY_COST = 1.5;
@@ -275,10 +276,12 @@ function findSpot(
     const footY = y + h * FOOT_Y;
     const own = (mx - tx) ** 2 + (footY - ty) ** 2;
     const gap = Math.hypot(Math.max(0, x - tx, tx - x - w), Math.max(0, y - ty, ty - y - h));
-    if (!onArmy && gap > beside) {
+    if (!onArmy) {
       let near = Infinity;
       for (const [ox, oy] of towns) near = Math.min(near, (mx - ox) ** 2 + (footY - oy) ** 2);
-      if (near < own * ASTRAY_MARGIN) f -= ASTRAY_COST;
+      // Right beside its town it may stand about as near a neighbour's, but not clearly nearer it: where two towns
+      // stand close (Florence and Siena) that would read as the neighbour's landmark.
+      if (gap > beside ? near < own * ASTRAY_MARGIN : near * ASTRAY_MARGIN < own) f -= ASTRAY_COST;
       if (near < own) clear = false;
     }
     for (const { b, cost, name: onName } of blocks)
@@ -329,11 +332,4 @@ export function markInFront(id: RegionId, k: number, [x, y, w, h]: MarkPlace): b
   return overlaps(armyBox(id, k), [x, y, x + w, y + h]);
 }
 
-/** Roughly where a region's name is written (map units: x0, y0, x1, y1), or null when it is not (too small). */
-export function nameBox(id: RegionId, k: number, px: (n: number) => number): number[] | null {
-  const r = MAP_REGION[id];
-  if (r.labelRadius * k < MIN_NAME_RADIUS) return null;
-  const fs = nameSize(r.labelRadius, k);
-  const half = px(REGION[id].name.length * fs * 0.38);
-  return [r.label[0] - half, r.label[1] - px(fs * 0.5), r.label[0] + half, r.label[1] + px(fs * 0.45)];
-}
+export { nameBox };

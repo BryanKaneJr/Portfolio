@@ -1,7 +1,6 @@
 import { army, emptyGame } from './helpers';
 import { debugAI, warOdds } from '../src/sim/ai';
 import { SCENARIO, startingClaim } from '../src/sim/content';
-import { migrateSave, SAVE_VERSION } from '../src/sim/state';
 import { advanceDays } from '../src/sim/tick';
 import { casusBelli, claimReason } from '../src/sim/war';
 import { dayOf, yearOf, years } from '../src/sim/util';
@@ -41,34 +40,6 @@ describe('the claims of 1444', () => {
     // On its very day it is no reason any more, even before the monthly reckoning removes it.
     s.nations.CAS.claims.granada = s.day;
     expect(casusBelli(s, 'CAS', 'GRA').some(c => c.cb === 'claim')).toBe(false);
-  });
-
-  test('an older save’s everlasting claims of 1444 lapse in their year, once', () => {
-    const s = emptyGame('CAS');
-    const old = JSON.parse(JSON.stringify(s));
-    old.version = 5;
-    old.day = dayOf(1472, 5, 1);
-    old.nations.CAS.claims.granada = -1; // still to come: lapses in 1500
-    old.nations.TUR.claims.constantinople = -1; // its year (1470) has passed
-    old.nations.FRA.claims.london = -1; // never a claim of 1444: left alone
-    const m = migrateSave(old)!;
-    expect(m.version).toBe(SAVE_VERSION);
-    expect(m.nations.CAS.claims.granada).toBe(dayOf(1500, 0, 1));
-    expect('constantinople' in m.nations.TUR.claims).toBe(false);
-    expect(m.nations.FRA.claims.london).toBe(-1);
-    // A claim granted for ever after the update is not cut short on the next load.
-    m.nations.CAS.claims.granada = -1;
-    expect(migrateSave(JSON.parse(JSON.stringify(m)))!.nations.CAS.claims.granada).toBe(-1);
-  });
-
-  test('an older save keeps a lasting claim an event has since granted on the same land', () => {
-    const s = emptyGame('POL');
-    const old = JSON.parse(JSON.stringify(s));
-    old.version = 5;
-    old.day = dayOf(1470, 5, 1);
-    old.nations.POL.claims.danzig = -1;
-    old.firedEvents.pol_thirteen_years_war = 1; // grants Danzig and Prussia for ever
-    expect(migrateSave(old)!.nations.POL.claims.danzig).toBe(-1);
   });
 
   test('the first wars come one by one: each crown made peace at some time in the three years before', () => {

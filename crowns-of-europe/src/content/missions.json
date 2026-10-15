@@ -412,19 +412,19 @@
     "goal": { "regimentsAtLeast": 20 },
     "reward": [
       { "hireGeneral": { "stars": 5, "name": "Gonzalo Fernández de Córdoba" } },
-      { "addClaim": ["naples", "apulia"] }
+      { "addClaim": ["naples", "apulia", "calabria"] }
     ]
   },
   {
     "id": "cas_kingdom_of_naples",
     "nation": "CAS",
     "title": "The Kingdom of Naples",
-    "desc": "French and Aragonese princes both want Naples. Take Naples and Apulia first and make your infantry famous across Italy.",
+    "desc": "French and Aragonese princes both want Naples. Take Naples, Apulia and Calabria first and make your infantry famous across Italy.",
     "requires": ["cas_great_captain"],
-    "goal": { "owns": ["naples", "apulia"] },
+    "goal": { "owns": ["naples", "apulia", "calabria"] },
     "reward": [
       { "prestige": 20 },
-      { "addCore": ["naples", "apulia"] },
+      { "addCore": ["naples", "apulia", "calabria"] },
       { "modifier": { "id": "cas_tercios", "name": "The Tercios", "months": -1, "mods": { "infantryPower": 0.1 } } }
     ]
   },
@@ -518,7 +518,7 @@
     "title": "Lord of the Western Sea",
     "desc": "Sardinia, Sicily and Tunis are the stepping stones of the western Mediterranean. Hold them all with 35 ships at sea.",
     "requires": ["ara_strike_at_tunis", "ara_crown_of_naples"],
-    "goal": { "all": [{ "owns": ["sardinia", "sicily", "tunis"] }, { "shipsAtLeast": 35 }] },
+    "goal": { "all": [{ "owns": ["sardinia", "sicily", "messina", "tunis"] }, { "shipsAtLeast": 35 }] },
     "reward": [
       { "prestige": 20 },
       {
@@ -2319,16 +2319,16 @@
     "title": "Crush Venice",
     "desc": "The Venetians have eaten into your eastern lands for decades. Take the Veneto and push them back into their lagoon.",
     "requires": ["mlo_hire_sforza"],
-    "goal": { "owns": "veneto" },
-    "reward": [{ "prestige": 20 }, { "addCore": "veneto" }, { "addClaim": "romagna" }]
+    "goal": { "owns": ["verona", "veneto"] },
+    "reward": [{ "prestige": 20 }, { "addCore": ["verona", "veneto"] }, { "addClaim": "romagna" }]
   },
   {
     "id": "mlo_iron_crown",
     "nation": "MLO",
     "title": "The Iron Crown of Lombardy",
-    "desc": "Rule Lombardy, Liguria, the Veneto and the Romagna, and take up the ancient crown of the Lombard kings.",
+    "desc": "Rule Lombardy with Parma, Liguria, the Venetian mainland and the Romagna, and take up the ancient crown of the Lombard kings.",
     "requires": ["mlo_crush_venice", "mlo_lordship_of_genoa"],
-    "goal": { "owns": ["lombardy", "liguria", "veneto", "romagna"] },
+    "goal": { "owns": ["lombardy", "parma", "liguria", "verona", "veneto", "romagna"] },
     "reward": [
       { "prestige": 25 },
       { "addClaim": ["tuscany", "rome"] },
@@ -2369,16 +2369,16 @@
     "title": "Reunite the Two Sicilies",
     "desc": "Sicily and Naples were one kingdom until a revolt split them. Take Sicily and join them again.",
     "requires": [],
-    "goal": { "owns": "sicily" },
-    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "sicily" }]
+    "goal": { "owns": ["sicily", "messina"] },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": ["sicily", "messina"] }]
   },
   {
     "id": "nap_fertile_south",
     "nation": "NAP",
     "title": "The Fertile South",
-    "desc": "Your plains could feed half of Italy if they were properly worked. Bring your lands to 16 prosperity.",
+    "desc": "Your plains could feed half of Italy if they were properly worked. Bring your lands to 24 prosperity.",
     "requires": [],
-    "goal": { "devAtLeast": 16 },
+    "goal": { "devAtLeast": 24 },
     "reward": [
       { "addClaim": "rome" },
       {
@@ -2436,7 +2436,7 @@
     "id": "nap_southern_kingdom",
     "nation": "NAP",
     "title": "A Kingdom of Italy",
-    "desc": "Rule Naples, Apulia, Sicily, Rome, the Romagna and Tuscany: the whole peninsula south of the Po.",
+    "desc": "Rule Naples, Apulia, Sicily, Rome, the Romagna and Tuscany: the heart of the peninsula south of the Po.",
     "requires": ["nap_master_of_rome", "nap_two_sicilies"],
     "goal": { "owns": ["naples", "apulia", "sicily", "rome", "romagna", "tuscany"] },
     "reward": [

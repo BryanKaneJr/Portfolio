@@ -6,8 +6,7 @@ import { STAR_BONUS, newGeneral, starBonus } from '../src/sim/rulers';
 import { edgeDays } from '../src/sim/military';
 import { siegeInfo } from '../src/sim/siege';
 import { GRAPH, isSea } from '../src/sim/content';
-import { SAVE_VERSION, migrateSave } from '../src/sim/state';
-import type { Army, GameState, General } from '../src/sim/types';
+import type { Army, GameState } from '../src/sim/types';
 
 describe('battles', () => {
   test('a 40k stack hitting 8k wipes it out within days', () => {
@@ -195,18 +194,5 @@ describe('generals', () => {
     // Days are whole, so the march is the old one over 1.4, rounded.
     expect(Math.abs(edgeDays(s, a, 'champagne', edge) - slow / 1.4)).toBeLessThanOrEqual(0.5 + 1e-9);
     expect(edgeDays(s, a, 'champagne', edge)).toBeLessThan(slow);
-  });
-
-  test('saves from before stars load with each general ranked by their old numbers', () => {
-    const s = emptyGame('FRA');
-    const a = army(s, 'FRA', 'champagne', 5);
-    a.general = { id: 'g1', name: 'Old Guard', fire: 4, shock: 5, maneuver: 3, hired: 0, lifespan: 9999 } as unknown as General;
-    s.nations.FRA.generals = [{ id: 'g2', name: 'Spare', fire: 1, shock: 2, maneuver: 1, hired: 0, lifespan: 9999 } as unknown as General];
-    s.version = 4;
-    const m = migrateSave(JSON.parse(JSON.stringify(s)))!;
-    expect(m.version).toBe(SAVE_VERSION);
-    expect(m.armies[a.id].general).toEqual({ id: 'g1', name: 'Old Guard', stars: 4, hired: 0, lifespan: 9999 });
-    expect(m.nations.FRA.generals[0].stars).toBe(1);
-    expect(migrateSave({ ...m, version: 2 })).toBeNull();
   });
 });
