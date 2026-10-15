@@ -25,7 +25,8 @@ a Mercator map, light tutorial, no audio yet).
   `scripts/build-icons.ts` and credited in the README and Settings > About; add any new one there and run
   `npm run icons:build` (never hand-edit `ui/components/gameIcons.ts`). The towns are rendered from CC0 3D models
   (KayKit) by `npm run models:build` (credits in `assets/units/CREDITS.md`); the troop and ship drawings in
-  `art/troops` and `art/ships` and the mountain drawings in `art/mountains` were made for the game by its owner.
+  `art/troops` and `art/ships`, the mountain drawings in `art/mountains` and the landmark paintings in `art/landmarks`
+  were made for the game by its owner.
   Player-facing text says prosperity, levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
   colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
   `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
@@ -39,7 +40,7 @@ a Mercator map, light tutorial, no audio yet).
 - The map is generated: edit `src/content/regions.json` / `seas.json` (seeds, each region's chief `town` and its real
   [lon, lat], rivers, straits, lakes, the names of the lands beyond the map), then `npm run map:build` and
   `npm run relief:build`. Never hand-edit `map.json`,
-  `assets/map/`, `assets/units/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/unitArt.ts`,
+  `assets/map/`, `assets/units/`, `assets/landmarks/`, `ui/map/reliefTiles.ts`, `ui/map/terrainSymbols.ts`, `ui/map/unitArt.ts`, `ui/map/landmarkArt.ts`,
   `ui/map/paintingTiles.ts`, `ui/map/terrainTiles.ts` or `ui/map/terrainVectors.ts`. The builder warns about seeds in the water;
   fix those. It also lists every town it had to nudge inside its region (coastal towns on a coarse coast: a few
   units); a big move means a wrong coordinate or a town in the wrong region.
@@ -71,25 +72,27 @@ src/content/   regions, seas (+straits, rivers, wastelands, lakes), nations, sce
                events-newworld, events-history-{west,iberia-italy,empire-north,east-balkans,levant-africa-americas}
                (the history cards of fun batch 1), formables (the 28 greater crowns), missions, achievements, advances
                (science), aims (historical aims and old friendships/enmities), landmarks (the fifteen famous places:
-               region, bonus, picture kind, history line), map.json (generated)
+               region, bonus, history line; each one's picture is art/landmarks/<id>.png), map.json (generated)
 src/app/       _layout, index (title), new-game (nation picker), game, +not-found
-src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, landmarks + landmarkSpot, reliefTiles, terrain, terrainSymbols,
+src/ui/        map/ (MapView, styles, camera, colors, geometry, tap, MiniMap, landmarks + landmarkSpot + landmarkArt (generated),
+               reliefTiles, terrain, terrainSymbols,
                terrainLayer + terrainCache + terrainTiles + terrainVectors: the Illustrated style's tiles), game/ (Bars, Outliner, Sheet, RegionSheet,
                ColonySheets, UnitSheets, NationSheet, Cards, Panels, WarScreen, Menu, Science, Help), components/ (kit,
                Glass, Flag, BurningShield, Icon, gameIcons), layout, describe
                (plain-English effects and goals), theme
 src/state/     store (game loop, selection, overlays, toasts, moments, play-test hook on window.__coe), speed (1x-8x;
                8x only at peace), storage (saves; one autosave per campaign)
-scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
+scripts/       build-map, build-relief, build-terrain (both on lib/geo), build-icons, build-models, build-units, build-landmarks, validate-content, make-icons, screens + screens-war + screens-newworld + screens-terrain (Playwright), serve,
                dev/ (soak, trace, ottomans, powers, aiwars, colonies, opening, crowns, warchance, sieges, batch2, playall,
                pan-layers, nation-colors), lib/ (geo, nationColors), terrain/ (the
                Illustrated style's offline tile pipeline, Python)
 tests/         battle, movement, siege, war, colonies, aims, science, ottomans, greatpowers, map, terrain, events, pause,
                amounts (effects as shown), soak (Jest, node)
 art/           source art the builders read: mountains/ (the owner's ink drawings of ranges), troops/ and ships/
-               (the owner's soldiers and ships), painting/ (the owner's painting of the world; the 157 MB original is
+               (the owner's soldiers and ships), landmarks/ (the owner's paintings of the fifteen landmarks), painting/ (the owner's painting of the world; the 157 MB original is
                not in git)
-assets/        map/ (generated pictures, incl. mountains/), units/ (the troops, ships, towns), fonts, icons
+assets/        map/ (generated pictures, incl. mountains/), units/ (the troops, ships, towns), landmarks/ (the
+               landmark paintings, baked), fonts, icons
 ```
 
 ## Commands
@@ -120,6 +123,7 @@ npm run painting:build      # the Painted style's ground: art/painting/fullmap.p
                             # and tiled into assets/map/painting (see art/painting/README.md)
 npm run units:build         # the armies' and fleets' figures (assets/units/, ui/map/unitArt.ts) from art/troops
                             # and art/ships
+npm run landmarks:build     # the landmark paintings (assets/landmarks/, ui/map/landmarkArt.ts) from art/landmarks
 npm run models:build        # the towns (assets/units/town-*.png) from CC0 3D models (fetched once into
                             # scripts/data/models, git-ignored), rendered with three.js in headless Chromium
 npm run tiles:build         # the Illustrated style's terrain tiles and river/lake vectors (assets/map/terrain,
@@ -148,7 +152,13 @@ models:build`). They show from `REGION_NAMES_K`, in every owned region, even one
 written (Constantinople, Genoa, the Atlantic islands); in a small region the picture is capped to about the region's
 size (`townSize`: `TOWN_FIT` times its label radius on screen, at least `TOWN_MIN` points), so an island gets a small
 mark rather than being buried. They stand on their point (the middle of the settlement), never move, and are not tap
-targets. Taps on a unit are
+targets. Each landmark is the owner's painting of it (`art/landmarks`, baked by `npm run landmarks:build` into
+`ui/map/landmarkArt.ts`), shown as painted, standing beside its region's town from `REGION_NAMES_K`, over the towns and
+under the names, not a tap target (`ui/map/landmarks.tsx`); `landmarkSpot.ts` sizes it by its own proportions (`MARK_PT`
+28 points of equal area at play zoom, growing like the towns) and keeps it inside its region, off its name, town and
+army, off the other landmarks, light on the neighbours' names and by its own town rather than a neighbour's; where the
+region is too small for it and its army (Constantinople, zoomed out) it stands at the troops' feet and the units' layer
+draws it in front of them (`markInFront`) (`tests/landmarks.test.ts`). Taps on a unit are
 measured from the middle of its figure (`TOKEN_MIDDLE`), above its point. Only the units the player would know about are drawn, at any zoom, and listed in region sheets
 (`seesUnit` in `sim/queries.ts`): their own, their allies', overlord's and subjects', their enemies' in a war, and
 anyone's in land they own or hold; rebels risen against them.

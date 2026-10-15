@@ -665,10 +665,11 @@ Patronage: that is already the policy "Patronage of the Arts".
 Fifteen famous places, each with one fixed bonus for whoever holds its region. The idea is borrowed (great
 buildings that reward the realm holding them); the rule, names, wording and pictures are our own. No building, no
 upkeep, no upgrades, and nothing to manage: take the region and the bonus is yours.
-- **Data.** `content/landmarks.json`: `{ id, region, name, kind, mods, text }`, loaded as `LANDMARKS` and
+- **Data.** `content/landmarks.json`: `{ id, region, name, mods, text }` (a `kind` naming its pictogram until the
+  owner's paintings came, below), loaded as `LANDMARKS` and
   `LANDMARK_AT` (region → landmark) in `content.ts`. Each has exactly one modifier key, sized like a policy's single
   line, and a history line of at most 90 characters. `npm run validate` checks the region, one landmark per region,
-  one known key, a picture for its `kind` and the text's length (`landmarkErrors` in `sim/landmarks.ts`), and
+  one known key, a picture for it and the text's length (`landmarkErrors` in `sim/landmarks.ts`), and
   `check-terms.ts` reads the file.
 - **Rule** (`sim/landmarks.ts`). `landmarksHeld(s, n)`: the landmarks whose region `n` owns and controls. An occupied
   landmark gives nothing to anyone until it is free. `modifierSources` (queries.ts) lists each one under its name,
@@ -696,7 +697,8 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
   | The Giralda | Andalusia (CAS) | +20% settler growth |
 - **AI.** No change: a landmark is not a war aim, so the AI's wars do not move. It gains the bonus like anyone by
   holding the region.
-- **Pictures** (`ui/components/landmarkArt.ts`, drawn for the game). Fifteen gold silhouettes, one per landmark (its
+- **Pictures** (superseded: the owner's paintings replaced them, see "The owner's landmark paintings" below;
+  `ui/components/landmarkArt.ts` is gone). Fifteen gold silhouettes, one per landmark (its
   `kind` is its id), in a 24 × 24 box standing on y = 21, each the outline a player knows the place by: Hagia Sophia's
   broad block with half-domes stepping down either side of its shallow dome, and four minarets, St Peter's ribbed dome over its columned front, the Duomo's pointed dome beside Giotto's
   tower, the Dome of the Rock's round dome on its octagon, Notre-Dame's twin flat towers and rose, St Stephen's zigzag
@@ -707,7 +709,8 @@ upkeep, no upgrades, and nothing to manage: take the region and the bonus is you
   spire). 3–7 pieces each, parts kept to about 1.2 box units or more and holes and gaps to about 1.4 (or the pieces
   touch), so they hold at map size;
   each piece is filled and edged dark on its own, so overlapping pieces keep a thin edge (dome ribs, pyramid faces).
-- **On the map** (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the place in
+- **On the map** (the sizes below were the pictograms'; the placement still works this way, now with each painting's
+  own width and height: see below) (`ui/map/landmarks.tsx`, one call in MapView after the towns, from `REGION_NAMES_K`; the place in
   `landmarkSpot.ts`, `markPlace`). 20 points at play zoom (13 read as a speck), growing like the towns, never under 12
   and capped at 2.2 × the region's label radius on screen, on a soft dark halo so the gold lifts off the painting. It
   tries the eight spots round the town first (upper right, upper left, right above, the three below, level either
@@ -929,3 +932,69 @@ Ottomans to 1704 (`scripts/dev/ottomans.ts 260 1 2`); the opening in 48 games (`
 - **`npm run soak` cannot compare builds past a century or so:** its spectated Hungary falls between about 1550 and
   1590, and the game stops with it, so "alive at the end" is counted on different days.
 
+## The owner's landmark paintings
+The owner painted all fifteen landmarks (warm gold and sepia, each building alone on a transparent ground, 1024 px
+square), and they replace the gold pictograms everywhere, shown as painted: no tint, no halo, no frame. They are
+handled like the owner's troop and ship drawings.
+- **Source and bake.** `art/landmarks/<id>.png`, byte for byte as sent (`djingvereber.png` saved as
+  `djinguereber.png`). `scripts/build-landmarks.ts` (`npm run landmarks:build`, pngjs, deterministic) cuts each to
+  what is painted, ignoring the faint speckle the paintings carry round them (rows and columns with at least 4 pixels
+  over alpha 32: the Alhambra's drawn box is 784 x 608, not the 860 x 777 a bare alpha > 8 gives), area-averages it in
+  premultiplied colour to 192 px on its longer side, and writes a 256-colour palette PNG with transparency (median
+  cut, six rounds of refining, no dithering): 294 KB for all fifteen, 8-27 KB each (full colour would have been about
+  1.3 MB; side by side at 2x the two can hardly be told apart, the paint's grain hiding the steps). 192 px is 3x the
+  largest they are shown: the sheet's 64-point well and the Giralda at the closest zoom (64 points tall). The
+  generated `ui/map/landmarkArt.ts` lists each picture's `src`, `w`, `h` and `ground` (where its walls meet the
+  ground, a share of its height). `kind` is gone from `landmarks.json`: each landmark uses its own picture, and
+  `validate-content` checks that each has one (painted, baked, listed at its baked size).
+- **Size on the map** (`landmarkSpot.ts`, `markSize`). By its real proportions at equal area: the side of a square of
+  the same area is `MARK_PT` = 28 points at play zoom (the pictograms were 20; at 20 a painting's detail is lost, and
+  28 is about a city's picture, 28-30), growing with the zoom like the towns (`grow`, about 1.6x at the closest). A
+  tall one is held to 1.4 x 28 = 39 points high (`MARK_TALL`: the Giralda, 9.6 x 39, stays a slim tower rather than a
+  57-point spire towering over Seville), a wide one to 1.25 x 28 = 35 wide (`MARK_WIDE`: the Pyramids, 34 x 23, low
+  beside Cairo). Most come out 26-30 points either way; Westminster 23 x 34. In a small region the longer side is
+  capped at 2.2 x the region's label radius on screen, never under 16 points (`MARK_MIN`; 18 or 20 put Notre-Dame on
+  its army or St Peter's mostly outside Rome where names first show). Where no spot is clear at full size it now
+  shrinks in steps (0.9, 0.8, 0.7, 0.6, then the least) instead of jumping from 0.8 to the least, so it shrinks only as
+  far as it must.
+- **Placement** keeps every rule it had, on each picture's own box: its middle (0.6 of its height) and foot (0.9) in
+  its region, off its own name and town, off its army, light on the neighbours' names, apart from the landmarks
+  before it. The share in the region is now sampled down to the painting's foot (0.97 of its height; a pictogram
+  stood at 0.875). The two spots tried first are beside the town on the same ground, right then left, so a painting
+  stands with its town like a second building; then the six above and below as before.
+- **By its own town, not a neighbour's.** The bigger paintings first stood where only a cheap distance cost
+  (`FAR_COST`) held them, and at play zoom two read as a neighbour's: the Giralda 70 points from Seville but 34 above
+  Granada's town (the Alhambra, placed first, takes the spot beside Seville), St Stephen's 89 points from Vienna on
+  the Styria border. Now, unless a picture stands right beside its town (within `BESIDE` = 20 points of its point), a
+  foot not clearly nearer its own town than any neighbour's (by `ASTRAY_MARGIN`, about 1.14 times the distance)
+  costs `ASTRAY_COST`, and one nearer the neighbour's is not a good spot at all, so the picture shrinks rather than
+  stand there. At play zoom the Giralda (shrunk to 7 x 27) stands just above Seville, 21 points from it, and St
+  Stephen's (18 x 22) just below Vienna. A picture never stands on another landmark's picture (a hard rule; the
+  margin of its own size round it stays a cost) nor with less than half of it in its region (`LEAST_FIT`: Hagia
+  Sophia once jumped to a speck of islet off Constantinople), and a smaller size must do better by `SHRINK_GAIN` to
+  win over a bigger one, so ties don't shrink it. Being on its own army costs 1.5 (was 1), so the new costs never make
+  a spot on the troops win.
+- **In front of the troops where the region is too small for both.** At play zoom Constantinople is smaller than the
+  Byzantine army standing in it, and the painting, drawn under the units, was mostly hidden behind the count badge in
+  the opening view of every Byzantine game (the 12-point pictogram had stood at the troops' feet). Now a picture that
+  stands on its own army's box (`markInFront`: only Hagia Sophia, below 2.2) is drawn in the units' layer, in front
+  of them; it never covers their banner or count (a hard rule), costs twice the share of the figure it covers (so it
+  stands at their feet, its foot below theirs, where being in front reads right), and twice as much on a neighbour's
+  name (which it is then drawn over). At play zoom it stands whole at the troops' feet left of the count; where names
+  first show, in front of their legs.
+- **Tests.** The proportions at every zoom, the sizes (22-40 points high at play zoom, at most 28 x 28 points of
+  area, never stretched past 2% at the closest zoom on a 3x screen), four-fifths of the lower half in the region from
+  play zoom on (three-fifths where names first show and in Constantinople and Île-de-France), and now at every zoom
+  checked (0.1 apart from where names show to the closest, and play zoom) and with every town size (19-30 points, and
+  a mix): no two paintings overlapping (a sweep 0.004 apart found none), each beside its town or nearer it than any
+  other region's town (Hagia Sophia below 2.5 excepted), and one on its own army drawn in front, off the banner and
+  count.
+- **At play zoom** (390 x 844 screenshots, each as the landmark's owner with an army in the region): ten stand at
+  full size; St Peter's, Notre-Dame and Hagia Sophia are 16 points, the Alhambra 19 x 15, the Pyramids 24 x 16, St
+  Stephen's 18 x 22 and the Giralda 7 x 27, their regions being small or crowded by the army, the neighbours' names
+  and towns.
+- **No baked shadow.** Most paintings carry their own painted ground (a soft wash at the foot: Hagia Sophia, the
+  Pyramids, Charles Bridge, St Stephen's), and on the map they sit on the land well enough without one; a cast shadow
+  like the units' would widen each picture's footprint in regions that are already crowded.
+- **Region sheet** (`LandmarkLine`): the painting in a 64-point well (was a 32-point pictogram on a gilt-rimmed
+  40-point tile), standing on its floor, sized by its proportions, no frame; the row stays one row (name, bonus, "?").

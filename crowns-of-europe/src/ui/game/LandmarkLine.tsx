@@ -1,16 +1,15 @@
-/** A region's landmark on its sheet: the gold pictogram, the name, its one bonus, and its history behind a "?". */
+/** A region's landmark on its sheet: the owner's painting of it, the name, its one bonus, and its history behind a "?". */
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Svg from 'react-native-svg';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { LANDMARK_AT, nationName } from '../../sim/content';
 import { useStore } from '../../state/store';
-import { LANDMARK_ART } from '../components/landmarkArt';
 import { HelpButton, HelpNote } from '../components/kit';
 import { modsText } from '../describe';
-import { landmarkPaths } from '../map/landmarks';
+import { LANDMARK_ART } from '../map/landmarkArt';
 import { G, R, display, sans } from '../theme';
 
-const PIC = 32;
+/** The painting's well (points, square): the picture fits inside it by its own proportions, standing on its floor. */
+const PIC = 64;
 
 export function LandmarkLine({ id }: { id: string }) {
   const st = useStore();
@@ -18,7 +17,7 @@ export function LandmarkLine({ id }: { id: string }) {
   const lm = LANDMARK_AT[id];
   const r = st.state?.regions[id];
   if (!lm || !r) return null;
-  const art = LANDMARK_ART[lm.kind] ?? [];
+  const art = LANDMARK_ART[lm.id];
   const occupied = r.controller !== r.owner;
   // Someone else's: the bonus is its owner's, so say whose (and that others like them, not you, the better).
   const bonus = !r.owner || r.owner === st.state!.player ? modsText(lm.mods) : `For ${nationName(r.owner)}: ${modsText(lm.mods).replace(' of you', ' of them')}`;
@@ -26,9 +25,7 @@ export function LandmarkLine({ id }: { id: string }) {
     <View style={{ marginBottom: 8 }} testID="landmark">
       <View style={styles.row}>
         <View style={styles.pic}>
-          <Svg width={PIC} height={PIC} viewBox="0 0 24 24">
-            {landmarkPaths(art, 0.9)}
-          </Svg>
+          {art ? <Image source={art.src} style={fit(art.w, art.h)} accessibilityIgnoresInvertColors /> : null}
         </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.name} numberOfLines={1}>
@@ -44,6 +41,9 @@ export function LandmarkLine({ id }: { id: string }) {
   );
 }
 
+/** The picture's size in its well: as big as fits, keeping its proportions. */
+const fit = (w: number, h: number) => (w >= h ? { width: PIC, height: (PIC * h) / w } : { width: (PIC * w) / h, height: PIC });
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -54,16 +54,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
   },
-  pic: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: G.raised,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: StyleSheet.hairlineWidth * 2,
-    borderColor: G.gilt,
-  },
+  pic: { width: PIC, height: PIC, alignItems: 'center', justifyContent: 'flex-end' },
   name: { fontFamily: display, fontSize: 15, color: G.text, letterSpacing: 0.3 },
   bonus: { fontFamily: sans, fontSize: 13, color: G.good, marginTop: 1 },
 });
