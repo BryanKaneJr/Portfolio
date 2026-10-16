@@ -13,7 +13,7 @@ bundled and works in airplane mode.
 
 ## What's in the game
 
-- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 178 regions in Europe, North Africa,
+- **The map:** a north-up map from the Pacific coast of Mexico to the Volga: 200 regions in Europe, North Africa,
   Egypt, the Levant, the Caucasus, Mesopotamia and West Africa (with an uncolonized Guinea coast), 46 coarse
   New World regions on the eastern side of the Americas, the Atlantic islands, the Great Lakes, 39 sea zones and
   off-map wilderness, traced from Natural Earth (public domain) coastlines, with terrain, prosperity (1–10),

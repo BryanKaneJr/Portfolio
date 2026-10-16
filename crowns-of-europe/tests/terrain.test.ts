@@ -9,6 +9,9 @@ jest.mock('react-native', () => ({ Platform: { OS: 'ios', select: (o: Record<str
 const sources = require('../assets/map/terrain/sources.json');
 
 const R = TERRAIN_REGION;
+// New giant northern and eastern regions (2026): in L4_SKIP (scripts/terrain/config.py), but the generated
+// TERRAIN_FINEST_SKIP only learns them at the next `npm run tiles:build` (CLAUDE.md, Next task 5).
+const PENDING_TILES = ['viken', 'vyborg', 'dvina', 'sarai'];
 const EPS = 1e-6;
 
 describe('tile index', () => {
@@ -33,7 +36,7 @@ describe('tile index', () => {
       const finest = level === TERRAIN_LEVELS[TERRAIN_LEVELS.length - 1];
       for (const r of MAP.regions) {
         const [x, y] = r.label;
-        if (x < R.x0 || x >= R.x1 || y < R.y0 || y >= R.y1 || (finest && TERRAIN_FINEST_SKIP.includes(r.id))) continue;
+        if (x < R.x0 || x >= R.x1 || y < R.y0 || y >= R.y1 || (finest && (TERRAIN_FINEST_SKIP.includes(r.id) || PENDING_TILES.includes(r.id)))) continue;
         expect(level.tiles.some(t => x >= t.x && x < t.x + t.w && y >= t.y && y < t.y + t.h)).toBe(true);
       }
     }

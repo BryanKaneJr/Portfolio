@@ -1,5 +1,5 @@
 import { emptyGame, army, forceWar } from './helpers';
-import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
+import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands, HEARTLAND } from '../src/sim/war';
 import { advanceDays } from '../src/sim/tick';
 import { pairKey, years } from '../src/sim/util';
 import { REBELS, seesUnit } from '../src/sim/queries';
@@ -300,10 +300,19 @@ describe('the AI at war', () => {
     forceWar(s, 'HUN', 'HAB');
     const w = declareWar(s, 'HUN', 'HAB', 'none')!;
     const austria = ownedRegions(s, 'HAB');
-    expect(austria.length).toBeLessThanOrEqual(4);
+    expect(austria.length).toBeLessThanOrEqual(HEARTLAND);
     for (const r of austria) r.controller = 'HUN';
     const terms = buildDemands(s, w, 'HUN', 100);
     expect(terms.regions.filter(r => s.regions[r].owner === 'HAB')).toHaveLength(1);
+    // Hungary's five regions of 1444 (Buda, Temes, Croatia, Transylvania, Upper Hungary) are its heartland too.
+    const t = emptyGame('POR');
+    t.alliances = {};
+    forceWar(t, 'HAB', 'HUN');
+    const h = declareWar(t, 'HAB', 'HUN', 'none')!;
+    const hungary = ownedRegions(t, 'HUN');
+    expect(hungary).toHaveLength(HEARTLAND);
+    for (const r of hungary) r.controller = 'HAB';
+    expect(buildDemands(t, h, 'HAB', 200).regions.filter(r => t.regions[r].owner === 'HUN')).toHaveLength(1);
   });
 
   test('a winner with nothing to ask for settles after a year; a war neither side can reach ends after one', () => {
@@ -548,7 +557,7 @@ describe('ultimatums and the player’s own peace offers', () => {
     expect(peaceOffers(b.s)).toHaveLength(0);
   });
 
-  /** England (the player) losing to Scotland, which holds `lev` leverage and claims Yorkshire. */
+  /** England (the player) losing to Scotland, which holds `lev` leverage and claims Northumbria. */
   function englandLosing(lev: number): { s: GameState; w: War } {
     const s = emptyGame('ENG');
     s.alliances = {};
@@ -562,7 +571,7 @@ describe('ultimatums and the player’s own peace offers', () => {
 
   test('land far from the enemy is worth half to them; land they claim, its full price', () => {
     const { s, w } = englandLosing(20);
-    expect(concessionValue(s, w, 'SCO', 'yorkshire')).toEqual({ value: regionPeaceCost(s, 'SCO', 'yorkshire'), why: 'they claim it' });
+    expect(concessionValue(s, w, 'SCO', 'northumbria')).toEqual({ value: regionPeaceCost(s, 'SCO', 'northumbria'), why: 'they claim it' });
     const gascony = concessionValue(s, w, 'SCO', 'gascony');
     expect(gascony.value).toBe(Math.round(regionPeaceCost(s, 'SCO', 'gascony') / 2));
     expect(gascony.why).toMatch(/far from their land/);

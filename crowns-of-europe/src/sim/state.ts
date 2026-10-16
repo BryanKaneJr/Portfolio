@@ -7,8 +7,11 @@ import { dayOf, randInt, years, pairKey } from './util';
 import { newGeneral } from './rulers';
 import { maxManpower } from './economy';
 
-/** Version 7 redrew Italy (24 regions and three new crowns): saves from before it cannot be read. */
-export const SAVE_VERSION = 7;
+/**
+ * Version 7 redrew Italy (24 regions and three new crowns). Version 8 added 22 regions (Ireland, England, the North,
+ * the Baltic, Russia, the steppe, Anatolia, five more powers): saves from before it cannot be read.
+ */
+export const SAVE_VERSION = 8;
 
 /** A save made by an older version, which this one cannot load (rather than one that is damaged). */
 export const saveTooOld = (s: { version?: unknown }): boolean => typeof s.version === 'number' && s.version < SAVE_VERSION;

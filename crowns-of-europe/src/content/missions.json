@@ -223,8 +223,8 @@
     "title": "Lordship of Ireland",
     "desc": "Your writ barely runs beyond the walls of Dublin. Bring the Gaelic lords of Ireland under the crown.",
     "requires": [],
-    "goal": { "owns": "ireland" },
-    "reward": [{ "prestige": 10 }, { "addCore": "ireland" }, { "addClaim": ["lowlands", "highlands"] }]
+    "goal": { "owns": ["ulster", "connacht", "munster"] },
+    "reward": [{ "prestige": 10 }, { "addCore": ["ulster", "connacht", "munster"] }, { "addClaim": ["lowlands", "highlands", "isles"] }]
   },
   {
     "id": "eng_hammer_of_the_scots",
@@ -235,7 +235,7 @@
     "goal": { "any": [{ "owns": ["lowlands", "highlands"] }, { "overlordOf": "SCO" }] },
     "reward": [
       { "prestige": 20 },
-      { "addCore": ["lowlands", "highlands"] },
+      { "addCore": ["lowlands", "highlands", "isles"] },
       {
         "modifier": {
           "id": "eng_one_island",
@@ -281,9 +281,9 @@
     "id": "eng_mart_of_the_world",
     "nation": "ENG",
     "title": "London, Mart of the World",
-    "desc": "Merchants from every nation crowd the wharves of the Thames. Raise London to prosperity 10 and your realm to 60 prosperity.",
+    "desc": "Merchants from every nation crowd the wharves of the Thames. Raise London to prosperity 10 and your realm to 67 prosperity.",
     "requires": ["eng_navy_royal"],
-    "goal": { "all": [{ "capitalDevAtLeast": 10 }, { "devAtLeast": 60 }] },
+    "goal": { "all": [{ "capitalDevAtLeast": 10 }, { "devAtLeast": 67 }] },
     "reward": [
       { "goldPerDev": 2 },
       {
@@ -383,8 +383,8 @@
       "all": [
         {
           "owns": [
-            "galicia", "castile", "toledo", "extremadura", "andalusia", "murcia", "granada", "navarre", "porto",
-            "lisbon", "alentejo"
+            "galicia", "castile", "leon", "toledo", "extremadura", "andalusia", "murcia", "granada", "navarre",
+            "porto", "lisbon", "alentejo"
           ]
         },
         { "any": [{ "overlordOf": "ARA" }, { "owns": ["aragon", "catalonia", "valencia"] }] }
@@ -653,7 +653,7 @@
     "desc": "Galicians speak a tongue close to your own, and many once looked to Lisbon. Take Galicia from Castile.",
     "requires": ["por_friends_across_the_sea"],
     "goal": { "owns": "galicia" },
-    "reward": [{ "prestige": 10 }, { "addCore": "galicia" }, { "addClaim": ["extremadura", "castile", "toledo"] }]
+    "reward": [{ "prestige": 10 }, { "addCore": "galicia" }, { "addClaim": ["leon", "extremadura", "castile", "toledo"] }]
   },
   {
     "id": "por_iberian_crown",
@@ -1089,12 +1089,12 @@
     "id": "boh_ottokars_legacy",
     "nation": "BOH",
     "title": "Ottokar's Legacy",
-    "desc": "Long ago King Ottokar ruled from Prague to the Adriatic, until the Habsburgs took Austria from him. Take Austria and Styria back.",
+    "desc": "Long ago King Ottokar ruled from Prague to the Adriatic, until the Habsburgs took Austria from him. Take Austria, Styria and Carniola back.",
     "requires": ["boh_crown_of_hungary"],
-    "goal": { "owns": ["austria", "styria"] },
+    "goal": { "owns": ["austria", "styria", "carniola"] },
     "reward": [
       { "prestige": 20 },
-      { "addCore": ["austria", "styria"] },
+      { "addCore": ["austria", "styria", "carniola"] },
       {
         "modifier": {
           "id": "boh_ottokars_realm",
@@ -1170,7 +1170,7 @@
     "goal": { "regimentsAtLeast": 18 },
     "reward": [
       { "hireGeneral": { "stars": 4, "name": "Pál Kinizsi" } },
-      { "addClaim": ["moravia", "silesia"] }
+      { "addClaim": ["moravia", "silesia", "lusatia"] }
     ]
   },
   {
@@ -1310,9 +1310,9 @@
     "id": "pol_sea_to_sea",
     "nation": "POL",
     "title": "From Sea to Sea",
-    "desc": "Make Poland the bridge between two seas: hold Danzig on the Baltic and a Black Sea coast in Moldavia, Zaporozhia or Crimea.",
+    "desc": "Make Poland the bridge between two seas: hold Danzig on the Baltic and a Black Sea coast in Moldavia, Ochakov, Zaporozhia or Crimea.",
     "requires": ["pol_winged_hussars", "pol_danzig"],
-    "goal": { "all": [{ "owns": "danzig" }, { "ownsAny": ["moldavia", "zaporozhia", "crimea"] }] },
+    "goal": { "all": [{ "owns": "danzig" }, { "ownsAny": ["moldavia", "ochakov", "zaporozhia", "crimea"] }] },
     "reward": [
       { "prestige": 20 },
       { "modifier": { "id": "pol_two_seas", "name": "Between Two Seas", "months": -1, "mods": { "taxIncome": 0.1 } } }
@@ -1400,10 +1400,10 @@
     "id": "lit_to_the_black_sea",
     "nation": "LIT",
     "title": "To the Black Sea",
-    "desc": "Grand Duke Vytautas once watered his horse in the Black Sea. Take Zaporozhia and the steppe will be yours again.",
+    "desc": "Grand Duke Vytautas held the coast from the Dniester to the Dnieper, built a fort at Dashiv and watered his horse in the Black Sea. Take Ochakov and the coast will be yours again.",
     "requires": [],
-    "goal": { "owns": "zaporozhia" },
-    "reward": [{ "prestige": 10 }, { "addCore": "zaporozhia" }, { "addClaim": "crimea" }]
+    "goal": { "owns": "ochakov" },
+    "reward": [{ "prestige": 10 }, { "addCore": "ochakov" }, { "addClaim": ["zaporozhia", "crimea"] }]
   },
   {
     "id": "lit_crimean_khanate",
@@ -1418,11 +1418,12 @@
     "id": "lit_break_the_horde",
     "nation": "LIT",
     "title": "Break the Great Horde",
-    "desc": "The Great Horde still rides the Don steppe. Take its lands and no khan will threaten your borders again.",
+    "desc": "The Great Horde still rides the Don steppe. Drive it from the Don and its khan will be left with the camps of the Volga.",
     "requires": ["lit_crimean_khanate"],
     "goal": { "owns": "don" },
     "reward": [
       { "prestige": 15 },
+      { "addClaim": "sarai" },
       {
         "modifier": {
           "id": "lit_masters_of_the_steppe",
@@ -1497,7 +1498,7 @@
     "goal": { "owns": "novgorod" },
     "reward": [
       { "addCore": "novgorod" },
-      { "addClaim": "karelia" },
+      { "addClaim": ["karelia", "dvina"] },
       {
         "modifier": {
           "id": "mos_novgorod_furs",
@@ -1517,7 +1518,7 @@
     "goal": { "owns": ["tver", "novgorod", "ryazan", "pskov"] },
     "reward": [
       { "prestige": 25 },
-      { "addClaim": ["livonia", "finland"] },
+      { "addClaim": ["estonia", "vyborg"] },
       {
         "modifier": {
           "id": "mos_gatherer_of_lands",
@@ -1532,9 +1533,9 @@
     "id": "mos_window_to_the_west",
     "nation": "MOS",
     "title": "A Window to the West",
-    "desc": "Russia needs a Baltic port to trade with the West. Take Livonia or Finland.",
+    "desc": "Russia needs a Baltic port to trade with the West. Take Estonia, Livonia or a Finnish port.",
     "requires": ["mos_gather_the_russian_lands"],
-    "goal": { "ownsAny": ["livonia", "finland"] },
+    "goal": { "ownsAny": ["estonia", "livonia", "vyborg", "finland"] },
     "reward": [
       { "prestige": 10 },
       {
@@ -1565,7 +1566,7 @@
     "goal": { "owns": "don" },
     "reward": [
       { "addCore": "don" },
-      { "addClaim": ["crimea", "zaporozhia"] },
+      { "addClaim": ["sarai", "crimea", "zaporozhia"] },
       {
         "modifier": {
           "id": "mos_steppe_riders",
@@ -1665,7 +1666,7 @@
     "reward": [
       { "manpower": 5000 },
       { "addCore": ["serbia", "bosnia"] },
-      { "addClaim": ["hungary", "croatia", "wallachia"] }
+      { "addClaim": ["hungary", "temes", "croatia", "wallachia"] }
     ]
   },
   {
@@ -1675,7 +1676,7 @@
     "desc": "Hungary is the shield of Christendom. Shatter it and the road to the heart of Europe lies open.",
     "requires": ["tur_serbia_and_bosnia"],
     "goal": { "owns": "hungary" },
-    "reward": [{ "prestige": 20 }, { "addCore": "hungary" }, { "addClaim": ["austria", "transylvania"] }]
+    "reward": [{ "prestige": 20 }, { "addCore": "hungary" }, { "addClaim": ["austria", "transylvania", "temes"] }]
   },
   {
     "id": "tur_golden_apple",
@@ -1917,7 +1918,7 @@
     "requires": [],
     "goal": { "shipsAtLeast": 8 },
     "reward": [
-      { "addClaim": "ireland" },
+      { "addClaim": "ulster" },
       { "modifier": { "id": "sco_navy", "name": "Scottish Navy", "months": -1, "mods": { "navalPower": 0.1 } } }
     ]
   },
@@ -1925,19 +1926,19 @@
     "id": "sco_over_the_border",
     "nation": "SCO",
     "title": "Over the Border",
-    "desc": "Yorkshire's dales have changed hands before. Take them from the English while they are busy in France.",
+    "desc": "Berwick and Roxburgh have changed hands before. Take Northumbria from the English while they are busy in France.",
     "requires": [],
-    "goal": { "owns": "yorkshire" },
-    "reward": [{ "prestige": 15 }, { "addCore": "yorkshire" }, { "addClaim": "midlands" }]
+    "goal": { "owns": "northumbria" },
+    "reward": [{ "prestige": 15 }, { "addCore": "northumbria" }, { "addClaim": ["yorkshire", "midlands"] }]
   },
   {
     "id": "sco_bruce_claim",
     "nation": "SCO",
     "title": "The Bruce Claim to Ireland",
-    "desc": "A Bruce was once crowned High King of Ireland. Cross the North Channel and take the island's Gaelic heartland.",
+    "desc": "A Bruce was once crowned High King of Ireland. Cross the North Channel and take Ulster, where Edward Bruce's army landed.",
     "requires": ["sco_great_michael"],
-    "goal": { "owns": "ireland" },
-    "reward": [{ "manpower": 3000 }, { "addCore": "ireland" }, { "addClaim": "pale" }]
+    "goal": { "owns": "ulster" },
+    "reward": [{ "manpower": 3000 }, { "addCore": "ulster" }, { "addClaim": ["pale", "connacht"] }]
   },
   {
     "id": "sco_heart_of_england",
@@ -1971,9 +1972,9 @@
     "id": "sco_scottish_renaissance",
     "nation": "SCO",
     "title": "The Scottish Renaissance",
-    "desc": "Universities, poets at court and a royal printing press. Reach 15 prosperity and 40 renown.",
+    "desc": "Universities, poets at court and a royal printing press. Reach 16 prosperity and 40 renown.",
     "requires": ["sco_tame_the_great_lords"],
-    "goal": { "all": [{ "devAtLeast": 15 }, { "prestigeAtLeast": 40 }] },
+    "goal": { "all": [{ "devAtLeast": 16 }, { "prestigeAtLeast": 40 }] },
     "reward": [
       { "prestige": 10 },
       {
@@ -2003,7 +2004,7 @@
     "requires": [],
     "goal": { "shipsAtLeast": 12 },
     "reward": [
-      { "addClaim": "livonia" },
+      { "addClaim": "estonia" },
       { "modifier": { "id": "dan_sound_dues", "name": "Sound Dues", "months": -1, "mods": { "tradeIncome": 0.1 } } }
     ]
   },
@@ -2024,10 +2025,10 @@
     "id": "dan_duchy_of_estonia",
     "nation": "DAN",
     "title": "The Duchy of Estonia",
-    "desc": "Your ancestors held Reval and the Estonian coast. Take Livonia back from the Order.",
+    "desc": "Your ancestors held Reval and the Estonian coast. Take Estonia back from the Order.",
     "requires": ["dan_guard_the_sound"],
-    "goal": { "owns": "livonia" },
-    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }, { "addCore": "livonia" }]
+    "goal": { "owns": "estonia" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }, { "addCore": "estonia" }]
   },
   {
     "id": "dan_break_the_hansa",
@@ -2059,9 +2060,9 @@
     "id": "dan_masters_of_the_north",
     "nation": "DAN",
     "title": "Masters of the North",
-    "desc": "Make Denmark the great power of the north, with 35 prosperity and 20 regiments under arms.",
+    "desc": "Make Denmark the great power of the north, with 38 prosperity and 20 regiments under arms.",
     "requires": ["dan_holstein"],
-    "goal": { "all": [{ "devAtLeast": 35 }, { "regimentsAtLeast": 20 }] },
+    "goal": { "all": [{ "devAtLeast": 38 }, { "regimentsAtLeast": 20 }] },
     "reward": [
       { "hireGeneral": { "stars": 3, "name": "Daniel Rantzau" } },
       { "modifier": { "id": "dan_northern_power", "name": "Northern Power", "months": -1, "mods": { "morale": 0.1 } } }
@@ -2080,9 +2081,9 @@
     "id": "swe_great_copper_mountain",
     "nation": "SWE",
     "title": "The Great Copper Mountain",
-    "desc": "The mines of Falun produce most of Europe's copper. Bring your lands to 15 prosperity and the profits will fill your treasury.",
+    "desc": "The mines of Falun produce most of Europe's copper. Bring your lands to 17 prosperity and the profits will fill your treasury.",
     "requires": [],
-    "goal": { "devAtLeast": 15 },
+    "goal": { "devAtLeast": 17 },
     "reward": [
       { "goldPerDev": 1 },
       { "modifier": { "id": "swe_falun_copper", "name": "Falun Copper", "months": -1, "mods": { "taxIncome": 0.1 } } }
@@ -2112,19 +2113,19 @@
     "id": "swe_karelian_frontier",
     "nation": "SWE",
     "title": "The Karelian Frontier",
-    "desc": "Novgorod's forests border Finland, and the border has never been settled. Take Karelia.",
+    "desc": "Novgorod's forests run to the walls of Vyborg, and the border has never been settled. Take Karelia.",
     "requires": ["swe_break_kalmar"],
     "goal": { "owns": "karelia" },
-    "reward": [{ "prestige": 10 }, { "addCore": "karelia" }, { "addClaim": "livonia" }]
+    "reward": [{ "prestige": 10 }, { "addCore": "karelia" }, { "addClaim": "estonia" }]
   },
   {
     "id": "swe_across_the_gulf",
     "nation": "SWE",
     "title": "Across the Gulf",
-    "desc": "Livonia's ports control the trade of half of Russia. Cross the gulf and take them.",
+    "desc": "Reval and Narva carry the trade of half of Russia. Cross the gulf and take Estonia.",
     "requires": ["swe_karelian_frontier"],
-    "goal": { "owns": "livonia" },
-    "reward": [{ "goldPerDev": 1 }, { "addCore": "livonia" }, { "addClaim": ["pomerania", "prussia", "danzig"] }]
+    "goal": { "owns": "estonia" },
+    "reward": [{ "goldPerDev": 1 }, { "addCore": "estonia" }, { "addClaim": ["livonia", "pomerania", "prussia", "danzig"] }]
   },
   {
     "id": "swe_baltic_lake",
@@ -2455,20 +2456,20 @@
     "id": "teu_hold_the_ordensland",
     "nation": "TEU",
     "title": "Hold the Ordensland",
-    "desc": "Your towns plot with Poland and your knights grow old. Still hold Danzig and Prussia in 1466 and the Order will survive.",
+    "desc": "Your towns plot with Poland and your knights grow old. Still hold Danzig, Marienburg and Prussia in 1466 and the Order will survive.",
     "requires": [],
-    "goal": { "all": [{ "owns": ["danzig", "prussia"] }, { "year": [1466] }] },
+    "goal": { "all": [{ "owns": ["danzig", "marienburg", "prussia"] }, { "year": [1466] }] },
     "reward": [{ "prestige": 15 }, { "stability": 1 }, { "addClaim": "masovia" }]
   },
   {
     "id": "teu_strengthen_marienburg",
     "nation": "TEU",
     "title": "Strengthen Marienburg",
-    "desc": "Marienburg in Prussia is the heart of the Order. Hold it, field 12 regiments of a new generation of knights, and make it the strongest fortress in the north.",
+    "desc": "Marienburg is the heart of the Order. Hold it, field 12 regiments of a new generation of knights, and make it the strongest fortress in the north.",
     "requires": [],
-    "goal": { "all": [{ "owns": "prussia" }, { "regimentsAtLeast": 12 }] },
+    "goal": { "all": [{ "owns": "marienburg" }, { "regimentsAtLeast": 12 }] },
     "reward": [
-      { "fortRegion": { "region": "prussia", "amount": 1 } },
+      { "fortRegion": { "region": "marienburg", "amount": 1 } },
       { "hireGeneral": { "stars": 3, "name": "Heinrich Reuss von Plauen" } },
       { "addClaim": "lithuania" }
     ]
@@ -2524,9 +2525,9 @@
     "id": "teu_monastic_state",
     "nation": "TEU",
     "title": "The Monastic State",
-    "desc": "Rule Danzig, Prussia, Masovia and Lithuania, eight regions in all, and the Order will be a great power for centuries.",
+    "desc": "Rule Danzig, Marienburg, Prussia, Masovia and Lithuania, nine regions in all, and the Order will be a great power for centuries.",
     "requires": ["teu_strike_at_masovia", "teu_win_back_samogitia"],
-    "goal": { "all": [{ "owns": ["danzig", "prussia", "masovia", "lithuania"] }, { "regionsAtLeast": 8 }] },
+    "goal": { "all": [{ "owns": ["danzig", "marienburg", "prussia", "masovia", "lithuania"] }, { "regionsAtLeast": 9 }] },
     "reward": [
       { "prestige": 20 },
       {

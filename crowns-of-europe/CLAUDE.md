@@ -7,7 +7,7 @@ Handoff notes for Claude Code. Read this first, then `README.md`, `AGENTS.md` (E
 A portrait-only, offline, pay-once grand strategy game (Europe, the Middle East, West Africa and the eastern
 Americas, 1444–1750; every one of its 76 nations playable, and 28 greater crowns to proclaim) for iOS and
 Android: Expo SDK 57, React Native 0.86, TypeScript, Expo Router. The original design doc is the spec except where
-`docs/design-notes.md` says otherwise (Expo instead of Godot, 224 regions including the New World and colonization,
+`docs/design-notes.md` says otherwise (Expo instead of Godot, 246 regions including the New World and colonization,
 a Mercator map, light tutorial, no audio yet).
 
 ## Hard rules
@@ -261,7 +261,7 @@ a copy). Keep the walkthroughs' test IDs.
 
 ## Next tasks
 1. Device test (iPhone SE size and a mid-range Android): pinch focal point, pan inertia, tap accuracy on small
-   regions (Calais, Constantinople, Zealand, Montferrat, Liguria), frame rate at 4× with many armies.
+   regions (Calais, Constantinople, Zealand, Montferrat, Liguria, Schleswig, Devon, Carniola, the Isles), frame rate at 4× with many armies.
 2. Balance over full campaigns with `npm run soak -- 300 <seed>` (prints the New World too): AI expansion pace,
    coalition frequency, late-game gold (development costs), Ottoman and French strength, and the colonial race
    (colonist sources in `colonies.ts`, settler numbers in `settlerGrowth`). The AI rarely builds transports, so it
@@ -269,5 +269,6 @@ a copy). Keep the walkthroughs' test IDs.
 3. Audio: a few period tracks and battle/UI sounds (expo-audio), with a mute switch in Settings.
 4. Store prep: icon review, screenshots (`SHOT_W=430 SHOT_H=932 npm run screens`), EAS build profiles.
 5. Rebuild the Illustrated tiles (`npm run tiles:build`, needs the Python packages in
-   `scripts/terrain/requirements.txt`): they predate Italy's 24 regions, so a few drawn peaks may sit under the new
-   Italian names.
+   `scripts/terrain/requirements.txt`): they predate Italy's 24 regions and the 22 regions of 2026, so a few drawn peaks
+   may sit under the new names (viken, vyborg, dvina and sarai are in `L4_SKIP` but not yet in the generated
+   `TERRAIN_FINEST_SKIP`; drop `PENDING_TILES` in `tests/terrain.test.ts` after the rebuild).

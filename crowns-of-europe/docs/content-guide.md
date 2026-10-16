@@ -6,7 +6,7 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
 
 | File | What |
 | --- | --- |
-| `regions.json` | 224 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
+| `regions.json` | 246 land regions: id, name, 1444 owner (`null` = uncolonized), terrain, development (1-10), fort (0-3), faith, HRE, trade; New World regions have `nw` (uncharted until discovery); uncolonized and New World regions have `natives` (thousands), `hostility` (0-3) and an export `good` (the African coast is uncolonized but not `nw`, so it is open from 1444) |
 | `nations.json` | 76 nations: tag, name, colour, faith, capital, government, AI personality, national trait, ruler, heir; New World peoples have `native: true` and the `native` faith |
 | `seas.json` | Sea zones (`ocean`, `nw`, `closed`, `charted` for a closed sea still drawn as water, `days` to cross), straits, wildernesses, the Great Lakes, sea links and rivers (all map seeds) |
 | `scenario1444.json` | Starting claims (each with its historical reason and the year it lapses), alliances, subjects, rivals, truces, marriages, HRE emperor and electors |

@@ -1,7 +1,7 @@
 {
   "seas": [
     {"id": "norwegian_sea", "name": "Norwegian Sea", "seeds": [[3.0, 63.0], [10.0, 67.5], [-1.0, 60.5]], "ocean": true},
-    {"id": "north_sea", "name": "North Sea", "seeds": [[3.0, 55.5], [1.5, 58.0], [6.0, 57.0], [9.5, 57.9], [11.5, 57.2]], "ocean": true},
+    {"id": "north_sea", "name": "North Sea", "seeds": [[3.0, 55.5], [1.5, 58.0], [6.0, 57.0], [9.5, 57.9], [11.5, 57.2], [-1.3, 55.6]], "ocean": true},
     {"id": "channel", "name": "English Channel", "seeds": [[-2.0, 50.0], [0.8, 50.4], [-4.5, 49.5]], "ocean": true},
     {"id": "irish_sea", "name": "Irish Sea", "seeds": [[-5.0, 53.8], [-6.0, 52.0], [-5.5, 55.2]], "ocean": true},
     {"id": "atlantic", "name": "Atlantic Approaches", "seeds": [[-10.5, 51.0], [-10.6, 55.5], [-9.0, 57.5], [-8.0, 49.5]], "ocean": true},
@@ -57,14 +57,15 @@
     {"a": "granada", "b": "fez", "sea": "west_med", "name": "Strait of Gibraltar"},
     {"a": "crimea", "b": "don", "sea": "black_sea", "name": "Kerch Strait"},
     {"a": "corsica", "b": "sardinia", "sea": "tyrrhenian", "name": "Strait of Bonifacio"},
-    {"a": "lowlands", "b": "ireland", "sea": "irish_sea", "name": "North Channel"}
+    {"a": "lowlands", "b": "ulster", "sea": "irish_sea", "name": "North Channel"},
+    {"a": "isles", "b": "ulster", "sea": "irish_sea", "name": "North Channel"}
   ],
   "wastelands": [
     {"id": "sahara", "name": "Sahara", "seeds": [[-4.5, 30.5], [-1.0, 32.6], [3.0, 33.4], [7.0, 33.2], [9.0, 31.5], [12.0, 31.0], [17.3, 30.6], [20.0, 29.2], [-12.0, 24.0], [-3.0, 23.0], [6.0, 23.0], [15.0, 24.0], [24.0, 23.0], [-12.5, 19.5], [1.0, 19.0], [12.0, 19.0], [22.0, 18.5], [23.5, 29.5], [26.5, 28.8], [28.8, 27.0], [28.5, 24.5], [-4.5, 19.0], [-9.5, 16.5], [-15.0, 23.0], [3.8, 17.5], [33.9, 26.4], [33.0, 28.4], [-10.8, 27.4], [-7.5, 28.6]]},
     {"id": "syrian_desert", "name": "Syrian Desert", "seeds": [[38.8, 33.2], [40.5, 34.5], [41.8, 32.8], [38.0, 31.0], [39.8, 35.8]]},
     {"id": "caucasus", "name": "Caucasus", "seeds": [[44.5, 43.0], [42.4, 43.6], [40.3, 44.2], [46.6, 42.4], [46.8, 41.0], [46.0, 44.5]]},
     {"id": "lapland", "name": "Lapland", "seeds": [[19.0, 68.3], [24.0, 68.0], [28.5, 67.5], [33.0, 67.6], [37.0, 67.5], [25.5, 69.6], [18.0, 69.0]]},
-    {"id": "volga", "name": "Kazan", "seeds": [[47.0, 55.0], [46.8, 51.5], [47.0, 58.5], [46.5, 61.5], [45.5, 64.5]]},
+    {"id": "volga", "name": "Kazan", "seeds": [[47.0, 55.0], [46.8, 51.5], [47.0, 58.5], [46.5, 61.5], [45.5, 64.5], [46.6, 56.1], [46.3, 55.1]]},
     {"id": "arabia", "name": "Arabia", "seeds": [[45.0, 21.0], [44.0, 15.0], [46.0, 26.0], [41.5, 19.5], [41.8, 24.5], [40.0, 28.3], [43.5, 28.5], [44.5, 30.5], [33.9, 29.0]]},
     {"id": "nubia", "name": "Nubia", "seeds": [[32.0, 17.0], [30.0, 13.0], [36.0, 15.5], [27.0, 16.0], [32.3, 21.3], [35.5, 22.0]]},
     {"id": "ethiopia", "name": "Ethiopia", "seeds": [[39.0, 10.0], [38.5, 13.5], [42.5, 8.0], [45.5, 4.0]]},
@@ -116,10 +117,10 @@
     {"name": "Rhine", "between": [["lorraine", "swabia"], ["lorraine", "palatinate"], ["swabia", "switzerland"], ["mainz", "trier"], ["cologne", "holland"]]},
     {"name": "Meuse", "between": [["brabant", "cologne"]]},
     {"name": "Moselle", "between": [["cologne", "trier"]]},
-    {"name": "Danube", "between": [["hungary", "upper_hungary"], ["bulgaria", "wallachia"], ["hungary", "serbia"], ["austria", "hungary"]]},
+    {"name": "Danube", "between": [["hungary", "upper_hungary"], ["bulgaria", "wallachia"], ["hungary", "serbia"], ["serbia", "temes"], ["austria", "hungary"]]},
     {"name": "Inn", "between": [["austria", "bavaria"]]},
     {"name": "Sava", "between": [["bosnia", "croatia"], ["croatia", "serbia"]]},
-    {"name": "Vistula", "between": [["danzig", "prussia"], ["greater_poland", "masovia"]]},
+    {"name": "Vistula", "between": [["danzig", "marienburg"], ["greater_poland", "masovia"]]},
     {"name": "Oder", "between": [["brandenburg", "pomerania"]]},
     {"name": "Elbe", "between": [["brunswick", "holstein"], ["altmark", "brandenburg"]]},
     {"name": "Loire", "between": [["anjou", "poitou"], ["orleans", "poitou"]]},
@@ -127,8 +128,8 @@
     {"name": "Po", "between": [["montferrat", "lombardy"], ["lombardy", "parma"], ["ferrara", "verona"]]},
     {"name": "Ebro", "between": [["aragon", "navarre"], ["castile", "navarre"]]},
     {"name": "Tagus", "between": [["alentejo", "lisbon"]]},
-    {"name": "Dnieper", "between": [["kiev", "zaporozhia"], ["minsk", "smolensk"]]},
-    {"name": "Dniester", "between": [["moldavia", "red_ruthenia"]]},
+    {"name": "Dnieper", "between": [["kiev", "zaporozhia"], ["ochakov", "zaporozhia"], ["minsk", "smolensk"]]},
+    {"name": "Dniester", "between": [["moldavia", "red_ruthenia"], ["moldavia", "podolia"], ["moldavia", "ochakov"]]},
     {"name": "Volga", "between": [["vladimir", "yaroslavl"]]},
     {"name": "Neman", "between": [["lithuania", "prussia"]]},
     {"name": "Garonne", "between": [["gascony", "languedoc"]]}
