@@ -1144,3 +1144,13 @@ weighed and left inside their neighbours).
   Muscovy 9 / 2 / 8 → 0 / 11 / 11 (in seed 1 Novgorod takes Yaroslavl in 1446 and Lithuania Moscow in 1447; Moscow is
   Muscovite in 1461 in seeds 4–6). `batch2` seeds 1–2: 54 / 44 → 55 / 55 wars, 48 / 55 → 51 / 45 realms alive in 1500;
   St Stephen's Habsburg in both; every landmark held by a crown in both.
+- **AI games to 1560** (16 games, seeds 1-16, the merged code against the map just before it): wars declared 82.2 →
+  88.2 a game (more land, more claims); realms alive in 1500 50.4 → 51.2 and in 1560 38.1 → 39.6; Constantinople
+  Ottoman by 1446-47 as before. England 11.1 → 18.8 regions in 1560 (it starts with three more at home, and the Pale
+  is English in 14 games of 16, 11 before); Normandy French in 14 games of 16 and Gascony in 12, as before; France 24.8
+  → 22.8. The Ottomans 23.8 → 28.4 (two more to start); Buda Ottoman by 1500 in 5 games of 16 (2 before) and by 1530
+  in 11 (9); Vienna Habsburg in all but one. Muscovy 6.1 → 9.4, alive in 13 games of 16 as before, Russia proclaimed in
+  11 (9). Alive in 1560, before → after: Crimea 0 → 6, Livonia 3 → 7, the Great Horde 1 → 4, the Teutonic Order 1 → 3,
+  Novgorod 6 → 7, Ireland 4 → 5, Scotland 14 → 13, Sweden 11 → 8 (Denmark 13.8 → 16.4 regions; Scandinavia proclaimed
+  in 13 games, 14 before). The Buda and Sweden shifts are within what 16 games can tell apart; watch them in the next
+  measurement.
