@@ -40,7 +40,7 @@ export default function Title() {
     setNotice(null);
     const s = await loadGame(m.slot);
     if (!s) {
-      setNotice((await saveIsOld(m.slot)) ? 'That save is from before Italy was redrawn and can no longer be loaded.' : 'That save could not be loaded.');
+      setNotice((await saveIsOld(m.slot)) ? 'That save is from an older version of the map and can no longer be loaded.' : 'That save could not be loaded.');
       return;
     }
     store.load(s);

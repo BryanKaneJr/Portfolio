@@ -21,7 +21,7 @@ export function monthlyReligion(s: GameState): void {
       if (r.faith !== 'catholic' || !r.owner) continue;
       const def = REGION[r.id];
       const [lon, lat] = MAP_REGION[r.id].lonlat;
-      const zone = def.hre || lat > 53 || (lon > 12 && lat > 50) || ['switzerland', 'bohemia', 'hungary', 'transylvania', 'lowlands', 'london', 'midlands'].includes(r.id);
+      const zone = def.hre || lat > 53 || (lon > 12 && lat > 50) || ['switzerland', 'bohemia', 'hungary', 'transylvania', 'lowlands', 'london', 'east_anglia', 'midlands'].includes(r.id);
       if (!zone) continue;
       const protestantNeighbour = GRAPH[r.id].some(e => s.regions[e.to]?.faith === 'protestant');
       const ownerProtestant = s.nations[r.owner]?.faith === 'protestant';

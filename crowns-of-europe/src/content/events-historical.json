@@ -287,7 +287,7 @@
       "all": [
         {"atWarWith": "HAB"},
         {"nationOwns": {"nation": "HAB", "region": "austria"}},
-        {"ownsAny": ["hungary", "upper_hungary", "croatia", "styria", "transylvania"]}
+        {"ownsAny": ["hungary", "upper_hungary", "croatia", "styria", "transylvania", "temes", "carniola"]}
       ]
     },
     "choices": [
@@ -435,7 +435,9 @@
             {"nationOwns": {"nation": "TUR", "region": "wallachia"}},
             {"nationOwns": {"nation": "TUR", "region": "styria"}},
             {"nationOwns": {"nation": "TUR", "region": "austria"}},
-            {"nationOwns": {"nation": "TUR", "region": "tyrol"}}
+            {"nationOwns": {"nation": "TUR", "region": "tyrol"}},
+            {"nationOwns": {"nation": "TUR", "region": "temes"}},
+            {"nationOwns": {"nation": "TUR", "region": "carniola"}}
           ]
         }
       ]
@@ -445,7 +447,7 @@
         "text": "Lead a Holy League into Hungary",
         "effects": [
           {"setFlag": "great_turkish_war"},
-          {"addClaim": ["hungary", "upper_hungary", "transylvania", "croatia", "bosnia", "serbia"]},
+          {"addClaim": ["hungary", "temes", "upper_hungary", "transylvania", "croatia", "bosnia", "serbia"]},
           {"papalFavor": 10},
           {"declareWar": {"target": "TUR", "cb": "holy", "with": ["POL", "VEN", "PAP", "MOS", "BAV", "SAX", "BRA", "BOH", "HUN"]}}
         ],
@@ -479,7 +481,8 @@
             {"nationOwns": {"nation": "TUR", "region": "wallachia"}},
             {"nationOwns": {"nation": "TUR", "region": "hungary"}},
             {"nationOwns": {"nation": "TUR", "region": "transylvania"}},
-            {"nationOwns": {"nation": "TUR", "region": "croatia"}}
+            {"nationOwns": {"nation": "TUR", "region": "croatia"}},
+            {"nationOwns": {"nation": "TUR", "region": "temes"}}
           ]
         }
       ]
@@ -489,7 +492,7 @@
         "text": "Send Prince Eugene south",
         "effects": [
           {"setFlag": "second_turkish_war"},
-          {"addClaim": ["serbia", "bosnia", "wallachia", "hungary", "transylvania", "croatia"]},
+          {"addClaim": ["serbia", "bosnia", "wallachia", "hungary", "temes", "transylvania", "croatia"]},
           {"declareWar": {"target": "TUR", "cb": "holy", "with": ["VEN", "POL", "MOS", "BAV", "SAX"]}}
         ],
         "ai": 4
@@ -527,7 +530,9 @@
             {"nationOwns": {"nation": "TUR", "region": "styria"}},
             {"nationOwns": {"nation": "TUR", "region": "austria"}},
             {"nationOwns": {"nation": "TUR", "region": "tyrol"}},
-            {"nationOwns": {"nation": "TUR", "region": "moldavia"}}
+            {"nationOwns": {"nation": "TUR", "region": "moldavia"}},
+            {"nationOwns": {"nation": "TUR", "region": "temes"}},
+            {"nationOwns": {"nation": "TUR", "region": "carniola"}}
           ]
         }
       ]
@@ -1765,7 +1770,7 @@
     "choices": [
       {
         "text": "Press your claim to the Spanish throne",
-        "effects": [{"addClaim": ["castile", "toledo", "andalusia"]}, {"threat": 15}],
+        "effects": [{"addClaim": ["castile", "leon", "toledo", "andalusia"]}, {"threat": 15}],
         "ai": 3
       },
       {"text": "Accept the will and keep the peace", "effects": [{"stability": 1}, {"threat": -5}], "ai": 1}
@@ -1917,7 +1922,18 @@
             {"all": [{"owns": "flanders"}, {"regionFaith": {"region": "flanders", "faith": "protestant"}}]},
             {"all": [{"owns": "hungary"}, {"regionFaith": {"region": "hungary", "faith": "protestant"}}]},
             {"all": [{"owns": "upper_hungary"}, {"regionFaith": {"region": "upper_hungary", "faith": "protestant"}}]},
-            {"all": [{"owns": "transylvania"}, {"regionFaith": {"region": "transylvania", "faith": "protestant"}}]}
+            {"all": [{"owns": "transylvania"}, {"regionFaith": {"region": "transylvania", "faith": "protestant"}}]},
+            {"all": [{"owns": "east_anglia"}, {"regionFaith": {"region": "east_anglia", "faith": "protestant"}}]},
+            {"all": [{"owns": "devon"}, {"regionFaith": {"region": "devon", "faith": "protestant"}}]},
+            {"all": [{"owns": "northumbria"}, {"regionFaith": {"region": "northumbria", "faith": "protestant"}}]},
+            {"all": [{"owns": "isles"}, {"regionFaith": {"region": "isles", "faith": "protestant"}}]},
+            {"all": [{"owns": "schleswig"}, {"regionFaith": {"region": "schleswig", "faith": "protestant"}}]},
+            {"all": [{"owns": "viken"}, {"regionFaith": {"region": "viken", "faith": "protestant"}}]},
+            {"all": [{"owns": "vyborg"}, {"regionFaith": {"region": "vyborg", "faith": "protestant"}}]},
+            {"all": [{"owns": "estonia"}, {"regionFaith": {"region": "estonia", "faith": "protestant"}}]},
+            {"all": [{"owns": "marienburg"}, {"regionFaith": {"region": "marienburg", "faith": "protestant"}}]},
+            {"all": [{"owns": "lusatia"}, {"regionFaith": {"region": "lusatia", "faith": "protestant"}}]},
+            {"all": [{"owns": "carniola"}, {"regionFaith": {"region": "carniola", "faith": "protestant"}}]}
           ]
         }
       ]
@@ -2096,7 +2112,7 @@
       {
         "text": "March on Prague",
         "effects": [
-          {"addClaim": ["bohemia", "moravia", "silesia"]},
+          {"addClaim": ["bohemia", "moravia", "silesia", "lusatia"]},
           {"breakAlliance": "BOH"},
           {"declareWar": {"target": "BOH", "cb": "claim", "region": "bohemia"}},
           {"papalFavor": 10},
@@ -2407,7 +2423,7 @@
       {
         "text": "Accept their homage and declare war",
         "effects": [
-          {"addClaim": ["danzig", "prussia"]},
+          {"addClaim": ["danzig", "marienburg", "prussia"]},
           {"setFlag": "thirteen_years_war"},
           {"declareWar": {"target": "TEU", "cb": "claim", "region": "danzig"}},
           {"triggerEvent": {"id": "teu_prussian_confederation", "months": 1, "nation": "TEU"}},
@@ -2418,7 +2434,7 @@
       {
         "text": "Accept their homage, but bide your time",
         "effects": [
-          {"addClaim": ["danzig", "prussia"]},
+          {"addClaim": ["danzig", "marienburg", "prussia"]},
           {"setFlag": "thirteen_years_war"},
           {"triggerEvent": {"id": "teu_prussian_confederation", "months": 1, "nation": "TEU"}}
         ],
@@ -2769,7 +2785,7 @@
       {
         "text": "Claim Novgorod as your patrimony",
         "effects": [
-          {"addClaim": ["novgorod", "karelia"]},
+          {"addClaim": ["novgorod", "karelia", "dvina"]},
           {"threat": 10},
           {"triggerEvent": {"id": "nov_moscow_party", "months": 6, "nation": "NOV"}}
         ],
@@ -2926,8 +2942,8 @@
       {
         "text": "Invade Livonia",
         "effects": [
-          {"addClaim": "livonia"},
-          {"declareWar": {"target": "LIV", "cb": "claim", "region": "livonia"}},
+          {"addClaim": ["estonia", "livonia"]},
+          {"declareWar": {"target": "LIV", "cb": "claim", "region": "estonia"}},
           {"threat": 10}
         ],
         "ai": 3

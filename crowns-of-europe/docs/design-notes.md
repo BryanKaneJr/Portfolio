@@ -1043,8 +1043,9 @@ and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–
 - **The Duomo** stood by Siena's walls: Siena's town is 18 points south of Florence's at play zoom, and a landmark
   within 20 points of its own town was let stand nearer a neighbour's. It now keeps clearly nearer its own (east of
   Florence from play zoom on).
-- **Old saves** are refused (version 7): the message on the title says the save is from before Italy was redrawn. The
-  game has not shipped; a migration would have had to invent owners for the land that moved.
+- **Old saves** are refused (version 7; version 8 since the 22 regions below): the title now says the save is from an
+  older version of the map. The game has not shipped; a migration would have had to invent owners for the land that
+  moved.
 - **Not rebuilt:** the Illustrated style's tiles (`npm run tiles:build`, Python and GDAL); their coast is off by at most
   0.26 units in Italy and a few drawn peaks may sit under the new names. The relief and the drawn mountains were rebuilt
   (the 387 drawings came out the same).
@@ -1061,3 +1062,61 @@ and Calabria. The Po runs Montferrat–Lombardy, Lombardy–Parma and Ferrara–
   Papal States 13 → 16, Genoa 7 → 10, Savoy 9 → 13, Ferrara 13, Montferrat 10; Siena 10 in 1480, 9 in 1500, 3 in 1560
   (it fell in 1555). France holds 13% of the Italian regions in 1560 (30% on the old map); the Pope 19%, Naples 16%,
   Aragon 12%, Venice 11%.
+
+## Twenty-two more lands of 1444
+
+The owner found a few places too thin: Ireland one region, England small, Denmark one land at home, Sweden three,
+Livonia, the Great Horde and Crimea one or two each, Muscovy and Novgorod too few, and the south and east of Anatolia
+empty. Five area proposals offered 24 new regions; 22 were kept (224 → 246), each a real land of 1444 with its chief
+town, and no new crowns (the Lordship of the Isles, Desmond, Tír Conaill, the Candarids, Kaffa and Theodoro were
+weighed and left inside their neighbours).
+
+- **The new lands.** Ireland is Ulster (Dungannon, the Ó Néill seat, now the capital), Connacht (Galway) and Munster
+  (the old `ireland`, Limerick), with England's Pale (Dublin, Meath). England adds East Anglia (Norwich, with Essex),
+  Devon (Exeter) and Northumbria (Newcastle, Berwick's border); Scotland the Isles (Finlaggan). Denmark adds Schleswig
+  and Viken (Oslo, with Bohuslän); Sweden Vyborg; the Teutonic Order Marienburg (the Grand Master's seat, now its
+  capital, with Elbing); Livonia Estonia (Reval); Novgorod the Dvina (Kholmogory); Muscovy Nizhny Novgorod; the Great
+  Horde Sarai (now its capital); Crimea Ochakov; the Ottomans Teke (Antalya) and Amasya. Five more crowns get one land
+  each: Castile León, the Habsburgs Carniola (Laibach), Bohemia Lusatia (Bautzen), Hungary Temes (Temesvár), Poland
+  Podolia (Kamieniec).
+- **What was cut.** Lancashire was the weakest proposal (prosperity 1, troops shrunk to 0.7): Yorkshire keeps
+  Lancashire and Man. Berry was the one proposal that moved the Hundred Years' War (the French held Gascony in 21 of 24
+  AI games with it, 11 without), and France is not thin. Dauphiné, Aberdeen, Vologda and Franche-Comté stay reserves.
+- **England's prosperity is kept nearly as it was** (41 → 43, twelve regions): a crown starts with a second army when
+  its 1444 army limit reaches 16 regiments, and at 48 England started with armies in London and Normandy and lost
+  Normandy in 12 of 12 AI games. So East Anglia is 2, Devon and Northumbria 1, Wessex 4 → 3, Yorkshire 5 → 4: Norwich,
+  Exeter and Newcastle are drawn as villages. Elsewhere `learning` was retuned so day-1 science stays within about 1%
+  (Scotland 1.13, Ireland 0.93, Novgorod 0.97, Muscovy 0.92, Crimea 0.82, the Habsburgs 1.16, Bohemia 1.15...).
+- **No new region land in the waste.** The Nordic proposal's two Lapland seeds would have turned 6,000 square units of
+  waste into land the Illustrated style has no tiles for; Vyborg takes Finland's old Savolax seed instead, so its name
+  sits over Savolax and Kainuu. The Kazan waste gains two seeds on the Sura so Vladimir and Ryazan keep to their land.
+- **Map.** The smallest new regions are Schleswig (544 square units), Devon (642) and Carniola (660); Constantinople
+  is 388. Every new region holds its own town and 21 of 22 names are written at play zoom (the Isles from 1.76, as
+  Montferrat). No new pair of names touches at play zoom or closer; East Anglia and the Midlands, Moldavia and Ochakov,
+  and Carniola and Croatia touch only at zoom 1.15–1.3. Of 619 real towns checked, 593 fall in the region that held
+  them in 1444; the misses were accepted (Oxford and Gloucester in Wessex, Kendal in Northumbria, Waterford in the
+  Pale, Kirkwall and Lerwick, Norway's until 1468–69, in Scotland, Memel in Lithuania).
+- **London's army.** London's name sits by the Thames with the Channel a degree south, so its army stands above the
+  name; with Essex in London it rose over East Anglia's name (0.27 of it). Essex went to East Anglia instead (built and
+  looked at in the game): London's name moves to the Weald and its army covers 0.04 of East Anglia's, and Westminster
+  still stands by London's town.
+- **Saves** are version 8; older ones are refused with a message that the save is from an older version of the map.
+- **Not rebuilt:** the Illustrated tiles (`npm run tiles:build`, Python and GDAL); viken, vyborg, dvina and sarai are in
+  `L4_SKIP` but the generated `TERRAIN_FINEST_SKIP` learns them only at the rebuild (`PENDING_TILES` in the terrain
+  test until then). The relief and the drawn terrain were rebuilt.
+- **`master_of_europe`** (40 regions) is a little easier on a denser map; left as it is.
+- **AI games** (a sandbox of the merged design, the AI playing every crown, today's code against it; 24 seeds to 1465,
+  8 to 1560). Constantinople Ottoman in 24 of 24, falling 1445–1450. The Hundred Years' War holds: Normandy French by
+  1465 in 17 of 24 (20 today), Gascony in 12 (10), Calais English in 24 (22). Alive in 1465: the Teutonic Order 18 of 24
+  (3 today; Marienburg Polish in 17 of 24, as it was sold in 1457), Livonia 23 (18), the Great Horde 19 (15), Karaman 24
+  (20). Ireland is the shift to watch: dead by 1465 in 5 of 24 (15 today), but England takes Munster early (1446–51) in
+  12 of 24, since its first war can now take a province that is not the capital; Ireland takes the Pale in 12 (5) and
+  proclaims the High Kingdom in 10 (5). A ten-year truce and Munster as capital were measured and not adopted; the next
+  lever is Connacht's prosperity 2 → 1. To 1560: Scandinavia proclaimed in 7 of 8 as today, Russia 4 (5), the
+  Commonwealth 7 (6), Spain 7 (4); wars a game 75.0 → 86.6; realms alive 40.2 → 40.1; the Ottomans hold 32.1 regions
+  (23.9), only two of them their new lands.
+- **On the built branch** (short checks): Constantinople Ottoman by 1450 in 11 of seeds 1–12 (seed 12 falls by 1456;
+  today 12 of 12). To 1500, seeds 1–3 (today → now): England loses Normandy in 1449 / 1479 / 1449 → 1477 / 1450 / 1464
+  and holds 1 / 7 / 8 → 14 / 8 / 14 regions in 1480 (in seed 1 today France takes England itself in 1475); Muscovy 9 / 2
+  / 8 → 8 / 9 / 5. `batch2` seeds 1–2: 54 / 44 → 61 / 53 wars, 48 / 55 → 45 / 52 realms alive in 1500; every landmark
+  held by a crown in both.

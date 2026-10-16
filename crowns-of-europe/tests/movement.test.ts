@@ -367,12 +367,12 @@ describe('movement', () => {
     forceWar(s, 'SCO', 'ENG');
     const w = declareWar(s, 'FRA', 'ENG', 'none')!;
     w.attackers.push('SCO');
-    const sco = army(s, 'SCO', 'yorkshire', 10);
-    const fra = army(s, 'FRA', 'yorkshire', 10);
-    army(s, 'ENG', 'yorkshire', 10);
+    const sco = army(s, 'SCO', 'northumbria', 10);
+    const fra = army(s, 'FRA', 'northumbria', 10);
+    army(s, 'ENG', 'northumbria', 10);
     sco.arrivedDay = s.day;
     sco.from = 'lowlands';
-    joinOrStartBattle(s, 'yorkshire', sco);
+    joinOrStartBattle(s, 'northumbria', sco);
     const b = Object.values(s.battles)[0];
     expect(b.sides[0].nations[0]).toBe('SCO');
     leaveWar(s, w, 'SCO');

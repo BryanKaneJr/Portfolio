@@ -77,7 +77,7 @@ describe('Italy in 1444', () => {
 });
 
 describe('old saves', () => {
-  test('a save from before Italy was redrawn is refused, and known as old rather than damaged', () => {
+  test('a save from an older map is refused, and known as old rather than damaged', () => {
     const s = newGame({ player: 'VEN', seed: 2 });
     const old = JSON.parse(JSON.stringify(s)) as GameState;
     old.version = SAVE_VERSION - 1;

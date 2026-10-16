@@ -30,7 +30,8 @@ REGION = (1184, 128, 2576, 1728)  # x0, y0, x1, y1
 # The finest level (L4) is made only where regions are small enough that players zoom right in; over these (the far
 # north and east's giant regions, West Africa and the Atlantic islands) level 3 stands in at the closest zooms.
 L4_SKIP = (
-    "norway", "svealand", "finland", "karelia", "novgorod", "yaroslavl", "ryazan", "don", "iceland",
+    "norway", "viken", "svealand", "finland", "vyborg", "karelia", "dvina", "novgorod", "yaroslavl", "ryazan", "don",
+    "sarai", "iceland",
     "azores", "madeira", "canaries", "cape_verde", "arguin", "senegal", "gambia", "guinea", "sierra_leone", "mali",
     "timbuktu", "gao", "ivory_coast", "gold_coast",
 )

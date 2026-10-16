@@ -548,7 +548,7 @@ describe('ultimatums and the player’s own peace offers', () => {
     expect(peaceOffers(b.s)).toHaveLength(0);
   });
 
-  /** England (the player) losing to Scotland, which holds `lev` leverage and claims Yorkshire. */
+  /** England (the player) losing to Scotland, which holds `lev` leverage and claims Northumbria. */
   function englandLosing(lev: number): { s: GameState; w: War } {
     const s = emptyGame('ENG');
     s.alliances = {};
@@ -562,7 +562,7 @@ describe('ultimatums and the player’s own peace offers', () => {
 
   test('land far from the enemy is worth half to them; land they claim, its full price', () => {
     const { s, w } = englandLosing(20);
-    expect(concessionValue(s, w, 'SCO', 'yorkshire')).toEqual({ value: regionPeaceCost(s, 'SCO', 'yorkshire'), why: 'they claim it' });
+    expect(concessionValue(s, w, 'SCO', 'northumbria')).toEqual({ value: regionPeaceCost(s, 'SCO', 'northumbria'), why: 'they claim it' });
     const gascony = concessionValue(s, w, 'SCO', 'gascony');
     expect(gascony.value).toBe(Math.round(regionPeaceCost(s, 'SCO', 'gascony') / 2));
     expect(gascony.why).toMatch(/far from their land/);
