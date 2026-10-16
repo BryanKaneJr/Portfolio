@@ -176,7 +176,7 @@ export function evalCondition(s: GameState, n: NationId, c: Condition): boolean 
 const REFORMATION_ZONE = (r: string) => {
   const def = REGION[r];
   const [lon, lat] = MAP_REGION[r].lonlat;
-  return def.hre || lat > 54 || ['bohemia', 'moravia', 'silesia', 'switzerland', 'lowlands', 'highlands', 'london', 'east_anglia', 'wessex', 'devon', 'midlands', 'yorkshire', 'wales', 'hungary', 'transylvania', 'upper_hungary'].includes(r) || (lon > 13 && lon < 24 && lat > 51);
+  return def.hre || lat > 54 || ['bohemia', 'moravia', 'silesia', 'switzerland', 'lowlands', 'highlands', 'london', 'east_anglia', 'wessex', 'devon', 'midlands', 'yorkshire', 'wales', 'hungary', 'temes', 'transylvania', 'upper_hungary'].includes(r) || (lon > 13 && lon < 24 && lat > 51);
 };
 
 /**

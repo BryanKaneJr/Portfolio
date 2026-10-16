@@ -1400,7 +1400,7 @@
     "id": "lit_to_the_black_sea",
     "nation": "LIT",
     "title": "To the Black Sea",
-    "desc": "Grand Duke Vytautas held the coast from the Dniester to the Dnieper and watered his horse in the Black Sea. Take Ochakov and the coast will be yours again.",
+    "desc": "Grand Duke Vytautas held the coast from the Dniester to the Dnieper, built a fort at Dashiv and watered his horse in the Black Sea. Take Ochakov and the coast will be yours again.",
     "requires": [],
     "goal": { "owns": "ochakov" },
     "reward": [{ "prestige": 10 }, { "addCore": "ochakov" }, { "addClaim": ["zaporozhia", "crimea"] }]
@@ -1418,11 +1418,12 @@
     "id": "lit_break_the_horde",
     "nation": "LIT",
     "title": "Break the Great Horde",
-    "desc": "The Great Horde still rides the Don steppe. Take its lands and no khan will threaten your borders again.",
+    "desc": "The Great Horde still rides the Don steppe. Drive it from the Don and its khan will be left with the camps of the Volga.",
     "requires": ["lit_crimean_khanate"],
     "goal": { "owns": "don" },
     "reward": [
       { "prestige": 15 },
+      { "addClaim": "sarai" },
       {
         "modifier": {
           "id": "lit_masters_of_the_steppe",
@@ -2115,7 +2116,7 @@
     "desc": "Novgorod's forests run to the walls of Vyborg, and the border has never been settled. Take Karelia.",
     "requires": ["swe_break_kalmar"],
     "goal": { "owns": "karelia" },
-    "reward": [{ "prestige": 10 }, { "addCore": "karelia" }, { "addClaim": "livonia" }]
+    "reward": [{ "prestige": 10 }, { "addCore": "karelia" }, { "addClaim": "estonia" }]
   },
   {
     "id": "swe_across_the_gulf",
@@ -2124,7 +2125,7 @@
     "desc": "Reval and Narva carry the trade of half of Russia. Cross the gulf and take Estonia.",
     "requires": ["swe_karelian_frontier"],
     "goal": { "owns": "estonia" },
-    "reward": [{ "goldPerDev": 1 }, { "addCore": "estonia" }, { "addClaim": ["pomerania", "prussia", "danzig"] }]
+    "reward": [{ "goldPerDev": 1 }, { "addCore": "estonia" }, { "addClaim": ["livonia", "pomerania", "prussia", "danzig"] }]
   },
   {
     "id": "swe_baltic_lake",

@@ -73,6 +73,11 @@ export const reparationsCost = (s: GameState, loser: NationId) =>
 /** The AI asks reparations only of a loser with at least this much income a month (60 gold over the ten years). */
 const AI_REPARATIONS_INCOME = 5;
 /** Renown a humbled loser gives up (and the winner gains before its own bonus). */
+/**
+ * A great crown with this many regions or fewer is down to its heartland and gives up one region a peace. Five since
+ * 2026's twenty-two new lands, which gave most great crowns one more region at home (Hungary five, Austria four).
+ */
+export const HEARTLAND = 5;
 export const humbleRenown = (s: GameState, winner: NationId, loser: NationId) => HUMBLE_RENOWN + (s.nations[winner]?.rivals.includes(loser) ? HUMBLE_RIVAL : 0);
 /** Renown the winner gains by humbling the loser: humbleRenown with its own bonus to renown gained. */
 export const humbleGain = (s: GameState, winner: NationId, loser: NationId) => Math.round(humbleRenown(s, winner, loser) * (1 + nationMods(s, winner).prestigeGain));
@@ -728,7 +733,7 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
 /**
  * AI winners build terms within the war score they have: the war goal, claims and land they want first, then land
  * next to their own (or the loser's last region, wherever it lies), then gold; a limited war won by its attackers
- * only the war goal, and gold. A great crown down to its heartland (four regions or fewer) gives up one region a
+ * only the war goal, and gold. A great crown down to its heartland (HEARTLAND regions or fewer) gives up one region a
  * peace. With nothing of that in reach, a small realm (never the Emperor or a great crown) is made a vassal if the
  * leverage covers it. Otherwise, with leverage left over and unless the war is a limited one: reparations, then
  * humbling a rival.
@@ -760,7 +765,7 @@ export function buildDemands(s: GameState, w: War, winner: NationId, budget: num
     const heart = owner === loser && ownedRegions(s, loser).length === 1;
     if (!touches && c.r !== w.goal && !wanted.has(c.r) && !heart) continue;
     // A great crown down to its heartland gives up one region a peace.
-    if (NATION[owner]?.tier === 'major' && ownedRegions(s, owner).length <= 4 && terms.regions.some(x => s.regions[x].owner === owner)) continue;
+    if (NATION[owner]?.tier === 'major' && ownedRegions(s, owner).length <= HEARTLAND && terms.regions.some(x => s.regions[x].owner === owner)) continue;
     terms.regions.push(c.r);
     left -= c.cost;
     if (terms.regions.length >= 4) break;

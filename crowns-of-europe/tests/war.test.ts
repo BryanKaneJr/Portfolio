@@ -1,5 +1,5 @@
 import { emptyGame, army, forceWar } from './helpers';
-import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands } from '../src/sim/war';
+import { aiAnswersCall, casusBelli, declareWar, likelySides, makePeace, peaceCost, warScore, buildDemands, HEARTLAND } from '../src/sim/war';
 import { advanceDays } from '../src/sim/tick';
 import { pairKey, years } from '../src/sim/util';
 import { REBELS, seesUnit } from '../src/sim/queries';
@@ -300,10 +300,19 @@ describe('the AI at war', () => {
     forceWar(s, 'HUN', 'HAB');
     const w = declareWar(s, 'HUN', 'HAB', 'none')!;
     const austria = ownedRegions(s, 'HAB');
-    expect(austria.length).toBeLessThanOrEqual(4);
+    expect(austria.length).toBeLessThanOrEqual(HEARTLAND);
     for (const r of austria) r.controller = 'HUN';
     const terms = buildDemands(s, w, 'HUN', 100);
     expect(terms.regions.filter(r => s.regions[r].owner === 'HAB')).toHaveLength(1);
+    // Hungary's five regions of 1444 (Buda, Temes, Croatia, Transylvania, Upper Hungary) are its heartland too.
+    const t = emptyGame('POR');
+    t.alliances = {};
+    forceWar(t, 'HAB', 'HUN');
+    const h = declareWar(t, 'HAB', 'HUN', 'none')!;
+    const hungary = ownedRegions(t, 'HUN');
+    expect(hungary).toHaveLength(HEARTLAND);
+    for (const r of hungary) r.controller = 'HAB';
+    expect(buildDemands(t, h, 'HAB', 200).regions.filter(r => t.regions[r].owner === 'HUN')).toHaveLength(1);
   });
 
   test('a winner with nothing to ask for settles after a year; a war neither side can reach ends after one', () => {

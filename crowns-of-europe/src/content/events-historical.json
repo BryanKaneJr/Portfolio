@@ -1923,6 +1923,7 @@
             {"all": [{"owns": "hungary"}, {"regionFaith": {"region": "hungary", "faith": "protestant"}}]},
             {"all": [{"owns": "upper_hungary"}, {"regionFaith": {"region": "upper_hungary", "faith": "protestant"}}]},
             {"all": [{"owns": "transylvania"}, {"regionFaith": {"region": "transylvania", "faith": "protestant"}}]},
+            {"all": [{"owns": "temes"}, {"regionFaith": {"region": "temes", "faith": "protestant"}}]},
             {"all": [{"owns": "east_anglia"}, {"regionFaith": {"region": "east_anglia", "faith": "protestant"}}]},
             {"all": [{"owns": "devon"}, {"regionFaith": {"region": "devon", "faith": "protestant"}}]},
             {"all": [{"owns": "northumbria"}, {"regionFaith": {"region": "northumbria", "faith": "protestant"}}]},
@@ -2937,7 +2938,7 @@
     "window": [1550, 1600],
     "mtth": 24,
     "news": "Muscovy has turned its eyes on Livonia.",
-    "trigger": {"all": [{"exists": "LIV"}, {"not": {"atWarWith": "LIV"}}, {"ownsAny": ["novgorod", "pskov"]}]},
+    "trigger": {"all": [{"exists": "LIV"}, {"nationOwns": {"nation": "LIV", "region": "estonia"}}, {"not": {"atWarWith": "LIV"}}, {"ownsAny": ["novgorod", "pskov"]}]},
     "choices": [
       {
         "text": "Invade Livonia",
@@ -2970,6 +2971,7 @@
         {
           "any": [
             {"all": [{"owns": "red_ruthenia"}, {"regionFaith": {"region": "red_ruthenia", "faith": "orthodox"}}]},
+            {"all": [{"owns": "podolia"}, {"regionFaith": {"region": "podolia", "faith": "orthodox"}}]},
             {"all": [{"owns": "volhynia"}, {"regionFaith": {"region": "volhynia", "faith": "orthodox"}}]},
             {"all": [{"owns": "kiev"}, {"regionFaith": {"region": "kiev", "faith": "orthodox"}}]},
             {"all": [{"owns": "polotsk"}, {"regionFaith": {"region": "polotsk", "faith": "orthodox"}}]},
