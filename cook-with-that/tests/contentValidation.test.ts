@@ -1,6 +1,16 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
 import { INGREDIENTS } from '../src/data/ingredients';
 import { shownDishTypes } from '../src/data/labels';
-import { RECIPES, SOURCE_RECIPES, WRITTEN_RECIPES, withMealDishTypes } from '../src/data/recipes';
+import { OWNER_RECIPES } from '../src/data/originals/ownerRecipes';
+import {
+  INCLUDE_SOURCE_RECIPES,
+  RECIPES,
+  SOURCE_RECIPES,
+  WRITTEN_RECIPES,
+  withMealDishTypes,
+} from '../src/data/recipes';
 import { validateContent } from '../src/logic/validateContent';
 import { resolveFavoriteIds } from '../src/state/favoritesStorage';
 import { recipe } from './fixtures';
@@ -101,5 +111,27 @@ describe('our written recipes stay apart from adapted ones (owner decision 17)',
     const sourceOnly = SOURCE_RECIPES.map(withMealDishTypes);
     expect(validateContent(INGREDIENTS, sourceOnly)).toEqual([]);
     expect(sourceOnly.filter(r => !r.dishTypes.length).map(r => r.id)).toEqual([]);
+  });
+});
+
+describe('only recipes that scored 5 of 5 against published versions ship (owner decision 21)', () => {
+  type Verdict = { score: number; rework?: { score: number }; aligned?: { score: number } };
+  const verdicts: Record<string, Verdict> = JSON.parse(
+    readFileSync(join(__dirname, '../docs/recipe-review/verification/verdicts.json'), 'utf8'),
+  );
+  // The latest check wins: aligned came after rework, which came after the first check.
+  const latest = (id: string) => {
+    const v = verdicts[id];
+    return v && (v.aligned?.score ?? v.rework?.score ?? v.score);
+  };
+
+  test('every shipped recipe has a 5, apart from the owner’s own (decision 20)', () => {
+    const owner = new Set(OWNER_RECIPES.map(r => r.id));
+    expect(RECIPES.filter(r => !owner.has(r.id) && latest(r.id) !== 5).map(r => r.id)).toEqual([]);
+  });
+
+  test('the adapted recipes, never checked that way, are switched off', () => {
+    expect(INCLUDE_SOURCE_RECIPES).toBe(false);
+    expect(RECIPES.filter(r => r.source.type !== 'original').map(r => r.id)).toEqual([]);
   });
 });

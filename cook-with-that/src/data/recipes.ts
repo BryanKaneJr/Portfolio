@@ -803,13 +803,21 @@ export { withMealDishTypes };
  * switch, so a release can include them or leave them out.
  * - WRITTEN_RECIPES: the 27 seed recipes above and `src/data/originals/` (source type 'original').
  * - SOURCE_RECIPES: `src/data/imported/` (Based Cooking, NHLBI, VA; source type 'licensed').
- * Turn the switch off to ship only the adapted recipes; saved favorites, plans and edits of a written recipe are then
- * dropped quietly on the next launch.
+ * Turning a switch off drops that list from the app; saved favorites, plans and edits of its recipes are then dropped
+ * quietly on the next launch.
+ *
+ * Owner decision 21: the adapted recipes are off. Only written recipes that were checked against published versions
+ * and scored 5 of 5 ship; the adapted ones never had that check. They stay here, validated, for a later check.
  */
 export const INCLUDE_WRITTEN_RECIPES = true;
+export const INCLUDE_SOURCE_RECIPES = false;
 export const WRITTEN_RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES];
 export const SOURCE_RECIPES: Recipe[] = IMPORTED_RECIPES;
 
-export const RECIPES: Recipe[] = [...(INCLUDE_WRITTEN_RECIPES ? WRITTEN_RECIPES : []), ...SOURCE_RECIPES].map(
-  withMealDishTypes,
-);
+/** Every bundled recipe, shipped or not: the validator and the import pipeline (duplicate checks) see them all. */
+export const ALL_RECIPES: Recipe[] = [...WRITTEN_RECIPES, ...SOURCE_RECIPES].map(withMealDishTypes);
+
+export const RECIPES: Recipe[] = [
+  ...(INCLUDE_WRITTEN_RECIPES ? WRITTEN_RECIPES : []),
+  ...(INCLUDE_SOURCE_RECIPES ? SOURCE_RECIPES : []),
+].map(withMealDishTypes);

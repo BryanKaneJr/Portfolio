@@ -1,70 +1,94 @@
 import { useColorScheme } from 'react-native';
 
 export type Palette = {
+  /** Screen background (iOS grouped background). */
   bg: string;
+  /** Cards, inputs, sheets. */
   card: string;
   cardBorder: string;
   text: string;
   textMuted: string;
+  /** Placeholders, disabled controls. */
+  textFaint: string;
+  /** Main action buttons: ink. */
   primary: string;
   primaryText: string;
-  primarySoft: string;
+  /** Links, icons, the selected tab: tomato. */
+  accent: string;
+  accentSoft: string;
+  /** Text on an accent fill. */
+  onAccent: string;
+  /** "Use" green. */
   herb: string;
   herbSoft: string;
   herbText: string;
+  /** "Avoid" red. */
   avoid: string;
   avoidSoft: string;
   avoidText: string;
   chip: string;
   chipBorder: string;
   divider: string;
+  /** Segmented-control track, tags. */
+  fill: string;
   warnSoft: string;
   warnText: string;
 };
 
-/** Warm "little kitchen tool" palette from the build plan, plus a dark variant. */
+/**
+ * Clean iOS look (owner, 2026-10-12): system grouped greys and white cards, ink buttons, tomato only as the accent.
+ * Text colours meet WCAG AA (4.5:1) on both the background and the cards.
+ */
 export const light: Palette = {
-  bg: '#FFF9F0',
+  bg: '#F2F2F7',
   card: '#FFFFFF',
-  cardBorder: '#F0E6D8',
-  text: '#242424',
-  textMuted: '#667085',
-  primary: '#D9543F',
+  cardBorder: '#E5E5EA',
+  text: '#111111',
+  textMuted: '#6E6E73',
+  textFaint: '#AEAEB2',
+  primary: '#1C1C1E',
   primaryText: '#FFFFFF',
-  primarySoft: '#FBE7E2',
-  herb: '#5D8065',
-  herbSoft: '#E5EEE7',
-  herbText: '#2F4F37',
-  avoid: '#8A3B2E',
-  avoidSoft: '#F6E3DF',
-  avoidText: '#7A2E22',
+  accent: '#C93C28',
+  accentSoft: '#FCEBE7',
+  onAccent: '#FFFFFF',
+  herb: '#24824F',
+  herbSoft: '#E3F2E8',
+  herbText: '#1F7A49',
+  avoid: '#C62F22',
+  avoidSoft: '#FBE5E2',
+  avoidText: '#B5301F',
   chip: '#FFFFFF',
-  chipBorder: '#E6DCCD',
-  divider: '#EFE6DA',
-  warnSoft: '#FFF1D6',
+  chipBorder: '#D8D8DD',
+  divider: '#E5E5EA',
+  fill: '#E3E3E8',
+  warnSoft: '#FFF3D6',
   warnText: '#7A5200',
 };
 
 export const dark: Palette = {
-  bg: '#1A1714',
-  card: '#25211D',
-  cardBorder: '#342E28',
-  text: '#F4EFE8',
-  textMuted: '#A8A29A',
-  primary: '#E8664F',
-  primaryText: '#FFFFFF',
-  primarySoft: '#3A2520',
-  herb: '#8DB596',
-  herbSoft: '#24332A',
-  herbText: '#BFDCC6',
-  avoid: '#F0A090',
-  avoidSoft: '#3A2420',
-  avoidText: '#F5B5A8',
-  chip: '#25211D',
-  chipBorder: '#3D3630',
-  divider: '#342E28',
-  warnSoft: '#3A3020',
-  warnText: '#F2D08A',
+  bg: '#000000',
+  card: '#1C1C1E',
+  cardBorder: '#2C2C2E',
+  text: '#F5F5F7',
+  textMuted: '#98989F',
+  textFaint: '#636366',
+  primary: '#F5F5F7',
+  primaryText: '#111111',
+  accent: '#FF6B57',
+  accentSoft: '#3A1E1A',
+  onAccent: '#111111',
+  herb: '#3DBE7A',
+  herbSoft: '#16301F',
+  herbText: '#7FD9A6',
+  avoid: '#FF6B5E',
+  avoidSoft: '#3A1C19',
+  avoidText: '#FF9C90',
+  chip: '#1C1C1E',
+  chipBorder: '#38383A',
+  divider: '#2C2C2E',
+  fill: '#2C2C2E',
+  warnSoft: '#3A2F14',
+  warnText: '#F2C86B',
 };
 
 export function useColors(): Palette {

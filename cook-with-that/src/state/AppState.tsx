@@ -42,8 +42,6 @@ import { defaultUnitSystem, UNIT_SYSTEMS, type UnitSystem } from '../logic/units
 import { buildLibrary, cleanRecipe, isOwnRecipeId, sanitizeRecipe } from '../logic/userRecipes';
 import { addIngredient, removeIngredient, sanitizeSearch, type PickMode } from './searchState';
 
-export type HomeMode = 'pick' | 'pantry';
-
 type AppState = {
   ready: boolean;
   search: SearchState;
@@ -61,8 +59,6 @@ type AppState = {
   favorites: string[];
   isFavorite: (recipeId: string) => boolean;
   toggleFavorite: (recipeId: string) => void;
-  homeMode: HomeMode;
-  setHomeMode: (m: HomeMode) => void;
   pantry: string[];
   togglePantry: (id: string) => void;
   addToPantry: (ids: string[]) => void;
@@ -147,7 +143,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [search, setSearch] = useState<SearchState>(EMPTY_SEARCH);
   const [mode, setMode] = useState<PickMode>('use');
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [homeMode, setHomeMode] = useState<HomeMode>('pick');
   const [pantry, setPantry] = useState<string[]>([]);
   const [pantryMeal, setPantryMeal] = useState<Meal | null>(null);
   const [pantryDishType, setPantryDishType] = useState<DishType | null>(null);
@@ -199,7 +194,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       setFavorites(resolveFavoriteIds(f, knownRecipes));
       setPantry(resolveFavoriteIds(p, KNOWN_INGREDIENTS));
       const pr = (prefs && typeof prefs === 'object' ? prefs : {}) as Record<string, unknown>;
-      if (pr.homeMode === 'pantry' || pr.homeMode === 'pick') setHomeMode(pr.homeMode);
       if (typeof pr.pantryMeal === 'string' && (MEALS as readonly string[]).includes(pr.pantryMeal))
         setPantryMeal(pr.pantryMeal as Meal);
       if (typeof pr.pantryDishType === 'string' && (DISH_TYPES as readonly string[]).includes(pr.pantryDishType))
@@ -229,8 +223,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, [pantry]);
 
   useEffect(() => {
-    if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds, units });
-  }, [homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds, units]);
+    if (loaded.current) savePrefs({ pantryMeal, pantryDishType, assumeStaples, stapleIds, units });
+  }, [pantryMeal, pantryDishType, assumeStaples, stapleIds, units]);
 
   useEffect(() => {
     if (loaded.current) saveMyRecipes({ edits: Object.values(edits), own });
@@ -303,8 +297,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       favorites,
       isFavorite: id => favorites.includes(id),
       toggleFavorite: id => setFavorites(f => (f.includes(id) ? f.filter(x => x !== id) : [id, ...f])),
-      homeMode,
-      setHomeMode,
       pantry,
       togglePantry: id => setPantry(p => (p.includes(id) ? p.filter(x => x !== id) : [...p, id])),
       addToPantry: ids => setPantry(p => [...p, ...ids.filter(id => !p.includes(id))]),
@@ -359,7 +351,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       mode,
       pick,
       favorites,
-      homeMode,
       pantry,
       pantryMeal,
       pantryDishType,

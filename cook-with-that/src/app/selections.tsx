@@ -3,13 +3,15 @@ import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Icon } from '../components/Icon';
+import { Button, Card, LinkButton } from '../components/ui';
 import { ingredientIndex, ingredientName } from '../data/catalog';
 import { CATEGORY_LABELS } from '../data/labels';
 import { countExact } from '../logic/matchRecipes';
 import { useAppState } from '../state/AppState';
 import type { PickMode } from '../state/searchState';
 import { useColors } from '../theme/colors';
-import { MIN_TOUCH, radius, space } from '../theme/spacing';
+import { radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 
 /** Everything in the Use and Avoid lists, with remove / move actions. */
@@ -28,32 +30,30 @@ export default function SelectionsScreen() {
     return (
       <View key={kind} style={styles.section}>
         <View style={styles.sectionHead}>
-          <Text style={[t.title, { color: fg, flex: 1 }]} accessibilityRole="header">
-            {use ? '✓ Use these' : '⊘ Avoid these'} · {list.length}
+          <Icon name={use ? 'check' : 'avoid'} size={20} color={fg} weight="bold" />
+          <Text style={[t.title, { color: c.text, flex: 1 }]} accessibilityRole="header">
+            {use ? 'Use' : 'Avoid'} · {list.length}
           </Text>
           {list.length > 0 ? (
-            <Pressable
+            <LinkButton
+              label="Clear"
+              muted
               onPress={use ? app.clearUse : app.clearAvoid}
-              accessibilityRole="button"
               accessibilityLabel={`Clear ${use ? 'Use' : 'Avoid'} list`}
-              hitSlop={8}
-              style={styles.linkBtn}
-            >
-              <Text style={[t.bodyStrong, { color: c.textMuted }]}>Clear</Text>
-            </Pressable>
+            />
           ) : null}
         </View>
         <Text style={[t.small, { color: c.textMuted, marginBottom: space.sm }]}>
           {use ? 'Every recipe must include all of these.' : 'Recipes with any of these are always hidden.'}
         </Text>
 
-        {list.length === 0 ? (
-          <View style={[styles.empty, { borderColor: c.chipBorder }]}>
-            <Text style={[t.body, { color: c.textMuted }]}>{use ? 'Nothing to use yet.' : 'Nothing avoided.'}</Text>
-          </View>
-        ) : (
-          <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-            {list.map((id, i) => {
+        <Card style={styles.card}>
+          {list.length === 0 ? (
+            <Text style={[t.body, styles.emptyText, { color: c.textMuted }]}>
+              {use ? 'Nothing to use yet.' : 'Nothing avoided.'}
+            </Text>
+          ) : (
+            list.map((id, i) => {
               const ing = ingredientIndex.byId.get(id);
               return (
                 <View
@@ -70,9 +70,10 @@ export default function SelectionsScreen() {
                     onPress={() => app.moveIngredient(id, use ? 'avoid' : 'use')}
                     accessibilityRole="button"
                     accessibilityLabel={`Move ${ingredientName(id)} to ${use ? 'Avoid' : 'Use'}`}
-                    style={({ pressed }) => [styles.moveBtn, { borderColor: c.chipBorder, opacity: pressed ? 0.6 : 1 }]}
+                    style={({ pressed }) => [styles.moveBtn, { backgroundColor: c.fill, opacity: pressed ? 0.6 : 1 }]}
                   >
-                    <Text style={[t.small, { color: c.text, fontWeight: '600' }]}>{use ? '→ Avoid' : '→ Use'}</Text>
+                    <Icon name="swap" size={14} color={c.text} />
+                    <Text style={[t.small, { color: c.text, fontWeight: '600' }]}>{use ? 'Avoid' : 'Use'}</Text>
                   </Pressable>
                   <Pressable
                     onPress={() => app.remove(id)}
@@ -81,13 +82,13 @@ export default function SelectionsScreen() {
                     hitSlop={6}
                     style={styles.removeBtn}
                   >
-                    <Text style={[styles.x, { color: c.textMuted }]}>×</Text>
+                    <Icon name="close" size={16} color={c.textMuted} weight="semibold" />
                   </Pressable>
                 </View>
               );
-            })}
-          </View>
-        )}
+            })
+          )}
+        </Card>
       </View>
     );
   };
@@ -97,25 +98,16 @@ export default function SelectionsScreen() {
       <ScrollView contentContainerStyle={styles.scroll}>{order.map(section)}</ScrollView>
       <SafeAreaView edges={['bottom']} style={[styles.footer, { backgroundColor: c.bg, borderTopColor: c.divider }]}>
         <View style={styles.actions}>
-          <Pressable
+          <Button
+            label="Add more"
+            variant="secondary"
             onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
-            accessibilityRole="button"
-            style={({ pressed }) => [
-              styles.secondary,
-              { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.75 : 1 },
-            ]}
-          >
-            <Text style={[t.bodyStrong, { color: c.text }]}>Add more</Text>
-          </Pressable>
-          <Pressable
+          />
+          <Button
+            label={count === 0 ? 'See options' : `See ${count} ${count === 1 ? 'recipe' : 'recipes'}`}
             onPress={() => router.replace('/results')}
-            accessibilityRole="button"
-            style={({ pressed }) => [styles.primary, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
-          >
-            <Text style={[t.bodyStrong, { color: c.primaryText, fontSize: 17 }]}>
-              {count === 0 ? 'See options' : `See ${count} ${count === 1 ? 'recipe' : 'recipes'}`}
-            </Text>
-          </Pressable>
+            style={styles.flex}
+          />
         </View>
       </SafeAreaView>
     </View>
@@ -126,21 +118,20 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   scroll: { padding: space.lg, paddingBottom: space.xxl },
   section: { marginBottom: space.xl },
-  sectionHead: { flexDirection: 'row', alignItems: 'center' },
-  linkBtn: { minHeight: MIN_TOUCH, minWidth: MIN_TOUCH, alignItems: 'flex-end', justifyContent: 'center' },
-  empty: { borderWidth: 1.5, borderStyle: 'dashed', borderRadius: radius.md, padding: space.lg, alignItems: 'center' },
-  card: { borderWidth: 1, borderRadius: radius.lg, paddingHorizontal: space.md },
+  sectionHead: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  card: { paddingVertical: 0, paddingHorizontal: space.md },
+  emptyText: { paddingVertical: space.lg, textAlign: 'center' },
   row: { flexDirection: 'row', alignItems: 'center', gap: space.sm, minHeight: 60, paddingVertical: space.sm },
   strike: { textDecorationLine: 'line-through' },
   moveBtn: {
-    minHeight: 36,
-    borderWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    minHeight: 32,
     borderRadius: radius.pill,
     paddingHorizontal: space.md,
-    justifyContent: 'center',
   },
-  removeBtn: { width: MIN_TOUCH, height: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
-  x: { fontSize: 26, fontWeight: '400', marginTop: -2 },
+  removeBtn: { width: 36, height: 36, alignItems: 'center', justifyContent: 'center' },
   footer: {
     borderTopWidth: StyleSheet.hairlineWidth,
     paddingHorizontal: space.lg,
@@ -148,13 +139,4 @@ const styles = StyleSheet.create({
     paddingBottom: space.sm,
   },
   actions: { flexDirection: 'row', gap: space.sm },
-  secondary: {
-    minHeight: 52,
-    borderWidth: 1.5,
-    borderRadius: radius.md,
-    paddingHorizontal: space.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  primary: { flex: 1, minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
 });

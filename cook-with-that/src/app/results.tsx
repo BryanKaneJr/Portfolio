@@ -3,8 +3,10 @@ import { useMemo } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Chip } from '../components/Chip';
+import { Icon } from '../components/Icon';
 import { RecipeCard } from '../components/RecipeCard';
 import { SelectionSummary } from '../components/SelectionSummary';
+import { Card, LinkButton, SectionLabel } from '../components/ui';
 import { ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { countExact, runSearch, type RecipeResult } from '../logic/matchRecipes';
@@ -26,7 +28,7 @@ export default function ResultsScreen() {
   const list: RecipeResult[] = hasExact ? exact : close;
 
   const edit = () => (router.canGoBack() ? router.back() : router.replace('/'));
-  const open = (id: string) => router.push({ pathname: '/recipe/[id]', params: { id } });
+  const open = (id: string) => router.push({ pathname: '/recipe/[id]', params: { id, from: 'find' } });
 
   // Use ingredients no recipe needs (catalog items that are only optional extras, or not used yet).
   const neverNeeded = hasExact
@@ -52,26 +54,18 @@ export default function ResultsScreen() {
   const header = (
     <View>
       {/* Active selections + Edit */}
-      <View style={[styles.panel, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+      <View style={styles.selection}>
+        <SelectionSummary useIds={search.useIds} avoidIds={search.avoidIds} onRemove={app.remove} />
         <View style={styles.panelTop}>
           <Text style={[t.small, { color: c.textMuted, flex: 1 }]}>{filtersLine}</Text>
-          <Pressable
-            onPress={edit}
-            accessibilityRole="button"
-            accessibilityLabel="Edit ingredients and filters"
-            style={styles.editBtn}
-            hitSlop={8}
-          >
-            <Text style={[t.bodyStrong, { color: c.primary }]}>Edit</Text>
-          </Pressable>
+          <LinkButton label="Edit" onPress={edit} accessibilityLabel="Edit ingredients and filters" />
         </View>
-        <SelectionSummary useIds={search.useIds} avoidIds={search.avoidIds} onRemove={app.remove} wrap />
       </View>
 
       {/* Too many results — non-blocking */}
       {narrowing.length > 0 ? (
-        <View style={[styles.notice, { backgroundColor: c.herbSoft }]}>
-          <Text style={[t.bodyStrong, { color: c.herbText }]}>Lots to choose from. Narrow it down?</Text>
+        <Card style={styles.notice}>
+          <Text style={[t.bodyStrong, { color: c.text }]}>Lots to choose from. Narrow it down?</Text>
           <View style={styles.wrap}>
             {narrowing.map(s => (
               <Chip
@@ -84,7 +78,7 @@ export default function ResultsScreen() {
               />
             ))}
           </View>
-        </View>
+        </Card>
       ) : null}
 
       {/* No exact results */}
@@ -120,13 +114,11 @@ export default function ResultsScreen() {
           ) : null}
 
           {close.length > 0 ? (
-            <View style={[styles.closeHead, { borderTopColor: c.divider }]}>
-              <Text style={[t.title, { color: c.text }]} accessibilityRole="header">
-                Close matches
-              </Text>
-              <Text style={[t.small, { color: c.textMuted }]}>
-                These skip {result.closeMaxMissing > 1 ? 'one or two' : 'one'} of your ingredients — shown on each card.
-                They're not substitutions.
+            <View>
+              <SectionLabel text="Close matches" />
+              <Text style={[t.small, styles.closeSub, { color: c.textMuted }]}>
+                These skip {result.closeMaxMissing > 1 ? 'one or two' : 'one'} of your ingredients, named on each card.
+                They’re not substitutions.
               </Text>
             </View>
           ) : (
@@ -210,32 +202,37 @@ function AdjustButton({ label, onPress, helps }: { label: string; onPress: () =>
       accessibilityHint={helps ? 'This would show recipes' : undefined}
       style={({ pressed }) => [
         styles.adjustBtn,
-        { borderColor: helps ? c.primary : c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+        { borderColor: c.cardBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
       ]}
     >
-      <Text style={[t.bodyStrong, { color: helps ? c.primary : c.text }]}>{label}</Text>
-      {helps ? <Text style={[t.small, { color: c.textMuted }]}>Shows recipes</Text> : null}
+      <View style={styles.flex}>
+        <Text style={[t.bodyStrong, { color: helps ? c.accent : c.text }]}>{label}</Text>
+        {helps ? <Text style={[t.small, { color: c.textMuted }]}>Shows recipes</Text> : null}
+      </View>
+      <Icon name="chevronRight" size={15} color={c.textMuted} weight="semibold" />
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  flex: { flex: 1 },
   list: { padding: space.lg, paddingBottom: space.xxl * 2 },
-  panel: { borderWidth: 1, borderRadius: radius.lg, padding: space.md, gap: space.xs, marginBottom: space.md },
+  selection: { gap: space.sm, marginBottom: space.lg },
   panelTop: { flexDirection: 'row', alignItems: 'center' },
-  editBtn: { minHeight: 32, minWidth: MIN_TOUCH, alignItems: 'flex-end', justifyContent: 'center' },
-  notice: { borderRadius: radius.md, padding: space.md, gap: space.sm, marginBottom: space.md },
+  notice: { gap: space.sm, marginBottom: space.lg, padding: space.md + 2 },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   noResults: { gap: space.md, marginBottom: space.md },
   tryRow: { gap: space.sm },
-  closeHead: { borderTopWidth: StyleSheet.hairlineWidth, paddingTop: space.md, gap: 4 },
+  closeSub: { paddingHorizontal: space.xs, marginBottom: space.xs },
   adjust: { gap: space.sm },
   adjustBtn: {
-    minHeight: MIN_TOUCH + 4,
-    borderWidth: 1.5,
-    borderRadius: radius.md,
-    paddingHorizontal: space.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+    minHeight: MIN_TOUCH + 8,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: radius.lg,
+    paddingHorizontal: space.md + 2,
     paddingVertical: space.sm,
-    justifyContent: 'center',
   },
 });

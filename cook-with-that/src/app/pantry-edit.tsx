@@ -3,15 +3,17 @@ import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Icon } from '../components/Icon';
 import { IngredientBrowser } from '../components/IngredientBrowser';
+import { Button } from '../components/ui';
 import { ingredientName } from '../data/catalog';
 import { countCanMake } from '../logic/pantry';
 import { useAppState } from '../state/AppState';
 import { useColors } from '../theme/colors';
-import { MIN_TOUCH, radius, space } from '../theme/spacing';
+import { radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 
-/** Edit the saved pantry: tap to add/remove. Saved instantly on the device. */
+/** Edit the saved pantry (from the Pantry tab): tap to add or remove. Saved instantly on the device. */
 export default function PantryScreen() {
   const c = useColors();
   const app = useAppState();
@@ -32,8 +34,8 @@ export default function PantryScreen() {
         keyboardDismissMode="on-drag"
       >
         <Text style={[t.body, styles.intro, { color: c.textMuted }]}>
-          Tap everything you usually keep on hand. Tap again to remove. Only recipes where you have every required
-          ingredient will show.
+          Tap everything you usually keep on hand, and tap again to remove it. The Pantry tab shows recipes you have
+          every required ingredient for.
         </Text>
 
         <Pressable
@@ -44,27 +46,34 @@ export default function PantryScreen() {
           }
           style={({ pressed }) => [
             styles.basics,
-            { backgroundColor: c.herbSoft, borderColor: c.herb, opacity: pressed ? 0.8 : 1 },
+            { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
           ]}
         >
-          <Text style={[t.bodyStrong, { color: c.herbText }]}>
-            {app.assumeStaples ? `✓ ${staples.size} kitchen staples assumed` : 'Kitchen staples not assumed'}
-            <Text style={{ color: c.primary }}> Edit</Text>
-          </Text>
-          {app.assumeStaples ? (
-            <Text style={[t.small, { color: c.herbText }]} numberOfLines={1}>
-              {stapleNames}
-              {staples.size > 6 ? '…' : ''} — no need to add these.
+          <Icon
+            name={app.assumeStaples ? 'checkCircle' : 'circle'}
+            size={22}
+            color={app.assumeStaples ? c.herb : c.textFaint}
+          />
+          <View style={styles.flex}>
+            <Text style={[t.bodyStrong, { color: c.text }]}>
+              {app.assumeStaples ? `${staples.size} kitchen staples counted` : 'Kitchen staples not counted'}
             </Text>
-          ) : null}
+            {app.assumeStaples ? (
+              <Text style={[t.small, { color: c.textMuted }]} numberOfLines={1}>
+                {stapleNames}
+                {staples.size > 6 ? '…' : ''}
+              </Text>
+            ) : null}
+          </View>
+          <Icon name="chevronRight" size={15} color={c.textMuted} weight="semibold" />
         </Pressable>
 
         <IngredientBrowser target="pantry" layout="compact" />
 
         {pantry.length > 0 ? (
-          <Pressable onPress={app.clearPantry} accessibilityRole="button" style={styles.clear}>
-            <Text style={[t.bodyStrong, { color: c.avoidText }]}>Clear pantry</Text>
-          </Pressable>
+          <View style={styles.clear}>
+            <Button label="Clear pantry" variant="danger" compact onPress={app.clearPantry} />
+          </View>
         ) : null}
       </ScrollView>
 
@@ -73,13 +82,7 @@ export default function PantryScreen() {
           {pantry.length} {pantry.length === 1 ? 'item' : 'items'} saved · {canMake}{' '}
           {canMake === 1 ? 'recipe' : 'recipes'} you can make
         </Text>
-        <Pressable
-          onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
-          accessibilityRole="button"
-          style={({ pressed }) => [styles.primary, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
-        >
-          <Text style={[t.bodyStrong, { color: c.primaryText, fontSize: 17 }]}>Done</Text>
-        </Pressable>
+        <Button label="Done" onPress={() => (router.canGoBack() ? router.back() : router.replace('/pantry'))} />
       </SafeAreaView>
     </View>
   );
@@ -90,19 +93,20 @@ const styles = StyleSheet.create({
   scroll: { paddingBottom: space.xxl },
   intro: { paddingHorizontal: space.lg, paddingTop: space.sm },
   basics: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
     marginHorizontal: space.lg,
     marginTop: space.md,
-    borderWidth: 1.5,
-    borderRadius: radius.md,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: radius.lg,
     padding: space.md,
-    gap: 2,
   },
-  clear: { minHeight: MIN_TOUCH, justifyContent: 'center', alignSelf: 'center', marginTop: space.xl },
+  clear: { alignItems: 'center', marginTop: space.xl },
   footer: {
     borderTopWidth: StyleSheet.hairlineWidth,
     paddingHorizontal: space.lg,
     paddingTop: space.sm,
     paddingBottom: space.sm,
   },
-  primary: { minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
 });

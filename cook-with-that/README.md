@@ -36,7 +36,7 @@ Recipes from openly licensed collections (public domain only, so far) are import
 ```
 src/app/            screens (Expo Router): index (Find / My pantry), results, ingredients (More options), selections, staples, settings, pantry, pantry-results, recipe/[id], favorites
 src/components/     Chip, Dropdown, IngredientBrowser, SelectionSummary, RecipeCard
-src/data/           types, ingredient catalog, recipes (seed + imported/), collections, labels (all bundled, offline)
+src/data/           types, ingredient catalog, recipes (seed + originals/; imported/ switched off), collections, labels (all bundled, offline)
 src/logic/          matching engine, sorting, ingredient search, content validator, US/metric units
 src/state/          search-state rules, local storage, app provider
 src/theme/          colors (light/dark), spacing, typography

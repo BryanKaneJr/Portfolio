@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import type { ReactNode } from 'react';
@@ -13,33 +14,36 @@ export default function RootLayout() {
   const base = scheme === 'dark' ? DarkTheme : DefaultTheme;
   const navTheme = {
     ...base,
-    colors: { ...base.colors, background: c.bg, card: c.bg, text: c.text, primary: c.primary, border: c.divider },
+    colors: { ...base.colors, background: c.bg, card: c.bg, text: c.text, primary: c.accent, border: c.divider },
   };
+  // Icons for Android and web, and the dish pictures everywhere (assets/fonts, built by scripts/icons).
+  const [fontsLoaded, fontError] = useFonts({
+    AppIcons: require('../../assets/fonts/AppIcons.ttf'),
+    AppIconsFilled: require('../../assets/fonts/AppIconsFilled.ttf'),
+  });
 
   return (
     <SafeAreaProvider>
       <AppStateProvider>
         <ThemeProvider value={navTheme}>
           <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
-          <ReadyGate bg={c.bg}>
+          <ReadyGate bg={c.bg} fontsLoaded={fontsLoaded || !!fontError}>
             <Stack
               screenOptions={{
-                headerTintColor: c.primary,
-                headerTitleStyle: { color: c.text, fontWeight: '700' },
+                headerTintColor: c.accent,
+                headerTitleStyle: { color: c.text, fontWeight: '600' },
                 headerShadowVisible: false,
                 headerStyle: { backgroundColor: c.bg },
                 contentStyle: { backgroundColor: c.bg },
-                headerBackTitle: 'Back',
+                headerBackButtonDisplayMode: 'minimal',
               }}
             >
-              <Stack.Screen name="index" options={{ headerShown: false, title: 'Find recipes' }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Cook With That' }} />
               <Stack.Screen name="results" options={{ title: 'Recipes' }} />
               <Stack.Screen name="recipe/[id]" options={{ title: '' }} />
-              <Stack.Screen name="favorites" options={{ title: 'My Kitchen' }} />
-              <Stack.Screen name="edit" options={{ title: 'Edit recipe' }} />
+              <Stack.Screen name="edit" options={{ title: 'Edit recipe', presentation: 'modal' }} />
               <Stack.Screen name="plan-add" options={{ title: 'Add a recipe' }} />
-              <Stack.Screen name="pantry" options={{ title: 'My pantry' }} />
-              <Stack.Screen name="pantry-results" options={{ title: 'From your pantry' }} />
+              <Stack.Screen name="pantry-edit" options={{ title: 'Your pantry' }} />
               <Stack.Screen name="selections" options={{ title: 'Your ingredients' }} />
               <Stack.Screen name="staples" options={{ title: 'Kitchen staples' }} />
               <Stack.Screen name="ingredients" options={{ title: 'All ingredients' }} />
@@ -56,7 +60,7 @@ export default function RootLayout() {
  * Don't show interactive screens until saved selections/pantry have loaded from
  * the device, so an early tap can't be overwritten by the restore.
  */
-function ReadyGate({ children, bg }: { children: ReactNode; bg: string }) {
+function ReadyGate({ children, bg, fontsLoaded }: { children: ReactNode; bg: string; fontsLoaded: boolean }) {
   const { ready } = useAppState();
-  return ready ? <>{children}</> : <View style={{ flex: 1, backgroundColor: bg }} />;
+  return ready && fontsLoaded ? <>{children}</> : <View style={{ flex: 1, backgroundColor: bg }} />;
 }

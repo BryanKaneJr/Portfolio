@@ -15,7 +15,9 @@
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { INGREDIENTS, RECIPES } from '../src/data/catalog';
+import { INGREDIENTS } from '../src/data/catalog';
+// Every bundled recipe, shipped or switched off, so nothing already imported is drafted twice.
+import { ALL_RECIPES } from '../src/data/recipes';
 import { buildIngredientIndex } from '../src/logic/normalizeIngredient';
 import { addToCatalogSource, draftOrder, draftRecipeCode, recipeId } from './import/draft';
 import { catalogAddition } from './import/mapIngredient';
@@ -51,11 +53,11 @@ function stage(name: string, source: SourceDef): Candidate[] {
     (raw.author && source.excludeAuthors?.[raw.author]
       ? `${raw.author}: ${source.excludeAuthors[raw.author]}`
       : undefined);
-  return raws.map(raw => stageRecipe(index, raw, { exclude: excludeReason(raw), library: RECIPES }));
+  return raws.map(raw => stageRecipe(index, raw, { exclude: excludeReason(raw), library: ALL_RECIPES }));
 }
 
 const importedKeys = (collection: string) =>
-  new Set(RECIPES.filter(r => r.source.origin?.collection === collection).map(r => r.source.origin!.key));
+  new Set(ALL_RECIPES.filter(r => r.source.origin?.collection === collection).map(r => r.source.origin!.key));
 
 function runStage(name: string, source: SourceDef) {
   const candidates = stage(name, source);
@@ -102,7 +104,7 @@ function runDraft(name: string, source: SourceDef, args: string[]) {
   if (!picked.length) fail('nothing left to draft: review more ingredient names (see the report) or name keys');
 
   const index = buildIngredientIndex(INGREDIENTS);
-  const ids = new Set(RECIPES.map(r => r.id));
+  const ids = new Set(ALL_RECIPES.map(r => r.id));
   const blocks = picked.map(c => {
     let id = recipeId(c.title);
     if (ids.has(id)) id = `${id}-${recipeId(c.key)}`;

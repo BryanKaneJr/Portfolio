@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { INGREDIENTS } from '../src/data/ingredients';
-import { RECIPES } from '../src/data/recipes';
+import { ALL_RECIPES } from '../src/data/recipes';
 import { buildIngredientIndex, normalizeText, unlistedStepIngredients } from '../src/logic/normalizeIngredient';
 import { validateContent } from '../src/logic/validateContent';
 import { addToCatalogSource, CATALOG_SECTION, draftRecipeCode, q, recipeId } from '../scripts/import/draft';
@@ -985,7 +985,7 @@ describe('imported recipes in the library', () => {
   });
 
   test('every imported recipe lists each catalog ingredient its steps use', () => {
-    for (const r of RECIPES.filter(r => r.source.origin)) {
+    for (const r of ALL_RECIPES.filter(r => r.source.origin)) {
       const missing = unlistedStepIngredients(
         index,
         r.steps,
@@ -997,6 +997,6 @@ describe('imported recipes in the library', () => {
 
   test('every imported recipe is still marked for culinary review until someone has checked it', () => {
     // Remove this test once review sign-off is recorded per recipe.
-    for (const r of RECIPES.filter(r => r.source.origin)) expect(r.source.note).toMatch(/needs culinary review/);
+    for (const r of ALL_RECIPES.filter(r => r.source.origin)) expect(r.source.note).toMatch(/needs culinary review/);
   });
 });
