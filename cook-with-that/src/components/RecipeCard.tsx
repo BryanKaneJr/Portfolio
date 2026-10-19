@@ -7,7 +7,8 @@ import type { RecipeResult } from '../logic/matchRecipes';
 import { useColors } from '../theme/colors';
 import { radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
-import { DishIcon, Icon } from './Icon';
+import { Icon } from './Icon';
+import { RecipeThumb } from './RecipeImage';
 
 type Props = {
   result: RecipeResult;
@@ -30,7 +31,7 @@ export function formatMinutes(min: number): string {
 }
 
 /**
- * Short recipe card: a dish-type picture, the title, time · meal · type, the tagline, and one status line
+ * Short recipe card: the recipe's picture (or its dish-type icon), the title, time · meal · type, the tagline, and one status line
  * ("Uses all 3 · 12 more ingredients"). The full ingredient list is on the recipe page.
  */
 export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, close, meal, note }: Props) {
@@ -72,9 +73,7 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
       ]}
     >
       <View style={styles.top}>
-        <View style={[styles.tile, { backgroundColor: c.accentSoft }]}>
-          <DishIcon recipe={recipe} size={26} color={c.accent} />
-        </View>
+        <RecipeThumb recipe={recipe} size={60} />
         <View style={styles.flex}>
           <Text style={[t.heading, { color: c.text }]} numberOfLines={2}>
             {recipe.title}
@@ -120,7 +119,6 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   card: { borderRadius: radius.lg, borderWidth: StyleSheet.hairlineWidth, padding: space.md + 2 },
   top: { flexDirection: 'row', alignItems: 'flex-start', gap: space.md },
-  tile: { width: 48, height: 48, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   meta: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 3 },
   metaText: { fontSize: 13, flexShrink: 1 },
   heart: { width: 36, height: 36, alignItems: 'center', justifyContent: 'center', marginTop: -6, marginRight: -6 },

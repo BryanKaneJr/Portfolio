@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { dayLabel, SLOT_LABELS } from '../components/AddToPlanSheet';
-import { DishIcon } from '../components/Icon';
+import { RecipeThumb } from '../components/RecipeImage';
 import { SearchBox } from '../components/IngredientBrowser';
 import { formatMinutes } from '../components/RecipeCard';
 import { SectionLabel, Segmented } from '../components/ui';
@@ -104,7 +104,7 @@ export default function PlanAddScreen() {
                   !item.first && { borderTopWidth: 0 },
                 ]}
               >
-                <DishIcon recipe={item.recipe} size={22} color={c.accent} />
+                <RecipeThumb recipe={item.recipe} size={40} />
                 <View style={styles.flex}>
                   <Text style={[t.bodyStrong, { color: c.text }]} numberOfLines={1}>
                     {item.recipe.title}

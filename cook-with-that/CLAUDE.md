@@ -105,7 +105,8 @@ Hard rules (from the plan, still in force):
    **Icons:** `Icon` draws SF Symbols on iPhone and Material Symbols elsewhere from two tiny bundled fonts
    (`assets/fonts/AppIcons*.ttf`, Apache 2.0, built by `scripts/icons/build-icon-fonts.py` from `src/theme/icons.ts`;
    `tests/icons.test.ts` fails if one is missing). Recipe cards show a **dish picture** per dish type from the same
-   font on every platform (SF Symbols has few foods), the title, time · meal · type, the tagline and one status line
+   font on every platform (SF Symbols has few foods; the recipe's own picture replaces it, decision 22), the title,
+   time · meal · type, the tagline and one status line
    ("Uses all 3 · 12 more ingredients"); the full ingredient list is on the recipe page. **Plan** is one short row per
    day with the planned meals named and a + that picks the meal in the recipe chooser. No text glyphs as icons.
 20. **The owner's own recipes are kept exactly as given** (owner, 2026-10-12, on the Greatest Spicy Mayo: "it's my
@@ -122,6 +123,15 @@ Hard rules (from the plan, still in force):
    passing the same check. `tests/contentValidation.test.ts` fails if anything below a 5 ships. Because 79 catalog
    ingredients are now in no recipe, the Find, Pantry and Staples pickers show only ingredients some recipe in the
    library lists (search says "No recipe uses kale yet"); the recipe editor still offers the whole catalog.
+22. **Every recipe gets a picture in a 1950s cookbook style** (owner, 2026-10-19: "we literally have to use some stock
+   photos, and ill make some with ai… maybe a cool old fashion style image for each recipe, like a 50's style
+   kitchen"). The owner makes them; the look, prompts and steps are in `docs/recipe-images.md` (one prompt per recipe
+   still without a picture in `docs/recipe-images/prompts.md`). `npm run images` turns the art in
+   `content/images/incoming/` (not committed) into small 4:3 WebPs in `assets/recipes/`, records each source in
+   `docs/recipe-images/credits.json` and rewrites `src/data/recipeImages.ts`. Pictures are bundled, never downloaded,
+   so the app stays offline. The recipe page shows a wide one at the top; cards and the plan chooser show a square
+   crop (`src/components/RecipeImage.tsx`); a recipe without one keeps its dish icon. `tests/recipeImages.test.ts`
+   checks names, size, the map and the credits.
 
 ## Layout
 ```
@@ -129,16 +139,18 @@ src/app/         (tabs)/ index (Find), pantry (what you can make), plan (week + 
                  (native tabs; _layout.web.tsx for web); results, recipe/[id] (edit, notes, add to plan, check off),
                  edit (recipe editor sheet), plan-add, pantry-edit, ingredients (Browse all), selections, staples,
                  settings, _layout (root stack; ReadyGate waits for storage restore and the icon fonts)
-src/components/  ui (Button, Card, LargeHeader, Segmented…), Icon (SF Symbols / AppIcons font, DishIcon), Chip,
-                 Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard, AddToPlanSheet
+src/components/  ui (Button, Card, LargeHeader, Segmented…), Icon (SF Symbols / AppIcons font, DishIcon), RecipeImage
+                 (RecipeThumb, RecipeHero), Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle,
+                 SelectionSummary, RecipeCard, AddToPlanSheet
 src/theme/       colors (light/dark tokens), typography, spacing, icons (icon + dish-picture names), iconGlyphs
                  (generated)
 src/data/        types, ingredients (401, with aliases), recipes (27 seed + originals/ ship; imported/ is switched
-                 off), collections, recipeBuilders, staples, popularity, labels, catalog
+                 off), collections, recipeBuilders, staples, popularity, labels, catalog, recipeImages (generated)
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
-scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
+scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers),
+                 images/recipe-images.ts (npm run images), icons/build-icon-fonts.py
 tests/           Jest: engine, pantry, staples, content validation, import pipeline, originals, units, taglines,
                  myKitchen (edits, own recipes, plan, shopping), offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
 ```
@@ -149,6 +161,7 @@ npm install
 npx expo start          # Expo Go on iPhone (same Wi-Fi), scan QR
 npm run check           # tsc + content validator + jest. Run before calling anything done
 npm run coverage-report # which common ingredient pairs/triples have no recipes
+npm run images          # add recipe pictures from content/images/incoming/ (docs/recipe-images.md)
 npm run import:stage -- based-cooking   # or nhlbi; then import:draft / import:catalog: see docs/recipe-import.md
 NODE_USE_ENV_PROXY=1 npm run import:fetch-nhlbi   # refetch the NHLBI snapshot (content/import/nhlbi/)
 NODE_USE_ENV_PROXY=1 npm run import:fetch-nhlbi-books   # or import:fetch-va: PDF sources, need pdftotext

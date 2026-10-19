@@ -5,6 +5,7 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-
 import { AddToPlanSheet, dayLabel, SLOT_LABELS } from '../../components/AddToPlanSheet';
 import { Icon } from '../../components/Icon';
 import { formatMinutes } from '../../components/RecipeCard';
+import { RecipeHero } from '../../components/RecipeImage';
 import { Button, Card, IconButton, LinkButton } from '../../components/ui';
 import { ingredientIndex } from '../../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS, shownDishTypes } from '../../data/labels';
@@ -132,6 +133,7 @@ export default function RecipeScreen() {
         contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled"
       >
+        <RecipeHero recipe={recipe} style={styles.hero} />
         {edited ? (
           <View style={[styles.banner, { backgroundColor: c.herbSoft }]}>
             <Text style={[t.bodyStrong, { color: c.herbText, flex: 1 }]}>
@@ -296,6 +298,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
   },
   scroll: { padding: space.lg, paddingBottom: space.xxl * 2 },
+  hero: { marginBottom: space.lg },
   stats: { flexDirection: 'row', paddingVertical: space.md, paddingHorizontal: 0, marginTop: space.lg },
   stat: { flex: 1, alignItems: 'center' },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm, marginTop: space.md },
