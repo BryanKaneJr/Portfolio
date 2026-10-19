@@ -107,7 +107,7 @@ The app and the backend are done. The live Supabase project has every level, the
 
 Android follows the iPhone launch: the Play Console, Firebase for push and the Android RevenueCat key.
 
-**Status (2026-10-11):** 1.0.0 (8) is submitted to App Review. After approval: remove the test learners, publish the skills and subjects, then release by hand ([`release.md`](release.md#whats-left-for-launch)).
+**Status (2026-10-19):** 1.0.0 (8) is in App Review. It was resubmitted on 2026-10-19 together with the Unlimited group and both subscriptions, which the first submission had left out. After approval: remove the test learners, publish the skills and subjects, then release by hand ([`release.md`](release.md#whats-left-for-launch)).
 
 ## After launch
 

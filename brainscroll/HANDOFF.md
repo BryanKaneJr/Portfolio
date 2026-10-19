@@ -16,7 +16,7 @@ An anti-doomscrolling learning app for iPhone (Android later): "Stop scrolling. 
 
 ## 2. Where things stand (2026-10-12)
 
-- **iPhone 1.0.0, build 8, is submitted to App Review** (2026-10-11), set to **release manually**. Nothing is waiting on code.
+- **iPhone 1.0.0, build 8, is in App Review**, set to **release manually**. It was first sent on 2026-10-11. It was resubmitted on 2026-10-19 in one submission with the Unlimited subscription group and both subscriptions, which had been left out (an app's first subscriptions are reviewed only with a version). Nothing is waiting on code.
 - **Live already:**
   - the Supabase backend, with every level imported and the push job running every 5 minutes;
   - brainscroll.app, with the home page, privacy policy, account deletion page and invite links;
@@ -179,7 +179,7 @@ The project started on 2026-09-23. Work merged to `master` through PRs from #2 o
   - the gray-screen fixes: no freezing hidden screens, and tabs that switch instantly;
   - the website refreshed with the current screens and official store badges;
   - the listing's name, subtitle and keywords recorded;
-  - **1.0.0 (8) submitted to App Review.**
+  - **1.0.0 (8) submitted to App Review**, then resubmitted on 10-19 with both subscriptions.
 
 ## 8. Hard-won lessons (read before debugging)
 
