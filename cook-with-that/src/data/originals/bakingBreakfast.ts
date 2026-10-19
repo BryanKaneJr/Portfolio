@@ -154,37 +154,6 @@ export const BAKING_BREAKFAST_RECIPES: Recipe[] = [
     source: ORIGINAL_DRAFT,
   },
   {
-    id: 'chocolate-fudge',
-    title: 'Chocolate Fudge',
-    description:
-      'Creamy no-thermometer fudge from chocolate chips and condensed milk, deepened with browned butter. Toasted pecans optional.',
-    meals: ['dessert', 'snack'],
-    dishTypes: [],
-    prepMinutes: 190,
-    cookMinutes: 15,
-    servings: 36,
-    ingredients: [
-      r('butter', 'unsalted butter', '3 tbsp', 'plus a little for the pan'),
-      r('chocolate_chips', 'semisweet chocolate chips', '2 1/2 cups (15 oz / 425 g)'),
-      r('condensed_milk', 'sweetened condensed milk', '1 can (14 oz)'),
-      r('vanilla', 'vanilla extract', '1 tsp'),
-      r('salt', 'salt', '1/4 tsp plus a pinch', 'divided'),
-      opt('pecans', 'pecans', '3/4 cup (85 g)', 'chopped'),
-    ],
-    steps: [
-      'Line a square 8-inch pan with parchment paper, leaving some hanging over two sides as handles, and butter the paper lightly.',
-      'If using the pecans, stir them in a dry heavy saucepan over medium-low heat for 4–5 minutes, until fragrant and a shade darker. Tip them onto a plate.',
-      'Melt the 3 tbsp butter in the saucepan over medium heat. Keep cooking, swirling the pan, for 3–4 minutes, until it foams, smells nutty and the specks on the bottom turn golden brown.',
-      'Take the pan off the heat at once and pour in the condensed milk, which stops the browning (it will sputter). Add the chocolate chips.',
-      'Set the pan over low heat and stir constantly with a spatula for 4–6 minutes, until the chips have melted and the fudge is smooth, thick and glossy. Keep the heat low, as chocolate scorches easily.',
-      'Take the pan off the heat and stir in the vanilla, the 1/4 tsp salt and the pecans, if using.',
-      'Scrape the fudge into the pan, smooth the top and sprinkle it with the pinch of salt.',
-      'Refrigerate for at least 3 hours, until the fudge is firm right to the center when pressed. If the middle still gives, chill it for another hour.',
-      'Lift the fudge out by the parchment and cut it into 36 squares with a sharp knife, wiping the blade between cuts. Keep in an airtight container in the refrigerator for up to 2 weeks.',
-    ],
-    source: ORIGINAL_DRAFT,
-  },
-  {
     id: 'no-bake-peanut-butter-bars',
     title: 'No-Bake Peanut Butter Bars',
     description:

@@ -7,6 +7,7 @@ import { CATEGORY_LABELS } from '../data/labels';
 import { INGREDIENTS_BY_POPULARITY, SUGGESTION_PAGE } from '../data/popularity';
 import { INGREDIENT_CATEGORIES, type Ingredient } from '../data/types';
 import { searchIngredients } from '../logic/normalizeIngredient';
+import { useAppState } from '../state/AppState';
 import { usePickerConfig, type PickerTarget } from '../state/pickerTarget';
 import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
@@ -37,15 +38,22 @@ type Props = {
 export function IngredientBrowser({ target, layout, query: controlledQuery, onQueryChange, hideSearch }: Props) {
   const c = useColors();
   const cfg = usePickerConfig(target);
+  const { library } = useAppState();
+  // Only ingredients some recipe lists (bundled or the person's own): picking one no recipe has would find nothing.
+  // Anything already picked stays visible so it can be removed. The recipe editor searches the whole catalog.
+  const inLibrary = useMemo(() => new Set(library.flatMap(r => r.ingredients.map(i => i.ingredientId))), [library]);
+  const shown = (i: Ingredient) => inLibrary.has(i.id) || cfg.variantFor(i.id) !== 'neutral';
+  const shownCount = useMemo(() => INGREDIENTS.filter(i => inLibrary.has(i.id)).length, [inLibrary]);
   const [localQuery, setLocalQuery] = useState('');
   const query = controlledQuery ?? localQuery;
   const setQuery = onQueryChange ?? setLocalQuery;
 
   const suggestions = useMemo(
-    () => RANKED.filter(i => !cfg.excludeFromSuggestions.has(i.id)),
-    [cfg.excludeFromSuggestions],
+    () => RANKED.filter(i => !cfg.excludeFromSuggestions.has(i.id) && inLibrary.has(i.id)),
+    [cfg.excludeFromSuggestions, inLibrary],
   );
-  const hits = useMemo(() => searchIngredients(ingredientIndex, query), [query]);
+  const allHits = useMemo(() => searchIngredients(ingredientIndex, query), [query]);
+  const hits = allHits.filter(h => shown(h.ingredient));
   const visible = layout === 'compact' ? suggestions.slice(0, SUGGESTION_PAGE) : suggestions;
 
   const chip = (ing: Ingredient, hint?: string) => {
@@ -81,7 +89,11 @@ export function IngredientBrowser({ target, layout, query: controlledQuery, onQu
             </View>
           ) : (
             <View style={styles.noIng}>
-              <Text style={[t.body, { color: c.text }]}>No ingredient found for “{query.trim()}”.</Text>
+              <Text style={[t.body, { color: c.text }]}>
+                {allHits.length
+                  ? `No recipe uses ${allHits[0].ingredient.name.toLowerCase()} yet.`
+                  : `No ingredient found for “${query.trim()}”.`}
+              </Text>
               <LinkButton label="Clear search" onPress={() => setQuery('')} />
             </View>
           )}
@@ -94,7 +106,7 @@ export function IngredientBrowser({ target, layout, query: controlledQuery, onQu
             {layout === 'compact' ? (
               <View style={styles.more}>
                 <LinkButton
-                  label={`Browse all ${INGREDIENTS.length} ingredients`}
+                  label={`Browse all ${shownCount} ingredients`}
                   chevron
                   accessibilityHint="Opens every ingredient to scroll through"
                   onPress={() => router.push({ pathname: '/ingredients', params: { for: target } })}
@@ -104,12 +116,14 @@ export function IngredientBrowser({ target, layout, query: controlledQuery, onQu
           </View>
 
           {layout === 'full'
-            ? BY_CATEGORY.map(({ cat, items }) => (
-                <View key={cat} style={styles.section}>
-                  <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>{CATEGORY_LABELS[cat]}</Text>
-                  <View style={styles.wrap}>{items.map(i => chip(i))}</View>
-                </View>
-              ))
+            ? BY_CATEGORY.map(({ cat, items }) => ({ cat, items: items.filter(shown) }))
+                .filter(group => group.items.length)
+                .map(({ cat, items }) => (
+                  <View key={cat} style={styles.section}>
+                    <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>{CATEGORY_LABELS[cat]}</Text>
+                    <View style={styles.wrap}>{items.map(i => chip(i))}</View>
+                  </View>
+                ))
             : null}
         </>
       )}

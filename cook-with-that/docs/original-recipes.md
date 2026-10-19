@@ -20,7 +20,8 @@ headnotes and a particular cook's exact formula are expression. So:
   checker compares each recipe's deciding numbers with 2–3 published recipes for the same dish and moves only a number
   that sits outside the range they agree on. If a recipe turns out to match **one** published recipe across the board
   (classics recalled from memory do), rework it from ratios until at least four deciding quantities or the method
-  differ, staying inside the agreed range. How the first 404 were checked: `recipe-review/verification/`.
+  differ, staying inside the agreed range. How the first 404 were checked: `recipe-review/verification/`. A recipe
+  ships only once it scores 5 of 5 there (owner decision 21); record it in `verdicts.json`, or the tests fail.
 
 ## Standard
 

@@ -83,7 +83,8 @@ Hard rules (from the plan, still in force):
    from our from scratch ones"). `src/data/recipes.ts` has `WRITTEN_RECIPES` (27 seed + `src/data/originals/`, source
    type 'original'), `SOURCE_RECIPES` (`src/data/imported/`, 'licensed') and one switch, `INCLUDE_WRITTEN_RECIPES`
    (on), so a release can leave the written ones out. Nothing in the app labels or filters them. Tests keep each list
-   to its own kind and check the adapted recipes alone still form a valid library.
+   to its own kind and check the adapted recipes alone still form a valid library. Since decision 21 the adapted list
+   is switched off too (`INCLUDE_SOURCE_RECIPES`).
 18. **No cook-testing required** (owner, 2026-10-11: "we don't need to test I don't think"). The paper review is the
    last check, so every new batch gets one (reviewers reading each recipe as a cook, plus `npm run audit:recipes`,
    whose `ratio` check flags leavening, yeast and salt per cup of flour, liquid per cup of grain, gelatin per cup of
@@ -111,6 +112,16 @@ Hard rules (from the plan, still in force):
    personal and it's literally the best ever"). They live in `src/data/originals/ownerRecipes.ts`; reviews, audits
    and the published-recipe check (decision 18) may comment on them but never change their amounts. Only wording,
    tags and catalog IDs get tidied. Kewpie counts as Mayonnaise (search "kewpie" finds it; Avoid mayonnaise hides it).
+21. **Only the recipes we're most sure of ship** (owner, 2026-10-19: "we just cut out the ones we are least confident
+   about… still keep at least 400"; the pitch is a premium, not-overwhelming app of our own recipes). The bar is the
+   published-recipe check (decision 18): a recipe ships only if it scored **5 of 5** there. So the 264 adapted recipes
+   (Based Cooking, NHLBI, VA), which never had that check, are switched off (`INCLUDE_SOURCE_RECIPES = false`), and the
+   4 written ones stuck at 4 (blueberry crumb bars, coconut macaroons, fudge, caramel popcorn) were deleted. 406 ship:
+   405 that scored 5 plus the owner's own (decision 20). The switched-off recipes stay in `src/data/imported/`, still
+   validated and still seen by the import pipeline's duplicate checks (`ALL_RECIPES`); one comes back only after
+   passing the same check. `tests/contentValidation.test.ts` fails if anything below a 5 ships. Because 79 catalog
+   ingredients are now in no recipe, the Find, Pantry and Staples pickers show only ingredients some recipe in the
+   library lists (search says "No recipe uses kale yet"); the recipe editor still offers the whole catalog.
 
 ## Layout
 ```
@@ -122,8 +133,8 @@ src/components/  ui (Button, Card, LargeHeader, Segmented…), Icon (SF Symbols 
                  Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard, AddToPlanSheet
 src/theme/       colors (light/dark tokens), typography, spacing, icons (icon + dish-picture names), iconGlyphs
                  (generated)
-src/data/        types, ingredients (401, with aliases), recipes (27 seed + originals/ + imported/), collections,
-                 recipeBuilders, staples, popularity, labels, catalog
+src/data/        types, ingredients (401, with aliases), recipes (27 seed + originals/ ship; imported/ is switched
+                 off), collections, recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display), userRecipes (edits, own recipes, library), mealPlan
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
@@ -149,9 +160,10 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   **never yet run on a physical iPhone**: do that early. The native tab bar and SF Symbols (decision 19) have only been
   seen through the web stand-in, so check them first: the tab bar, the header icons, and that Find's footer button
   sits above the tab bar.
-- All 674 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 383 newer originals written
-  for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
-  98% of common 2-ingredient picks find an exact match (73% of triples).
+- 406 recipes ship, all written for the app (decision 21): 27 seed and 379 newer originals. All are drafts marked
+  "needs culinary review" (validator warns). Switched off: 157 adapted from Based Cooking, 59 from NHLBI (web and
+  cookbooks) and 48 from the VA (all public domain). 97% of common 2-ingredient picks find an exact match (67% of
+  triples; 98% and 73% with the adapted recipes on).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 - **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
   1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
@@ -241,13 +253,15 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
    written batches get that check too. The 96 that scored 4 of 5 were then moved onto the typical published amounts
    (owner's choice over cutting them); 400 now score 5.
 2. **More recipes:** originals are the main stream now (`docs/original-recipes.md`; assign each writer a theme file
-   and a dish list so lists never overlap). Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
+   and a dish list so lists never overlap). A new batch ships only after scoring 5 on the published check (decision
+   21), and so does any switched-off adapted recipe brought back. Sources still hold more (`docs/import-reports/`: VA 18 ready, NHLBI
    cookbooks 5, Based Cooking 27, NHLBI web 4, plus many waiting on ingredient review). Every VA recipe needs a web
    search before import, credited or not: 16 uncredited or "Submitted by" recipes turned out to be published ones. The
    common-pair gaps left are odd combinations (chicken with ground beef, rice with pasta or potato, pasta with black
    beans); the triples report shows where depth is thin. Merge workers one at a time: copy an originals file whole,
    append importers' recipes, then `npm run import:catalog` for each new key.
 3. Next source after these: HowToCook (Chinese home cooking, Unlicense, needs translation), see recipe-sources.md.
-4. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (NHLBI asks for its credit line, the VA
-   for proper attribution with no implied endorsement; Based Cooking needs none), plus the Apache 2.0 notice for the
-   Material Symbols icon fonts (`assets/fonts/MaterialSymbols-LICENSE.txt`). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).
+4. Before release: an acknowledgements screen with the Apache 2.0 notice for the Material Symbols icon fonts
+   (`assets/fonts/MaterialSymbols-LICENSE.txt`). If adapted recipes are ever switched back on (decision 21), it also
+   needs the credits in `RECIPE_COLLECTIONS` for the collections that ship (NHLBI asks for its credit line, the VA for
+   proper attribution with no implied endorsement; Based Cooking needs none). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).

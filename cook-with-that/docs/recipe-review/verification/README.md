@@ -90,6 +90,13 @@ and lamb at 130°F with the USDA line, no egg warnings, salt where fitting). Eac
   corn. Each works and sits inside the published range, but its last edge value's median is the exact number of the
   published recipe it was reworked away from, so it stays.
 
+## Only fives ship (2026-10-19, owner decision 21)
+The owner asked to "cut out the ones we are least confident about… still keep at least 400". This check is the
+strongest evidence we have, so it became the bar: those four 4s were deleted (`verdicts.json` keeps their entries,
+marked `cut`), and the 264 adapted recipes, which never had this check, were switched off. 406 ship: 405 fives plus
+the owner's own recipe. `tests/contentValidation.test.ts` fails if a shipped recipe lacks a 5 here.
+
 ## For new batches
 New written recipes get this check too: compare each with published versions before merging, and rework any that
-match one source across the board (`docs/original-recipes.md`).
+match one source across the board (`docs/original-recipes.md`). Only a 5 ships; so does an adapted recipe that is
+switched back on.
