@@ -44,6 +44,10 @@ These need your accounts; none of it can be done from the repo.
 
 1. **Privacy policy:** done. It's published at `https://brainscroll.app/privacy` and `EXPO_PUBLIC_PRIVACY_URL` is set in `eas.json`. Terms default to Apple's standard EULA; set `EXPO_PUBLIC_TERMS_URL` to use your own.
 2. **App Store Connect**: create a subscription group "Unlimited" with two auto-renewable subscriptions, product ids `unlimited_monthly` ($4.99) and `unlimited_annual` ($39.99). Add the Paid Apps agreement, tax and banking. Create an App Store Connect API key for RevenueCat.
+   - **Submit them with an app version.** Apple reviews an app's first subscriptions only together with a new app version, and until they're approved they can't be bought in the live app.
+   - Each subscription needs to read **Ready to Submit** first. That means a display name and description, a price, and a review screenshot of the paywall; the group needs its own display name too.
+   - Then add both subscriptions to the version's submission, before pressing Submit for Review. Use the **In-App Purchases and Subscriptions** section on the version page, or **Add for Review** on each subscription's page, picking the version.
+   - Once they're approved they show **Approved**; while they're in a submission, **Waiting for Review**. **Ready to Submit** after you've sent the version means they were left out (owner, 2026-10-19: "i dont think i ever did that"). Later subscriptions can go in on their own.
 3. **Google Play Console**: create subscriptions `unlimited_monthly` and `unlimited_annual` with one base plan each. Link a service account for RevenueCat.
 4. **RevenueCat** (app.revenuecat.com):
    - Add the iOS and Android apps.

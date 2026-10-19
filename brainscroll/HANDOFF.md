@@ -31,7 +31,8 @@ An anti-doomscrolling learning app for iPhone (Android later): "Stop scrolling. 
    2. The owner presses **Release This Version** in App Store Connect.
    3. On the owner's word ("turn on the App Store link"), set `STORE_URLS.APP_STORE_URL` in `scripts/site-build.ts` to `https://apps.apple.com/app/id6818598156` (written in the comment there). The website and invite pages then show the App Store badge instead of "coming soon".
    4. On the owner's word, mark the skills and subjects `published` in `content/`. Nothing in the app reads that flag; it keeps the records honest.
-2. **If rejected:** read Apple's message with the owner and fix it.
+2. **Check that both subscriptions went in with 1.0** (raised 2026-10-19). An app's first subscriptions are reviewed only together with an app version ([`docs/subscriptions.md`](docs/subscriptions.md#setup-checklist-owner)). In App Store Connect, under Subscriptions → Unlimited, each should read **Waiting for Review** or **Approved**. **Ready to Submit** means they were left out: add them to the submission. If the version is already in review, that means removing it from review, adding them and resubmitting; after a rejection, add them before resubmitting.
+3. **If rejected:** read Apple's message with the owner and fix it.
    - Code-only fixes can go out as an instant update.
    - Native or `app.json` changes need a new build: raise `version` first.
    - Metadata fixes happen in App Store Connect.
