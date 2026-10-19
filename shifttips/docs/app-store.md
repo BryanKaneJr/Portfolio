@@ -120,7 +120,7 @@ ShiftTips calculates allocations only. It doesn't move money, run payroll or dec
 
 ## The website
 
-The privacy policy and support page are static files in [`../site`](../site), with no scripts, web fonts or trackers. Serve them with Cloudflare Pages, like the BrainScroll site:
+The privacy policy and support page are static files in [`../site`](../site), with no scripts, web fonts or trackers. Serve them with Cloudflare Pages:
 
 1. Cloudflare dashboard, **Workers & Pages**, **Create**, **Pages**, **Connect to Git**, pick `BryanKaneJr/Portfolio`.
 2. Project name `shifttips`. Production branch `master`. Framework preset **None**. Build command: leave empty. Build output directory: `shifttips/site`.
