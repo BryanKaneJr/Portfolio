@@ -4,7 +4,8 @@
 // that refuses the others' sizes:
 //   <name>.png          1320 x 2868, iPhone 6.9"
 //   6.3/<name>.png      1206 x 2622, iPhone 6.1" / 6.3" (the 6.9" slides, scaled down)
-//   duo/<name>-duo.png  2007 x 2853, the wide slot, laid out again for its shape
+//   duo/<name>-duo.png  2007 x 2853, the iPhone Duo's inner-screen slot, laid out again for its shape
+//                       (still the iPhone layout; real Duo screens come with Duo support, docs/build-order.md)
 //
 //   node store/app-store-promo/build.mjs                 # every slide
 //   node store/app-store-promo/build.mjs 07-weekly-quest # just these

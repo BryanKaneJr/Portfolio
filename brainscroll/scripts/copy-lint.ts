@@ -17,7 +17,7 @@ import { EM_DASH } from '@brainscroll/core';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ROOTS = ['app', 'packages', 'admin', 'scripts', 'backend', 'e2e', 'docs', 'content'];
-const TOP_FILES = ['README.md', 'CLAUDE.md', 'CHANGELOG.md', 'package.json', '.gitignore'];
+const TOP_FILES = ['README.md', 'CLAUDE.md', 'HANDOFF.md', 'CHANGELOG.md', 'package.json', '.gitignore'];
 const TEXT = new Set(['.ts', '.tsx', '.js', '.mjs', '.cjs', '.json', '.md', '.sql', '.sh', '.css', '.html', '.csv', '.toml', '.txt']);
 const SKIP_DIRS = new Set(['node_modules', '.expo', 'dist', 'web-build', '.data', 'source', 'ios', 'android', '.temp', '.branches']);
 
