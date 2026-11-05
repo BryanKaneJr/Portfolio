@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-11-05: BrainScroll is on the App Store
+
+- **The website links to the App Store** (owner: "Brainscroll is out. Update the website please"). `STORE_URLS.APP_STORE_URL` in `scripts/site-build.ts` is now `https://apps.apple.com/app/id6818598156`, so the home page shows Apple's badge in the hero and the download section, with "Android coming soon" beside it, and invite links offer the App Store. docs/release.md marks the step done. BrainScroll's own repository (BryanKaneJr/brainscroll) has the same change; this copy is the one the website is built from until Cloudflare Pages moves there.
+
 ## 2026-10-10: Weekly Quests scheduled; instant updates fit
 
 - **The subscriptions must be submitted with the app version** (owner: "was i supposed to submit unlimited for review? i dont think i ever did that"). Apple reviews an app's first subscriptions only together with a new app version; left out, they can't be bought in the live app and App Review can reject the build. docs/subscriptions.md now has the step (every subscription Ready to Submit, then added to the version's submission) and how to tell from their status whether it happened; HANDOFF.md adds the check to the release-day list. On 2026-10-19 the owner set the missing availability, updated both subscriptions' review notes and screenshot, and resubmitted 1.0.0 (8) with the group and both subscriptions in one submission.

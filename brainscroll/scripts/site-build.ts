@@ -22,10 +22,10 @@ if (app.expo.ios.bundleIdentifier !== app.expo.android.package) throw new Error(
 const APPLE_TEAM_ID = 'X3837877NX';
 // The store listings, public too. Each stays empty until the app is live in that store, so the page shows
 // "coming soon" rather than a link to a listing that isn't up yet; the badge appears once it's set.
-// iPhone, on release day: https://apps.apple.com/app/id6818598156 (Apple ID from App Store Connect).
+// iPhone: released 2026-11-05 (the Apple ID, 6818598156, is from App Store Connect).
 // Android, once it's on Google Play: https://play.google.com/store/apps/details?id=app.brainscroll
 // The host's environment (APP_STORE_URL, PLAY_STORE_URL) wins.
-const STORE_URLS = { APP_STORE_URL: '', PLAY_STORE_URL: '' };
+const STORE_URLS = { APP_STORE_URL: 'https://apps.apple.com/app/id6818598156', PLAY_STORE_URL: '' };
 const config = siteConfigFromEnv({ APPLE_TEAM_ID, ...STORE_URLS, ...process.env }, app.expo.ios.bundleIdentifier);
 const written = buildSite(join(repo, 'site', 'src'), join(repo, 'site', 'dist'), config, readFileSync(join(repo, 'docs', 'privacy-policy.md'), 'utf8'));
 for (const w of siteWarnings(config)) console.warn(`warning  ${w}`);
