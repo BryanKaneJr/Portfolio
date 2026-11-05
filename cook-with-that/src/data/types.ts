@@ -64,7 +64,8 @@ export type RecipeOrigin = {
 };
 
 export type RecipeSource = {
-  type: 'original' | 'licensed';
+  /** `user`: written or edited by the person using the app (stored on the phone, never bundled). */
+  type: 'original' | 'licensed' | 'user';
   note: string;
   license?: string;
   /** Set on every recipe imported from an outside collection. */
@@ -99,3 +100,9 @@ export const EMPTY_SEARCH: SearchState = {
   useIds: [],
   avoidIds: [],
 };
+
+/** Adds the dish types a recipe's meals imply (a dessert is also a Desserts dish); see `MEAL_DISH_TYPES`. */
+export function withMealDishTypes(recipe: Recipe): Recipe {
+  const implied = recipe.meals.flatMap(m => MEAL_DISH_TYPES[m] ?? []).filter(d => !recipe.dishTypes.includes(d));
+  return implied.length ? { ...recipe, dishTypes: [...recipe.dishTypes, ...implied] } : recipe;
+}

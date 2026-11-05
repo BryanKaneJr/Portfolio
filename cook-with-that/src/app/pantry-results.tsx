@@ -4,7 +4,6 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Dropdown } from '../components/Dropdown';
 import { RecipeCard } from '../components/RecipeCard';
-import { RECIPES } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEALS } from '../data/types';
 import { countCanMake, searchPantry, type PantryResult } from '../logic/pantry';
@@ -22,12 +21,12 @@ export default function PantryResultsScreen() {
   const { canMake, oneShort } = useMemo(
     () =>
       searchPantry(
-        RECIPES,
+        app.library,
         app.effectivePantry,
         { meal: app.pantryMeal, dishType: app.pantryDishType },
         app.shuffleSeed,
       ),
-    [app.effectivePantry, app.pantryMeal, app.pantryDishType, app.shuffleSeed],
+    [app.library, app.effectivePantry, app.pantryMeal, app.pantryDishType, app.shuffleSeed],
   );
 
   const rows: Row[] = [
@@ -75,7 +74,7 @@ export default function PantryResultsScreen() {
           labels={MEAL_LABELS}
           value={app.pantryMeal}
           onChange={app.setPantryMeal}
-          countFor={meal => countCanMake(RECIPES, app.effectivePantry, { ...filters, meal })}
+          countFor={meal => countCanMake(app.library, app.effectivePantry, { ...filters, meal })}
         />
         <Dropdown
           label="Dish type"
@@ -84,7 +83,7 @@ export default function PantryResultsScreen() {
           labels={DISH_TYPE_LABELS}
           value={app.pantryDishType}
           onChange={app.setPantryDishType}
-          countFor={dishType => countCanMake(RECIPES, app.effectivePantry, { ...filters, dishType })}
+          countFor={dishType => countCanMake(app.library, app.effectivePantry, { ...filters, dishType })}
         />
       </View>
 

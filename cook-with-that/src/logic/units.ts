@@ -123,6 +123,14 @@ const GRAMS_PER_CUP: Record<string, number> = {
   crispy_chow_mein_noodles: 45,
   chocolate_sprinkles: 190,
   paprika: 110,
+  chickpea_flour: 92,
+  shredded_coconut: 85,
+  iceberg_lettuce: 70, // shredded
+  kalamata_olives: 135, // pitted
+  queso_fresco: 120, // crumbled
+  cornmeal: 140,
+  cornstarch: 115,
+  refried_beans: 240,
 };
 /** Where the cut or form changes the weight a lot: [pattern on the ingredient line's name, grams per cup]. */
 const FORM_WEIGHTS: Record<string, [RegExp, number][]> = {

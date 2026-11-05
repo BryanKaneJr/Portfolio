@@ -1,7 +1,7 @@
 import { IMPORTED_RECIPES } from './imported';
 import { ORIGINAL_RECIPES } from './originals';
 import { ORIGINAL_DRAFT, opt, r } from './recipeBuilders';
-import { MEAL_DISH_TYPES, type Recipe } from './types';
+import { withMealDishTypes, type Recipe } from './types';
 
 /**
  * Seed recipe library (Phase 1).
@@ -58,7 +58,7 @@ const SEED_RECIPES: Recipe[] = [
       r('chicken', 'boneless, skinless chicken breast', '1 lb', 'cut into bite-size pieces'),
       r('garlic', 'garlic cloves', '4', 'thinly sliced'),
       r('spinach', 'baby spinach', '4 packed cups'),
-      r('chicken_broth', 'chicken broth', '3/4 cup'),
+      r('chicken_broth', 'chicken broth', '1 cup'),
       r('olive_oil', 'olive oil', '2 tbsp'),
       r('parmesan', 'grated Parmesan', '1/2 cup', 'plus more to serve'),
       r('salt', 'salt', '1 tsp, plus more for the pasta water'),
@@ -89,10 +89,10 @@ const SEED_RECIPES: Recipe[] = [
       r('pasta', 'fettuccine or penne', '12 oz'),
       r('chicken', 'boneless, skinless chicken breast', '1 lb', 'cut into bite-size pieces'),
       r('garlic', 'garlic cloves', '4', 'minced'),
-      r('heavy_cream', 'heavy cream', '1 cup'),
+      r('heavy_cream', 'heavy cream', '1 1/2 cups'),
       r('spinach', 'baby spinach', '3 packed cups'),
       r('parmesan', 'grated Parmesan', '3/4 cup'),
-      r('butter', 'butter', '1 tbsp'),
+      r('butter', 'butter', '2 tbsp'),
       r('olive_oil', 'olive oil', '1 tbsp'),
       r('salt', 'salt', '1 tsp, plus more for the pasta water'),
       r('black_pepper', 'black pepper', '1/2 tsp'),
@@ -101,7 +101,7 @@ const SEED_RECIPES: Recipe[] = [
       'Cook the pasta in a large pot of well-salted boiling water until al dente. Save 1/2 cup of the pasta water, then drain.',
       'While the pasta cooks, season the chicken with the salt and pepper. Heat the oil in a large skillet over medium-high heat and cook the chicken 6–8 minutes, until cooked through (165°F / 74°C inside). Move it to a plate.',
       'Lower the heat to medium. Melt the butter, add the garlic and stir for 30–60 seconds until fragrant.',
-      'Pour in the cream and bring to a gentle simmer. Cook 3 minutes, stirring, until slightly thickened.',
+      'Pour in the cream and bring to a gentle simmer. Cook 3–4 minutes, stirring, until slightly thickened.',
       'Stir in the Parmesan until melted, then add the spinach and stir until wilted.',
       'Add the pasta and chicken and toss to coat. Loosen with pasta water a splash at a time if needed. Serve right away.',
     ],
@@ -199,14 +199,14 @@ const SEED_RECIPES: Recipe[] = [
     meals: ['lunch', 'dinner'],
     dishTypes: ['soup', 'one_pot'],
     prepMinutes: 10,
-    cookMinutes: 25,
+    cookMinutes: 45,
     servings: 6,
     ingredients: [
       r('canned_tomatoes', 'canned whole or crushed tomatoes', '2 cans (28 oz each)'),
       r('onion', 'yellow onion', '1 medium', 'chopped'),
       r('garlic', 'garlic cloves', '3', 'smashed'),
-      r('butter', 'butter', '3 tbsp'),
-      r('vegetable_broth', 'vegetable broth', '2 cups'),
+      r('butter', 'butter', '4 tbsp'),
+      r('vegetable_broth', 'vegetable broth', '1 1/2 cups'),
       r('sugar', 'sugar', '1 tsp'),
       r('salt', 'salt', '1 tsp'),
       r('black_pepper', 'black pepper', '1/4 tsp'),
@@ -216,7 +216,7 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'Melt the butter in a large pot over medium heat. Add the onion and a pinch of the salt and cook, stirring, for 6–8 minutes until soft and translucent.',
       'Add the garlic and cook 1 minute.',
-      'Add the canned tomatoes with their juices, the broth, sugar, remaining salt and pepper. Bring to a boil, then lower the heat and simmer, partly covered, for 15 minutes.',
+      'Add the canned tomatoes with their juices, the broth, sugar, remaining salt and pepper. Bring to a boil, then lower the heat and simmer, partly covered and stirring now and then, for 30 minutes.',
       'Take the pot off the heat. Blend until smooth with an immersion blender, or carefully in batches in a blender with the lid vented and covered with a towel.',
       'Stir in the cream if using and warm through without boiling. Taste for salt and serve topped with basil if you like.',
     ],
@@ -229,7 +229,7 @@ const SEED_RECIPES: Recipe[] = [
     meals: ['lunch', 'snack'],
     dishTypes: ['sandwich'],
     prepMinutes: 3,
-    cookMinutes: 8,
+    cookMinutes: 11,
     servings: 1,
     ingredients: [
       r('bread', 'sandwich bread', '2 slices'),
@@ -239,8 +239,8 @@ const SEED_RECIPES: Recipe[] = [
     steps: [
       'Spread the butter on one side of each slice of bread.',
       'Place one slice butter-side down in a cold skillet. Top with the cheese, then the second slice, butter-side up.',
-      'Turn the heat to medium-low. Cook 3–4 minutes until the bottom is deep golden.',
-      'Flip and cook another 3–4 minutes until the second side is golden and the cheese has melted. Cut and serve.',
+      'Turn the heat to medium-low. Cook 5–7 minutes until the bottom is deep golden.',
+      'Flip and cook another 4–5 minutes until the second side is golden and the cheese has melted. Cut and serve.',
     ],
     source: DRAFT,
   },
@@ -393,60 +393,64 @@ const SEED_RECIPES: Recipe[] = [
   {
     id: 'fluffy-pancakes',
     title: 'Fluffy Pancakes',
-    description: 'Simple, tall buttermilk-style pancakes made with regular milk.',
+    description: 'Tall, tender pancakes lifted by whipped egg whites folded into a lightly sweet vanilla batter.',
     meals: ['breakfast'],
     dishTypes: ['skillet'],
-    prepMinutes: 10,
-    cookMinutes: 15,
+    prepMinutes: 15,
+    cookMinutes: 20,
     servings: 4,
     ingredients: [
-      r('flour', 'all-purpose flour', '1 1/2 cups'),
-      r('sugar', 'sugar', '2 tbsp'),
+      r('flour', 'all-purpose flour', '2 cups'),
+      r('sugar', 'sugar', '3 tbsp'),
       r('baking_powder', 'baking powder', '1 tbsp'),
-      r('salt', 'salt', '1/2 tsp'),
-      r('milk', 'milk', '1 1/4 cups'),
-      r('eggs', 'large egg', '1'),
-      r('butter', 'butter', '3 tbsp', 'melted, plus more for the pan'),
-      opt('berries', 'blueberries', '1/2 cup'),
+      r('salt', 'salt', '3/4 tsp'),
+      r('milk', 'milk', '1 3/4 cups'),
+      r('eggs', 'large eggs', '2', 'separated'),
+      r('butter', 'butter', '4 tbsp', 'melted, plus more for the pan'),
+      r('vanilla', 'vanilla extract', '1 tsp'),
+      opt('berries', 'blueberries', '3/4 cup'),
     ],
     steps: [
       'Whisk the flour, sugar, baking powder and salt in a large bowl.',
-      'In another bowl, whisk the milk, egg and melted butter.',
-      'Pour the wet ingredients into the dry and stir just until combined — a few lumps are fine. Rest 5 minutes.',
-      'Heat a nonstick skillet over medium heat and brush with a little butter.',
-      'Pour 1/4 cup of batter per pancake. Scatter berries on top if using. Cook 2–3 minutes until bubbles form and the edges look set.',
-      'Flip and cook 1–2 minutes more until golden. Repeat with the remaining batter.',
+      'In another bowl, whisk the milk, egg yolks, melted butter and vanilla.',
+      'In a clean bowl, beat the egg whites with a whisk or mixer until they hold soft peaks, 2–3 minutes.',
+      'Pour the milk mixture into the flour mixture and stir just until no dry streaks remain; a few lumps are fine. Gently fold in the whites until only a few white streaks show. Cook the batter right away so it stays airy.',
+      'Heat a large nonstick skillet or griddle over medium heat and brush with a little butter.',
+      'Pour 1/4 cup of batter per pancake (about 16 in all). Scatter berries on top if using. Cook 2–3 minutes, until bubbles form and the edges look set.',
+      'Flip and cook 1–2 minutes more, until golden. Repeat with the remaining batter, brushing the pan with butter as needed.',
     ],
     source: DRAFT,
   },
   {
     id: 'chocolate-chip-cookies',
     title: 'Chocolate Chip Cookies',
-    description: 'Chewy-centered cookies with crisp edges and plenty of chocolate.',
+    description:
+      'Thick, chewy cookies heavy on brown sugar, rested before baking and finished with a few flakes of salt.',
     meals: ['dessert', 'snack'],
     dishTypes: ['baked_goods'],
-    prepMinutes: 15,
-    cookMinutes: 35,
-    servings: 36,
+    prepMinutes: 45,
+    cookMinutes: 40,
+    servings: 40,
     ingredients: [
-      r('flour', 'all-purpose flour', '2 1/4 cups'),
+      r('flour', 'all-purpose flour', '2 1/2 cups'),
       r('baking_soda', 'baking soda', '1 tsp'),
-      r('salt', 'salt', '3/4 tsp'),
+      r('salt', 'salt', '3/4 tsp', 'plus flaky salt for the tops'),
       r('butter', 'unsalted butter', '1 cup (2 sticks)', 'softened'),
-      r('sugar', 'sugar', '3/4 cup'),
-      r('brown_sugar', 'packed brown sugar', '3/4 cup'),
+      r('brown_sugar', 'packed brown sugar', '1 cup'),
+      r('sugar', 'sugar', '1/2 cup'),
       r('eggs', 'large eggs', '2', 'room temperature'),
       r('vanilla', 'vanilla extract', '2 tsp'),
       r('chocolate_chips', 'semisweet chocolate chips', '2 cups (12 oz)'),
     ],
     steps: [
-      'Heat the oven to 375°F (190°C). Line two baking sheets with parchment paper.',
-      'Whisk the flour, baking soda and salt in a bowl.',
-      'In a large bowl, beat the butter, sugar and brown sugar with a mixer for 2–3 minutes until light and fluffy.',
+      'Whisk the flour, baking soda and 3/4 tsp salt in a bowl.',
+      'In a large bowl, beat the butter, brown sugar and sugar with a mixer for 2–3 minutes, until light and fluffy.',
       'Beat in the eggs one at a time, then the vanilla.',
-      'Mix in the flour mixture on low speed just until no dry flour remains. Stir in the chocolate chips.',
-      'Scoop rounded 2-tablespoon balls (about 36) onto the sheets, about 2 inches apart.',
-      'Bake one sheet at a time for 9–12 minutes, until the edges are golden and the centers look slightly underdone. Let the sheets cool before you load them again.',
+      'Mix in the flour mixture on low speed just until no dry flour remains, then stir in the chocolate chips.',
+      'Cover and refrigerate the dough for at least 30 minutes, or up to 2 days. Rested dough spreads less and tastes more of toffee. If it has chilled for more than an hour, let it sit out for 10 minutes so it scoops easily.',
+      'Heat the oven to 350°F (175°C). Line two baking sheets with parchment paper.',
+      'Scoop rounded 2-tablespoon balls (about 40) onto the sheets, about 2 inches apart, and press a few flakes of salt onto each.',
+      'Bake one sheet at a time for 11–13 minutes, until the edges are golden and the centers look slightly underdone. Let the sheets cool before you load them again.',
       'Cool on the sheet for 5 minutes, then move to a rack.',
     ],
     source: DRAFT,
@@ -792,10 +796,20 @@ const SEED_RECIPES: Recipe[] = [
  * The shipped library: hand-written seed recipes, original recipes written since (src/data/originals), then
  * everything imported from open collections (src/data/imported).
  */
-/** Adds the dish types a recipe's meals imply (a dessert is also a Desserts dish); see `MEAL_DISH_TYPES`. */
-export function withMealDishTypes(recipe: Recipe): Recipe {
-  const implied = recipe.meals.flatMap(m => MEAL_DISH_TYPES[m] ?? []).filter(d => !recipe.dishTypes.includes(d));
-  return implied.length ? { ...recipe, dishTypes: [...recipe.dishTypes, ...implied] } : recipe;
-}
+export { withMealDishTypes };
 
-export const RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES, ...IMPORTED_RECIPES].map(withMealDishTypes);
+/**
+ * Owner decision 17: recipes our writers made up are kept apart from recipes adapted from public sources, behind one
+ * switch, so a release can include them or leave them out.
+ * - WRITTEN_RECIPES: the 27 seed recipes above and `src/data/originals/` (source type 'original').
+ * - SOURCE_RECIPES: `src/data/imported/` (Based Cooking, NHLBI, VA; source type 'licensed').
+ * Turn the switch off to ship only the adapted recipes; saved favorites, plans and edits of a written recipe are then
+ * dropped quietly on the next launch.
+ */
+export const INCLUDE_WRITTEN_RECIPES = true;
+export const WRITTEN_RECIPES: Recipe[] = [...SEED_RECIPES, ...ORIGINAL_RECIPES];
+export const SOURCE_RECIPES: Recipe[] = IMPORTED_RECIPES;
+
+export const RECIPES: Recipe[] = [...(INCLUDE_WRITTEN_RECIPES ? WRITTEN_RECIPES : []), ...SOURCE_RECIPES].map(
+  withMealDishTypes,
+);

@@ -1,6 +1,6 @@
 import { INGREDIENTS } from '../src/data/ingredients';
 import { shownDishTypes } from '../src/data/labels';
-import { RECIPES, withMealDishTypes } from '../src/data/recipes';
+import { RECIPES, SOURCE_RECIPES, WRITTEN_RECIPES, withMealDishTypes } from '../src/data/recipes';
 import { validateContent } from '../src/logic/validateContent';
 import { resolveFavoriteIds } from '../src/state/favoritesStorage';
 import { recipe } from './fixtures';
@@ -82,5 +82,24 @@ describe('popularity ranking', () => {
   test('salt, pepper and water are never suggested', () => {
     expect(INGREDIENTS_BY_POPULARITY).not.toEqual(expect.arrayContaining(['salt']));
     for (const id of ['salt', 'black_pepper', 'water']) expect(INGREDIENTS_BY_POPULARITY).not.toContain(id);
+  });
+});
+
+describe('our written recipes stay apart from adapted ones (owner decision 17)', () => {
+  test('each list holds only its own kind', () => {
+    for (const r of WRITTEN_RECIPES)
+      expect([r.id, r.source.type, r.source.origin]).toEqual([r.id, 'original', undefined]);
+    for (const r of SOURCE_RECIPES) {
+      expect([r.id, r.source.type]).toEqual([r.id, 'licensed']);
+      expect(r.source.origin?.collection).toBeTruthy();
+    }
+    const written = new Set(WRITTEN_RECIPES.map(r => r.id));
+    expect(SOURCE_RECIPES.filter(r => written.has(r.id)).map(r => r.id)).toEqual([]);
+  });
+
+  test('the adapted recipes alone still make a valid library, so the switch can be turned off', () => {
+    const sourceOnly = SOURCE_RECIPES.map(withMealDishTypes);
+    expect(validateContent(INGREDIENTS, sourceOnly)).toEqual([]);
+    expect(sourceOnly.filter(r => !r.dishTypes.length).map(r => r.id)).toEqual([]);
   });
 });

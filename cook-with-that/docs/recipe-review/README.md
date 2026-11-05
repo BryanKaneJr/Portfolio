@@ -6,6 +6,9 @@ is it clear. Imported recipes were compared line by line with their source. Each
 `rv11.md`) lists every change and every question. `npm run audit:recipes` (report: `../recipe-audit.md`) ran first and
 fed them script flags.
 
+Later checks: round 5's 120 new recipes in `round-5/`, and all 404 written recipes compared with published versions
+in `verification/` (2026-10-12).
+
 ## What was fixed (97 recipes)
 
 No recipe was dropped, no transcription slips were found in the imports, and no unsafe temperature survived. The fixes

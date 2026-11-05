@@ -180,7 +180,7 @@ export const VA_RECIPES: Recipe[] = [
     meals: ['dinner'],
     dishTypes: ['one_pot'],
     prepMinutes: 15,
-    cookMinutes: 55,
+    cookMinutes: 65,
     servings: 4,
     ingredients: [
       r('vegetable_oil', 'vegetable oil', '1 tbsp'),
@@ -198,7 +198,7 @@ export const VA_RECIPES: Recipe[] = [
     steps: [
       'Heat the oil in a Dutch oven or large pot with a lid over medium heat. Add the beef, onion and garlic and cook, breaking up the meat, until the onion is soft and the beef is cooked through (160°F / 71°C), 5–7 minutes.',
       'Stir in the cabbage, brown rice, diced tomatoes with their juice, tomato sauce, water and black pepper.',
-      'Bring to a boil, then lower the heat, cover and simmer, stirring every 10 minutes, until the brown rice and cabbage are tender, 40–45 minutes. If it gets too thick, stir in a little more water.',
+      'Bring to a boil, then lower the heat, cover and simmer, stirring every 10 minutes, until the brown rice and cabbage are tender, 40–55 minutes. If it gets too thick, stir in a little more water.',
       'Season with salt to taste and serve hot.',
     ],
     source: from('unstuffed-cabbage-rolls', 'Unstuffed Cabbage Rolls'),

@@ -10,6 +10,12 @@ import { BAKING_BREAKFAST_RECIPES } from './bakingBreakfast';
 import { SOUPS_SALADS_SANDWICHES_RECIPES } from './soupsSaladsSandwiches';
 import { BREAKFAST_SIDES_RECIPES } from './breakfastSides';
 import { BAKING_RECIPES } from './baking';
+import { COMFORT_RECIPES } from './comfort';
+import { BREAKFAST_RECIPES } from './breakfast';
+import { GRILL_FRY_RECIPES } from './grillFry';
+import { SOUPS_SALADS_DIPS_RECIPES } from './soupsSaladsDips';
+import { WORLD_KITCHEN_RECIPES } from './worldKitchen';
+import { DESSERTS_SNACKS_RECIPES } from './dessertsSnacks';
 
 /**
  * Original recipes written for the app, one file per theme so parallel writers don't collide.
@@ -27,4 +33,10 @@ export const ORIGINAL_RECIPES: Recipe[] = [
   ...WEEKNIGHT_RECIPES,
   ...SIDES_APPETIZERS_RECIPES,
   ...BAKING_BREAKFAST_RECIPES,
+  ...COMFORT_RECIPES,
+  ...BREAKFAST_RECIPES,
+  ...GRILL_FRY_RECIPES,
+  ...SOUPS_SALADS_DIPS_RECIPES,
+  ...WORLD_KITCHEN_RECIPES,
+  ...DESSERTS_SNACKS_RECIPES,
 ];

@@ -1,9 +1,10 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { AddToPlanSheet, dayLabel, SLOT_LABELS } from '../../components/AddToPlanSheet';
 import { formatMinutes } from '../../components/RecipeCard';
-import { ingredientIndex, recipesById } from '../../data/catalog';
+import { ingredientIndex } from '../../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS, shownDishTypes } from '../../data/labels';
 import { additionalRequired } from '../../logic/matchRecipes';
 import { displayQuantity, displayStep } from '../../logic/units';
@@ -16,8 +17,24 @@ export default function RecipeScreen() {
   const c = useColors();
   const app = useAppState();
   const { id } = useLocalSearchParams<{ id: string }>();
-  const recipe = id ? recipesById.get(id) : undefined;
+  const [showOriginal, setShowOriginal] = useState(false);
+  const edited = !!id && app.isEdited(id);
+  const recipe = id ? (edited && showOriginal ? app.originalRecipe(id) : app.recipeById(id)) : undefined;
   const [done, setDone] = useState<Set<number>>(new Set());
+  const [planOpen, setPlanOpen] = useState(false);
+  const [planned, setPlanned] = useState<string | null>(null);
+  const [note, setNote] = useState(() => (id ? app.noteFor(id) : ''));
+  // Save the note when the page closes, in case the field still has focus. Refs, so this runs only on close.
+  const latestNote = useRef(note);
+  latestNote.current = note;
+  const saveNote = useRef(app.setNote);
+  saveNote.current = app.setNote;
+  useEffect(
+    () => () => {
+      if (id) saveNote.current(id, latestNote.current);
+    },
+    [id],
+  );
 
   if (!recipe) {
     return (
@@ -28,6 +45,7 @@ export default function RecipeScreen() {
   }
 
   const fav = app.isFavorite(recipe.id);
+  const own = app.isOwn(recipe.id);
   // In pantry mode, "have" = pantry; otherwise = the ingredients picked to Use.
   const pantryMode = app.homeMode === 'pantry';
   const haveIds = pantryMode ? app.effectivePantry : app.search.useIds;
@@ -36,7 +54,11 @@ export default function RecipeScreen() {
   const showNeedBox = pantryMode ? app.pantry.length > 0 : app.search.useIds.length > 0;
   const required = recipe.ingredients.filter(i => !i.optional);
   const optional = recipe.ingredients.filter(i => i.optional);
-  const tags = [...recipe.meals.map(m => MEAL_LABELS[m]), ...shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d])];
+  const tags = [
+    ...(own ? ['Your recipe'] : []),
+    ...recipe.meals.map(m => MEAL_LABELS[m]),
+    ...shownDishTypes(recipe).map(d => DISH_TYPE_LABELS[d]),
+  ];
 
   const toggleStep = (n: number) =>
     setDone(prev => {
@@ -72,19 +94,49 @@ export default function RecipeScreen() {
         options={{
           title: '',
           headerRight: () => (
-            <Pressable
-              onPress={() => app.toggleFavorite(recipe.id)}
-              hitSlop={10}
-              accessibilityRole="button"
-              accessibilityLabel={fav ? 'Remove from favorites' : 'Save to favorites'}
-              style={styles.headerFav}
-            >
-              <Text style={{ fontSize: 26, color: fav ? c.primary : c.textMuted }}>{fav ? '♥' : '♡'}</Text>
-            </Pressable>
+            <View style={styles.headerBtns}>
+              <Pressable
+                onPress={() => router.push({ pathname: '/edit', params: { id: recipe.id } })}
+                hitSlop={6}
+                accessibilityRole="button"
+                accessibilityLabel={own ? 'Edit your recipe' : edited ? 'Edit your version' : 'Edit this recipe'}
+                style={styles.headerFav}
+              >
+                <Text style={{ fontSize: 22, color: c.primary }}>✎</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => app.toggleFavorite(recipe.id)}
+                hitSlop={6}
+                accessibilityRole="button"
+                accessibilityLabel={fav ? 'Remove from favorites' : 'Save to favorites'}
+                style={styles.headerFav}
+              >
+                <Text style={{ fontSize: 26, color: fav ? c.primary : c.textMuted }}>{fav ? '♥' : '♡'}</Text>
+              </Pressable>
+            </View>
           ),
         }}
       />
-      <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={styles.scroll}>
+      <ScrollView
+        style={{ backgroundColor: c.bg }}
+        contentContainerStyle={styles.scroll}
+        keyboardShouldPersistTaps="handled"
+      >
+        {edited ? (
+          <View style={[styles.banner, { backgroundColor: c.herbSoft }]}>
+            <Text style={[t.bodyStrong, { color: c.herbText, flex: 1 }]}>
+              {showOriginal ? 'The original recipe' : 'Your version'}
+            </Text>
+            <Pressable
+              onPress={() => setShowOriginal(v => !v)}
+              accessibilityRole="button"
+              hitSlop={8}
+              style={styles.bannerBtn}
+            >
+              <Text style={[t.bodyStrong, { color: c.primary }]}>{showOriginal ? 'Show yours' : 'Show original'}</Text>
+            </Pressable>
+          </View>
+        ) : null}
         <Text style={[t.display, { color: c.text }]} accessibilityRole="header">
           {recipe.title}
         </Text>
@@ -104,6 +156,28 @@ export default function RecipeScreen() {
             </View>
           ))}
         </View>
+
+        <Pressable
+          onPress={() => setPlanOpen(true)}
+          accessibilityRole="button"
+          style={({ pressed }) => [
+            styles.planBtn,
+            { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.75 : 1 },
+          ]}
+        >
+          <Text style={[t.bodyStrong, { color: c.primary }]}>+ Add to meal plan</Text>
+        </Pressable>
+        {planned ? (
+          <Pressable
+            onPress={() => router.push({ pathname: '/favorites', params: { tab: 'plan' } })}
+            accessibilityRole="button"
+            accessibilityLiveRegion="polite"
+          >
+            <Text style={[t.small, { color: c.herbText, marginTop: space.sm }]}>
+              ✓ Added to {planned}. <Text style={{ color: c.primary, fontWeight: '700' }}>See the plan</Text>
+            </Text>
+          </Pressable>
+        ) : null}
 
         <Text style={[t.title, styles.h2, { color: c.text }]} accessibilityRole="header">
           Ingredients
@@ -153,7 +227,31 @@ export default function RecipeScreen() {
             </Pressable>
           );
         })}
+
+        <Text style={[t.title, styles.h2, { color: c.text }]} accessibilityRole="header">
+          My notes
+        </Text>
+        <TextInput
+          value={note}
+          onChangeText={setNote}
+          onBlur={() => app.setNote(recipe.id, note)}
+          placeholder="What you changed, how it turned out, what to try next time…"
+          placeholderTextColor={c.textMuted}
+          multiline
+          style={[styles.notes, { color: c.text, backgroundColor: c.card, borderColor: c.cardBorder }]}
+          accessibilityLabel="My notes"
+        />
       </ScrollView>
+      <AddToPlanSheet
+        recipe={recipe}
+        visible={planOpen}
+        onClose={() => setPlanOpen(false)}
+        onAdd={(day, slot) => {
+          app.planRecipe(day, slot, recipe.id);
+          setPlanned(`${dayLabel(day)} · ${SLOT_LABELS[slot]}`);
+          setPlanOpen(false);
+        }}
+      />
     </>
   );
 }
@@ -171,6 +269,32 @@ function Stat({ label, value }: { label: string; value: string }) {
 const styles = StyleSheet.create({
   missing: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: space.xl },
   headerFav: { minWidth: MIN_TOUCH, minHeight: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
+  headerBtns: { flexDirection: 'row', alignItems: 'center' },
+  banner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: radius.md,
+    paddingLeft: space.md,
+    marginBottom: space.md,
+  },
+  bannerBtn: { minHeight: MIN_TOUCH, justifyContent: 'center', paddingHorizontal: space.md },
+  planBtn: {
+    marginTop: space.lg,
+    minHeight: MIN_TOUCH,
+    borderWidth: 1.5,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  notes: {
+    borderWidth: 1,
+    borderRadius: radius.md,
+    padding: space.md,
+    minHeight: 96,
+    fontSize: 16,
+    lineHeight: 23,
+    textAlignVertical: 'top',
+  },
   scroll: { padding: space.lg, paddingBottom: space.xxl * 2 },
   stats: {
     flexDirection: 'row',

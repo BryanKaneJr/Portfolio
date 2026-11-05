@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { RECIPES, ingredientIndex, ingredientName } from '../data/catalog';
+import { ingredientIndex, ingredientName } from '../data/catalog';
 import { CATEGORY_LABELS } from '../data/labels';
 import { countExact } from '../logic/matchRecipes';
 import { useAppState } from '../state/AppState';
@@ -19,7 +19,7 @@ export default function SelectionsScreen() {
   const { search } = app;
   const { focus } = useLocalSearchParams<{ focus?: string }>();
   const order: PickMode[] = focus === 'avoid' ? ['avoid', 'use'] : ['use', 'avoid'];
-  const count = useMemo(() => countExact(RECIPES, search), [search]);
+  const count = useMemo(() => countExact(app.library, search), [app.library, search]);
 
   const section = (kind: PickMode) => {
     const use = kind === 'use';

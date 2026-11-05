@@ -4,7 +4,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { IngredientBrowser } from '../components/IngredientBrowser';
-import { RECIPES, ingredientName } from '../data/catalog';
+import { ingredientName } from '../data/catalog';
 import { countCanMake } from '../logic/pantry';
 import { useAppState } from '../state/AppState';
 import { useColors } from '../theme/colors';
@@ -18,8 +18,8 @@ export default function PantryScreen() {
   const { pantry } = app;
   const { staples } = app;
   const canMake = useMemo(
-    () => countCanMake(RECIPES, app.effectivePantry, { meal: null, dishType: null }),
-    [app.effectivePantry],
+    () => countCanMake(app.library, app.effectivePantry, { meal: null, dishType: null }),
+    [app.library, app.effectivePantry],
   );
   const stapleNames = [...staples].slice(0, 6).map(ingredientName).join(', ');
 
