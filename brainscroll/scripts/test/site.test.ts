@@ -67,7 +67,10 @@ test('publishes the privacy policy and the deletion page, with the owner details
     assert.match(privacy, /<h2>What we collect<\/h2>/);
     const del = readFileSync(join(out, 'delete-account.html'), 'utf8');
     assert.ok(del.includes('Settings</strong>, then <strong>Delete account') && del.includes('mailto:privacy@example.com'));
-    assert.ok(readFileSync(join(out, 'fat-bat.html'), 'utf8').includes('mailto:privacy@example.com'), "Fat Bat's support page shows the contact email");
+    for (const f of ['fat-bat.html', join('fat-bat', 'privacy.html')]) {
+      const page = readFileSync(join(out, f), 'utf8');
+      assert.ok(page.includes('mailto:privacy@example.com') && page.includes('© 2026 Test Co') && !page.includes('{{'), `${f}: Fat Bat's pages fill the contact email and operator, pages in folders included`);
+    }
 
     const bare = siteConfigFromEnv({}, 'app.brainscroll');
     assert.ok(siteWarnings(bare).some((w) => w.startsWith('SITE_CONTACT_EMAIL is not set')));

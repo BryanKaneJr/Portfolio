@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { markdownToHtml } from './markdown';
 
@@ -84,19 +84,25 @@ export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyM
   // Cloudflare's email obfuscation would swap the address for "[email protected]" and a decoding script,
   // which the pages' script-src blocks, so the address never showed (owner, 2026-10-09). These comments opt it out.
   const email = c.contactEmail ? `<!--email_off--><a href="mailto:${escapeAttr(c.contactEmail)}">${escapeAttr(c.contactEmail)}</a><!--/email_off-->` : notSet;
-  for (const f of readdirSync(srcDir)) {
-    if (f.endsWith('.html')) {
-      const html = readFileSync(join(srcDir, f), 'utf8')
-        .replaceAll('{{POLICY}}', policyHtml(policyMarkdown))
-        .replaceAll('{{APP_STORE_URL}}', escapeAttr(c.appStoreUrl ?? ''))
-        .replaceAll('{{PLAY_STORE_URL}}', escapeAttr(c.playStoreUrl ?? ''))
-        .replaceAll('{{OPERATOR}}', c.operator ? escapeAttr(c.operator) : notSet)
-        .replaceAll('{{ADDRESS}}', c.address ? escapeAttr(c.address) : notSet)
-        .replaceAll('{{EFFECTIVE_DATE}}', c.effectiveDate ? escapeAttr(c.effectiveDate) : notSet)
-        .replaceAll('{{CONTACT_EMAIL}}', email);
-      writeFileSync(join(outDir, f), html);
-    } else cpSync(join(srcDir, f), join(outDir, f), { recursive: true });
-  }
+  const fill = (html: string) =>
+    html
+      .replaceAll('{{POLICY}}', policyHtml(policyMarkdown))
+      .replaceAll('{{APP_STORE_URL}}', escapeAttr(c.appStoreUrl ?? ''))
+      .replaceAll('{{PLAY_STORE_URL}}', escapeAttr(c.playStoreUrl ?? ''))
+      .replaceAll('{{OPERATOR}}', c.operator ? escapeAttr(c.operator) : notSet)
+      .replaceAll('{{ADDRESS}}', c.address ? escapeAttr(c.address) : notSet)
+      .replaceAll('{{EFFECTIVE_DATE}}', c.effectiveDate ? escapeAttr(c.effectiveDate) : notSet)
+      .replaceAll('{{CONTACT_EMAIL}}', email);
+  // Pages in folders too (fat-bat/privacy.html is served at /fat-bat/privacy), so every page gets its details.
+  const copy = (from: string, to: string) => {
+    mkdirSync(to, { recursive: true });
+    for (const f of readdirSync(from)) {
+      if (statSync(join(from, f)).isDirectory()) copy(join(from, f), join(to, f));
+      else if (f.endsWith('.html')) writeFileSync(join(to, f), fill(readFileSync(join(from, f), 'utf8')));
+      else cpSync(join(from, f), join(to, f));
+    }
+  };
+  copy(srcDir, outDir);
   const wk = join(outDir, '.well-known');
   mkdirSync(wk, { recursive: true });
   const written = ['index.html', 'invite.html', 'privacy.html', 'delete-account.html'];
