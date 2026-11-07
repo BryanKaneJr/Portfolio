@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-11-07: A support page for Fat Bat
+
+- **brainscroll.app/fat-bat** (owner: "add a support page for fatbat"). Fat Bat, the owner's tap-to-fly game from 2014 (App Store id 825066914), gets a support page on this site for its App Store listing: its icon (`site/img/fat-bat/icon.png`, from the listing), one line about the game and the same contact email as the other pages (`SITE_CONTACT_EMAIL`, filled in by the host). `site.test.ts` checks the email shows. BryanKaneJr/brainscroll gets the same page once its open PR is merged.
+
 ## 2026-11-05: BrainScroll is on the App Store
 
 - **The website links to the App Store** (owner: "Brainscroll is out. Update the website please"). `STORE_URLS.APP_STORE_URL` in `scripts/site-build.ts` is now `https://apps.apple.com/app/id6818598156`, so the home page shows Apple's badge in the hero and the download section, with "Android coming soon" beside it, and invite links offer the App Store. docs/release.md marks the step done. BrainScroll's own repository (BryanKaneJr/brainscroll) has the same change; this copy is the one the website is built from until Cloudflare Pages moves there.
