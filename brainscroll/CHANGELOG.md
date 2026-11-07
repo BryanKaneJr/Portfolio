@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-11-07: Fat Bat's support page and privacy policy
+
+- **brainscroll.app/fat-bat and brainscroll.app/fat-bat/privacy** (owner: "add a support page for fatbat", with the text for both pages). Fat Bat, the owner's game (App Store id 825066914), needs a Support URL and a Privacy Policy URL for its App Store listing. The support page has its icon (`site/img/fat-bat/icon.png`, from the listing), what the game is, an App Store badge, how to reach us and the FAQ (how to play, the Wardrobe and Bug Bank, where progress is saved, the Game Center leaderboard, sound, no ads). The privacy policy says Fat Bat has no accounts, ads, analytics or tracking, progress stays on the phone, Game Center scores go to Apple, sharing happens only when the player chooses (the Photos permission can only add pictures), App Store links may give anonymous download totals, and it isn't aimed at children. Who we are, the address, the contact email (drscroll@brainscroll.app) and the effective date are the same as BrainScroll's (owner: "just use all the same stuff"), filled in by the host (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so no personal details are in the repo.
+- **The site build fills in pages inside folders too** (`scripts/lib/site.ts`), so `fat-bat/privacy.html` is served at `/fat-bat/privacy` with its details; before, only top-level pages got them. `site.test.ts` checks both Fat Bat pages.
+- BryanKaneJr/brainscroll gets the same pages once its open PR is merged.
+
 ## 2026-11-05: BrainScroll is on the App Store
 
 - **The website links to the App Store** (owner: "Brainscroll is out. Update the website please"). `STORE_URLS.APP_STORE_URL` in `scripts/site-build.ts` is now `https://apps.apple.com/app/id6818598156`, so the home page shows Apple's badge in the hero and the download section, with "Android coming soon" beside it, and invite links offer the App Store. docs/release.md marks the step done. BrainScroll's own repository (BryanKaneJr/brainscroll) has the same change; this copy is the one the website is built from until Cloudflare Pages moves there.
