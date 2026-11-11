@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-11-11: The privacy policy names HeyCatch
+
+- **brainscroll.app/privacy lists HeyCatch under "Who processes it"** (owner: set up HeyCatch "in a way that follows what we promised in our privacy policy"). BrainScroll's server sends HeyCatch the product analytics events the policy already lists, under a random code per account: never an email, name, IP address or location, and nothing about time spent. The forwarding itself lives in BryanKaneJr/brainscroll (PR #5); this copy of the policy is the one the website is built from, so it changes here too.
+
 ## 2026-11-07: Fat Bat's support page and privacy policy
 
 - **brainscroll.app/fat-bat and brainscroll.app/fat-bat/privacy** (owner: "add a support page for fatbat", with the text for both pages). Fat Bat, the owner's game (App Store id 825066914), needs a Support URL and a Privacy Policy URL for its App Store listing. The support page has its icon (`site/img/fat-bat/icon.png`, from the listing), what the game is, an App Store badge, how to reach us and the FAQ (how to play, the Wardrobe and Bug Bank, where progress is saved, the Game Center leaderboard, sound, no ads). The privacy policy says Fat Bat has no accounts, ads, analytics or tracking, progress stays on the phone, Game Center scores go to Apple, sharing happens only when the player chooses (the Photos permission can only add pictures), App Store links may give anonymous download totals, and it isn't aimed at children. Who we are, the address, the contact email (drscroll@brainscroll.app) and the effective date are the same as BrainScroll's (owner: "just use all the same stuff"), filled in by the host (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so no personal details are in the repo.
