@@ -24,7 +24,7 @@ const APPLE_TEAM_ID = 'X3837877NX';
 // "coming soon" rather than a link to a listing that isn't up yet; the badge appears once it's set.
 // iPhone: released 2026-11-05 (the Apple ID, 6818598156, is from App Store Connect).
 // Android, once it's on Google Play: https://play.google.com/store/apps/details?id=app.brainscroll
-// The host's environment (APP_STORE_URL, PLAY_STORE_URL) wins.
+// The host's environment (APP_STORE_URL, PLAY_STORE_URL) wins. When Android is out, also add its link to site/src/llms.txt.
 const STORE_URLS = { APP_STORE_URL: 'https://apps.apple.com/app/id6818598156', PLAY_STORE_URL: '' };
 const config = siteConfigFromEnv({ APPLE_TEAM_ID, ...STORE_URLS, ...process.env }, app.expo.ios.bundleIdentifier);
 const written = buildSite(join(repo, 'site', 'src'), join(repo, 'site', 'dist'), config, readFileSync(join(repo, 'docs', 'privacy-policy.md'), 'utf8'));

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { buildSite, siteConfigFromEnv, siteWarnings } from '../lib/site';
+import { buildSite, pagePath, showStores, siteConfigFromEnv, siteWarnings } from '../lib/site';
 
 const src = join(import.meta.dirname, '..', '..', 'site', 'src');
 const FP = Array.from({ length: 32 }, () => 'AB').join(':');
@@ -85,4 +85,44 @@ test('the privacy policy in the repo carries no personal details, only placehold
   const policy = readFileSync(join(import.meta.dirname, '..', '..', 'docs', 'privacy-policy.md'), 'utf8');
   assert.deepEqual(policy.match(/[^\s@()`<>]+@[^\s@()`<>]+\.[a-z]{2,}/gi) ?? [], [], 'no email addresses in the policy');
   for (const t of ['{{OPERATOR}}', '{{CONTACT_EMAIL}}', '{{EFFECTIVE_DATE}}']) assert.ok(policy.includes(t), t);
+});
+
+test('the store badges and "coming soon" notes are set in the HTML, with no script', () => {
+  const html = readFileSync(join(src, 'index.html'), 'utf8').replaceAll('{{APP_STORE_URL}}', 'https://apps.apple.com/app/id1').replaceAll('{{PLAY_STORE_URL}}', '');
+  assert.ok(!/<script>/.test(html), 'the home page runs no script');
+  const shown = (out: string) => [...out.matchAll(/data-(?:store|soon)="(\w+)"[^>]*>/g)].filter((m) => !/ hidden>$/.test(m[0])).map((m) => m[1]);
+  assert.deepEqual(shown(showStores(html, { appStoreUrl: 'https://apps.apple.com/app/id1' })), ['apple', 'play', 'apple', 'play'], 'the App Store badge and "Android coming soon", in both places');
+  assert.deepEqual(shown(showStores(html, {})), ['all', 'all'], 'no store yet: "coming soon" only');
+  assert.deepEqual(shown(showStores(html, { appStoreUrl: 'https://a', playStoreUrl: 'https://p' })), ['apple', 'play', 'apple', 'play'], 'both badges, no note');
+  assert.deepEqual(shown(showStores(html, { playStoreUrl: 'https://p' })), ['play', 'apple', 'play', 'apple'], 'Google Play and "iPhone coming soon"');
+});
+
+test('builds robots.txt, sitemap.xml, llms.txt, a 404 page, canonical links and the structured data', () => {
+  const out = mkdtempSync(join(tmpdir(), 'bs-site-'));
+  try {
+    buildSite(src, out, siteConfigFromEnv({ APP_STORE_URL: 'https://apps.apple.com/app/id1', SITE_CONTACT_EMAIL: 'help@example.com' }, 'app.brainscroll'));
+    const robots = readFileSync(join(out, 'robots.txt'), 'utf8');
+    assert.match(robots, /^Disallow: \/invite$/m);
+    assert.match(robots, /^Sitemap: https:\/\/brainscroll\.app\/sitemap\.xml$/m);
+    const locs = [...readFileSync(join(out, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
+    assert.deepEqual(locs, ['/', '/delete-account', '/fat-bat', '/fat-bat/privacy', '/privacy'].map((p) => `https://brainscroll.app${p}`), 'every public page, never the invite or 404 page');
+    const llms = readFileSync(join(out, 'llms.txt'), 'utf8');
+    assert.ok(llms.startsWith('# BrainScroll\n\n> ') && llms.includes('(https://apps.apple.com/app/id1)') && llms.includes('questions: help@example.com\n'));
+    assert.ok(!llms.includes('{{') && !llms.includes('<'), 'plain text, every placeholder filled');
+    assert.ok(readFileSync(join(out, '404.html'), 'utf8').includes('<meta name="robots" content="noindex">'));
+    const index = readFileSync(join(out, 'index.html'), 'utf8');
+    assert.ok(index.includes('<link rel="canonical" href="https://brainscroll.app/">'));
+    assert.ok(readFileSync(join(out, 'fat-bat', 'privacy.html'), 'utf8').includes('href="https://brainscroll.app/fat-bat/privacy"'));
+    for (const f of ['invite.html', '404.html']) assert.ok(!readFileSync(join(out, f), 'utf8').includes('rel="canonical"'), f);
+    const ld = JSON.parse(/<script type="application\/ld\+json">(.*?)<\/script>/.exec(index)![1]!);
+    const app = ld['@graph'].find((n: { '@type': string }) => n['@type'] === 'MobileApplication');
+    assert.equal(app.operatingSystem, 'iOS');
+    assert.equal(app.installUrl, 'https://apps.apple.com/app/id1');
+    assert.equal(app.applicationCategory, 'EducationalApplication');
+    assert.match(app.description, /^BrainScroll turns a few minutes a day/, "the page's own description");
+    assert.ok(!('aggregateRating' in app) && !('review' in app), 'no ratings or reviews we made up');
+    assert.equal(pagePath('index.html'), '/');
+  } finally {
+    rmSync(out, { recursive: true, force: true });
+  }
 });

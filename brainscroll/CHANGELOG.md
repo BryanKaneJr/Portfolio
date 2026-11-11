@@ -3,8 +3,16 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
-## 2026-11-11: Testers' words on the home page
+## 2026-11-11: The home page, for people and for search
 
+- **Search engines and AI assistants can read the site properly** (owner, on the website suggestions: "do whatever you think 1-4"). Before, `/robots.txt`, `/sitemap.xml`, `/llms.txt` and every unknown address quietly served the home page.
+  - `robots.txt` lets everything read the site except invite links, and points to `sitemap.xml`, which the build writes from the pages themselves (never the invite or 404 page).
+  - `llms.txt`: what BrainScroll is, how it works, the 26 skill trees, the price (free; Unlimited optional) and the links, in plain Markdown for AI assistants. The build fills in the App Store link and contact email; Android's link goes in by hand when it's out (noted in `scripts/site-build.ts`).
+  - A real "This page isn't here" page (`site/src/404.html`, noindex), served with a 404 status.
+  - A canonical `https://brainscroll.app/...` link on every public page, since `invite.brainscroll.app` serves the same pages.
+  - The home page's structured data (JSON-LD): the app, its category (education), iPhone, free to download, its App Store link and the page's own description, built from the store links. No ratings or reviews in it.
+- **The App Store badge is in the page itself.** A script used to switch the badges and "coming soon" notes on, so crawlers and anything without JavaScript saw neither. The build now writes them in (`showStores`, tested for every mix of stores), and the home page runs no script at all.
+- **The home page names what BrainScroll is:** the line above the headline reads "The daily learning app" (was "Learn something real, every day"), and the page title is "BrainScroll: the daily learning app", matching the App Store name.
 - **brainscroll.app shows three testers' reviews** (owner, sharing eight tester reviews: "Use whatever you want from it"). A "From our testers" section above the closing download section quotes them exactly as written, with their own titles: "Actually makes scrolling feel productive", "Unfortunately I'm learning things" and "A refreshing change of pace". No names, star ratings or edits, and it says they're testers, so nothing reads as a store review. The one comparing BrainScroll to another app by name was left out. One column on phones, three across on wide screens (`site/src/index.html`, `site/src/home.css`).
 
 ## 2026-11-11: The privacy policy names HeyCatch
