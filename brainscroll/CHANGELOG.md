@@ -5,6 +5,8 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-11-11: The home page, for people and for search
 
+- **Fixes from HeyCatch's site check** (owner, sharing its results). Every page now tells browsers to use HTTPS only (`Strict-Transport-Security`; the site already redirected to HTTPS). Every page for search has a 30 to 60 character title and a 110 to 160 character description, kept that way by a test. The structured data names BrainScroll as an organization (its own name and icon, never the operator's), the publisher of the site and the app. The home page's opening line says what BrainScroll is ("BrainScroll is a learning app that turns..."), the line AI assistants quote. Left as they are: a "related articles" block (there are no articles), and three company profiles for the organization (BrainScroll's only profile so far is its App Store listing; social accounts go in `sameAs` when there are some).
+
 - **Search engines and AI assistants can read the site properly** (owner, on the website suggestions: "do whatever you think 1-4"). Before, `/robots.txt`, `/sitemap.xml`, `/llms.txt` and every unknown address quietly served the home page.
   - `robots.txt` lets everything read the site except invite links, and points to `sitemap.xml`, which the build writes from the pages themselves (never the invite or 404 page).
   - `llms.txt`: what BrainScroll is, how it works, the 26 skill trees, the price (free; Unlimited optional) and the links, in plain Markdown for AI assistants. The build fills in the App Store link and contact email; Android's link goes in by hand when it's out (noted in `scripts/site-build.ts`).

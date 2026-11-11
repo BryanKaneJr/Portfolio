@@ -121,8 +121,22 @@ test('builds robots.txt, sitemap.xml, llms.txt, a 404 page, canonical links and 
     assert.equal(app.applicationCategory, 'EducationalApplication');
     assert.match(app.description, /^BrainScroll turns a few minutes a day/, "the page's own description");
     assert.ok(!('aggregateRating' in app) && !('review' in app), 'no ratings or reviews we made up');
+    const org = ld['@graph'].find((n: { '@type': string }) => n['@type'] === 'Organization');
+    assert.deepEqual([org.name, org.logo, app.publisher['@id']], ['BrainScroll', 'https://brainscroll.app/apple-touch-icon.png', org['@id']]);
+    assert.match(readFileSync(join(out, '_headers'), 'utf8'), /^\s+Strict-Transport-Security: max-age=31536000; includeSubDomains$/m);
     assert.equal(pagePath('index.html'), '/');
   } finally {
     rmSync(out, { recursive: true, force: true });
+  }
+});
+
+test('every page for search has a 30 to 60 character title and a 110 to 160 character description', () => {
+  const pages = ['index.html', 'privacy.html', 'delete-account.html', 'fat-bat.html', join('fat-bat', 'privacy.html')];
+  for (const f of pages) {
+    const html = readFileSync(join(src, f), 'utf8');
+    const title = /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? '';
+    const description = /<meta name="description" content="([^"]*)">/.exec(html)?.[1] ?? '';
+    assert.ok(title.length >= 30 && title.length <= 60, `${f}: title is ${title.length} characters`);
+    assert.ok(description.length >= 110 && description.length <= 160, `${f}: description is ${description.length} characters`);
   }
 });

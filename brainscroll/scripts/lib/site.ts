@@ -99,10 +99,15 @@ export function showStores(html: string, c: Pick<SiteConfig, 'appStoreUrl' | 'pl
   });
 }
 
-/** The home page's structured data: the site and the app, described as the page describes it (its meta description). */
+/**
+ * The home page's structured data: who makes BrainScroll (by its own name, never the operator's), the site and the
+ * app, described as the page describes it (its meta description). The organization's profiles are its store
+ * listings; add its social accounts to sameAs when it has them.
+ */
 export function jsonLd(c: Pick<SiteConfig, 'appStoreUrl' | 'playStoreUrl'>, description: string): string {
   const stores = [c.appStoreUrl, c.playStoreUrl].filter((u): u is string => live(u));
   const os = [live(c.appStoreUrl) && 'iOS', live(c.playStoreUrl) && 'Android'].filter(Boolean).join(', ');
+  const org = { '@id': `${SITE_ORIGIN}/#organization` };
   const app = {
     '@type': 'MobileApplication',
     '@id': `${SITE_ORIGIN}/#app`,
@@ -114,9 +119,19 @@ export function jsonLd(c: Pick<SiteConfig, 'appStoreUrl' | 'playStoreUrl'>, desc
     image: `${SITE_ORIGIN}/og.png`,
     // Free to download; Unlimited is an optional subscription inside the app.
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: org,
     ...(stores.length ? { installUrl: stores[0], sameAs: stores } : {}),
   };
-  const data = { '@context': 'https://schema.org', '@graph': [{ '@type': 'WebSite', '@id': `${SITE_ORIGIN}/#website`, url: `${SITE_ORIGIN}/`, name: 'BrainScroll' }, app] };
+  const organization = {
+    '@type': 'Organization',
+    ...org,
+    name: 'BrainScroll',
+    url: `${SITE_ORIGIN}/`,
+    logo: `${SITE_ORIGIN}/apple-touch-icon.png`,
+    ...(stores.length ? { sameAs: stores } : {}),
+  };
+  const website = { '@type': 'WebSite', '@id': `${SITE_ORIGIN}/#website`, url: `${SITE_ORIGIN}/`, name: 'BrainScroll', publisher: org };
+  const data = { '@context': 'https://schema.org', '@graph': [organization, website, app] };
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 }
 
@@ -195,6 +210,7 @@ export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyM
       '/.well-known/apple-app-site-association',
       '  Content-Type: application/json',
       '/*',
+      '  Strict-Transport-Security: max-age=31536000; includeSubDomains',
       '  X-Content-Type-Options: nosniff',
       '  Referrer-Policy: no-referrer',
       "  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline'; style-src 'self'; img-src 'self'",
