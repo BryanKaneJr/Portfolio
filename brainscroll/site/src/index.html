@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>BrainScroll: stop scrolling, start leveling</title>
+  <title>BrainScroll: the daily learning app</title>
   <meta name="description" content="BrainScroll turns a few minutes a day into real knowledge, one level at a time. 26 skill trees, smart review, and weekly leagues with friends.">
   <meta property="og:title" content="BrainScroll">
   <meta property="og:description" content="Stop scrolling. Start leveling. Real knowledge, one level at a time.">
@@ -16,9 +16,11 @@
   <link rel="icon" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/home.css">
+  {{JSON_LD}}
 </head>
 <body>
-  <!-- The home page (brainscroll.app). Built by npm run site:build; no trackers, nothing loaded from other sites. -->
+  <!-- The home page (brainscroll.app). Built by npm run site:build; no trackers, nothing loaded from other sites.
+       The build shows the store badges whose links are set and the right "coming soon" note (showStores). -->
   <header class="bar">
     <a class="brand" href="/"><img src="/img/brand/icon-96.png" alt="" width="32" height="32">BrainScroll</a>
     <a class="pill" href="#get">Get the app</a>
@@ -26,7 +28,7 @@
 
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Learn something real, every day</p>
+      <p class="eyebrow">The daily learning app</p>
       <h1>Stop scrolling.<br><span>Start leveling.</span></h1>
       <p class="lead">BrainScroll turns a few minutes a day into real knowledge, one level at a time. Short, well-made lessons, smart review so it sticks, and a brain that visibly grows.</p>
       <div class="stores" id="get">
@@ -162,6 +164,34 @@
     </div>
   </section>
 
+  <section class="voices">
+    <!-- Testers' own words (owner, 2026-11-11), as written: no names, no stars, nothing added. -->
+    <div class="voices-head">
+      <p class="eyebrow">From our testers</p>
+      <h2>Scrolling, but you learn something</h2>
+    </div>
+    <div class="quotes">
+      <figure class="card quote">
+        <blockquote>
+          <h3>Actually makes scrolling feel productive</h3>
+          <p>I downloaded this thinking I'd use it for like 5 minutes and forget about it. Now I'm randomly learning stuff every day instead of just scrolling through nonsense lol. Pretty cool idea.</p>
+        </blockquote>
+      </figure>
+      <figure class="card quote">
+        <blockquote>
+          <h3>Unfortunately I'm learning things</h3>
+          <p>Came here to kill time. Now I know random astronomy facts and apparently care about keeping my streak alive. Not sure how that happened but I'm into it.</p>
+        </blockquote>
+      </figure>
+      <figure class="card quote">
+        <blockquote>
+          <h3>A refreshing change of pace</h3>
+          <p>Simple concept, well executed. Short lessons, interesting subjects, and no need to commit half an hour to learning something. Exactly what I wanted.</p>
+        </blockquote>
+      </figure>
+    </div>
+  </section>
+
   <section class="free">
     <img class="app-icon" src="/img/brand/icon-3d.webp" alt="The BrainScroll app icon: Dr. Scroll in a gold crown" width="288" height="320" loading="lazy">
     <h2>Free to learn, for real</h2>
@@ -181,20 +211,5 @@
     <p>Questions or help: {{CONTACT_EMAIL}}</p>
     <p class="fine">BrainScroll</p>
   </footer>
-  <script>
-    (function () {
-      // A store's badge shows once its link is set (APP_STORE_URL, PLAY_STORE_URL); until then, "coming soon".
-      var ok = function (a) { return /^https:\/\//.test(a.getAttribute('href')); };
-      var live = {};
-      document.querySelectorAll('[data-store]').forEach(function (a) {
-        if (ok(a)) { a.hidden = false; live[a.getAttribute('data-store')] = true; }
-      });
-      document.querySelectorAll('[data-soon]').forEach(function (p) {
-        var k = p.getAttribute('data-soon');
-        var other = k === 'play' ? 'apple' : 'play';
-        p.hidden = k === 'all' ? !!(live.apple || live.play) : !(live[other] && !live[k]);
-      });
-    })();
-  </script>
 </body>
 </html>

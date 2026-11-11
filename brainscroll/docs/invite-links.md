@@ -16,7 +16,10 @@ The link is `https://<your domain>/invite/AB12CD34` once the app is built with a
 - `npm run site:build`: builds `site/dist/` (gitignored) and adds:
   - `.well-known/apple-app-site-association`, which lets iPhones open the app for `/invite/*`;
   - `.well-known/assetlinks.json`, the same for Android;
-  - `_redirects` and `_headers` for Cloudflare Pages or Netlify. Every `/invite/CODE` serves the invite page, and the Apple file is served as JSON.
+  - `_redirects` and `_headers` for Cloudflare Pages or Netlify. Every `/invite/CODE` serves the invite page, and the Apple file is served as JSON;
+  - for search engines and AI assistants: `robots.txt` and `llms.txt` (from `site/src`, invite links left out), `sitemap.xml` (every page but the invite and 404 pages), a canonical `https://brainscroll.app/...` link on each of those pages (`invite.brainscroll.app` serves the same pages), and the home page's structured data (JSON-LD: the app, its category, its store links);
+  - the store badges whose links are set, and the right "coming soon" note, written into the HTML (`showStores`), so they show without JavaScript.
+- `site/src/404.html`: what any address that isn't a page gets, with a 404 status. Without it, Cloudflare Pages served the home page for every unknown address.
 - `app/app.config.ts`: with `EXPO_PUBLIC_INVITE_DOMAIN` set, the build declares the domain:
   - `associatedDomains` on iOS;
   - a verified `intentFilter` for `/invite/` on Android;

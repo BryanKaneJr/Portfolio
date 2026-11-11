@@ -11,7 +11,16 @@ import { markdownToHtml } from './markdown';
  * stores require. Nothing secret goes in: an Apple Team ID and a signing
  * certificate's SHA-256 fingerprint are public. The operator's name, address
  * and contact email come from the host's environment, never from the repo.
+ * For search engines and AI assistants it adds robots.txt (from site/src),
+ * sitemap.xml and a canonical link on every public page, the home page's
+ * structured data (JSON-LD), llms.txt (from site/src) and a real 404 page.
  */
+
+/** Where the site lives. invite.brainscroll.app serves the same pages, so each names this one as canonical. */
+export const SITE_ORIGIN = 'https://brainscroll.app';
+
+/** Pages that aren't for search: the invite page (one per code) and the not-found page. */
+const UNLISTED = new Set(['invite.html', '404.html']);
 export interface SiteConfig {
   /** Apple Developer Team ID (10 characters), for apple-app-site-association. */
   appleTeamId?: string;
@@ -72,6 +81,53 @@ export function assetLinks(c: SiteConfig) {
 
 const escapeAttr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
+const live = (url?: string) => /^https:\/\//.test(url ?? '');
+
+/**
+ * Shows each store badge whose link is set and the right "coming soon" note, in the HTML itself, so search
+ * engines and phones without JavaScript see the App Store badge (it used to be switched on by a script).
+ * data-store="apple|play" is a badge; data-soon="all" shows with no store, "play" (Android coming soon)
+ * with only the App Store, "apple" with only Google Play.
+ */
+export function showStores(html: string, c: Pick<SiteConfig, 'appStoreUrl' | 'playStoreUrl'>): string {
+  const on = { apple: live(c.appStoreUrl), play: live(c.playStoreUrl) } as Record<string, boolean>;
+  const shown = (kind: string, k: string) =>
+    kind === 'store' ? !!on[k] : k === 'all' ? !on.apple && !on.play : !!on[k === 'play' ? 'apple' : 'play'] && !on[k];
+  return html.replace(/<(a|p)\b([^>]*?) data-(store|soon)="(\w+)"([^>]*)>/g, (_m, tag: string, before: string, kind: string, k: string, after: string) => {
+    const attrs = `${before} data-${kind}="${k}"${after}`.replace(/ hidden(?= |$)/g, '');
+    return `<${tag}${attrs}${shown(kind, k) ? '' : ' hidden'}>`;
+  });
+}
+
+/** The home page's structured data: the site and the app, described as the page describes it (its meta description). */
+export function jsonLd(c: Pick<SiteConfig, 'appStoreUrl' | 'playStoreUrl'>, description: string): string {
+  const stores = [c.appStoreUrl, c.playStoreUrl].filter((u): u is string => live(u));
+  const os = [live(c.appStoreUrl) && 'iOS', live(c.playStoreUrl) && 'Android'].filter(Boolean).join(', ');
+  const app = {
+    '@type': 'MobileApplication',
+    '@id': `${SITE_ORIGIN}/#app`,
+    name: 'BrainScroll',
+    url: `${SITE_ORIGIN}/`,
+    description,
+    applicationCategory: 'EducationalApplication',
+    ...(os ? { operatingSystem: os } : {}),
+    image: `${SITE_ORIGIN}/og.png`,
+    // Free to download; Unlimited is an optional subscription inside the app.
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    ...(stores.length ? { installUrl: stores[0], sameAs: stores } : {}),
+  };
+  const data = { '@context': 'https://schema.org', '@graph': [{ '@type': 'WebSite', '@id': `${SITE_ORIGIN}/#website`, url: `${SITE_ORIGIN}/`, name: 'BrainScroll' }, app] };
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+/** A page's address from its file: index.html is /, fat-bat/privacy.html is /fat-bat/privacy. */
+export const pagePath = (file: string) => '/' + file.replace(/\\/g, '/').replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '');
+
+export function sitemap(paths: string[]): string {
+  const urls = [...paths].sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b))).map((p) => `  <url><loc>${SITE_ORIGIN}${p}</loc></url>`);
+  return ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', ...urls, '</urlset>', ''].join('\n');
+}
+
 /** The published policy: the doc without its editor's note, its title without "(draft)". */
 export function policyHtml(policyMarkdown: string): string {
   return markdownToHtml(policyMarkdown.replace(/^# (.*?) \(draft\)$/m, '# $1'));
@@ -93,19 +149,33 @@ export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyM
       .replaceAll('{{ADDRESS}}', c.address ? escapeAttr(c.address) : notSet)
       .replaceAll('{{EFFECTIVE_DATE}}', c.effectiveDate ? escapeAttr(c.effectiveDate) : notSet)
       .replaceAll('{{CONTACT_EMAIL}}', email);
+  const listed: string[] = [];
+  const page = (html: string, rel: string) => {
+    let out = showStores(fill(html), c);
+    if (out.includes('{{JSON_LD}}')) {
+      const description = /<meta name="description" content="([^"]*)">/.exec(out)?.[1]?.replace(/&amp;/g, '&') ?? '';
+      out = out.replace('{{JSON_LD}}', jsonLd(c, description));
+    }
+    if (UNLISTED.has(rel)) return out;
+    listed.push(pagePath(rel));
+    return out.replace('</head>', `  <link rel="canonical" href="${SITE_ORIGIN}${pagePath(rel)}">\n</head>`);
+  };
   // Pages in folders too (fat-bat/privacy.html is served at /fat-bat/privacy), so every page gets its details.
-  const copy = (from: string, to: string) => {
+  // llms.txt (plain Markdown) gets the store link and the contact email as plain text.
+  const copy = (from: string, to: string, rel = '') => {
     mkdirSync(to, { recursive: true });
     for (const f of readdirSync(from)) {
-      if (statSync(join(from, f)).isDirectory()) copy(join(from, f), join(to, f));
-      else if (f.endsWith('.html')) writeFileSync(join(to, f), fill(readFileSync(join(from, f), 'utf8')));
+      if (statSync(join(from, f)).isDirectory()) copy(join(from, f), join(to, f), `${rel}${f}/`);
+      else if (f.endsWith('.html')) writeFileSync(join(to, f), page(readFileSync(join(from, f), 'utf8'), rel + f));
+      else if (f === 'llms.txt') writeFileSync(join(to, f), fill(readFileSync(join(from, f), 'utf8').replaceAll('{{CONTACT_EMAIL}}', c.contactEmail ?? notSet)).replace(/&amp;/g, '&'));
       else cpSync(join(from, f), join(to, f));
     }
   };
   copy(srcDir, outDir);
+  writeFileSync(join(outDir, 'sitemap.xml'), sitemap(listed));
   const wk = join(outDir, '.well-known');
   mkdirSync(wk, { recursive: true });
-  const written = ['index.html', 'invite.html', 'privacy.html', 'delete-account.html'];
+  const written = ['index.html', 'invite.html', 'privacy.html', 'delete-account.html', '404.html', 'robots.txt', 'sitemap.xml', 'llms.txt'];
   if (c.appleTeamId) {
     // No file extension, served as JSON (_headers), and never behind a redirect.
     writeFileSync(join(wk, 'apple-app-site-association'), JSON.stringify(appleAppSiteAssociation(c), null, 2) + '\n');
