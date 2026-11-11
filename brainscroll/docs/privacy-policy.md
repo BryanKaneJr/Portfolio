@@ -1,6 +1,6 @@
 # BrainScroll Privacy Policy (draft)
 
-> **Draft for the owner.** It describes what the app actually collects as of 2026-10-03 (from the database schema and the analytics catalog), including social. It has not had a legal review; have it reviewed before launch. `npm run site:build` publishes it as `/privacy` on the BrainScroll site, filling the `{{...}}` items from the site's environment (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so personal details never go in this repo. This note isn't published. Update the policy whenever the data we collect changes.
+> **Draft for the owner.** It describes what the app actually collects as of 2026-11-11 (from the database schema and the analytics catalog), including social and HeyCatch. It has not had a legal review; have it reviewed before launch. `npm run site:build` publishes it as `/privacy` on the BrainScroll site, filling the `{{...}}` items from the site's environment (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so personal details never go in this repo. This note isn't published. Update the policy whenever the data we collect changes.
 
 **Effective date:** {{EFFECTIVE_DATE}}
 **Who we are:** BrainScroll is operated by {{OPERATOR}}, {{ADDRESS}}. Contact: {{CONTACT_EMAIL}}.
@@ -41,7 +41,7 @@
 
 ## How we use it
 
-To sign you in and keep your progress on every device; to run lessons, reviews and Brainpower; to run friends, weekly leagues (including their XP prizes) and the feed; to provide Unlimited; to find and fix mistakes in lessons; to act on reports and keep usernames friendly; and to understand, in aggregate, which lessons work well.
+To sign you in and keep your progress on every device; to run lessons, reviews and Brainpower; to run friends, weekly leagues (including their XP prizes) and the feed; to provide Unlimited; to find and fix mistakes in lessons; to act on reports and keep usernames friendly; and to understand, in aggregate, which lessons work well and how people find BrainScroll.
 
 ## Who processes it
 
@@ -51,6 +51,7 @@ To sign you in and keep your progress on every device; to run lessons, reviews a
 - **Expo** delivers push notifications to your device through Apple and Google ([Expo privacy policy](https://expo.dev/privacy)). It gets the push token and the notification text, never your email or progress.
 - **Cloudflare** hosts our website and the pages invite links open ([Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/)).
 - **RevenueCat** manages subscription status for purchases ([RevenueCat privacy policy](https://www.revenuecat.com/privacy)). It knows your BrainScroll account id and your purchase history, not your name or email.
+- **HeyCatch** helps us understand how people find BrainScroll and decide to subscribe ([HeyCatch privacy policy](https://heycatch.ai/privacy)). Our server sends it the product analytics events listed above, under a random code instead of your account, so it can't tell who you are: never your email, name, IP address or location, and nothing about time spent. Deleting your account deletes that code, so nothing links those events to you any more.
 
 We don't sell personal data, and we don't share it for cross-context behavioral advertising.
 
