@@ -126,6 +126,14 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
 .trees li { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 14px; font-weight: 700; color: var(--muted); }
 .trees img { width: 72px; height: 72px; }
 
+/* Testers' quotes: a card each, a big purple quote mark on top. */
+.voices-head { text-align: center; margin-bottom: 32px; }
+.quotes { display: grid; gap: 20px; }
+.quote { margin: 0; text-align: left; }
+.quote::before { content: "\201C"; display: block; color: var(--brand); font: 900 64px/0.6 Georgia, serif; height: 30px; }
+.quote blockquote { margin: 0; }
+.quote h3 { font-size: 20px; margin-bottom: 8px; }
+
 .free { text-align: center; background: radial-gradient(ellipse at 50% 100%, rgba(255, 200, 87, 0.12), transparent 60%), var(--bg); }
 .free .app-icon { margin: 0 auto 8px; width: min(280px, 70%); height: auto; filter: drop-shadow(0 24px 40px rgba(120, 86, 255, 0.35)); }
 .free p { color: var(--muted); max-width: 36em; margin: 16px auto 0; font-size: 18px; }
@@ -148,4 +156,5 @@ h2 { font-size: clamp(28px, 6vw, 42px); }
   .split { grid-template-columns: 1fr 1fr; }
   .split.reverse .split-copy { order: 2; }
   .subjects { grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
+  .quotes { grid-template-columns: repeat(3, 1fr); }
 }

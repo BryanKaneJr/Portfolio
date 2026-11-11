@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-11-11: Testers' words on the home page
+
+- **brainscroll.app shows three testers' reviews** (owner, sharing eight tester reviews: "Use whatever you want from it"). A "From our testers" section above the closing download section quotes them exactly as written, with their own titles: "Actually makes scrolling feel productive", "Unfortunately I'm learning things" and "A refreshing change of pace". No names, star ratings or edits, and it says they're testers, so nothing reads as a store review. The one comparing BrainScroll to another app by name was left out. One column on phones, three across on wide screens (`site/src/index.html`, `site/src/home.css`).
+
 ## 2026-11-11: The privacy policy names HeyCatch
 
 - **brainscroll.app/privacy lists HeyCatch under "Who processes it"** (owner: set up HeyCatch "in a way that follows what we promised in our privacy policy"). BrainScroll's server sends HeyCatch the product analytics events the policy already lists, under a random code per account: never an email, name, IP address or location, and nothing about time spent. The forwarding itself lives in BryanKaneJr/brainscroll (PR #5); this copy of the policy is the one the website is built from, so it changes here too.
